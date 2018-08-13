@@ -12,7 +12,7 @@
           
           
           
-        <Column0>20</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>91</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -24,7 +24,7 @@
     <Windows>
       
       
-    <Wnd2>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-19984-27211</Identity>
@@ -36,7 +36,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-9089-29666</Identity>
@@ -46,21 +46,21 @@
           </Tab>
         <Tab><Identity>TabID-3069-25691</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-17988-25821</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
     <Editor>
       
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\initial.c</Filename><XPos>0</XPos><YPos>92</YPos><SelStart>3487</SelStart><SelEnd>3487</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\Timer.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1877</SelStart><SelEnd>1877</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\adf7012.c</Filename><XPos>0</XPos><YPos>72</YPos><SelStart>2315</SelStart><SelEnd>2315</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>16</YPos><SelStart>1341</SelStart><SelEnd>1341</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>3195</SelStart><SelEnd>3195</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\stm8l15x_it.c</Filename><XPos>0</XPos><YPos>374</YPos><SelStart>10957</SelStart><SelEnd>10957</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Program Files\IAR Systems\Embedded Workbench 6.0 Evaluation\stm8\inc\iostm8l051f3.h</Filename><XPos>0</XPos><YPos>4467</YPos><SelStart>144006</SelStart><SelEnd>144006</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>171</YPos><SelStart>6899</SelStart><SelEnd>6899</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\uart.c</Filename><XPos>0</XPos><YPos>128</YPos><SelStart>4144</SelStart><SelEnd>4144</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>33</YPos><SelStart>1663</SelStart><SelEnd>1663</SelEnd></Tab><ActiveTab>9</ActiveTab></Pane><ActivePane>0</ActivePane><Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Pin_define.h</Filename><XPos>0</XPos><YPos>6</YPos><SelStart>1434</SelStart><SelEnd>1434</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\initial.h</Filename><XPos>0</XPos><YPos>15</YPos><SelStart>1257</SelStart><SelEnd>1257</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Timer.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>815</SelStart><SelEnd>815</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\adf7012.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>729</SelStart><SelEnd>729</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\EXIT_FUN.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>661</SelStart><SelEnd>661</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>163</YPos><SelStart>5683</SelStart><SelEnd>5683</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\key_and_Other.h</Filename><XPos>0</XPos><YPos>18</YPos><SelStart>1585</SelStart><SelEnd>1585</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\eeprom.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1133</SelStart><SelEnd>1133</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\uart.h</Filename><XPos>0</XPos><YPos>6</YPos><SelStart>863</SelStart><SelEnd>863</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>71</YPos><SelStart>2509</SelStart><SelEnd>2509</SelEnd></Tab><ActiveTab>9</ActiveTab></Pane><Sizes><Pane><X>500000</X><Y>500000</Y></Pane><Pane><X>500000</X><Y>500000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\initial.c</Filename><XPos>0</XPos><YPos>92</YPos><SelStart>3487</SelStart><SelEnd>3487</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\Timer.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1877</SelStart><SelEnd>1877</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\adf7012.c</Filename><XPos>0</XPos><YPos>122</YPos><SelStart>5231</SelStart><SelEnd>5231</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>16</YPos><SelStart>1341</SelStart><SelEnd>1341</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>132</YPos><SelStart>4035</SelStart><SelEnd>4035</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\stm8l15x_it.c</Filename><XPos>0</XPos><YPos>374</YPos><SelStart>10957</SelStart><SelEnd>10957</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>D:\Program Files\IAR Systems\Embedded Workbench 6.0 Evaluation\stm8\inc\iostm8l051f3.h</Filename><XPos>0</XPos><YPos>4467</YPos><SelStart>144006</SelStart><SelEnd>144006</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>175</YPos><SelStart>5725</SelStart><SelEnd>5725</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\uart.c</Filename><XPos>0</XPos><YPos>128</YPos><SelStart>4144</SelStart><SelEnd>4144</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>27</YPos><SelStart>1798</SelStart><SelEnd>1813</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Bunka STM8L051F3 TX Source Ver1.6\Projects\src\main.c</Filename><XPos>0</XPos><YPos>36</YPos><SelStart>1831</SelStart><SelEnd>1831</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>75</YPos><SelStart>2339</SelStart><SelEnd>2339</SelEnd></Tab><ActiveTab>11</ActiveTab></Pane><ActivePane>0</ActivePane><Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Pin_define.h</Filename><XPos>0</XPos><YPos>12</YPos><SelStart>1453</SelStart><SelEnd>1453</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\initial.h</Filename><XPos>0</XPos><YPos>15</YPos><SelStart>1257</SelStart><SelEnd>1257</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Timer.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>815</SelStart><SelEnd>815</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\adf7012.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>729</SelStart><SelEnd>729</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\EXIT_FUN.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>661</SelStart><SelEnd>661</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>163</YPos><SelStart>5683</SelStart><SelEnd>5683</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\key_and_Other.h</Filename><XPos>0</XPos><YPos>18</YPos><SelStart>1585</SelStart><SelEnd>1585</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\eeprom.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1133</SelStart><SelEnd>1133</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\uart.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>863</SelStart><SelEnd>863</SelEnd></Tab></Pane><Sizes><Pane><X>500000</X><Y>500000</Y></Pane><Pane><X>500000</X><Y>500000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-01378490><key>iaridepm.enu1</key></Toolbar-01378490></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>790</Bottom><Right>94</Right><x>-2</x><y>-2</y><xscreen>1</xscreen><yscreen>1</yscreen><sizeHorzCX>521</sizeHorzCX><sizeHorzCY>996</sizeHorzCY><sizeVertCX>50000</sizeVertCX><sizeVertCY>788845</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>169</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>171</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>170319</sizeHorzCY><sizeVertCX>521</sizeVertCX><sizeVertCY>996</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-013784d8><key>iaridepm.enu1</key></Toolbar-013784d8></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>757</Bottom><Right>165</Right><x>-2</x><y>-2</y><xscreen>1</xscreen><yscreen>1</yscreen><sizeHorzCX>521</sizeHorzCX><sizeHorzCY>996</sizeHorzCY><sizeVertCX>86979</sizeVertCX><sizeVertCY>755976</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>202</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>204</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>203187</sizeHorzCY><sizeVertCX>521</sizeVertCX><sizeVertCY>996</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 
