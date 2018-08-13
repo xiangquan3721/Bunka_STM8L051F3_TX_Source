@@ -170,6 +170,7 @@ extern const ADF70XX_REG_T Default_adf7012_value[4];
 #define d_Time5s 5000
 #define d_Time9s 9000
 #define d_D1stTime3s 3000
+#define d_D1stTime20s 20000
 #define d_Time3s  3000
 #define d_Time10s 10000
 #define d_Time1min 60000
@@ -252,4 +253,9 @@ extern UINT8 FLAG_srand_data;
 extern UINT16 srand_data_AD;
 extern UINT32 srand_data_other;
 extern UINT16 srand_data;
+
+extern UINT8 KEY_stop_count;
+extern UINT8 FLAG_StopKey_Open;
+extern UINT8 FLAG_StopKey_Close;
+extern UINT16 TIME_StopKey_Open_Close;
 

@@ -30,6 +30,7 @@ void key_check(void)
   
    if(FG_1ms){
     FG_1ms=0; 
+    if(TIME_StopKey_Open_Close)--TIME_StopKey_Open_Close;
     if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
@@ -40,10 +41,27 @@ void key_check(void)
           time_led++;
 //          if((TB_5s>=27)||(TIME_2s_RestTX==0))
 //          {
-            if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+            if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}
 //          }
 //          else {time_led=0;PIN_LED=0;}
        }
+       
+       if(TIME_StopKey_Open_Close)
+       {
+         if(FLAG_StopKey_Open==1)PIN_LED=1;
+         else if(FLAG_StopKey_Close==1)
+         {
+           time_led++;
+           if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+         }
+       }
+       else if(FG_d_StopKey==0){
+         FLAG_StopKey_Open=0;
+         FLAG_StopKey_Close=0;
+         PIN_LED=0;
+         time_led=0;
+       }
+       
        
     if(m_TimerKey)--m_TimerKey;
     
@@ -299,15 +317,28 @@ void	_KeyInTx( void )
 		        _FuncAutoTxStop();
 			break ;
 		case 16 :  
-		        if( FG_d_StopKey && (m_KeyDupli1stTimer==0))                 //add 20170118
+		        if( FG_d_StopKey && (m_KeyDupli1stTimer==0)&&(KEY_stop_count==2))                 //add 20170118
 			{
 			        FG_d_StopKey=0;
 				m_KeyDupli1stTimer=0;
                                 TB_5s= 27;
+                                FLAG_StopKey_Open=1;
+                                TIME_StopKey_Open_Close=20000;                                
 				_ReqTxdEdit( d_OpenKey,d_OpenKey ) ;
 				m_TimerKeyMonitor = d_Clear ;
                                 _DupliFuncClear() ;
-			}                  
+                                KEY_stop_count=0;
+			}  
+                        else if ( FG_d_StopKey && (m_KeyDupli1stTimer==0))
+                        {
+		           _DupliFuncClear() ;							// Duplicate key function clear
+		           m_TimerKeyMonitor = d_Clear ;
+                           FG_d_StopKey=0;
+		           m_KeyDupli1stTimer = 0 ;
+                           KEY_stop_count=0;
+		           time_led=0;
+                           PIN_LED=0;                            
+                        }
 		        _FuncNoPush();
 			break ;
 	}
@@ -592,22 +623,59 @@ void	_FuncStop( void )
 		   m_KeyDupli1stTimer = 0 ;                 
                 }
 		else {
+                  time_led=0;
+                  PIN_LED=1;
                   FG_d_StopKey=1;
-		  m_KeyDupli1stTimer = d_D1stTime3s ;
+                  FLAG_StopKey_Open=0;
+                  FLAG_StopKey_Close=0;
+                  TIME_StopKey_Open_Close=0;
+		  m_KeyDupli1stTimer = d_D1stTime20s ;
+                  KEY_stop_count=0;
                 }
-		time_led=0;
 		return ;
            }
            else if( FG_d_StopKey && m_KeyDupli1stTimer)
+           {
+               if(KEY_stop_count==0)
+               {
+                 KEY_stop_count=1;
+                 _DupliFuncClear() ;
+                 m_TimerKeyMonitor = d_Clear ;
+                 m_KeyDupli1stTimer = d_D1stTime3s ;
+               }
+               else if(KEY_stop_count==1)
+               {
+                 KEY_stop_count=2;
+                 _DupliFuncClear() ;
+                 m_TimerKeyMonitor = d_Clear ;
+                 m_KeyDupli1stTimer = d_D1stTime3s ;                 
+               }
+               else if(KEY_stop_count==2)
 			{
 			        FG_d_StopKey=0;
 				m_KeyDupli1stTimer=0;
                                 TB_5s= 27;
+                                FLAG_StopKey_Close=1;
+                                TIME_StopKey_Open_Close=20000;
 				_ReqTxdEdit( d_CloseKey,d_CloseKey ) ;
 				m_TimerKeyMonitor = d_Clear ;
 				_DupliFuncClear() ;					// Duplicate key function clear
+                                KEY_stop_count=0;
 				return ;
-			}             
+			} 
+           }
+           else 
+           {
+		_DupliFuncClear() ;							// Duplicate key function clear
+		m_TimerKeyMonitor = d_Clear ;
+                  FG_d_StopKey=0;
+		  m_KeyDupli1stTimer = 0 ;
+                  KEY_stop_count=0;
+		  time_led=0;
+                  PIN_LED=0;
+		  return ;             
+           }
+          
 	}
 	
 	switch	( m_KindOfKey )

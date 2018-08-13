@@ -150,6 +150,16 @@ UINT16 srand_data_AD=0;
 UINT32 srand_data_other=0;
 UINT16 srand_data;
 
+UINT8 KEY_stop_count=0;  //add 20170120
+UINT8 FLAG_StopKey_Open=0;
+UINT8 FLAG_StopKey_Close=0;
+UINT16 TIME_StopKey_Open_Close=0;
+
+
+
+
+
+
 
 
 

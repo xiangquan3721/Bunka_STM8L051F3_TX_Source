@@ -55,7 +55,7 @@ void main(void)
     while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
-    UART1_INIT();
+    UART1_INIT(); 
     _EI();    
     test_mode_control();
     }
