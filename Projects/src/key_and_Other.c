@@ -91,8 +91,8 @@ void key_check(void)
 //    else {ADC_read();FG_BAT_value=0;}
     _KeyInTx();
     if(FG_10s==1)return;   // 2015.1.31修正3
-    _RegistrationMode();
-    _DupliFuncSetMode();
+//    _RegistrationMode();
+//    _DupliFuncSetMode();
     ADC2_EOC_INT();
     ClearWDT(); // Service the WDT    
   }
@@ -520,7 +520,7 @@ void	_FuncReg( void )
 }
 void	_FuncStop( void )
 {
-	if	( _GetNoPushState() )						// No push before ?
+	if	( _GetNoPushState() )						// No push before ?    一直长按，没有松开
 	{												// No
 		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
 		{											// Yes
@@ -562,6 +562,24 @@ void	_FuncStop( void )
                   
                   
 		}
+                
+                
+                
+		        if( FG_d_StopKey && (m_KeyDupli1stTimer==0)&&(KEY_stop_count==2))                 //add 20170118
+			{
+			        FG_d_StopKey=0;
+				m_KeyDupli1stTimer=0;
+                                TB_5s= 27;
+                                FLAG_StopKey_Open=1;
+                                TIME_StopKey_Open_Close=20000;                                
+				_ReqTxdEdit( d_OpenKey,d_OpenKey ) ;
+				m_TimerKeyMonitor = d_Clear ;
+                                _DupliFuncClear() ;
+                                KEY_stop_count=0;
+			}                
+                
+                
+                
 		return ;
 	}
 	
@@ -626,6 +644,7 @@ void	_FuncStop( void )
                   time_led=0;
                   PIN_LED=1;
                   FG_d_StopKey=1;
+                  TB_5s= 27; 
                   FLAG_StopKey_Open=0;
                   FLAG_StopKey_Close=0;
                   TIME_StopKey_Open_Close=0;
@@ -636,7 +655,8 @@ void	_FuncStop( void )
            }
            else if( FG_d_StopKey && m_KeyDupli1stTimer)
            {
-               if(KEY_stop_count==0)
+               //if(KEY_stop_count==0)
+               if((KEY_stop_count==0)&&(TB_5s>27))
                {
                 // KEY_stop_count=1;
                  //20170124cyw
