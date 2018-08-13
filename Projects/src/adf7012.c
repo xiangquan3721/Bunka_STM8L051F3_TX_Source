@@ -57,6 +57,27 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
 
 }
 
+void dd_set_ADF7021_Power_on_Init(void)
+{
+  ADF70XX_REG_T register_value;
+	if (ADF7021_POWER == 1)
+	{
+		ADF7021_POWER = 0;  
+		//ADF7021_CE=1;
+		//Delayus(65);             //delay 100us
+                Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+	//write R3
+            register_value.whole_reg = 0x0021d043;    //BATTERY MEASURE IS < 2.35V
+            dd_write_7021_reg(&register_value.byte[0]);
+            Delayus(25);  //delay 40us		
+	}
+}
+
+
 void dd_set_ADF7021_Power_on(void)
 {
 //	if (ADF7021_CE == 0)
@@ -71,7 +92,7 @@ void dd_set_ADF7021_Power_on(void)
 		Delayus(130);             //delay 200us
 		Delayus(130);             //delay 200us
 		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us  
 	}
 }
 
@@ -143,7 +164,8 @@ void dd_set_TX_mode(void)
       Delayus(25);  //delay 40us 
  
       //write R3
-      register_value.whole_reg = 0x0021a04f;
+      //register_value.whole_reg = 0x0021a04f;    //DIGITAL LOCK DETECT
+      register_value.whole_reg = 0x0021d04f;    //BATTERY MEASURE IS < 2.35V
       dd_write_7021_reg(&register_value.byte[0]);
       Delayus(25);  //delay 40us   
 }

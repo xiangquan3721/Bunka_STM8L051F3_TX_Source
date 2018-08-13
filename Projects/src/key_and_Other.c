@@ -29,7 +29,9 @@ void key_check(void)
   
    if(FG_1ms){
     FG_1ms=0; 
+    if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
+    if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
     else FG_d_StopKey=0;
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
@@ -60,88 +62,12 @@ void key_check(void)
     }
     else  FG_LED_on=0;   
     
+//    if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
+//    else {ADC_read();FG_BAT_value=0;}
     _KeyInTx();
+    _RegistrationMode();
     _DupliFuncSetMode();
-    
-    
-//    if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))TIME_KEY_OPEN++;
-//    if(PIN_KEY_OPEN==1){TIME_KEY_OPEN=0;FG_KEY_OPEN=0;}
-//    if((TIME_KEY_OPEN>=10)&&(FLAG_APP_TX==0)&&(FG_KEY_OPEN==0)&&(TB_5s>=20)){
-//      FG_KEY_OPEN=1;
-//      if(FG_PWRON==0){
-//	FG_PWRON=1;
-//	PIN_POWER_CONTROL=1;
-//	TB_5s=50;
-//      }
-//      dd_set_ADF7021_Power_on();
-//      dd_set_TX_mode();
-//      Control_code=0x08;
-//      BASE_TIME_BEEP_on=103;
-//      BASE_TIME_BEEP_off=103;
-//      TIME_BEEP_on=BASE_TIME_BEEP_on;
-//      TIME_BEEP_off=BASE_TIME_BEEP_off;
-//      TIME_BEEP_freq=0;
-//      SendTxData();
-//    }
-//
-//    
-//    if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0))TIME_KEY_STOP++;
-//    if(PIN_KEY_STOP==1){TIME_KEY_STOP=0;FG_KEY_STOP=0;}
-//    if((TIME_KEY_STOP>=10)&&(TIME_KEY_LOGIN==0)&&(FLAG_APP_TX==0)&&(FG_KEY_STOP==0)&&(TB_5s>=20)){
-//      FG_KEY_STOP=1;
-//      if(FG_PWRON==0){
-//	FG_PWRON=1;
-//	PIN_POWER_CONTROL=1;
-//	TB_5s=50;
-//      }
-//      dd_set_ADF7021_Power_on();
-//      dd_set_TX_mode();
-//      Control_code=0x04;
-//      BASE_TIME_BEEP_on=103;
-//      BASE_TIME_BEEP_off=103;
-//      TIME_BEEP_on=BASE_TIME_BEEP_on;
-//      TIME_BEEP_off=BASE_TIME_BEEP_off;
-//      TIME_BEEP_freq=1;
-//      SendTxData();
-//    }
-//
-//    if((PIN_KEY_CLOSE==0)&&(FG_KEY_CLOSE==0))TIME_KEY_CLOSE++;
-//    if(PIN_KEY_CLOSE==1){TIME_KEY_CLOSE=0;FG_KEY_CLOSE=0;}
-//    if((TIME_KEY_CLOSE>=10)&&(FLAG_APP_TX==0)&&(FG_KEY_CLOSE==0)&&(TB_5s>=20)){
-//      FG_KEY_CLOSE=1;
-//      if(FG_PWRON==0){
-//	FG_PWRON=1;
-//	PIN_POWER_CONTROL=1;
-//	TB_5s=50;
-//      }
-//      dd_set_ADF7021_Power_on();
-//      dd_set_TX_mode();
-//      Control_code=0x02;
-//      BASE_TIME_BEEP_on=103;
-//      BASE_TIME_BEEP_off=103;
-//      TIME_BEEP_on=BASE_TIME_BEEP_on;
-//      TIME_BEEP_off=BASE_TIME_BEEP_off;
-//      TIME_BEEP_freq=2;
-//      SendTxData();
-//    } 
-//
-//    if((PIN_KEY_LOGIN==0)&&(FG_KEY_LOGIN==0))TIME_KEY_LOGIN++;
-//    if(PIN_KEY_LOGIN==1){TIME_KEY_LOGIN=0;FG_KEY_LOGIN=0;}
-//    if((TIME_KEY_LOGIN>=4000)&&(FG_KEY_LOGIN==0)&&(FLAG_APP_TX==0)&&
-//       (TIME_KEY_STOP>=4000)&&(FG_KEY_STOP==0)&&(TB_5s>=20)){
-//      FG_KEY_LOGIN=1;
-//      if(FG_PWRON==0){
-//	FG_PWRON=1;
-//	PIN_POWER_CONTROL=1;
-//	TB_5s=50;
-//      }
-//      dd_set_ADF7021_Power_on();
-//      dd_set_TX_mode();
-//      Control_code=0x14;
-//      SendTxData();
-//    } 
-    
-    
+        
   }
 }
 
@@ -157,25 +83,6 @@ void time_control(void)
   
 }
 
-
-//
-/*--------------------------------------*/
-/*					*/
-/*			Sw data input	*/
-/*					*/
-/*			  in  : sw	*/
-/*			  out : none	*/
-/*					*/
-/*--------------------------------------*/
-//
-void	_SwIn( uchar sw )
-{
-	m_KeyNew<<= 1 ;
-	if	( sw )
-	{
-		m_KeyNew |= d_On ;
-	}
-}
 //
 /****************************************/
 /*										*/
@@ -279,6 +186,19 @@ void	_KeyInTx( void )
 //		{											// Yes
 //			_ReqBuzzer(d_BuzBattLow) ;				// Request
 //		}
+	    //if(BAT_value>1000){
+	   dd_set_ADF7021_Power_on_Init();
+	   if((ADF7021_MUXOUT)||(FG_BAT)){	     
+	      if(FG_BAT==0){
+		        FG_BAT=1;
+			BASE_TIME_BEEP_on=40;
+                        BASE_TIME_BEEP_off=60;
+                        TIME_BEEP_on=BASE_TIME_BEEP_on;
+                        TIME_BEEP_off=BASE_TIME_BEEP_off;
+                        TIME_BEEP_freq=2;	
+	      }
+	      else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
+	    }
 	}
 	
 	/*		Search of valid key		*/
@@ -348,11 +268,89 @@ void	_KeyInTx( void )
 			break ;
 	}
 }
-
+/*----------------------------------*/
+/*									*/
+/*		Stop + Reg. function		*/
+/*									*/
+/*----------------------------------*/
 //
+void	_FuncStopReg( void )
+{
+	_DupliFuncClear() ;								// Duplicate key function clear
+	if	( !mb_RegStopSw )							// Continue push ?
+	{												// No
+		mb_RegStopSw = d_On ;
+		m_TimerKey = d_Time3s ;						// Set 3sec key timer
+		if(FG_PWRON==0){
+	           FG_PWRON=1;
+	           PIN_POWER_CONTROL=1;
+	           TB_5s=60;  //5.1秒
+                }
+		return ;
+	}
+	
+	_Pass3secKey( d_ReqStopReg ) ;
+}
+void	_Pass3secKey( uchar req )
+{
+	if	( m_TimerKey )								// 3sec passed ?
+	{
+		if	( !--m_TimerKey )
+		{											// Yes
+			_ReqTxdEdit( req,0 ) ;
+			return ;
+		}
+	}
+}
+/*------------------------------------------*/
+/*											*/
+/*		Open/Stop/Close/Vent. function		*/
+/*											*/
+/*------------------------------------------*/
 void	_FuncReg( void )
 {
-  
+	_DupliFuncClear() ;								// Duplicate key function clear
+	if	( mb_NoPush )								// No push before ?
+	{												// Yes
+		mb_NoPush = d_Clear ;
+		m_KindOfKey = d_RegKey ;
+		_ClearSpecialMultiKeyState() ;				// Special multi key status clear
+		mb_RegSw = d_On ;
+		m_TimerKey = d_Time3s ;						// Set 3sec key timer
+		if	( !m_TimerKeyMonitor )					// 1st entry ?
+		{	// Yes
+		          if(FG_PWRON==0){
+	                     FG_PWRON=1;
+	                     PIN_POWER_CONTROL=1;
+			     TB_5s=51;  //5.1秒
+                          }	
+			m_TimerKeyMonitor = d_Time10s ;			// Set 10sec key timer
+			m_KeyCount = 2 ;
+			return ;
+		}
+		if	( !--m_KeyCount )						// ID registration mode ?
+		{
+			_SetRegistrationMode( d_RegAppend ) ;
+			m_KindOfKey = d_Idle ;
+			mb_NoPushWait = d_On ;					// Set no push wait
+		}
+		return ;
+	}
+	
+	/*		Reg.sw push		*/
+	if	( mb_RegSw )								// Continue push ?
+	{												// Yes
+		if	( m_TimerKey )							// 3sec passed ?
+		{
+			if	( !--m_TimerKey )
+			{										// Yes
+				_SetRegistrationMode( d_RegDelete ) ;	// ID delete mode set
+				m_KindOfKey = d_Idle ;
+				mb_NoPushWait = d_On ;				// Set no push wait
+			}
+			return ;								// No
+		}
+	}  
 }
 void	_FuncStop( void )
 {
@@ -360,7 +358,7 @@ void	_FuncStop( void )
 	{												// No
 		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
 		{											// Yes
-			if	( !m_TimerKey )						// 5sec passed ?
+			if	(( !m_TimerKey )&&(FG_BAT==0))						// 5sec passed ?
 			{
 //				if	( !--m_TimerKey )
 //				{									// Yes
@@ -368,22 +366,14 @@ void	_FuncStop( void )
 					{
 						m_KeyOptSetMode = 10 ;				// Yes
 						//_ReqBuzzer( d_BuzOpt5 ) ;
-						BASE_TIME_BEEP_on=103;
-                                                BASE_TIME_BEEP_off=103;
-                                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                                TIME_BEEP_freq=100;
+						_ReqBuzzer(103,103,100);
 						m_KindOfKey = d_Idle ;
 						mb_NoPushWait = d_On ;			// Set no push wait
 						return ;
 					}
 					m_KeyOptSetMode = 1 ;			// Opetion setting mode
 					//_ReqBuzzer( d_BuzOpt1 ) ;
-						BASE_TIME_BEEP_on=103;
-                                                BASE_TIME_BEEP_off=103;
-                                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                                TIME_BEEP_freq=1;	
+					_ReqBuzzer(103,103,1);
 						FG_LED_on=1;
 						if(FG_PWRON==0){
 	                                            FG_PWRON=1;
@@ -408,7 +398,7 @@ void	_FuncStop( void )
 	}
 	
 	m_KindOfKey = m_KeyNo ;
-	if	( m_KeyOptSetMode )							// Option setting mode ?
+	if	( m_KeyOptSetMode ||m_RegMode)							// Option setting mode ?
 	{
 		return ;									// Yes
 	}
@@ -504,10 +494,6 @@ void	_FuncOpenReg( void )
 {
   
 }
-void	_FuncStopReg( void )
-{
-  
-}
 void	_FuncCloseReg( void )
 {
   
@@ -529,6 +515,7 @@ void	_FuncNoPush( void )
 	mb_OpenSw = d_Off ;							// For duplicate keyvfunction
 	mb_StopSw = d_Off ;
 	mb_CloseSw = d_Off ;
+	FG_BAT=0;
 	
 	_ClearSpecialMultiKeyState() ;				// Special multi key status clear
 	mb_NoPush     = d_On ;						// No push on
@@ -628,35 +615,41 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		case 3 :	
 		        Control_code=0x02;
 			break ;
+		case 10 :	
+		        Control_code=0x14;
+			break ;			
 	}
   	switch	( buzreq )    // Jumo to key function
 	{
 		case 1 :
-		        //mb_NoPushWait = d_On ;
-			//mb_NoPush = d_Clear ;
-			BASE_TIME_BEEP_on=103;
-                        BASE_TIME_BEEP_off=103;
-			TIME_BEEP_freq=0;
+		       _ReqBuzzer(103,103,0);
+//			BASE_TIME_BEEP_on=103;
+//                        BASE_TIME_BEEP_off=103;
+//			TIME_BEEP_freq=0;
 			break ;
 		case 2 :
-		       // mb_NoPushWait = d_Clear ;
-			//mb_NoPush = d_On ;
-			BASE_TIME_BEEP_on=103;
-                        BASE_TIME_BEEP_off=103;
-			TIME_BEEP_freq=1;
+		       _ReqBuzzer(103,103,1);
+//			BASE_TIME_BEEP_on=103;
+//                        BASE_TIME_BEEP_off=103;
+//			TIME_BEEP_freq=1;
 			break ;
 		case 3 :	
-		        //mb_NoPushWait = d_On ;
-			//mb_NoPush = d_Clear ;
-			BASE_TIME_BEEP_on=103;
-                        BASE_TIME_BEEP_off=103;
-			TIME_BEEP_freq=2;
+		      _ReqBuzzer(103,103,2);
+//			BASE_TIME_BEEP_on=103;
+//                        BASE_TIME_BEEP_off=103;
+//			TIME_BEEP_freq=2;
+			break ;
+		case 20 :	
+		       _ReqBuzzer(1000,1,0);
+//			BASE_TIME_BEEP_on=1000;
+//                        BASE_TIME_BEEP_off=1;
+//			TIME_BEEP_freq=0;
 			break ;
 	}	
         dd_set_ADF7021_Power_on();
         dd_set_TX_mode();	
-	TIME_BEEP_on=BASE_TIME_BEEP_on;
-        TIME_BEEP_off=BASE_TIME_BEEP_off;
+//	TIME_BEEP_on=BASE_TIME_BEEP_on;
+//        TIME_BEEP_off=BASE_TIME_BEEP_off;
         SendTxData();
   }
   else PIN_LED=0;
@@ -689,11 +682,7 @@ void	_DupliFuncSetMode( void )
 			{
 				m_KeyOptSetMode = 10 ;				// Yes
 				//_ReqBuzzer( d_BuzOpt5 ) ;
-				BASE_TIME_BEEP_on=103;
-                                BASE_TIME_BEEP_off=103;
-                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                TIME_BEEP_freq=100;
+				_ReqBuzzer(103,103,100);
 				
 			}
 			break ;
@@ -704,11 +693,7 @@ void	_DupliFuncSetMode( void )
 				++m_KeyOptSetMode;
 				m_KeyDupliSetTimeout = d_DupliTime3s ;
 				//_ReqBuzzer( d_BuzOpt2 ) ;
-				BASE_TIME_BEEP_on=103;
-                                BASE_TIME_BEEP_off=103;
-                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                TIME_BEEP_freq=0;
+				_ReqBuzzer(103,103,0);
 				FG_LED_on=1;
 			}
 			
@@ -766,11 +751,7 @@ void	_DupliFuncSetMode( void )
 				++m_KeyOptSetMode ;
 				m_KeyDupliSetTimeout = d_DupliTime3s ;
 				//_ReqBuzzer( d_BuzOpt2 ) ;
-				BASE_TIME_BEEP_on=103;
-                                BASE_TIME_BEEP_off=103;
-                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                TIME_BEEP_freq=0;	
+				_ReqBuzzer(103,103,0);
 				FG_LED_on=1;
 			}
 //			
@@ -827,11 +808,7 @@ void	_DupliFuncSetMode( void )
 				++m_KeyOptSetMode ;
 				m_KeyDupliSetTimeout = d_DupliTime3s ;
 				//_ReqBuzzer( d_BuzOpt3 ) ;
-				BASE_TIME_BEEP_on=103;
-                                BASE_TIME_BEEP_off=103;
-                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                TIME_BEEP_freq=2;	
+				_ReqBuzzer(103,103,2);
                                 FG_LED_on=1;				
 			}
 			
@@ -915,11 +892,7 @@ void	_DupliFuncSetMode( void )
 						//_FlashWriteID() ;				// Write data to flash rom
 						
 						//_ReqBuzzer( d_BuzOpt4 ) ;
-						BASE_TIME_BEEP_on=103;
-                                                BASE_TIME_BEEP_off=103;
-                                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                                TIME_BEEP_freq=4;	
+						_ReqBuzzer(103,103,4);
                                                 FG_LED_on=1;	
 						FG_d_StopKey=0;
 						TB_5s=20;
@@ -953,11 +926,7 @@ void	_DupliFuncSetMode( void )
 						KeyOpt_EEPROM_write();				// Write data to flash rom
 						
 						//_ReqBuzzer( d_BuzOpt4 ) ;
-						BASE_TIME_BEEP_on=103;
-                                                BASE_TIME_BEEP_off=103;
-                                                TIME_BEEP_on=BASE_TIME_BEEP_on;
-                                                TIME_BEEP_off=BASE_TIME_BEEP_off;
-                                                TIME_BEEP_freq=4;	
+						_ReqBuzzer(103,103,4);
                                                 FG_LED_on=1;
 						FG_d_StopKey=0;
 						_DupliFuncClear() ;				// Duplicate key function clear
@@ -985,13 +954,228 @@ void	_DupliFuncSetMode( void )
 			
 	}
 }
+/****************************************/
+/*										*/
+/*		Registration mode procedure		*/
+/*										*/
+/*			  in  : none				*/
+/*			  out : none				*/
+/*										*/
+/****************************************/
+//
+void	_RegistrationMode( void )
+{
+	if	( !_GetRegMode() )							// Reg. mode Idle ?
+	{												// Yes
+		return ;
+	}
+
+        if(FG_PWRON==0){
+	FG_PWRON=1;
+	PIN_POWER_CONTROL=1;
+        }	
+	if(m_TimerRegMode){
+	  TB_5s=51;  //5.1秒
+          time_led++;
+          if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
+	}
+	else {
+	        _ReqBuzzer(500,250,3);
+		PIN_LED=0;
+		m_RegMode = d_Idle ;
+	}
+	/*	Led control	*/
+//	if	( mb_LedOnOff )								// Led on timing ?
+//	{												// Yes
+//		_LedOnOff( d_LedOn ) ;						// Led on
+//	}
+//	else
+//	{
+//		_LedOnOff( d_LedOff ) ;						// Led off
+//	}
+	
+	switch	( m_KindOfKey )
+	{
+		case	d_OpenKey :
+			if	( ++m_RegID[m_RegDigit] > '9' )		// No. up
+			{
+				m_RegID[m_RegDigit] = '0' ;
+			}
+			//_ReqBuzzer(d_BuzOpen) ;
+			_ReqBuzzer(103,103,0);
+			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+			break ;
+			
+		case	d_StopKey :						// Next digit
+			if	( ++m_RegDigit > 8 )
+			{
+				m_RegDigit= 8 ;
+			}
+/*		Add on 2007/5/28		*/
+			else
+			{
+				//_ReqBuzzer(d_BuzStop) ;
+			  _ReqBuzzer(103,103,1);
+			}
+/*********************************/
+/*		Deleted on 2007/5/28		*/
+//			_ReqBuzzer(d_BuzStop) ;
+/*********************************/
+			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+			break ;
+			
+		case	d_CloseKey :
+			_IdClear() ;							// ID clear
+			//_ReqBuzzer(d_BuzReg) ;
+			_ReqBuzzer(1000,1,0);
+			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+			break ;
+			
+		case	d_RegKey :						// Send ID
+/*		Add on 2007/5/28		*/
+			if	( m_RegDigit < 8 )
+			{
+				return ;
+			}
+/*********************************/
+
+			//_SetRegModeIdle() ;
+			//m_RegMode = d_Idle ;
+			ID_data_add.IDL = (ulong)atol(m_RegID) ;
+/*		Modified on 2007/5/28		*/
+//			if	( m_RFID.ID > 16777215 )			// Over ?
+			if	( ID_data_add.IDL > 16777214 )			// Over ?
+/*********************************/
+			{
+				//_ReqBuzzer(d_BuzRegEnd) ;
+			        _ReqBuzzer(100,100,3);		  
+			}
+			else
+			{
+				_ReqTxdEdit(20,20) ;
+			      
+			}
+			m_RegMode = d_Idle ;
+			break ;
+	}
+}
+//
 
 
 
+UINT32 atol (unsigned char* m_RegID_x)
+{
+  UINT8 i,j;
+  UINT32 m_ID=0;
+    
+  for(i=0;i<8;i++){
+    j=m_RegID_x[i]-'0';
+    m_ID=m_ID*10+j;
+  }
+  return(m_ID);
+}
 
 
+/************************************************/
+/*												*/
+/*				Set registration mode			*/
+/*												*/
+/*		in  : mode( 0:Idle/1:Append/2:Delete )	*/
+/*		out : none								*/
+/*												*/
+/************************************************/
+//
+void	_SetRegistrationMode( uchar mode )
+{
+	if	( _GetRegMode() )							// Reg. mode Idle ?
+	{												// No
+		return ;
+	}
+	
+	m_RegMode = mode ;
+//	m_RFAddDelCode = 0x00 ;						// Set delete
+//	if	( m_RegMode == d_RegAppend )			// Append ?
+//	{											// Yes
+//		m_RFAddDelCode = 0xFF ;					// Set Append
+//	}
+	
+	_IdClear() ;								// ID clear
+	
+//	_LedOnOff( d_LedOn ) ;						// Led on
+//	m_BlkTimer = d_Time500ms ;					// Blink start
+//	mb_LedOnOff = d_On ;
+//	
+//	_ReqBuzzer(d_BuzReg) ;
+	m_TimerRegMode = d_Time1min ;				// 1min. set (1s base)
+}
+uchar	_GetRegMode( void )
+{
+	return(	m_RegMode ) ;
+}
+/********************************************/
+/*											*/
+/*					ID clear				*/
+/*											*/
+/********************************************/
+//
+void	_IdClear( void )
+{
+	register	uchar	i ;
+	
+	m_RegDigit = 0 ;							// Digit pointer clear
+	//m_RFID.ID  = 0 ;							// ID Number clear
+	for	( i=0; i<8; i++ )						// ID clear
+	{
+		m_RegID[i] = '0' ;
+	}
+	m_RegID[8] = 0 ;							// NULL set
+	
+}
 
+//
+/*--------------------------------------*/
+/*					*/
+/*			Sw data input	*/
+/*					*/
+/*			  in  : sw	*/
+/*			  out : none	*/
+/*					*/
+/*--------------------------------------*/
+//
+void	_SwIn( uchar sw )
+{
+	m_KeyNew<<= 1 ;
+	if	( sw )
+	{
+		m_KeyNew |= d_On ;
+	}
+}
 
+void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
+{
+  if(FG_BAT==0){
+     BASE_TIME_BEEP_on=BEEP_on_SET;
+     BASE_TIME_BEEP_off=BEEP_off_SET;
+     TIME_BEEP_on=BASE_TIME_BEEP_on;
+     TIME_BEEP_off=BASE_TIME_BEEP_off;
+     TIME_BEEP_freq=BEEP_freq_SET;
+  }
+}
+
+//void START_AD_SAMPLER(void){	// 启动AD转换（查询模式）
+//        ADC1_CR3=0x0B;					// ADC输入引脚AIN7
+//	ADC1_CR1 = 0x01;							// ADC开启
+//	ADC1_SR_EOC=0;						// 清除EOC转换结束标志
+//	ADC1_CR1 = 0x01;							// ADC开启
+//	ADC1_CR1_START=1;
+//}
+//
+//void ADC_read(void){
+//	while(ADC1_SR_EOC == 0);				// 等待转换完成
+//	ADC1_SR_EOC=0;
+//	BAT_value = ((int)ADC1_DRH<<4);				// 先读高8位，默认设置数据左对齐
+//	BAT_value |= ADC1_DRL;						// 再读低8位
+//}
 
 
 

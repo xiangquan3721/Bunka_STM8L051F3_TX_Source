@@ -14,6 +14,7 @@
 #define ADF7021_SLE             PB_ODR_ODR1     // Output   片选
 #define ADF7021_POWER           PB_ODR_ODR6     // Output   ADF7012电源使能脚
 //#define ADF7021_CE              PB_ODR_ODR0     // Output   ADF7012使能脚
+#define ADF7021_MUXOUT          PB_IDR_IDR7    // Input   ADF7012电池检测 <2.35
 
 
 /* Other ADF7021 connections */
@@ -46,6 +47,7 @@
 #define ADF7021_SLE_direc       PB_DDR_DDR1     // Output   片选
 #define ADF7021_POWER_direc     PB_DDR_DDR6     // Output   ADF7012电源使能脚
 //#define ADF7021_CE_direc        PB_DDR_DDR0     // Output   ADF7012使能脚
+#define ADF7021_MUXOUT_direc    PB_DDR_DDR7     // Input   ADF7012电池检测 <2.35
 
 /* Other ADF7021 connections */
 #define ADF7021_DATA_tx_direc   PB_DDR_DDR5     // Output   调制DATA线
@@ -76,6 +78,7 @@
 #define ADF7021_SLE_CR1         PB_CR1_C11     // Output   片选
 #define ADF7021_POWER_CR1       PB_CR1_C16     // Output   ADF7012电源使能脚
 //#define ADF7021_CE_CR1          PB_CR1_C10     // Output   ADF7012使能脚
+#define ADF7021_MUXOUT_CR1      PB_CR1_C17    // Input   ADF7012电池检测 <2.35
 
 /* Other ADF7021 connections */
 #define ADF7021_DATA_tx_CR1     PB_CR1_C15     // Output   调制DATA线

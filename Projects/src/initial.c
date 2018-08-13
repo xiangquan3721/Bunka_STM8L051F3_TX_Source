@@ -88,6 +88,8 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   //ADF7021_CE_CR1 = 1; 
   //ADF7021_CE=0;
   
+  ADF7021_MUXOUT_direc=Input;
+  ADF7021_MUXOUT_CR1=0;    //ADF7012要求必须下拉
   
 /* Other ADF7021 connections */
   ADF7021_DATA_tx_direc = Output; // Output   调制DATA线
@@ -130,7 +132,7 @@ void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
   TB_5s=50;
-  ID_data.IDL=13227479;
+  ID_data.IDL=13227472;
   
   
   	/*		Timer		*/

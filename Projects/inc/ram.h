@@ -108,8 +108,8 @@ extern volatile union{
 	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
 //	#define 	mb_RegVentSw		RAM_SW.BIT.Bit4	//
 //	#define 	FG_PWRON		RAM_SW.BIT.Bit5	//
-	#define 	m_RegMode		RAM_SW.BIT.Bit6	//
-	#define 	m_TimerKeyMonitor	RAM_SW.BIT.Bit7	//
+	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
+//	#define 	FG_BAT_value	        RAM_SW.BIT.Bit7	//
 	//************************************************
 
 
@@ -118,16 +118,18 @@ extern volatile union{
 
 
 //extern UINT8  m_RFNormalBuf[35];
-extern UINT8  m_RFNormalBuf[28];
+extern UINT8  m_RFNormalBuf[40];
 extern uni_rom_id ID_data;
+extern uni_rom_id ID_data_add;
 extern UINT8 Control_code;
 extern UINT16 txphase;
 extern UINT8 txphase_Repeat;
 extern UINT8 ID_INT_CODE;
+extern UINT16 txphase_end;
 
-extern UINT8 TIME_BEEP_on;
+extern UINT16 TIME_BEEP_on;
 extern UINT8 TIME_BEEP_off;
-extern UINT8 BASE_TIME_BEEP_on;
+extern UINT16 BASE_TIME_BEEP_on;
 extern UINT8 BASE_TIME_BEEP_off;
 extern UINT8 TIME_BEEP_freq;
 
@@ -138,7 +140,7 @@ extern UINT8 TIME_KEY_OPEN;
 extern UINT16 TIME_KEY_STOP;
 extern UINT8 TIME_KEY_CLOSE;
 extern UINT16 TIME_KEY_LOGIN;
-
+//extern UINT16 BAT_value;
 
 
 
@@ -149,6 +151,8 @@ extern UINT16 TIME_KEY_LOGIN;
 #define d_Off	 0
 #define d_OK	 0
 #define d_NG	 1
+#define d_RegAppend	 1
+#define d_RegDelete	 2
 #define d_KeyNoPush  0xFF
 #define d_Time50ms  50
 #define d_DupliTime4s  4000
@@ -158,14 +162,17 @@ extern UINT16 TIME_KEY_LOGIN;
 #define d_Time5s 5000
 #define d_Time9s 9000
 #define d_D1stTime3s 3000
+#define d_Time3s  3000
+#define d_Time10s 10000
+#define d_Time1min 60000
 /*		kind of key		*/
 #define		d_IdleKey		0					// Idle(N/A)
 #define		d_OpenKey		1
 #define		d_StopKey		2
 #define		d_CloseKey		3
 #define		d_VentKey		4
-
-
+#define		d_RegKey		5
+#define		d_ReqStopReg            10
 
 #define _LedOnOff( d_LedOff )   PIN_LED=0;
 extern UINT8 m_KeyNew;
@@ -181,4 +188,10 @@ extern UINT16 m_KeyDupli1stTimer;
 extern UINT8 m_KeyOptSetMode;
 extern UINT16 m_KeyDupliSetTimeout;
 extern UINT8 rom_KeyOpt;
-extern UINT8 time_led;
+extern UINT16 time_led;
+extern UINT16 m_TimerKeyMonitor;
+extern UINT8 m_KeyCount;
+extern UINT8 m_RegMode;
+extern UINT8 m_RegID[9];
+extern UINT8 m_RegDigit;
+extern UINT16 m_TimerRegMode;

@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=210639776
+Checksum=-829604829
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -66,5 +66,9 @@ LogFile=_ ""
 [Breakpoints]
 Count=0
 [Aliases]
-Count=0
+A0=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\EXIT_FUN.c" ""
+A1=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\adf7012.c" ""
+A2=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\initial.c" ""
+A3=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\main.c" ""
+Count=4
 SuppressDialog=0

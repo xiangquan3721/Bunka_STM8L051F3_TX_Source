@@ -32,3 +32,14 @@ void	_DupliFuncClear( void );
 uchar	_GetNoPushState( void );
 void	_ReqTxdEdit( uchar txreq , uchar buzreq );  // Tx data edit request
 void	_DupliFuncSetMode( void );
+void	_SetRegistrationMode( uchar mode );
+uchar	_GetRegMode( void );
+void	_IdClear( void );
+void	_RegistrationMode( void );
+UINT32 atol (unsigned char* m_RegID_x);
+void	_FuncStopReg( void );
+void	_Pass3secKey( uchar req );
+
+//void START_AD_SAMPLER(void);
+//void ADC_read(void);
+void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET);

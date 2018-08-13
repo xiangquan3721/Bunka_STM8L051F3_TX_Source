@@ -73,16 +73,18 @@ volatile union{
 
 
 //UINT8  m_RFNormalBuf[35];
-UINT8  m_RFNormalBuf[28];
+UINT8  m_RFNormalBuf[40];
 uni_rom_id ID_data;
+uni_rom_id ID_data_add;
 UINT8 Control_code;
 UINT16 txphase;
 UINT8 txphase_Repeat;
 UINT8 ID_INT_CODE;
+UINT16 txphase_end;
 
-UINT8 TIME_BEEP_on;
+UINT16 TIME_BEEP_on;
 UINT8 TIME_BEEP_off;
-UINT8 BASE_TIME_BEEP_on;
+UINT16 BASE_TIME_BEEP_on;
 UINT8 BASE_TIME_BEEP_off;
 UINT8 TIME_BEEP_freq;
 
@@ -93,7 +95,7 @@ UINT8 TIME_KEY_OPEN;
 UINT16 TIME_KEY_STOP;
 UINT8 TIME_KEY_CLOSE;
 UINT16 TIME_KEY_LOGIN;
-
+//UINT16 BAT_value;
 
 
 UINT8 m_KeyNew;
@@ -109,4 +111,10 @@ UINT16 m_KeyDupli1stTimer;
 UINT8 m_KeyOptSetMode;
 UINT16 m_KeyDupliSetTimeout;
 UINT8 rom_KeyOpt;
-UINT8 time_led;
+UINT16 time_led;
+UINT16 m_TimerKeyMonitor;
+UINT8 m_KeyCount;
+UINT8 m_RegMode;
+UINT8 m_RegID[9];
+UINT8 m_RegDigit;
+UINT16 m_TimerRegMode;
