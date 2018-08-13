@@ -644,7 +644,6 @@ void	_FuncStop( void )
                   time_led=0;
                   PIN_LED=1;
                   FG_d_StopKey=1;
-                  TB_5s= 27; 
                   FLAG_StopKey_Open=0;
                   FLAG_StopKey_Close=0;
                   TIME_StopKey_Open_Close=0;
@@ -655,8 +654,7 @@ void	_FuncStop( void )
            }
            else if( FG_d_StopKey && m_KeyDupli1stTimer)
            {
-               //if(KEY_stop_count==0)
-               if((KEY_stop_count==0)&&(TB_5s>27))
+               if(KEY_stop_count==0)
                {
                 // KEY_stop_count=1;
                  //20170124cyw
