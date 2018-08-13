@@ -303,6 +303,7 @@ void	_KeyInTx( void )
 			{
 			        FG_d_StopKey=0;
 				m_KeyDupli1stTimer=0;
+                                TB_5s= 27;
 				_ReqTxdEdit( d_OpenKey,d_OpenKey ) ;
 				m_TimerKeyMonitor = d_Clear ;
                                 _DupliFuncClear() ;
@@ -601,6 +602,7 @@ void	_FuncStop( void )
 			{
 			        FG_d_StopKey=0;
 				m_KeyDupli1stTimer=0;
+                                TB_5s= 27;
 				_ReqTxdEdit( d_CloseKey,d_CloseKey ) ;
 				m_TimerKeyMonitor = d_Clear ;
 				_DupliFuncClear() ;					// Duplicate key function clear
