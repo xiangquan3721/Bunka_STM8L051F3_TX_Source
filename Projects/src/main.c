@@ -60,7 +60,7 @@ void main(void)
   _EI();		// ÔÊÐíÖÐ¶Ï	
   //beep_init();  //2015.3.11ÐÞÕý
 
-
+   TIME_power_on_AD=30;
   /* Infinite loop */
   while (1)
   {     

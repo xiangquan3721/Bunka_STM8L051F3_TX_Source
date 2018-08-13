@@ -53,8 +53,11 @@ void ADC2_EOC_INT(void){
 //       =1   欠压      2.2v~2.4v  bi.bi.bi....
 //       =2   不允许工作电压（因为发射中心频率偏移过大）  <2.2v   什么都不动作
 void AD_control(void){
-      if(BAT_Voltage_value>2400)BAT_out=0;
-      else if((BAT_Voltage_value<=2400)&&(BAT_Voltage_value>2200))BAT_out=1;
-      else BAT_out=2;  
+      if(TIME_power_on_AD)
+      {
+          if(BAT_Voltage_value>2400)BAT_out=0;
+          else if((BAT_Voltage_value<=2400)&&(BAT_Voltage_value>2200))BAT_out=1;
+          else BAT_out=2; 
+      }
 }
 

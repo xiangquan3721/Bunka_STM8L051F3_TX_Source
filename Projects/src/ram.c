@@ -134,5 +134,6 @@ UINT16 TIME_10s=0;   //2015.1.31ÐÞÕý3
 UINT16 key_Value=0;   //2015.1.31ÐÞÕý3
 
 UINT8 TIME_2s_RestTX=0;  //2015.4.13ÐÞÕý
+UINT16 TIME_power_on_AD=0;
 
 

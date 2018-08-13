@@ -29,6 +29,7 @@ void key_check(void)
   
    if(FG_1ms){
     FG_1ms=0; 
+    if(TIME_power_on_AD)TIME_power_on_AD--;
     if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;

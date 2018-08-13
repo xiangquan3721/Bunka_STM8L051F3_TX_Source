@@ -12,7 +12,7 @@
           
           
           
-        <Column0>250</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>163</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -24,7 +24,7 @@
     <Windows>
       
       
-    <Wnd2>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-19984-27211</Identity>
@@ -36,7 +36,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-9089-29666</Identity>
@@ -44,23 +44,23 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
-        <Tab><Identity>TabID-3069-25691</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-17988-25821</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
+        <Tab><Identity>TabID-17988-25821</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-2918-1511</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
     <Editor>
       
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>51</YPos><SelStart>2135</SelStart><SelEnd>2144</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>756</YPos><SelStart>19918</SelStart><SelEnd>19928</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>124</YPos><SelStart>4287</SelStart><SelEnd>4287</SelEnd></Tab><ActiveTab>2</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\adf7012.c</Filename><XPos>0</XPos><YPos>175</YPos><SelStart>2669</SelStart><SelEnd>2669</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>31</YPos><SelStart>1720</SelStart><SelEnd>1720</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>187</YPos><SelStart>6876</SelStart><SelEnd>6876</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-02b9f1a0><key>iaridepm.enu1</key></Toolbar-02b9f1a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>677</Bottom><Right>324</Right><x>-2</x><y>-2</y><xscreen>2</xscreen><yscreen>0</yscreen><sizeHorzCX>1042</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>169792</sizeVertCX><sizeVertCY>673611</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>286</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>288</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>285714</sizeHorzCY><sizeVertCX>1042</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-02981c88><key>iaridepm.enu1</key></Toolbar-02981c88></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>234</Bottom><Right>237</Right><x>-2</x><y>-2</y><xscreen>1</xscreen><yscreen>0</yscreen><sizeHorzCX>992</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>237103</sizeVertCX><sizeVertCY>696613</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>163</Bottom><Right>1010</Right><x>-2</x><y>-2</y><xscreen>1012</xscreen><yscreen>165</yscreen><sizeHorzCX>1003968</sizeHorzCX><sizeHorzCY>243004</sizeHorzCY><sizeVertCX>992</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 
