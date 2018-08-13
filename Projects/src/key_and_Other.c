@@ -129,8 +129,10 @@ const	uchar	ct_KeyDataTable[]
 0xBB,//	0b10111011,
 //	/*	Stop + Close (9)	*/
 0xCF,//	0b11001111,
-//	/*	Stop + Reg. (10)	*/
-0xDB,//	0b11011011,
+////	/*	Stop + Reg. (10)	*/
+//0xDB,//	0b11011011,
+//	/*	Open + Stop + Close. (10)	´úÌæStop + Reg*/
+0x8F,//	0b10001111,
 //	/*	Close + Reg. (11)	*/
 0xEB,//	0b11101011,
 //	/*	Close + Vent. (12)	*/
@@ -210,6 +212,7 @@ void	_KeyInTx( void )
                         else {
                            BASE_TIME_BEEP_on=40;
                            BASE_TIME_BEEP_off=60;
+                           FG_LED_on=1;
                         }
                         TIME_BEEP_on=BASE_TIME_BEEP_on;
                         TIME_BEEP_off=BASE_TIME_BEEP_off;
