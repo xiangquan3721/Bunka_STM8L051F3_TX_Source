@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Bunka Ver2.1 £¨ID ranges£º1¡«16777213£©"
+   Caption         =   "Bunka Ver2.2 £¨ID ranges£º1¡«16777213£©"
    ClientHeight    =   7725
    ClientLeft      =   45
    ClientTop       =   435
@@ -1812,7 +1812,7 @@ Begin VB.Form Form1
       Height          =   435
       ItemData        =   "Form1.frx":0A58
       Left            =   4800
-      List            =   "Form1.frx":0A83
+      List            =   "Form1.frx":0ADF
       TabIndex        =   4
       Text            =   "COM Port"
       Top             =   360

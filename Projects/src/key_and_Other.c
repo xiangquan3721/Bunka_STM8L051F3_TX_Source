@@ -77,6 +77,7 @@ void time_control(void)
 {
   if(FG_100ms){
     FG_100ms=0;    
+    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý
     if(FG_PWRON==1){
     if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
     }    
@@ -698,7 +699,7 @@ uchar	_GetNoPushState( void )
 }
 void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 {
-  if(TB_5s>=20){
+  if((TB_5s>=20)||(TIME_2s_RestTX==0)){   //2015.4.13ÐÞÕý
         if(FG_PWRON==0){
 	FG_PWRON=1;
 	PIN_POWER_CONTROL=1;
@@ -772,6 +773,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 //	TIME_BEEP_on=BASE_TIME_BEEP_on;
 //        TIME_BEEP_off=BASE_TIME_BEEP_off;
         SendTxData();
+        TIME_2s_RestTX=23;       //2015.4.13ÐÞÕý
   }
   else PIN_LED=0;
 }

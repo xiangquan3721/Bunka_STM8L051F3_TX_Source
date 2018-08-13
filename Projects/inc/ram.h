@@ -233,3 +233,5 @@ extern UINT32 BAT_Voltage_value;
 extern UINT16 TIME_Once_twice_switch;   //2015.1.31修正4
 extern UINT16 TIME_10s;   //2015.1.31修正3
 extern UINT16 key_Value;   //2015.1.31修正3
+
+extern UINT8 TIME_2s_RestTX;  //2015.4.13修正

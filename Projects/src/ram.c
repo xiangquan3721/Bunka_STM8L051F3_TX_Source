@@ -130,3 +130,5 @@ UINT16 TIME_Once_twice_switch=0;   //2015.1.31修正4
 UINT16 TIME_10s=0;   //2015.1.31修正3
 UINT16 key_Value=0;   //2015.1.31修正3
 
+UINT8 TIME_2s_RestTX=0;  //2015.4.13修正
+
