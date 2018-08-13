@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
   * @file    Project/main.c 
-  * @author  MCD Application Team
-  * @version V2.1.0
-  * @date    18-November-2011
-  * @brief   Main program body
+  * @author  XIANG'R
+  * @version V2.2.2
+  * @date    01-November-2016
+  * @brief   Main program body for STX1731(A)
   ******************************************************************************
   * @attention
   *
@@ -21,7 +21,6 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-//#include  <iostm8l051f3.h>				// CPU型号 
 #include  <iostm8l151g4.h>				// CPU型号
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
@@ -64,14 +63,16 @@ void main(void)
       
   //beep_init();  //2015.3.11修正
   TIME_AUTO_TX=0;
+  FLAG_srand_data=0;
   //srand((unsigned int) time(NULL));
-  srand((unsigned int) ID_data.IDL%10);
+ 
   if(PIN_KEY_STOP)POWER_ON_PIN_KEY_STOP=0;
   else POWER_ON_PIN_KEY_STOP=1;
   /* Infinite loop */
   while (1)
   {     
         ClearWDT(); // Service the WDT
+        srand_data_other++;
         
         if((TIME_AUTO_TX==0)&&(FLAG_AUTO_TX_stop==0)&&(POWER_ON_PIN_KEY_STOP==0)){
             TB_5s=TB_51s;
@@ -83,13 +84,20 @@ void main(void)
             else {
                     do{
                         ClearWDT(); // Service the WDT
+                        if(FLAG_srand_data==0)
+                        {
+                          FLAG_srand_data=1;
+                          srand_data=(srand_data_AD+srand_data_other)&0xfff;
+                          srand((unsigned int) srand_data);
+                        }
                         rand_data=rand();
-                        TIME_data=23+(rand_data%10)*2;
+                        TIME_data=23+((rand_data%100)/10)*2;
+                        if(TIME_data>=TIME_AUTO_TX_bak) TIME_data_differ =TIME_data-TIME_AUTO_TX_bak;
+                        else TIME_data_differ =TIME_AUTO_TX_bak-TIME_data;
                       }
-                      while(TIME_data==TIME_AUTO_TX_bak);
+                      while(TIME_data_differ<4);
               TIME_AUTO_TX=TIME_data;
               TIME_AUTO_TX_bak=TIME_AUTO_TX;
-              //srand((unsigned int)srand_TIME );
             }
             _ReqTxdEdit(14,14);
         }

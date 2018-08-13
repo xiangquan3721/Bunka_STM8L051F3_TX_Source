@@ -80,6 +80,23 @@ CR1寄存器  输出 Output（1=推挽、0=OC）
 ***************end************************************/
 void VHF_GPIO_INIT(void)   // CPU端口设置
 {
+  //以下为没有使用的I/O口处理，全部输入并上拉
+  PA_DDR_DDR4 = Input;     
+  PA_CR1_C14 =1; 
+  PA_DDR_DDR5 = Input;     
+  PA_CR1_C15 =1; 
+  PD_DDR_DDR1 = Input;     
+  PD_CR1_C11 =1;
+  PD_DDR_DDR2 = Input;     
+  PD_CR1_C12 =1; 
+  PD_DDR_DDR3 = Input;     
+  PD_CR1_C13 =1;  
+  PC_DDR_DDR0 = Input;     
+  PC_CR1_C10 =1;  
+  PC_DDR_DDR4 = Input;     
+  PC_CR1_C14 =1;  
+  
+  
  /* ADF7012 register interface */  
   ADF7021_SCLK_direc = Output;   
   ADF7021_SCLK_CR1 = 1;	

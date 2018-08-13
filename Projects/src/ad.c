@@ -41,6 +41,7 @@ void ADC2_EOC_INT(void){
         AD_DATA_BUFF[1] = ADC1_DRH;
         AD_DATA_BUFF[0] = ADC1_DRL;
 	RAM_BAT_SUM += AD_DATA_BUFF[1]*256+AD_DATA_BUFF[0];
+        srand_data_AD=(RAM_BAT_SUM%0xff)*20;
         RAM_BAT_CNT++;
         if(RAM_BAT_CNT>=20){
 		RAM_BAT_CNT = 0;

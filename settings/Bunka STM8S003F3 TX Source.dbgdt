@@ -20,7 +20,7 @@
           
           
         <Column0>236</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
-      </Workspace>
+      <PreferedWindows><Position>1</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></Workspace>
       <Disassembly>
         <col-names>
           
@@ -34,7 +34,7 @@
         
         
       <ShowCodeCoverage>0</ShowCodeCoverage><ShowInstrProfiling>0</ShowInstrProfiling></Disassembly>
-    <WATCH_1><expressions><item>EEPROM_Receiver_ID</item><item>m_KeyOld</item><item>m_KeyNew</item><item>TB_5s</item><item>m_TimerKey</item><item>m_KeyOptSetMode</item><item>m_KindOfKey</item><item>m_KeyDupliSetTimeout</item><item>SIO_buff</item><item>SIO_DATA</item><item>RAM_BAT_AVG</item><item>RAM_BAT_SUM</item><item>RAM_BAT_CNT</item><item>BAT_Voltage_value</item><item>BAT_out</item><item/></expressions><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>227</item><item>150</item><item>100</item><item>319</item></col-widths></WATCH_1><Auto><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>100</item><item>150</item><item>100</item><item>100</item></col-widths></Auto><Memory><FindDirection>1</FindDirection><FindAsHex>0</FindAsHex></Memory><Find-in-Files><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files></Static>
+    <WATCH_1><expressions><item>EEPROM_Receiver_ID</item><item>m_KeyOld</item><item>m_KeyNew</item><item>TB_5s</item><item>m_TimerKey</item><item>m_KeyOptSetMode</item><item>m_KindOfKey</item><item>m_KeyDupliSetTimeout</item><item>SIO_buff</item><item>SIO_DATA</item><item>RAM_BAT_AVG</item><item>RAM_BAT_SUM</item><item>RAM_BAT_CNT</item><item>BAT_Voltage_value</item><item>BAT_out</item><item>AD_DATA_BUFF</item><item/></expressions><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>227</item><item>150</item><item>100</item><item>319</item></col-widths></WATCH_1><Auto><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>100</item><item>150</item><item>100</item><item>100</item></col-widths></Auto><Memory><FindDirection>1</FindDirection><FindAsHex>0</FindAsHex></Memory><Find-in-Files><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files></Static>
     <Windows>
       
       
@@ -55,19 +55,7 @@
           </Tab>
         <Tab><Identity>TabID-13074-28225</Identity><TabName>Watch 1</TabName><Factory>WATCH_1</Factory></Tab><Tab><Identity>TabID-11757-29887</Identity><TabName>Auto</TabName><Factory>Auto</Factory></Tab><Tab><Identity>TabID-13753-24516</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd1><Wnd2>
-        <Tabs>
-          <Tab>
-            <Identity>TabID-16551-12116</Identity>
-            <TabName>Workspace</TabName>
-            <Factory>Workspace</Factory>
-            <Session>
-              
-            <NodeDict><ExpandedNode>Bunka STM8S003F3 TX Source</ExpandedNode></NodeDict></Session>
-          </Tab>
-        </Tabs>
-        
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd6>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd4>
         <Tabs>
           <Tab>
             <Identity>TabID-27300-12119</Identity>
@@ -77,21 +65,21 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd6><Wnd7><Tabs><Tab><Identity>TabID-14462-10114</Identity><TabName>Memory</TabName><Factory>Memory</Factory><Session><ZoneNumber>2</ZoneNumber><SelectionAnchor>4192</SelectionAnchor><SelectionEnd>4192</SelectionEnd><UnitsPerGroup>1</UnitsPerGroup><EndianMode>0</EndianMode><DataCovEnabled>0</DataCovEnabled><DataCovShown>0</DataCovShown><AutoRefresh>0</AutoRefresh><HScroll>0</HScroll><VScroll>256</VScroll></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd7></Windows>
+      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab><Identity>TabID-14462-10114</Identity><TabName>Memory</TabName><Factory>Memory</Factory><Session><ZoneNumber>2</ZoneNumber><SelectionAnchor>4192</SelectionAnchor><SelectionEnd>4192</SelectionEnd><UnitsPerGroup>1</UnitsPerGroup><EndianMode>0</EndianMode><DataCovEnabled>0</DataCovEnabled><DataCovShown>0</DataCovShown><AutoRefresh>0</AutoRefresh><HScroll>0</HScroll><VScroll>256</VScroll></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5></Windows>
     <Editor>
       
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>27</YPos><SelStart>1739</SelStart><SelEnd>1739</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>107</YPos><SelStart>3823</SelStart><SelEnd>3823</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>781</YPos><SelStart>20597</SelStart><SelEnd>20607</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\Timer.c</Filename><XPos>0</XPos><YPos>36</YPos><SelStart>2345</SelStart><SelEnd>2355</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>177</YPos><SelStart>6946</SelStart><SelEnd>6946</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>3293</SelStart><SelEnd>3297</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>230</YPos><SelStart>6999</SelStart><SelEnd>6999</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\initial.h</Filename><XPos>0</XPos><YPos>24</YPos><SelStart>1394</SelStart><SelEnd>1394</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Pane/><Sizes><Pane><X>497375</X><Y>1000000</Y></Pane><Pane><X>502624</X><Y>1000000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>32</YPos><SelStart>1699</SelStart><SelEnd>1699</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>32175</SelStart><SelEnd>32175</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>89</YPos><SelStart>4025</SelStart><SelEnd>4025</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\adf7012.c</Filename><XPos>0</XPos><YPos>48</YPos><SelStart>1664</SelStart><SelEnd>1664</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1711</SelStart><SelEnd>1711</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\initial.c</Filename><XPos>0</XPos><YPos>70</YPos><SelStart>2734</SelStart><SelEnd>2734</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ad.c</Filename><XPos>0</XPos><YPos>24</YPos><SelStart>1705</SelStart><SelEnd>1705</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\stm8l15x_it.c</Filename><XPos>0</XPos><YPos>269</YPos><SelStart>7847</SelStart><SelEnd>7847</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>3075</SelStart><SelEnd>3089</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>172</YPos><SelStart>4363</SelStart><SelEnd>4363</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Pin_define.h</Filename><XPos>0</XPos><YPos>58</YPos><SelStart>4182</SelStart><SelEnd>4192</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Pane/><Sizes><Pane><X>497375</X><Y>1000000</Y></Pane><Pane><X>502624</X><Y>1000000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-00c5edf8><key>iaridepm.enu1</key></Toolbar-00c5edf8></Sizes></Row0><Row1><Sizes><Toolbar-0f60bfa8><key>debuggergui.enu1</key></Toolbar-0f60bfa8></Sizes></Row1></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>599</Bottom><Right>310</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>201</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>199405</sizeHorzCY><sizeVertCX>162500</sizeVertCX><sizeVertCY>596230</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes><Wnd6><Rect><Top>-2</Top><Left>-2</Left><Bottom>599</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>201</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>199405</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>596230</sizeVertCY></Rect></Wnd6></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>259</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>261</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>258929</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>199405</sizeVertCY></Rect></Wnd1></Sizes></Row0><Row1><Sizes><Wnd7><Rect><Top>257</Top><Left>-2</Left><Bottom>340</Bottom><Right>1922</Right><x>-2</x><y>257</y><xscreen>1924</xscreen><yscreen>83</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>82341</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>199405</sizeVertCY></Rect></Wnd7></Sizes></Row1></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-011b65b0><key>iaridepm.enu1</key></Toolbar-011b65b0></Sizes></Row0><Row1><Sizes><Toolbar-08652540><key>debuggergui.enu1</key></Toolbar-08652540></Sizes></Row1></Top><Left><Row0><Sizes/></Row0></Left><Right><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>508</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>201</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>199405</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>505952</sizeVertCY></Rect></Wnd4></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>259</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>261</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>258929</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>199405</sizeVertCY></Rect></Wnd1></Sizes></Row0><Row1><Sizes><Wnd5><Rect><Top>257</Top><Left>-2</Left><Bottom>431</Bottom><Right>1922</Right><x>-2</x><y>257</y><xscreen>1924</xscreen><yscreen>174</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>172619</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>199405</sizeVertCY></Rect></Wnd5></Sizes></Row1></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 

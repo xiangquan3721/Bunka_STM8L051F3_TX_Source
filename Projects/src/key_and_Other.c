@@ -476,48 +476,50 @@ void	_FuncReg( void )
 }
 void	_FuncStop( void )
 {
-//	if	( _GetNoPushState() )						// No push before ?
-//	{												// No
-//		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
-//		{											// Yes
-//			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31修正4	  // 5sec passed ?
-//			{
-////				if	( !--m_TimerKey )
-////				{									// Yes
-//					if	( mb_OpenSw || mb_CloseSw )				// Close sw ?
-//					{
-//						m_KeyOptSetMode = 10 ;				// Yes
-//						//_ReqBuzzer( d_BuzOpt5 ) ;
-//						//_ReqBuzzer(103,103,100);
-//						m_KindOfKey = d_Idle ;
-//						mb_NoPushWait = d_On ;			// Set no push wait
-//						return ;
-//					}
-//					m_KeyOptSetMode = 1 ;			// Opetion setting mode
-//					//_ReqBuzzer( d_BuzOpt1 ) ;
-//					_ReqBuzzer(103,103,1);
-//						FG_LED_on=1;
-//						if(FG_PWRON==0){
-//	                                            FG_PWRON=1;
-//	                                            PIN_POWER_CONTROL=1;
-//	                                            TB_5s=TB_51s;//51;  //5.1秒
-//                                                }
-//					m_KeyDupliSetTimeout = d_DupliTime4s ;
-//					m_KindOfKey = d_Idle ;
-//					mb_NoPush=d_Off;
-//					mb_NoPushWait = d_On ;			// Set no push wait
-//					m_KeyOptSetOpenStop = 1 ;
-//					if	( mb_OpenSw )				// Open ?
-//					{
-//						m_KeyOptSetOpenStop = 0 ;	// Yes
-//					}
-////				}
-////				return ;							// No
-//			}
-//			return ;
-//		}
-//		return ;
-//	}
+	if	( _GetNoPushState() )						// No push before ?
+	{												// No
+		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
+		{											// Yes
+/*			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31修正4	  // 5sec passed ?
+			{
+//				if	( !--m_TimerKey )
+//				{									// Yes
+					if	( mb_OpenSw || mb_CloseSw )				// Close sw ?
+					{
+						m_KeyOptSetMode = 10 ;				// Yes
+						//_ReqBuzzer( d_BuzOpt5 ) ;
+						//_ReqBuzzer(103,103,100);
+						m_KindOfKey = d_Idle ;
+						mb_NoPushWait = d_On ;			// Set no push wait
+						return ;
+					}
+					m_KeyOptSetMode = 1 ;			// Opetion setting mode
+					//_ReqBuzzer( d_BuzOpt1 ) ;
+					_ReqBuzzer(103,103,1);
+						FG_LED_on=1;
+						if(FG_PWRON==0){
+	                                            FG_PWRON=1;
+	                                            PIN_POWER_CONTROL=1;
+	                                            TB_5s=TB_51s;//51;  //5.1秒
+                                                }
+					m_KeyDupliSetTimeout = d_DupliTime4s ;
+					m_KindOfKey = d_Idle ;
+					mb_NoPush=d_Off;
+					mb_NoPushWait = d_On ;			// Set no push wait
+					m_KeyOptSetOpenStop = 1 ;
+					if	( mb_OpenSw )				// Open ?
+					{
+						m_KeyOptSetOpenStop = 0 ;	// Yes
+					}   
+//				}
+//				return ;							// No
+			}
+			return ;            */
+                  
+                  
+		}
+		return ;
+	}
 	
 	m_KindOfKey = m_KeyNo ;
 	if	( m_KeyOptSetMode ||m_RegMode)							// Option setting mode ?
@@ -724,7 +726,7 @@ uchar	_GetNoPushState( void )
 }
 void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 {
-  if((TB_5s>=20)||(TIME_2s_RestTX==0)){   //2015.4.13修正
+  if((TB_5s>=27)||(TIME_2s_RestTX==0)){   //2015.4.13修正    //20
         if(FG_PWRON==0){
 	FG_PWRON=1;
 	PIN_POWER_CONTROL=1;
@@ -801,7 +803,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 //	TIME_BEEP_on=BASE_TIME_BEEP_on;
 //        TIME_BEEP_off=BASE_TIME_BEEP_off;
         SendTxData();
-        TIME_2s_RestTX=23;       //2015.4.13修正        
+        TIME_2s_RestTX=27;       //2015.4.13修正    23      
   }
   else PIN_LED=0;
 }

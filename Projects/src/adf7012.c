@@ -59,7 +59,7 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
 void dd_set_ADF7021_Power_on_Init(void)
 {
   ADF70XX_REG_T register_value;
-	if (ADF7021_POWER == FG_NOT_allow_out)
+	if ((ADF7021_POWER == FG_NOT_allow_out)&&(mb_StopSw==0))
 	{
 		ADF7021_POWER = FG_allow_out;  
 		//ADF7021_CE=1;

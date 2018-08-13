@@ -138,13 +138,17 @@ UINT8 TIME_2s_RestTX=0;  //2015.4.13ÐÞÕý
 UINT16 TIME_AUTO_TX;
 UINT16 TIME_AUTO_TX_bak;
 UINT16 TIME_data;
+UINT16 TIME_data_differ;
 UINT8 FLAG_AUTO_TX;
 UINT8 FLAG_AUTO_TX_stop;
 UINT16 rand_data;
 UINT8 POWER_ON_PIN_KEY_STOP;
 UINT16 srand_TIME;
 
-UINT8 xxxx;
+UINT8 FLAG_srand_data=0;
+UINT16 srand_data_AD=0;
+UINT32 srand_data_other=0;
+UINT16 srand_data;
 
 
 
