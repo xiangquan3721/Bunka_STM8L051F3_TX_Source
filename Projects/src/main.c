@@ -32,6 +32,7 @@
 #include "EXIT_FUN.h"		// 外部EXIT中断
 #include "key_and_Other.h"		// 按键
 #include "eeprom.h"		// eeprom
+#include "uart.h"		// uart
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -42,7 +43,7 @@ void main(void)
   _DI();		// 关全局中断
   RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
-  //CPU_CFG_GCR_SWO =1;
+  WDT_init();
   SysClock_Init();
   EXIT_init();
   InitialFlashReg();
@@ -53,17 +54,14 @@ void main(void)
   beep_init();
   while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
-    test_mode_control();
     PIN_TX_LED=1;
+    UART1_INIT();
+    test_mode_control();
   }
-  PIN_POWER_CONTROL=0;
-  PIN_TX_LED=0;
-  FG_KEY_OPEN=0;
-  FG_KEY_STOP=0;
-  FG_KEY_CLOSE=0;
   /* Infinite loop */
   while (1)
-  {    
+  {     
+        ClearWDT(); // Service the WDT
 	key_check();
 	time_control();
 	

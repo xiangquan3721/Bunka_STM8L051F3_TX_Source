@@ -49,3 +49,5 @@ void SysClock_Init( void ); 	// 系统时钟（外部时钟）
 void beep_init( void );
 void Delayus(unsigned char timer);
 void _Init_RAM(void);
+void WDT_init(void);
+void ClearWDT(void);

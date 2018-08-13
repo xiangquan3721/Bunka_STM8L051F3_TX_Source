@@ -17,6 +17,7 @@
 #include "EXIT_FUN.h"		// 外部EXIT中断
 #include "key_and_Other.h"		// 按键
 #include "eeprom.h"		// eeprom
+#include "uart.h"		// uart
 
 void key_check(void)
 {
@@ -67,7 +68,7 @@ void key_check(void)
     _KeyInTx();
     _RegistrationMode();
     _DupliFuncSetMode();
-        
+    ClearWDT(); // Service the WDT    
   }
 }
 
@@ -1192,6 +1193,9 @@ void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
 
 void test_mode_control(void)
 {
+
+ while(PIN_test_mode==0){  
+  ClearWDT(); // Service the WDT 
   if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
     dd_set_ADF7021_Power_on();
@@ -1223,6 +1227,17 @@ void test_mode_control(void)
      ADF7021_DATA_tx=!ADF7021_DATA_tx;
      FG_test1=1;
   }
-  if(ADF7021_DATA_CLK==0)FG_test1=0;	  
+  if(ADF7021_DATA_CLK==0)FG_test1=0;	 
   
+ 
+  
+  
+  
+  
+ }  
+  PIN_POWER_CONTROL=0;
+  PIN_TX_LED=0;
+  FG_KEY_OPEN=0;
+  FG_KEY_STOP=0;
+  FG_KEY_CLOSE=0;  
 }

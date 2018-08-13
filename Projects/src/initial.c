@@ -24,6 +24,19 @@ void RAM_clean(void)      // 清除RAM
   asm("jrule clear_ram");
 }  
 
+void WDT_init(void)
+{
+  IWDG_KR=0x55;
+  IWDG_PR=3;
+  IWDG_PR=0xFF;
+  IWDG_KR=0xCC;
+}
+void ClearWDT(void)
+{
+  IWDG_KR=0xAA;
+}
+
+
 void SysClock_Init( void )
 { 				// 系统时钟（外部时钟）
 //	CLK_ICKR_HSIEN = 1;						// 使能内部RC OSC
@@ -132,7 +145,7 @@ void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
   TB_5s=50;
-  ID_data.IDL=13227472;
+  ID_data.IDL=13227479;
   
   
   	/*		Timer		*/

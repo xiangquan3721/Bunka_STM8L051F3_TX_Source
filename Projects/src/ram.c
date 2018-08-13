@@ -118,3 +118,4 @@ UINT8 m_RegMode;
 UINT8 m_RegID[9];
 UINT8 m_RegDigit;
 UINT16 m_TimerRegMode;
+

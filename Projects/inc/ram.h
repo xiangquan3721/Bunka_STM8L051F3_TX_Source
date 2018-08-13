@@ -106,7 +106,7 @@ extern volatile union{
 	#define 	mb_StopSw		RAM_SW.BIT.Bit1	//
 	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
 	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
-//	#define 	mb_RegVentSw		RAM_SW.BIT.Bit4	//
+//	#define 	sm_WriteCommand		RAM_SW.BIT.Bit4	//
 //	#define 	FG_PWRON		RAM_SW.BIT.Bit5	//
 	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
 //	#define 	FG_BAT_value	        RAM_SW.BIT.Bit7	//
@@ -173,6 +173,8 @@ extern UINT16 TIME_KEY_LOGIN;
 #define		d_VentKey		4
 #define		d_RegKey		5
 #define		d_ReqStopReg            10
+
+
 
 #define _LedOnOff( d_LedOff )   PIN_LED=0;
 extern UINT8 m_KeyNew;

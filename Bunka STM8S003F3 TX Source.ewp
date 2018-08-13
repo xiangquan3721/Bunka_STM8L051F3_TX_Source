@@ -464,7 +464,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>Bunka STM8S003F3 TX Source.hex</state>
+          <state>Bunka STM8L051F3 TX Ver.hex</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1543,6 +1543,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\Projects\src\Timer.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Projects\src\uart.c</name>
   </file>
 </project>
 
