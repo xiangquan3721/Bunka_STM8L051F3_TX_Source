@@ -145,8 +145,9 @@ void VHF_GPIO_INIT(void)   // CPU∂Àø⁄…Ë÷√
 void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
-  TB_5s=TB_50s;//50;
-  
+  //TB_5s=TB_50s;//50;
+  TB_51s=26;//69;
+  TB_5s=TB_51s-1;
   
   	/*		Timer		*/
 								// General 1s timer

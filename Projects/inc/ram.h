@@ -116,8 +116,10 @@ extern volatile union{
 #define BASE_100ms	 100
 #define BASE_976us	 3
 
-#define TB_50s	 68//50
-#define TB_51s	 69//51
+extern UINT8 TB_51s;
+extern UINT8 TB_sum_5s;
+//#define TB_50s	 68//50
+//#define TB_51s	 69//51
 #define TB_60s	 78//60
 #define TB_20s	 20
 

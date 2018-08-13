@@ -69,6 +69,9 @@ volatile union{
 
 
 
+UINT8 TB_51s;
+UINT8 TB_sum_5s;
+
 
 //UINT8  m_RFNormalBuf[35];
 UINT8  m_RFNormalBuf[40];
