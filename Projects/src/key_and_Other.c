@@ -1318,34 +1318,59 @@ void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
 
 void test_mode_control(void)
 {
-
+  UINT8 KEY_OPEN_button_num=0;
+  
  while(PIN_test_mode==0){  
   ClearWDT(); // Service the WDT 
+  
   if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
-    dd_set_ADF7021_Power_on();
-    dd_set_TX_mode();
-    FG_test_mode=0;
-    ADF7021_DATA_tx=0;
+    KEY_OPEN_button_num++;
+    if(KEY_OPEN_button_num>3)KEY_OPEN_button_num=1;
+    if(KEY_OPEN_button_num==1){
+        dd_set_ADF7021_Power_on();
+        dd_set_TX_mode();
+        FG_test_mode=0;
+        ADF7021_DATA_tx=0;
+    }
+    else if(KEY_OPEN_button_num==2){
+        dd_set_ADF7021_Power_on();
+        dd_set_TX_mode();
+        FG_test_mode=1;
+    }
+    else if(KEY_OPEN_button_num==3){
+        ADF7021_POWER=FG_NOT_allow_out;
+        FG_test_mode=0;
+        ADF7021_DATA_tx=0;
+    }    
   }
-  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
+  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;  
   
-   if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0)){
-    FG_KEY_STOP=1;
-    //ADF7021_CE = 0;
-    ADF7021_POWER=FG_NOT_allow_out;
-    FG_test_mode=0;
-    ADF7021_DATA_tx=0;
-  }
-  if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
-  
-  if((PIN_KEY_CLOSE==0)&&(FG_KEY_CLOSE==0)){
-    FG_KEY_CLOSE=1;
-    dd_set_ADF7021_Power_on();
-    dd_set_TX_mode();
-    FG_test_mode=1;
-  }
-  if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
+//  if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
+//    FG_KEY_OPEN=1;
+//    dd_set_ADF7021_Power_on();
+//    dd_set_TX_mode();
+//    FG_test_mode=0;
+//    ADF7021_DATA_tx=0;
+//  }
+//  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
+//  
+//   if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0)){
+//    FG_KEY_STOP=1;
+//    //ADF7021_CE = 0;
+//    ADF7021_POWER=FG_NOT_allow_out;
+//    FG_test_mode=0;
+//    ADF7021_DATA_tx=0;
+//  }
+//  if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
+//  
+//  if((PIN_KEY_CLOSE==0)&&(FG_KEY_CLOSE==0)){
+//    FG_KEY_CLOSE=1;
+//    dd_set_ADF7021_Power_on();
+//    dd_set_TX_mode();
+//    FG_test_mode=1;
+//  }
+//  if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
   
 	
   if((ADF7021_DATA_CLK==1)&&(FG_test_mode==1)&&(FG_test1==0)){
