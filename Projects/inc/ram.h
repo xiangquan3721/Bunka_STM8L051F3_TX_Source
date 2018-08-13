@@ -116,6 +116,11 @@ extern volatile union{
 #define BASE_100ms	 100
 #define BASE_976us	 3
 
+#define TB_50s	 68//50
+#define TB_51s	 69//51
+#define TB_60s	 78//60
+#define TB_20s	 20
+
 
 //extern UINT8  m_RFNormalBuf[35];
 extern UINT8  m_RFNormalBuf[40];

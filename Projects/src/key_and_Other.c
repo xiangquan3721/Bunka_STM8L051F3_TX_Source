@@ -307,7 +307,7 @@ void	_FuncOpenReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=60;  //5.1취
+	           TB_5s=TB_60s;//60;  //5.1취
                 }
 		return ;
 	}
@@ -330,7 +330,7 @@ void	_FuncCloseReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=60;  //5.1취
+	           TB_5s=TB_60s;//60;  //5.1취
                 }
 		return ;
 	}
@@ -353,7 +353,7 @@ void	_FuncVentReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=60;  //5.1취
+	           TB_5s=TB_60s;//60;  //5.1취
                 }
 		return ;
 	}
@@ -376,7 +376,7 @@ void	_FuncStopReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=60;  //5.1취
+	           TB_5s=TB_60s;//60;  //5.1취
                 }
 		return ;
 	}
@@ -414,7 +414,7 @@ void	_FuncReg( void )
 		          if(FG_PWRON==0){
 	                     FG_PWRON=1;
 	                     PIN_POWER_CONTROL=1;
-			     TB_5s=51;  //5.1취
+			     TB_5s=TB_51s;//51;  //5.1취
                           }	
 			m_TimerKeyMonitor = d_Time10s ;			// Set 10sec key timer
 			m_KeyCount = 2 ;
@@ -470,7 +470,7 @@ void	_FuncStop( void )
 						if(FG_PWRON==0){
 	                                            FG_PWRON=1;
 	                                            PIN_POWER_CONTROL=1;
-	                                            TB_5s=51;  //5.1취
+	                                            TB_5s=TB_51s;//51;  //5.1취
                                                 }
 					m_KeyDupliSetTimeout = d_DupliTime4s ;
 					m_KindOfKey = d_Idle ;
@@ -679,7 +679,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
         if(FG_PWRON==0){
 	FG_PWRON=1;
 	PIN_POWER_CONTROL=1;
-	TB_5s=51;  //5.1취
+	TB_5s=TB_51s;//51;  //5.1취
         }
   	switch	( txreq )    // Jumo to key function
 	{
@@ -993,7 +993,7 @@ void	_DupliFuncSetMode( void )
 						_ReqBuzzer(103,103,4);
                                                 FG_LED_on=1;	
 						FG_d_StopKey=0;
-						TB_5s=20;
+						TB_5s=TB_20s;//20;
 						_DupliFuncClear() ;				// Duplicate key function clear
 						return ;
 					}
@@ -1073,7 +1073,7 @@ void	_RegistrationMode( void )
 	PIN_POWER_CONTROL=1;
         }	
 	if(m_TimerRegMode){
-	  TB_5s=51;  //5.1취
+	  TB_5s=TB_51s;//51;  //5.1취
           time_led++;
           if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
 	}
