@@ -67,13 +67,11 @@ void main(void)
 	key_check();
 	time_control();
 	
-	if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
+	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
+        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)){
 	  FG_PWRON=0;
 	  PIN_POWER_CONTROL=0;
-	  while(1);
-//	  TB_5s=50;     //以后硬件电源装配好后  注释掉以下语句
-//	  WWDG_CR_WDGA=1;
-//	  WWDG_CR_T6=0;   
+	  while(1);  
 	}
 		
  }

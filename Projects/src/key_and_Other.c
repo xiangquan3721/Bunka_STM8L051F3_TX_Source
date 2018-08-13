@@ -458,7 +458,7 @@ void	_FuncStop( void )
 					{
 						m_KeyOptSetMode = 10 ;				// Yes
 						//_ReqBuzzer( d_BuzOpt5 ) ;
-						_ReqBuzzer(103,103,100);
+						//_ReqBuzzer(103,103,100);
 						m_KindOfKey = d_Idle ;
 						mb_NoPushWait = d_On ;			// Set no push wait
 						return ;
@@ -780,7 +780,7 @@ void	_DupliFuncSetMode( void )
 			{
 				m_KeyOptSetMode = 10 ;				// Yes
 				//_ReqBuzzer( d_BuzOpt5 ) ;
-				_ReqBuzzer(103,103,100);
+				//_ReqBuzzer(103,103,100);
 				
 			}
 			break ;
