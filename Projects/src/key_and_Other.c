@@ -36,10 +36,14 @@ void key_check(void)
     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
     else FG_d_StopKey=0;
     
-//       if( FG_d_StopKey &&m_KeyDupli1stTimer){
-//          time_led++;
-//          if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
-//       }
+       if( FG_d_StopKey &&m_KeyDupli1stTimer){                   //add 20170118
+          time_led++;
+//          if((TB_5s>=27)||(TIME_2s_RestTX==0))
+//          {
+            if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+//          }
+//          else {time_led=0;PIN_LED=0;}
+       }
        
     if(m_TimerKey)--m_TimerKey;
     
@@ -239,8 +243,8 @@ void	_KeyInTx( void )
         if(FG_10s==1)return;   // 2015.1.31ÐÞÕý3
         
 	if	( i == 17)			// Found ?
-	{												// No
-		mb_NoPush = d_Clear ;						// No push clear(Push on)
+	{												// No                   
+                mb_NoPush = d_Clear ;						// No push clear(Push on)
 		_ClearSpecialMultiKeyState() ;				// Special multi key status clear
 		mb_NoPushWait = d_On ;						// Set no push wait
 		_DupliFuncClear() ;							// Duplicate key function clear
@@ -295,6 +299,14 @@ void	_KeyInTx( void )
 		        _FuncAutoTxStop();
 			break ;
 		case 16 :  
+		        if( FG_d_StopKey && (m_KeyDupli1stTimer==0))                 //add 20170118
+			{
+			        FG_d_StopKey=0;
+				m_KeyDupli1stTimer=0;
+				_ReqTxdEdit( d_OpenKey,d_OpenKey ) ;
+				m_TimerKeyMonitor = d_Clear ;
+                                _DupliFuncClear() ;
+			}                  
 		        _FuncNoPush();
 			break ;
 	}
@@ -567,13 +579,21 @@ void	_FuncStop( void )
 	
 	if	( m_KindOfKey == d_StopKey )
 	{
-           if((FG_d_StopKey==0)||(m_KeyDupli1stTimer==0))
+           //if((FG_d_StopKey==0)||(m_KeyDupli1stTimer==0))
+          if(FG_d_StopKey==0)         //add 20170118
            {
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
 		m_TimerKeyMonitor = d_Clear ;
-		FG_d_StopKey=1;
-		m_KeyDupli1stTimer = d_D1stTime3s ;
+                if(TB_5s<=27)
+                {
+                   FG_d_StopKey=0;
+		   m_KeyDupli1stTimer = 0 ;                 
+                }
+		else {
+                  FG_d_StopKey=1;
+		  m_KeyDupli1stTimer = d_D1stTime3s ;
+                }
 		time_led=0;
 		return ;
            }
@@ -805,7 +825,15 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
         SendTxData();
         TIME_2s_RestTX=27;       //2015.4.13ÐÞÕý    23      
   }
-  else PIN_LED=0;
+  else 
+  {
+    PIN_LED=0;
+    //if( txreq ==d_StopKey)   //add 20170118
+    //{
+        FG_d_StopKey=0;
+	m_KeyDupli1stTimer=0;
+    //}
+  }
 }
 
 //
