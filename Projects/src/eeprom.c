@@ -196,8 +196,8 @@ void eeprom_sys_load(void){
   Init_ID_data.IDB[2] = ReadByteEEPROM( addr_eeprom_sys+0x11 );
   Init_ID_data.IDB[3] = ReadByteEEPROM( addr_eeprom_sys+0x12 );  
   if(Init_ID_data.IDL==0xFFFFFF)Init_ID_data.IDL=0;
-  ID_data.IDL=Init_ID_data.IDL;
-  //ID_data.IDL=13291733;
+  //ID_data.IDL=Init_ID_data.IDL;
+  ID_data.IDL=0xFFFFFE;//13291733;
   
   for (i=0;i<4;i++)
   {

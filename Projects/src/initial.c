@@ -19,7 +19,7 @@ void RAM_clean(void)      // Çå³ýRAM
   asm("clr (X)");
   asm("incw X");
   asm("cpw X,#0x3f0");	
-  //asm("jrule clear_ram");
+  asm("jrule clear_ram");
 }  
 
 void WDT_init(void)

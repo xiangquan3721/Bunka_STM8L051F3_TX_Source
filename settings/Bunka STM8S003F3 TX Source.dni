@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-633928312
+Checksum=-1554259296
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -74,5 +74,3 @@ A2=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Sour
 A3=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\main.c" ""
 Count=4
 SuppressDialog=0
-[DebuggerSettings]
-DisableInterruptsWhenStepping=0
