@@ -100,8 +100,14 @@ void SendTxData(void)
   UINT8 i;
        m_RFNormalBuf[0]=0xFF;
        m_RFNormalBuf[1]=0xFF;
-       for(i=2;i<=14;i++)m_RFNormalBuf[i]=0x55;
-       m_RFNormalBuf[15]=0x15;
+       
+//       for(i=2;i<=14;i++)m_RFNormalBuf[i]=0x55;
+//       m_RFNormalBuf[15]=0x15;
+       for(i=2;i<=13;i++)m_RFNormalBuf[i]=0x55;
+       m_RFNormalBuf[14]=0x54;
+       m_RFNormalBuf[15]=0x56; 
+       
+       
        PIN_TX_LED=1;
        if(m_RegMode==0){
 	 txphase_end=224;
