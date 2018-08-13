@@ -81,7 +81,7 @@ void main(void)
             }
             _ReqTxdEdit(14,14);
         }
-        else if(TB_5s==0)TB_5s=TB_51s;
+        else if((TB_5s==0)||(TIME_2s_RestTX==0))TB_5s=TB_51s;
         if(FLAG_AUTO_TX_stop==0)PIN_TX_LED=1;
 		
 	key_check();

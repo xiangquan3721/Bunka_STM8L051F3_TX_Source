@@ -35,10 +35,12 @@ void key_check(void)
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
     else FG_d_StopKey=0;
-    if	( FG_d_StopKey &&m_KeyDupli1stTimer){
-      time_led++;
-      if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
-    }
+    
+//       if( FG_d_StopKey &&m_KeyDupli1stTimer){
+//          time_led++;
+//          if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+//       }
+       
     if(m_TimerKey)--m_TimerKey;
     
     if(TIME_BEEP_on){
@@ -109,53 +111,14 @@ void time_control(void)
 //		|+++++++ Open
 //		++++++++ 1
 //
-//const	uchar	ct_KeyDataTable[]
-//={ 
-//	/*	Reg. (0)	*/
-//0xFB,//	0b11111011,
-////	/*	Open (1)	*/
-//0xBF,//	0b10111111,
-////	/*	Stop (2)	*/
-//0xDF,//	0b11011111,
-////	/*	Close (3)	*/
-//0xEF,//	0b11101111,
-////	/*	Vent. (4)	*/
-//0xF7,//	0b11110111,
-////	/*	Open + Stop (5)	*/
-//0x9F,//	0b10011111,
-////	/*	Open + Close (6)	*/
-//0xAF,//	0b10101111,
-////	/*	Open + Vent. (7)	*/
-//0xB7,//	0b10110111,
-////	/*	Open + Reg. (8)	*/
-//0xBB,//	0b10111011,
-////	/*	Stop + Close (9)	*/
-//0xCF,//	0b11001111,
-////	/*	Stop + Reg. (10)	*/
-//0xDB,//	0b11011011,
-////	/*	Close + Reg. (11)	*/
-//0xEB,//	0b11101011,
-////	/*	Close + Vent. (12)	*/
-//0xE7,//	0b11100111,
-////	/*	Vent. + Reg. (13)	*/
-//0xF3,//	0b11110011,
-////	/*	Auto Tx start (14)	*/
-//0xFD,//	0b11111101,
-////	/*	Auto Tx stop (15)	*/
-//0xFE,//	0b11111110,
-////	/*	No push (16)	*/
-//0xFF,//	0b11111111,
-//} ;
-
-
 const	uchar	ct_KeyDataTable[]
 ={ 
 	/*	Reg. (0)	*/
 0xFB,//	0b11111011,
-//	/*	Stop (2)	*/
-0xDF,//	0b11011111,
 //	/*	Open (1)	*/
 0xBF,//	0b10111111,
+//	/*	Stop (2)	*/
+0xDF,//	0b11011111,
 //	/*	Close (3)	*/
 0xEF,//	0b11101111,
 //	/*	Vent. (4)	*/
@@ -185,6 +148,7 @@ const	uchar	ct_KeyDataTable[]
 //	/*	No push (16)	*/
 0xFF,//	0b11111111,
 } ;
+
 
 
 //
@@ -238,7 +202,7 @@ void	_KeyInTx( void )
 //			_ReqBuzzer(d_BuzBattLow) ;				// Request
 //		}
 	    //if(BAT_value>1000){
-           if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31修正4
+           //if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31修正4
            if(TIME_10s)--TIME_10s;    //2015.1.31修正3
 	   dd_set_ADF7021_Power_on_Init();
 	   //if((ADF7021_MUXOUT)||(FG_BAT)){
@@ -579,11 +543,11 @@ void	_FuncStop( void )
 			break;
 	}
         
-          /********2015.1.31追加  按一次模式********/
-	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
+//          /********2015.1.31追加  按一次模式********/
+//	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
         
-//          /********2015.1.31追加  按2次模式********/
-//	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
+          /********2015.1.31追加  按2次模式********/
+	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
 	{												// Yes
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
@@ -599,6 +563,8 @@ void	_FuncStop( void )
 	
 	if	( m_KindOfKey == d_StopKey )
 	{
+           if((FG_d_StopKey==0)||(m_KeyDupli1stTimer==0))
+           {
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
 		m_TimerKeyMonitor = d_Clear ;
@@ -606,6 +572,16 @@ void	_FuncStop( void )
 		m_KeyDupli1stTimer = d_D1stTime3s ;
 		time_led=0;
 		return ;
+           }
+           else if( FG_d_StopKey && m_KeyDupli1stTimer)
+			{
+			        FG_d_StopKey=0;
+				m_KeyDupli1stTimer=0;
+				_ReqTxdEdit( d_CloseKey,d_CloseKey ) ;
+				m_TimerKeyMonitor = d_Clear ;
+				_DupliFuncClear() ;					// Duplicate key function clear
+				return ;
+			}             
 	}
 	
 	switch	( m_KindOfKey )
