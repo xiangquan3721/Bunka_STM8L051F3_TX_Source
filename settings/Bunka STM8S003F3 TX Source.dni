@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1657031033
+Checksum=-1113486079
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -53,6 +53,8 @@ Enabled=0
 ShowSource=1
 [BreakpointUsageDialog]
 Placement=_ 742 386 1179 664
+[struct_types]
+Fmt0=uni_rom_id-IDL	3	0
 [watch_formats]
 Fmt0={W}0:BAT_out	3	0
 Fmt1={W}0:RAM_BAT_CNT	3	0

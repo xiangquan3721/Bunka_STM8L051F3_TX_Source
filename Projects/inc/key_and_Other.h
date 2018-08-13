@@ -14,6 +14,7 @@ void test_mode_control(void);
 
 
 void	_SwIn( uchar sw );
+void	_SwIn_One_button( void );
 void	_FuncReg( void );
 void	_FuncStop( void );
 void	_FuncOpenStop( void );

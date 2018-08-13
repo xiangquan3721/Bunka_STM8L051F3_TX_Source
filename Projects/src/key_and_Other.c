@@ -156,11 +156,14 @@ void	_KeyInTx( void )
         if(BAT_out==2)return;
 		
 	/*	Registration sw		*/
-	_SwIn( PIN_KEY_OPEN ) ;
+        //_SwIn( PIN_KEY_OPEN ) ;
+        _SwIn_One_button();
 	/*	Auto Tx Start sw		*/
-	_SwIn( PIN_KEY_STOP ) ;
+	//_SwIn( PIN_KEY_STOP ) ;
+        _SwIn( 1 ) ;
 	/*	Auto Tx Stop sw		*/
-	_SwIn( PIN_KEY_CLOSE ) ;
+	//_SwIn( PIN_KEY_CLOSE ) ;
+        _SwIn( 1 ) ;
 	/*	Auto Tx Vent. sw		*/
 	_SwIn( PIN_KEY_VENT ) ;	
 	//_SwIn( 1 ) ;
@@ -1268,6 +1271,16 @@ void	_IdClear( void )
 /*					*/
 /*--------------------------------------*/
 //
+void	_SwIn_One_button( void )
+{
+         m_KeyNew<<= 1 ;
+         if((PIN_KEY_OPEN==0)||(PIN_KEY_STOP==0)||(PIN_KEY_CLOSE==0));
+         else 
+         {
+           m_KeyNew |= d_On ;
+         }
+  
+}
 void	_SwIn( uchar sw )
 {
 	m_KeyNew<<= 1 ;
