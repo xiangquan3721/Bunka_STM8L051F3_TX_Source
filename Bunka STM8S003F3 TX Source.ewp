@@ -1518,6 +1518,9 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\Projects\src\ad.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Projects\src\adf7012.c</name>
   </file>
   <file>

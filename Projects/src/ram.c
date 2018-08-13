@@ -6,9 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-//#include "stm8s.h"
-//#include  <iostm8s003f3.h>
-#include  <iostm8l051f3.h>
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 
@@ -120,4 +118,11 @@ UINT8 m_RegMode;
 UINT8 m_RegID[9];
 UINT8 m_RegDigit;
 UINT16 m_TimerRegMode;
+
+UINT8 AD_DATA_BUFF[2];		// A/D Buffers
+UINT32 RAM_BAT_SUM=0;
+UINT16 RAM_BAT_AVG=0;
+UINT8 RAM_BAT_CNT=0;
+UINT8 BAT_out=0;
+UINT32 BAT_Voltage_value=0;
 

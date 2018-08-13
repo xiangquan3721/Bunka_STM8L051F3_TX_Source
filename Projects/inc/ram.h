@@ -222,3 +222,10 @@ extern UINT8 m_RegMode;
 extern UINT8 m_RegID[9];
 extern UINT8 m_RegDigit;
 extern UINT16 m_TimerRegMode;
+
+extern UINT8 AD_DATA_BUFF[2];
+extern UINT32 RAM_BAT_SUM;
+extern UINT16 RAM_BAT_AVG;
+extern UINT8 RAM_BAT_CNT;
+extern UINT8 BAT_out;
+extern UINT32 BAT_Voltage_value;

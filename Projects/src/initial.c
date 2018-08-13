@@ -6,9 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-//#include "stm8s.h"
-//#include  <iostm8s003f3.h>
-#include  <iostm8l051f3.h>
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -102,7 +100,7 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   //ADF7021_CE=0;
   
   ADF7021_MUXOUT_direc=Input;
-  ADF7021_MUXOUT_CR1=0;    //ADF7012要求必须下拉
+  ADF7021_MUXOUT_CR1=1;    //ADF7012要求必须下拉
   
 /* Other ADF7021 connections */
   ADF7021_DATA_tx_direc = Output; // Output   调制DATA线

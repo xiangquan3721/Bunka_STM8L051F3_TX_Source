@@ -7,8 +7,7 @@
 /*  Mark        :STM8S207C8的CODE空间为64K                             */
 /*              :STM8S207C8的EEPROM的大小为1536字节,即:3页,512节/页    */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号
-//#include "stm8l15x.h"
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义

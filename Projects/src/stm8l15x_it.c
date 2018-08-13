@@ -32,6 +32,7 @@
 #include "EXIT_FUN.h"		// 外部EXIT中断
 #include "key_and_Other.h"		// 按键
 #include "uart.h"		// uart
+#include "ad.h"		// uart
 /** @addtogroup STM8L15x_StdPeriph_Template
   * @{
   */
@@ -284,6 +285,7 @@ INTERRUPT_HANDLER(ADC1_COMP_IRQHandler,18)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
+  ADC2_EOC_INT();
 }
 
 /**

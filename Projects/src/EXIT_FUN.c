@@ -6,10 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-
-//#include "stm8s.h"
-//#include  <iostm8s003f3.h>
-#include  <iostm8l051f3.h>
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义

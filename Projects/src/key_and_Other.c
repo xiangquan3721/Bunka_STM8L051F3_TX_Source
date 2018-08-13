@@ -6,10 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-
-//#include "stm8s.h"
-//#include  <iostm8s003f3.h>
-#include  <iostm8l051f3.h>
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -18,6 +15,7 @@
 #include "key_and_Other.h"		// 按键
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
+#include "ad.h"		// ad
 
 void key_check(void)
 {
@@ -68,6 +66,7 @@ void key_check(void)
     _KeyInTx();
     _RegistrationMode();
     _DupliFuncSetMode();
+    ADC2_EOC_INT();
     ClearWDT(); // Service the WDT    
   }
 }
@@ -149,8 +148,10 @@ void	_KeyInTx( void )
 	uchar	i ;
 	
 	m_KindOfKey = d_Idle ;
-	
-	m_KeyNew = 0xFF ;	
+        
+	m_KeyNew = 0xFF ;
+        if(BAT_out==2)return;
+		
 	/*	Registration sw		*/
 	_SwIn( PIN_KEY_OPEN ) ;
 	/*	Auto Tx Start sw		*/
@@ -167,6 +168,7 @@ void	_KeyInTx( void )
 	/*	Auto TxAuto Tx Stop sw		*/
 	_SwIn( 1 ) ;	
 	
+        
 	if	( m_KeyNew != m_KeyOld )				// Key in
 	{												// Different with the last state
 		m_KeyOld = m_KeyNew ;
@@ -190,7 +192,8 @@ void	_KeyInTx( void )
 //		}
 	    //if(BAT_value>1000){
 	   dd_set_ADF7021_Power_on_Init();
-	   if((ADF7021_MUXOUT)||(FG_BAT)){	     
+	   //if((ADF7021_MUXOUT)||(FG_BAT)){
+           if((BAT_out==1)||(FG_BAT)){
 	      if(FG_BAT==0){
 		        FG_BAT=1;
 			BASE_TIME_BEEP_on=40;

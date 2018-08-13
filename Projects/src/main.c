@@ -21,9 +21,7 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-//#include "stm8s.h"
-//#include  <iostm8s003f3.h>
-#include  <iostm8l051f3.h>
+#include  <iostm8l051f3.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -33,6 +31,7 @@
 #include "key_and_Other.h"		// 按键
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
+#include "ad.h"		        // AD
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -50,6 +49,7 @@ void main(void)
   eeprom_sys_load();
   _Init_RAM();
   TIM4_Init();
+  START_AD_SAMPLER();
     while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
@@ -66,7 +66,8 @@ void main(void)
         ClearWDT(); // Service the WDT
 	key_check();
 	time_control();
-	
+	AD_control();
+        
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
         if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)){
 	  FG_PWRON=0;
