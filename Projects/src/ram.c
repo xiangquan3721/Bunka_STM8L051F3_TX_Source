@@ -101,7 +101,6 @@ const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x
 //const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120b86,0x0021d04f};    //6dBm
 //const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120d66,0x0021d04f};    //8dBm
 //const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120fe6,0x0021d04f};    //10dBm
-
 //UINT16 BAT_value;
 
 

@@ -30,7 +30,7 @@ void key_check(void)
   
    if(FG_1ms){
     FG_1ms=0; 
-    if(TIME_StopKey_Open_Close)--TIME_StopKey_Open_Close; 
+    if(TIME_StopKey_Open_Close)--TIME_StopKey_Open_Close;
     if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
@@ -48,11 +48,7 @@ void key_check(void)
        
        if(TIME_StopKey_Open_Close)
        {
-         if(FLAG_StopKey_Open==1)//PIN_LED=1;
-         {
-            time_led++;
-           if(time_led>=200){time_led=0;PIN_LED=!PIN_LED;}
-         }
+         if(FLAG_StopKey_Open==1)PIN_LED=1;
          else if(FLAG_StopKey_Close==1)
          {
            time_led++;
@@ -176,7 +172,7 @@ const	uchar	ct_KeyDataTable[]
 } ;
 
 
-uchar  moli_stop_cyw = 0;
+
 //
 void	_KeyInTx( void )
 {
@@ -284,12 +280,6 @@ void	_KeyInTx( void )
 
 //       if(i<16)
 //         FLAG_AUTO_TX_stop=1;
-        /*if(moli_stop_cyw == 1)
-        {
-           _FuncStop();
-           moli_stop_cyw = 0;
-        }*/
-        
 	switch	( i )    // Jumo to key function
 	{
 		case 0 :
@@ -622,16 +612,12 @@ void	_FuncStop( void )
 	if	( m_KindOfKey == d_StopKey )
 	{
            //if((FG_d_StopKey==0)||(m_KeyDupli1stTimer==0))
-        
-          
           if(FG_d_StopKey==0)         //add 20170118
            {
-		
-                _DupliFuncClear() ;							// Duplicate key function clear
+		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
 		m_TimerKeyMonitor = d_Clear ;
                 if(TB_5s<=27)
-                //if(0)//cyw
                 {
                    FG_d_StopKey=0;
 		   m_KeyDupli1stTimer = 0 ;                 
@@ -645,15 +631,12 @@ void	_FuncStop( void )
                   TIME_StopKey_Open_Close=0;
 		  m_KeyDupli1stTimer = d_D1stTime20s ;
                   KEY_stop_count=0;
-                  moli_stop_cyw = 1;
-                  goto flagggg;
                 }
 		return ;
            }
            else if( FG_d_StopKey && m_KeyDupli1stTimer)
            {
-          flagggg:       
-             if(KEY_stop_count==0)
+               if(KEY_stop_count==0)
                {
                 // KEY_stop_count=1;
                  //20170124cyw
@@ -662,7 +645,6 @@ void	_FuncStop( void )
                  m_TimerKeyMonitor = d_Clear ;
                  //20170124cyw
                  m_KeyDupli1stTimer = d_D1stTime1s ;
-                
                }
                else if(KEY_stop_count==1)
                {
@@ -670,12 +652,11 @@ void	_FuncStop( void )
                  _DupliFuncClear() ;
                  m_TimerKeyMonitor = d_Clear ;
                  //20170124cyw
-                 m_KeyDupli1stTimer = d_D1stTime1s ;   
-                
+                 m_KeyDupli1stTimer = d_D1stTime1s ;                 
                }
                else if(KEY_stop_count==2)
 			{
-                                FG_d_StopKey=0;
+			        FG_d_StopKey=0;
 				m_KeyDupli1stTimer=0;
                                 TB_5s= 27;
                                 FLAG_StopKey_Close=1;
