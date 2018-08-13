@@ -97,7 +97,8 @@ UINT8 SIO_cnt;
 UINT8 SIO_buff[16];
 UINT8 SIO_DATA[16];
 ADF70XX_REG_T ROM_adf7012_value[4];
-const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x0021d04f};
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x0021d04f};
+const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120a46,0x0021d04f};    //无线壁挂修改天线，发射功率也对应的修改
 //UINT16 BAT_value;
 
 
