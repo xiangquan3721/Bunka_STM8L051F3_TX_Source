@@ -31,6 +31,7 @@
 #include "adf7012.h"		// RF IC
 #include "EXIT_FUN.h"		// 外部EXIT中断
 #include "key_and_Other.h"		// 按键
+#include "eeprom.h"		// eeprom
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -44,11 +45,11 @@ void main(void)
   //CPU_CFG_GCR_SWO =1;
   SysClock_Init();
   EXIT_init();
-  TB_100ms = BASE_100ms;
-  TB_5s=50;
+  InitialFlashReg();
+  eeprom_sys_load();
+  _Init_RAM();
   TIM4_Init();
   _EI();		// 允许中断	
-  ID_data.IDL=13227479;
   beep_init();
   while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
@@ -65,7 +66,8 @@ void main(void)
   {    
 	key_check();
 	time_control();
-	if((TB_5s==0)&&(FG_PWRON==1)){
+	
+	if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
 	  FG_PWRON=0;
 	  PIN_POWER_CONTROL=0;
 //	  TB_5s=50;     //以后硬件电源装配好后  注释掉以下语句

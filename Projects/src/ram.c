@@ -42,6 +42,34 @@ volatile union{
 	}BIT; 	
 }RAM_OP2;
 
+volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_RegSW;
+volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_SW;
+
+
 
 
 //UINT8  m_RFNormalBuf[35];
@@ -65,3 +93,20 @@ UINT8 TIME_KEY_OPEN;
 UINT16 TIME_KEY_STOP;
 UINT8 TIME_KEY_CLOSE;
 UINT16 TIME_KEY_LOGIN;
+
+
+
+UINT8 m_KeyNew;
+UINT8 m_KindOfKey;
+UINT8 m_KeyOld;
+UINT8 m_ChatterCount;
+UINT16 m_TimerKey;
+UINT8 m_KeyNo;
+UINT8 m_KeyOptSetMode;
+UINT8 m_KeyOpenCount;
+UINT8 m_KeyCloseCount;
+UINT16 m_KeyDupli1stTimer;
+UINT8 m_KeyOptSetMode;
+UINT16 m_KeyDupliSetTimeout;
+UINT8 rom_KeyOpt;
+UINT8 time_led;

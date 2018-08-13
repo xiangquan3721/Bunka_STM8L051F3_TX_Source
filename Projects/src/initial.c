@@ -12,7 +12,7 @@
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
-
+#include "key_and_Other.h"		// 按键
 
 void RAM_clean(void)      // 清除RAM 
 {			
@@ -126,8 +126,27 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   PIN_POWER_AD_direc = Input;     // 输入     电源监测AD脚 
 
 }
-
-
+void _Init_RAM(void)
+{
+  TB_100ms = BASE_100ms;
+  TB_5s=50;
+  ID_data.IDL=13227479;
+  
+  
+  	/*		Timer		*/
+								// General 1s timer
+	
+	/*		Key		*/
+	_SetKeyChatterCount() ;									// Chatter counter set
+	m_KeyNew = m_KeyOld = d_KeyNoPush ;
+	m_KindOfKey          = d_IdleKey ;
+	//mb_Keycheck          = d_Clear ;
+	mb_NoPush            = d_On ;
+	mb_NoPushWait        = d_Clear ;
+	_ClearSpecialMultiKeyState() ;
+	m_TimerKey = d_Clear ;
+	m_TimerKeyMonitor = d_Clear ;
+}
 //===================Delayus()延时===============//
 void Delayus(unsigned char timer)
 {

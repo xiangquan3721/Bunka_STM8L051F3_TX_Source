@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1017713955
+Checksum=210639776
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -51,11 +51,11 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[BreakpointUsageDialog]
+Placement=_ 742 386 1179 664
 [watch_formats]
 Fmt0={W}0:TB_5s	3	0
 Fmt1={W}0:TIME_KEY_LOGIN	3	0
-[BreakpointUsageDialog]
-Placement=_ 742 386 1179 664
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

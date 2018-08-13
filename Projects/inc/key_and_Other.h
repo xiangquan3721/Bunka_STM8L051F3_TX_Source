@@ -11,3 +11,24 @@
 void key_check(void);
 void time_control(void);
 void test_mode_control(void);
+
+
+
+void	_SwIn( uchar sw );
+void	_FuncReg( void );
+void	_FuncStop( void );
+void	_FuncOpenStop( void );
+void	_FuncOpenReg( void );
+void	_FuncStopReg( void );
+void	_FuncCloseReg( void );
+void	_FuncVentReg( void );
+void	_FuncAutoTxStart( void );
+void	_FuncAutoTxStop( void );
+void	_FuncNoPush( void );
+void	_SetKeyChatterCount( void );
+void	_KeyInTx( void );
+void	_ClearSpecialMultiKeyState( void );
+void	_DupliFuncClear( void );
+uchar	_GetNoPushState( void );
+void	_ReqTxdEdit( uchar txreq , uchar buzreq );  // Tx data edit request
+void	_DupliFuncSetMode( void );
