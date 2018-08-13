@@ -1078,7 +1078,8 @@ void	_RegistrationMode( void )
           if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
 	}
 	else {
-	        _ReqBuzzer(500,250,3);
+	        //_ReqBuzzer(500,250,3);
+	        _ReqBuzzer(500,250,2);
 		PIN_LED=0;
 		m_RegMode = d_Idle ;
 	}
@@ -1204,6 +1205,7 @@ void	_SetRegistrationMode( uchar mode )
 //	mb_LedOnOff = d_On ;
 //	
 //	_ReqBuzzer(d_BuzReg) ;
+	_ReqBuzzer(1000,1,0);
 	m_TimerRegMode = d_Time1min ;				// 1min. set (1s base)
 }
 uchar	_GetRegMode( void )
