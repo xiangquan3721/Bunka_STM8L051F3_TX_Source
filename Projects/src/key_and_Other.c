@@ -152,10 +152,10 @@ const	uchar	ct_KeyDataTable[]
 ={ 
 	/*	Reg. (0)	*/
 0xFB,//	0b11111011,
-//	/*	Stop + Reg. (10)	*/
-0xDB,//	0b11011011,
 //	/*	Stop (2)	*/
 0xDF,//	0b11011111,
+//	/*	Open (1)	*/
+0xBF,//	0b10111111,
 //	/*	Close (3)	*/
 0xEF,//	0b11101111,
 //	/*	Vent. (4)	*/
@@ -170,8 +170,8 @@ const	uchar	ct_KeyDataTable[]
 0xBB,//	0b10111011,
 //	/*	Stop + Close (9)	*/
 0xCF,//	0b11001111,
-//	/*	Open (1)	*/
-0xBF,//	0b10111111,
+//	/*	Stop + Reg. (10)	*/
+0xDB,//	0b11011011,
 //	/*	Close + Reg. (11)	*/
 0xEB,//	0b11101011,
 //	/*	Close + Vent. (12)	*/
@@ -453,7 +453,6 @@ void	_Pass3secKey( uchar req )
 		if	( !--m_TimerKey )
 		{				
                   // Yes
-                        FLAG_AUTO_TX_stop=1;
 			_ReqTxdEdit( req,0 ) ;
                         FG_Complex_Single_shot=1;   //2015.1.31ÐÞÕý2
 			return ;
@@ -569,6 +568,7 @@ void	_FuncStop( void )
 			break;
 			
 		case d_StopKey :
+                        FLAG_AUTO_TX_stop=1;
 			mb_StopSw = d_On ;
 			m_TimerKey = d_Time5s ;					// Set 5sec key timer
 			break;

@@ -1,55 +1,55 @@
 ###############################################################################
 #                                                                             #
-# IAR ELF Linker V1.31.1.50058 for STM8                 22/Jul/2016  08:29:49 #
+# IAR ELF Linker V1.31.1.50058 for STM8                 22/Jul/2016  08:26:30 #
 # Copyright 2010-2012 IAR Systems AB.                                         #
 #                                                                             #
 #    Output file  =  F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka  #
 #                    STM8L151G4 TX Source Ver2.0.1_new_STX1231(A)             #
-#                    set_key\Debug\Exe\Bunka STM8S003F3 TX Source.out         #
+#                    stop_key\Debug\Exe\Bunka STM8S003F3 TX Source.out        #
 #    Map file     =  F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka  #
 #                    STM8L151G4 TX Source Ver2.0.1_new_STX1231(A)             #
-#                    set_key\Debug\List\Bunka STM8S003F3 TX Source.map        #
+#                    stop_key\Debug\List\Bunka STM8S003F3 TX Source.map       #
 #    Command line =  "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\EXIT_FUN.o"    #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\EXIT_FUN.o"   #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\Timer.o"       #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\Timer.o"      #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\ad.o"          #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\ad.o"         #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\adf7012.o"     #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\adf7012.o"    #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\eeprom.o"      #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\eeprom.o"     #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\initial.o"     #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\initial.o"    #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\key_and_Other. #
-#                    o" "F:\Source Code\bunka-s\Bunka STM8L051F3 TX           #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\key_and_Other #
+#                    .o" "F:\Source Code\bunka-s\Bunka STM8L051F3 TX          #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\main.o"        #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\main.o"       #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\ram.o"         #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\ram.o"        #
 #                    "F:\Source Code\bunka-s\Bunka STM8L051F3 TX              #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\stm8l15x_it.o" #
-#                     "F:\Source Code\bunka-s\Bunka STM8L051F3 TX             #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\stm8l15x_it.o #
+#                    " "F:\Source Code\bunka-s\Bunka STM8L051F3 TX            #
 #                    Source\Bunka STM8L151G4 TX Source                        #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Obj\uart.o"        #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj\uart.o"       #
 #                    --redirect _Printf=_PrintfSmall --redirect               #
 #                    _Scanf=_ScanfSmall -o "F:\Source Code\bunka-s\Bunka      #
 #                    STM8L051F3 TX Source\Bunka STM8L151G4 TX Source          #
-#                    Ver2.0.1_new_STX1231(A) set_key\Debug\Exe\Bunka          #
+#                    Ver2.0.1_new_STX1231(A) stop_key\Debug\Exe\Bunka         #
 #                    STM8S003F3 TX Source.out" --map "F:\Source               #
 #                    Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka            #
 #                    STM8L151G4 TX Source Ver2.0.1_new_STX1231(A)             #
-#                    set_key\Debug\List\Bunka STM8S003F3 TX Source.map"       #
+#                    stop_key\Debug\List\Bunka STM8S003F3 TX Source.map"      #
 #                    --config "D:\Program Files (x86)\IAR Systems\Embedded    #
 #                    Workbench 6.0 Evaluation\stm8\config\lnkstm8l151g4.icf"  #
 #                    --config_def _CSTACK_SIZE=0x100 --config_def             #
@@ -331,7 +331,7 @@ Copy (__iar_copy_init2)
 
     Module                 ro code  ro data  rw data
     ------                 -------  -------  -------
-F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L151G4 TX Source Ver2.0.1_new_STX1231(A) set_key\Debug\Obj: [1]
+F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L151G4 TX Source Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj: [1]
     EXIT_FUN.o                 620
     Timer.o                    105
     ad.o                       251
@@ -600,8 +600,8 @@ _FuncCloseReg             0x00868e   0x3b  Code  Gb  key_and_Other.o [1]
 _FuncNoPush               0x0083bd   0x21  Code  Gb  key_and_Other.o [1]
 _FuncOpenReg              0x0086c9   0x3e  Code  Gb  key_and_Other.o [1]
 _FuncOpenStop             0x008707   0x21  Code  Gb  key_and_Other.o [1]
-_FuncReg                  0x00856c   0x8f  Code  Gb  key_and_Other.o [1]
-_FuncStop                 0x0083e0  0x18c  Code  Gb  key_and_Other.o [1]
+_FuncReg                  0x008570   0x8f  Code  Gb  key_and_Other.o [1]
+_FuncStop                 0x0083e0  0x190  Code  Gb  key_and_Other.o [1]
 _FuncStopReg              0x00861a   0x39  Code  Gb  key_and_Other.o [1]
 _FuncVentReg              0x008653   0x3b  Code  Gb  key_and_Other.o [1]
 _GetNoPushState           0x008394   0x1e  Code  Gb  key_and_Other.o [1]
@@ -609,7 +609,7 @@ _GetRegMode               0x00a25b    0x4  Code  Gb  key_and_Other.o [1]
 _IdClear                  0x009fb4   0x23  Code  Gb  key_and_Other.o [1]
 _Init_RAM                 0x009ec6   0x2d  Code  Gb  initial.o [1]
 _KeyInTx                  0x008728  0x1f0  Code  Gb  key_and_Other.o [1]
-_Pass3secKey              0x0085fb   0x1f  Code  Gb  key_and_Other.o [1]
+_Pass3secKey              0x0085ff   0x1b  Code  Gb  key_and_Other.o [1]
 _Rand_idx                 0x000105    0x4  Data  Lc  rand.o [4]
 _Rand_rv                  0x000014   0x80  Data  Lc  rand.o [4]
 _Randinit                 0x000156    0x1  Data  Gb  rand.o [4]
@@ -718,7 +718,7 @@ txphase_Repeat            0x00013e    0x1  Data  Gb  ram.o [1]
 txphase_end               0x000117    0x2  Data  Gb  ram.o [1]
 
 
-[1] = F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L151G4 TX Source Ver2.0.1_new_STX1231(A) set_key\Debug\Obj
+[1] = F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L151G4 TX Source Ver2.0.1_new_STX1231(A) stop_key\Debug\Obj
 [2] = command line
 [3] = dbgstm8mmd.a
 [4] = dlstm8mmn.a
