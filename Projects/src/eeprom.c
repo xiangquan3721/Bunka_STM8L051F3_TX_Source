@@ -4,64 +4,64 @@
 /*  DESCRIPTION :routine for VHF60-2011                                */
 /*  CPU TYPE    :STM8S207C8                                            */
 /*  Programmer	:Gong Dong Sheng                                       */
-/*  Mark        :STM8S207C8µÄCODE¿Õ¼äÎª64K                             */
-/*              :STM8S207C8µÄEEPROMµÄ´óÐ¡Îª1536×Ö½Ú,¼´:3Ò³,512½Ú/Ò³    */
+/*  Mark        :STM8S207C8ï¿½ï¿½CODEï¿½Õ¼ï¿½Îª64K                             */
+/*              :STM8S207C8ï¿½ï¿½EEPROMï¿½Ä´ï¿½Ð¡Îª1536ï¿½Ö½ï¿½,ï¿½ï¿½:3Ò³,512ï¿½ï¿½/Ò³    */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPUÐÍºÅ 
-#include "Pin_define.h"		// ¹Ü½Å¶¨Òå
-#include "initial.h"		// ³õÊ¼»¯  Ô¤¶¨Òå
-#include "ram.h"		// RAM¶¨Òå
-#include "eeprom.h"		// eeprom
+#include <iostm8l051f3.h> // CPUï¿½Íºï¿½
+#include "Pin_define.h"   // ï¿½Ü½Å¶ï¿½ï¿½ï¿½
+#include "initial.h"	  // ï¿½ï¿½Ê¼ï¿½ï¿½  Ô¤ï¿½ï¿½ï¿½ï¿½
+#include "ram.h"		  // RAMï¿½ï¿½ï¿½ï¿½
+#include "eeprom.h"		  // eeprom
 
 /***********************************************************************/
-/*                    FLASH & EEPROM ¼Ä´æÆ÷¼°¿ØÖÆÎ»                    */
+/*                    FLASH & EEPROM ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»                    */
 /***********************************************************************/
-#define FIRST_SECURITY_KEY        0xAE
-#define SECOND_SECURITY_KEY       0x56 
-#define ADD_EEPROM_S8             0x1000      
+#define FIRST_SECURITY_KEY 0xAE
+#define SECOND_SECURITY_KEY 0x56
+#define ADD_EEPROM_S8 0x1000
 
-///* FLASH_CR2 */ 
-//#define OPT               7   /* ¶ÔÑ¡Ïî×Ö½Ú½øÐÐÐ´²Ù×÷ */ 
-//#define WPRG              6   /* ×Ö±à³Ì */ 
-//#define ERASE             5   /* ¿é²Á³ý */ 
-//#define FPRG              4   /* ¿ìËÙ¿é±à³Ì */  
-////#define NC              3 
-////#define NC              2 
-////#define NC              1 
-//#define PRG               0   /* ±ê×¼¿é±à³Ì */ 
+///* FLASH_CR2 */
+//#define OPT               7   /* ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö½Ú½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ */
+//#define WPRG              6   /* ï¿½Ö±ï¿½ï¿½ */
+//#define ERASE             5   /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+//#define FPRG              4   /* ï¿½ï¿½ï¿½Ù¿ï¿½ï¿½ï¿½ */
+////#define NC              3
+////#define NC              2
+////#define NC              1
+//#define PRG               0   /* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ */
 //
-///* FLASH_NCR2 */ 
-//#define NOPT              7   /* ¶ÔÑ¡Ïî×Ö½Ú½øÐÐÐ´²Ù×÷ */ 
-//#define NWPRG             6   /* ×Ö±à³Ì */ 
-//#define NERASE            5   /* ¿é²Á³ý */ 
-//#define NFPRG             4   /* ¿ìËÙ¿é±à³Ì */ 
-////#define NC              3 
-////#define NC              2 
-////#define NC              1 
-//#define NPRG              0   /* ±ê×¼¿é±à³Ì */ 
+///* FLASH_NCR2 */
+//#define NOPT              7   /* ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö½Ú½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ */
+//#define NWPRG             6   /* ï¿½Ö±ï¿½ï¿½ */
+//#define NERASE            5   /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
+//#define NFPRG             4   /* ï¿½ï¿½ï¿½Ù¿ï¿½ï¿½ï¿½ */
+////#define NC              3
+////#define NC              2
+////#define NC              1
+//#define NPRG              0   /* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ */
 //
-///* FLASH_FPR */ 
-////#define NC              7 
-////#define NC              6 
-//#define WPB5              5   /* ÓÃ»§Æô¶¯´úÂë±£»¤Î» */ 
-//#define WPB4              4 
+///* FLASH_FPR */
+////#define NC              7
+////#define NC              6
+//#define WPB5              5   /* ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ë±£ï¿½ï¿½Î» */
+//#define WPB4              4
 //#define WPB3              3
 //#define WPB2              2
 //#define WPB1              1
-//#define WPB0              0 
+//#define WPB0              0
 //
-///* FLASH_NFPR */  
-////#define NC              7 
-////#define NC              6 
-//#define NWPB5             5   /* ÓÃ»§Æô¶¯´úÂë±£»¤Î» */ 
+///* FLASH_NFPR */
+////#define NC              7
+////#define NC              6
+//#define NWPB5             5   /* ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ë±£ï¿½ï¿½Î» */
 //#define NWPB4             4
 //#define NWPB3             3
 //#define NWPB2             2
 //#define NWPB1             1
-//#define NWPB0             0 
+//#define NWPB0             0
 //
-///* FLASH_PUKR */ 
-//#define MASS_PRG_KEY7     7   /* Ö÷³ÌÐò´æ´¢Æ÷½âËøÃÜÔ¿ */ 
+///* FLASH_PUKR */
+//#define MASS_PRG_KEY7     7   /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ */
 //#define MASS_PRG_KEY6     6
 //#define MASS_PRG_KEY5     5
 //#define MASS_PRG_KEY4     4
@@ -70,8 +70,8 @@
 //#define MASS_PRG_KEY1     1
 //#define MASS_PRG_KEY0     0
 //
-///* FLASH_DUKR */ 
-//#define MASS_DATA_KEY7    7   /* DATA EEPROM½âËøÃÜÔ¿ */
+///* FLASH_DUKR */
+//#define MASS_DATA_KEY7    7   /* DATA EEPROMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ */
 //#define MASS_DATA_KEY6    6
 //#define MASS_DATA_KEY5    5
 //#define MASS_DATA_KEY4    4
@@ -80,173 +80,177 @@
 //#define MASS_DATA_KEY1    1
 //#define MASS_DATA_KEY0    0
 //
-/* FLASH_IAPSR */ 
-//#define NC              7 
-#define HVOFF             6   /* ¸ßÑ¹½áÊø±êÖ¾ */ 
-//#define NC              5 
-//#define NC              4 
-#define DUL               3   /* DATA EEPROMÇøÓò½âËø±êÖ¾ */ 
-#define EOP               2   /* ±à³Ì½áÊø(Ð´»ò²Á³ý²Ù×÷)±êÖ¾ */ 
-#define PUL               1   /* ¿ìËÙ³ÌÐò´æ´¢Æ÷½áÊø±êÖ¾ */ 
-#define WR_PG_DIS         0   /* ÊÔÍ¼Ïò±»±£»¤Ò³½øÐÐÐ´²Ù×÷µÄ±êÖ¾ */ 
+/* FLASH_IAPSR */
+//#define NC              7
+#define HVOFF 6 /* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ */
+//#define NC              5
+//#define NC              4
+#define DUL 3		/* DATA EEPROMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ */
+#define EOP 2		/* ï¿½ï¿½Ì½ï¿½ï¿½ï¿½(Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½Ö¾ */
+#define PUL 1		/* ï¿½ï¿½ï¿½Ù³ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ */
+#define WR_PG_DIS 0 /* ï¿½ï¿½Í¼ï¿½ò±»±ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ö¾ */
 
-#define FLASH_CR1_RESET_VALUE   (( uchar )0x00 )
-#define FLASH_CR2_RESET_VALUE   (( uchar )0x00 )
-#define FLASH_NCR2_RESET_VALUE  (( uchar )0xFF )
-#define FLASH_IAPSR_RESET_VALUE (( uchar )0x40 )
-#define FLASH_PUKR_RESET_VALUE  (( uchar )0x00 )
-#define FLASH_DUKR_RESET_VALUE  (( uchar )0x00 )
+#define FLASH_CR1_RESET_VALUE ((uchar)0x00)
+#define FLASH_CR2_RESET_VALUE ((uchar)0x00)
+#define FLASH_NCR2_RESET_VALUE ((uchar)0xFF)
+#define FLASH_IAPSR_RESET_VALUE ((uchar)0x40)
+#define FLASH_PUKR_RESET_VALUE ((uchar)0x00)
+#define FLASH_DUKR_RESET_VALUE ((uchar)0x00)
 
-
-
-#define FLASH_PUKR_PUK          ((uchar)0xFF) /*!< Flash Program memory unprotection mask */
-#define FLASH_DUKR_DUK          ((uchar)0xFF) /*!< Data EEPROM unprotection mask */
+#define FLASH_PUKR_PUK ((uchar)0xFF) /*!< Flash Program memory unprotection mask */
+#define FLASH_DUKR_DUK ((uchar)0xFF) /*!< Data EEPROM unprotection mask */
 
 //#define UNLOCK_FLASH_TYPE       (( uchar )0x00 )
 //#define UNLOCK_EEPROM_TYPE      (( uchar )0x01 )
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-void InitialFlashReg( void ){					// ³õÊ¼»¯ÉÁ´æ¼Ä´æÆ÷×é
+void InitialFlashReg(void)
+{ // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
 	FLASH_CR1 = FLASH_CR1_RESET_VALUE;
 	FLASH_CR2 = FLASH_CR2_RESET_VALUE;
 	//FLASH_NCR2 = FLASH_NCR2_RESET_VALUE;
-	FLASH_IAPSR &= ( uchar )(~( 1 << DUL ));	// Çå³ýÖ»¶ÁDATAÇø½âËø
-	FLASH_IAPSR &= ( uchar )(~( 1 << PUL ));	// Çå³ý³ÌÐòÇø½âËø
+	FLASH_IAPSR &= (uchar)(~(1 << DUL)); // ï¿½ï¿½ï¿½Ö»ï¿½ï¿½DATAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	FLASH_IAPSR &= (uchar)(~(1 << PUL)); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 //------------------------------------------------
-//  ×¢: 2¸öÃÜÔ¿µÄ²Ù×÷ÐòÁÐÕýºÃÏà·´  
-void UnlockFlash(unsigned char Type){			// ½âËøflash
-	if( Type == UNLOCK_FLASH_TYPE){				// ½âËø³ÌÐòÇø
+//  ×¢: 2ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à·´
+void UnlockFlash(unsigned char Type)
+{ // ï¿½ï¿½ï¿½ï¿½flash
+	if (Type == UNLOCK_FLASH_TYPE)
+	{ // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		FLASH_DUKR = SECOND_SECURITY_KEY;
-		FLASH_DUKR = FIRST_SECURITY_KEY;  
+		FLASH_DUKR = FIRST_SECURITY_KEY;
 	}
-	else{										// ½âËøeeprom
+	else
+	{ // ï¿½ï¿½ï¿½ï¿½eeprom
 		FLASH_DUKR = FIRST_SECURITY_KEY;
 		FLASH_DUKR = SECOND_SECURITY_KEY;
 	}
 }
 //------------------------------------------------
-void LockFlash(unsigned char Type ){			// Ëø¶¨´æ´¢Æ÷
-	if( Type == UNLOCK_FLASH_TYPE ){
-		FLASH_IAPSR &= ~( 1 << PUL );  
+void LockFlash(unsigned char Type)
+{ // ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½
+	if (Type == UNLOCK_FLASH_TYPE)
+	{
+		FLASH_IAPSR &= ~(1 << PUL);
 	}
-	else{
-		FLASH_IAPSR &= ~( 1 << DUL );
+	else
+	{
+		FLASH_IAPSR &= ~(1 << DUL);
 	}
 }
 //------------------------------------------------
-uchar ReadByteEEPROM( ulong Addr ){				// ´ÓeepromÖÐ¶ÁÈ¡1×Ö½Ú
-	return(*(( __far uchar* ) Addr ));			// Read byte
+uchar ReadByteEEPROM(ulong Addr)
+{									 // ï¿½ï¿½eepromï¿½Ð¶ï¿½È¡1ï¿½Ö½ï¿½
+	return (*((__far uchar *)Addr)); // Read byte
 }
 //------------------------------------------------
-void WriteByteToFLASH(ulong Addr, uchar Dat){	// Ð´ÈëÒ»×Ö½Úµ½eeprom
-	*(( __far uchar * ) Addr ) = Dat;
+void WriteByteToFLASH(ulong Addr, uchar Dat)
+{ // Ð´ï¿½ï¿½Ò»ï¿½Ö½Úµï¿½eeprom
+	*((__far uchar *)Addr) = Dat;
 }
 //------------------------------------------------
-void EraseByteFLASH( uint Addr){				// ²Á³ýeepromÖÐÄÚÈÝ
-	*(( __near uchar * ) Addr) = 0x00; 
+void EraseByteFLASH(uint Addr)
+{ // ï¿½ï¿½ï¿½ï¿½eepromï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*((__near uchar *)Addr) = 0x00;
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-void eeprom_save(void){
-	unsigned char	i,eeprom_sys_buff;  
-	
-	UnlockFlash( UNLOCK_EEPROM_TYPE );
-	for (i=0;i<16;i++)
-		WriteByteToFLASH( addr_eeprom_sys+i, eeprom_sys_buff);
-	LockFlash( UNLOCK_EEPROM_TYPE );
-}  
-void eeprom_sys_load(void){
-	//unsigned char	i;  
+void eeprom_save(void)
+{
+	unsigned char i, eeprom_sys_buff;
+
+	UnlockFlash(UNLOCK_EEPROM_TYPE);
+	for (i = 0; i < 16; i++)
+		WriteByteToFLASH(addr_eeprom_sys + i, eeprom_sys_buff);
+	LockFlash(UNLOCK_EEPROM_TYPE);
+}
+void eeprom_sys_load(void)
+{
+	//unsigned char	i;
 	//for (i=0;i<0X1F;i++)
 	//	eeprom_sys_buff[i] = ReadByteEEPROM( addr_eeprom_sys+i );
 	//--------------------------------------
-  
-//    UINT16 i,j;
-//    UINT8 xm[3]={0};
-//    uni_rom_id xn;
-//    for(i=0;i<256;i++)ID_Receiver_DATA[i]=0;//ID_Receiver_DATA[ID_DATA_PCS]=0;
-//    xm[0] = ReadByteEEPROM( addr_eeprom_sys+0x3FE );
-//    xm[1] = ReadByteEEPROM( addr_eeprom_sys+0x3FF );
-//    ID_DATA_PCS=xm[0]*256+xm[1];
-//    if(ID_DATA_PCS==0xFFFF)ID_DATA_PCS=0;
-//    else if(ID_DATA_PCS>256)ID_DATA_PCS=256;
-//    for(i=0;i<ID_DATA_PCS;i++){
-//        j=3*i;
-//        xm[0] = ReadByteEEPROM( addr_eeprom_sys+j);
-//	j++;
-//        xm[1] = ReadByteEEPROM( addr_eeprom_sys+j);
-//	j++;
-//        xm[2] = ReadByteEEPROM( addr_eeprom_sys+j);	
-//        xn.IDB[0]=0;
-//        xn.IDB[1]=xm[0];
-//        xn.IDB[2]=xm[1];
-//        xn.IDB[3]=xm[2];
-//        ID_Receiver_DATA[i]=xn.IDL;
-//    }
-  
-  uni_rom_id Init_ID_data;
-  UINT8 i,j;
-  
-  rom_KeyOpt= ReadByteEEPROM( addr_eeprom_sys+0x70 );
-  if(rom_KeyOpt>1)rom_KeyOpt=0;
-  
-  
-  Init_ID_data.IDB[0] =0;  
-  Init_ID_data.IDB[1] = ReadByteEEPROM( addr_eeprom_sys+0x10 );
-  Init_ID_data.IDB[2] = ReadByteEEPROM( addr_eeprom_sys+0x11 );
-  Init_ID_data.IDB[3] = ReadByteEEPROM( addr_eeprom_sys+0x12 );  
-  if(Init_ID_data.IDL==0xFFFFFF)Init_ID_data.IDL=0;
-  ID_data.IDL=Init_ID_data.IDL;
-<<<<<<< HEAD
-  //ID_data.IDL=13291733;
-=======
-  //ID_data.IDL=0xFFFFFE;
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-  
-  for (i=0;i<4;i++)
-  {
-    j=0x20+i*4;
-    ROM_adf7012_value[i].byte[0]= ReadByteEEPROM( addr_eeprom_sys+j );
-    ROM_adf7012_value[i].byte[1]= ReadByteEEPROM( addr_eeprom_sys+j+1 );
-    ROM_adf7012_value[i].byte[2]= ReadByteEEPROM( addr_eeprom_sys+j+2 );
-    ROM_adf7012_value[i].byte[3]= ReadByteEEPROM( addr_eeprom_sys+j+3 );
-    if((ROM_adf7012_value[i].whole_reg==0)||(ROM_adf7012_value[i].whole_reg==0xFFFFFFFF))ROM_adf7012_value[i]=Default_adf7012_value[i];
-  }
-  
-} 
 
+	//    UINT16 i,j;
+	//    UINT8 xm[3]={0};
+	//    uni_rom_id xn;
+	//    for(i=0;i<256;i++)ID_Receiver_DATA[i]=0;//ID_Receiver_DATA[ID_DATA_PCS]=0;
+	//    xm[0] = ReadByteEEPROM( addr_eeprom_sys+0x3FE );
+	//    xm[1] = ReadByteEEPROM( addr_eeprom_sys+0x3FF );
+	//    ID_DATA_PCS=xm[0]*256+xm[1];
+	//    if(ID_DATA_PCS==0xFFFF)ID_DATA_PCS=0;
+	//    else if(ID_DATA_PCS>256)ID_DATA_PCS=256;
+	//    for(i=0;i<ID_DATA_PCS;i++){
+	//        j=3*i;
+	//        xm[0] = ReadByteEEPROM( addr_eeprom_sys+j);
+	//	j++;
+	//        xm[1] = ReadByteEEPROM( addr_eeprom_sys+j);
+	//	j++;
+	//        xm[2] = ReadByteEEPROM( addr_eeprom_sys+j);
+	//        xn.IDB[0]=0;
+	//        xn.IDB[1]=xm[0];
+	//        xn.IDB[2]=xm[1];
+	//        xn.IDB[3]=xm[2];
+	//        ID_Receiver_DATA[i]=xn.IDL;
+	//    }
+
+	uni_rom_id Init_ID_data;
+	UINT8 i, j;
+
+	rom_KeyOpt = ReadByteEEPROM(addr_eeprom_sys + 0x70);
+	if (rom_KeyOpt > 1)
+		rom_KeyOpt = 0;
+
+	Init_ID_data.IDB[0] = 0;
+	Init_ID_data.IDB[1] = ReadByteEEPROM(addr_eeprom_sys + 0x10);
+	Init_ID_data.IDB[2] = ReadByteEEPROM(addr_eeprom_sys + 0x11);
+	Init_ID_data.IDB[3] = ReadByteEEPROM(addr_eeprom_sys + 0x12);
+	if (Init_ID_data.IDL == 0xFFFFFF)
+		Init_ID_data.IDL = 0;
+	ID_data.IDL = Init_ID_data.IDL;
+	//ID_data.IDL=0xFFFFFE;
+
+	for (i = 0; i < 4; i++)
+	{
+		j = 0x20 + i * 4;
+		ROM_adf7012_value[i].byte[0] = ReadByteEEPROM(addr_eeprom_sys + j);
+		ROM_adf7012_value[i].byte[1] = ReadByteEEPROM(addr_eeprom_sys + j + 1);
+		ROM_adf7012_value[i].byte[2] = ReadByteEEPROM(addr_eeprom_sys + j + 2);
+		ROM_adf7012_value[i].byte[3] = ReadByteEEPROM(addr_eeprom_sys + j + 3);
+		if ((ROM_adf7012_value[i].whole_reg == 0) || (ROM_adf7012_value[i].whole_reg == 0xFFFFFFFF))
+			ROM_adf7012_value[i] = Default_adf7012_value[i];
+	}
+}
 
 void KeyOpt_EEPROM_write(void)
 {
-//    UINT8 xm[3]={0};
-//    UINT16 m1;
-//    uni_rom_id xn;
-//     ID_DATA_PCS++;
-//     xm[0]=ID_DATA_PCS%256;
-//     xm[1]=ID_DATA_PCS/256;
-//     
-//     UnlockFlash( UNLOCK_EEPROM_TYPE );
-//	WriteByteToFLASH( addr_eeprom_sys+0x3FE, xm[1]);
-//	WriteByteToFLASH( addr_eeprom_sys+0x3FF, xm[0]);
-//     LockFlash( UNLOCK_EEPROM_TYPE );
-//	
-//     ID_Receiver_DATA[ID_DATA_PCS-1]=ID_Receiver_Login;
-//     xn.IDL=ID_Receiver_Login;
-//     xm[0]=xn.IDB[1];
-//     xm[1]=xn.IDB[2];
-//     xm[2]=xn.IDB[3];
-//     m1=(ID_DATA_PCS-1)*3;
-//     UnlockFlash( UNLOCK_EEPROM_TYPE );
-//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[0]);
-//	m1++;
-//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[1]);
-//	m1++;
-//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[2]);
-//     LockFlash( UNLOCK_EEPROM_TYPE );
+	//    UINT8 xm[3]={0};
+	//    UINT16 m1;
+	//    uni_rom_id xn;
+	//     ID_DATA_PCS++;
+	//     xm[0]=ID_DATA_PCS%256;
+	//     xm[1]=ID_DATA_PCS/256;
+	//
+	//     UnlockFlash( UNLOCK_EEPROM_TYPE );
+	//	WriteByteToFLASH( addr_eeprom_sys+0x3FE, xm[1]);
+	//	WriteByteToFLASH( addr_eeprom_sys+0x3FF, xm[0]);
+	//     LockFlash( UNLOCK_EEPROM_TYPE );
+	//
+	//     ID_Receiver_DATA[ID_DATA_PCS-1]=ID_Receiver_Login;
+	//     xn.IDL=ID_Receiver_Login;
+	//     xm[0]=xn.IDB[1];
+	//     xm[1]=xn.IDB[2];
+	//     xm[2]=xn.IDB[3];
+	//     m1=(ID_DATA_PCS-1)*3;
+	//     UnlockFlash( UNLOCK_EEPROM_TYPE );
+	//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[0]);
+	//	m1++;
+	//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[1]);
+	//	m1++;
+	//	WriteByteToFLASH( addr_eeprom_sys+m1, xm[2]);
+	//     LockFlash( UNLOCK_EEPROM_TYPE );
 
-  
-     UnlockFlash( UNLOCK_EEPROM_TYPE );
-	WriteByteToFLASH( addr_eeprom_sys+0x70, rom_KeyOpt);
-     LockFlash( UNLOCK_EEPROM_TYPE );  
-  
+	UnlockFlash(UNLOCK_EEPROM_TYPE);
+	WriteByteToFLASH(addr_eeprom_sys + 0x70, rom_KeyOpt);
+	LockFlash(UNLOCK_EEPROM_TYPE);
 }

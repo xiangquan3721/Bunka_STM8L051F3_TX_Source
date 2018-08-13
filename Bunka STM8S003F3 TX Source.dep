@@ -6,469 +6,148 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Projects\inc\stm8s_conf.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_wwdg.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.pbi</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_spi.h</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8l15x_conf.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_rst.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\key.o</file>
       <file>$PROJ_DIR$\Projects\src\adf7012.c</file>
-      <file>$PROJ_DIR$\Projects\inc\eeprom.h</file>
-      <file>$PROJ_DIR$\Projects\src\main.c</file>
-      <file>$PROJ_DIR$\Projects\src\Timer.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\adf7012.pbi</file>
-      <file>$PROJ_DIR$\Projects\src\initial.c</file>
-      <file>$PROJ_DIR$\Projects\src\ad.c</file>
-      <file>$PROJ_DIR$\Projects\src\key_and_Other.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rtc.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_iwdg.h</file>
       <file>$PROJ_DIR$\Projects\src\eeprom.c</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_dac.h</file>
+      <file>$PROJ_DIR$\Projects\src\ad.c</file>
       <file>$PROJ_DIR$\Projects\src\EXIT_FUN.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.o</file>
+      <file>$PROJ_DIR$\Projects\src\initial.c</file>
+      <file>$PROJ_DIR$\Projects\src\key_and_Other.c</file>
+      <file>$PROJ_DIR$\Projects\src\main.c</file>
       <file>$PROJ_DIR$\Projects\src\ram.c</file>
       <file>$PROJ_DIR$\Projects\src\stm8l15x_it.c</file>
+      <file>$PROJ_DIR$\Projects\src\Timer.c</file>
       <file>$PROJ_DIR$\Projects\src\uart.c</file>
-<<<<<<< HEAD
-      <file>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_syscfg.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_beep.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_i2c.h</file>
-      <file>$PROJ_DIR$\Projects\inc\initial.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_flash.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_iwdg.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_uart1.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_usart.h</file>
-      <file>$PROJ_DIR$\Projects\inc\key_and_Other.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_iwdg.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_dac.h</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8s_it.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\key.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\adf7012.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_comp.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim4.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ad.pbi</file>
-      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8L051F3 TX Ver.hex</file>
-      <file>$PROJ_DIR$\Debug\Obj\adf7012.pbi</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim2.h</file>
-      <file>$PROJ_DIR$\Projects\inc\eeprom.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rtc.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rst.h</file>
-      <file>$TOOLKIT_DIR$\lib\dbgstm8ssd.a</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_irtim.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_adc.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_aes.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\Timer.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\ram.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\key.pbi</file>
-      <file>$PROJ_DIR$\Projects\inc\EXIT_FUN.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim5.h</file>
-      <file>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.pbi</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_flash.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ram.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_exti.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\initial.pbi</file>
       <file>$PROJ_DIR$\Projects\inc\stm8s_conf.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.o</file>
-      <file>$PROJ_DIR$\Projects\inc\ram.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_gpio.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_clk.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8l15x_conf.h</file>
-      <file>$PROJ_DIR$\Projects\inc\uart.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_itc.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlstm8ssn.a</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim2.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim1.h</file>
-      <file>$PROJ_DIR$\Projects\inc\adf7012.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_itc.h</file>
-      <file>$PROJ_DIR$\Projects\inc\Timer.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim1.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8_interrupt_vector.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ad.o</file>
-      <file>$PROJ_DIR$\Projects\inc\ad.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wfe.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_clk.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_adc1.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Timer.o</file>
-      <file>$PROJ_DIR$\Projects\src\stm8s_it.c</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim3.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_awu.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wwdg.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_pwr.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\initial.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_spi.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_lcd.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\eeprom.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\iostm8l051f3.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_exti.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_wwdg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.pbi</file>
       <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_rst.h</file>
       <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_spi.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_wwdg.h</file>
+      <file>$PROJ_DIR$\Projects\inc\stm8l15x_conf.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\key.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\adf7012.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
+      <file>$PROJ_DIR$\Projects\inc\eeprom.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rtc.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_iwdg.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_dac.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.o</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_uart1.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_usart.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.o</file>
+      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8L051F3 TX Ver.hex</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_clk.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_gpio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_exti.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_i2c.h</file>
+      <file>$PROJ_DIR$\Projects\inc\uart.h</file>
       <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_beep.h</file>
-      <file>$PROJ_DIR$\Debug\List\Bunka STM8S003F3 TX Source.map</file>
-      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ram.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8_interrupt_vector.pbi</file>
+      <file>$PROJ_DIR$\Projects\inc\EXIT_FUN.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_itc.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_beep.h</file>
+      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_itc.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h</file>
+      <file>$PROJ_DIR$\Projects\inc\initial.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim2.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_syscfg.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_dma.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\eeprom.o</file>
-      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8S003F3 TX Source.out</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8l15x_it.h</file>
-      <file>$PROJ_DIR$\Projects\inc\Pin_define.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</file>
-      <file>$PROJ_DIR$\Projects\src\key.c</file>
-      <file>$PROJ_DIR$\..\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\initial.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\adf7012.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Projects\inc\key_and_Other.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Projects\inc\ram.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_iwdg.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim4.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_comp.h</file>
+      <file>$PROJ_DIR$\Projects\inc\stm8s_it.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ad.pbi</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_flash.h</file>
+      <file>$TOOLKIT_DIR$\lib\dbgstm8ssd.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\initial.pbi</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_exti.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim3.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\eeprom.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ram.o</file>
+      <file>$PROJ_DIR$\Projects\inc\stm8l15x_it.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_spi.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timer.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iostm8l051f3.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_irtim.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_flash.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wwdg.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_aes.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_lcd.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_clk.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlstm8ssn.a</file>
+      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8S003F3 TX Source.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\eeprom.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\Bunka STM8S003F3 TX Source.map</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_awu.h</file>
+      <file>$PROJ_DIR$\Projects\inc\Pin_define.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_adc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\key.pbi</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_adc1.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_pwr.h</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h</file>
+      <file>$PROJ_DIR$\Projects\src\stm8s_it.c</file>
+      <file>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.o</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wfe.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim1.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ad.o</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rst.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim2.h</file>
+      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim5.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim1.h</file>
+      <file>$PROJ_DIR$\Projects\inc\ad.h</file>
+      <file>$PROJ_DIR$\Projects\inc\Timer.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timer.pbi</file>
+      <file>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</file>
+      <file>$PROJ_DIR$\Projects\inc\adf7012.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>ILINK</name>
-          <file> 108 104</file>
+          <file> 86 88</file>
         </tool>
       </outputs>
     </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\ad.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 32</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 80</file>
-=======
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_uart1.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_usart.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.o</file>
-      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8L051F3 TX Ver.hex</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_clk.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_gpio.h</file>
-      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_exti.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_i2c.h</file>
-      <file>$PROJ_DIR$\Projects\inc\uart.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_beep.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\adf7012.o</file>
-      <file>$PROJ_DIR$\Projects\src\key.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\Projects\inc\key_and_Other.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Projects\inc\ram.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_iwdg.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim4.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_comp.h</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8s_it.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ad.pbi</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_flash.h</file>
-      <file>$TOOLKIT_DIR$\lib\dbgstm8ssd.a</file>
-      <file>$PROJ_DIR$\Debug\Obj\initial.pbi</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_exti.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim3.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\eeprom.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\ram.o</file>
-      <file>$PROJ_DIR$\Projects\inc\stm8l15x_it.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_spi.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8s_it.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Timer.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8l15x_it.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\iostm8l051f3.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_irtim.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_flash.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wwdg.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_aes.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_lcd.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_clk.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlstm8ssn.a</file>
-      <file>$PROJ_DIR$\Debug\Exe\Bunka STM8S003F3 TX Source.out</file>
-      <file>$PROJ_DIR$\Debug\Obj\eeprom.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\Bunka STM8S003F3 TX Source.map</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_awu.h</file>
-      <file>$PROJ_DIR$\Projects\inc\Pin_define.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_adc.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\key.pbi</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_adc1.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_pwr.h</file>
-      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h</file>
-      <file>$PROJ_DIR$\Projects\src\stm8s_it.c</file>
-      <file>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</file>
-      <file>$PROJ_DIR$\Debug\Obj\key_and_Other.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wfe.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim1.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ad.o</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rst.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim2.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim5.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim1.h</file>
-      <file>$PROJ_DIR$\Projects\inc\ad.h</file>
-      <file>$PROJ_DIR$\Projects\inc\Timer.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Timer.pbi</file>
-      <file>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</file>
-      <file>$PROJ_DIR$\Projects\inc\adf7012.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\ram.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\stm8_interrupt_vector.pbi</file>
-      <file>$PROJ_DIR$\Projects\inc\EXIT_FUN.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_itc.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_beep.h</file>
-      <file>$TOOLKIT_DIR$\inc\iostm8s003f3.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_itc.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h</file>
-      <file>$PROJ_DIR$\Projects\inc\initial.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim2.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_syscfg.h</file>
-      <file>$PROJ_DIR$\Libraries\inc\stm8l15x_dma.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\initial.o</file>
-    </outputs>
     <file>
       <name>$PROJ_DIR$\Projects\src\adf7012.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 11</file>
+          <name>ICCSTM8</name>
+          <file> 52</file>
         </tool>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 38</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <name>BICOMP</name>
+          <file> 18</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 67 36 73 81</file>
-        </tool>
-        <tool>
           <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 67 36 73 81</file>
-=======
-          <file> 63 82 77 107 43</file>
+          <file> 76 95 90 46 56</file>
         </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\main.c</name>
-      <outputs>
         <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 96</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 107</file>
-=======
-          <file> 42</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 40</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 36</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 36</file>
-=======
-          <file> 63 82 77 107 43 95 98 101 41 8 35 94</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 95 98 101 41 8 35 94</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\Timer.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 34</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 28</file>
-=======
-          <file> 96</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 60</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62</file>
-=======
-          <file> 63 82 77 107 43</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\initial.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 55</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 23</file>
-=======
-          <file> 51</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 112</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62</file>
-=======
-          <file> 63 82 77 107 43 41</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 41</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\ad.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 58</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 93</file>
-=======
-          <file> 48</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 89</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 22</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 22</file>
-=======
-          <file> 63 82 77 107 43 35 8 98 94</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 35 8 98 94</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\key_and_Other.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 97</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 44</file>
-=======
-          <file> 58</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 86</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 73 49 22 36 67 81 75</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 73 49 22 36 67 81 75</file>
-=======
-          <file> 63 82 77 107 43 98 101 41 8 35 94 95</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 98 101 41 8 35 94 95</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 76 95 90 46 56</file>
         </tool>
       </inputs>
     </file>
@@ -476,38 +155,45 @@
       <name>$PROJ_DIR$\Projects\src\eeprom.c</name>
       <outputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 67</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 56</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 60</file>
-=======
-          <file> 74</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 54</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 87</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46 56 20</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 75 73 49 22 36 67 81</file>
+          <file> 76 95 90 46 56 20</file>
         </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Projects\src\ad.c</name>
+      <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 75 73 49 22 36 67 81</file>
-=======
-          <file> 63 82 77 107 43 8</file>
+          <file> 102</file>
         </tool>
         <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
           <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 8</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 76 95 90 46 56 35 20 111 107</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56 35 20 111 107</file>
         </tool>
       </inputs>
     </file>
@@ -515,38 +201,91 @@
       <name>$PROJ_DIR$\Projects\src\EXIT_FUN.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 47</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 54</file>
-=======
-          <file> 2</file>
-        </tool>
-        <tool>
           <name>ICCSTM8</name>
           <file> 28</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46 56</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15</file>
+          <file> 76 95 90 46 56</file>
         </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Projects\src\initial.c</name>
+      <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 98 105 110 15</file>
-=======
-          <file> 63 82 77 107 43</file>
+          <file> 51</file>
         </tool>
         <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
           <name>ICCSTM8</name>
-          <file> 63 82 77 107 43</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 76 95 90 46 56 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Projects\src\key_and_Other.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 99</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46 56 111 40 54 20 35 107 108</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56 111 40 54 20 35 107 108</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Projects\src\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 55</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46 56 108 111 40 54 20 35 107</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56 108 111 40 54 20 35 107</file>
         </tool>
       </inputs>
     </file>
@@ -554,38 +293,22 @@
       <name>$PROJ_DIR$\Projects\src\ram.c</name>
       <outputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 68</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 85</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 61</file>
-=======
-          <file> 99</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 55</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 38</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 109 42 66 41 43 13 64 29 25 106 57 16 63 14 40 74 24 95 92 38 37 94 12 77 35 88 30 50 21 82 91 65 110 15 62 75 73 49 22 67 81</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 109 42 66 41 43 13 64 29 25 106 57 16 63 14 40 74 24 95 92 38 37 94 12 77 35 88 30 50 21 82 91 65 110 15 62 75 73 49 22 67 81</file>
-=======
-          <file> 63 82 77 107</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 76 95 90 46</file>
         </tool>
       </inputs>
     </file>
@@ -593,38 +316,45 @@
       <name>$PROJ_DIR$\Projects\src\stm8l15x_it.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 45</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 86</file>
-=======
-          <file> 62</file>
-        </tool>
-        <tool>
           <name>ICCSTM8</name>
           <file> 37</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 69 83 16 91 80 42 30 59 23 49 33 62 31 34 77 41 57 81 94 103 21 70 48 101 47 66 58 105 26 100 79 32 90 46 56 108 111 40 54 35 107</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62</file>
+          <file> 69 83 16 91 80 42 30 59 23 49 33 62 31 34 77 41 57 81 94 103 21 70 48 101 47 66 58 105 26 100 79 32 90 46 56 108 111 40 54 35 107</file>
         </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Projects\src\Timer.c</name>
+      <outputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 98 105 110 15 62</file>
-=======
-          <file> 56 70 4 78 68 103 30 46 19 110 33 49 31 34 64 102 44 69 81 90 16 57 109 88 108 53 45 92 26 87 66 32 77 107 43 95 98 101 41 35 94</file>
+          <file> 73</file>
         </tool>
         <tool>
+          <name>BICOMP</name>
+          <file> 109</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
           <name>ICCSTM8</name>
-          <file> 56 70 4 78 68 103 30 46 19 110 33 49 31 34 64 102 44 69 81 90 16 57 109 88 108 53 45 92 26 87 66 32 77 107 43 95 98 101 41 35 94</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 76 95 90 46 56</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56</file>
         </tool>
       </inputs>
     </file>
@@ -632,215 +362,92 @@
       <name>$PROJ_DIR$\Projects\src\uart.c</name>
       <outputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 74</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 18</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 46</file>
-=======
-          <file> 15</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 61</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 19</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 98 105 110 15 62 67 36 73</file>
+          <name>ICCSTM8</name>
+          <file> 76 95 90 46 56 35 20 111</file>
         </tool>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 98 105 110 15 62 67 36 73</file>
+          <name>BICOMP</name>
+          <file> 76 95 90 46 56 35 20 111</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 78</file>
-        </tool>
-      </outputs>
+      <name>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</name>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 26 76 59 84 89 103 83 99 53 90 71 68 17 100 101 72 70 31 19 102 65</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 26 76 59 84 89 103 83 99 53 90 71 68 17 100 101 72 70 31 19 102 65</file>
-=======
-          <file> 63 82 77 107 43 35 8 98</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 63 82 77 107 43 35 8 98</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <name>BILINK</name>
+          <file> 13 109 61 18 87 64 71 55 38 75 19</file>
         </tool>
       </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Projects\src\stm8s_it.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 52</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 20</file>
-=======
-          <file> 79</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 6</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 26 76 59 89 103 83 99 53 90 71 68 17 100 101 72 70 31 102 65</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 26 76</file>
-=======
-          <file> 104 82 77 107 43</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 104 82 77 107 43</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>ILINK</name>
-<<<<<<< HEAD
-          <file> 104</file>
-=======
-          <file> 73 75</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
-        </tool>
-      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\Bunka STM8S003F3 TX Source.out</name>
       <outputs>
         <tool>
-          <name>OBJCOPY</name>
-<<<<<<< HEAD
-          <file> 33</file>
-=======
-          <file> 29</file>
+          <name>ILINK</name>
+          <file> 88</file>
         </tool>
         <tool>
-          <name>ILINK</name>
-          <file> 75</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <name>OBJCOPY</name>
+          <file> 29</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ILINK</name>
-<<<<<<< HEAD
-          <file> 11 23 86 80 28 107 93 44 60 54 61 46 69 39</file>
-=======
-          <file> 85 28 60 89 38 54 112 86 40 55 37 61 72 50</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 98 28 73 102 52 67 51 99 53 68 37 74 85 63</file>
         </tool>
       </inputs>
     </file>
     <file>
-<<<<<<< HEAD
-      <name>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</name>
-      <inputs>
-        <tool>
-          <name>BILINK</name>
-          <file> 55 45 32 34 96 58 97 56 47 85 18</file>
-=======
       <name>$PROJ_DIR$\Projects\src\stm8s_it.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 59</file>
+          <name>ICCSTM8</name>
+          <file> 17 24</file>
         </tool>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 21</file>
+          <name>BICOMP</name>
+          <file> 92 72</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 47 67 0 76 36 71 52 65 83 106 105 17 5 3 93 91 27 1 32</file>
+          <name>ICCSTM8</name>
+          <file> 43 95 90 46 56 60 82</file>
         </tool>
         <tool>
-          <name>ICCSTM8</name>
-          <file> 47 67</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <name>BICOMP</name>
+          <file> 43 95 90 46 56 60 82 11 89 36 84 65 78 96 45 44 22 14 15 106 104 27 12 32</file>
         </tool>
       </inputs>
     </file>
     <file>
-<<<<<<< HEAD
-      <name>$PROJ_DIR$\Projects\src\key.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 48</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 27</file>
-=======
       <name>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 100</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 39</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCSTM8</name>
+          <file> 60 82 11 93 89 36 84 65 78 96 45 44 22 14 15 106 104 27 25 12 32</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-<<<<<<< HEAD
-          <file> 79 105 110 15 62</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 79 105 110 15 62</file>
-=======
-          <file> 47 67 0 80 76 36 71 52 65 83 106 105 17 5 3 93 91 27 25 1 32</file>
-        </tool>
-        <tool>
-          <name>ICCSTM8</name>
-          <file> 47 67 0 80 76 36 71 52 65 83 106 105 17 5 3 93 91 27 25 1 32</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</name>
-      <inputs>
-        <tool>
-          <name>BILINK</name>
-          <file> 2 96 48 11 74 51 58 42 99 62 15</file>
->>>>>>> 16464238cf0172fe867bcbdb648bb702bd384ab8
+          <file> 60 82 11 93 89 36 84 65 78 96 45 44 22 14 15 106 104 27 25 12 32</file>
         </tool>
       </inputs>
     </file>
