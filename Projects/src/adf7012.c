@@ -60,9 +60,9 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
 void dd_set_ADF7021_Power_on_Init(void)
 {
   ADF70XX_REG_T register_value;
-	if (ADF7021_POWER == 1)
+	if (ADF7021_POWER == FG_NOT_allow_out)
 	{
-		ADF7021_POWER = 0;  
+		ADF7021_POWER = FG_allow_out;  
 		//ADF7021_CE=1;
 		//Delayus(65);             //delay 100us
                 Delayus(130);             //delay 200us
@@ -84,9 +84,9 @@ void dd_set_ADF7021_Power_on(void)
 //	if (ADF7021_CE == 0)
 //	{
 //		ADF7021_CE = 1;
-	if (ADF7021_POWER == 1)
+	if (ADF7021_POWER == FG_NOT_allow_out)
 	{
-		ADF7021_POWER = 0;  
+		ADF7021_POWER = FG_allow_out;  
 		//ADF7021_CE=1;
 		//Delayus(65);             //delay 100us
                 Delayus(130);             //delay 200us

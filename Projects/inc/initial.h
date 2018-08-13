@@ -24,6 +24,9 @@
 // 方向控制寄存器1（1=输出／0=输入）
 #define Input				0
 #define Output				1
+
+#define FG_allow_out			0
+#define FG_NOT_allow_out		1
 /*******************系统预定义  end**********************/
 //说明  byte【0】----->高字节
 //      。。。。。。。。。

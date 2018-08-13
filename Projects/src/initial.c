@@ -96,7 +96,7 @@ void VHF_GPIO_INIT(void)   // CPU∂Àø⁄…Ë÷√
   
   ADF7021_POWER_direc = Output;
   ADF7021_POWER_CR1 = 1; 
-  ADF7021_POWER=1;
+  ADF7021_POWER=FG_NOT_allow_out;
   //ADF7021_CE_direc = Output;
   //ADF7021_CE_CR1 = 1; 
   //ADF7021_CE=0;

@@ -1305,7 +1305,7 @@ void test_mode_control(void)
    if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0)){
     FG_KEY_STOP=1;
     //ADF7021_CE = 0;
-    ADF7021_POWER=1;
+    ADF7021_POWER=FG_NOT_allow_out;
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
   }
