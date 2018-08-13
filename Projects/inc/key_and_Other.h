@@ -35,7 +35,7 @@ void	_SetRegistrationMode( uchar mode );
 uchar	_GetRegMode( void );
 void	_IdClear( void );
 void	_RegistrationMode( void );
-UINT32 atol (unsigned char* m_RegID_x);
+UINT32 atol_a (unsigned char* m_RegID_x);
 void	_FuncStopReg( void );
 void	_Pass3secKey( uchar req );
 

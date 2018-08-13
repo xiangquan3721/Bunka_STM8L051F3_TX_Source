@@ -17,17 +17,17 @@
         <debug>1</debug>
         <option>
           <name>GenDeviceSelectMenu</name>
-          <state>STM8L051F3	STM8L051F3</state>
+          <state>STM8L151G4	STM8L151G4</state>
         </option>
         <option>
           <name>GenCodeModel</name>
           <version>0</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GenDataModel</name>
           <version>0</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GOutputBinary</name>
@@ -582,7 +582,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</state>
+          <state>$TOOLKIT_DIR$\config\lnkstm8l151g4.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>

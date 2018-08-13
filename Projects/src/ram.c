@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+//#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151g4.h>				// CPU型号
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 
@@ -131,5 +132,14 @@ UINT16 TIME_10s=0;   //2015.1.31修正3
 UINT16 key_Value=0;   //2015.1.31修正3
 
 UINT8 TIME_2s_RestTX=0;  //2015.4.13修正
+
+
+
+UINT16 TIME_AUTO_TX;
+UINT8 FLAG_AUTO_TX;
+UINT8 FLAG_AUTO_TX_stop;
+UINT16 rand_data;
+
+
 
 

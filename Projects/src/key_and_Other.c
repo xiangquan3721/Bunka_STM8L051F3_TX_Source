@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+//#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151g4.h>				// CPU型号
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -78,6 +79,7 @@ void time_control(void)
 {
   if(FG_100ms){
     FG_100ms=0; 
+    if(TIME_AUTO_TX)--TIME_AUTO_TX;
     if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13修正    
     if(FG_PWRON==1){
     if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
@@ -107,12 +109,51 @@ void time_control(void)
 //		|+++++++ Open
 //		++++++++ 1
 //
+//const	uchar	ct_KeyDataTable[]
+//={ 
+//	/*	Reg. (0)	*/
+//0xFB,//	0b11111011,
+////	/*	Open (1)	*/
+//0xBF,//	0b10111111,
+////	/*	Stop (2)	*/
+//0xDF,//	0b11011111,
+////	/*	Close (3)	*/
+//0xEF,//	0b11101111,
+////	/*	Vent. (4)	*/
+//0xF7,//	0b11110111,
+////	/*	Open + Stop (5)	*/
+//0x9F,//	0b10011111,
+////	/*	Open + Close (6)	*/
+//0xAF,//	0b10101111,
+////	/*	Open + Vent. (7)	*/
+//0xB7,//	0b10110111,
+////	/*	Open + Reg. (8)	*/
+//0xBB,//	0b10111011,
+////	/*	Stop + Close (9)	*/
+//0xCF,//	0b11001111,
+////	/*	Stop + Reg. (10)	*/
+//0xDB,//	0b11011011,
+////	/*	Close + Reg. (11)	*/
+//0xEB,//	0b11101011,
+////	/*	Close + Vent. (12)	*/
+//0xE7,//	0b11100111,
+////	/*	Vent. + Reg. (13)	*/
+//0xF3,//	0b11110011,
+////	/*	Auto Tx start (14)	*/
+//0xFD,//	0b11111101,
+////	/*	Auto Tx stop (15)	*/
+//0xFE,//	0b11111110,
+////	/*	No push (16)	*/
+//0xFF,//	0b11111111,
+//} ;
+
+
 const	uchar	ct_KeyDataTable[]
 ={ 
 	/*	Reg. (0)	*/
 0xFB,//	0b11111011,
-//	/*	Open (1)	*/
-0xBF,//	0b10111111,
+//	/*	Stop + Reg. (10)	*/
+0xDB,//	0b11011011,
 //	/*	Stop (2)	*/
 0xDF,//	0b11011111,
 //	/*	Close (3)	*/
@@ -129,8 +170,8 @@ const	uchar	ct_KeyDataTable[]
 0xBB,//	0b10111011,
 //	/*	Stop + Close (9)	*/
 0xCF,//	0b11001111,
-//	/*	Stop + Reg. (10)	*/
-0xDB,//	0b11011011,
+//	/*	Open (1)	*/
+0xBF,//	0b10111111,
 //	/*	Close + Reg. (11)	*/
 0xEB,//	0b11101011,
 //	/*	Close + Vent. (12)	*/
@@ -144,6 +185,7 @@ const	uchar	ct_KeyDataTable[]
 //	/*	No push (16)	*/
 0xFF,//	0b11111111,
 } ;
+
 
 //
 void	_KeyInTx( void )
@@ -162,8 +204,8 @@ void	_KeyInTx( void )
 	/*	Auto Tx Stop sw		*/
 	_SwIn( PIN_KEY_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
-	_SwIn( PIN_KEY_VENT ) ;	
-	//_SwIn( 1 ) ;
+	//_SwIn( PIN_KEY_VENT ) ;	
+	_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
 	_SwIn( PIN_KEY_LOGIN ) ;	
 	/*	Auto Tx Auto Tx Start sw		*/
@@ -248,7 +290,9 @@ void	_KeyInTx( void )
 			else return ;								// No
 		}
 	}
-	
+
+//       if(i<16)
+//         FLAG_AUTO_TX_stop=1;
 	switch	( i )    // Jumo to key function
 	{
 		case 0 :
@@ -407,7 +451,9 @@ void	_Pass3secKey( uchar req )
 	if	( m_TimerKey )								// 3sec passed ?
 	{
 		if	( !--m_TimerKey )
-		{											// Yes
+		{				
+                  // Yes
+                        FLAG_AUTO_TX_stop=1;
 			_ReqTxdEdit( req,0 ) ;
                         FG_Complex_Single_shot=1;   //2015.1.31修正2
 			return ;
@@ -738,6 +784,9 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		case 12 :              //Close + Vent.
 		       Control_code=0x03;
 		        break ;	
+                case 14 :              //auto tx.
+		       Control_code=0x40;
+		        break ;	        
 	}
   	switch	( buzreq )    // Jumo to key function
 	{
@@ -1166,7 +1215,7 @@ void	_RegistrationMode( void )
 
 			//_SetRegModeIdle() ;
 			//m_RegMode = d_Idle ;
-			ID_data_add.IDL = (ulong)atol(m_RegID) ;
+			ID_data_add.IDL = (ulong)atol_a(m_RegID) ;
 /*		Modified on 2007/5/28		*/
 //			if	( m_RFID.ID > 16777215 )			// Over ?
 			if	( ID_data_add.IDL > 16777214 )			// Over ?
@@ -1188,7 +1237,7 @@ void	_RegistrationMode( void )
 
 
 
-UINT32 atol (unsigned char* m_RegID_x)
+UINT32 atol_a (unsigned char* m_RegID_x)
 {
   UINT8 i,j;
   UINT32 m_ID=0;

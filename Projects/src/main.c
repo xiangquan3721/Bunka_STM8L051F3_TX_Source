@@ -21,7 +21,8 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include  <iostm8l051f3.h>				// CPU型号 
+//#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151g4.h>				// CPU型号
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -32,6 +33,8 @@
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
 #include "ad.h"		        // AD
+#include "stdlib.h" 
+#include "time.h" 
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -60,30 +63,46 @@ void main(void)
   _EI();		// 允许中断	
   //beep_init();  //2015.3.11修正
 
-
+  srand((unsigned int) time(NULL));
   /* Infinite loop */
   while (1)
   {     
         ClearWDT(); // Service the WDT
+        
+        if((TIME_AUTO_TX==0)&&(FLAG_AUTO_TX_stop==0)){
+            TB_5s=TB_51s;
+            if(FLAG_AUTO_TX==0){
+              FLAG_AUTO_TX=1;
+              TIME_AUTO_TX=23+(ID_data.IDB[3]%10)*2;
+            }
+            else {
+              rand_data=rand();
+              TIME_AUTO_TX=20+rand_data%22;
+            }
+            _ReqTxdEdit(14,14);
+        }
+        else if(TB_5s==0)TB_5s=TB_51s;
+        if(FLAG_AUTO_TX_stop==0)PIN_TX_LED=1;
+		
 	key_check();
 	time_control();
 	AD_control();
         
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
-        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0)){  //2015.4.13修正
-	  FG_PWRON=0;
-	  PIN_POWER_CONTROL=0;
-          FG_10s=1;    // 2015.1.31修正3
-          /********************2015.1.31修正2************************/
-	  while(1){   
-            if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT 
-            else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
-              key_check();
-              ClearWDT(); // Service the WDT 
-            }     
-          }
-          /*********************************************************/
-	}
+//        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0)){  //2015.4.13修正
+//	  FG_PWRON=0;
+//	  PIN_POWER_CONTROL=0;
+//          FG_10s=1;    // 2015.1.31修正3
+//          /********************2015.1.31修正2************************/
+//	  while(1){   
+//            if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT 
+//            else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
+//              key_check();
+//              ClearWDT(); // Service the WDT 
+//            }     
+//          }
+//          /*********************************************************/
+//	}
 		
  }
   

@@ -31,8 +31,8 @@
 #define	PIN_UART_TX		PC_ODR_ODR5     // Output  uart TX
 
 //#define PIN_LED                 PD_ODR_ODR0     // Output   LEDµÆ
-#define PIN_LED                 PC_ODR_ODR4     // Output   LEDµÆ
-#define PIN_TX_LED              PC_ODR_ODR4     // Output   LEDµÆ
+#define PIN_LED                 PD_ODR_ODR4     // Output   LEDµÆ
+#define PIN_TX_LED              PD_ODR_ODR4     // Output   LEDµÆ
 
 //#define PIN_BEEP                PB_ODR_ODR5     // Output   ·äÃùÆ÷
 #define PIN_BEEP                PD_ODR_ODR0     // Output   ·äÃùÆ÷     //2015.3.11ÐÞÕý
@@ -65,7 +65,7 @@
 #define	PIN_UART_TX_direc	PC_DDR_DDR5     // Output  uart TX
 
 //#define PIN_LED_direc          PD_DDR_DDR0     // Output   LEDµÆ
-#define PIN_LED_direc           PC_DDR_DDR4     // Output   LEDµÆ
+#define PIN_LED_direc           PD_DDR_DDR4     // Output   LEDµÆ
 
 #define PIN_BEEP_direc          PD_DDR_DDR0     // Output   ·äÃùÆ÷   //2015.3.11ÐÞÕý
 //#define PIN_BEEP_direc          PB_DDR_DDR5     // Output   ·äÃùÆ÷
@@ -98,7 +98,7 @@
 #define	PIN_UART_TX_CR1		PC_CR1_C15     // Output  uart TX
 
 //#define PIN_LED_CR1           PD_CR1_C10     // Output   LEDµÆ
-#define PIN_LED_CR1             PC_CR1_C14     // Output   LEDµÆ
+#define PIN_LED_CR1             PD_CR1_C14     // Output   LEDµÆ
 
 #define PIN_BEEP_CR1            PD_CR1_C10     // Output   ·äÃùÆ÷   //2015.3.11ÐÞÕý
 //#define PIN_BEEP_CR1           PB_CR1_C15     // Output   ·äÃùÆ÷
