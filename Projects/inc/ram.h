@@ -107,9 +107,9 @@ extern volatile union{
 	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
 	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
 	#define 	BIT_SIO		        RAM_SW.BIT.Bit4	//
-//	#define 	FG_PWRON		RAM_SW.BIT.Bit5	//
+	#define 	FG_10s        		RAM_SW.BIT.Bit5	// 2015.1.31修正3
 	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
-//	#define 	FG_BAT_value	        RAM_SW.BIT.Bit7	//
+	#define 	FG_Complex_Single_shot	RAM_SW.BIT.Bit7	//2015.1.31修正2
 	//************************************************
 
 
@@ -205,7 +205,7 @@ extern const ADF70XX_REG_T Default_adf7012_value[4];
 extern UINT8 m_KeyNew;
 extern UINT8 m_KindOfKey;
 extern UINT8 m_KeyOld;
-extern UINT8 m_ChatterCount;
+extern UINT16 m_ChatterCount;
 extern UINT16 m_TimerKey;
 extern UINT8 m_KeyNo;
 extern UINT8 m_KeyOptSetMode;
@@ -229,3 +229,7 @@ extern UINT16 RAM_BAT_AVG;
 extern UINT8 RAM_BAT_CNT;
 extern UINT8 BAT_out;
 extern UINT32 BAT_Voltage_value;
+
+extern UINT16 TIME_Once_twice_switch;   //2015.1.31修正4
+extern UINT16 TIME_10s;   //2015.1.31修正3
+extern UINT16 key_Value;   //2015.1.31修正3

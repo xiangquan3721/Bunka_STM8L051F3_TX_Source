@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Bunka"
+   Caption         =   "Bunka Ver2.1 £¨ID ranges£º1¡«16777213£©"
    ClientHeight    =   7725
    ClientLeft      =   45
    ClientTop       =   435
@@ -1878,16 +1878,16 @@ Begin VB.Form Form1
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   1200
+         Left            =   840
          MaxLength       =   8
          TabIndex        =   2
          Text            =   "00000000"
          Top             =   1440
-         Width           =   3495
+         Width           =   4335
       End
       Begin VB.Image Image1 
          Height          =   735
-         Left            =   4800
+         Left            =   5400
          Top             =   1560
          Width           =   735
       End
@@ -1903,7 +1903,7 @@ Begin VB.Form Form1
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   360
+         Left            =   120
          TabIndex        =   1
          Top             =   1440
          Width           =   1335
@@ -2209,9 +2209,9 @@ Command2.Enabled = True
 Exit Sub
 End If
 
-If Val(Text1.Text) > 16777214 Then
+If Val(Text1.Text) > 16777213 Then
 
-MsgBox "ID>16777214", vbInformation, "Error"
+MsgBox "ID>16777213", vbInformation, "Error"
 Command2.Enabled = True
 Exit Sub
 End If
@@ -2705,18 +2705,18 @@ TextR(15).Text = "0000000F"
 
 
 '---------------------------to fty
-'Frame4.Enabled = False
-'Frame6.Enabled = False
-' For i0 = 0 To 3
-'   Label9(i0).ForeColor = &H80000010
-'   Text4(i0).Enabled = False
-'   Command5(i0).Enabled = False
-' Next
-'  For i0 = 0 To 15
-'   Label10(i0).ForeColor = &H80000010
-'   TextR(i0).Enabled = False
-'   CommandR(i0).Enabled = False
-' Next
+Frame4.Enabled = False
+Frame6.Enabled = False
+ For i0 = 0 To 3
+   Label9(i0).ForeColor = &H80000010
+   Text4(i0).Enabled = False
+   Command5(i0).Enabled = False
+ Next
+  For i0 = 0 To 15
+   Label10(i0).ForeColor = &H80000010
+   TextR(i0).Enabled = False
+   CommandR(i0).Enabled = False
+ Next
 
 End Sub
 

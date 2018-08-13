@@ -101,7 +101,7 @@ const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x
 UINT8 m_KeyNew;
 UINT8 m_KindOfKey;
 UINT8 m_KeyOld;
-UINT8 m_ChatterCount;
+UINT16 m_ChatterCount;
 UINT16 m_TimerKey;
 UINT8 m_KeyNo;
 UINT8 m_KeyOptSetMode;
@@ -125,4 +125,8 @@ UINT16 RAM_BAT_AVG=0;
 UINT8 RAM_BAT_CNT=0;
 UINT8 BAT_out=0;
 UINT32 BAT_Voltage_value=0;
+
+UINT16 TIME_Once_twice_switch=0;   //2015.1.31ÐÞÕý4
+UINT16 TIME_10s=0;   //2015.1.31ÐÞÕý3
+UINT16 key_Value=0;   //2015.1.31ÐÞÕý3
 

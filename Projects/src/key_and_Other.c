@@ -59,11 +59,12 @@ void key_check(void)
                         if(FG_LED_on)PIN_LED=1;
                        }      
     }
-    else  FG_LED_on=0;   
+    else  FG_LED_on=0; 
     
 //    if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
 //    else {ADC_read();FG_BAT_value=0;}
     _KeyInTx();
+    if(FG_10s==1)return;   // 2015.1.31修正3
     _RegistrationMode();
     _DupliFuncSetMode();
     ADC2_EOC_INT();
@@ -174,6 +175,8 @@ void	_KeyInTx( void )
 		m_KeyOld = m_KeyNew ;
 		_SetKeyChatterCount() ;						// Chatter counter set
 		_ClearSpecialMultiKeyState() ;				// Clear key continue state
+                TIME_Once_twice_switch=5000;   //2015.1.31修正4
+                TIME_10s=10100;  //2015.1.31修正3
 		return ;
 	}
 	
@@ -191,13 +194,21 @@ void	_KeyInTx( void )
 //			_ReqBuzzer(d_BuzBattLow) ;				// Request
 //		}
 	    //if(BAT_value>1000){
+           if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31修正4
+           if(TIME_10s)--TIME_10s;    //2015.1.31修正3
 	   dd_set_ADF7021_Power_on_Init();
 	   //if((ADF7021_MUXOUT)||(FG_BAT)){
-           if((BAT_out==1)||(FG_BAT)){
+           if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31修正3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
-			BASE_TIME_BEEP_on=40;
-                        BASE_TIME_BEEP_off=60;
+			if(TIME_10s==0){      //2015.1.31修正3
+                           BASE_TIME_BEEP_on=103;
+                           BASE_TIME_BEEP_off=103;
+                        }
+                        else {
+                           BASE_TIME_BEEP_on=40;
+                           BASE_TIME_BEEP_off=60;
+                        }
                         TIME_BEEP_on=BASE_TIME_BEEP_on;
                         TIME_BEEP_off=BASE_TIME_BEEP_off;
                         TIME_BEEP_freq=2;	
@@ -205,7 +216,7 @@ void	_KeyInTx( void )
 	      else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
 	    }
 	}
-	
+	        
 	/*		Search of valid key		*/
 	for	( i=0; i<17;i++)
 	{
@@ -215,6 +226,9 @@ void	_KeyInTx( void )
 			break ;									// Yes
 		}
 	}
+        key_Value=i;   // 2015.1.31修正3
+        if(FG_10s==1)return;   // 2015.1.31修正3
+        
 	if	( i == 17)			// Found ?
 	{												// No
 		mb_NoPush = d_Clear ;						// No push clear(Push on)
@@ -242,7 +256,7 @@ void	_KeyInTx( void )
 		case 2 :  
 		case 3 : 
 		case 4 :   
-		        _FuncStop();
+		        if(FLAG_APP_TX==0)_FuncStop();   //2015.1.31修正4
 			break ;	
 		case 5 :  
 		case 6 :  
@@ -393,6 +407,7 @@ void	_Pass3secKey( uchar req )
 		if	( !--m_TimerKey )
 		{											// Yes
 			_ReqTxdEdit( req,0 ) ;
+                        FG_Complex_Single_shot=1;   //2015.1.31修正2
 			return ;
 		}
 	}
@@ -453,7 +468,7 @@ void	_FuncStop( void )
 	{												// No
 		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
 		{											// Yes
-			if	(( !m_TimerKey )&&(FG_BAT==0))						// 5sec passed ?
+			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31修正4	  // 5sec passed ?
 			{
 //				if	( !--m_TimerKey )
 //				{									// Yes
@@ -515,7 +530,12 @@ void	_FuncStop( void )
 			m_TimerKey = d_Time5s ;//d_Time9s ;					// Set 5sec key timer
 			break;
 	}
+        
+          /********2015.1.31追加  按一次模式********/
 	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
+        
+//          /********2015.1.31追加  按2次模式********/
+//	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
 	{												// Yes
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;

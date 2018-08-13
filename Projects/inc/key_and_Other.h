@@ -13,7 +13,6 @@ void time_control(void);
 void test_mode_control(void);
 
 
-
 void	_SwIn( uchar sw );
 void	_FuncReg( void );
 void	_FuncStop( void );
