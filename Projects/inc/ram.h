@@ -177,6 +177,23 @@ extern const ADF70XX_REG_T Default_adf7012_value[4];
 #define		d_RegKey		5
 #define		d_ReqStopReg            10
 
+#define		d_ReqIdle		0
+#define		d_ReqOpen		1
+#define		d_ReqStop		2
+#define		d_ReqClose		3
+#define		d_ReqVent		4
+#define		d_ReqOpenStop	5
+#define		d_ReqOpenClose	6
+#define		d_ReqOpenVent	7
+#define		d_ReqOpenReg	8
+#define		d_ReqStopClose	9
+#define		d_ReqStopReg 	10
+#define		d_ReqCloseReg	11
+#define		d_ReqCloseVent	12
+#define		d_ReqVentReg    13
+#define		d_ReqAutoTxStart 14
+#define		d_ReqAutoTxStop	15
+
 
 
 #define _LedOnOff( d_LedOff )   PIN_LED=0;

@@ -121,6 +121,9 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   PIN_KEY_CLOSE_direc = Input;   // 输入  CLOSE键
   PIN_KEY_CLOSE_CR1 = 1;
   
+  PIN_KEY_VENT_direc = Input;   // 输入  换气键
+  PIN_KEY_VENT_CR1 = 1;
+  
   PIN_KEY_LOGIN_direc = Input;   // 输入  LOGIN键
   PIN_KEY_LOGIN_CR1 = 1;
 

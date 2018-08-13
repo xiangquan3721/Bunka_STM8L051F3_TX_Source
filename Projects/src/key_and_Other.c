@@ -158,7 +158,8 @@ void	_KeyInTx( void )
 	/*	Auto Tx Stop sw		*/
 	_SwIn( PIN_KEY_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
-	_SwIn( 1 ) ;	
+	_SwIn( PIN_KEY_VENT ) ;	
+	//_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
 	_SwIn( PIN_KEY_LOGIN ) ;	
 	/*	Auto Tx Auto Tx Start sw		*/
@@ -224,7 +225,8 @@ void	_KeyInTx( void )
 	{												// Yes
 		if	( m_KeyNew != d_KeyNoPush )		// Is key data no push ?
 		{
-			return ;								// No
+                        if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));    //解决复数输出，按键未松一直发送 
+			else return ;								// No
 		}
 	}
 	
@@ -268,6 +270,95 @@ void	_KeyInTx( void )
 		        _FuncNoPush();
 			break ;
 	}
+}
+/*----------------------------------*/
+/*									*/
+/*		Open + Stop(5) function		*/
+/*		Open + Close(6) function	*/
+/*		Open + Vent.(7) function	*/
+/*		Stop + Close(9) function	*/
+/*		Close + Vent.(12) function	*/
+/*									*/
+/*----------------------------------*/
+//
+void	_FuncOpenStop( void )
+{
+	_DupliFuncClear() ;								// Duplicate key function clear
+	m_KindOfKey = d_Idle ;
+	_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+	_ClearSpecialMultiKeyState() ;					// Special multi key status clear
+	mb_NoPush = d_Clear ;
+	mb_NoPushWait = d_On ;
+}
+/*----------------------------------*/
+/*									*/
+/*		Open + Reg. function		*/
+/*									*/
+/*----------------------------------*/
+//
+void	_FuncOpenReg( void )
+{
+	_DupliFuncClear() ;								// Duplicate key function clear
+	mb_NoPush = d_Clear ;
+	if	( !mb_RegOpenSw )							// Continue push ?
+	{												// No
+		mb_RegOpenSw = d_On ;
+		m_TimerKey = d_Time3s ;	// Set 3sec key timer
+		if(FG_PWRON==0){
+	           FG_PWRON=1;
+	           PIN_POWER_CONTROL=1;
+	           TB_5s=60;  //5.1秒
+                }
+		return ;
+	}
+	
+	_Pass3secKey( d_ReqOpenReg ) ;
+}
+/*----------------------------------*/
+/*									*/
+/*		Close + Reg. function		*/
+/*									*/
+/*----------------------------------*/
+//
+void	_FuncCloseReg( void )
+{
+	_DupliFuncClear() ;								// Duplicate key function clear
+	if	( !mb_RegCloseSw )							// Continue push ?
+	{												// No
+		mb_RegCloseSw = d_On ;
+		m_TimerKey = d_Time3s ;						// Set 3sec key timer
+		if(FG_PWRON==0){
+	           FG_PWRON=1;
+	           PIN_POWER_CONTROL=1;
+	           TB_5s=60;  //5.1秒
+                }
+		return ;
+	}
+	
+	_Pass3secKey( d_ReqCloseReg ) ;
+}
+/*----------------------------------*/
+/*									*/
+/*		Vent. + Reg. function		*/
+/*									*/
+/*----------------------------------*/
+//
+void	_FuncVentReg( void )
+{
+	_DupliFuncClear() ;								// Duplicate key function clear
+	if	( !mb_RegVentSw )							// Continue push ?
+	{												// No
+		mb_RegVentSw = d_On ;
+		m_TimerKey = d_Time3s ;						// Set 3sec key timer
+		if(FG_PWRON==0){
+	           FG_PWRON=1;
+	           PIN_POWER_CONTROL=1;
+	           TB_5s=60;  //5.1秒
+                }
+		return ;
+	}
+	
+	_Pass3secKey( d_ReqVentReg ) ;
 }
 /*----------------------------------*/
 /*									*/
@@ -487,22 +578,7 @@ void	_FuncStop( void )
 					
 	}  
 }
-void	_FuncOpenStop( void )
-{
-  
-}
-void	_FuncOpenReg( void )
-{
-  
-}
-void	_FuncCloseReg( void )
-{
-  
-}
-void	_FuncVentReg( void )
-{
-  
-}
+
 void	_FuncAutoTxStart( void )
 {
   
@@ -608,17 +684,35 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
   	switch	( txreq )    // Jumo to key function
 	{
 		case 1 :
-		        Control_code=0x08;
+		        Control_code=0x08;     //open
 			break ;
 		case 2 :	
-		        Control_code=0x04;
+		        Control_code=0x04;    //stop
 			break ;
 		case 3 :	
-		        Control_code=0x02;
+		        Control_code=0x02;    //close
 			break ;
-		case 10 :	
+		case 4 :	
+		        Control_code=0x01;    //vnet 换气
+			break ;
+		case 10 :	              //Stop + Reg
 		        Control_code=0x14;
-			break ;			
+			break ;	
+		case 5 :                      //Open + Stop    
+		        Control_code=0x0C;
+		        break ;	
+		case 6 :                   //Open + Close
+		       Control_code=0x0A;
+		        break ;	
+		case 7 :                   //Open + Vent
+		       Control_code=0x09;
+		        break ;	
+		case 9 :                //Stop + Close
+		       Control_code=0x06;
+		        break ;	
+		case 12 :              //Close + Vent.
+		       Control_code=0x03;
+		        break ;	
 	}
   	switch	( buzreq )    // Jumo to key function
 	{
@@ -640,6 +734,9 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 //                        BASE_TIME_BEEP_off=103;
 //			TIME_BEEP_freq=2;
 			break ;
+		case 4 :	
+		      _ReqBuzzer(500,1,0);
+		      break ;
 		case 20 :	
 		       _ReqBuzzer(1000,1,0);
 //			BASE_TIME_BEEP_on=1000;
