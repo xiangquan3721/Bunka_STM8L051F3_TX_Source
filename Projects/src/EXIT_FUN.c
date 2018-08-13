@@ -42,7 +42,7 @@ void EXTI_PORTA1(void){
         txphase=0;
         txphase_Repeat++;
         //if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_CE=0;ADF7021_POWER=1;}
-	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=1;}
+	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=1;ADF7021_DATA_tx=0;}
     }    
   }
   EXTI_SR1_bit.P4F=1;

@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-149571550
+Checksum=-1148670327
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -56,13 +56,13 @@ Placement=_ 742 386 1179 664
 [watch_formats]
 Fmt0={W}0:TB_5s	3	0
 Fmt1={W}0:TIME_KEY_LOGIN	3	0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
 Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
 Count=0
 [Aliases]

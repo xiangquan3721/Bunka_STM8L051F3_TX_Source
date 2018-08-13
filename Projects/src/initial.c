@@ -28,7 +28,7 @@ void WDT_init(void)
 {
   IWDG_KR=0x55;
   IWDG_PR=3;
-  IWDG_PR=0xFF;
+  IWDG_RLR=0xFF;
   IWDG_KR=0xCC;
 }
 void ClearWDT(void)
@@ -145,7 +145,6 @@ void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
   TB_5s=50;
-  ID_data.IDL=13227479;
   
   
   	/*		Timer		*/

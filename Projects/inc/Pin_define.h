@@ -27,6 +27,7 @@
 //#define	PIN_KEY_CLOSE		PD_IDR_IDR4     //  ‰»Î  CLOSEº¸
 //#define	PIN_KEY_LOGIN		PB_IDR_IDR7     //  ‰»Î  LOGINº¸
 #define	PIN_KEY_LOGIN		PC_IDR_IDR6     //  ‰»Î  LOGINº¸
+#define	PIN_UART_TX		PC_ODR_ODR5     // Output  uart TX
 
 //#define PIN_LED                 PD_ODR_ODR0     // Output   LEDµ∆
 #define PIN_LED                 PC_ODR_ODR4     // Output   LEDµ∆
@@ -59,6 +60,7 @@
 //#define	PIN_KEY_CLOSE_direc	PD_DDR_DDR4     //  ‰»Î  CLOSEº¸
 //#define	PIN_KEY_LOGIN_direc	PB_DDR_DDR7     //  ‰»Î  LOGINº¸
 #define	PIN_KEY_LOGIN_direc	PC_DDR_DDR6     //  ‰»Î  LOGINº¸
+#define	PIN_UART_TX_direc	PC_DDR_DDR5     // Output  uart TX
 
 //#define PIN_LED_direc          PD_DDR_DDR0     // Output   LEDµ∆
 #define PIN_LED_direc           PC_DDR_DDR4     // Output   LEDµ∆
@@ -90,6 +92,7 @@
 //#define	PIN_KEY_CLOSE_CR1	PD_CR1_C14     //  ‰»Î  CLOSEº¸
 //#define	PIN_KEY_LOGIN_CR1	PB_CR1_C17     //  ‰»Î  LOGINº¸
 #define	PIN_KEY_LOGIN_CR1	PC_CR1_C16     //  ‰»Î  LOGINº¸
+#define	PIN_UART_TX_CR1		PC_CR1_C15     // Output  uart TX
 
 //#define PIN_LED_CR1           PD_CR1_C10     // Output   LEDµ∆
 #define PIN_LED_CR1             PC_CR1_C14     // Output   LEDµ∆

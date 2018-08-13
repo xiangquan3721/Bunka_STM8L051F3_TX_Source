@@ -1230,11 +1230,9 @@ void test_mode_control(void)
   if(ADF7021_DATA_CLK==0)FG_test1=0;	 
   
  
-  
-  
-  
-  
+  PC_PRG();	       // PC¿ØÖÆ  
  }  
+  UART1_end();
   PIN_POWER_CONTROL=0;
   PIN_TX_LED=0;
   FG_KEY_OPEN=0;

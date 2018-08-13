@@ -106,7 +106,7 @@ extern volatile union{
 	#define 	mb_StopSw		RAM_SW.BIT.Bit1	//
 	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
 	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
-//	#define 	sm_WriteCommand		RAM_SW.BIT.Bit4	//
+	#define 	BIT_SIO		        RAM_SW.BIT.Bit4	//
 //	#define 	FG_PWRON		RAM_SW.BIT.Bit5	//
 	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
 //	#define 	FG_BAT_value	        RAM_SW.BIT.Bit7	//
@@ -136,10 +136,13 @@ extern UINT8 TIME_BEEP_freq;
 extern UINT8 TB_976us;
 extern UINT8 TB_100ms;
 extern UINT8 TB_5s;
-extern UINT8 TIME_KEY_OPEN;
-extern UINT16 TIME_KEY_STOP;
-extern UINT8 TIME_KEY_CLOSE;
-extern UINT16 TIME_KEY_LOGIN;
+
+
+extern UINT8 SIO_cnt;
+extern UINT8 SIO_buff[16];
+extern UINT8 SIO_DATA[16];
+extern ADF70XX_REG_T ROM_adf7012_value[4];
+extern const ADF70XX_REG_T Default_adf7012_value[4];
 //extern UINT16 BAT_value;
 
 

@@ -50,14 +50,16 @@ void main(void)
   eeprom_sys_load();
   _Init_RAM();
   TIM4_Init();
-  _EI();		// 允许中断	
-  beep_init();
-  while(PIN_test_mode==0){
+    while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
     UART1_INIT();
+    _EI();    
     test_mode_control();
-  }
+    }
+  _EI();		// 允许中断	
+  beep_init();
+
   /* Infinite loop */
   while (1)
   {     

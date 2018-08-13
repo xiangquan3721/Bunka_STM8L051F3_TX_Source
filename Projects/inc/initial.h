@@ -25,6 +25,9 @@
 #define Input				0
 #define Output				1
 /*******************系统预定义  end**********************/
+//说明  byte【0】----->高字节
+//      。。。。。。。。。
+//      byte【3】----->低字节
 
   typedef union{
         UINT32  whole_reg;
