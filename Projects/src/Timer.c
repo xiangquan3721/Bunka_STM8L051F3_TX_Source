@@ -56,6 +56,7 @@ void TIM4_Init(void){
 
 void TIM4_UPD_OVF(void){
         FG_1ms = 1;
+        srand_TIME++;
 	if (TB_100ms)	--TB_100ms;
         else{                            
 	  TB_100ms = BASE_100ms;

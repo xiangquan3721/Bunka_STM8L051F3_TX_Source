@@ -239,10 +239,13 @@ extern UINT8 TIME_2s_RestTX;  //2015.4.13ÐÞÕý
 
 
 extern UINT16 TIME_AUTO_TX;
+extern UINT16 TIME_AUTO_TX_bak;
+extern UINT16 TIME_data;
 extern UINT8 FLAG_AUTO_TX;
 extern UINT8 FLAG_AUTO_TX_stop;
 extern UINT16 rand_data;
+extern UINT8 POWER_ON_PIN_KEY_STOP;
+extern UINT16 srand_TIME;
 
-
-
+extern UINT8 xxxx;
 

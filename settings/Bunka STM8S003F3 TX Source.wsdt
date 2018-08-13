@@ -12,7 +12,7 @@
           
           
           
-        <Column0>200</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>481</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -44,7 +44,7 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
-        <Tab><Identity>TabID-17988-25821</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
+        <Tab><Identity>TabID-3069-25691</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-17988-25821</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
         
       <SelectedTab>0</SelectedTab></Wnd3></Windows>
     <Editor>
@@ -53,14 +53,14 @@
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><ActiveTab>1</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\key_and_Other.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>69</YPos><SelStart>2823</SelStart><SelEnd>2823</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>107</YPos><SelStart>3823</SelStart><SelEnd>3823</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>781</YPos><SelStart>20597</SelStart><SelEnd>20607</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\Timer.c</Filename><XPos>0</XPos><YPos>36</YPos><SelStart>2345</SelStart><SelEnd>2355</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>177</YPos><SelStart>6946</SelStart><SelEnd>6946</SelEnd></Tab><ActiveTab>4</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram.c</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>3293</SelStart><SelEnd>3297</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\ram.h</Filename><XPos>0</XPos><YPos>230</YPos><SelStart>6999</SelStart><SelEnd>6999</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\initial.h</Filename><XPos>0</XPos><YPos>24</YPos><SelStart>1394</SelStart><SelEnd>1394</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-01050d28><key>iaridepm.enu1</key></Toolbar-01050d28></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>300</Bottom><Right>291</Right><x>-2</x><y>-2</y><xscreen>1</xscreen><yscreen>0</yscreen><sizeHorzCX>991</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>290387</sizeVertCX><sizeVertCY>635789</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>130</Bottom><Right>1011</Right><x>-2</x><y>-2</y><xscreen>1013</xscreen><yscreen>132</yscreen><sizeHorzCX>1003964</sizeHorzCX><sizeHorzCY>277895</sizeHorzCY><sizeVertCX>991</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-0263edf8><key>iaridepm.enu1</key></Toolbar-0263edf8></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>639</Bottom><Right>555</Right><x>-2</x><y>-2</y><xscreen>1</xscreen><yscreen>0</yscreen><sizeHorzCX>521</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>290104</sizeVertCX><sizeVertCY>635913</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>324</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>326</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>323413</sizeHorzCY><sizeVertCX>521</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

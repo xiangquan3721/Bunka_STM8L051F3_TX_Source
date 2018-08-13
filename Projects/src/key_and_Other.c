@@ -81,7 +81,7 @@ void time_control(void)
 {
   if(FG_100ms){
     FG_100ms=0; 
-    if(TIME_AUTO_TX)--TIME_AUTO_TX;
+    if((TIME_AUTO_TX)&&(FLAG_APP_TX==0))--TIME_AUTO_TX;
     if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý    
     if(FG_PWRON==1){
     if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
@@ -224,7 +224,8 @@ void	_KeyInTx( void )
 	      else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
 	    }
 	}
-	        
+	else POWER_ON_PIN_KEY_STOP=0;
+        
 	/*		Search of valid key		*/
 	for	( i=0; i<17;i++)
 	{
@@ -475,48 +476,48 @@ void	_FuncReg( void )
 }
 void	_FuncStop( void )
 {
-	if	( _GetNoPushState() )						// No push before ?
-	{												// No
-		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
-		{											// Yes
-			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31ÐÞÕý4	  // 5sec passed ?
-			{
-//				if	( !--m_TimerKey )
-//				{									// Yes
-					if	( mb_OpenSw || mb_CloseSw )				// Close sw ?
-					{
-						m_KeyOptSetMode = 10 ;				// Yes
-						//_ReqBuzzer( d_BuzOpt5 ) ;
-						//_ReqBuzzer(103,103,100);
-						m_KindOfKey = d_Idle ;
-						mb_NoPushWait = d_On ;			// Set no push wait
-						return ;
-					}
-					m_KeyOptSetMode = 1 ;			// Opetion setting mode
-					//_ReqBuzzer( d_BuzOpt1 ) ;
-					_ReqBuzzer(103,103,1);
-						FG_LED_on=1;
-						if(FG_PWRON==0){
-	                                            FG_PWRON=1;
-	                                            PIN_POWER_CONTROL=1;
-	                                            TB_5s=TB_51s;//51;  //5.1Ãë
-                                                }
-					m_KeyDupliSetTimeout = d_DupliTime4s ;
-					m_KindOfKey = d_Idle ;
-					mb_NoPush=d_Off;
-					mb_NoPushWait = d_On ;			// Set no push wait
-					m_KeyOptSetOpenStop = 1 ;
-					if	( mb_OpenSw )				// Open ?
-					{
-						m_KeyOptSetOpenStop = 0 ;	// Yes
-					}
-//				}
-//				return ;							// No
-			}
-			return ;
-		}
-		return ;
-	}
+//	if	( _GetNoPushState() )						// No push before ?
+//	{												// No
+//		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
+//		{											// Yes
+//			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31ÐÞÕý4	  // 5sec passed ?
+//			{
+////				if	( !--m_TimerKey )
+////				{									// Yes
+//					if	( mb_OpenSw || mb_CloseSw )				// Close sw ?
+//					{
+//						m_KeyOptSetMode = 10 ;				// Yes
+//						//_ReqBuzzer( d_BuzOpt5 ) ;
+//						//_ReqBuzzer(103,103,100);
+//						m_KindOfKey = d_Idle ;
+//						mb_NoPushWait = d_On ;			// Set no push wait
+//						return ;
+//					}
+//					m_KeyOptSetMode = 1 ;			// Opetion setting mode
+//					//_ReqBuzzer( d_BuzOpt1 ) ;
+//					_ReqBuzzer(103,103,1);
+//						FG_LED_on=1;
+//						if(FG_PWRON==0){
+//	                                            FG_PWRON=1;
+//	                                            PIN_POWER_CONTROL=1;
+//	                                            TB_5s=TB_51s;//51;  //5.1Ãë
+//                                                }
+//					m_KeyDupliSetTimeout = d_DupliTime4s ;
+//					m_KindOfKey = d_Idle ;
+//					mb_NoPush=d_Off;
+//					mb_NoPushWait = d_On ;			// Set no push wait
+//					m_KeyOptSetOpenStop = 1 ;
+//					if	( mb_OpenSw )				// Open ?
+//					{
+//						m_KeyOptSetOpenStop = 0 ;	// Yes
+//					}
+////				}
+////				return ;							// No
+//			}
+//			return ;
+//		}
+//		return ;
+//	}
 	
 	m_KindOfKey = m_KeyNo ;
 	if	( m_KeyOptSetMode ||m_RegMode)							// Option setting mode ?
@@ -533,6 +534,7 @@ void	_FuncStop( void )
 			
 		case d_StopKey :
                         FLAG_AUTO_TX_stop=1;
+                        if(POWER_ON_PIN_KEY_STOP==1)return ;
 			mb_StopSw = d_On ;
 			m_TimerKey = d_Time5s ;					// Set 5sec key timer
 			break;
@@ -1348,7 +1350,7 @@ void test_mode_control(void)
  while(PIN_test_mode==0){  
   ClearWDT(); // Service the WDT 
   
-  if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
+  if((PIN_KEY_STOP==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
     KEY_OPEN_button_num++;
     if(KEY_OPEN_button_num>3)KEY_OPEN_button_num=1;
@@ -1369,7 +1371,7 @@ void test_mode_control(void)
         ADF7021_DATA_tx=0;
     }    
   }
-  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;  
+  if(PIN_KEY_STOP==1)FG_KEY_OPEN=0;  
   
 //  if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
 //    FG_KEY_OPEN=1;

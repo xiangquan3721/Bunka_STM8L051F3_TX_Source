@@ -42,7 +42,7 @@
 
 void main(void)
 {
-  _DI();		// 关全局中断
+   _DI();		// 关全局中断
   RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
   WDT_init();
@@ -60,29 +60,41 @@ void main(void)
     _EI();    
     test_mode_control();
     }
-  _EI();		// 允许中断	
+  _EI();		// 允许中断   
+      
   //beep_init();  //2015.3.11修正
-
-  srand((unsigned int) time(NULL));
+  TIME_AUTO_TX=0;
+  //srand((unsigned int) time(NULL));
+  srand((unsigned int) ID_data.IDL%10);
+  if(PIN_KEY_STOP)POWER_ON_PIN_KEY_STOP=0;
+  else POWER_ON_PIN_KEY_STOP=1;
   /* Infinite loop */
   while (1)
   {     
         ClearWDT(); // Service the WDT
         
-        if((TIME_AUTO_TX==0)&&(FLAG_AUTO_TX_stop==0)){
+        if((TIME_AUTO_TX==0)&&(FLAG_AUTO_TX_stop==0)&&(POWER_ON_PIN_KEY_STOP==0)){
             TB_5s=TB_51s;
             if(FLAG_AUTO_TX==0){
               FLAG_AUTO_TX=1;
-              TIME_AUTO_TX=23+(ID_data.IDB[3]%10)*2;
+              TIME_AUTO_TX=23+(ID_data.IDL%10)*2;
+              TIME_AUTO_TX_bak=TIME_AUTO_TX;
             }
             else {
-              rand_data=rand();
-              TIME_AUTO_TX=20+rand_data%22;
+                    do{
+                        ClearWDT(); // Service the WDT
+                        rand_data=rand();
+                        TIME_data=23+(rand_data%10)*2;
+                      }
+                      while(TIME_data==TIME_AUTO_TX_bak);
+              TIME_AUTO_TX=TIME_data;
+              TIME_AUTO_TX_bak=TIME_AUTO_TX;
+              //srand((unsigned int)srand_TIME );
             }
             _ReqTxdEdit(14,14);
         }
         else if((TB_5s==0)||(TIME_2s_RestTX==0))TB_5s=TB_51s;
-        if(FLAG_AUTO_TX_stop==0)PIN_TX_LED=1;
+        if((FLAG_AUTO_TX_stop==0)&&(POWER_ON_PIN_KEY_STOP==0))PIN_TX_LED=1;
 		
 	key_check();
 	time_control();
