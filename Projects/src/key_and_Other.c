@@ -16,6 +16,7 @@
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
 #include "ad.h"		// ad
+#include "Timer.h"		// 定时器
 
 void key_check(void)
 {
@@ -41,13 +42,13 @@ void key_check(void)
     
     if(TIME_BEEP_on){
       --TIME_BEEP_on;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;BEEP_CSR2_BEEPEN=1;
+      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1; //2015.3.11修正
                         if(FG_LED_on)PIN_LED=1;
                        }
     }
     else if(TIME_BEEP_off){
       --TIME_BEEP_off;
-      if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;BEEP_CSR2_BEEPEN=0;
+      if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;Tone_OFF();//BEEP_CSR2_BEEPEN=0;  //2015.3.11修正
                         if(FG_LED_on)PIN_LED=0;
                        }
     }
@@ -55,7 +56,7 @@ void key_check(void)
       --TIME_BEEP_freq;
       TIME_BEEP_on=BASE_TIME_BEEP_on;
       TIME_BEEP_off=BASE_TIME_BEEP_off;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;BEEP_CSR2_BEEPEN=1;
+      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;  //2015.3.11修正
                         if(FG_LED_on)PIN_LED=1;
                        }      
     }
@@ -76,8 +77,8 @@ void key_check(void)
 void time_control(void)
 {
   if(FG_100ms){
-    FG_100ms=0;    
-    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13修正
+    FG_100ms=0; 
+    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13修正    
     if(FG_PWRON==1){
     if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
     }    
@@ -773,7 +774,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 //	TIME_BEEP_on=BASE_TIME_BEEP_on;
 //        TIME_BEEP_off=BASE_TIME_BEEP_off;
         SendTxData();
-        TIME_2s_RestTX=23;       //2015.4.13修正
+        TIME_2s_RestTX=23;       //2015.4.13修正        
   }
   else PIN_LED=0;
 }

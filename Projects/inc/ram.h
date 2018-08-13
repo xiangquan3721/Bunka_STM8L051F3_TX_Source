@@ -235,3 +235,5 @@ extern UINT16 TIME_10s;   //2015.1.31ÐÞÕý3
 extern UINT16 key_Value;   //2015.1.31ÐÞÕý3
 
 extern UINT8 TIME_2s_RestTX;  //2015.4.13ÐÞÕý
+
+

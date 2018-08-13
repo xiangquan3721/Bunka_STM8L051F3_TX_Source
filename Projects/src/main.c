@@ -58,7 +58,8 @@ void main(void)
     test_mode_control();
     }
   _EI();		// ÔÊÐíÖÐ¶Ï	
-  beep_init();
+  //beep_init();  //2015.3.11ÐÞÕý
+
 
   /* Infinite loop */
   while (1)

@@ -26,6 +26,24 @@
 //}
 
 
+void TIM3_init(void){			// 2015.3.11修正
+        TIM3_CCMR2 = TIM3_CCMR2 | 0x70;
+        TIM3_CCER1 = TIM3_CCER1 | 0x30;
+	TIM3_ARRH = 0x01;//0x02;					// 自动重载寄存器ARR=5
+	TIM3_ARRL = 0xF8;//0x00;		//78.125*(3+1)=312.5us		// 每2.5ms产生一次中断
+	//TIM2_IER = 0x01;						// 允许更新中断
+        TIM3_CCR2H= 0x00;//0x01;
+        TIM3_CCR2L= 0xFC;//0x00;
+        TIM3_PSCR = 0x02;				// 10M系统时钟经预分频f=fck/(2的PSCR次方)
+        //TIM3_EGR_bit.UG=1;
+	//TIM2_CR1 = 0x01;					// 计数器使能，开始计数
+        TIM3_CR1 = TIM3_CR1 | 0x01;
+        TIM3_BKR= 0x80;
+}
+void Tone_OFF(void){		// 关闭Tone   2015.3.11修正
+	TIM3_CR1_CEN = 0;		// Timer 3 Disable
+        PIN_BEEP=0;
+}
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   1ms
 void TIM4_Init(void){				
 	TIM4_PSCR = 0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方

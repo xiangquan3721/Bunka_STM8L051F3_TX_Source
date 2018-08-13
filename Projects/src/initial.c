@@ -57,7 +57,7 @@ void SysClock_Init( void )
 	CLK_CKDIVR = 0x02;		// 设置时钟分频  f HSI= f HSI RC输出/4    f CPU= f MASTER
 	//---------------------------------------- 外设  
 	//CLK_PCKENR1 = 0x84;						// T1,UART1
-	CLK_PCKENR1 = 0x64;						// T4,UART1,beep
+	CLK_PCKENR1 =0x66;// 0x64;	// T4,UART1,beep    2015.3.11修正
 	CLK_PCKENR2 = 0x03;						// ADC,T1	
 	
 	CLK_ICKCR_LSION = 1;				// 使能内部LSI OSC（38KHz）
@@ -117,7 +117,7 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   PIN_KEY_STOP_CR1 = 1;
   
   PIN_KEY_CLOSE_direc = Input;   // 输入  CLOSE键
-  PIN_KEY_CLOSE_CR1 = 1;
+  PIN_KEY_CLOSE_CR1 = 1; 
   
   PIN_KEY_VENT_direc = Input;   // 输入  换气键
   PIN_KEY_VENT_CR1 = 1;
