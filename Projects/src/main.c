@@ -66,8 +66,15 @@ void main(void)
   FLAG_srand_data=0;
   //srand((unsigned int) time(NULL));
  
-  if(PIN_KEY_STOP)POWER_ON_PIN_KEY_STOP=0;
-  else POWER_ON_PIN_KEY_STOP=1;
+  if(PIN_KEY_STOP)
+  {  
+    POWER_ON_PIN_KEY_STOP=0;
+  }
+  else
+  {
+    POWER_ON_PIN_KEY_STOP=1;
+  }
+  
   /* Infinite loop */
   while (1)
   {     

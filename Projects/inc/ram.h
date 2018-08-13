@@ -170,6 +170,8 @@ extern const ADF70XX_REG_T Default_adf7012_value[4];
 #define d_Time5s 5000
 #define d_Time9s 9000
 #define d_D1stTime3s 3000
+//20170124cyw
+#define d_D1stTime1s 1000
 #define d_D1stTime20s 20000
 #define d_Time3s  3000
 #define d_Time10s 10000

@@ -95,7 +95,13 @@ UINT8 SIO_cnt;
 UINT8 SIO_buff[16];
 UINT8 SIO_DATA[16];
 ADF70XX_REG_T ROM_adf7012_value[4];
-const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x0021d04f};
+const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x0021d04f};    //0dBm
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120a26,0x0021d04f};    //2dBm
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120ac6,0x0021d04f};    //4dBm
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120b86,0x0021d04f};    //6dBm
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120d66,0x0021d04f};    //8dBm
+//const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120fe6,0x0021d04f};    //10dBm
+
 //UINT16 BAT_value;
 
 
