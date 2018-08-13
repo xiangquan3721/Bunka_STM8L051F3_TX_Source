@@ -54,7 +54,11 @@ void SysClock_Init( void )
 	CLK_SWR = 0x01;					// 指定HSI为主时钟 
 //	while(( CLK_SWCR & 0x08 ) == 0 );		// 等待HSI切换 
 	CLK_SWCR_SWEN = 1;						// 执行切换
+        #ifdef f_cpu_1MHz
+        CLK_CKDIVR = 0x04;		// 设置时钟分频  f HSI= f HSI RC输出/16    f CPU= f MASTER
+        #else
 	CLK_CKDIVR = 0x02;		// 设置时钟分频  f HSI= f HSI RC输出/4    f CPU= f MASTER
+        #endif
 	//---------------------------------------- 外设  
 	//CLK_PCKENR1 = 0x84;						// T1,UART1
 	CLK_PCKENR1 =0x66;// 0x64;	// T4,UART1,beep    2015.3.11修正
@@ -166,6 +170,9 @@ void _Init_RAM(void)
 void Delayus(unsigned char timer)
 {
 unsigned char x;                   //延时T=(timer-1)*1.5+3 us
+        #ifdef f_cpu_1MHz
+        timer=timer/2;
+        #endif 
  for(x=0;x<timer;x++)
      __asm("nop");
 }

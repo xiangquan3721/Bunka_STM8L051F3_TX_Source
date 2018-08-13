@@ -113,11 +113,13 @@ extern volatile union{
 	//************************************************
 
 
+#define f_cpu_1MHz
+
 #define BASE_100ms	 100
 #define BASE_976us	 3
 
-#define TB_50s	 68//50
-#define TB_51s	 69//51
+#define TB_50s	 22//68//50
+#define TB_51s	 23//69//51
 #define TB_60s	 78//60
 #define TB_20s	 20
 
