@@ -6,7 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151c6.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -24,19 +24,14 @@ void RAM_clean(void)      // 清除RAM
 
 void WDT_init(void)
 {
-//  IWDG_KR=0x55;
-//  IWDG_PR=3;
-//  IWDG_RLR=0xFF;
-//  IWDG_KR=0xCC;
-  
-  IWDG_KR=0xCC;
   IWDG_KR=0x55;
   IWDG_PR=3;
-  IWDG_KR=0xAA;    
+  IWDG_RLR=0xFF;
+  IWDG_KR=0xCC;
 }
 void ClearWDT(void)
 {
-  IWDG_KR=0xAA;
+  //IWDG_KR=0xAA;
 }
 
 
@@ -62,7 +57,8 @@ void SysClock_Init( void )
 	CLK_CKDIVR = 0x02;		// 设置时钟分频  f HSI= f HSI RC输出/4    f CPU= f MASTER
 	//---------------------------------------- 外设  
 	//CLK_PCKENR1 = 0x84;						// T1,UART1
-	CLK_PCKENR1 =0x66;// 0x64;	// T4,UART1,beep    2015.3.11修正
+	//CLK_PCKENR1 = 0x64;						// T4,UART1,beep
+        CLK_PCKENR1 =0x66;// 0x64;	// T4,UART1,beep    2015.3.13修正
 	CLK_PCKENR2 = 0x03;						// ADC,T1	
 	
 	CLK_ICKCR_LSION = 1;				// 使能内部LSI OSC（38KHz）
@@ -76,7 +72,7 @@ void beep_init( void )
   BEEP_CSR2_BEEPDIV=3;
   BEEP_CSR2_BEEPSEL=1; 
   CLK_CBEEPR_CLKBEEPSEL0=1;
-  CLK_CBEEPR_CLKBEEPSEL1=0;
+  CLK_CBEEPR_CLKBEEPSEL1=0;//选择时钟源
 }
 /****************端口设置说明***************************
 CR1寄存器  输出 Output（1=推挽、0=OC）
@@ -122,7 +118,7 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   PIN_KEY_STOP_CR1 = 1;
   
   PIN_KEY_CLOSE_direc = Input;   // 输入  CLOSE键
-  PIN_KEY_CLOSE_CR1 = 1; 
+  PIN_KEY_CLOSE_CR1 = 1;
   
   PIN_KEY_VENT_direc = Input;   // 输入  换气键
   PIN_KEY_VENT_CR1 = 1;
@@ -150,9 +146,10 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
 void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
-  //TB_5s=TB_50s;//50;
-  TB_51s=26;//69;
-  TB_5s=TB_51s-1;
+ // TB_5s=TB_50s;//50;
+  TB_51s = 26;
+  TB_5s = TB_51s -1 ;
+  
   
   	/*		Timer		*/
 								// General 1s timer
@@ -172,6 +169,9 @@ void _Init_RAM(void)
 void Delayus(unsigned char timer)
 {
 unsigned char x;                   //延时T=(timer-1)*1.5+3 us
+
  for(x=0;x<timer;x++)
      __asm("nop");
 }
+
+

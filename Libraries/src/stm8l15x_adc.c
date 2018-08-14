@@ -789,7 +789,7 @@ void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState)
   ---------- 
      1. ADC_FLAG_OVR : Overrun detection when ADC channel converted data is lost
 
-     2. ADC_FLAG_EOC : End of conversion - to indicate the end of a regular 
+     2. ADC_FLAG_EOC : End of conversion? to indicate the end of a regular 
                   CHANNEL conversion or a GROUP conversions, depending of the 
                   ADC Continuous Conversion Mode (Continuous or Single 
                   conversion) and of the DMA usage.
@@ -980,3 +980,23 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx,
   */ 
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
+void AD_Init_cyw(void)
+{
+   
+   CLK_PeripheralClockConfig(CLK_Peripheral_ADC1, ENABLE);
+   ADC_DeInit(ADC1);
+   ADC_Init(ADC1, ADC_ConversionMode_Single, ADC_Resolution_12Bit, ADC_Prescaler_2);
+   ADC_SamplingTimeConfig(ADC1, ADC_Group_SlowChannels,ADC_SamplingTime_384Cycles); //ADC_SamplingTime_384Cycles);
+   /* Enable ADC1 */
+  ADC_Cmd(ADC1, ENABLE);
+
+  /* Enable ADC1 Channel 3 */
+  ADC_ChannelCmd(ADC1, ADC_Channel_Vrefint, ENABLE);
+  
+  /* Enable End of conversion ADC1 Interrupt */
+  ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+
+  /* Start ADC1 Conversion using Software trigger*/
+  ADC_SoftwareStartConv(ADC1);
+}
+

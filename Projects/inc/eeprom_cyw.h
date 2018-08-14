@@ -1,0 +1,10 @@
+void eeprom_kai_save(void);
+void eeprom_guan_save(void);
+void eeprom_kaiguan_load(void);
+void eeprom_diqu_save(void);
+void eeprom_diqu_load(void);
+void eeprom_kaimode_save(void);
+void eeprom_guanmode_save(void);
+void eeprom_kaiguanmode_load(void);
+void eeprom_kaiguanlast_save(void);
+void eeprom_kaiguanlast_load(void);

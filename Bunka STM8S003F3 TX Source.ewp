@@ -17,7 +17,7 @@
         <debug>1</debug>
         <option>
           <name>GenDeviceSelectMenu</name>
-          <state>STM8L051F3	STM8L051F3</state>
+          <state>STM8L151C6	STM8L151C6</state>
         </option>
         <option>
           <name>GenCodeModel</name>
@@ -27,7 +27,7 @@
         <option>
           <name>GenDataModel</name>
           <version>0</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GOutputBinary</name>
@@ -61,7 +61,7 @@
         </option>
         <option>
           <name>GenRTConfigPath</name>
-          <state>$TOOLKIT_DIR$\LIB\dlstm8ssn.h</state>
+          <state>$TOOLKIT_DIR$\LIB\dlstm8smn.h</state>
         </option>
         <option>
           <name>GenLibInFormatter</name>
@@ -464,7 +464,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>Bunka STM8L051F3 TX Ver.hex</state>
+          <state>bigua new.hex</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -582,7 +582,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</state>
+          <state>$TOOLKIT_DIR$\config\lnkstm8l151c6.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -1527,19 +1527,46 @@
     <name>$PROJ_DIR$\Projects\src\eeprom.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Projects\src\eeprom_cyw.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Projects\src\EXIT_FUN.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Projects\src\font_cyw.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Projects\src\initial.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Projects\src\initial_cyw.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Projects\src\key_and_Other.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Projects\src\key_and_Other_cyw.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Projects\src\lcd_cyw.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Projects\src\main.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Projects\src\pcf8563_cyw.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Projects\src\ram.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Projects\src\ram_cyw.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Libraries\src\stm8l15x_adc.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Libraries\src\stm8l15x_clk.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Projects\src\stm8l15x_it.c</name>

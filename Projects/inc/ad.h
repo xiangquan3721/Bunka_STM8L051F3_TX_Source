@@ -7,9 +7,13 @@
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
 
+
 void ADC2_EOC_INT(void);
 void START_AD_SAMPLER(void);
 void AD_control(void);
+//void AD_Init(void);
+void AD_Init_cyw(void);
+
 
 #define VREF 		1224    //1.224V
 #define ADC_CONV 	4096

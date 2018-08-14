@@ -25,6 +25,8 @@
 #define Input				0
 #define Output				1
 
+
+
 #define FG_allow_out			1
 #define FG_NOT_allow_out		0
 /*******************系统预定义  end**********************/

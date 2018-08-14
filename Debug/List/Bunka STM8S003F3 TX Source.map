@@ -1,0 +1,1100 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V1.31.1.50058 for STM8                 13/Sep/2017  10:25:54 #
+# Copyright 2010-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka     #
+#                    STM8L151C6 TX Source Ver2.2.24 20170906\Debug\Exe\Bunka  #
+#                    STM8S003F3 TX Source.out                                 #
+#    Map file     =  E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka     #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\List\Bunka STM8S003F3 TX Source.map       #
+#    Command line =  "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\EXIT_FUN.o" "E:\zhiliao\文化新项目    #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\Timer.o"                    #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24 20170906\Debug\Obj\ad.o"  #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\adf7012.o" "E:\zhiliao\文化新项目     #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\eeprom.o"                   #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\eeprom_cyw.o" "E:\zhiliao\文化新项目  #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\font_cyw.o"                 #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\initial.o" "E:\zhiliao\文化新项目     #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\initial_cyw.o"              #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\key_and_Other.o"                      #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\key_and_Other_cyw.o"                  #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\lcd_cyw.o" "E:\zhiliao\文化新项目     #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\main.o"                     #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\pcf8563_cyw.o"                        #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\ram.o" "E:\zhiliao\文化新项目         #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\Obj\ram_cyw.o"                  #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\stm8l15x_adc.o"                       #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\stm8l15x_clk.o"                       #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\stm8l15x_it.o"                        #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24                           #
+#                    20170906\Debug\Obj\uart.o" --redirect                    #
+#                    _Printf=_PrintfSmall --redirect _Scanf=_ScanfSmall -o    #
+#                    "E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka    #
+#                    STM8L151C6 TX Source Ver2.2.24 20170906\Debug\Exe\Bunka  #
+#                    STM8S003F3 TX Source.out" --map "E:\zhiliao\文化新项目   #
+#                    140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source      #
+#                    Ver2.2.24 20170906\Debug\List\Bunka STM8S003F3 TX        #
+#                    Source.map" --config "D:\Program Files\IAR               #
+#                    Systems\Embedded Workbench 6.0                           #
+#                    Evaluation\stm8\config\lnkstm8l151c6.icf" --config_def   #
+#                    _CSTACK_SIZE=0x100 --config_def _HEAP_SIZE=0x100         #
+#                    --entry __iar_program_start --debug_lib                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+__SystemLibrary            = DLib
+__code_model               = small
+__core                     = stm8
+__data_model               = medium
+__dlib_file_descriptor     = 0
+__dlib_full_locale_support = 0
+__rt_version               = 4
+
+
+*******************************************************************************
+*** RESERVED RANGES
+***
+
+Ranges reserved by absolute symbols:
+   [0x005053-0x005053]
+   [0x0050c8-0x0050c8]
+   [0x005231-0x005231]
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at start of [0x000000-0x0000ff] { rw section .vregs };
+"A2":  place at end of [0x000000-0x0007ff] { block CSTACK };
+"P2":  place in [from 0x000000 to 0x0007ff] {
+          block HEAP, rw section .far.bss, rw section .far.data,
+          rw section .far.noinit, rw section .far_func.textrw,
+          rw section .huge.bss, rw section .huge.data, rw section .huge.noinit,
+          rw section .huge_func.textrw, rw section .iar.dynexit,
+          rw section .near.bss, rw section .near.data, rw section .near.noinit,
+          rw section .near_func.textrw };
+"A3":  place at start of [0x008000-0x00ffff] { block INTVEC };
+"P3":  place in [from 0x008000 to 0x00ffff] {
+          ro section .far.data_init, ro section .far_func.textrw_init,
+          ro section .huge.data_init, ro section .huge_func.textrw_init,
+          ro section .iar.init_table, ro section .init_array,
+          ro section .near.data_init, ro section .near.rodata,
+          ro section .near_func.text, ro section .near_func.textrw_init,
+          ro section .tiny.data_init, ro section .tiny.rodata_init };
+
+  Section            Kind      Address    Size  Object
+  -------            ----      -------    ----  ------
+"A1":                                     0x10
+  .vregs             uninit   0x000000    0x10  vregs.o [4]
+                            - 0x000010    0x10
+
+"P2", part 1 of 2:                         0x7
+  P2 s0                       0x000010     0x7  <Init block>
+    .near.data       inited   0x000010     0x7  ram_cyw.o [1]
+                            - 0x000017     0x7
+
+"P2", part 2 of 2:                       0x135
+  .near.bss          zero     0x000017    0x28  ram.o [1]
+  .near.bss          zero     0x00003f    0x10  ram.o [1]
+  .near.bss          zero     0x00004f    0x10  ram.o [1]
+  .near.bss          zero     0x00005f    0x10  ram.o [1]
+  .near.bss          zero     0x00006f     0x9  ram.o [1]
+  .near.bss          zero     0x000078     0x8  ram_cyw.o [1]
+  .near.bss          zero     0x000080     0x6  ram_cyw.o [1]
+  .near.bss          zero     0x000086     0x4  ram.o [1]
+  .near.bss          zero     0x00008a     0x4  ram.o [1]
+  .near.bss          zero     0x00008e     0x4  ram.o [1]
+  .near.bss          zero     0x000092     0x4  ram.o [1]
+  .near.bss          zero     0x000096     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x00009a     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x00009e     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000a2     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000a6     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000aa     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000ae     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000b2     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000b6     0x4  ram_cyw.o [1]
+  .near.bss          zero     0x0000ba     0x2  ram.o [1]
+  .near.bss          zero     0x0000bc     0x2  ram.o [1]
+  .near.bss          zero     0x0000be     0x2  ram.o [1]
+  .near.bss          zero     0x0000c0     0x2  ram.o [1]
+  .near.bss          zero     0x0000c2     0x2  ram.o [1]
+  .near.bss          zero     0x0000c4     0x2  ram.o [1]
+  .near.bss          zero     0x0000c6     0x2  ram.o [1]
+  .near.bss          zero     0x0000c8     0x2  ram.o [1]
+  .near.bss          zero     0x0000ca     0x2  ram.o [1]
+  .near.bss          zero     0x0000cc     0x2  ram.o [1]
+  .near.bss          zero     0x0000ce     0x2  ram.o [1]
+  .near.bss          zero     0x0000d0     0x2  ram.o [1]
+  .near.bss          zero     0x0000d2     0x2  ram.o [1]
+  .near.bss          zero     0x0000d4     0x2  ram.o [1]
+  .near.bss          zero     0x0000d6     0x2  ram.o [1]
+  .near.bss          zero     0x0000d8     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000da     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000dc     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000de     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000e0     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000e2     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000e4     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000e6     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000e8     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000ea     0x2  ram_cyw.o [1]
+  .near.bss          zero     0x0000ec     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000ed     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000ee     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000ef     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f0     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f1     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f2     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f3     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f4     0x1  key_and_Other_cyw.o [1]
+  .near.bss          zero     0x0000f5     0x1  ram.o [1]
+  .near.bss          zero     0x0000f6     0x1  ram.o [1]
+  .near.bss          zero     0x0000f7     0x1  ram.o [1]
+  .near.bss          zero     0x0000f8     0x1  ram.o [1]
+  .near.bss          zero     0x0000f9     0x1  ram.o [1]
+  .near.bss          zero     0x0000fa     0x1  ram.o [1]
+  .near.bss          zero     0x0000fb     0x1  ram.o [1]
+  .near.bss          zero     0x0000fc     0x1  ram.o [1]
+  .near.bss          zero     0x0000fd     0x1  ram.o [1]
+  .near.bss          zero     0x0000fe     0x1  ram.o [1]
+  .near.bss          zero     0x0000ff     0x1  ram.o [1]
+  .near.bss          zero     0x000100     0x1  ram.o [1]
+  .near.bss          zero     0x000101     0x1  ram.o [1]
+  .near.bss          zero     0x000102     0x1  ram.o [1]
+  .near.bss          zero     0x000103     0x1  ram.o [1]
+  .near.bss          zero     0x000104     0x1  ram.o [1]
+  .near.bss          zero     0x000105     0x1  ram.o [1]
+  .near.bss          zero     0x000106     0x1  ram.o [1]
+  .near.bss          zero     0x000107     0x1  ram.o [1]
+  .near.bss          zero     0x000108     0x1  ram.o [1]
+  .near.bss          zero     0x000109     0x1  ram.o [1]
+  .near.bss          zero     0x00010a     0x1  ram.o [1]
+  .near.bss          zero     0x00010b     0x1  ram.o [1]
+  .near.bss          zero     0x00010c     0x1  ram.o [1]
+  .near.bss          zero     0x00010d     0x1  ram.o [1]
+  .near.bss          zero     0x00010e     0x1  ram.o [1]
+  .near.bss          zero     0x00010f     0x1  ram.o [1]
+  .near.bss          zero     0x000110     0x1  ram.o [1]
+  .near.bss          zero     0x000111     0x1  ram.o [1]
+  .near.bss          zero     0x000112     0x1  ram.o [1]
+  .near.bss          zero     0x000113     0x1  ram.o [1]
+  .near.bss          zero     0x000114     0x1  ram.o [1]
+  .near.bss          zero     0x000115     0x1  ram.o [1]
+  .near.bss          zero     0x000116     0x1  ram.o [1]
+  .near.bss          zero     0x000117     0x1  ram.o [1]
+  .near.bss          zero     0x000118     0x1  ram.o [1]
+  .near.bss          zero     0x000119     0x1  ram.o [1]
+  .near.bss          zero     0x00011a     0x1  ram.o [1]
+  .near.bss          zero     0x00011b     0x1  ram.o [1]
+  .near.bss          zero     0x00011c     0x1  ram.o [1]
+  .near.bss          zero     0x00011d     0x1  ram.o [1]
+  .near.bss          zero     0x00011e     0x1  ram.o [1]
+  .near.bss          zero     0x00011f     0x1  ram.o [1]
+  .near.bss          zero     0x000120     0x1  ram.o [1]
+  .near.bss          zero     0x000121     0x1  ram.o [1]
+  .near.bss          zero     0x000122     0x1  ram.o [1]
+  .near.bss          zero     0x000123     0x1  ram.o [1]
+  .near.bss          zero     0x000124     0x1  ram.o [1]
+  .near.bss          zero     0x000125     0x1  ram.o [1]
+  .near.bss          zero     0x000126     0x1  ram.o [1]
+  .near.bss          zero     0x000127     0x1  ram.o [1]
+  .near.bss          zero     0x000128     0x1  ram.o [1]
+  .near.bss          zero     0x000129     0x1  ram.o [1]
+  .near.bss          zero     0x00012a     0x1  ram.o [1]
+  .near.bss          zero     0x00012b     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00012c     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00012d     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00012e     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00012f     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000130     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000131     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000132     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000133     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000134     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000135     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000136     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000137     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000138     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000139     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013a     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013b     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013c     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013d     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013e     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00013f     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000140     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000141     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000142     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000143     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000144     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000145     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000146     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000147     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000148     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x000149     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00014a     0x1  ram_cyw.o [1]
+  .near.bss          zero     0x00014b     0x1  ram_cyw.o [1]
+                            - 0x00014c   0x135
+
+"A2":                                    0x100
+  CSTACK                      0x000700   0x100  <Block>
+    CSTACK           uninit   0x000700   0x100  <Block tail>
+                            - 0x000800   0x100
+
+"A3":                                     0x80
+  INTVEC                      0x008000    0x80  <Block>
+    .intvec          const    0x008000    0x80  interrupt.o [4]
+                            - 0x008080    0x80
+
+"P3":                                   0x701f
+  .near_func.text    ro code  0x008080  0x1630  lcd_cyw.o [1]
+  .near.rodata       const    0x0096b0   0x800  ram_cyw.o [1]
+  .near_func.text    ro code  0x009eb0   0x7ad  key_and_Other.o [1]
+  .near.rodata       const    0x00a65d   0x540  ram_cyw.o [1]
+  .near.rodata       const    0x00ab9d   0x340  ram_cyw.o [1]
+  .near_func.text    ro code  0x00aedd   0x33b  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00b218   0x32c  uart.o [1]
+  .near_func.text    ro code  0x00b544   0x2a3  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00b7e7   0x1e1  long.o [4]
+  .near_func.text    ro code  0x00b9c8   0x1c9  eeprom.o [1]
+  .near_func.text    ro code  0x00bb91   0x184  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00bd15   0x180  ram_cyw.o [1]
+  .near_func.text    ro code  0x00be95   0x179  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c00e   0x170  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c17e   0x15f  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c2dd   0x15f  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c43c   0x156  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c592   0x154  key_and_Other.o [1]
+  .near_func.text    ro code  0x00c6e6   0x14e  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c834   0x14a  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00c97e   0x135  initial_cyw.o [1]
+  .near_func.text    ro code  0x00cab3   0x131  key_and_Other.o [1]
+  .near_func.text    ro code  0x00cbe4   0x121  key_and_Other.o [1]
+  .near_func.text    ro code  0x00cd05   0x10b  EXIT_FUN.o [1]
+  .near.rodata       const    0x00ce10   0x108  ram_cyw.o [1]
+  .near_func.text    ro code  0x00cf18   0x106  key_and_Other.o [1]
+  .near_func.text    ro code  0x00d01e   0x105  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d123    0xf3  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00d216    0xf2  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d308    0xf0  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d3f8    0xea  main.o [1]
+  .near_func.text    ro code  0x00d4e2    0xea  vreg_util.o [4]
+  .near_func.text    ro code  0x00d5cc    0xe3  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d6af    0xd3  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d782    0xca  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00d84c    0xbd  EXIT_FUN.o [1]
+  .near_func.text    ro code  0x00d909    0xb9  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00d9c2    0xb3  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00da75    0xaa  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00db1f    0xa8  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00dbc7    0xa5  ad.o [1]
+  .near_func.text    ro code  0x00dc6c    0x94  Timer.o [1]
+  .near_func.text    ro code  0x00dd00    0x94  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00dd94    0x8b  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00de1f    0x86  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00dea5    0x86  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00df2b    0x85  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00dfb0    0x85  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e035    0x73  EXIT_FUN.o [1]
+  .near_func.text    ro code  0x00e0a8    0x6f  adf7012.o [1]
+  .near_func.text    ro code  0x00e117    0x6f  lcd_cyw.o [1]
+  .near_func.text    ro code  0x00e186    0x6e  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e1f4    0x6e  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00e262    0x60  ram_cyw.o [1]
+  .near_func.text    ro code  0x00e2c2    0x5e  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e320    0x5e  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e37e    0x5d  ad.o [1]
+  .near_func.text    ro code  0x00e3db    0x5d  adf7012.o [1]
+  .near_func.text    ro code  0x00e438    0x5b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e493    0x5b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e4ee    0x4f  adf7012.o [1]
+  .near_func.text    ro code  0x00e53d    0x4f  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e58c    0x4f  uart.o [1]
+  .near_func.text    ro code  0x00e5db    0x4d  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00e628    0x4b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e673    0x4b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e6be    0x4b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e709    0x4a  key_and_Other.o [1]
+  .near_func.text    ro code  0x00e753    0x4a  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e79d    0x49  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e7e6    0x49  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00e82f    0x49  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00e878    0x47  long_util.o [4]
+  .near_func.text    ro code  0x00e8bf    0x45  key_and_Other.o [1]
+  .near_func.text    ro code  0x00e904    0x44  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00e948    0x3f  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00e987    0x3f  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00e9c6    0x3c  Timer.o [1]
+  .near_func.text    ro code  0x00ea02    0x36  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00ea38    0x36  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00ea6e    0x33  initial.o [1]
+  .near_func.text    ro code  0x00eaa1    0x33  lcd_cyw.o [1]
+  .near_func.text    ro code  0x00ead4    0x32  EXIT_FUN.o [1]
+  .near_func.text    ro code  0x00eb06    0x31  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00eb37    0x2e  initial.o [1]
+  .near_func.text    ro code  0x00eb65    0x2e  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00eb93    0x2d  Timer.o [1]
+  .near_func.text    ro code  0x00ebc0    0x2a  adf7012.o [1]
+  .near_func.text    ro code  0x00ebea    0x29  ad.o [1]
+  .near_func.text    ro code  0x00ec13    0x28  init_small.o [4]
+  .near_func.text    ro code  0x00ec3b    0x27  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00ec62    0x27  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00ec89    0x25  dc_util.o [4]
+  .near_func.text    ro code  0x00ecae    0x23  key_and_Other.o [1]
+  .near_func.text    ro code  0x00ecd1    0x23  key_and_Other.o [1]
+  .near_func.text    ro code  0x00ecf4    0x23  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00ed17    0x23  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00ed3a    0x22  key_and_Other.o [1]
+  .iar.init_table    const    0x00ed5c    0x12  - Linker created -
+  .near_func.text    ro code  0x00ed6e    0x20  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00ed8e    0x1f  move.o [4]
+  .near_func.text    ro code  0x00edad    0x1e  short.o [4]
+  .near_func.text    ro code  0x00edcb    0x1e  init_small.o [4]
+  .near_func.text    ro code  0x00ede9    0x1d  eeprom_cyw.o [1]
+  .near_func.text    ro code  0x00ee06    0x1d  uart.o [1]
+  .near_func.text    ro code  0x00ee23    0x1d  uart.o [1]
+  .near_func.text    ro code  0x00ee40    0x1d  uart.o [1]
+  .near_func.text    ro code  0x00ee5d    0x1b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00ee78    0x1b  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00ee93    0x18  uart.o [1]
+  .near_func.text    ro code  0x00eeab    0x17  init.o [4]
+  .near_func.text    ro code  0x00eec2    0x16  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00eed8    0x16  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00eeee    0x16  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00ef04    0x16  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00ef1a    0x16  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00ef30    0x14  __dbg_xxexit.o [3]
+  .near_func.text    ro code  0x00ef44    0x13  cstartup.o [4]
+  .near_func.text    ro code  0x00ef57    0x12  key_and_Other.o [1]
+  .near.rodata       const    0x00ef69    0x11  key_and_Other.o [1]
+  .near_func.text    ro code  0x00ef7a    0x11  Timer.o [1]
+  .near_func.text    ro code  0x00ef8b    0x11  eeprom.o [1]
+  .near.rodata       const    0x00ef9c    0x10  ram.o [1]
+  .near_func.text    ro code  0x00efac     0xd  initial.o [1]
+  .near_func.text    ro code  0x00efb9     0xc  uart.o [1]
+  .near_func.text    ro code  0x00efc5     0xb  initial.o [1]
+  .near_func.text    ro code  0x00efd0     0xa  uart.o [1]
+  .near_func.text    ro code  0x00efda     0x9  EXIT_FUN.o [1]
+  .near_func.text    ro code  0x00efe3     0x9  Timer.o [1]
+  .near.rodata       const    0x00efec     0x7  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00eff3     0x7  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00effa     0x7  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f001     0x7  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f008     0x7  lcd_cyw.o [1]
+  .near.rodata       const    0x00f00f     0x7  lcd_cyw.o [1]
+  .near.rodata       const    0x00f016     0x7  lcd_cyw.o [1]
+  .near.rodata       const    0x00f01d     0x7  lcd_cyw.o [1]
+  .near.rodata       const    0x00f024     0x7  pcf8563_cyw.o [1]
+  .near.rodata       const    0x00f02b     0x7  pcf8563_cyw.o [1]
+  .near_func.text    ro code  0x00f032     0x7  initial_cyw.o [1]
+  .near.rodata       const    0x00f039     0x6  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f03f     0x6  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f045     0x6  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f04b     0x6  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00f051     0x6  char.o [4]
+  .near_func.text    ro code  0x00f057     0x5  cexit.o [4]
+  .near_func.text    ro code  0x00f05c     0x4  key_and_Other.o [1]
+  .near_func.text    ro code  0x00f060     0x3  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00f063     0x3  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00f066     0x3  interrupt.o [4]
+  .near_func.text    ro code  0x00f069     0x3  low_level_init.o [4]
+  .near_func.text    ro code  0x00f06c     0x3  exit.o [4]
+  .near_func.text    ro code  0x00f06f     0x3  unhandled_exception.o [4]
+  .near.rodata       const    0x00f072     0x2  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f074     0x2  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f076     0x2  key_and_Other_cyw.o [1]
+  .near.rodata       const    0x00f078     0x2  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00f07a     0x1  initial.o [1]
+  .near_func.text    ro code  0x00f07b     0x1  key_and_Other_cyw.o [1]
+  .near_func.text    ro code  0x00f07c     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f07d     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f07e     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f07f     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f080     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f081     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f082     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f083     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f084     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f085     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f086     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f087     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f088     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f089     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08a     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08b     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08c     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08d     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08e     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f08f     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f090     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f091     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f092     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f093     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f094     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f095     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f096     0x1  stm8l15x_it.o [1]
+  .near_func.text    ro code  0x00f097     0x1  __dbg_break.o [3]
+  Initializer bytes  ro data  0x00f098     0x7  <for P2 s0>
+                            - 0x00f09f  0x701f
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address   Size
+          -------   ----
+Zero (__iar_zero_init2)
+    1 destination range, total size 0x135:
+          0x000017  0x135
+
+Copy (__iar_copy_init2)
+    1 source range, total size 0x7:
+          0x00f098    0x7
+    1 destination range, total size 0x7:
+          0x000010    0x7
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source Ver2.2.24 20170906\Debug\Obj: [1]
+    EXIT_FUN.o                 630
+    Timer.o                    279
+    ad.o                       299
+    adf7012.o                  325
+    eeprom.o                   474
+    eeprom_cyw.o               932
+    initial.o                  122
+    initial_cyw.o              316
+    key_and_Other.o          3 430       17
+    key_and_Other_cyw.o      6 762       60        9
+    lcd_cyw.o                5 842       28
+    main.o                     234
+    pcf8563_cyw.o            1 773       14
+    ram.o                                16      197
+    ram_cyw.o                         4 975      110
+    stm8l15x_it.o               93
+    uart.o                   1 024
+    ------------------------------------------------
+    Total:                  22 535    5 110      316
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dbgstm8smd.a: [3]
+    __dbg_break.o                1
+    __dbg_xxexit.o              20
+    ------------------------------------------------
+    Total:                      21
+
+dlstm8smn.a: [4]
+    cexit.o                      5
+    char.o                       6
+    cstartup.o                  19
+    dc_util.o                   37
+    exit.o                       3
+    init.o                      23
+    init_small.o                70
+    interrupt.o                  3      128
+    long.o                     481
+    long_util.o                 71
+    low_level_init.o             3
+    move.o                      31
+    short.o                     30
+    unhandled_exception.o        3
+    vreg_util.o                234
+    vregs.o                                       16
+    ------------------------------------------------
+    Total:                   1 019      128       16
+
+    Linker created                       18      256
+----------------------------------------------------
+    Grand Total:            23 575    5 256      588
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+?add32_l0_l0_0x           0x00b81b         Code  Gb  long.o [4]
+?add32_l0_l0_l1           0x00b818         Code  Gb  long.o [4]
+?and32_l0_l0_0x           0x00b9a5         Code  Gb  long.o [4]
+?b0                       0x000000         Data  Gb  vregs.o [4]
+?b1                       0x000001         Data  Gb  vregs.o [4]
+?b10                      0x00000a         Data  Gb  vregs.o [4]
+?b11                      0x00000b         Data  Gb  vregs.o [4]
+?b12                      0x00000c         Data  Gb  vregs.o [4]
+?b13                      0x00000d         Data  Gb  vregs.o [4]
+?b14                      0x00000e         Data  Gb  vregs.o [4]
+?b15                      0x00000f         Data  Gb  vregs.o [4]
+?b2                       0x000002         Data  Gb  vregs.o [4]
+?b3                       0x000003         Data  Gb  vregs.o [4]
+?b4                       0x000004         Data  Gb  vregs.o [4]
+?b5                       0x000005         Data  Gb  vregs.o [4]
+?b6                       0x000006         Data  Gb  vregs.o [4]
+?b7                       0x000007         Data  Gb  vregs.o [4]
+?b8                       0x000008         Data  Gb  vregs.o [4]
+?b9                       0x000009         Data  Gb  vregs.o [4]
+?dc32_l0                  0x00ec89         Code  Gb  dc_util.o [4]
+?dc32_l1                  0x00ec96         Code  Gb  dc_util.o [4]
+?dc32_px                  0x00eca3         Code  Gb  dc_util.o [4]
+?dec32_0x_0x              0x00b804         Code  Gb  long.o [4]
+?dec32_l0_l0              0x00b7ff         Code  Gb  long.o [4]
+?e0                       0x000001         Data  Gb  vregs.o [4]
+?e1                       0x000005         Data  Gb  vregs.o [4]
+?e2                       0x000009         Data  Gb  vregs.o [4]
+?e3                       0x00000d         Data  Gb  vregs.o [4]
+?epilogue_l2              0x00d589         Code  Gb  vreg_util.o [4]
+?epilogue_l2_l3           0x00d586         Code  Gb  vreg_util.o [4]
+?epilogue_l2_w6           0x00d58d         Code  Gb  vreg_util.o [4]
+?epilogue_w4              0x00d594         Code  Gb  vreg_util.o [4]
+?inc32_0x_0x              0x00b7f1         Code  Gb  long.o [4]
+?inc32_l0_l0              0x00b7e7         Code  Gb  long.o [4]
+?inc32_l2_l2              0x00b7ec         Code  Gb  long.o [4]
+?l0                       0x000000         Data  Gb  vregs.o [4]
+?l1                       0x000004         Data  Gb  vregs.o [4]
+?l2                       0x000008         Data  Gb  vregs.o [4]
+?l3                       0x00000c         Data  Gb  vregs.o [4]
+?load32_0x_l0             0x00e8b1         Code  Gb  long_util.o [4]
+?load32_asp_l0            0x00e8a5         Code  Gb  long_util.o [4]
+?load32_dbsp_l0           0x00e8a0         Code  Gb  long_util.o [4]
+?load32_l0_0x             0x00e888         Code  Gb  long_util.o [4]
+?load32_l0_asp            0x00e87d         Code  Gb  long_util.o [4]
+?load32_l0_dbsp           0x00e878         Code  Gb  long_util.o [4]
+?load32_l0_xsp            0x00e87f         Code  Gb  long_util.o [4]
+?load32_l1_0x             0x00e894         Code  Gb  long_util.o [4]
+?load32_xsp_l0            0x00e8a7         Code  Gb  long_util.o [4]
+?longfarg16_v_w0_a        0x00ed9b         Code  Gb  move.o [4]
+?longfarg16_v_w0_x        0x00ed9d         Code  Gb  move.o [4]
+?mov_e0_e2                0x00d59b         Code  Gb  vreg_util.o [4]
+?mov_e1_e0                0x00d5a8         Code  Gb  vreg_util.o [4]
+?mov_e1_e3                0x00d5b5         Code  Gb  vreg_util.o [4]
+?mov_e2_e0                0x00d5c2         Code  Gb  vreg_util.o [4]
+?mov_l0_l2                0x00d598         Code  Gb  vreg_util.o [4]
+?mov_l1_l0                0x00d5a5         Code  Gb  vreg_util.o [4]
+?mov_l1_l3                0x00d5b2         Code  Gb  vreg_util.o [4]
+?mov_l2_l0                0x00d5bf         Code  Gb  vreg_util.o [4]
+?mov_w1_w5                0x00d59e         Code  Gb  vreg_util.o [4]
+?mov_w3_w1                0x00d5ab         Code  Gb  vreg_util.o [4]
+?mov_w3_w7                0x00d5b8         Code  Gb  vreg_util.o [4]
+?mov_w5_w1                0x00d5c5         Code  Gb  vreg_util.o [4]
+?move1616_v_x_y_a         0x00ed8e         Code  Gb  move.o [4]
+?mul16_x_x_w0             0x00edad         Code  Gb  short.o [4]
+?mul32_l0_l0_0x           0x00b856         Code  Gb  long.o [4]
+?mul32_l0_l0_dl           0x00b853         Code  Gb  long.o [4]
+?mul32_l0_l0_l1           0x00b85f         Code  Gb  long.o [4]
+?pop_l0                   0x00d552         Code  Gb  vreg_util.o [4]
+?pop_l1                   0x00d55d         Code  Gb  vreg_util.o [4]
+?pop_l2                   0x00d568         Code  Gb  vreg_util.o [4]
+?pop_l3                   0x00d573         Code  Gb  vreg_util.o [4]
+?pop_w4                   0x00d504         Code  Gb  vreg_util.o [4]
+?pop_w5                   0x00d50b         Code  Gb  vreg_util.o [4]
+?pop_w6                   0x00d512         Code  Gb  vreg_util.o [4]
+?push_l0                  0x00d521         Code  Gb  vreg_util.o [4]
+?push_l1                  0x00d526         Code  Gb  vreg_util.o [4]
+?push_l2                  0x00d52b         Code  Gb  vreg_util.o [4]
+?push_l3                  0x00d530         Code  Gb  vreg_util.o [4]
+?push_w4                  0x00d4e2         Code  Gb  vreg_util.o [4]
+?push_w5                  0x00d4e7         Code  Gb  vreg_util.o [4]
+?push_w6                  0x00d4ec         Code  Gb  vreg_util.o [4]
+?sdiv32_l0_dl_l1          0x00b94f         Code  Gb  long.o [4]
+?sdiv32_l0_l0_l1          0x00b954         Code  Gb  long.o [4]
+?sext32_l0_x              0x00b9bd         Code  Gb  long.o [4]
+?smod32_l1_l0_l1          0x00b954         Code  Gb  long.o [4]
+?srl8_a_a_5               0x00f052         Code  Gb  char.o [4]
+?srl8_a_a_6               0x00f051         Code  Gb  char.o [4]
+?sub32_l0_l0_0x           0x00b83b         Code  Gb  long.o [4]
+?sub32_l0_l0_dl           0x00b833         Code  Gb  long.o [4]
+?sub32_l0_l0_l1           0x00b838         Code  Gb  long.o [4]
+?ucmp32_c_l0_l1           0x00b99a         Code  Gb  long.o [4]
+?udiv32_l0_l0_l1          0x00b8e2         Code  Gb  long.o [4]
+?umod32_l1_l0_dl          0x00b8dd         Code  Gb  long.o [4]
+?umod32_l1_l0_l1          0x00b8e2         Code  Gb  long.o [4]
+?w0                       0x000000         Data  Gb  vregs.o [4]
+?w1                       0x000002         Data  Gb  vregs.o [4]
+?w2                       0x000004         Data  Gb  vregs.o [4]
+?w3                       0x000006         Data  Gb  vregs.o [4]
+?w4                       0x000008         Data  Gb  vregs.o [4]
+?w5                       0x00000a         Data  Gb  vregs.o [4]
+?w6                       0x00000c         Data  Gb  vregs.o [4]
+?w7                       0x00000e         Data  Gb  vregs.o [4]
+ADC1_COMP_IRQHandler      0x00f08d    0x1  Code  Gb  stm8l15x_it.o [1]
+ADC2_EOC_INT              0x00e37e   0x5d  Code  Gb  ad.o [1]
+AD_DATA_BUFF              0x0000ce    0x2  Data  Gb  ram.o [1]
+AD_Flag                   0x000142    0x1  Data  Gb  ram_cyw.o [1]
+AD_control                0x00dbc7   0xa5  Code  Gb  ad.o [1]
+Alarm8563                 0x00aedd  0x33b  Code  Gb  pcf8563_cyw.o [1]
+Area_time                 0x00bd15  0x180  Data  Gb  ram_cyw.o [1]
+Auto_Timer_refresh        0x00d6af   0xd3  Code  Gb  key_and_Other_cyw.o [1]
+BASE_TIME_BEEP_off        0x000115    0x1  Data  Gb  ram.o [1]
+BASE_TIME_BEEP_on         0x0000c0    0x2  Data  Gb  ram.o [1]
+BAT_Voltage_value         0x000092    0x4  Data  Gb  ram.o [1]
+BAT_out                   0x000127    0x1  Data  Gb  ram.o [1]
+BEEP_OFF                  0x00f07b    0x1  Code  Gb  key_and_Other_cyw.o [1]
+BEEP_ON_LONG              0x00f063    0x3  Code  Gb  key_and_Other_cyw.o [1]
+BEEP_ON_SHORT             0x00f060    0x3  Code  Gb  key_and_Other_cyw.o [1]
+BIT_SIO                   0x00010d    0x1  Data  Gb  ram.o [1]
+CLK_SWR {Abs}           0x000050c8    0x1  Data  Wk  initial.o [1]
+CLOSE_TIMER_ONOFF         0x00e493   0x5b  Code  Gb  key_and_Other_cyw.o [1]
+CLOSE_TO_NORMAL           0x00dea5   0x86  Code  Gb  key_and_Other_cyw.o [1]
+COUNT_FAST                0x00013d    0x1  Data  Gb  ram_cyw.o [1]
+COUNT_QIANYA              0x00009a    0x4  Data  Gb  ram_cyw.o [1]
+CSTACK$$Base              0x000700          --   Gb  - Linker created -
+CSTACK$$Limit             0x000800          --   Gb  - Linker created -
+CURSOR_CHANGE_ADD         0x00ee5d   0x1b  Code  Gb  key_and_Other_cyw.o [1]
+CURSOR_CHANGE_DEC         0x00ee78   0x1b  Code  Gb  key_and_Other_cyw.o [1]
+ClearWDT                  0x00f07a    0x1  Code  Gb  initial.o [1]
+Clear_64_32               0x00860b   0x8b  Code  Gb  lcd_cyw.o [1]
+Clear_Key_Function_Count
+                          0x00e79d   0x49  Code  Gb  key_and_Other_cyw.o [1]
+Control_code              0x000111    0x1  Data  Gb  ram.o [1]
+DATA_CHANGE_ADD           0x00c00e  0x170  Code  Gb  key_and_Other_cyw.o [1]
+DATA_CHANGE_ADD30         0x00c17e  0x15f  Code  Gb  key_and_Other_cyw.o [1]
+DATA_CHANGE_DEC           0x00c43c  0x156  Code  Gb  key_and_Other_cyw.o [1]
+DATA_CHANGE_DEC30         0x00c2dd  0x15f  Code  Gb  key_and_Other_cyw.o [1]
+DISP_DIQU                 0x000136    0x1  Data  Gb  ram_cyw.o [1]
+DISP_GUANGBIAO            0x000137    0x1  Data  Gb  ram_cyw.o [1]
+DISP_Refresh              0x009592   0x4d  Code  Gb  lcd_cyw.o [1]
+DISP_SANSUO               0x000139    0x1  Data  Gb  ram_cyw.o [1]
+DMA1_CHANNEL0_1_IRQHandler
+                          0x00f07e    0x1  Code  Gb  stm8l15x_it.o [1]
+DMA1_CHANNEL2_3_IRQHandler
+                          0x00f07f    0x1  Code  Gb  stm8l15x_it.o [1]
+Default_adf7012_value     0x00ef9c   0x10  Data  Gb  ram.o [1]
+Delayus                   0x00efac    0xd  Code  Gb  initial.o [1]
+EXIT_init                 0x00efda    0x9  Code  Gb  EXIT_FUN.o [1]
+EXTI0_IRQHandler          0x00f084    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI1_IRQHandler          0x00f085    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI2_IRQHandler          0x00f086    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI3_IRQHandler          0x00f087    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI4_IRQHandler          0x00eeee   0x16  Code  Gb  stm8l15x_it.o [1]
+EXTI5_IRQHandler          0x00f088    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI6_IRQHandler          0x00f089    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI7_IRQHandler          0x00f08a    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTIB_G_IRQHandler        0x00f082    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTID_H_IRQHandler        0x00f083    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTIE_F_PVD_IRQHandler    0x00f081    0x1  Code  Gb  stm8l15x_it.o [1]
+EXTI_PORTA1               0x00e035   0x73  Code  Gb  EXIT_FUN.o [1]
+FG_100ms                  0x0000fb    0x1  Data  Gb  ram.o [1]
+FG_100ms_CYW              0x000134    0x1  Data  Gb  ram_cyw.o [1]
+FG_10s                    0x00010f    0x1  Data  Gb  ram.o [1]
+FG_1ms                    0x0000fa    0x1  Data  Gb  ram.o [1]
+FG_BAT                    0x00010e    0x1  Data  Gb  ram.o [1]
+FG_Complex_Single_shot    0x000110    0x1  Data  Gb  ram.o [1]
+FG_KEY_ADD                0x000130    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_CLOSE              0x0000f8    0x1  Data  Gb  ram.o [1]
+FG_KEY_CLOSETIME          0x00012c    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_CLOSE_CYW          0x000147    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_DEC                0x00012f    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_DECIDE             0x00012b    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_LOGIN_CYW          0x000148    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_NOWTIME            0x00012d    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_OPEN               0x0000f6    0x1  Data  Gb  ram.o [1]
+FG_KEY_OPENTIME           0x00012e    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_OPEN_CYW           0x000145    0x1  Data  Gb  ram_cyw.o [1]
+FG_KEY_STOP               0x0000f7    0x1  Data  Gb  ram.o [1]
+FG_KEY_STOP_CYW           0x000146    0x1  Data  Gb  ram_cyw.o [1]
+FG_LCD_1s                 0x000131    0x1  Data  Gb  ram_cyw.o [1]
+FG_LED_on                 0x0000fe    0x1  Data  Gb  ram.o [1]
+FG_PWRON                  0x0000f9    0x1  Data  Gb  ram.o [1]
+FG_RTC_1s                 0x000132    0x1  Data  Gb  ram_cyw.o [1]
+FG_beep_off               0x0000fd    0x1  Data  Gb  ram.o [1]
+FG_beep_on                0x0000fc    0x1  Data  Gb  ram.o [1]
+FG_d_StopKey              0x00010c    0x1  Data  Gb  ram.o [1]
+FG_test1                  0x0000ff    0x1  Data  Gb  ram.o [1]
+FG_test_mode              0x000100    0x1  Data  Gb  ram.o [1]
+FLAG_ADD_ZUHE             0x0000ef    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_APP_TX               0x0000f5    0x1  Data  Gb  ram.o [1]
+FLAG_BACKLIGHT_1S         0x00013f    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_BACKLIGHT_5S         0x00013e    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_BACKLIGHT_60S        0x000140    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_CLOCK                0x00014a    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_CLOSETIME_LONG       0x0000f3    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_CLOSETIME_ZUHE       0x0000f4    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_DECIDE_LONG          0x0000ee    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_DEC_ZUHE             0x0000f0    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_INITLCD              0x000141    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_MODE                 0x000138    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_NOWTIME_LONG         0x0000ed    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_OPENTIME_LONG        0x0000f2    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_OPENTIME_ZUHE        0x0000f1    0x1  Data  Gb  key_and_Other_cyw.o [1]
+FLAG_POWER                0x00014b    0x1  Data  Gb  ram_cyw.o [1]
+FLAG_PRESS                0x0000ea    0x2  Data  Gb  ram_cyw.o [1]
+FLAG_RTC_RTC              0x000149    0x1  Data  Gb  ram_cyw.o [1]
+FLASH_DUKR {Abs}        0x00005053    0x1  Data  Wk  eeprom.o [1]
+FLASH_IRQHandler          0x00f07d    0x1  Code  Gb  stm8l15x_it.o [1]
+FONT_BUF_16_16            0x0096b0  0x800  Data  Gb  ram_cyw.o [1]
+FONT_BUF_16_32            0x00a65d  0x540  Data  Gb  ram_cyw.o [1]
+FONT_BUF_24_32            0x00e262   0x60  Data  Gb  ram_cyw.o [1]
+FONT_BUF_8_24             0x00ce10  0x108  Data  Gb  ram_cyw.o [1]
+FONT_BUF_8_32             0x00ab9d  0x340  Data  Gb  ram_cyw.o [1]
+FUNCTION_DUE              0x00d01e  0x105  Code  Gb  key_and_Other_cyw.o [1]
+GetTime                   0x00dd00   0x94  Code  Gb  pcf8563_cyw.o [1]
+HIS_MIN                   0x000133    0x1  Data  Gb  ram_cyw.o [1]
+I2C1_SPI2_IRQHandler      0x00f096    0x1  Code  Gb  stm8l15x_it.o [1]
+ID_INT_CODE               0x000113    0x1  Data  Gb  ram.o [1]
+ID_data                   0x000086    0x4  Data  Gb  ram.o [1]
+ID_data_add               0x00008a    0x4  Data  Gb  ram.o [1]
+INTVEC$$Base              0x008000          --   Gb  - Linker created -
+INTVEC$$Limit             0x008080          --   Gb  - Linker created -
+Init8563                  0x00dd94   0x8b  Code  Gb  pcf8563_cyw.o [1]
+InitialFlashReg           0x00ef8b   0x11  Code  Gb  eeprom.o [1]
+KEY_ADD_COUNT             0x0000aa    0x4  Data  Gb  ram_cyw.o [1]
+KEY_CLOSETIME_COUNT       0x00009e    0x4  Data  Gb  ram_cyw.o [1]
+KEY_COUNT                 0x000096    0x4  Data  Gb  ram_cyw.o [1]
+KEY_DECIDE_COUNT          0x0000b2    0x4  Data  Gb  ram_cyw.o [1]
+KEY_DEC_COUNT             0x0000ae    0x4  Data  Gb  ram_cyw.o [1]
+KEY_NOWTIME_COUNT         0x0000a6    0x4  Data  Gb  ram_cyw.o [1]
+KEY_OPENTIME_COUNT        0x0000a2    0x4  Data  Gb  ram_cyw.o [1]
+KeyOpt_EEPROM_write       0x00b9ef   0x18  Code  Gb  eeprom.o [1]
+LCD_AES_IRQHandler        0x00f08b    0x1  Code  Gb  stm8l15x_it.o [1]
+LOW_Flag                  0x000143    0x1  Data  Gb  ram_cyw.o [1]
+LockFlash                 0x00b9c8    0xd  Code  Gb  eeprom.o [1]
+ONOFF_CLOSE_ADD           0x00e320   0x5e  Code  Gb  key_and_Other_cyw.o [1]
+ONOFF_OPEN_ADD            0x00e2c2   0x5e  Code  Gb  key_and_Other_cyw.o [1]
+OPEN_Flag                 0x000144    0x1  Data  Gb  ram_cyw.o [1]
+OPEN_LCD_AND_8563         0x00d308   0xf0  Code  Gb  key_and_Other_cyw.o [1]
+OPEN_TIMER_ONOFF          0x00e438   0x5b  Code  Gb  key_and_Other_cyw.o [1]
+OPEN_TO_NORMAL            0x00de1f   0x86  Code  Gb  key_and_Other_cyw.o [1]
+PC_PRG                    0x00b218  0x32c  Code  Gb  uart.o [1]
+PREINTALL_TO_NORMAL       0x00d216   0xf2  Code  Gb  key_and_Other_cyw.o [1]
+Power_Low                 0x00836b   0x1d  Code  Gb  lcd_cyw.o [1]
+Power_On_Init_cyw         0x00f032    0x7  Code  Gb  initial_cyw.o [1]
+RAM_BAT_AVG               0x0000d0    0x2  Data  Gb  ram.o [1]
+RAM_BAT_CNT               0x000126    0x1  Data  Gb  ram.o [1]
+RAM_BAT_SUM               0x00008e    0x4  Data  Gb  ram.o [1]
+RAM_clean                 0x00efc5    0xb  Code  Gb  initial.o [1]
+ROM_adf7012_value         0x00005f   0x10  Data  Gb  ram.o [1]
+RTC_CSSLSE_IRQHandler     0x00f080    0x1  Code  Gb  stm8l15x_it.o [1]
+Reack                     0x00ea02   0x36  Code  Gb  pcf8563_cyw.o [1]
+Read8563                  0x00ea38   0x36  Code  Gb  pcf8563_cyw.o [1]
+ReadByte                  0x00e5db   0x4d  Code  Gb  pcf8563_cyw.o [1]
+ReadByteEEPROM            0x00ba07    0x5  Code  Gb  eeprom.o [1]
+Refresh_second_send_time
+                          0x00e753   0x4a  Code  Gb  key_and_Other_cyw.o [1]
+Region$$Table$$Base       0x00ed5c          --   Gb  - Linker created -
+Region$$Table$$Limit      0x00ed6e          --   Gb  - Linker created -
+Rewrite8563               0x00e82f   0x49  Code  Gb  pcf8563_cyw.o [1]
+SCAN_ADD                  0x00c834  0x14a  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_CLOSE                0x00e628   0x4b  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_CLOSETIME            0x00bb91  0x184  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_DEC                  0x00c6e6  0x14e  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_DECIDE               0x00d5cc   0xe3  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_LOGIN                0x00e6be   0x4b  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_NOWTIME              0x00d782   0xca  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_OPEN                 0x00e7e6   0x49  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_OPENTIME             0x00be95  0x179  Code  Gb  key_and_Other_cyw.o [1]
+SCAN_STOP                 0x00e673   0x4b  Code  Gb  key_and_Other_cyw.o [1]
+SET_CLOSETIME             0x00e186   0x6e  Code  Gb  key_and_Other_cyw.o [1]
+SET_NOWTIME               0x00e53d   0x4f  Code  Gb  key_and_Other_cyw.o [1]
+SET_OPENTIME              0x00e1f4   0x6e  Code  Gb  key_and_Other_cyw.o [1]
+SIO_DATA                  0x00004f   0x10  Data  Gb  ram.o [1]
+SIO_buff                  0x00003f   0x10  Data  Gb  ram.o [1]
+SIO_cnt                   0x000119    0x1  Data  Gb  ram.o [1]
+SPI1_IRQHandler           0x00f094    0x1  Code  Gb  stm8l15x_it.o [1]
+START_AD_SAMPLER          0x00ebea   0x29  Code  Gb  ad.o [1]
+SWITCH_CSS_BREAK_DAC_IRQHandler
+                          0x00f08c    0x1  Code  Gb  stm8l15x_it.o [1]
+Second_send_STR           0x000078    0x8  Data  Gb  ram_cyw.o [1]
+SendTxData                0x00d84c   0xbd  Code  Gb  EXIT_FUN.o [1]
+Send_char                 0x00ee40   0x1d  Code  Gb  uart.o [1]
+SetFixedLengthCode        0x00ead4   0x32  Code  Gb  EXIT_FUN.o [1]
+SetTxData                 0x00cd05  0x10b  Code  Gb  EXIT_FUN.o [1]
+Start                     0x00eec2   0x16  Code  Gb  pcf8563_cyw.o [1]
+Stop                      0x00eed8   0x16  Code  Gb  pcf8563_cyw.o [1]
+SysClock_Init             0x00eb37   0x2e  Code  Gb  initial.o [1]
+TB_100ms                  0x000117    0x1  Data  Gb  ram.o [1]
+TB_100ms_CYW              0x000135    0x1  Data  Gb  ram_cyw.o [1]
+TB_1s_CYW                 0x0000d8    0x2  Data  Gb  ram_cyw.o [1]
+TB_51s                    0x000129    0x1  Data  Gb  ram.o [1]
+TB_5S_CYW                 0x0000dc    0x2  Data  Gb  ram_cyw.o [1]
+TB_5s                     0x000118    0x1  Data  Gb  ram.o [1]
+TB_POWER                  0x0000da    0x2  Data  Gb  ram_cyw.o [1]
+TB_sum_5s                 0x00012a    0x1  Data  Gb  ram.o [1]
+TIM1_CC_IRQHandler        0x00f093    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM1_UPD_OVF_TRG_COM_IRQHandler
+                          0x00f092    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM2_CC_USART2_RX_IRQHandler
+                          0x00f08f    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM2_UPD_OVF_TRG_BRK_USART2_TX_IRQHandler
+                          0x00f08e    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM3_CC_USART3_RX_IRQHandler
+                          0x00f091    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM3_UPD_OVF_TRG_BRK_USART3_TX_IRQHandler
+                          0x00f090    0x1  Code  Gb  stm8l15x_it.o [1]
+TIM3_init                 0x00eb93   0x2d  Code  Gb  Timer.o [1]
+TIM4_Init                 0x00ef7a   0x11  Code  Gb  Timer.o [1]
+TIM4_UPD_OVF              0x00dc6c   0x94  Code  Gb  Timer.o [1]
+TIM4_UPD_OVF_TRG_IRQHandler
+                          0x00ef04   0x16  Code  Gb  stm8l15x_it.o [1]
+TIMER_MODE_CLOSE          0x00013b    0x1  Data  Gb  ram_cyw.o [1]
+TIMER_MODE_DISP           0x00013c    0x1  Data  Gb  ram_cyw.o [1]
+TIMER_MODE_OPEN           0x00013a    0x1  Data  Gb  ram_cyw.o [1]
+TIME_10s                  0x0000d4    0x2  Data  Gb  ram.o [1]
+TIME_2s_RestTX            0x000128    0x1  Data  Gb  ram.o [1]
+TIME_BEEP_freq            0x000116    0x1  Data  Gb  ram.o [1]
+TIME_BEEP_off             0x000114    0x1  Data  Gb  ram.o [1]
+TIME_BEEP_on              0x0000be    0x2  Data  Gb  ram.o [1]
+TIME_Once_twice_switch    0x0000d2    0x2  Data  Gb  ram.o [1]
+TRAP_IRQHandler           0x00f07c    0x1  Code  Gb  stm8l15x_it.o [1]
+Tone_OFF                  0x00efe3    0x9  Code  Gb  Timer.o [1]
+UART1_INIT                0x00ee06   0x1d  Code  Gb  uart.o [1]
+UART1_RX_RXNE             0x00e58c   0x4f  Code  Gb  uart.o [1]
+UART1_end                 0x00ee23   0x1d  Code  Gb  uart.o [1]
+USART1_DR {Abs}         0x00005231    0x1  Data  Wk  uart.o [1]
+USART1_RX_TIM5_CC_IRQHandler
+                          0x00ef1a   0x16  Code  Gb  stm8l15x_it.o [1]
+USART1_TX_TIM5_UPD_OVF_TRG_BRK_IRQHandler
+                          0x00f095    0x1  Code  Gb  stm8l15x_it.o [1]
+UnlockFlash               0x00b9da   0x15  Code  Gb  eeprom.o [1]
+VHF_GPIO_INIT_cyw         0x00c97e  0x135  Code  Gb  initial_cyw.o [1]
+Write8563                 0x00eb65   0x2e  Code  Gb  pcf8563_cyw.o [1]
+WriteByte                 0x00e904   0x44  Code  Gb  pcf8563_cyw.o [1]
+WriteByteToFLASH          0x00b9d5    0x5  Code  Gb  eeprom.o [1]
+_ClearSpecialMultiKeyState
+                          0x00a14b   0x15  Code  Gb  key_and_Other.o [1]
+_DupliFuncClear           0x009eb0   0x17  Code  Gb  key_and_Other.o [1]
+_DupliFuncSetMode         0x009ec7  0x284  Code  Gb  key_and_Other.o [1]
+_FuncAutoTxStart          0x00a1a1    0x1  Code  Gb  key_and_Other.o [1]
+_FuncAutoTxStop           0x00a1a0    0x1  Code  Gb  key_and_Other.o [1]
+_FuncCloseReg             0x00a406   0x2e  Code  Gb  key_and_Other.o [1]
+_FuncNoPush               0x00a180   0x20  Code  Gb  key_and_Other.o [1]
+_FuncOpenReg              0x00a434   0x32  Code  Gb  key_and_Other.o [1]
+_FuncOpenStop             0x00a466   0x1e  Code  Gb  key_and_Other.o [1]
+_FuncReg                  0x00a30f   0x81  Code  Gb  key_and_Other.o [1]
+_FuncStop                 0x00a1a2  0x16d  Code  Gb  key_and_Other.o [1]
+_FuncStopReg              0x00a3aa   0x2e  Code  Gb  key_and_Other.o [1]
+_FuncVentReg              0x00a3d8   0x2e  Code  Gb  key_and_Other.o [1]
+_GetNoPushState           0x00a160   0x17  Code  Gb  key_and_Other.o [1]
+_GetRegMode               0x00f05c    0x4  Code  Gb  key_and_Other.o [1]
+_IdClear                  0x00ecae   0x23  Code  Gb  key_and_Other.o [1]
+_Init_RAM                 0x00ea6e   0x33  Code  Gb  initial.o [1]
+_KeyInTx                  0x00a484  0x1d9  Code  Gb  key_and_Other.o [1]
+_Pass3secKey              0x00a390   0x1a  Code  Gb  key_and_Other.o [1]
+_RegistrationMode         0x00cbe4  0x121  Code  Gb  key_and_Other.o [1]
+_ReqBuzzer                0x00ecd1   0x23  Code  Gb  key_and_Other.o [1]
+_ReqTxdEdit               0x00cab3  0x131  Code  Gb  key_and_Other.o [1]
+_SetKeyChatterCount       0x00a177    0x9  Code  Gb  key_and_Other.o [1]
+_SetRegistrationMode      0x00ed3a   0x22  Code  Gb  key_and_Other.o [1]
+_SwIn                     0x00ef57   0x12  Code  Gb  key_and_Other.o [1]
+__DebugBreak              0x00f097    0x1  Code  Gb  __dbg_break.o [3]
+__exit                    0x00ef30   0x14  Code  Gb  __dbg_xxexit.o [3]
+__iar_copy_init2          0x00ec13         Code  Gb  init_small.o [4]
+__iar_data_init2          0x00eeab   0x17  Code  Gb  init.o [4]
+__iar_program_start       0x00ef44         Code  Gb  cstartup.o [4]
+__iar_unhandled_exception
+                          0x00f06f         Code  Gb  unhandled_exception.o [4]
+__iar_zero_init2          0x00edcb         Code  Gb  init_small.o [4]
+__intvec                  0x008000         Data  Gb  interrupt.o [4]
+__low_level_init          0x00f069    0x3  Code  Gb  low_level_init.o [4]
+_exit                     0x00f057         Code  Gb  cexit.o [4]
+_interrupt_1              0x00f07c         Code  Gb  stm8l15x_it.o [1]
+_interrupt_10             0x00f084         Code  Gb  stm8l15x_it.o [1]
+_interrupt_11             0x00f085         Code  Gb  stm8l15x_it.o [1]
+_interrupt_12             0x00f086         Code  Gb  stm8l15x_it.o [1]
+_interrupt_13             0x00f087         Code  Gb  stm8l15x_it.o [1]
+_interrupt_14             0x00eeee         Code  Gb  stm8l15x_it.o [1]
+_interrupt_15             0x00f088         Code  Gb  stm8l15x_it.o [1]
+_interrupt_16             0x00f089         Code  Gb  stm8l15x_it.o [1]
+_interrupt_17             0x00f08a         Code  Gb  stm8l15x_it.o [1]
+_interrupt_18             0x00f08b         Code  Gb  stm8l15x_it.o [1]
+_interrupt_19             0x00f08c         Code  Gb  stm8l15x_it.o [1]
+_interrupt_2              0x00f066         Code  Wk  interrupt.o [4]
+_interrupt_20             0x00f08d         Code  Gb  stm8l15x_it.o [1]
+_interrupt_21             0x00f08e         Code  Gb  stm8l15x_it.o [1]
+_interrupt_22             0x00f08f         Code  Gb  stm8l15x_it.o [1]
+_interrupt_23             0x00f090         Code  Gb  stm8l15x_it.o [1]
+_interrupt_24             0x00f091         Code  Gb  stm8l15x_it.o [1]
+_interrupt_25             0x00f092         Code  Gb  stm8l15x_it.o [1]
+_interrupt_26             0x00f093         Code  Gb  stm8l15x_it.o [1]
+_interrupt_27             0x00ef04         Code  Gb  stm8l15x_it.o [1]
+_interrupt_28             0x00f094         Code  Gb  stm8l15x_it.o [1]
+_interrupt_29             0x00f095         Code  Gb  stm8l15x_it.o [1]
+_interrupt_3              0x00f07d         Code  Gb  stm8l15x_it.o [1]
+_interrupt_30             0x00ef1a         Code  Gb  stm8l15x_it.o [1]
+_interrupt_31             0x00f096         Code  Gb  stm8l15x_it.o [1]
+_interrupt_4              0x00f07e         Code  Gb  stm8l15x_it.o [1]
+_interrupt_5              0x00f07f         Code  Gb  stm8l15x_it.o [1]
+_interrupt_6              0x00f080         Code  Gb  stm8l15x_it.o [1]
+_interrupt_7              0x00f081         Code  Gb  stm8l15x_it.o [1]
+_interrupt_8              0x00f082         Code  Gb  stm8l15x_it.o [1]
+_interrupt_9              0x00f083         Code  Gb  stm8l15x_it.o [1]
+asc_hex                   0x00efd0    0xa  Code  Gb  uart.o [1]
+asc_hex_2                 0x00ee93   0x18  Code  Gb  uart.o [1]
+atol                      0x00e709   0x4a  Code  Gb  key_and_Other.o [1]
+auto_close_timer          0x0000e0    0x2  Data  Gb  ram_cyw.o [1]
+auto_open_timer           0x0000de    0x2  Data  Gb  ram_cyw.o [1]
+calculate_monandday       0x00dfb0   0x85  Code  Gb  key_and_Other_cyw.o [1]
+clear_clear               0x0081d2   0x41  Code  Gb  lcd_cyw.o [1]
+close_timer_Store         0x0000e4    0x2  Data  Gb  ram_cyw.o [1]
+ct_KeyDataTable           0x00ef69   0x11  Data  Gb  key_and_Other.o [1]
+dd_set_ADF7021_Power_on
+                          0x00ebc0   0x2a  Code  Gb  adf7012.o [1]
+dd_set_ADF7021_Power_on_Init
+                          0x00e4ee   0x4f  Code  Gb  adf7012.o [1]
+dd_set_TX_mode            0x00e3db   0x5d  Code  Gb  adf7012.o [1]
+dd_write_7021_reg         0x00e0a8   0x6f  Code  Gb  adf7012.o [1]
+decimal                   0x00ecf4   0x23  Code  Gb  key_and_Other_cyw.o [1]
+delay                     0x008213   0x17  Code  Gb  lcd_cyw.o [1]
+dianciqianya_lcd          0x0082cb   0xa0  Code  Gb  lcd_cyw.o [1]
+display_area              0x008e82  0x1ee  Code  Gb  lcd_cyw.o [1]
+display_graphic_16x16     0x008080   0x83  Code  Gb  lcd_cyw.o [1]
+display_graphic_16x32     0x008ac1   0x83  Code  Gb  lcd_cyw.o [1]
+display_graphic_24x32     0x0084ca   0x83  Code  Gb  lcd_cyw.o [1]
+display_graphic_8x24      0x0083c4   0x70  Code  Gb  lcd_cyw.o [1]
+display_graphic_8x32      0x008574   0x70  Code  Gb  lcd_cyw.o [1]
+display_nowtime           0x00966a   0x46  Code  Gb  lcd_cyw.o [1]
+display_onetimedata_8_24
+                          0x00845b   0x6f  Code  Gb  lcd_cyw.o [1]
+display_onetimedata_8_32
+                          0x008864   0x91  Code  Gb  lcd_cyw.o [1]
+display_onetimedata_gothic_8_32
+                          0x009070    0x3  Code  Gb  lcd_cyw.o [1]
+display_oneword_16_16     0x008103   0x27  Code  Gb  lcd_cyw.o [1]
+display_oneword_16_32     0x008b44   0x27  Code  Gb  lcd_cyw.o [1]
+display_oneword_24_32     0x00854d   0x27  Code  Gb  lcd_cyw.o [1]
+display_oneword_8_24      0x008434   0x27  Code  Gb  lcd_cyw.o [1]
+display_oneword_8_32      0x0085e4   0x27  Code  Gb  lcd_cyw.o [1]
+display_timeroff          0x008696  0x1ce  Code  Gb  lcd_cyw.o [1]
+eeprom_diqu_load          0x00ede9   0x1d  Code  Gb  eeprom_cyw.o [1]
+eeprom_diqu_save          0x00ed6e   0x20  Code  Gb  eeprom_cyw.o [1]
+eeprom_guan_save          0x00e987   0x3f  Code  Gb  eeprom_cyw.o [1]
+eeprom_guanmode_save      0x00ec62   0x27  Code  Gb  eeprom_cyw.o [1]
+eeprom_kai_save           0x00e948   0x3f  Code  Gb  eeprom_cyw.o [1]
+eeprom_kaiguan_load       0x00d9c2   0xb3  Code  Gb  eeprom_cyw.o [1]
+eeprom_kaiguanlast_load
+                          0x00da75   0xaa  Code  Gb  eeprom_cyw.o [1]
+eeprom_kaiguanlast_save
+                          0x00df2b   0x85  Code  Gb  eeprom_cyw.o [1]
+eeprom_kaiguanmode_load
+                          0x00d909   0xb9  Code  Gb  eeprom_cyw.o [1]
+eeprom_kaimode_save       0x00ec3b   0x27  Code  Gb  eeprom_cyw.o [1]
+eeprom_sys_load           0x00ba0c  0x185  Code  Gb  eeprom.o [1]
+exit                      0x00f06c    0x3  Code  Gb  exit.o [4]
+g8563_Store               0x000010    0x7  Data  Gb  ram_cyw.o [1]
+get_timego                0x00e9c6   0x3c  Code  Gb  Timer.o [1]
+hex                       0x00ed17   0x23  Code  Gb  key_and_Other_cyw.o [1]
+hex_asc                   0x00efb9    0xc  Code  Gb  uart.o [1]
+key_Value                 0x0000d6    0x2  Data  Gb  ram.o [1]
+key_check                 0x00c592  0x154  Code  Gb  key_and_Other.o [1]
+key_scan                  0x00db1f   0xa8  Code  Gb  key_and_Other_cyw.o [1]
+key_touch_retime          0x008388   0x3c  Code  Gb  lcd_cyw.o [1]
+last_close_timer          0x0000e8    0x2  Data  Gb  ram_cyw.o [1]
+last_open_timer           0x0000e6    0x2  Data  Gb  ram_cyw.o [1]
+lcd_address               0x00e14a   0x3c  Code  Gb  lcd_cyw.o [1]
+lcd_backlight             0x0095df   0x8b  Code  Gb  lcd_cyw.o [1]
+lcd_init                  0x00822a   0xa1  Code  Gb  lcd_cyw.o [1]
+m_ChatterCount            0x00011d    0x1  Data  Gb  ram.o [1]
+m_KeyCloseCount           0x000120    0x1  Data  Gb  ram.o [1]
+m_KeyCount                0x000123    0x1  Data  Gb  ram.o [1]
+m_KeyDupli1stTimer        0x0000c4    0x2  Data  Gb  ram.o [1]
+m_KeyDupliSetTimeout      0x0000c6    0x2  Data  Gb  ram.o [1]
+m_KeyNew                  0x00011a    0x1  Data  Gb  ram.o [1]
+m_KeyNo                   0x00011e    0x1  Data  Gb  ram.o [1]
+m_KeyOld                  0x00011c    0x1  Data  Gb  ram.o [1]
+m_KeyOpenCount            0x00011f    0x1  Data  Gb  ram.o [1]
+m_KeyOptSetMode           0x000121    0x1  Data  Gb  ram.o [1]
+m_KeyOptSetOpenStop       0x000106    0x1  Data  Gb  ram.o [1]
+m_KindOfKey               0x00011b    0x1  Data  Gb  ram.o [1]
+m_RFNormalBuf             0x000017   0x28  Data  Gb  ram.o [1]
+m_RegDigit                0x000125    0x1  Data  Gb  ram.o [1]
+m_RegID                   0x00006f    0x9  Data  Gb  ram.o [1]
+m_RegMode                 0x000124    0x1  Data  Gb  ram.o [1]
+m_TimerKey                0x0000c2    0x2  Data  Gb  ram.o [1]
+m_TimerKeyMonitor         0x0000ca    0x2  Data  Gb  ram.o [1]
+m_TimerRegMode            0x0000cc    0x2  Data  Gb  ram.o [1]
+main                      0x00d3f8   0xea  Code  Gb  main.o [1]
+mb_CloseSw                0x00010b    0x1  Data  Gb  ram.o [1]
+mb_NoPush                 0x000107    0x1  Data  Gb  ram.o [1]
+mb_NoPushWait             0x000108    0x1  Data  Gb  ram.o [1]
+mb_OpenSw                 0x000109    0x1  Data  Gb  ram.o [1]
+mb_RegCloseSw             0x000104    0x1  Data  Gb  ram.o [1]
+mb_RegOpenSw              0x000103    0x1  Data  Gb  ram.o [1]
+mb_RegStopSw              0x000102    0x1  Data  Gb  ram.o [1]
+mb_RegSw                  0x000101    0x1  Data  Gb  ram.o [1]
+mb_RegVentSw              0x000105    0x1  Data  Gb  ram.o [1]
+mb_StopSw                 0x00010a    0x1  Data  Gb  ram.o [1]
+menu_closeonoff           0x0088f5   0xe6  Code  Gb  lcd_cyw.o [1]
+menu_dispdianci           0x00812a   0xa8  Code  Gb  lcd_cyw.o [1]
+menu_normal               0x0093f2  0x1a0  Code  Gb  lcd_cyw.o [1]
+menu_openonoff            0x0089db   0xe6  Code  Gb  lcd_cyw.o [1]
+menu_preinstall           0x008b6b  0x179  Code  Gb  lcd_cyw.o [1]
+menu_setclosetime         0x008ce4   0xcf  Code  Gb  lcd_cyw.o [1]
+menu_setnowtime           0x009073  0x37f  Code  Gb  lcd_cyw.o [1]
+menu_setopentime          0x008db3   0xcf  Code  Gb  lcd_cyw.o [1]
+now_timer                 0x000080    0x6  Data  Gb  ram_cyw.o [1]
+open_timer_Store          0x0000e2    0x2  Data  Gb  ram_cyw.o [1]
+openclose_output          0x00b544  0x2a3  Code  Gb  key_and_Other_cyw.o [1]
+power_control             0x00eb06   0x31  Code  Gb  key_and_Other_cyw.o [1]
+real_time                 0x00d123   0xf3  Code  Gb  pcf8563_cyw.o [1]
+rom_KeyOpt                0x000122    0x1  Data  Gb  ram.o [1]
+send_command              0x00e117   0x33  Code  Gb  lcd_cyw.o [1]
+send_data                 0x00eaa1   0x33  Code  Gb  lcd_cyw.o [1]
+test_mode_control         0x00cf18  0x106  Code  Gb  key_and_Other.o [1]
+time1ms_count             0x0000b6    0x4  Data  Gb  ram_cyw.o [1]
+time_control              0x00e8bf   0x45  Code  Gb  key_and_Other.o [1]
+time_led                  0x0000c8    0x2  Data  Gb  ram.o [1]
+txphase                   0x0000ba    0x2  Data  Gb  ram.o [1]
+txphase_Repeat            0x000112    0x1  Data  Gb  ram.o [1]
+txphase_end               0x0000bc    0x2  Data  Gb  ram.o [1]
+
+
+[1] = E:\zhiliao\文化新项目 140813\ソフト関連\壁挂式\Bunka STM8L151C6 TX Source Ver2.2.24 20170906\Debug\Obj
+[2] = command line
+[3] = dbgstm8smd.a
+[4] = dlstm8smn.a
+
+  23 575 bytes of readonly  code memory
+   5 256 bytes of readonly  data memory
+     588 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

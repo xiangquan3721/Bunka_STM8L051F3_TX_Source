@@ -19,7 +19,7 @@
           
           
           
-        <Column0>143</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>180</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Disassembly>
         <col-names>
@@ -34,7 +34,7 @@
         
         
       <ShowCodeCoverage>0</ShowCodeCoverage><ShowInstrProfiling>0</ShowInstrProfiling></Disassembly>
-    <WATCH_1><expressions><item>EEPROM_Receiver_ID</item><item>m_KeyOld</item><item>m_KeyNew</item><item>TB_5s</item><item>m_TimerKey</item><item>m_KeyOptSetMode</item><item>m_KindOfKey</item><item>m_KeyDupliSetTimeout</item><item>SIO_buff</item><item>SIO_DATA</item><item>RAM_BAT_AVG</item><item>RAM_BAT_SUM</item><item>RAM_BAT_CNT</item><item>BAT_Voltage_value</item><item>BAT_out</item><item/></expressions><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>227</item><item>150</item><item>100</item><item>319</item></col-widths></WATCH_1><Auto><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>100</item><item>150</item><item>100</item><item>100</item></col-widths></Auto><Memory><FindDirection>1</FindDirection><FindAsHex>0</FindAsHex></Memory><Find-in-Files><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files></Static>
+    <WATCH_1><expressions><item>EEPROM_Receiver_ID</item><item>m_KeyOld</item><item>m_KeyNew</item><item>TB_5s</item><item>m_TimerKey</item><item>m_KeyOptSetMode</item><item>m_KindOfKey</item><item>m_KeyDupliSetTimeout</item><item>SIO_buff</item><item>SIO_DATA</item><item>RAM_BAT_AVG</item><item>RAM_BAT_SUM</item><item>RAM_BAT_CNT</item><item>BAT_Voltage_value</item><item>BAT_out</item><item>BAT_Voltage_value</item><item>BAT_Voltage_value</item><item>BAT_Voltage_value</item><item>BAT_Voltage_value</item><item>BAT_Voltage_value</item><item>AD_value_cyw</item><item>AD_DATA_BUFF</item><item>RAM_BAT_SUM</item><item>BAT_Voltage_value</item><item>BAT_Voltage_value</item><item>BAT_out</item><item>now_timer</item><item>g8563_Store</item><item>g8563_Store</item><item>last_open_timer</item><item>last_open_timer</item><item>open_timer_Store</item><item>FG_LED_on</item><item>FG_LED_on</item><item>RAM_OP2</item><item>TB_5s</item><item>g8563_Store</item><item>now_sec</item><item>g8563_Store</item><item>g8563_Store</item><item/></expressions><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>227</item><item>150</item><item>100</item><item>319</item></col-widths></WATCH_1><Auto><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>251</item><item>150</item><item>100</item><item>100</item></col-widths></Auto><Memory><FindDirection>1</FindDirection><FindAsHex>0</FindAsHex></Memory><Find-in-Files><ColumnWidth0>664</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files></Static>
     <Windows>
       
       
@@ -63,7 +63,7 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>Bunka STM8S003F3 TX Source</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>Bunka STM8S003F3 TX Source</ExpandedNode><ExpandedNode>Bunka STM8S003F3 TX Source/lcd_cyw.c</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
@@ -77,21 +77,21 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab><Identity>TabID-14462-10114</Identity><TabName>Memory</TabName><Factory>Memory</Factory><Session><ZoneNumber>2</ZoneNumber><SelectionAnchor>4192</SelectionAnchor><SelectionEnd>4192</SelectionEnd><UnitsPerGroup>1</UnitsPerGroup><EndianMode>0</EndianMode><DataCovEnabled>0</DataCovEnabled><DataCovShown>0</DataCovShown><AutoRefresh>0</AutoRefresh><HScroll>0</HScroll><VScroll>256</VScroll></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5></Windows>
+      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab><Identity>TabID-14462-10114</Identity><TabName>Memory</TabName><Factory>Memory</Factory><Session><ZoneNumber>2</ZoneNumber><SelectionAnchor>4192</SelectionAnchor><SelectionEnd>4192</SelectionEnd><UnitsPerGroup>1</UnitsPerGroup><EndianMode>0</EndianMode><DataCovEnabled>0</DataCovEnabled><DataCovShown>0</DataCovShown><AutoRefresh>0</AutoRefresh><HScroll>0</HScroll><VScroll>1024</VScroll></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5></Windows>
     <Editor>
       
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>31</YPos><SelStart>1657</SelStart><SelEnd>1657</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>187</YPos><SelStart>6876</SelStart><SelEnd>6876</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Pane/><Sizes><Pane><X>497375</X><Y>1000000</Y></Pane><Pane><X>502624</X><Y>1000000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\EXIT_FUN.c</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>3729</SelStart><SelEnd>3729</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>1011</SelStart><SelEnd>1011</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\Pin_define.h</Filename><XPos>0</XPos><YPos>297</YPos><SelStart>14215</SelStart><SelEnd>14215</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ram_cyw.c</Filename><XPos>0</XPos><YPos>827</YPos><SelStart>67601</SelStart><SelEnd>67601</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\ad.c</Filename><XPos>0</XPos><YPos>59</YPos><SelStart>2529</SelStart><SelEnd>2529</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\inc\lcd_cyw.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>51</SelStart><SelEnd>63</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\eeprom.c</Filename><XPos>0</XPos><YPos>174</YPos><SelStart>6909</SelStart><SelEnd>6909</SelEnd></Tab><ActiveTab>6</ActiveTab></Pane><Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\key_and_Other_cyw.c</Filename><XPos>0</XPos><YPos>194</YPos><SelStart>6858</SelStart><SelEnd>6858</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Projects\src\main.c</Filename><XPos>0</XPos><YPos>30</YPos><SelStart>1862</SelStart><SelEnd>1862</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>1</ActivePane><Sizes><Pane><X>18608</X><Y>1000000</Y></Pane><Pane><X>981391</X><Y>1000000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-011df1a0><key>iaridepm.enu1</key></Toolbar-011df1a0></Sizes></Row0><Row1><Sizes><Toolbar-012315f8><key>debuggergui.enu1</key></Toolbar-012315f8></Sizes></Row1></Top><Left><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>385</Bottom><Right>217</Right><x>-2</x><y>-2</y><xscreen>140</xscreen><yscreen>136</yscreen><sizeHorzCX>103858</sizeHorzCX><sizeHorzCY>200000</sizeHorzCY><sizeVertCX>162463</sizeVertCX><sizeVertCY>569118</sizeVertCY></Rect></Wnd3></Sizes></Row0></Left><Right><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>385</Bottom><Right>138</Right><x>-2</x><y>-2</y><xscreen>140</xscreen><yscreen>136</yscreen><sizeHorzCX>103858</sizeHorzCX><sizeHorzCY>200000</sizeHorzCY><sizeVertCX>103858</sizeVertCX><sizeVertCY>569118</sizeVertCY></Rect></Wnd4></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>173</Bottom><Right>1350</Right><x>-2</x><y>-2</y><xscreen>1352</xscreen><yscreen>175</yscreen><sizeHorzCX>1002967</sizeHorzCX><sizeHorzCY>257353</sizeHorzCY><sizeVertCX>103858</sizeVertCX><sizeVertCY>200000</sizeVertCY></Rect></Wnd0></Sizes></Row0><Row1><Sizes><Wnd5><Rect><Top>171</Top><Left>-2</Left><Bottom>226</Bottom><Right>1350</Right><x>-2</x><y>171</y><xscreen>1352</xscreen><yscreen>55</yscreen><sizeHorzCX>1002967</sizeHorzCX><sizeHorzCY>80882</sizeHorzCY><sizeVertCX>103858</sizeVertCX><sizeVertCY>200000</sizeVertCY></Rect></Wnd5></Sizes></Row1></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-00594490><key>iaridepm.enu1</key></Toolbar-00594490></Sizes></Row0><Row1><Sizes><Toolbar-005c39c0><key>debuggergui.enu1</key></Toolbar-005c39c0></Sizes></Row1></Top><Left><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>612</Bottom><Right>271</Right><x>-2</x><y>-2</y><xscreen>175</xscreen><yscreen>194</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>200413</sizeHorzCY><sizeVertCX>162500</sizeVertCX><sizeVertCY>634298</sizeVertCY></Rect></Wnd3></Sizes></Row0></Left><Right><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>612</Bottom><Right>173</Right><x>-2</x><y>-2</y><xscreen>175</xscreen><yscreen>194</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>200413</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>634298</sizeVertCY></Rect></Wnd4></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>257</Bottom><Right>1682</Right><x>-2</x><y>-2</y><xscreen>1684</xscreen><yscreen>259</yscreen><sizeHorzCX>1002381</sizeHorzCX><sizeHorzCY>267562</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>200413</sizeVertCY></Rect></Wnd0></Sizes></Row0><Row1><Sizes><Wnd5><Rect><Top>255</Top><Left>-2</Left><Bottom>287</Bottom><Right>1682</Right><x>-2</x><y>255</y><xscreen>1684</xscreen><yscreen>32</yscreen><sizeHorzCX>1002381</sizeHorzCX><sizeHorzCY>33058</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>200413</sizeVertCY></Rect></Wnd5></Sizes></Row1></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 

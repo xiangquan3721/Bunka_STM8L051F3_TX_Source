@@ -6,7 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151c6.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -16,7 +16,11 @@
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
 #include "ad.h"		// ad
-#include "Timer.h"		// 定时器
+#include "Timer.h"		// 定时器 ////2015.3.13修正
+#include "ram_cyw.h"	
+
+
+extern UINT16 TB_5S_CYW;//20150428 CYW
 
 void key_check(void)
 {
@@ -29,45 +33,80 @@ void key_check(void)
   
    if(FG_1ms){
     FG_1ms=0; 
-    if(TIME_power_on_AD)TIME_power_on_AD--;
     if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
-    if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
-    else FG_d_StopKey=0;
+    if(m_KeyDupli1stTimer)
+    {
+      --m_KeyDupli1stTimer;
+    }
+    else
+    {
+      FG_d_StopKey=0;
+    }
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
-      if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+      if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}//这里是控制二次模式LED闪烁的
     }
     if(m_TimerKey)--m_TimerKey;
     
     if(TIME_BEEP_on){
       --TIME_BEEP_on;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1; //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=1;
+      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;//2015.3.13修正
+                        //if(FG_LED_on)LED_ON;//PIN_LED=1;
+                         if(FG_LED_on)
+                         {
+                           LED_ON;//PIN_LED=0;//LED_ON;//PIN_LED=0;
+                         }
+                       //#if(ProductID==Hanging_none)//不带屏的初始化
+                       // if(FG_LED_on)PIN_LED=1;
+                       // #endif
+                       //#if(ProductID==Hanging_display)//不带屏的初始化
+                       // if(1)LED_ON;
+                       //#endif
                        }
     }
     else if(TIME_BEEP_off){
       --TIME_BEEP_off;
-      if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;Tone_OFF();//BEEP_CSR2_BEEPEN=0;  //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=0;
+      if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;Tone_OFF();//BEEP_CSR2_BEEPEN=0;//2015.3.13修正
+                       //if(FG_LED_on)LED_OFF;//PIN_LED=0;
+                       if(FG_LED_on)
+                       { 
+                         LED_OFF;//PIN_LED=1;//LED_OFF;//PIN_LED=1;
+                       }
+                       // #if(ProductID==Hanging_none)//不带屏的初始化
+                       // if(FG_LED_on)PIN_LED=0;
+                       //  #endif
                        }
     }
     else if(TIME_BEEP_freq){
       --TIME_BEEP_freq;
       TIME_BEEP_on=BASE_TIME_BEEP_on;
       TIME_BEEP_off=BASE_TIME_BEEP_off;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;  //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=1;
+      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;//2015.3.13修正
+                        if(FG_LED_on)
+                        {  
+                         LED_ON;// PIN_LED=0;//LED_ON;//PIN_LED=0;
+                        }
+                       // #if(ProductID==Hanging_none)//不带屏的初始化
+                       // if(FG_LED_on)PIN_LED=1;
+                       //  #endif
                        }      
     }
-    else  FG_LED_on=0; 
-    
-//    if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
-//    else {ADC_read();FG_BAT_value=0;}
+    else 
+    {  
+    FG_LED_on=0;   
+   
+     //#if(ProductID==Hanging_display)//不带屏的初始化
+     //          if(1)LED_OFF;
+     // #endif
+      
+    }
+  // if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
+  // else {ADC_read();FG_BAT_value=0;}
     _KeyInTx();
     if(FG_10s==1)return;   // 2015.1.31修正3
-    _RegistrationMode();
+    _RegistrationMode();//login mode 
     _DupliFuncSetMode();
     ADC2_EOC_INT();
     ClearWDT(); // Service the WDT    
@@ -78,10 +117,19 @@ void key_check(void)
 void time_control(void)
 {
   if(FG_100ms){
-    FG_100ms=0; 
-    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13修正    
-    if(FG_PWRON==1){
-    if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
+    FG_100ms=0;    
+     if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13修正    
+    //PIN_LED = ~PIN_LED;
+     if(TB_5S_CYW)//20150428 CYW
+        --TB_5S_CYW;
+    if(FG_PWRON==1)
+    {
+      
+       if ((TB_5s)&&(m_KeyOptSetMode==0))	
+        { 
+           --TB_5s;//m_KeyOptSetMode = 0 不在那些模式
+          
+        }
     }    
   }
   
@@ -178,9 +226,9 @@ void	_KeyInTx( void )
 		m_KeyOld = m_KeyNew ;
 		_SetKeyChatterCount() ;						// Chatter counter set
 		_ClearSpecialMultiKeyState() ;				// Clear key continue state
-                TIME_Once_twice_switch=5000;   //2015.1.31修正4
+		 TIME_Once_twice_switch=5000;   //2015.1.31修正4
                 TIME_10s=10100;  //2015.1.31修正3
-		return ;
+                return ;
 	}
 	
 	if	( --m_ChatterCount )						// Chattering ok ?
@@ -204,7 +252,7 @@ void	_KeyInTx( void )
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31修正3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
-			if(TIME_10s==0){      //2015.1.31修正3
+                        if(TIME_10s==0){      //2015.1.31修正3
                            BASE_TIME_BEEP_on=103;
                            BASE_TIME_BEEP_off=103;
                         }
@@ -212,6 +260,7 @@ void	_KeyInTx( void )
                            BASE_TIME_BEEP_on=40;
                            BASE_TIME_BEEP_off=60;
                         }
+			
                         TIME_BEEP_on=BASE_TIME_BEEP_on;
                         TIME_BEEP_off=BASE_TIME_BEEP_off;
                         TIME_BEEP_freq=2;	
@@ -219,7 +268,7 @@ void	_KeyInTx( void )
 	      else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
 	    }
 	}
-	        
+	
 	/*		Search of valid key		*/
 	for	( i=0; i<17;i++)
 	{
@@ -252,7 +301,7 @@ void	_KeyInTx( void )
 	
 	switch	( i )    // Jumo to key function
 	{
-		case 0 :
+		case 0 ://login
 		        _FuncReg();
 			break ;		
 		case 1 :
@@ -410,8 +459,8 @@ void	_Pass3secKey( uchar req )
 		if	( !--m_TimerKey )
 		{											// Yes
 			_ReqTxdEdit( req,0 ) ;
-                        FG_Complex_Single_shot=1;   //2015.1.31修正2
-			return ;
+			 FG_Complex_Single_shot=1;   //2015.1.31修正2
+                        return ;
 		}
 	}
 }
@@ -471,7 +520,7 @@ void	_FuncStop( void )
 	{												// No
 		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
 		{											// Yes
-			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31修正4	  // 5sec passed ?
+			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31修正4						// 5sec passed ?
 			{
 //				if	( !--m_TimerKey )
 //				{									// Yes
@@ -533,12 +582,7 @@ void	_FuncStop( void )
 			m_TimerKey = d_Time5s ;//d_Time9s ;					// Set 5sec key timer
 			break;
 	}
-        
-          /********2015.1.31追加  按一次模式********/
 	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
-        
-//          /********2015.1.31追加  按2次模式********/
-//	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
 	{												// Yes
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
@@ -558,7 +602,7 @@ void	_FuncStop( void )
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
 		m_TimerKeyMonitor = d_Clear ;
 		FG_d_StopKey=1;
-		m_KeyDupli1stTimer = d_D1stTime3s ;
+		m_KeyDupli1stTimer = d_D1stTime3s ; //就等这个时间
 		time_led=0;
 		return ;
 	}
@@ -660,9 +704,9 @@ void	_ClearSpecialMultiKeyState( void )
 /*										*/
 /****************************************/
 //
-void	_DupliFuncClear( void )
+void	_DupliFuncClear( void )//清除二次模式？？
 {
-	m_KeyOptSetMode = d_Idle ;
+	m_KeyOptSetMode = d_Idle ;//0
 	m_KeyOpenCount = 2 ;
 	m_KeyCloseCount = 2 ;
 	//mb_OpenSw = d_Off ;
@@ -701,14 +745,14 @@ uchar	_GetNoPushState( void )
 }
 void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 {
-  UINT8 time_key;
-  if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){      //计算剩余的时间，总共时间不能超过69，以25为间隔。
-    time_key=25-TB_5s;
-    TB_sum_5s=TB_sum_5s+time_key;
-    if((69-TB_sum_5s)>=27)TB_5s=25;
-    
-  }
-  if((TB_5s>=25)||(TIME_2s_RestTX==0)){   //2015.4.13修正
+ UINT8 time_key;
+ if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){
+ time_key = 25 - TB_5s;
+ TB_sum_5s = TB_sum_5s + time_key;
+ if((69-TB_sum_5s)>=27) TB_5s = 25;
+ }
+  
+  if((TB_5s>=25)||(TIME_2s_RestTX==0)||(TB_5S_CYW>=20)){//2015.4.13修正 //20150428 CYW
         if(FG_PWRON==0){
 	FG_PWRON=1;
 	PIN_POWER_CONTROL=1;
@@ -781,10 +825,14 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
         dd_set_TX_mode();	
 //	TIME_BEEP_on=BASE_TIME_BEEP_on;
 //        TIME_BEEP_off=BASE_TIME_BEEP_off;
-        SendTxData();
-        TIME_2s_RestTX=25;       //2015.4.13修正        
+         SendTxData();
+         TIME_2s_RestTX=25;       //2015.4.13修正   
   }
-  else PIN_LED=0;
+  else 
+  {
+    //PIN_LED=0;
+    LED_OFF;
+  }
 }
 
 //
@@ -1097,7 +1145,7 @@ void	_DupliFuncSetMode( void )
 //
 void	_RegistrationMode( void )
 {
-	if	( !_GetRegMode() )							// Reg. mode Idle ?
+	if	( !_GetRegMode() )							// Reg. mode Idle ? now is not login mode
 	{												// Yes
 		return ;
 	}
@@ -1114,7 +1162,8 @@ void	_RegistrationMode( void )
 	else {
 	        //_ReqBuzzer(500,250,3);
 	        _ReqBuzzer(500,250,2);
-		PIN_LED=0;
+		//PIN_LED=0;
+                LED_OFF;
 		m_RegMode = d_Idle ;
 	}
 	/*	Led control	*/
@@ -1218,9 +1267,9 @@ UINT32 atol (unsigned char* m_RegID_x)
 /*												*/
 /************************************************/
 //
-void	_SetRegistrationMode( uchar mode )
+void	_SetRegistrationMode( uchar mode )//mode ==1
 {
-	if	( _GetRegMode() )							// Reg. mode Idle ?
+	if	( _GetRegMode() )							// Reg. mode Idle ?//now is regmode
 	{												// No
 		return ;
 	}
@@ -1367,7 +1416,8 @@ void test_mode_control(void)
  }  
   UART1_end();
   PIN_POWER_CONTROL=0;
-  PIN_TX_LED=0;
+  //PIN_TX_LED=0;
+  LED_OFF;
   FG_KEY_OPEN=0;
   FG_KEY_STOP=0;
   FG_KEY_CLOSE=0;  

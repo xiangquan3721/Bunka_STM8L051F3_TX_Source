@@ -6,10 +6,12 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151c6.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
+#include "lcd_cyw.h"
+#include "ram_cyw.h"	
 
 
 
@@ -39,7 +41,7 @@ void EXTI_PORTA1(void){
         txphase=0;
         txphase_Repeat++;
         //if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_CE=0;ADF7021_POWER=1;}
-	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=FG_NOT_allow_out;ADF7021_DATA_tx=0;}
+	if(txphase_Repeat>=3){FLAG_APP_TX=0;LED_OFF;/*PIN_TX_LED=0;*/ADF7021_POWER=FG_NOT_allow_out;ADF7021_DATA_tx=0;dianciqianya_lcd();}
     }    
   }
   EXTI_SR1_bit.P4F=1;
@@ -95,38 +97,43 @@ void EXTI_PORTA1(void){
 //}
 
 
-//void SendTxData(void)
-//{
-//  UINT8 i;
-//       m_RFNormalBuf[0]=0xFF;
-//       m_RFNormalBuf[1]=0xFF;
-//       for(i=2;i<=14;i++)m_RFNormalBuf[i]=0x55;
-//       m_RFNormalBuf[15]=0x15;
-//       PIN_TX_LED=1;
-//       if(m_RegMode==0){
-//	 txphase_end=224;
-//	 SetTxData(16,ID_data,Control_code);
-//       }
-//       else {
-//	 txphase_end=320;
-//	 SetTxData(16,ID_data,0x80);
-//	 if(m_RegMode==1)SetTxData(28,ID_data_add,0xFF);    //"1"是追加
-//	 else SetTxData(28,ID_data_add,0);    //"2"是抹消
-//       }
-//       txphase=0;
-//       txphase_Repeat=0;
-//       ID_INT_CODE=0;
-//       FLAG_APP_TX=1;
-//}
+/*void SendTxData(void)
+{
+  UINT8 i;
+       m_RFNormalBuf[0]=0xFF;
+       m_RFNormalBuf[1]=0xFF;
+       for(i=2;i<=14;i++)m_RFNormalBuf[i]=0x55;
+       m_RFNormalBuf[15]=0x15;
+       //PIN_TX_LED=1;
+       LED_ON;
+       if(m_RegMode==0){
+	 txphase_end=224;
+	 SetTxData(16,ID_data,Control_code);
+       }
+       else {
+	 txphase_end=320;
+	 SetTxData(16,ID_data,0x80);
+	 if(m_RegMode==1)SetTxData(28,ID_data_add,0xFF);    //"1"是追加
+	 else SetTxData(28,ID_data_add,0);    //"2"是抹消
+       }
+       txphase=0;
+       txphase_Repeat=0;
+       ID_INT_CODE=0;
+       FLAG_APP_TX=1;
+}*/
 
 
+//2017年7月24日  修改来至向工
 void SendTxData(void)
 {
   UINT8 i;
        m_RFNormalBuf[0]=0xFF;
+       
        for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[14]=0x15;
-       PIN_TX_LED=1;
+       //PIN_TX_LED=1;
+     
+        LED_ON;
        if(m_RegMode==0){
 	 txphase_end=224;
 	 SetTxData(15,ID_data,Control_code);
@@ -137,13 +144,14 @@ void SendTxData(void)
 	 SetTxData(15,ID_data,0x80);
 	 if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"是追加
 	 else SetTxData(27,ID_data_add,0);    //"2"是抹消
-         m_RFNormalBuf[39]=0xFF;
+          m_RFNormalBuf[39]=0xFF; 
        }
        txphase=0;
        txphase_Repeat=0;
        ID_INT_CODE=0;
        FLAG_APP_TX=1;
 }
+
 
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)
 {

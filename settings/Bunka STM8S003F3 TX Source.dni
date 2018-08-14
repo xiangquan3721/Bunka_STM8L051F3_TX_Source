@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1804997866
+Checksum=2056099940
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -53,24 +53,28 @@ Enabled=0
 ShowSource=1
 [BreakpointUsageDialog]
 Placement=_ 742 386 1179 664
+[array_types]
+Fmt0=unsigned char[2]	3	0
 [watch_formats]
 Fmt0={W}0:BAT_out	3	0
 Fmt1={W}0:RAM_BAT_CNT	3	0
 Fmt2={W}0:TB_5s	3	0
 Fmt3={W}0:TIME_KEY_LOGIN	3	0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
 Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
 Count=0
 [Aliases]
-A0=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\EXIT_FUN.c" ""
-A1=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\adf7012.c" ""
-A2=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\initial.c" ""
-A3=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\main.c" ""
-Count=4
+A0=_ "E:\资料\文化新项目 140813\壁挂式\Bunka STM8L151C6 TX Source Ver2.2.23 20150506\Projects\src\key_and_Other_cyw.c" ""
+A1=_ "E:\资料\文化新项目 140813\壁挂式\Bunka STM8L151C6 TX Source Ver2.2.23 20150506\Projects\src\main.c" ""
+A2=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\EXIT_FUN.c" ""
+A3=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\adf7012.c" ""
+A4=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\initial.c" ""
+A5=_ "F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source Ver2.0\Projects\src\main.c" ""
+Count=6
 SuppressDialog=0

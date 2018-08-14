@@ -8,7 +8,7 @@
 /***********************************************************************/
 
 
-#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151c6.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -58,6 +58,7 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
 void dd_set_ADF7021_Power_on_Init(void)
 {
   ADF70XX_REG_T register_value;
+ 
 	if (ADF7021_POWER == FG_NOT_allow_out)
 	{
 		ADF7021_POWER = FG_allow_out;  
@@ -82,6 +83,8 @@ void dd_set_ADF7021_Power_on(void)
 //	if (ADF7021_CE == 0)
 //	{
 //		ADF7021_CE = 1;
+       
+ 
 	if (ADF7021_POWER == FG_NOT_allow_out)
 	{
 		ADF7021_POWER = FG_allow_out;  
@@ -93,6 +96,7 @@ void dd_set_ADF7021_Power_on(void)
 		Delayus(130);             //delay 200us
 		Delayus(130);             //delay 200us  
 	}
+     
 }
 
 

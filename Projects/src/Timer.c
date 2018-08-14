@@ -6,11 +6,19 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include  <iostm8l151c6.h>				// CPU型号 
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
 
+
+
+
+
+//add cyw
+#if(ProductID == Hanging_display)
+#include "ram_cyw.h"		// RAM定义
+#endif
 ////%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Timer 1 start
 //void TIM1_init(void){						// 0.8333ms定时器
 //	TIM1_PSCRH = 0x00;				// 10M系统时钟经预分频f=fck/(PSCR+1)
@@ -25,8 +33,23 @@
 //	TIM1_SR1 = 0;						// 清除中断标记
 //}
 
+UINT32 get_timego(UINT32 x_data_his)
+{
+	UINT32 time_pass=0;
+	if(time1ms_count >= x_data_his)
+	{
+		time_pass = time1ms_count - x_data_his;
+	}
+	else
+	{
+		time_pass = time1ms_count + 0xffffffff - x_data_his + 1;
+	}
+	return time_pass;
+}
 
-void TIM3_init(void){			// 2015.3.11修正
+
+
+void TIM3_init(void){			// 2015.3.13修正
         TIM3_CCMR2 = TIM3_CCMR2 | 0x70;
         TIM3_CCER1 = TIM3_CCER1 | 0x30;
 	TIM3_ARRH = 0x01;//0x02;					// 自动重载寄存器ARR=5
@@ -40,10 +63,11 @@ void TIM3_init(void){			// 2015.3.11修正
         TIM3_CR1 = TIM3_CR1 | 0x01;
         TIM3_BKR= 0x80;
 }
-void Tone_OFF(void){		// 关闭Tone   2015.3.11修正
+void Tone_OFF(void){		// 关闭Tone   2015.3.13修正
 	TIM3_CR1_CEN = 0;		// Timer 3 Disable
         PIN_BEEP=0;
 }
+
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   1ms
 void TIM4_Init(void){				
 	TIM4_PSCR = 0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方
@@ -60,6 +84,45 @@ void TIM4_UPD_OVF(void){
 	  TB_100ms = BASE_100ms;
 	  FG_100ms = 1;	      // 100mS FLAG
 	}
+        
+        
+        
+          #if(ProductID == Hanging_display)
+         //ClearWDT(); 
+        time1ms_count++;
+        
+        if (TB_100ms_CYW)	--TB_100ms_CYW;
+        else{                            
+          TB_100ms_CYW = BASE_100ms;
+	  FG_100ms_CYW = 1;	      // 100mS FLAG
+	}
+        
+        if (TB_1s_CYW)
+        {
+          --TB_1s_CYW;
+         
+        }
+        else{
+          
+	  TB_1s_CYW = BASE_1s;
+	  FG_LCD_1s=1;	      // 100mS FLAG
+          FG_RTC_1s =1;
+          if(FLAG_BACKLIGHT_5S)
+          {
+          FLAG_BACKLIGHT_5S--;
+          }
+          if(FLAG_BACKLIGHT_1S)
+          {
+          FLAG_BACKLIGHT_1S--;
+          }
+          if(FLAG_BACKLIGHT_60S)
+          {
+          FLAG_BACKLIGHT_60S--;
+          }
+	}
+         //if(FLAG_beep_CYW==1)PIN_BEEP=~(PIN_BEEP);//cyw add
+       #endif    
+        
 	TIM4_SR1_bit.UIF=0;						// 清除中断标记
 }
 
