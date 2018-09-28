@@ -39,7 +39,7 @@
 
 void main(void)
 {
-  _DI();		// 关全局中断
+  _DI();		// 关全局中断 
   RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
   WDT_init();
