@@ -430,6 +430,69 @@ void display_graphic_8x48(uchar column,uchar page,const uchar *dp,uchar x_flag)
 }
 
 
+void lcd_checker(unsigned char data0)
+{
+                                    //------ò???ê????á3ìDò
+    unsigned char seg,seg0,seg1;
+   unsigned char page,page0,page1;
+   for(page=0xb0;page<0xb9;page++) //D′ò3μ??·128 ò3 0xb0----0xb8
+    {
+      send_command(page);
+      send_command(0x10); //áDμ??·￡???μí×??úá?′?D′è?￡?′óμú0 áD?aê?
+      send_command(0x00);
+			page0=page-0xb0;
+			page1=page0%2;
+      for(seg=0;seg<128;seg++)//D′128 áD
+      {
+					seg0=seg/8;
+					seg1=seg0%2;
+					if(data0==1){
+					   if(page1==1){
+					      if(seg1==1)send_data(0xFF);
+                else send_data(0x00);
+					   }
+					   else {
+					      if(seg1==1)send_data(0x00);
+                else send_data(0xFF);
+					   }
+				}
+				else {
+					   if(page1==1){
+					      if(seg1==1)send_data(0x00);
+                else send_data(0xFF);
+					   }
+					   else {
+					      if(seg1==1)send_data(0xFF);
+                else send_data(0x00);
+					   }
+				}
+			}
+    }
+}
+
+
+void GrRectFIllBolymin(uchar lucXMin, uchar lucXMax, uchar lucYMin, uchar lucYMax, uchar lbFillColor, uchar lGlowRightmostColumn)
+{
+    uchar i,j,data_lucYMin,data_lucYMax;
+    if((lucXMax==127)||(lucXMax==126)) lucXMax = 128;
+   if(lGlowRightmostColumn==1)
+   {
+       PIN_LCD_SEL  = 0;//选中
+       data_lucYMin=lucYMin/8;
+       data_lucYMax=lucYMax/8+1;
+       for(i=data_lucYMin;i<data_lucYMax;i++)
+       {
+          lcd_address(1+i,lucXMin);
+          for(j=lucXMin;j<=lucXMax;j++)
+          {
+             ClearWDT(); // Service the WDT
+            send_data(lbFillColor);
+          }
+       }
+      PIN_LCD_SEL  = 1;//不选中
+   }
+}
+
 
 void display_onetimedata_8_32(uchar hang,uchar lie,uchar data,uchar x_flag)
 {

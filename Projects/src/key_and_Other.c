@@ -18,6 +18,8 @@
 #include "ad.h"		// ad
 #include "Timer.h"		// 定时器 ////2015.3.13修正
 #include "ram_cyw.h"	
+#include "lcd_cyw.h"
+#include "pcf8563_cyw.h"
 
 
 extern UINT16 TB_5S_CYW;//20150428 CYW
@@ -1375,9 +1377,19 @@ void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
 
 void test_mode_control(void)
 {
-
- while(PIN_test_mode==0){  
-  ClearWDT(); // Service the WDT 
+ static UINT8 Tp_clk_out_flag=0,disp_on_flag = 0,disp_step_flag=0;
+ static UINT32 time_disp;
+ while(PIN_test_mode==0){
+    ClearWDT(); // Service the WDT 
+   if(Tp_clk_out_flag == 0)
+   {
+      Tp_clk_out_flag = 1;
+     Init8563();
+      Write8563(0x01,0);
+      Write8563(0x0e,0);
+      Write8563(0x0d,0x80);
+   }
+ 
   if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
     dd_set_ADF7021_Power_on();
@@ -1403,6 +1415,44 @@ void test_mode_control(void)
     FG_test_mode=1;
   }
   if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
+  
+   if((PIN_KEY_LOGIN==0)&&(FG_KEY_LOGIN==0)){
+    disp_on_flag = 1;
+    lcd_init();
+    PIN_LCD_LIGHT = 1;//开背光
+    time_disp = time1ms_count;
+  }
+  if(PIN_KEY_LOGIN==1)FG_KEY_LOGIN=0;
+  
+  if(disp_on_flag==1)
+  {
+  if(get_timego(time_disp)>3000)
+  {
+    time_disp = time1ms_count;
+    switch(disp_step_flag)
+    {
+    case 0:
+      disp_step_flag = 1;
+      GrRectFIllBolymin(0, 126, 0, 63, 0xff, 1);
+        break;
+    case 1:
+      lcd_checker(0);
+       disp_step_flag = 2;
+        break;
+    case 2:
+      lcd_checker(1);
+       disp_step_flag = 3;
+        break;
+    case 3:
+      GrRectFIllBolymin(0, 126, 0, 63, 0x00, 1);
+       disp_step_flag = 0;
+        break;
+    default:
+      disp_step_flag = 0;
+        break;
+    }
+  }
+  }
   
 	
   if((ADF7021_DATA_CLK==1)&&(FG_test_mode==1)&&(FG_test1==0)){

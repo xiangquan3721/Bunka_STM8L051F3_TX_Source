@@ -49,3 +49,6 @@ void dianciqianya_lcd(void);
 void display_nowtime(void);
 void key_touch_retime(void);
 void Power_Low(void);
+
+void lcd_checker(unsigned char data0);
+void GrRectFIllBolymin(uchar lucXMin, uchar lucXMax, uchar lucYMin, uchar lucYMax, uchar lbFillColor, uchar lGlowRightmostColumn);
