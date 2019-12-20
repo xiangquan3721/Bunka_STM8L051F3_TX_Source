@@ -58,4 +58,5 @@ void beep_init( void );
 void Delayus(unsigned char timer);
 void _Init_RAM(void);
 void WDT_init(void);
+void WDT_reinit(void);
 void ClearWDT(void);

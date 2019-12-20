@@ -29,6 +29,15 @@ void WDT_init(void)
   IWDG_RLR=0xFF;
   IWDG_KR=0xCC;
 }
+
+void   WDT_reinit(void)
+{
+   IWDG_KR=0xCC;
+  IWDG_KR=0x55;
+  IWDG_PR=3;
+  IWDG_KR=0xAA;    
+}
+
 void ClearWDT(void)
 {
   //IWDG_KR=0xAA;

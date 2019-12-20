@@ -135,11 +135,20 @@ void main(void)
           FG_10s=1;    // 2015.1.31ÐÞÕý3
           /********************2015.1.31ÐÞÕý2************************/
 	  while(1){   
-            if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT 
-            else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
+            if(FG_Complex_Single_shot==1)
+            {
+              ClearWDT(); // Service the WDT 
+            }
+            else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4))
+            {
               key_check();
               ClearWDT(); // Service the WDT 
-            }     
+            }    
+            else
+            {
+              WDT_reinit();
+              while(1);
+            }
           }
           /*********************************************************/
 	}
