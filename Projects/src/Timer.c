@@ -46,7 +46,7 @@ void Tone_OFF(void){		// 关闭Tone   2015.3.11修正
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   1ms
 void TIM4_Init(void){				
-	TIM4_PSCR = 0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方
+	TIM4_PSCR = 0x06;//0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方
         //TIM4_PSCR = 0x08;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  = f CK_PSC/ 2(PSC[3:0])
 	TIM4_ARR  = 0xF9;						// Timer 4 period
 	TIM4_CR1 |= 0x01;						// Timer 4 Enable

@@ -39,7 +39,7 @@ void EXTI_PORTA1(void){
         txphase=0;
         txphase_Repeat++;
         //if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_CE=0;ADF7021_POWER=1;}
-	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=FG_NOT_allow_out;ADF7021_DATA_tx=0;}
+	if(txphase_Repeat>=1){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=FG_NOT_allow_out;ADF7021_DATA_tx=0;}
     }    
   }
   EXTI_SR1_bit.P4F=1;
@@ -122,22 +122,22 @@ void EXTI_PORTA1(void){
 
 void SendTxData(void)
 {
-  UINT8 i;
-       m_RFNormalBuf[0]=0xFF;
-       for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
-       m_RFNormalBuf[14]=0x15;
+  UINT8 i, def_preamble=8;
+       m_RFNormalBuf[0]=0x55;
+       for(i=1;i<=def_preamble;i++)m_RFNormalBuf[i]=0x55;
+       m_RFNormalBuf[def_preamble+1]=0x15;
        PIN_TX_LED=1;
        if(m_RegMode==0){
-	 txphase_end=224;
-	 SetTxData(15,ID_data,Control_code);
-         m_RFNormalBuf[27]=0xFF;
+	 txphase_end=(def_preamble+15)*8;
+	 SetTxData(def_preamble+2,ID_data,Control_code);
+         m_RFNormalBuf[def_preamble+14]=0xFF;
        }
        else {
-	 txphase_end=320;
-	 SetTxData(15,ID_data,0x80);
-	 if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"是追加
-	 else SetTxData(27,ID_data_add,0);    //"2"是抹消
-         m_RFNormalBuf[39]=0xFF;
+	 txphase_end=(def_preamble+27)*8;
+	 SetTxData(def_preamble+2,ID_data,0x80);
+	 if(m_RegMode==1)SetTxData(def_preamble+14,ID_data_add,0xFF);    //"1"是追加
+	 else SetTxData(def_preamble+14,ID_data_add,0);    //"2"是抹消
+         m_RFNormalBuf[def_preamble+26]=0xFF;
        }
        txphase=0;
        txphase_Repeat=0;
