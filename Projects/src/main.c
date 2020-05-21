@@ -59,6 +59,7 @@ void main(void)
     }
   _EI();		// ÔÊÐíÖÐ¶Ï	
   //beep_init();  //2015.3.11ÐÞÕý
+  dd_set_ADF7021_Power_on_Init();
    TIME_power_on_AD=0; //30;
   /* Infinite loop */
   while (1)

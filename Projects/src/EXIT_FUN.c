@@ -122,18 +122,18 @@ void EXTI_PORTA1(void){
 
 void SendTxData(void)
 {
-  UINT8 i, def_preamble=8;
+  UINT8 i, def_preamble=7;
        m_RFNormalBuf[0]=0x55;
        for(i=1;i<=def_preamble;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[def_preamble+1]=0x15;
        PIN_TX_LED=1;
        if(m_RegMode==0){
-	 txphase_end=(def_preamble+15)*8;
+	 txphase_end=(def_preamble+15)*8-4;
 	 SetTxData(def_preamble+2,ID_data,Control_code);
          m_RFNormalBuf[def_preamble+14]=0xFF;
        }
        else {
-	 txphase_end=(def_preamble+27)*8;
+	 txphase_end=(def_preamble+27)*8-4;
 	 SetTxData(def_preamble+2,ID_data,0x80);
 	 if(m_RegMode==1)SetTxData(def_preamble+14,ID_data_add,0xFF);    //"1"是追加
 	 else SetTxData(def_preamble+14,ID_data_add,0);    //"2"是抹消

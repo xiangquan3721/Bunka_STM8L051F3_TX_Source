@@ -41,27 +41,27 @@ void key_check(void)
     }
     if(m_TimerKey)--m_TimerKey;
     
-    if(TIME_BEEP_on){
-      --TIME_BEEP_on;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1; //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=1;
-                       }
-    }
-    else if(TIME_BEEP_off){
-      --TIME_BEEP_off;
-      if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;Tone_OFF();//BEEP_CSR2_BEEPEN=0;  //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=0;
-                       }
-    }
-    else if(TIME_BEEP_freq){
-      --TIME_BEEP_freq;
-      TIME_BEEP_on=BASE_TIME_BEEP_on;
-      TIME_BEEP_off=BASE_TIME_BEEP_off;
-      if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;  //2015.3.11修正
-                        if(FG_LED_on)PIN_LED=1;
-                       }      
-    }
-    else  FG_LED_on=0; 
+    // if(TIME_BEEP_on){
+    //   --TIME_BEEP_on;
+    //   if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1; //2015.3.11修正
+    //                     if(FG_LED_on)PIN_LED=1;
+    //                    }
+    // }
+    // else if(TIME_BEEP_off){
+    //   --TIME_BEEP_off;
+    //   if(FG_beep_off==0){FG_beep_off=1;FG_beep_on=0;Tone_OFF();//BEEP_CSR2_BEEPEN=0;  //2015.3.11修正
+    //                     if(FG_LED_on)PIN_LED=0;
+    //                    }
+    // }
+    // else if(TIME_BEEP_freq){
+    //   --TIME_BEEP_freq;
+    //   TIME_BEEP_on=BASE_TIME_BEEP_on;
+    //   TIME_BEEP_off=BASE_TIME_BEEP_off;
+    //   if(FG_beep_on==0){FG_beep_on=1;FG_beep_off=0;TIM3_init();//BEEP_CSR2_BEEPEN=1;  //2015.3.11修正
+    //                     if(FG_LED_on)PIN_LED=1;
+    //                    }      
+    // }
+    // else  FG_LED_on=0; 
     
 //    if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
 //    else {ADC_read();FG_BAT_value=0;}
@@ -69,7 +69,7 @@ void key_check(void)
     if(FG_10s==1)return;   // 2015.1.31修正3
     _RegistrationMode();
     _DupliFuncSetMode();
-    ADC2_EOC_INT();
+    //ADC2_EOC_INT();
     ClearWDT(); // Service the WDT    
   }
 }

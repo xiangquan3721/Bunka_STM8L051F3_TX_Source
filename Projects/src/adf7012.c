@@ -63,16 +63,16 @@ void dd_set_ADF7021_Power_on_Init(void)
 		ADF7021_POWER = FG_allow_out;  
 		//ADF7021_CE=1;
 		//Delayus(65);             //delay 100us
-                Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
+        //         Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
 	//write R3
             //register_value.whole_reg = 0x0021d043;    //BATTERY MEASURE IS < 2.35V
 	    register_value.whole_reg = ROM_adf7012_value[3].whole_reg & 0xFFFFFFF3; 
             dd_write_7021_reg(&register_value.byte[0]);
-            Delayus(25);  //delay 40us		
+            // Delayus(25);  //delay 40us		
 	}
 }
 
@@ -87,11 +87,11 @@ void dd_set_ADF7021_Power_on(void)
 		ADF7021_POWER = FG_allow_out;  
 		//ADF7021_CE=1;
 		//Delayus(65);             //delay 100us
-                Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us
-		Delayus(130);             //delay 200us  
+        //         Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us
+		// Delayus(130);             //delay 200us  
 	}
 }
 
