@@ -40,7 +40,7 @@
 void main(void)
 {
   _DI();		// 关全局中断 
-  RAM_clean(); 		// 清除RAM  
+  //RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
   WDT_init();
   SysClock_Init();
@@ -59,8 +59,7 @@ void main(void)
     }
   _EI();		// 允许中断	
   //beep_init();  //2015.3.11修正
-
-   TIME_power_on_AD=30;
+   TIME_power_on_AD=0; //30;
   /* Infinite loop */
   while (1)
   {     

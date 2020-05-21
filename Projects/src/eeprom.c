@@ -187,7 +187,7 @@ void eeprom_sys_load(void){
   uni_rom_id Init_ID_data;
   UINT8 i,j;
   
-  rom_KeyOpt= ReadByteEEPROM( addr_eeprom_sys+0x70 );
+  //rom_KeyOpt= ReadByteEEPROM( addr_eeprom_sys+0x70 );
   if(rom_KeyOpt>1)rom_KeyOpt=0;
   
   
