@@ -60,6 +60,33 @@ extern volatile union{
 	#define 	FG_test_mode		RAM_OP2.BIT.Bit7	//
 	//************************************************
 
+
+extern volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_OP3;
+	//************************************************
+	#define 	FLAG_BYTE3		RAM_OP3.BYTE	 
+	//------------------------------------------------
+	#define		FLAG_ADF7021_DATA_tx		RAM_OP3.BIT.Bit0	// 
+	// #define 			RAM_OP2.BIT.Bit1	//
+	// #define 			RAM_OP2.BIT.Bit2	//
+	// #define 			RAM_OP2.BIT.Bit3	//
+	// #define 			RAM_OP2.BIT.Bit4	//
+	// #define 		RAM_OP2.BIT.Bit5	//
+	// #define 			RAM_OP2.BIT.Bit6	//
+	// #define 			RAM_OP2.BIT.Bit7	//
+	//************************************************	
+
 extern volatile union{
 	unsigned char BYTE;	
 	struct { 

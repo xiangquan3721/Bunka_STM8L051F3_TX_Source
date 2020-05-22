@@ -21,6 +21,7 @@ UINT16 SetFixedLengthCode(UINT8 data );
 void EXIT_init(void){
    //EXTI_CR1=0X02;             //PORT A 的中断触发位
    EXTI_CR2=0x02;             //PORT B4 的中断触发位
+   ITC_SPR2=0xFC;
    ADF7021_DATA_CLK_CR2=1;     //使能该I/O口中断  PA1
 //   EXTI_CR2=0X00;   
 //   PIN_PD7_CR2=1;      
@@ -28,10 +29,11 @@ void EXIT_init(void){
 
 void EXTI_PORTA1(void){
  // if(PIN_KEY_LOGIN==0)ADF7021_DATA_tx=!ADF7021_DATA_tx;
+ ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
   if(FLAG_APP_TX==1){
     if(txphase%8==0)ID_INT_CODE=m_RFNormalBuf[txphase/8];
-    if	(ID_INT_CODE & 0x80)ADF7021_DATA_tx=1;
-    else ADF7021_DATA_tx=0;
+    if	(ID_INT_CODE & 0x80)FLAG_ADF7021_DATA_tx=1;//ADF7021_DATA_tx=1;
+    else FLAG_ADF7021_DATA_tx=0;//ADF7021_DATA_tx=0;
     ID_INT_CODE<<=1;
     txphase++;
      //if(txphase>=224){
@@ -122,7 +124,7 @@ void EXTI_PORTA1(void){
 
 void SendTxData(void)
 {
-  UINT8 i, def_preamble=7;
+  UINT8 i, def_preamble=8;
        m_RFNormalBuf[0]=0x55;
        for(i=1;i<=def_preamble;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[def_preamble+1]=0x15;
@@ -143,6 +145,7 @@ void SendTxData(void)
        txphase_Repeat=0;
        ID_INT_CODE=0;
        FLAG_APP_TX=1;
+	   FLAG_ADF7021_DATA_tx=1;
 }
 
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)

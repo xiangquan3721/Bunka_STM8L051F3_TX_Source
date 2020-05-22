@@ -52,6 +52,20 @@ volatile union{
 		unsigned char	Bit6:	1;
 		unsigned char	Bit7:	1;
 	}BIT; 	
+}RAM_OP3;
+
+volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
 }RAM_RegSW;
 volatile union{
 	unsigned char BYTE;	

@@ -20,13 +20,13 @@
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Projects\src\key.c</file>
       <file>$PROJ_DIR$\Debug\Obj\EXIT_FUN.pbi</file>
+      <file>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</file>
       <file>$PROJ_DIR$\Debug\Obj\stm8s_it.pbi</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim5.h</file>
-      <file>$PROJ_DIR$\Projects\src\stm8_interrupt_vector.c</file>
       <file>$PROJ_DIR$\Debug\Obj\Timer.o</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h</file>
       <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim1.h</file>
       <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim3.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_aes.h</file>
       <file>$PROJ_DIR$\Projects\src\stm8s_it.c</file>
@@ -85,9 +85,9 @@
       <file>$PROJ_DIR$\Debug\Obj\Bunka STM8S003F3 TX Source.pbd</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim2.h</file>
       <file>$PROJ_DIR$\Projects\inc\ad.h</file>
-      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_wfe.h</file>
       <file>$TOOLKIT_DIR$\config\lnkstm8l051f3.icf</file>
+      <file>$PROJ_DIR$\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_beep.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_syscfg.h</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_rtc.h</file>
@@ -261,10 +261,6 @@
           <name>ICCSTM8</name>
           <file> 36 27 75 88 97 53 91 106 48 103 78 64</file>
         </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 36 27 75 88 97 53 91 106 48 103 78 64</file>
-        </tool>
       </inputs>
     </file>
     <file>
@@ -328,11 +324,11 @@
       <inputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 40 25 102 24 22 82 100 59 55 34 108 67 99 72 32 54 43 28 30 85 84 26 83 65 77 21 60 15 44 80 29 98 75 88 97 64 53 91 106 103 78</file>
+          <file> 40 25 102 24 22 82 100 59 55 34 108 67 99 72 32 54 43 28 30 85 84 26 83 65 77 21 60 16 44 79 29 98 75 88 97 64 53 91 106 103 78</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 40 25 102 24 22 82 100 59 55 34 108 67 99 72 32 54 43 28 30 85 84 26 83 65 77 21 60 15 44 80 29 98 75 88 97 64 53 91 106 103 78</file>
+          <file> 40 25 102 24 22 82 100 59 55 34 108 67 99 72 32 54 43 28 30 85 84 26 83 65 77 21 60 16 44 79 29 98 75 88 97 64 53 91 106 103 78</file>
         </tool>
       </inputs>
     </file>
@@ -416,11 +412,11 @@
       <inputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 56 79 110 41 45 50 109 101 42 111 18 52 62 96 94 19 92 20 63 95 98</file>
+          <file> 56 81 110 41 45 50 109 101 42 111 20 52 62 96 94 18 92 19 63 95 98</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 56 79 110 41 45 50 109 101 42 111 18 52 62 96 94 19 92 20 63 95 98</file>
+          <file> 56 81 110 41 45 50 109 101 42 111 20 52 62 96 94 18 92 19 63 95 98</file>
         </tool>
       </inputs>
     </file>
@@ -433,17 +429,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 14</file>
+          <file> 15</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCSTM8</name>
-          <file> 56 79</file>
+          <file> 56 81</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 56 79 110 45 50 109 101 42 111 18 52 62 96 94 19 92 20 95 98</file>
+          <file> 56 81 110 45 50 109 101 42 111 20 52 62 96 94 18 92 19 95 98</file>
         </tool>
       </inputs>
     </file>
@@ -462,7 +458,7 @@
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 81 105 17 70 58 33 31 89 49 86 93 68 90 107</file>
+          <file> 80 105 17 70 58 33 31 89 49 86 93 68 90 107</file>
         </tool>
       </inputs>
     </file>
