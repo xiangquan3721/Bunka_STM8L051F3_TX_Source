@@ -7,7 +7,8 @@
 /*  Mark        :STM8S207C8的CODE空间为64K                             */
 /*              :STM8S207C8的EEPROM的大小为1536字节,即:3页,512节/页    */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -107,32 +108,16 @@
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void InitialFlashReg( void ){					// 初始化闪存寄存器组
-	FLASH_CR1 = FLASH_CR1_RESET_VALUE;
-	FLASH_CR2 = FLASH_CR2_RESET_VALUE;
-	//FLASH_NCR2 = FLASH_NCR2_RESET_VALUE;
-	FLASH_IAPSR &= ( uchar )(~( 1 << DUL ));	// 清除只读DATA区解锁
-	FLASH_IAPSR &= ( uchar )(~( 1 << PUL ));	// 清除程序区解锁
+
 }
 //------------------------------------------------
 //  注: 2个密钥的操作序列正好相反  
 void UnlockFlash(unsigned char Type){			// 解锁flash
-	if( Type == UNLOCK_FLASH_TYPE){				// 解锁程序区
-		FLASH_DUKR = SECOND_SECURITY_KEY;
-		FLASH_DUKR = FIRST_SECURITY_KEY;  
-	}
-	else{										// 解锁eeprom
-		FLASH_DUKR = FIRST_SECURITY_KEY;
-		FLASH_DUKR = SECOND_SECURITY_KEY;
-	}
+
 }
 //------------------------------------------------
 void LockFlash(unsigned char Type ){			// 锁定存储器
-	if( Type == UNLOCK_FLASH_TYPE ){
-		FLASH_IAPSR &= ~( 1 << PUL );  
-	}
-	else{
-		FLASH_IAPSR &= ~( 1 << DUL );
-	}
+
 }
 //------------------------------------------------
 uchar ReadByteEEPROM( ulong Addr ){				// 从eeprom中读取1字节

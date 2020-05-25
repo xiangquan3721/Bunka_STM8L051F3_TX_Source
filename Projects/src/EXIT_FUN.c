@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -19,17 +20,15 @@ UINT16 SetFixedLengthCode(UINT8 data );
 
 
 void EXIT_init(void){
-   //EXTI_CR1=0X02;             //PORT A 的中断触发位
-   EXTI_CR2=0x02;             //PORT B4 的中断触发位
-   ITC_SPR2=0xFC;
-   ADF7021_DATA_CLK_CR2=1;     //使能该I/O口中断  PA1
-//   EXTI_CR2=0X00;   
-//   PIN_PD7_CR2=1;      
+  IOCAP=0b00000000;
+  IOCAN=0b00000100;
+  IOCIE=1;
+  while(!FVRRDY);    
 }
 
 void EXTI_PORTA1(void){
- // if(PIN_KEY_LOGIN==0)ADF7021_DATA_tx=!ADF7021_DATA_tx;
- ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
+ //ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
+  ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
   if(FLAG_APP_TX==1){
     if(txphase%8==0)ID_INT_CODE=m_RFNormalBuf[txphase/8];
     if	(ID_INT_CODE & 0x80)FLAG_ADF7021_DATA_tx=1;//ADF7021_DATA_tx=1;
@@ -44,8 +43,7 @@ void EXTI_PORTA1(void){
 	if(txphase_Repeat>=1){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_POWER=FG_NOT_allow_out;ADF7021_DATA_tx=0;}
     }    
   }
-  EXTI_SR1_bit.P4F=1;
-  //EXTI_SR2_bit.PBF=1;
+  //EXTI_SR1_bit.P4F=1;
 }
 
 

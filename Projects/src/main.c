@@ -21,7 +21,8 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -35,11 +36,12 @@
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+__CONFIG(FOSC_INTOSC & WDTE_OFF & PWRTE_ON & MCLRE_OFF & BOREN_OFF  & IESO_OFF & FCMEN_OFF & CLKOUTEN_OFF );
+__CONFIG(PLLEN_OFF & STVREN_OFF & LVP_OFF);
 /* Private functions ---------------------------------------------------------*/
 
 void main(void)
 {
-  _DI();		// 关全局中断 
   //RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
   WDT_init();
@@ -50,21 +52,22 @@ void main(void)
   _Init_RAM();
   TIM4_Init();
   START_AD_SAMPLER();
+  
+  PEIE=1;              //开外设中断
+  GIE = 1;			// enable global interrupts
     while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
-    UART1_INIT();
-    _EI();    
+    UART1_INIT();  
     test_mode_control();
     }
-  _EI();		// 允许中断	
-  //beep_init();  //2015.3.11修正
+
   //dd_set_ADF7021_Power_on_Init();
    TIME_power_on_AD=0; //30;
   /* Infinite loop */
   while (1)
   {     
-        ClearWDT(); // Service the WDT
+//        ClearWDT(); // Service the WDT
 	key_check();
 	time_control();
 	AD_control();
@@ -88,6 +91,26 @@ void main(void)
  }
   
 }
+
+//===============interrupt（）中断向量================//
+void __interrupt() ISR(void)
+{
+ di();
+ if(IOCIF==1)
+ {
+   EXTI_PORTA1();  
+   IOCAF=0;
+   IOCIF=0;
+ }
+ 
+  if(TMR2IF==1)         
+ {   
+     FG_1ms = 1;
+     TMR2IF=0;
+ }
+ ei();
+}
+
 
 #ifdef USE_FULL_ASSERT
 

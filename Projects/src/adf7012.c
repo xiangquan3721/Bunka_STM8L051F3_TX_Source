@@ -8,7 +8,8 @@
 /***********************************************************************/
 
 
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义

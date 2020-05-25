@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -18,27 +19,13 @@
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void START_AD_SAMPLER(void){	// 启动AD转换（中断模式）
-        ADC1_TRIGR1_VREFINTON =1;              //内部1.2V参考电压 
-        ADC1_CR1_ADON = 1;			// ADC开启
-        ADC1_CR1_CONT =0;              //连续循环
-        ADC1_CR1_RES = 0;		// AD数据位        
-        ADC1_CR3_SMTP2= 1;
-        
-        ADC1_SQR1_CHSEL_S28=1;
-        
-//ADC1_TRIGR1_TRIG28=1;
-//ADC1_CR3_CHSEL = 11;//28;//11;					// ADC输入引脚AIN11        	        
-//ADC1_SR_EOC = 0;					// 清除EOC转换结束标志
-//ADC1_CR1_ADON = 1;	                            // 
-//ADC1_CR1_EOCIE =1;
-        
-        ADC1_CR1_START =1;
+
 }
 				// ADC中断服务程序
 void ADC2_EOC_INT(void){
-	ADC1_SR_EOC = 0;	 // 关ADC中断
-        AD_DATA_BUFF[1] = ADC1_DRH;
-        AD_DATA_BUFF[0] = ADC1_DRL;
+//	ADC1_SR_EOC = 0;	 // 关ADC中断
+//        AD_DATA_BUFF[1] = ADC1_DRH;
+//        AD_DATA_BUFF[0] = ADC1_DRL;
 	RAM_BAT_SUM += AD_DATA_BUFF[1]*256+AD_DATA_BUFF[0];
         RAM_BAT_CNT++;
         if(RAM_BAT_CNT>=20){

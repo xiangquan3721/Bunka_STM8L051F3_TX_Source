@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -19,37 +20,15 @@
 #define RXD1_enable	(USART1_CR2 = 0x24)		// 允许接收及其中断	
 //********************************************
 void UART1_INIT(void){	// 
-//        PIN_UART_TX_direc = Output;
-//        PIN_UART_TX_CR1 = 1;
-        //SYSCFG_RMPCR1_USART1TR_REMAP=2;
-	USART1_CR1 = 0;							// 1个起始位,8个数据位 
-	USART1_CR3 = 0;							// 1个停止位 
-	USART1_CR4 = 0;
-	USART1_CR5 = 0x00;//0x08;						// 半双工模式
-	USART1_BRR2 = 0x01;						// 设置波特率9600
-	USART1_BRR1 = 0x1A;						// 3.6864M/9600 = 0x180
-	                                                                //16.00M/9600 = 0x683
-	                                                               //4.00M/9600 = 0x1a1
-	//USART1_CR2 = 0x08;	// 允许发送
-        USART1_CR2 = 0x24;    // 允许接收及其中断
-	
-        //USART1_CR2 = 0x2C;    //允许发送 .   允许接收及其中断
+
 } 
 void UART1_end(void){		// 
-        //SYSCFG_RMPCR1_USART1TR_REMAP=0;
-	USART1_CR1 = 0;							// 1个起始位,8个数据位 
-	USART1_CR3 = 0;							// 1个停止位 
-	USART1_CR4 = 0;
-	USART1_CR5 = 0x00;						// 半双工模式
-	USART1_BRR2 = 0x00;						// 设置波特率9600
-	USART1_BRR1 = 0x00;						// 3.6864M/9600 = 0x180
-	                                                                //16.00M/9600 = 0x683
-        USART1_CR2 = 0x00;    //禁止串口
+
 } 
 
 void UART1_RX_RXNE(void){		// RXD中断服务程序 
 	unsigned char dat;
-	dat = USART1_DR;							// 接收数据
+	//dat = USART1_DR;							// 接收数据
 	
 	if (dat=='(')  SIO_cnt = 0;
 	SIO_buff[SIO_cnt] = dat;
@@ -65,11 +44,7 @@ void UART1_RX_RXNE(void){		// RXD中断服务程序
 } 
 //--------------------------------------------
 void Send_char(unsigned char ch){			// 发送字符
-	TXD1_enable;							// 允许发送	
-	while(!USART1_SR_TXE);
-	USART1_DR = ch;							// 发送
-	while(!USART1_SR_TC);					// 等待完成发送
-	RXD1_enable;							// 允许接收及其中断	
+
 }
 unsigned char hex_asc(unsigned char hex)
 {

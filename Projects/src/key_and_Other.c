@@ -6,7 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPU型号 
+#include <stdio.h>
+#include <pic.h>
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
@@ -19,16 +20,16 @@
 #include "Timer.h"		// 定时器
 
 void key_check(void)
-{
-//    if (TB_100ms)--TB_100ms;
-//    else{                            
-//	  TB_100ms = BASE_100ms;
-//	  FG_100ms = 1;	      // 100mS FLAG
-//	}
-  
-  
+{  
    if(FG_1ms){
     FG_1ms=0; 
+    
+ 	if (TB_100ms)	--TB_100ms;
+        else{                            
+	  TB_100ms = BASE_100ms;
+	  FG_100ms = 1;	      // 100mS FLAG
+	}   
+    
     if(TIME_power_on_AD)TIME_power_on_AD--;
     if(m_TimerRegMode)--m_TimerRegMode;        
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
@@ -1174,7 +1175,7 @@ void	_RegistrationMode( void )
 
 			//_SetRegModeIdle() ;
 			//m_RegMode = d_Idle ;
-			ID_data_add.IDL = (ulong)atol(m_RegID) ;
+			ID_data_add.IDL = (ulong)atol_de(m_RegID) ;
 /*		Modified on 2007/5/28		*/
 //			if	( m_RFID.ID > 16777215 )			// Over ?
 			if	( ID_data_add.IDL > 16777214 )			// Over ?
@@ -1196,7 +1197,7 @@ void	_RegistrationMode( void )
 
 
 
-UINT32 atol (unsigned char* m_RegID_x)
+UINT32 atol_de (unsigned char* m_RegID_x)
 {
   UINT8 i,j;
   UINT32 m_ID=0;
@@ -1329,31 +1330,47 @@ void test_mode_control(void)
 
  while(PIN_test_mode==0){  
   ClearWDT(); // Service the WDT 
-  if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
+
+  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
+  {
+	  Delayus(100);
+	  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
+      {
+		  FLAG_KEY_COUNT=1;
+		  FG_KEY_OPEN=0;
+		  FG_KEY_STOP=0;
+		  FG_KEY_CLOSE=0;
+		  TEST_No++;
+		  if(TEST_No>3)TEST_No=1;
+	  }
+  }
+  else FLAG_KEY_COUNT=0;
+
+  if((TEST_No==1)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
     dd_set_ADF7021_Power_on();
     dd_set_TX_mode();
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
   }
-  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
+  //if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
   
-   if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0)){
+   if((TEST_No==2)&&(FG_KEY_STOP==0)){
     FG_KEY_STOP=1;
     //ADF7021_CE = 0;
     ADF7021_POWER=FG_NOT_allow_out;
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
   }
-  if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
+  //if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
   
-  if((PIN_KEY_CLOSE==0)&&(FG_KEY_CLOSE==0)){
+  if((TEST_No==3)&&(FG_KEY_CLOSE==0)){
     FG_KEY_CLOSE=1;
     dd_set_ADF7021_Power_on();
     dd_set_TX_mode();
     FG_test_mode=1;
   }
-  if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
+  //if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
   
 	
   if((ADF7021_DATA_CLK==1)&&(FG_test_mode==1)&&(FG_test1==0)){
@@ -1363,7 +1380,7 @@ void test_mode_control(void)
   if(ADF7021_DATA_CLK==0)FG_test1=0;	 
   
  
-  PC_PRG();	       // PC控制  
+  //PC_PRG();	       // PC控制  
  }  
   UART1_end();
   PIN_POWER_CONTROL=0;

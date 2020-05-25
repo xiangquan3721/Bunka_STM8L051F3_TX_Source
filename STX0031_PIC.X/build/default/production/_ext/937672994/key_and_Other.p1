@@ -1,0 +1,3976 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"12 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 12:  struct {
+[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S378 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
+"10
+[; ;../Projects/inc\ram.h: 10: extern volatile union{
+[u S377 `uc 1 `S378 1 ]
+[n S377 . BYTE BIT ]
+"22
+[; ;../Projects/inc\ram.h: 22: }RAM_OP1;
+[v _RAM_OP1 `VS377 ~T0 @X0 0 e ]
+"171
+[; ;../Projects/inc\ram.h: 171: extern unsigned char TB_100ms;
+[v _TB_100ms `uc ~T0 @X0 0 e ]
+"267
+[; ;../Projects/inc\ram.h: 267: extern unsigned int TIME_power_on_AD;
+[v _TIME_power_on_AD `ui ~T0 @X0 0 e ]
+"253
+[; ;../Projects/inc\ram.h: 253: extern unsigned int m_TimerRegMode;
+[v _m_TimerRegMode `ui ~T0 @X0 0 e ]
+"245
+[; ;../Projects/inc\ram.h: 245: extern unsigned int m_KeyDupliSetTimeout;
+[v _m_KeyDupliSetTimeout `ui ~T0 @X0 0 e ]
+"248
+[; ;../Projects/inc\ram.h: 248: extern unsigned int m_TimerKeyMonitor;
+[v _m_TimerKeyMonitor `ui ~T0 @X0 0 e ]
+"243
+[; ;../Projects/inc\ram.h: 243: extern unsigned int m_KeyDupli1stTimer;
+[v _m_KeyDupli1stTimer `ui ~T0 @X0 0 e ]
+"118
+[; ;../Projects/inc\ram.h: 118:  struct {
+[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S386 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
+"116
+[; ;../Projects/inc\ram.h: 116: extern volatile union{
+[u S385 `uc 1 `S386 1 ]
+[n S385 . BYTE BIT ]
+"128
+[; ;../Projects/inc\ram.h: 128: }RAM_SW;
+[v _RAM_SW `VS385 ~T0 @X0 0 e ]
+"247
+[; ;../Projects/inc\ram.h: 247: extern unsigned int time_led;
+[v _time_led `ui ~T0 @X0 0 e ]
+"8007 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8007: extern volatile __bit RB5 __attribute__((address(0x6D)));
+[v _RB5 `Vb ~T0 @X0 0 e@109 ]
+"238 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 238: extern unsigned int m_TimerKey;
+[v _m_TimerKey `ui ~T0 @X0 0 e ]
+"28 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 28: void _KeyInTx( void );
+[v __KeyInTx `(v ~T0 @X0 0 ef ]
+"37
+[; ;../Projects/inc\key_and_Other.h: 37: void _RegistrationMode( void );
+[v __RegistrationMode `(v ~T0 @X0 0 ef ]
+"33
+[; ;../Projects/inc\key_and_Other.h: 33: void _DupliFuncSetMode( void );
+[v __DupliFuncSetMode `(v ~T0 @X0 0 ef ]
+"59 ../Projects/inc\initial.h
+[; ;../Projects/inc\initial.h: 59: void ClearWDT(void);
+[v _ClearWDT `(v ~T0 @X0 0 ef ]
+"266 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 266: extern unsigned char TIME_2s_RestTX;
+[v _TIME_2s_RestTX `uc ~T0 @X0 0 e ]
+"172
+[; ;../Projects/inc\ram.h: 172: extern unsigned char TB_5s;
+[v _TB_5s `uc ~T0 @X0 0 e ]
+"244
+[; ;../Projects/inc\ram.h: 244: extern unsigned char m_KeyOptSetMode;
+[v _m_KeyOptSetMode `uc ~T0 @X0 0 e ]
+"235
+[; ;../Projects/inc\ram.h: 235: extern unsigned char m_KindOfKey;
+[v _m_KindOfKey `uc ~T0 @X0 0 e ]
+"234
+[; ;../Projects/inc\ram.h: 234: extern unsigned char m_KeyNew;
+[v _m_KeyNew `uc ~T0 @X0 0 e ]
+"259
+[; ;../Projects/inc\ram.h: 259: extern unsigned char BAT_out;
+[v _BAT_out `uc ~T0 @X0 0 e ]
+"16 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 16: void _SwIn( unsigned char sw );
+[v __SwIn `(v ~T0 @X0 0 ef1`uc ]
+"8004 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8004: extern volatile __bit RB4 __attribute__((address(0x6C)));
+[v _RB4 `Vb ~T0 @X0 0 e@108 ]
+"8028
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8028: extern volatile __bit RC4 __attribute__((address(0x74)));
+[v _RC4 `Vb ~T0 @X0 0 e@116 ]
+"7998
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7998: extern volatile __bit RA4 __attribute__((address(0x64)));
+[v _RA4 `Vb ~T0 @X0 0 e@100 ]
+"7995
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7995: extern volatile __bit RA3 __attribute__((address(0x63)));
+[v _RA3 `Vb ~T0 @X0 0 e@99 ]
+"8031
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8031: extern volatile __bit RC5 __attribute__((address(0x75)));
+[v _RC5 `Vb ~T0 @X0 0 e@117 ]
+"236 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 236: extern unsigned char m_KeyOld;
+[v _m_KeyOld `uc ~T0 @X0 0 e ]
+"27 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 27: void _SetKeyChatterCount( void );
+[v __SetKeyChatterCount `(v ~T0 @X0 0 ef ]
+"29
+[; ;../Projects/inc\key_and_Other.h: 29: void _ClearSpecialMultiKeyState( void );
+[v __ClearSpecialMultiKeyState `(v ~T0 @X0 0 ef ]
+"262 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 262: extern unsigned int TIME_Once_twice_switch;
+[v _TIME_Once_twice_switch `ui ~T0 @X0 0 e ]
+"263
+[; ;../Projects/inc\ram.h: 263: extern unsigned int TIME_10s;
+[v _TIME_10s `ui ~T0 @X0 0 e ]
+"237
+[; ;../Projects/inc\ram.h: 237: extern unsigned int m_ChatterCount;
+[v _m_ChatterCount `ui ~T0 @X0 0 e ]
+"14 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 14: void dd_set_ADF7021_Power_on_Init(void);
+[v _dd_set_ADF7021_Power_on_Init `(v ~T0 @X0 0 ef ]
+"166 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 166: extern unsigned int BASE_TIME_BEEP_on;
+[v _BASE_TIME_BEEP_on `ui ~T0 @X0 0 e ]
+"167
+[; ;../Projects/inc\ram.h: 167: extern unsigned char BASE_TIME_BEEP_off;
+[v _BASE_TIME_BEEP_off `uc ~T0 @X0 0 e ]
+"164
+[; ;../Projects/inc\ram.h: 164: extern unsigned int TIME_BEEP_on;
+[v _TIME_BEEP_on `ui ~T0 @X0 0 e ]
+"165
+[; ;../Projects/inc\ram.h: 165: extern unsigned char TIME_BEEP_off;
+[v _TIME_BEEP_off `uc ~T0 @X0 0 e ]
+"168
+[; ;../Projects/inc\ram.h: 168: extern unsigned char TIME_BEEP_freq;
+[v _TIME_BEEP_freq `uc ~T0 @X0 0 e ]
+"239
+[; ;../Projects/inc\ram.h: 239: extern unsigned char m_KeyNo;
+[v _m_KeyNo `uc ~T0 @X0 0 e ]
+"264
+[; ;../Projects/inc\ram.h: 264: extern unsigned int key_Value;
+[v _key_Value `ui ~T0 @X0 0 e ]
+"92
+[; ;../Projects/inc\ram.h: 92:  struct {
+[s S384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S384 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
+"90
+[; ;../Projects/inc\ram.h: 90: extern volatile union{
+[u S383 `uc 1 `S384 1 ]
+[n S383 . BYTE BIT ]
+"102
+[; ;../Projects/inc\ram.h: 102: }RAM_RegSW;
+[v _RAM_RegSW `VS383 ~T0 @X0 0 e ]
+"30 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 30: void _DupliFuncClear( void );
+[v __DupliFuncClear `(v ~T0 @X0 0 ef ]
+"17
+[; ;../Projects/inc\key_and_Other.h: 17: void _FuncReg( void );
+[v __FuncReg `(v ~T0 @X0 0 ef ]
+"18
+[; ;../Projects/inc\key_and_Other.h: 18: void _FuncStop( void );
+[v __FuncStop `(v ~T0 @X0 0 ef ]
+"19
+[; ;../Projects/inc\key_and_Other.h: 19: void _FuncOpenStop( void );
+[v __FuncOpenStop `(v ~T0 @X0 0 ef ]
+"20
+[; ;../Projects/inc\key_and_Other.h: 20: void _FuncOpenReg( void );
+[v __FuncOpenReg `(v ~T0 @X0 0 ef ]
+"39
+[; ;../Projects/inc\key_and_Other.h: 39: void _FuncStopReg( void );
+[v __FuncStopReg `(v ~T0 @X0 0 ef ]
+"22
+[; ;../Projects/inc\key_and_Other.h: 22: void _FuncCloseReg( void );
+[v __FuncCloseReg `(v ~T0 @X0 0 ef ]
+"23
+[; ;../Projects/inc\key_and_Other.h: 23: void _FuncVentReg( void );
+[v __FuncVentReg `(v ~T0 @X0 0 ef ]
+"24
+[; ;../Projects/inc\key_and_Other.h: 24: void _FuncAutoTxStart( void );
+[v __FuncAutoTxStart `(v ~T0 @X0 0 ef ]
+"25
+[; ;../Projects/inc\key_and_Other.h: 25: void _FuncAutoTxStop( void );
+[v __FuncAutoTxStop `(v ~T0 @X0 0 ef ]
+"26
+[; ;../Projects/inc\key_and_Other.h: 26: void _FuncNoPush( void );
+[v __FuncNoPush `(v ~T0 @X0 0 ef ]
+"32
+[; ;../Projects/inc\key_and_Other.h: 32: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq );
+[v __ReqTxdEdit `(v ~T0 @X0 0 ef2`uc`uc ]
+"8013 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8013: extern volatile __bit RB7 __attribute__((address(0x6F)));
+[v _RB7 `Vb ~T0 @X0 0 e@111 ]
+"40 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 40: void _Pass3secKey( unsigned char req );
+[v __Pass3secKey `(v ~T0 @X0 0 ef1`uc ]
+"249 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 249: extern unsigned char m_KeyCount;
+[v _m_KeyCount `uc ~T0 @X0 0 e ]
+"34 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 34: void _SetRegistrationMode( unsigned char mode );
+[v __SetRegistrationMode `(v ~T0 @X0 0 ef1`uc ]
+"31
+[; ;../Projects/inc\key_and_Other.h: 31: unsigned char _GetNoPushState( void );
+[v __GetNoPushState `(uc ~T0 @X0 0 ef ]
+"44
+[; ;../Projects/inc\key_and_Other.h: 44: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET);
+[v __ReqBuzzer `(v ~T0 @X0 0 ef3`ui`uc`uc ]
+"39 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 39:  struct {
+[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S380 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
+"37
+[; ;../Projects/inc\ram.h: 37: extern volatile union{
+[u S379 `uc 1 `S380 1 ]
+[n S379 . BYTE BIT ]
+"49
+[; ;../Projects/inc\ram.h: 49: }RAM_OP2;
+[v _RAM_OP2 `VS379 ~T0 @X0 0 e ]
+"146
+[; ;../Projects/inc\ram.h: 146: extern unsigned char TB_51s;
+[v _TB_51s `uc ~T0 @X0 0 e ]
+"250
+[; ;../Projects/inc\ram.h: 250: extern unsigned char m_RegMode;
+[v _m_RegMode `uc ~T0 @X0 0 e ]
+"246
+[; ;../Projects/inc\ram.h: 246: extern unsigned char rom_KeyOpt;
+[v _rom_KeyOpt `uc ~T0 @X0 0 e ]
+"241
+[; ;../Projects/inc\ram.h: 241: extern unsigned char m_KeyOpenCount;
+[v _m_KeyOpenCount `uc ~T0 @X0 0 e ]
+"242
+[; ;../Projects/inc\ram.h: 242: extern unsigned char m_KeyCloseCount;
+[v _m_KeyCloseCount `uc ~T0 @X0 0 e ]
+"147
+[; ;../Projects/inc\ram.h: 147: extern unsigned char TB_sum_5s;
+[v _TB_sum_5s `uc ~T0 @X0 0 e ]
+"158
+[; ;../Projects/inc\ram.h: 158: extern unsigned char Control_code;
+[v _Control_code `uc ~T0 @X0 0 e ]
+"12 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 12: void dd_set_ADF7021_Power_on(void);
+[v _dd_set_ADF7021_Power_on `(v ~T0 @X0 0 ef ]
+"13
+[; ;../Projects/inc\adf7012.h: 13: void dd_set_TX_mode(void);
+[v _dd_set_TX_mode `(v ~T0 @X0 0 ef ]
+"13 ../Projects/inc\EXIT_FUN.h
+[; ;../Projects/inc\EXIT_FUN.h: 13: void SendTxData(void);
+[v _SendTxData `(v ~T0 @X0 0 ef ]
+"22 ../Projects/inc\eeprom.h
+[; ;../Projects/inc\eeprom.h: 22: void KeyOpt_EEPROM_write(void);
+[v _KeyOpt_EEPROM_write `(v ~T0 @X0 0 ef ]
+"35 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 35: unsigned char _GetRegMode( void );
+[v __GetRegMode `(uc ~T0 @X0 0 ef ]
+"251 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 251: extern unsigned char m_RegID[9];
+[v _m_RegID `uc ~T0 @X0 -> 0 `x e ]
+"252
+[; ;../Projects/inc\ram.h: 252: extern unsigned char m_RegDigit;
+[v _m_RegDigit `uc ~T0 @X0 0 e ]
+"36 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 36: void _IdClear( void );
+[v __IdClear `(v ~T0 @X0 0 ef ]
+"41 ../Projects/inc\initial.h
+[; ;../Projects/inc\initial.h: 41:   typedef union {
+[u S375 `ul 1 `uc -> 4 `i ]
+[n S375 . IDL IDB ]
+"157 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 157: extern uni_rom_id ID_data_add;
+[v _ID_data_add `S375 ~T0 @X0 0 e ]
+"38 ../Projects/inc\key_and_Other.h
+[; ;../Projects/inc\key_and_Other.h: 38: unsigned long atol_de (unsigned char* m_RegID_x);
+[v _atol_de `(ul ~T0 @X0 0 ef1`*uc ]
+"56 ../Projects/inc\initial.h
+[; ;../Projects/inc\initial.h: 56: void Delayus(unsigned char timer);
+[v _Delayus `(v ~T0 @X0 0 ef1`uc ]
+"269 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 269: extern unsigned char TEST_No;
+[v _TEST_No `uc ~T0 @X0 0 e ]
+"8016 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8016: extern volatile __bit RC0 __attribute__((address(0x70)));
+[v _RC0 `Vb ~T0 @X0 0 e@112 ]
+"8022
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
+[v _RC2 `Vb ~T0 @X0 0 e@114 ]
+"7992
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7992: extern volatile __bit RA2 __attribute__((address(0x62)));
+[v _RA2 `Vb ~T0 @X0 0 e@98 ]
+"8025
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8025: extern volatile __bit RC3 __attribute__((address(0x73)));
+[v _RC3 `Vb ~T0 @X0 0 e@115 ]
+"17 ../Projects/inc\uart.h
+[; ;../Projects/inc\uart.h: 17: void UART1_end(void);
+[v _UART1_end `(v ~T0 @X0 0 ef ]
+"54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 54: __asm("INDF0 equ 00h");
+[; <" INDF0 equ 00h ;# ">
+"74
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 74: __asm("INDF1 equ 01h");
+[; <" INDF1 equ 01h ;# ">
+"94
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"177
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 177: __asm("FSR0L equ 04h");
+[; <" FSR0L equ 04h ;# ">
+"197
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 197: __asm("FSR0H equ 05h");
+[; <" FSR0H equ 05h ;# ">
+"221
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 221: __asm("FSR1L equ 06h");
+[; <" FSR1L equ 06h ;# ">
+"241
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 241: __asm("FSR1H equ 07h");
+[; <" FSR1H equ 07h ;# ">
+"261
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 261: __asm("BSR equ 08h");
+[; <" BSR equ 08h ;# ">
+"313
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 313: __asm("WREG equ 09h");
+[; <" WREG equ 09h ;# ">
+"333
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 333: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"353
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 353: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"431
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 431: __asm("PORTA equ 0Ch");
+[; <" PORTA equ 0Ch ;# ">
+"481
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 481: __asm("PORTB equ 0Dh");
+[; <" PORTB equ 0Dh ;# ">
+"520
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 520: __asm("PORTC equ 0Eh");
+[; <" PORTC equ 0Eh ;# ">
+"582
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 582: __asm("PIR1 equ 011h");
+[; <" PIR1 equ 011h ;# ">
+"644
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 644: __asm("PIR2 equ 012h");
+[; <" PIR2 equ 012h ;# ">
+"695
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 695: __asm("PIR3 equ 013h");
+[; <" PIR3 equ 013h ;# ">
+"735
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 735: __asm("PIR4 equ 014h");
+[; <" PIR4 equ 014h ;# ">
+"761
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 761: __asm("TMR0 equ 015h");
+[; <" TMR0 equ 015h ;# ">
+"781
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 781: __asm("TMR1 equ 016h");
+[; <" TMR1 equ 016h ;# ">
+"788
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 788: __asm("TMR1L equ 016h");
+[; <" TMR1L equ 016h ;# ">
+"808
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 808: __asm("TMR1H equ 017h");
+[; <" TMR1H equ 017h ;# ">
+"828
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 828: __asm("T1CON equ 018h");
+[; <" T1CON equ 018h ;# ">
+"900
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 900: __asm("T1GCON equ 019h");
+[; <" T1GCON equ 019h ;# ">
+"970
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 970: __asm("TMR2 equ 01Ah");
+[; <" TMR2 equ 01Ah ;# ">
+"990
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 990: __asm("PR2 equ 01Bh");
+[; <" PR2 equ 01Bh ;# ">
+"1010
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1010: __asm("T2CON equ 01Ch");
+[; <" T2CON equ 01Ch ;# ">
+"1081
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1081: __asm("CPSCON0 equ 01Eh");
+[; <" CPSCON0 equ 01Eh ;# ">
+"1141
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1141: __asm("CPSCON1 equ 01Fh");
+[; <" CPSCON1 equ 01Fh ;# ">
+"1187
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1187: __asm("TRISA equ 08Ch");
+[; <" TRISA equ 08Ch ;# ">
+"1237
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1237: __asm("TRISB equ 08Dh");
+[; <" TRISB equ 08Dh ;# ">
+"1276
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1276: __asm("TRISC equ 08Eh");
+[; <" TRISC equ 08Eh ;# ">
+"1338
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1338: __asm("PIE1 equ 091h");
+[; <" PIE1 equ 091h ;# ">
+"1400
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1400: __asm("PIE2 equ 092h");
+[; <" PIE2 equ 092h ;# ">
+"1451
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1451: __asm("PIE3 equ 093h");
+[; <" PIE3 equ 093h ;# ">
+"1491
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1491: __asm("PIE4 equ 094h");
+[; <" PIE4 equ 094h ;# ">
+"1517
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1517: __asm("OPTION_REG equ 095h");
+[; <" OPTION_REG equ 095h ;# ">
+"1600
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1600: __asm("PCON equ 096h");
+[; <" PCON equ 096h ;# ">
+"1651
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1651: __asm("WDTCON equ 097h");
+[; <" WDTCON equ 097h ;# ">
+"1710
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1710: __asm("OSCTUNE equ 098h");
+[; <" OSCTUNE equ 098h ;# ">
+"1768
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1768: __asm("OSCCON equ 099h");
+[; <" OSCCON equ 099h ;# ">
+"1840
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1840: __asm("OSCSTAT equ 09Ah");
+[; <" OSCSTAT equ 09Ah ;# ">
+"1902
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1902: __asm("ADRES equ 09Bh");
+[; <" ADRES equ 09Bh ;# ">
+"1909
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1909: __asm("ADRESL equ 09Bh");
+[; <" ADRESL equ 09Bh ;# ">
+"1929
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1929: __asm("ADRESH equ 09Ch");
+[; <" ADRESH equ 09Ch ;# ">
+"1949
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1949: __asm("ADCON0 equ 09Dh");
+[; <" ADCON0 equ 09Dh ;# ">
+"2029
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2029: __asm("ADCON1 equ 09Eh");
+[; <" ADCON1 equ 09Eh ;# ">
+"2101
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2101: __asm("LATA equ 010Ch");
+[; <" LATA equ 010Ch ;# ">
+"2146
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2146: __asm("LATB equ 010Dh");
+[; <" LATB equ 010Dh ;# ">
+"2185
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2185: __asm("LATC equ 010Eh");
+[; <" LATC equ 010Eh ;# ">
+"2247
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2247: __asm("CM1CON0 equ 0111h");
+[; <" CM1CON0 equ 0111h ;# ">
+"2304
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2304: __asm("CM1CON1 equ 0112h");
+[; <" CM1CON1 equ 0112h ;# ">
+"2370
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2370: __asm("CM2CON0 equ 0113h");
+[; <" CM2CON0 equ 0113h ;# ">
+"2427
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2427: __asm("CM2CON1 equ 0114h");
+[; <" CM2CON1 equ 0114h ;# ">
+"2493
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2493: __asm("CMOUT equ 0115h");
+[; <" CMOUT equ 0115h ;# ">
+"2519
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2519: __asm("BORCON equ 0116h");
+[; <" BORCON equ 0116h ;# ">
+"2546
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2546: __asm("FVRCON equ 0117h");
+[; <" FVRCON equ 0117h ;# ">
+"2622
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2622: __asm("DACCON0 equ 0118h");
+[; <" DACCON0 equ 0118h ;# ">
+"2683
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2683: __asm("DACCON1 equ 0119h");
+[; <" DACCON1 equ 0119h ;# ">
+"2735
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2735: __asm("SRCON0 equ 011Ah");
+[; <" SRCON0 equ 011Ah ;# ">
+"2806
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2806: __asm("SRCON1 equ 011Bh");
+[; <" SRCON1 equ 011Bh ;# ">
+"2868
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2868: __asm("APFCON0 equ 011Dh");
+[; <" APFCON0 equ 011Dh ;# ">
+"2902
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2902: __asm("APFCON1 equ 011Eh");
+[; <" APFCON1 equ 011Eh ;# ">
+"2952
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2952: __asm("ANSELA equ 018Ch");
+[; <" ANSELA equ 018Ch ;# ">
+"2999
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 2999: __asm("ANSELB equ 018Dh");
+[; <" ANSELB equ 018Dh ;# ">
+"3035
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3035: __asm("ANSELC equ 018Eh");
+[; <" ANSELC equ 018Eh ;# ">
+"3094
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3094: __asm("EEADR equ 0191h");
+[; <" EEADR equ 0191h ;# ">
+"3101
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3101: __asm("EEADRL equ 0191h");
+[; <" EEADRL equ 0191h ;# ">
+"3121
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3121: __asm("EEADRH equ 0192h");
+[; <" EEADRH equ 0192h ;# ">
+"3141
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3141: __asm("EEDAT equ 0193h");
+[; <" EEDAT equ 0193h ;# ">
+"3148
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3148: __asm("EEDATL equ 0193h");
+[; <" EEDATL equ 0193h ;# ">
+"3153
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3153: __asm("EEDATA equ 0193h");
+[; <" EEDATA equ 0193h ;# ">
+"3186
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3186: __asm("EEDATH equ 0194h");
+[; <" EEDATH equ 0194h ;# ">
+"3206
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3206: __asm("EECON1 equ 0195h");
+[; <" EECON1 equ 0195h ;# ">
+"3268
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3268: __asm("EECON2 equ 0196h");
+[; <" EECON2 equ 0196h ;# ">
+"3288
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3288: __asm("RCREG equ 0199h");
+[; <" RCREG equ 0199h ;# ">
+"3308
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3308: __asm("TXREG equ 019Ah");
+[; <" TXREG equ 019Ah ;# ">
+"3328
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3328: __asm("SPBRG equ 019Bh");
+[; <" SPBRG equ 019Bh ;# ">
+"3335
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3335: __asm("SPBRGL equ 019Bh");
+[; <" SPBRGL equ 019Bh ;# ">
+"3355
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3355: __asm("SPBRGH equ 019Ch");
+[; <" SPBRGH equ 019Ch ;# ">
+"3375
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3375: __asm("RCSTA equ 019Dh");
+[; <" RCSTA equ 019Dh ;# ">
+"3437
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3437: __asm("TXSTA equ 019Eh");
+[; <" TXSTA equ 019Eh ;# ">
+"3499
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3499: __asm("BAUDCON equ 019Fh");
+[; <" BAUDCON equ 019Fh ;# ">
+"3551
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3551: __asm("WPUA equ 020Ch");
+[; <" WPUA equ 020Ch ;# ">
+"3609
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3609: __asm("WPUB equ 020Dh");
+[; <" WPUB equ 020Dh ;# ">
+"3657
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3657: __asm("WPUC equ 020Eh");
+[; <" WPUC equ 020Eh ;# ">
+"3727
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3727: __asm("SSP1BUF equ 0211h");
+[; <" SSP1BUF equ 0211h ;# ">
+"3732
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3732: __asm("SSPBUF equ 0211h");
+[; <" SSPBUF equ 0211h ;# ">
+"3765
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3765: __asm("SSP1ADD equ 0212h");
+[; <" SSP1ADD equ 0212h ;# ">
+"3770
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3770: __asm("SSPADD equ 0212h");
+[; <" SSPADD equ 0212h ;# ">
+"3803
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3803: __asm("SSP1MSK equ 0213h");
+[; <" SSP1MSK equ 0213h ;# ">
+"3808
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3808: __asm("SSPMSK equ 0213h");
+[; <" SSPMSK equ 0213h ;# ">
+"3841
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3841: __asm("SSP1STAT equ 0214h");
+[; <" SSP1STAT equ 0214h ;# ">
+"3846
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3846: __asm("SSPSTAT equ 0214h");
+[; <" SSPSTAT equ 0214h ;# ">
+"3963
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3963: __asm("SSP1CON1 equ 0215h");
+[; <" SSP1CON1 equ 0215h ;# ">
+"3968
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3968: __asm("SSPCON1 equ 0215h");
+[; <" SSPCON1 equ 0215h ;# ">
+"3972
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3972: __asm("SSPCON equ 0215h");
+[; <" SSPCON equ 0215h ;# ">
+"4167
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4167: __asm("SSP1CON2 equ 0216h");
+[; <" SSP1CON2 equ 0216h ;# ">
+"4172
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4172: __asm("SSPCON2 equ 0216h");
+[; <" SSPCON2 equ 0216h ;# ">
+"4289
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4289: __asm("SSP1CON3 equ 0217h");
+[; <" SSP1CON3 equ 0217h ;# ">
+"4294
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4294: __asm("SSPCON3 equ 0217h");
+[; <" SSPCON3 equ 0217h ;# ">
+"4411
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4411: __asm("SSP2BUF equ 0219h");
+[; <" SSP2BUF equ 0219h ;# ">
+"4431
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4431: __asm("SSP2ADD equ 021Ah");
+[; <" SSP2ADD equ 021Ah ;# ">
+"4451
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4451: __asm("SSP2MSK equ 021Bh");
+[; <" SSP2MSK equ 021Bh ;# ">
+"4471
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4471: __asm("SSP2STAT equ 021Ch");
+[; <" SSP2STAT equ 021Ch ;# ">
+"4533
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4533: __asm("SSP2CON1 equ 021Dh");
+[; <" SSP2CON1 equ 021Dh ;# ">
+"4603
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4603: __asm("SSP2CON2 equ 021Eh");
+[; <" SSP2CON2 equ 021Eh ;# ">
+"4665
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4665: __asm("SSP2CON3 equ 021Fh");
+[; <" SSP2CON3 equ 021Fh ;# ">
+"4727
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4727: __asm("CCPR1 equ 0291h");
+[; <" CCPR1 equ 0291h ;# ">
+"4734
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4734: __asm("CCPR1L equ 0291h");
+[; <" CCPR1L equ 0291h ;# ">
+"4754
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4754: __asm("CCPR1H equ 0292h");
+[; <" CCPR1H equ 0292h ;# ">
+"4774
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4774: __asm("CCP1CON equ 0293h");
+[; <" CCP1CON equ 0293h ;# ">
+"4856
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4856: __asm("PWM1CON equ 0294h");
+[; <" PWM1CON equ 0294h ;# ">
+"4926
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4926: __asm("CCP1AS equ 0295h");
+[; <" CCP1AS equ 0295h ;# ">
+"4931
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 4931: __asm("ECCP1AS equ 0295h");
+[; <" ECCP1AS equ 0295h ;# ">
+"5088
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5088: __asm("PSTR1CON equ 0296h");
+[; <" PSTR1CON equ 0296h ;# ">
+"5132
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5132: __asm("CCPR2 equ 0298h");
+[; <" CCPR2 equ 0298h ;# ">
+"5139
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5139: __asm("CCPR2L equ 0298h");
+[; <" CCPR2L equ 0298h ;# ">
+"5159
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5159: __asm("CCPR2H equ 0299h");
+[; <" CCPR2H equ 0299h ;# ">
+"5179
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5179: __asm("CCP2CON equ 029Ah");
+[; <" CCP2CON equ 029Ah ;# ">
+"5261
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5261: __asm("PWM2CON equ 029Bh");
+[; <" PWM2CON equ 029Bh ;# ">
+"5331
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5331: __asm("CCP2AS equ 029Ch");
+[; <" CCP2AS equ 029Ch ;# ">
+"5413
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5413: __asm("PSTR2CON equ 029Dh");
+[; <" PSTR2CON equ 029Dh ;# ">
+"5457
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5457: __asm("CCPTMRS equ 029Eh");
+[; <" CCPTMRS equ 029Eh ;# ">
+"5545
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5545: __asm("CCPR3 equ 0311h");
+[; <" CCPR3 equ 0311h ;# ">
+"5552
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5552: __asm("CCPR3L equ 0311h");
+[; <" CCPR3L equ 0311h ;# ">
+"5572
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5572: __asm("CCPR3H equ 0312h");
+[; <" CCPR3H equ 0312h ;# ">
+"5592
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5592: __asm("CCP3CON equ 0313h");
+[; <" CCP3CON equ 0313h ;# ">
+"5656
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5656: __asm("CCPR4 equ 0318h");
+[; <" CCPR4 equ 0318h ;# ">
+"5663
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5663: __asm("CCPR4L equ 0318h");
+[; <" CCPR4L equ 0318h ;# ">
+"5683
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5683: __asm("CCPR4H equ 0319h");
+[; <" CCPR4H equ 0319h ;# ">
+"5703
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5703: __asm("CCP4CON equ 031Ah");
+[; <" CCP4CON equ 031Ah ;# ">
+"5767
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5767: __asm("INLVLA equ 038Ch");
+[; <" INLVLA equ 038Ch ;# ">
+"5825
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5825: __asm("INLVLB equ 038Dh");
+[; <" INLVLB equ 038Dh ;# ">
+"5873
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5873: __asm("INLVLC equ 038Eh");
+[; <" INLVLC equ 038Eh ;# ">
+"5943
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 5943: __asm("IOCAP equ 0391h");
+[; <" IOCAP equ 0391h ;# ">
+"6001
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6001: __asm("IOCAN equ 0392h");
+[; <" IOCAN equ 0392h ;# ">
+"6059
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6059: __asm("IOCAF equ 0393h");
+[; <" IOCAF equ 0393h ;# ">
+"6117
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6117: __asm("IOCBP equ 0394h");
+[; <" IOCBP equ 0394h ;# ">
+"6165
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6165: __asm("IOCBN equ 0395h");
+[; <" IOCBN equ 0395h ;# ">
+"6213
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6213: __asm("IOCBF equ 0396h");
+[; <" IOCBF equ 0396h ;# ">
+"6261
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6261: __asm("CLKRCON equ 039Ah");
+[; <" CLKRCON equ 039Ah ;# ">
+"6337
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6337: __asm("MDCON equ 039Ch");
+[; <" MDCON equ 039Ch ;# ">
+"6388
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6388: __asm("MDSRC equ 039Dh");
+[; <" MDSRC equ 039Dh ;# ">
+"6441
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6441: __asm("MDCARL equ 039Eh");
+[; <" MDCARL equ 039Eh ;# ">
+"6506
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6506: __asm("MDCARH equ 039Fh");
+[; <" MDCARH equ 039Fh ;# ">
+"6571
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6571: __asm("TMR4 equ 0415h");
+[; <" TMR4 equ 0415h ;# ">
+"6591
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6591: __asm("PR4 equ 0416h");
+[; <" PR4 equ 0416h ;# ">
+"6611
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6611: __asm("T4CON equ 0417h");
+[; <" T4CON equ 0417h ;# ">
+"6682
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6682: __asm("TMR6 equ 041Ch");
+[; <" TMR6 equ 041Ch ;# ">
+"6702
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6702: __asm("PR6 equ 041Dh");
+[; <" PR6 equ 041Dh ;# ">
+"6722
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6722: __asm("T6CON equ 041Eh");
+[; <" T6CON equ 041Eh ;# ">
+"6793
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6793: __asm("STATUS_SHAD equ 0FE4h");
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"6825
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6825: __asm("WREG_SHAD equ 0FE5h");
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"6845
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6845: __asm("BSR_SHAD equ 0FE6h");
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"6865
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6865: __asm("PCLATH_SHAD equ 0FE7h");
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"6885
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6885: __asm("FSR0L_SHAD equ 0FE8h");
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"6905
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6905: __asm("FSR0H_SHAD equ 0FE9h");
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"6925
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6925: __asm("FSR1L_SHAD equ 0FEAh");
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"6945
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6945: __asm("FSR1H_SHAD equ 0FEBh");
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"6965
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6965: __asm("STKPTR equ 0FEDh");
+[; <" STKPTR equ 0FEDh ;# ">
+"6985
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 6985: __asm("TOSL equ 0FEEh");
+[; <" TOSL equ 0FEEh ;# ">
+"7005
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7005: __asm("TOSH equ 0FEFh");
+[; <" TOSH equ 0FEFh ;# ">
+"22 ../Projects/src/key_and_Other.c
+[; ;../Projects/src/key_and_Other.c: 22: void key_check(void)
+[v _key_check `(v ~T0 @X0 1 ef ]
+"23
+[; ;../Projects/src/key_and_Other.c: 23: {
+{
+[e :U _key_check ]
+[f ]
+"24
+[; ;../Projects/src/key_and_Other.c: 24:    if(RAM_OP1.BIT.Bit6){
+[e $ ! != -> . . _RAM_OP1 1 6 `i -> 0 `i 388  ]
+{
+"25
+[; ;../Projects/src/key_and_Other.c: 25:     RAM_OP1.BIT.Bit6=0;
+[e = . . _RAM_OP1 1 6 -> -> 0 `i `uc ]
+"27
+[; ;../Projects/src/key_and_Other.c: 27:   if (TB_100ms) --TB_100ms;
+[e $ ! != -> _TB_100ms `i -> 0 `i 389  ]
+[e =- _TB_100ms -> -> 1 `i `uc ]
+[e $U 390  ]
+"28
+[; ;../Projects/src/key_and_Other.c: 28:         else{
+[e :U 389 ]
+{
+"29
+[; ;../Projects/src/key_and_Other.c: 29:    TB_100ms = 100;
+[e = _TB_100ms -> -> 100 `i `uc ]
+"30
+[; ;../Projects/src/key_and_Other.c: 30:    RAM_OP1.BIT.Bit7 = 1;
+[e = . . _RAM_OP1 1 7 -> -> 1 `i `uc ]
+"31
+[; ;../Projects/src/key_and_Other.c: 31:  }
+}
+[e :U 390 ]
+"33
+[; ;../Projects/src/key_and_Other.c: 33:     if(TIME_power_on_AD)TIME_power_on_AD--;
+[e $ ! != _TIME_power_on_AD -> -> 0 `i `ui 391  ]
+[e -- _TIME_power_on_AD -> -> 1 `i `ui ]
+[e :U 391 ]
+"34
+[; ;../Projects/src/key_and_Other.c: 34:     if(m_TimerRegMode)--m_TimerRegMode;
+[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 392  ]
+[e =- _m_TimerRegMode -> -> 1 `i `ui ]
+[e :U 392 ]
+"35
+[; ;../Projects/src/key_and_Other.c: 35:     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
+[e $ ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 393  ]
+[e =- _m_KeyDupliSetTimeout -> -> 1 `i `ui ]
+[e :U 393 ]
+"36
+[; ;../Projects/src/key_and_Other.c: 36:     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
+[e $ ! != _m_TimerKeyMonitor -> -> 0 `i `ui 394  ]
+[e =- _m_TimerKeyMonitor -> -> 1 `i `ui ]
+[e :U 394 ]
+"37
+[; ;../Projects/src/key_and_Other.c: 37:     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
+[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 395  ]
+[e =- _m_KeyDupli1stTimer -> -> 1 `i `ui ]
+[e $U 396  ]
+"38
+[; ;../Projects/src/key_and_Other.c: 38:     else RAM_SW.BIT.Bit3=0;
+[e :U 395 ]
+[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+[e :U 396 ]
+"39
+[; ;../Projects/src/key_and_Other.c: 39:     if ( RAM_SW.BIT.Bit3 &&m_KeyDupli1stTimer){
+[e $ ! && != -> . . _RAM_SW 1 3 `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 397  ]
+{
+"40
+[; ;../Projects/src/key_and_Other.c: 40:       time_led++;
+[e ++ _time_led -> -> 1 `i `ui ]
+"41
+[; ;../Projects/src/key_and_Other.c: 41:       if(time_led>=100){time_led=0;RB5=!RB5;}
+[e $ ! >= _time_led -> -> 100 `i `ui 398  ]
+{
+[e = _time_led -> -> 0 `i `ui ]
+[e = _RB5 ! _RB5 ]
+}
+[e :U 398 ]
+"42
+[; ;../Projects/src/key_and_Other.c: 42:     }
+}
+[e :U 397 ]
+"43
+[; ;../Projects/src/key_and_Other.c: 43:     if(m_TimerKey)--m_TimerKey;
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 399  ]
+[e =- _m_TimerKey -> -> 1 `i `ui ]
+[e :U 399 ]
+"69
+[; ;../Projects/src/key_and_Other.c: 69:     _KeyInTx();
+[e ( __KeyInTx ..  ]
+"70
+[; ;../Projects/src/key_and_Other.c: 70:     if(RAM_SW.BIT.Bit5==1)return;
+[e $ ! == -> . . _RAM_SW 1 5 `i -> 1 `i 400  ]
+[e $UE 387  ]
+[e :U 400 ]
+"71
+[; ;../Projects/src/key_and_Other.c: 71:     _RegistrationMode();
+[e ( __RegistrationMode ..  ]
+"72
+[; ;../Projects/src/key_and_Other.c: 72:     _DupliFuncSetMode();
+[e ( __DupliFuncSetMode ..  ]
+"74
+[; ;../Projects/src/key_and_Other.c: 74:     ClearWDT();
+[e ( _ClearWDT ..  ]
+"75
+[; ;../Projects/src/key_and_Other.c: 75:   }
+}
+[e :U 388 ]
+"76
+[; ;../Projects/src/key_and_Other.c: 76: }
+[e :UE 387 ]
+}
+"79
+[; ;../Projects/src/key_and_Other.c: 79: void time_control(void)
+[v _time_control `(v ~T0 @X0 1 ef ]
+"80
+[; ;../Projects/src/key_and_Other.c: 80: {
+{
+[e :U _time_control ]
+[f ]
+"81
+[; ;../Projects/src/key_and_Other.c: 81:   if(RAM_OP1.BIT.Bit7){
+[e $ ! != -> . . _RAM_OP1 1 7 `i -> 0 `i 402  ]
+{
+"82
+[; ;../Projects/src/key_and_Other.c: 82:     RAM_OP1.BIT.Bit7=0;
+[e = . . _RAM_OP1 1 7 -> -> 0 `i `uc ]
+"83
+[; ;../Projects/src/key_and_Other.c: 83:     if(TIME_2s_RestTX)--TIME_2s_RestTX;
+[e $ ! != -> _TIME_2s_RestTX `i -> 0 `i 403  ]
+[e =- _TIME_2s_RestTX -> -> 1 `i `uc ]
+[e :U 403 ]
+"84
+[; ;../Projects/src/key_and_Other.c: 84:     if(RAM_OP1.BIT.Bit5==1){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 1 `i 404  ]
+{
+"85
+[; ;../Projects/src/key_and_Other.c: 85:     if ((TB_5s)&&(m_KeyOptSetMode==0)) --TB_5s;
+[e $ ! && != -> _TB_5s `i -> 0 `i == -> _m_KeyOptSetMode `i -> 0 `i 405  ]
+[e =- _TB_5s -> -> 1 `i `uc ]
+[e :U 405 ]
+"86
+[; ;../Projects/src/key_and_Other.c: 86:     }
+}
+[e :U 404 ]
+"87
+[; ;../Projects/src/key_and_Other.c: 87:   }
+}
+[e :U 402 ]
+"89
+[; ;../Projects/src/key_and_Other.c: 89: }
+[e :UE 401 ]
+}
+"112
+[; ;../Projects/src/key_and_Other.c: 112: const unsigned char ct_KeyDataTable[]
+[v _ct_KeyDataTable `Cuc ~T0 @X0 -> 17 `i e ]
+[i _ct_KeyDataTable
+:U ..
+-> -> 251 `i `uc
+-> -> 191 `i `uc
+-> -> 223 `i `uc
+-> -> 239 `i `uc
+-> -> 247 `i `uc
+-> -> 159 `i `uc
+-> -> 175 `i `uc
+-> -> 183 `i `uc
+-> -> 187 `i `uc
+-> -> 207 `i `uc
+-> -> 219 `i `uc
+-> -> 235 `i `uc
+-> -> 231 `i `uc
+-> -> 243 `i `uc
+-> -> 253 `i `uc
+-> -> 254 `i `uc
+-> -> 255 `i `uc
+..
+]
+"151
+[; ;../Projects/src/key_and_Other.c: 151: void _KeyInTx( void )
+[v __KeyInTx `(v ~T0 @X0 1 ef ]
+"152
+[; ;../Projects/src/key_and_Other.c: 152: {
+{
+[e :U __KeyInTx ]
+[f ]
+"153
+[; ;../Projects/src/key_and_Other.c: 153:  unsigned char i ;
+[v _i `uc ~T0 @X0 1 a ]
+"155
+[; ;../Projects/src/key_and_Other.c: 155:  m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"157
+[; ;../Projects/src/key_and_Other.c: 157:  m_KeyNew = 0xFF ;
+[e = _m_KeyNew -> -> 255 `i `uc ]
+"158
+[; ;../Projects/src/key_and_Other.c: 158:         if(BAT_out==2)return;
+[e $ ! == -> _BAT_out `i -> 2 `i 407  ]
+[e $UE 406  ]
+[e :U 407 ]
+"161
+[; ;../Projects/src/key_and_Other.c: 161:  _SwIn( RB4 ) ;
+[e ( __SwIn (1 -> _RB4 `uc ]
+"163
+[; ;../Projects/src/key_and_Other.c: 163:  _SwIn( RC4 ) ;
+[e ( __SwIn (1 -> _RC4 `uc ]
+"165
+[; ;../Projects/src/key_and_Other.c: 165:  _SwIn( RA4 ) ;
+[e ( __SwIn (1 -> _RA4 `uc ]
+"167
+[; ;../Projects/src/key_and_Other.c: 167:  _SwIn( RA3 ) ;
+[e ( __SwIn (1 -> _RA3 `uc ]
+"170
+[; ;../Projects/src/key_and_Other.c: 170:  _SwIn( RC5 ) ;
+[e ( __SwIn (1 -> _RC5 `uc ]
+"172
+[; ;../Projects/src/key_and_Other.c: 172:  _SwIn( 1 ) ;
+[e ( __SwIn (1 -> -> 1 `i `uc ]
+"174
+[; ;../Projects/src/key_and_Other.c: 174:  _SwIn( 1 ) ;
+[e ( __SwIn (1 -> -> 1 `i `uc ]
+"177
+[; ;../Projects/src/key_and_Other.c: 177:  if ( m_KeyNew != m_KeyOld )
+[e $ ! != -> _m_KeyNew `i -> _m_KeyOld `i 408  ]
+"178
+[; ;../Projects/src/key_and_Other.c: 178:  {
+{
+"179
+[; ;../Projects/src/key_and_Other.c: 179:   m_KeyOld = m_KeyNew ;
+[e = _m_KeyOld _m_KeyNew ]
+"180
+[; ;../Projects/src/key_and_Other.c: 180:   _SetKeyChatterCount() ;
+[e ( __SetKeyChatterCount ..  ]
+"181
+[; ;../Projects/src/key_and_Other.c: 181:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"182
+[; ;../Projects/src/key_and_Other.c: 182:                 TIME_Once_twice_switch=5000;
+[e = _TIME_Once_twice_switch -> -> 5000 `i `ui ]
+"183
+[; ;../Projects/src/key_and_Other.c: 183:                 TIME_10s=10100;
+[e = _TIME_10s -> -> 10100 `i `ui ]
+"184
+[; ;../Projects/src/key_and_Other.c: 184:   return ;
+[e $UE 406  ]
+"185
+[; ;../Projects/src/key_and_Other.c: 185:  }
+}
+[e :U 408 ]
+"187
+[; ;../Projects/src/key_and_Other.c: 187:  if ( --m_ChatterCount )
+[e $ ! != =- _m_ChatterCount -> -> 1 `i `ui -> -> 0 `i `ui 409  ]
+"188
+[; ;../Projects/src/key_and_Other.c: 188:  {
+{
+"189
+[; ;../Projects/src/key_and_Other.c: 189:   return ;
+[e $UE 406  ]
+"190
+[; ;../Projects/src/key_and_Other.c: 190:  }
+}
+[e :U 409 ]
+"191
+[; ;../Projects/src/key_and_Other.c: 191:  m_ChatterCount = 1 ;
+[e = _m_ChatterCount -> -> 1 `i `ui ]
+"194
+[; ;../Projects/src/key_and_Other.c: 194:  if ( m_KeyNew != 0xFF )
+[e $ ! != -> _m_KeyNew `i -> 255 `i 410  ]
+"195
+[; ;../Projects/src/key_and_Other.c: 195:  {
+{
+"201
+[; ;../Projects/src/key_and_Other.c: 201:            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;
+[e $ ! != _TIME_Once_twice_switch -> -> 0 `i `ui 411  ]
+[e =- _TIME_Once_twice_switch -> -> 1 `i `ui ]
+[e :U 411 ]
+"202
+[; ;../Projects/src/key_and_Other.c: 202:            if(TIME_10s)--TIME_10s;
+[e $ ! != _TIME_10s -> -> 0 `i `ui 412  ]
+[e =- _TIME_10s -> -> 1 `i `ui ]
+[e :U 412 ]
+"203
+[; ;../Projects/src/key_and_Other.c: 203:     dd_set_ADF7021_Power_on_Init();
+[e ( _dd_set_ADF7021_Power_on_Init ..  ]
+"205
+[; ;../Projects/src/key_and_Other.c: 205:            if((BAT_out==1)||(RAM_SW.BIT.Bit6)||(TIME_10s==0)){
+[e $ ! || || == -> _BAT_out `i -> 1 `i != -> . . _RAM_SW 1 6 `i -> 0 `i == _TIME_10s -> -> 0 `i `ui 413  ]
+{
+"206
+[; ;../Projects/src/key_and_Other.c: 206:        if(RAM_SW.BIT.Bit6==0){
+[e $ ! == -> . . _RAM_SW 1 6 `i -> 0 `i 414  ]
+{
+"207
+[; ;../Projects/src/key_and_Other.c: 207:           RAM_SW.BIT.Bit6=1;
+[e = . . _RAM_SW 1 6 -> -> 1 `i `uc ]
+"208
+[; ;../Projects/src/key_and_Other.c: 208:    if(TIME_10s==0){
+[e $ ! == _TIME_10s -> -> 0 `i `ui 415  ]
+{
+"209
+[; ;../Projects/src/key_and_Other.c: 209:                            BASE_TIME_BEEP_on=103;
+[e = _BASE_TIME_BEEP_on -> -> 103 `i `ui ]
+"210
+[; ;../Projects/src/key_and_Other.c: 210:                            BASE_TIME_BEEP_off=103;
+[e = _BASE_TIME_BEEP_off -> -> 103 `i `uc ]
+"211
+[; ;../Projects/src/key_and_Other.c: 211:                         }
+}
+[e $U 416  ]
+"212
+[; ;../Projects/src/key_and_Other.c: 212:                         else {
+[e :U 415 ]
+{
+"213
+[; ;../Projects/src/key_and_Other.c: 213:                            BASE_TIME_BEEP_on=40;
+[e = _BASE_TIME_BEEP_on -> -> 40 `i `ui ]
+"214
+[; ;../Projects/src/key_and_Other.c: 214:                            BASE_TIME_BEEP_off=60;
+[e = _BASE_TIME_BEEP_off -> -> 60 `i `uc ]
+"215
+[; ;../Projects/src/key_and_Other.c: 215:                         }
+}
+[e :U 416 ]
+"216
+[; ;../Projects/src/key_and_Other.c: 216:                         TIME_BEEP_on=BASE_TIME_BEEP_on;
+[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
+"217
+[; ;../Projects/src/key_and_Other.c: 217:                         TIME_BEEP_off=BASE_TIME_BEEP_off;
+[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
+"218
+[; ;../Projects/src/key_and_Other.c: 218:                         TIME_BEEP_freq=2;
+[e = _TIME_BEEP_freq -> -> 2 `i `uc ]
+"219
+[; ;../Projects/src/key_and_Other.c: 219:        }
+}
+[e $U 417  ]
+"220
+[; ;../Projects/src/key_and_Other.c: 220:        else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
+[e :U 414 ]
+[e $ ! <= -> _TIME_BEEP_freq `i -> 1 `i 418  ]
+[e = _TIME_BEEP_freq -> -> 2 `i `uc ]
+[e :U 418 ]
+[e :U 417 ]
+"221
+[; ;../Projects/src/key_and_Other.c: 221:      }
+}
+[e :U 413 ]
+"222
+[; ;../Projects/src/key_and_Other.c: 222:  }
+}
+[e :U 410 ]
+"225
+[; ;../Projects/src/key_and_Other.c: 225:  for ( i=0; i<17;i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 17 `i 419  ]
+[e $U 420  ]
+[e :U 419 ]
+"226
+[; ;../Projects/src/key_and_Other.c: 226:  {
+{
+"227
+[; ;../Projects/src/key_and_Other.c: 227:   if ( m_KeyNew == ct_KeyDataTable[i] )
+[e $ ! == -> _m_KeyNew `i -> *U + &U _ct_KeyDataTable * -> _i `ux -> -> # *U &U _ct_KeyDataTable `ui `ux `i 422  ]
+"228
+[; ;../Projects/src/key_and_Other.c: 228:   {
+{
+"229
+[; ;../Projects/src/key_and_Other.c: 229:    m_KeyNo = i ;
+[e = _m_KeyNo _i ]
+"230
+[; ;../Projects/src/key_and_Other.c: 230:    break ;
+[e $U 420  ]
+"231
+[; ;../Projects/src/key_and_Other.c: 231:   }
+}
+[e :U 422 ]
+"232
+[; ;../Projects/src/key_and_Other.c: 232:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 17 `i 419  ]
+[e :U 420 ]
+}
+"233
+[; ;../Projects/src/key_and_Other.c: 233:         key_Value=i;
+[e = _key_Value -> _i `ui ]
+"234
+[; ;../Projects/src/key_and_Other.c: 234:         if(RAM_SW.BIT.Bit5==1)return;
+[e $ ! == -> . . _RAM_SW 1 5 `i -> 1 `i 423  ]
+[e $UE 406  ]
+[e :U 423 ]
+"236
+[; ;../Projects/src/key_and_Other.c: 236:  if ( i == 17)
+[e $ ! == -> _i `i -> 17 `i 424  ]
+"237
+[; ;../Projects/src/key_and_Other.c: 237:  {
+{
+"238
+[; ;../Projects/src/key_and_Other.c: 238:   RAM_RegSW.BIT.Bit6 = 0 ;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"239
+[; ;../Projects/src/key_and_Other.c: 239:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"240
+[; ;../Projects/src/key_and_Other.c: 240:   RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"241
+[; ;../Projects/src/key_and_Other.c: 241:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"242
+[; ;../Projects/src/key_and_Other.c: 242:   return ;
+[e $UE 406  ]
+"243
+[; ;../Projects/src/key_and_Other.c: 243:  }
+}
+[e :U 424 ]
+"245
+[; ;../Projects/src/key_and_Other.c: 245:  if ( RAM_RegSW.BIT.Bit7 )
+[e $ ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 425  ]
+"246
+[; ;../Projects/src/key_and_Other.c: 246:  {
+{
+"247
+[; ;../Projects/src/key_and_Other.c: 247:   if ( m_KeyNew != 0xFF )
+[e $ ! != -> _m_KeyNew `i -> 255 `i 426  ]
+"248
+[; ;../Projects/src/key_and_Other.c: 248:   {
+{
+"249
+[; ;../Projects/src/key_and_Other.c: 249:                         if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(RAM_OP1.BIT.Bit0==0));
+[e $ ! && || || || || == -> _i `i -> 5 `i == -> _i `i -> 6 `i == -> _i `i -> 7 `i == -> _i `i -> 9 `i == -> _i `i -> 12 `i == -> . . _RAM_OP1 1 0 `i -> 0 `i 427  ]
+[e $U 428  ]
+"250
+[; ;../Projects/src/key_and_Other.c: 250:    else return ;
+[e :U 427 ]
+[e $UE 406  ]
+[e :U 428 ]
+"251
+[; ;../Projects/src/key_and_Other.c: 251:   }
+}
+[e :U 426 ]
+"252
+[; ;../Projects/src/key_and_Other.c: 252:  }
+}
+[e :U 425 ]
+"254
+[; ;../Projects/src/key_and_Other.c: 254:  switch ( i )
+[e $U 430  ]
+"255
+[; ;../Projects/src/key_and_Other.c: 255:  {
+{
+"256
+[; ;../Projects/src/key_and_Other.c: 256:   case 0 :
+[e :U 431 ]
+"257
+[; ;../Projects/src/key_and_Other.c: 257:           _FuncReg();
+[e ( __FuncReg ..  ]
+"258
+[; ;../Projects/src/key_and_Other.c: 258:    break ;
+[e $U 429  ]
+"259
+[; ;../Projects/src/key_and_Other.c: 259:   case 1 :
+[e :U 432 ]
+"260
+[; ;../Projects/src/key_and_Other.c: 260:   case 2 :
+[e :U 433 ]
+"261
+[; ;../Projects/src/key_and_Other.c: 261:   case 3 :
+[e :U 434 ]
+"262
+[; ;../Projects/src/key_and_Other.c: 262:   case 4 :
+[e :U 435 ]
+"263
+[; ;../Projects/src/key_and_Other.c: 263:           if(RAM_OP1.BIT.Bit0==0)_FuncStop();
+[e $ ! == -> . . _RAM_OP1 1 0 `i -> 0 `i 436  ]
+[e ( __FuncStop ..  ]
+[e :U 436 ]
+"264
+[; ;../Projects/src/key_and_Other.c: 264:    break ;
+[e $U 429  ]
+"265
+[; ;../Projects/src/key_and_Other.c: 265:   case 5 :
+[e :U 437 ]
+"266
+[; ;../Projects/src/key_and_Other.c: 266:   case 6 :
+[e :U 438 ]
+"267
+[; ;../Projects/src/key_and_Other.c: 267:   case 7 :
+[e :U 439 ]
+"268
+[; ;../Projects/src/key_and_Other.c: 268:   case 9 :
+[e :U 440 ]
+"269
+[; ;../Projects/src/key_and_Other.c: 269:   case 12 :
+[e :U 441 ]
+"270
+[; ;../Projects/src/key_and_Other.c: 270:           _FuncOpenStop();
+[e ( __FuncOpenStop ..  ]
+"271
+[; ;../Projects/src/key_and_Other.c: 271:    break ;
+[e $U 429  ]
+"272
+[; ;../Projects/src/key_and_Other.c: 272:   case 8 :
+[e :U 442 ]
+"273
+[; ;../Projects/src/key_and_Other.c: 273:           _FuncOpenReg();
+[e ( __FuncOpenReg ..  ]
+"274
+[; ;../Projects/src/key_and_Other.c: 274:    break ;
+[e $U 429  ]
+"275
+[; ;../Projects/src/key_and_Other.c: 275:   case 10 :
+[e :U 443 ]
+"276
+[; ;../Projects/src/key_and_Other.c: 276:           _FuncStopReg();
+[e ( __FuncStopReg ..  ]
+"277
+[; ;../Projects/src/key_and_Other.c: 277:    break ;
+[e $U 429  ]
+"278
+[; ;../Projects/src/key_and_Other.c: 278:   case 11 :
+[e :U 444 ]
+"279
+[; ;../Projects/src/key_and_Other.c: 279:           _FuncCloseReg();
+[e ( __FuncCloseReg ..  ]
+"280
+[; ;../Projects/src/key_and_Other.c: 280:    break ;
+[e $U 429  ]
+"281
+[; ;../Projects/src/key_and_Other.c: 281:   case 13 :
+[e :U 445 ]
+"282
+[; ;../Projects/src/key_and_Other.c: 282:           _FuncVentReg();
+[e ( __FuncVentReg ..  ]
+"283
+[; ;../Projects/src/key_and_Other.c: 283:    break ;
+[e $U 429  ]
+"284
+[; ;../Projects/src/key_and_Other.c: 284:   case 14 :
+[e :U 446 ]
+"285
+[; ;../Projects/src/key_and_Other.c: 285:           _FuncAutoTxStart();
+[e ( __FuncAutoTxStart ..  ]
+"286
+[; ;../Projects/src/key_and_Other.c: 286:    break ;
+[e $U 429  ]
+"287
+[; ;../Projects/src/key_and_Other.c: 287:   case 15 :
+[e :U 447 ]
+"288
+[; ;../Projects/src/key_and_Other.c: 288:           _FuncAutoTxStop();
+[e ( __FuncAutoTxStop ..  ]
+"289
+[; ;../Projects/src/key_and_Other.c: 289:    break ;
+[e $U 429  ]
+"290
+[; ;../Projects/src/key_and_Other.c: 290:   case 16 :
+[e :U 448 ]
+"291
+[; ;../Projects/src/key_and_Other.c: 291:           _FuncNoPush();
+[e ( __FuncNoPush ..  ]
+"292
+[; ;../Projects/src/key_and_Other.c: 292:    break ;
+[e $U 429  ]
+"293
+[; ;../Projects/src/key_and_Other.c: 293:  }
+}
+[e $U 429  ]
+[e :U 430 ]
+[e [\ -> _i `i , $ -> 0 `i 431
+ , $ -> 1 `i 432
+ , $ -> 2 `i 433
+ , $ -> 3 `i 434
+ , $ -> 4 `i 435
+ , $ -> 5 `i 437
+ , $ -> 6 `i 438
+ , $ -> 7 `i 439
+ , $ -> 9 `i 440
+ , $ -> 12 `i 441
+ , $ -> 8 `i 442
+ , $ -> 10 `i 443
+ , $ -> 11 `i 444
+ , $ -> 13 `i 445
+ , $ -> 14 `i 446
+ , $ -> 15 `i 447
+ , $ -> 16 `i 448
+ 429 ]
+[e :U 429 ]
+"294
+[; ;../Projects/src/key_and_Other.c: 294: }
+[e :UE 406 ]
+}
+"305
+[; ;../Projects/src/key_and_Other.c: 305: void _FuncOpenStop( void )
+[v __FuncOpenStop `(v ~T0 @X0 1 ef ]
+"306
+[; ;../Projects/src/key_and_Other.c: 306: {
+{
+[e :U __FuncOpenStop ]
+[f ]
+"307
+[; ;../Projects/src/key_and_Other.c: 307:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"308
+[; ;../Projects/src/key_and_Other.c: 308:  m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"309
+[; ;../Projects/src/key_and_Other.c: 309:  _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+"310
+[; ;../Projects/src/key_and_Other.c: 310:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"311
+[; ;../Projects/src/key_and_Other.c: 311:  RAM_RegSW.BIT.Bit6 = 0 ;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"312
+[; ;../Projects/src/key_and_Other.c: 312:  RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"313
+[; ;../Projects/src/key_and_Other.c: 313: }
+[e :UE 449 ]
+}
+"320
+[; ;../Projects/src/key_and_Other.c: 320: void _FuncOpenReg( void )
+[v __FuncOpenReg `(v ~T0 @X0 1 ef ]
+"321
+[; ;../Projects/src/key_and_Other.c: 321: {
+{
+[e :U __FuncOpenReg ]
+[f ]
+"322
+[; ;../Projects/src/key_and_Other.c: 322:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"323
+[; ;../Projects/src/key_and_Other.c: 323:  RAM_RegSW.BIT.Bit6 = 0 ;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"324
+[; ;../Projects/src/key_and_Other.c: 324:  if ( !RAM_RegSW.BIT.Bit2 )
+[e $ ! ! != -> . . _RAM_RegSW 1 2 `i -> 0 `i 451  ]
+"325
+[; ;../Projects/src/key_and_Other.c: 325:  {
+{
+"326
+[; ;../Projects/src/key_and_Other.c: 326:   RAM_RegSW.BIT.Bit2 = 1 ;
+[e = . . _RAM_RegSW 1 2 -> -> 1 `i `uc ]
+"327
+[; ;../Projects/src/key_and_Other.c: 327:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"328
+[; ;../Projects/src/key_and_Other.c: 328:   if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 452  ]
+{
+"329
+[; ;../Projects/src/key_and_Other.c: 329:             RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"330
+[; ;../Projects/src/key_and_Other.c: 330:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"331
+[; ;../Projects/src/key_and_Other.c: 331:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"332
+[; ;../Projects/src/key_and_Other.c: 332:                 }
+}
+[e :U 452 ]
+"333
+[; ;../Projects/src/key_and_Other.c: 333:   return ;
+[e $UE 450  ]
+"334
+[; ;../Projects/src/key_and_Other.c: 334:  }
+}
+[e :U 451 ]
+"336
+[; ;../Projects/src/key_and_Other.c: 336:  _Pass3secKey( 8 ) ;
+[e ( __Pass3secKey (1 -> -> 8 `i `uc ]
+"337
+[; ;../Projects/src/key_and_Other.c: 337: }
+[e :UE 450 ]
+}
+"344
+[; ;../Projects/src/key_and_Other.c: 344: void _FuncCloseReg( void )
+[v __FuncCloseReg `(v ~T0 @X0 1 ef ]
+"345
+[; ;../Projects/src/key_and_Other.c: 345: {
+{
+[e :U __FuncCloseReg ]
+[f ]
+"346
+[; ;../Projects/src/key_and_Other.c: 346:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"347
+[; ;../Projects/src/key_and_Other.c: 347:  if ( !RAM_RegSW.BIT.Bit3 )
+[e $ ! ! != -> . . _RAM_RegSW 1 3 `i -> 0 `i 454  ]
+"348
+[; ;../Projects/src/key_and_Other.c: 348:  {
+{
+"349
+[; ;../Projects/src/key_and_Other.c: 349:   RAM_RegSW.BIT.Bit3 = 1 ;
+[e = . . _RAM_RegSW 1 3 -> -> 1 `i `uc ]
+"350
+[; ;../Projects/src/key_and_Other.c: 350:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"351
+[; ;../Projects/src/key_and_Other.c: 351:   if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 455  ]
+{
+"352
+[; ;../Projects/src/key_and_Other.c: 352:             RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"353
+[; ;../Projects/src/key_and_Other.c: 353:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"354
+[; ;../Projects/src/key_and_Other.c: 354:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"355
+[; ;../Projects/src/key_and_Other.c: 355:                 }
+}
+[e :U 455 ]
+"356
+[; ;../Projects/src/key_and_Other.c: 356:   return ;
+[e $UE 453  ]
+"357
+[; ;../Projects/src/key_and_Other.c: 357:  }
+}
+[e :U 454 ]
+"359
+[; ;../Projects/src/key_and_Other.c: 359:  _Pass3secKey( 11 ) ;
+[e ( __Pass3secKey (1 -> -> 11 `i `uc ]
+"360
+[; ;../Projects/src/key_and_Other.c: 360: }
+[e :UE 453 ]
+}
+"367
+[; ;../Projects/src/key_and_Other.c: 367: void _FuncVentReg( void )
+[v __FuncVentReg `(v ~T0 @X0 1 ef ]
+"368
+[; ;../Projects/src/key_and_Other.c: 368: {
+{
+[e :U __FuncVentReg ]
+[f ]
+"369
+[; ;../Projects/src/key_and_Other.c: 369:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"370
+[; ;../Projects/src/key_and_Other.c: 370:  if ( !RAM_RegSW.BIT.Bit4 )
+[e $ ! ! != -> . . _RAM_RegSW 1 4 `i -> 0 `i 457  ]
+"371
+[; ;../Projects/src/key_and_Other.c: 371:  {
+{
+"372
+[; ;../Projects/src/key_and_Other.c: 372:   RAM_RegSW.BIT.Bit4 = 1 ;
+[e = . . _RAM_RegSW 1 4 -> -> 1 `i `uc ]
+"373
+[; ;../Projects/src/key_and_Other.c: 373:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"374
+[; ;../Projects/src/key_and_Other.c: 374:   if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 458  ]
+{
+"375
+[; ;../Projects/src/key_and_Other.c: 375:             RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"376
+[; ;../Projects/src/key_and_Other.c: 376:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"377
+[; ;../Projects/src/key_and_Other.c: 377:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"378
+[; ;../Projects/src/key_and_Other.c: 378:                 }
+}
+[e :U 458 ]
+"379
+[; ;../Projects/src/key_and_Other.c: 379:   return ;
+[e $UE 456  ]
+"380
+[; ;../Projects/src/key_and_Other.c: 380:  }
+}
+[e :U 457 ]
+"382
+[; ;../Projects/src/key_and_Other.c: 382:  _Pass3secKey( 13 ) ;
+[e ( __Pass3secKey (1 -> -> 13 `i `uc ]
+"383
+[; ;../Projects/src/key_and_Other.c: 383: }
+[e :UE 456 ]
+}
+"390
+[; ;../Projects/src/key_and_Other.c: 390: void _FuncStopReg( void )
+[v __FuncStopReg `(v ~T0 @X0 1 ef ]
+"391
+[; ;../Projects/src/key_and_Other.c: 391: {
+{
+[e :U __FuncStopReg ]
+[f ]
+"392
+[; ;../Projects/src/key_and_Other.c: 392:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"393
+[; ;../Projects/src/key_and_Other.c: 393:  if ( !RAM_RegSW.BIT.Bit1 )
+[e $ ! ! != -> . . _RAM_RegSW 1 1 `i -> 0 `i 460  ]
+"394
+[; ;../Projects/src/key_and_Other.c: 394:  {
+{
+"395
+[; ;../Projects/src/key_and_Other.c: 395:   RAM_RegSW.BIT.Bit1 = 1 ;
+[e = . . _RAM_RegSW 1 1 -> -> 1 `i `uc ]
+"396
+[; ;../Projects/src/key_and_Other.c: 396:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"397
+[; ;../Projects/src/key_and_Other.c: 397:   if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 461  ]
+{
+"398
+[; ;../Projects/src/key_and_Other.c: 398:             RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"399
+[; ;../Projects/src/key_and_Other.c: 399:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"400
+[; ;../Projects/src/key_and_Other.c: 400:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"401
+[; ;../Projects/src/key_and_Other.c: 401:                 }
+}
+[e :U 461 ]
+"402
+[; ;../Projects/src/key_and_Other.c: 402:   return ;
+[e $UE 459  ]
+"403
+[; ;../Projects/src/key_and_Other.c: 403:  }
+}
+[e :U 460 ]
+"405
+[; ;../Projects/src/key_and_Other.c: 405:  _Pass3secKey( 10 ) ;
+[e ( __Pass3secKey (1 -> -> 10 `i `uc ]
+"406
+[; ;../Projects/src/key_and_Other.c: 406: }
+[e :UE 459 ]
+}
+"407
+[; ;../Projects/src/key_and_Other.c: 407: void _Pass3secKey( unsigned char req )
+[v __Pass3secKey `(v ~T0 @X0 1 ef1`uc ]
+"408
+[; ;../Projects/src/key_and_Other.c: 408: {
+{
+[e :U __Pass3secKey ]
+"407
+[; ;../Projects/src/key_and_Other.c: 407: void _Pass3secKey( unsigned char req )
+[v _req `uc ~T0 @X0 1 r1 ]
+"408
+[; ;../Projects/src/key_and_Other.c: 408: {
+[f ]
+"409
+[; ;../Projects/src/key_and_Other.c: 409:  if ( m_TimerKey )
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 463  ]
+"410
+[; ;../Projects/src/key_and_Other.c: 410:  {
+{
+"411
+[; ;../Projects/src/key_and_Other.c: 411:   if ( !--m_TimerKey )
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 464  ]
+"412
+[; ;../Projects/src/key_and_Other.c: 412:   {
+{
+"413
+[; ;../Projects/src/key_and_Other.c: 413:    _ReqTxdEdit( req,0 ) ;
+[e ( __ReqTxdEdit (2 , _req -> -> 0 `i `uc ]
+"414
+[; ;../Projects/src/key_and_Other.c: 414:                         RAM_SW.BIT.Bit7=1;
+[e = . . _RAM_SW 1 7 -> -> 1 `i `uc ]
+"415
+[; ;../Projects/src/key_and_Other.c: 415:    return ;
+[e $UE 462  ]
+"416
+[; ;../Projects/src/key_and_Other.c: 416:   }
+}
+[e :U 464 ]
+"417
+[; ;../Projects/src/key_and_Other.c: 417:  }
+}
+[e :U 463 ]
+"418
+[; ;../Projects/src/key_and_Other.c: 418: }
+[e :UE 462 ]
+}
+"424
+[; ;../Projects/src/key_and_Other.c: 424: void _FuncReg( void )
+[v __FuncReg `(v ~T0 @X0 1 ef ]
+"425
+[; ;../Projects/src/key_and_Other.c: 425: {
+{
+[e :U __FuncReg ]
+[f ]
+"426
+[; ;../Projects/src/key_and_Other.c: 426:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"427
+[; ;../Projects/src/key_and_Other.c: 427:  if ( RAM_RegSW.BIT.Bit6 )
+[e $ ! != -> . . _RAM_RegSW 1 6 `i -> 0 `i 466  ]
+"428
+[; ;../Projects/src/key_and_Other.c: 428:  {
+{
+"429
+[; ;../Projects/src/key_and_Other.c: 429:   RAM_RegSW.BIT.Bit6 = 0 ;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"430
+[; ;../Projects/src/key_and_Other.c: 430:   m_KindOfKey = 5 ;
+[e = _m_KindOfKey -> -> 5 `i `uc ]
+"431
+[; ;../Projects/src/key_and_Other.c: 431:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"432
+[; ;../Projects/src/key_and_Other.c: 432:   RAM_RegSW.BIT.Bit0 = 1 ;
+[e = . . _RAM_RegSW 1 0 -> -> 1 `i `uc ]
+"433
+[; ;../Projects/src/key_and_Other.c: 433:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"434
+[; ;../Projects/src/key_and_Other.c: 434:   if ( !m_TimerKeyMonitor )
+[e $ ! ! != _m_TimerKeyMonitor -> -> 0 `i `ui 467  ]
+"435
+[; ;../Projects/src/key_and_Other.c: 435:   {
+{
+"436
+[; ;../Projects/src/key_and_Other.c: 436:             if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 468  ]
+{
+"437
+[; ;../Projects/src/key_and_Other.c: 437:                       RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"438
+[; ;../Projects/src/key_and_Other.c: 438:                       RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"439
+[; ;../Projects/src/key_and_Other.c: 439:         TB_5s=51;
+[e = _TB_5s -> -> 51 `i `uc ]
+"440
+[; ;../Projects/src/key_and_Other.c: 440:                           }
+}
+[e :U 468 ]
+"441
+[; ;../Projects/src/key_and_Other.c: 441:    m_TimerKeyMonitor = 10000 ;
+[e = _m_TimerKeyMonitor -> -> 10000 `i `ui ]
+"442
+[; ;../Projects/src/key_and_Other.c: 442:    m_KeyCount = 2 ;
+[e = _m_KeyCount -> -> 2 `i `uc ]
+"443
+[; ;../Projects/src/key_and_Other.c: 443:    return ;
+[e $UE 465  ]
+"444
+[; ;../Projects/src/key_and_Other.c: 444:   }
+}
+[e :U 467 ]
+"445
+[; ;../Projects/src/key_and_Other.c: 445:   if ( !--m_KeyCount )
+[e $ ! ! != -> =- _m_KeyCount -> -> 1 `i `uc `i -> 0 `i 469  ]
+"446
+[; ;../Projects/src/key_and_Other.c: 446:   {
+{
+"447
+[; ;../Projects/src/key_and_Other.c: 447:    _SetRegistrationMode( 1 ) ;
+[e ( __SetRegistrationMode (1 -> -> 1 `i `uc ]
+"448
+[; ;../Projects/src/key_and_Other.c: 448:    m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"449
+[; ;../Projects/src/key_and_Other.c: 449:    RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"450
+[; ;../Projects/src/key_and_Other.c: 450:   }
+}
+[e :U 469 ]
+"451
+[; ;../Projects/src/key_and_Other.c: 451:   return ;
+[e $UE 465  ]
+"452
+[; ;../Projects/src/key_and_Other.c: 452:  }
+}
+[e :U 466 ]
+"455
+[; ;../Projects/src/key_and_Other.c: 455:  if ( RAM_RegSW.BIT.Bit0 )
+[e $ ! != -> . . _RAM_RegSW 1 0 `i -> 0 `i 470  ]
+"456
+[; ;../Projects/src/key_and_Other.c: 456:  {
+{
+"457
+[; ;../Projects/src/key_and_Other.c: 457:   if ( m_TimerKey )
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 471  ]
+"458
+[; ;../Projects/src/key_and_Other.c: 458:   {
+{
+"459
+[; ;../Projects/src/key_and_Other.c: 459:    if ( !--m_TimerKey )
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 472  ]
+"460
+[; ;../Projects/src/key_and_Other.c: 460:    {
+{
+"461
+[; ;../Projects/src/key_and_Other.c: 461:     _SetRegistrationMode( 2 ) ;
+[e ( __SetRegistrationMode (1 -> -> 2 `i `uc ]
+"462
+[; ;../Projects/src/key_and_Other.c: 462:     m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"463
+[; ;../Projects/src/key_and_Other.c: 463:     RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"464
+[; ;../Projects/src/key_and_Other.c: 464:    }
+}
+[e :U 472 ]
+"465
+[; ;../Projects/src/key_and_Other.c: 465:    return ;
+[e $UE 465  ]
+"466
+[; ;../Projects/src/key_and_Other.c: 466:   }
+}
+[e :U 471 ]
+"467
+[; ;../Projects/src/key_and_Other.c: 467:  }
+}
+[e :U 470 ]
+"468
+[; ;../Projects/src/key_and_Other.c: 468: }
+[e :UE 465 ]
+}
+"469
+[; ;../Projects/src/key_and_Other.c: 469: void _FuncStop( void )
+[v __FuncStop `(v ~T0 @X0 1 ef ]
+"470
+[; ;../Projects/src/key_and_Other.c: 470: {
+{
+[e :U __FuncStop ]
+[f ]
+"471
+[; ;../Projects/src/key_and_Other.c: 471:  if ( _GetNoPushState() )
+[e $ ! != -> ( __GetNoPushState ..  `i -> 0 `i 474  ]
+"472
+[; ;../Projects/src/key_and_Other.c: 472:  {
+{
+"473
+[; ;../Projects/src/key_and_Other.c: 473:   if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit1 || RAM_SW.BIT.Bit2 )
+[e $ ! || || != -> . . _RAM_SW 1 0 `i -> 0 `i != -> . . _RAM_SW 1 1 `i -> 0 `i != -> . . _RAM_SW 1 2 `i -> 0 `i 475  ]
+"474
+[; ;../Projects/src/key_and_Other.c: 474:   {
+{
+"475
+[; ;../Projects/src/key_and_Other.c: 475:    if (( !m_TimerKey )&&(RAM_SW.BIT.Bit6==0)&&(TIME_Once_twice_switch==0))
+[e $ ! && && ! != _m_TimerKey -> -> 0 `i `ui == -> . . _RAM_SW 1 6 `i -> 0 `i == _TIME_Once_twice_switch -> -> 0 `i `ui 476  ]
+"476
+[; ;../Projects/src/key_and_Other.c: 476:    {
+{
+"479
+[; ;../Projects/src/key_and_Other.c: 479:      if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit2 )
+[e $ ! || != -> . . _RAM_SW 1 0 `i -> 0 `i != -> . . _RAM_SW 1 2 `i -> 0 `i 477  ]
+"480
+[; ;../Projects/src/key_and_Other.c: 480:      {
+{
+"481
+[; ;../Projects/src/key_and_Other.c: 481:       m_KeyOptSetMode = 10 ;
+[e = _m_KeyOptSetMode -> -> 10 `i `uc ]
+"484
+[; ;../Projects/src/key_and_Other.c: 484:       m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"485
+[; ;../Projects/src/key_and_Other.c: 485:       RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"486
+[; ;../Projects/src/key_and_Other.c: 486:       return ;
+[e $UE 473  ]
+"487
+[; ;../Projects/src/key_and_Other.c: 487:      }
+}
+[e :U 477 ]
+"488
+[; ;../Projects/src/key_and_Other.c: 488:      m_KeyOptSetMode = 1 ;
+[e = _m_KeyOptSetMode -> -> 1 `i `uc ]
+"490
+[; ;../Projects/src/key_and_Other.c: 490:      _ReqBuzzer(103,103,1);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
+"491
+[; ;../Projects/src/key_and_Other.c: 491:       RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"492
+[; ;../Projects/src/key_and_Other.c: 492:       if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 478  ]
+{
+"493
+[; ;../Projects/src/key_and_Other.c: 493:                                              RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"494
+[; ;../Projects/src/key_and_Other.c: 494:                                              RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"495
+[; ;../Projects/src/key_and_Other.c: 495:                                              TB_5s=TB_51s;
+[e = _TB_5s _TB_51s ]
+"496
+[; ;../Projects/src/key_and_Other.c: 496:                                                 }
+}
+[e :U 478 ]
+"497
+[; ;../Projects/src/key_and_Other.c: 497:      m_KeyDupliSetTimeout = 4000 ;
+[e = _m_KeyDupliSetTimeout -> -> 4000 `i `ui ]
+"498
+[; ;../Projects/src/key_and_Other.c: 498:      m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
+"499
+[; ;../Projects/src/key_and_Other.c: 499:      RAM_RegSW.BIT.Bit6=0;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"500
+[; ;../Projects/src/key_and_Other.c: 500:      RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"501
+[; ;../Projects/src/key_and_Other.c: 501:      RAM_RegSW.BIT.Bit5 = 1 ;
+[e = . . _RAM_RegSW 1 5 -> -> 1 `i `uc ]
+"502
+[; ;../Projects/src/key_and_Other.c: 502:      if ( RAM_SW.BIT.Bit0 )
+[e $ ! != -> . . _RAM_SW 1 0 `i -> 0 `i 479  ]
+"503
+[; ;../Projects/src/key_and_Other.c: 503:      {
+{
+"504
+[; ;../Projects/src/key_and_Other.c: 504:       RAM_RegSW.BIT.Bit5 = 0 ;
+[e = . . _RAM_RegSW 1 5 -> -> 0 `i `uc ]
+"505
+[; ;../Projects/src/key_and_Other.c: 505:      }
+}
+[e :U 479 ]
+"508
+[; ;../Projects/src/key_and_Other.c: 508:    }
+}
+[e :U 476 ]
+"509
+[; ;../Projects/src/key_and_Other.c: 509:    return ;
+[e $UE 473  ]
+"510
+[; ;../Projects/src/key_and_Other.c: 510:   }
+}
+[e :U 475 ]
+"511
+[; ;../Projects/src/key_and_Other.c: 511:   return ;
+[e $UE 473  ]
+"512
+[; ;../Projects/src/key_and_Other.c: 512:  }
+}
+[e :U 474 ]
+"514
+[; ;../Projects/src/key_and_Other.c: 514:  m_KindOfKey = m_KeyNo ;
+[e = _m_KindOfKey _m_KeyNo ]
+"515
+[; ;../Projects/src/key_and_Other.c: 515:  if ( m_KeyOptSetMode ||m_RegMode)
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 480  ]
+"516
+[; ;../Projects/src/key_and_Other.c: 516:  {
+{
+"517
+[; ;../Projects/src/key_and_Other.c: 517:   return ;
+[e $UE 473  ]
+"518
+[; ;../Projects/src/key_and_Other.c: 518:  }
+}
+[e :U 480 ]
+"520
+[; ;../Projects/src/key_and_Other.c: 520:  switch ( m_KindOfKey )
+[e $U 482  ]
+"521
+[; ;../Projects/src/key_and_Other.c: 521:  {
+{
+"522
+[; ;../Projects/src/key_and_Other.c: 522:   case 1 :
+[e :U 483 ]
+"523
+[; ;../Projects/src/key_and_Other.c: 523:    RAM_SW.BIT.Bit0 = 1 ;
+[e = . . _RAM_SW 1 0 -> -> 1 `i `uc ]
+"524
+[; ;../Projects/src/key_and_Other.c: 524:    m_TimerKey = 5000 ;
+[e = _m_TimerKey -> -> 5000 `i `ui ]
+"525
+[; ;../Projects/src/key_and_Other.c: 525:    break;
+[e $U 481  ]
+"527
+[; ;../Projects/src/key_and_Other.c: 527:   case 2 :
+[e :U 484 ]
+"528
+[; ;../Projects/src/key_and_Other.c: 528:    RAM_SW.BIT.Bit1 = 1 ;
+[e = . . _RAM_SW 1 1 -> -> 1 `i `uc ]
+"529
+[; ;../Projects/src/key_and_Other.c: 529:    m_TimerKey = 5000 ;
+[e = _m_TimerKey -> -> 5000 `i `ui ]
+"530
+[; ;../Projects/src/key_and_Other.c: 530:    break;
+[e $U 481  ]
+"532
+[; ;../Projects/src/key_and_Other.c: 532:   case 3 :
+[e :U 485 ]
+"533
+[; ;../Projects/src/key_and_Other.c: 533:    RAM_SW.BIT.Bit2 = 1 ;
+[e = . . _RAM_SW 1 2 -> -> 1 `i `uc ]
+"534
+[; ;../Projects/src/key_and_Other.c: 534:    m_TimerKey = 5000 ;
+[e = _m_TimerKey -> -> 5000 `i `ui ]
+"535
+[; ;../Projects/src/key_and_Other.c: 535:    break;
+[e $U 481  ]
+"536
+[; ;../Projects/src/key_and_Other.c: 536:  }
+}
+[e $U 481  ]
+[e :U 482 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 483
+ , $ -> 2 `i 484
+ , $ -> 3 `i 485
+ 481 ]
+[e :U 481 ]
+"539
+[; ;../Projects/src/key_and_Other.c: 539:  if ( !rom_KeyOpt || m_KindOfKey == 4 )
+[e $ ! || ! != -> _rom_KeyOpt `i -> 0 `i == -> _m_KindOfKey `i -> 4 `i 486  ]
+"543
+[; ;../Projects/src/key_and_Other.c: 543:  {
+{
+"544
+[; ;../Projects/src/key_and_Other.c: 544:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"545
+[; ;../Projects/src/key_and_Other.c: 545:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+"546
+[; ;../Projects/src/key_and_Other.c: 546:   m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+"547
+[; ;../Projects/src/key_and_Other.c: 547:   return ;
+[e $UE 473  ]
+"548
+[; ;../Projects/src/key_and_Other.c: 548:  }
+}
+[e :U 486 ]
+"551
+[; ;../Projects/src/key_and_Other.c: 551:  if ( m_KeyOptSetMode || m_RegMode )
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 487  ]
+"552
+[; ;../Projects/src/key_and_Other.c: 552:  {
+{
+"553
+[; ;../Projects/src/key_and_Other.c: 553:   return ;
+[e $UE 473  ]
+"554
+[; ;../Projects/src/key_and_Other.c: 554:  }
+}
+[e :U 487 ]
+"556
+[; ;../Projects/src/key_and_Other.c: 556:  if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 488  ]
+"557
+[; ;../Projects/src/key_and_Other.c: 557:  {
+{
+"558
+[; ;../Projects/src/key_and_Other.c: 558:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"559
+[; ;../Projects/src/key_and_Other.c: 559:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+"560
+[; ;../Projects/src/key_and_Other.c: 560:   m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+"561
+[; ;../Projects/src/key_and_Other.c: 561:   RAM_SW.BIT.Bit3=1;
+[e = . . _RAM_SW 1 3 -> -> 1 `i `uc ]
+"562
+[; ;../Projects/src/key_and_Other.c: 562:   m_KeyDupli1stTimer = 3000 ;
+[e = _m_KeyDupli1stTimer -> -> 3000 `i `ui ]
+"563
+[; ;../Projects/src/key_and_Other.c: 563:   time_led=0;
+[e = _time_led -> -> 0 `i `ui ]
+"564
+[; ;../Projects/src/key_and_Other.c: 564:   return ;
+[e $UE 473  ]
+"565
+[; ;../Projects/src/key_and_Other.c: 565:  }
+}
+[e :U 488 ]
+"567
+[; ;../Projects/src/key_and_Other.c: 567:  switch ( m_KindOfKey )
+[e $U 490  ]
+"568
+[; ;../Projects/src/key_and_Other.c: 568:  {
+{
+"593
+[; ;../Projects/src/key_and_Other.c: 593:   case 1 :
+[e :U 491 ]
+"594
+[; ;../Projects/src/key_and_Other.c: 594:   case 3 :
+[e :U 492 ]
+"595
+[; ;../Projects/src/key_and_Other.c: 595:    if ( RAM_SW.BIT.Bit3 && m_KeyDupli1stTimer)
+[e $ ! && != -> . . _RAM_SW 1 3 `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 493  ]
+"596
+[; ;../Projects/src/key_and_Other.c: 596:    {
+{
+"597
+[; ;../Projects/src/key_and_Other.c: 597:            RAM_SW.BIT.Bit3=0;
+[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+"598
+[; ;../Projects/src/key_and_Other.c: 598:     m_KeyDupli1stTimer=0;
+[e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
+"599
+[; ;../Projects/src/key_and_Other.c: 599:     _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+"600
+[; ;../Projects/src/key_and_Other.c: 600:     m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+"601
+[; ;../Projects/src/key_and_Other.c: 601:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"602
+[; ;../Projects/src/key_and_Other.c: 602:     return ;
+[e $UE 473  ]
+"603
+[; ;../Projects/src/key_and_Other.c: 603:    }
+}
+[e :U 493 ]
+"604
+[; ;../Projects/src/key_and_Other.c: 604:    break;
+[e $U 489  ]
+"606
+[; ;../Projects/src/key_and_Other.c: 606:  }
+}
+[e $U 489  ]
+[e :U 490 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 491
+ , $ -> 3 `i 492
+ 489 ]
+[e :U 489 ]
+"607
+[; ;../Projects/src/key_and_Other.c: 607: }
+[e :UE 473 ]
+}
+"609
+[; ;../Projects/src/key_and_Other.c: 609: void _FuncAutoTxStart( void )
+[v __FuncAutoTxStart `(v ~T0 @X0 1 ef ]
+"610
+[; ;../Projects/src/key_and_Other.c: 610: {
+{
+[e :U __FuncAutoTxStart ]
+[f ]
+"612
+[; ;../Projects/src/key_and_Other.c: 612: }
+[e :UE 494 ]
+}
+"613
+[; ;../Projects/src/key_and_Other.c: 613: void _FuncAutoTxStop( void )
+[v __FuncAutoTxStop `(v ~T0 @X0 1 ef ]
+"614
+[; ;../Projects/src/key_and_Other.c: 614: {
+{
+[e :U __FuncAutoTxStop ]
+[f ]
+"616
+[; ;../Projects/src/key_and_Other.c: 616: }
+[e :UE 495 ]
+}
+"617
+[; ;../Projects/src/key_and_Other.c: 617: void _FuncNoPush( void )
+[v __FuncNoPush `(v ~T0 @X0 1 ef ]
+"618
+[; ;../Projects/src/key_and_Other.c: 618: {
+{
+[e :U __FuncNoPush ]
+[f ]
+"619
+[; ;../Projects/src/key_and_Other.c: 619:  RAM_SW.BIT.Bit0 = 0 ;
+[e = . . _RAM_SW 1 0 -> -> 0 `i `uc ]
+"620
+[; ;../Projects/src/key_and_Other.c: 620:  RAM_SW.BIT.Bit1 = 0 ;
+[e = . . _RAM_SW 1 1 -> -> 0 `i `uc ]
+"621
+[; ;../Projects/src/key_and_Other.c: 621:  RAM_SW.BIT.Bit2 = 0 ;
+[e = . . _RAM_SW 1 2 -> -> 0 `i `uc ]
+"622
+[; ;../Projects/src/key_and_Other.c: 622:  RAM_SW.BIT.Bit6=0;
+[e = . . _RAM_SW 1 6 -> -> 0 `i `uc ]
+"624
+[; ;../Projects/src/key_and_Other.c: 624:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"625
+[; ;../Projects/src/key_and_Other.c: 625:  RAM_RegSW.BIT.Bit6 = 1 ;
+[e = . . _RAM_RegSW 1 6 -> -> 1 `i `uc ]
+"626
+[; ;../Projects/src/key_and_Other.c: 626:  RAM_RegSW.BIT.Bit7 = 0 ;
+[e = . . _RAM_RegSW 1 7 -> -> 0 `i `uc ]
+"627
+[; ;../Projects/src/key_and_Other.c: 627:  m_KindOfKey = 0xFF;
+[e = _m_KindOfKey -> -> 255 `i `uc ]
+"632
+[; ;../Projects/src/key_and_Other.c: 632: }
+[e :UE 496 ]
+}
+"633
+[; ;../Projects/src/key_and_Other.c: 633: void _SetKeyChatterCount( void )
+[v __SetKeyChatterCount `(v ~T0 @X0 1 ef ]
+"634
+[; ;../Projects/src/key_and_Other.c: 634: {
+{
+[e :U __SetKeyChatterCount ]
+[f ]
+"635
+[; ;../Projects/src/key_and_Other.c: 635:  m_ChatterCount = 1 ;
+[e = _m_ChatterCount -> -> 1 `i `ui ]
+"636
+[; ;../Projects/src/key_and_Other.c: 636:  m_TimerKey = 0 ;
+[e = _m_TimerKey -> -> 0 `i `ui ]
+"637
+[; ;../Projects/src/key_and_Other.c: 637: }
+[e :UE 497 ]
+}
+"647
+[; ;../Projects/src/key_and_Other.c: 647: void _ClearSpecialMultiKeyState( void )
+[v __ClearSpecialMultiKeyState `(v ~T0 @X0 1 ef ]
+"648
+[; ;../Projects/src/key_and_Other.c: 648: {
+{
+[e :U __ClearSpecialMultiKeyState ]
+[f ]
+"649
+[; ;../Projects/src/key_and_Other.c: 649:  RAM_RegSW.BIT.Bit0 = 0 ;
+[e = . . _RAM_RegSW 1 0 -> -> 0 `i `uc ]
+"650
+[; ;../Projects/src/key_and_Other.c: 650:  RAM_RegSW.BIT.Bit1 = 0 ;
+[e = . . _RAM_RegSW 1 1 -> -> 0 `i `uc ]
+"651
+[; ;../Projects/src/key_and_Other.c: 651:  RAM_RegSW.BIT.Bit2 = 0 ;
+[e = . . _RAM_RegSW 1 2 -> -> 0 `i `uc ]
+"652
+[; ;../Projects/src/key_and_Other.c: 652:  RAM_RegSW.BIT.Bit3 = 0 ;
+[e = . . _RAM_RegSW 1 3 -> -> 0 `i `uc ]
+"653
+[; ;../Projects/src/key_and_Other.c: 653:  RAM_RegSW.BIT.Bit4 = 0 ;
+[e = . . _RAM_RegSW 1 4 -> -> 0 `i `uc ]
+"654
+[; ;../Projects/src/key_and_Other.c: 654: }
+[e :UE 498 ]
+}
+"664
+[; ;../Projects/src/key_and_Other.c: 664: void _DupliFuncClear( void )
+[v __DupliFuncClear `(v ~T0 @X0 1 ef ]
+"665
+[; ;../Projects/src/key_and_Other.c: 665: {
+{
+[e :U __DupliFuncClear ]
+[f ]
+"666
+[; ;../Projects/src/key_and_Other.c: 666:  m_KeyOptSetMode = 0 ;
+[e = _m_KeyOptSetMode -> -> 0 `i `uc ]
+"667
+[; ;../Projects/src/key_and_Other.c: 667:  m_KeyOpenCount = 2 ;
+[e = _m_KeyOpenCount -> -> 2 `i `uc ]
+"668
+[; ;../Projects/src/key_and_Other.c: 668:  m_KeyCloseCount = 2 ;
+[e = _m_KeyCloseCount -> -> 2 `i `uc ]
+"671
+[; ;../Projects/src/key_and_Other.c: 671:  if ( m_KeyDupli1stTimer )
+[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 500  ]
+"672
+[; ;../Projects/src/key_and_Other.c: 672:  {
+{
+"673
+[; ;../Projects/src/key_and_Other.c: 673:   m_KeyDupli1stTimer = 0 ;
+[e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
+"675
+[; ;../Projects/src/key_and_Other.c: 675:  }
+}
+[e :U 500 ]
+"676
+[; ;../Projects/src/key_and_Other.c: 676: }
+[e :UE 499 ]
+}
+"687
+[; ;../Projects/src/key_and_Other.c: 687: unsigned char _GetNoPushState( void )
+[v __GetNoPushState `(uc ~T0 @X0 1 ef ]
+"688
+[; ;../Projects/src/key_and_Other.c: 688: {
+{
+[e :U __GetNoPushState ]
+[f ]
+"689
+[; ;../Projects/src/key_and_Other.c: 689:  if ( !RAM_RegSW.BIT.Bit6 )
+[e $ ! ! != -> . . _RAM_RegSW 1 6 `i -> 0 `i 502  ]
+"690
+[; ;../Projects/src/key_and_Other.c: 690:  {
+{
+"691
+[; ;../Projects/src/key_and_Other.c: 691:   return(1) ;
+[e ) -> -> 1 `i `uc ]
+[e $UE 501  ]
+"692
+[; ;../Projects/src/key_and_Other.c: 692:  }
+}
+[e :U 502 ]
+"694
+[; ;../Projects/src/key_and_Other.c: 694:  RAM_RegSW.BIT.Bit6 = 0 ;
+[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+"699
+[; ;../Projects/src/key_and_Other.c: 699:  m_TimerKey = 0 ;
+[e = _m_TimerKey -> -> 0 `i `ui ]
+"700
+[; ;../Projects/src/key_and_Other.c: 700:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"701
+[; ;../Projects/src/key_and_Other.c: 701:  return(0) ;
+[e ) -> -> 0 `i `uc ]
+[e $UE 501  ]
+"702
+[; ;../Projects/src/key_and_Other.c: 702: }
+[e :UE 501 ]
+}
+"703
+[; ;../Projects/src/key_and_Other.c: 703: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
+[v __ReqTxdEdit `(v ~T0 @X0 1 ef2`uc`uc ]
+"704
+[; ;../Projects/src/key_and_Other.c: 704: {
+{
+[e :U __ReqTxdEdit ]
+"703
+[; ;../Projects/src/key_and_Other.c: 703: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
+[v _txreq `uc ~T0 @X0 1 r1 ]
+[v _buzreq `uc ~T0 @X0 1 r2 ]
+"704
+[; ;../Projects/src/key_and_Other.c: 704: {
+[f ]
+"705
+[; ;../Projects/src/key_and_Other.c: 705:   unsigned char time_key;
+[v _time_key `uc ~T0 @X0 1 a ]
+"706
+[; ;../Projects/src/key_and_Other.c: 706:   if((TB_sum_5s<69)&&(RAM_OP1.BIT.Bit5==1)&&(TB_5s<25)){
+[e $ ! && && < -> _TB_sum_5s `i -> 69 `i == -> . . _RAM_OP1 1 5 `i -> 1 `i < -> _TB_5s `i -> 25 `i 504  ]
+{
+"707
+[; ;../Projects/src/key_and_Other.c: 707:     time_key=25-TB_5s;
+[e = _time_key -> - -> 25 `i -> _TB_5s `i `uc ]
+"708
+[; ;../Projects/src/key_and_Other.c: 708:     TB_sum_5s=TB_sum_5s+time_key;
+[e = _TB_sum_5s -> + -> _TB_sum_5s `i -> _time_key `i `uc ]
+"709
+[; ;../Projects/src/key_and_Other.c: 709:     if((69-TB_sum_5s)>=27)TB_5s=25;
+[e $ ! >= - -> 69 `i -> _TB_sum_5s `i -> 27 `i 505  ]
+[e = _TB_5s -> -> 25 `i `uc ]
+[e :U 505 ]
+"711
+[; ;../Projects/src/key_and_Other.c: 711:   }
+}
+[e :U 504 ]
+"712
+[; ;../Projects/src/key_and_Other.c: 712:   if((TB_5s>=25)||(TIME_2s_RestTX==0)){
+[e $ ! || >= -> _TB_5s `i -> 25 `i == -> _TIME_2s_RestTX `i -> 0 `i 506  ]
+{
+"713
+[; ;../Projects/src/key_and_Other.c: 713:         if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 507  ]
+{
+"714
+[; ;../Projects/src/key_and_Other.c: 714:  RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"715
+[; ;../Projects/src/key_and_Other.c: 715:  RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"716
+[; ;../Projects/src/key_and_Other.c: 716:  TB_5s=TB_51s;
+[e = _TB_5s _TB_51s ]
+"717
+[; ;../Projects/src/key_and_Other.c: 717:         }
+}
+[e :U 507 ]
+"718
+[; ;../Projects/src/key_and_Other.c: 718:    switch ( txreq )
+[e $U 509  ]
+"719
+[; ;../Projects/src/key_and_Other.c: 719:  {
+{
+"720
+[; ;../Projects/src/key_and_Other.c: 720:   case 1 :
+[e :U 510 ]
+"721
+[; ;../Projects/src/key_and_Other.c: 721:           Control_code=0x08;
+[e = _Control_code -> -> 8 `i `uc ]
+"722
+[; ;../Projects/src/key_and_Other.c: 722:    break ;
+[e $U 508  ]
+"723
+[; ;../Projects/src/key_and_Other.c: 723:   case 2 :
+[e :U 511 ]
+"724
+[; ;../Projects/src/key_and_Other.c: 724:           Control_code=0x04;
+[e = _Control_code -> -> 4 `i `uc ]
+"725
+[; ;../Projects/src/key_and_Other.c: 725:    break ;
+[e $U 508  ]
+"726
+[; ;../Projects/src/key_and_Other.c: 726:   case 3 :
+[e :U 512 ]
+"727
+[; ;../Projects/src/key_and_Other.c: 727:           Control_code=0x02;
+[e = _Control_code -> -> 2 `i `uc ]
+"728
+[; ;../Projects/src/key_and_Other.c: 728:    break ;
+[e $U 508  ]
+"729
+[; ;../Projects/src/key_and_Other.c: 729:   case 4 :
+[e :U 513 ]
+"730
+[; ;../Projects/src/key_and_Other.c: 730:           Control_code=0x01;
+[e = _Control_code -> -> 1 `i `uc ]
+"731
+[; ;../Projects/src/key_and_Other.c: 731:    break ;
+[e $U 508  ]
+"732
+[; ;../Projects/src/key_and_Other.c: 732:   case 10 :
+[e :U 514 ]
+"733
+[; ;../Projects/src/key_and_Other.c: 733:           Control_code=0x14;
+[e = _Control_code -> -> 20 `i `uc ]
+"734
+[; ;../Projects/src/key_and_Other.c: 734:    break ;
+[e $U 508  ]
+"735
+[; ;../Projects/src/key_and_Other.c: 735:   case 5 :
+[e :U 515 ]
+"736
+[; ;../Projects/src/key_and_Other.c: 736:           Control_code=0x0C;
+[e = _Control_code -> -> 12 `i `uc ]
+"737
+[; ;../Projects/src/key_and_Other.c: 737:           break ;
+[e $U 508  ]
+"738
+[; ;../Projects/src/key_and_Other.c: 738:   case 6 :
+[e :U 516 ]
+"739
+[; ;../Projects/src/key_and_Other.c: 739:          Control_code=0x0A;
+[e = _Control_code -> -> 10 `i `uc ]
+"740
+[; ;../Projects/src/key_and_Other.c: 740:           break ;
+[e $U 508  ]
+"741
+[; ;../Projects/src/key_and_Other.c: 741:   case 7 :
+[e :U 517 ]
+"742
+[; ;../Projects/src/key_and_Other.c: 742:          Control_code=0x09;
+[e = _Control_code -> -> 9 `i `uc ]
+"743
+[; ;../Projects/src/key_and_Other.c: 743:           break ;
+[e $U 508  ]
+"744
+[; ;../Projects/src/key_and_Other.c: 744:   case 9 :
+[e :U 518 ]
+"745
+[; ;../Projects/src/key_and_Other.c: 745:          Control_code=0x06;
+[e = _Control_code -> -> 6 `i `uc ]
+"746
+[; ;../Projects/src/key_and_Other.c: 746:           break ;
+[e $U 508  ]
+"747
+[; ;../Projects/src/key_and_Other.c: 747:   case 12 :
+[e :U 519 ]
+"748
+[; ;../Projects/src/key_and_Other.c: 748:          Control_code=0x03;
+[e = _Control_code -> -> 3 `i `uc ]
+"749
+[; ;../Projects/src/key_and_Other.c: 749:           break ;
+[e $U 508  ]
+"750
+[; ;../Projects/src/key_and_Other.c: 750:  }
+}
+[e $U 508  ]
+[e :U 509 ]
+[e [\ -> _txreq `i , $ -> 1 `i 510
+ , $ -> 2 `i 511
+ , $ -> 3 `i 512
+ , $ -> 4 `i 513
+ , $ -> 10 `i 514
+ , $ -> 5 `i 515
+ , $ -> 6 `i 516
+ , $ -> 7 `i 517
+ , $ -> 9 `i 518
+ , $ -> 12 `i 519
+ 508 ]
+[e :U 508 ]
+"751
+[; ;../Projects/src/key_and_Other.c: 751:    switch ( buzreq )
+[e $U 521  ]
+"752
+[; ;../Projects/src/key_and_Other.c: 752:  {
+{
+"753
+[; ;../Projects/src/key_and_Other.c: 753:   case 1 :
+[e :U 522 ]
+"754
+[; ;../Projects/src/key_and_Other.c: 754:          _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
+"758
+[; ;../Projects/src/key_and_Other.c: 758:    break ;
+[e $U 520  ]
+"759
+[; ;../Projects/src/key_and_Other.c: 759:   case 2 :
+[e :U 523 ]
+"760
+[; ;../Projects/src/key_and_Other.c: 760:          _ReqBuzzer(103,103,1);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
+"764
+[; ;../Projects/src/key_and_Other.c: 764:    break ;
+[e $U 520  ]
+"765
+[; ;../Projects/src/key_and_Other.c: 765:   case 3 :
+[e :U 524 ]
+"766
+[; ;../Projects/src/key_and_Other.c: 766:         _ReqBuzzer(103,103,2);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
+"770
+[; ;../Projects/src/key_and_Other.c: 770:    break ;
+[e $U 520  ]
+"771
+[; ;../Projects/src/key_and_Other.c: 771:   case 4 :
+[e :U 525 ]
+"772
+[; ;../Projects/src/key_and_Other.c: 772:         _ReqBuzzer(500,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+"773
+[; ;../Projects/src/key_and_Other.c: 773:         break ;
+[e $U 520  ]
+"774
+[; ;../Projects/src/key_and_Other.c: 774:   case 20 :
+[e :U 526 ]
+"775
+[; ;../Projects/src/key_and_Other.c: 775:          _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+"779
+[; ;../Projects/src/key_and_Other.c: 779:    break ;
+[e $U 520  ]
+"780
+[; ;../Projects/src/key_and_Other.c: 780:  }
+}
+[e $U 520  ]
+[e :U 521 ]
+[e [\ -> _buzreq `i , $ -> 1 `i 522
+ , $ -> 2 `i 523
+ , $ -> 3 `i 524
+ , $ -> 4 `i 525
+ , $ -> 20 `i 526
+ 520 ]
+[e :U 520 ]
+"781
+[; ;../Projects/src/key_and_Other.c: 781:         dd_set_ADF7021_Power_on();
+[e ( _dd_set_ADF7021_Power_on ..  ]
+"782
+[; ;../Projects/src/key_and_Other.c: 782:         dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
+"785
+[; ;../Projects/src/key_and_Other.c: 785:         SendTxData();
+[e ( _SendTxData ..  ]
+"786
+[; ;../Projects/src/key_and_Other.c: 786:         TIME_2s_RestTX=25;
+[e = _TIME_2s_RestTX -> -> 25 `i `uc ]
+"787
+[; ;../Projects/src/key_and_Other.c: 787:   }
+}
+[e $U 527  ]
+"788
+[; ;../Projects/src/key_and_Other.c: 788:   else RB5=0;
+[e :U 506 ]
+[e = _RB5 -> -> 0 `i `b ]
+[e :U 527 ]
+"789
+[; ;../Projects/src/key_and_Other.c: 789: }
+[e :UE 503 ]
+}
+"802
+[; ;../Projects/src/key_and_Other.c: 802: void _DupliFuncSetMode( void )
+[v __DupliFuncSetMode `(v ~T0 @X0 1 ef ]
+"803
+[; ;../Projects/src/key_and_Other.c: 803: {
+{
+[e :U __DupliFuncSetMode ]
+[f ]
+"804
+[; ;../Projects/src/key_and_Other.c: 804:   unsigned char m_KeyOpt;
+[v _m_KeyOpt `uc ~T0 @X0 1 a ]
+"805
+[; ;../Projects/src/key_and_Other.c: 805:  switch ( m_KeyOptSetMode )
+[e $U 530  ]
+"806
+[; ;../Projects/src/key_and_Other.c: 806:  {
+{
+"807
+[; ;../Projects/src/key_and_Other.c: 807:   case 1 :
+[e :U 531 ]
+"808
+[; ;../Projects/src/key_and_Other.c: 808:    if ( !RAM_RegSW.BIT.Bit7 )
+[e $ ! ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 532  ]
+"809
+[; ;../Projects/src/key_and_Other.c: 809:    {
+{
+"810
+[; ;../Projects/src/key_and_Other.c: 810:     m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"811
+[; ;../Projects/src/key_and_Other.c: 811:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"812
+[; ;../Projects/src/key_and_Other.c: 812:     return ;
+[e $UE 528  ]
+"813
+[; ;../Projects/src/key_and_Other.c: 813:    }
+}
+[e :U 532 ]
+"814
+[; ;../Projects/src/key_and_Other.c: 814:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 533  ]
+"815
+[; ;../Projects/src/key_and_Other.c: 815:    {
+{
+"816
+[; ;../Projects/src/key_and_Other.c: 816:     m_KeyOptSetMode = 10 ;
+[e = _m_KeyOptSetMode -> -> 10 `i `uc ]
+"820
+[; ;../Projects/src/key_and_Other.c: 820:    }
+}
+[e :U 533 ]
+"821
+[; ;../Projects/src/key_and_Other.c: 821:    break ;
+[e $U 529  ]
+"823
+[; ;../Projects/src/key_and_Other.c: 823:   case 2 :
+[e :U 534 ]
+"824
+[; ;../Projects/src/key_and_Other.c: 824:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 535  ]
+"825
+[; ;../Projects/src/key_and_Other.c: 825:    {
+{
+"826
+[; ;../Projects/src/key_and_Other.c: 826:     ++m_KeyOptSetMode;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"827
+[; ;../Projects/src/key_and_Other.c: 827:     m_KeyDupliSetTimeout = 3000 ;
+[e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
+"829
+[; ;../Projects/src/key_and_Other.c: 829:     _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
+"830
+[; ;../Projects/src/key_and_Other.c: 830:     RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"831
+[; ;../Projects/src/key_and_Other.c: 831:    }
+}
+[e :U 535 ]
+"833
+[; ;../Projects/src/key_and_Other.c: 833:    if ( m_KindOfKey != 0 && m_KindOfKey != 0xFF )
+[e $ ! && != -> _m_KindOfKey `i -> 0 `i != -> _m_KindOfKey `i -> 255 `i 536  ]
+"834
+[; ;../Projects/src/key_and_Other.c: 834:    {
+{
+"835
+[; ;../Projects/src/key_and_Other.c: 835:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"836
+[; ;../Projects/src/key_and_Other.c: 836:    }
+}
+[e :U 536 ]
+"837
+[; ;../Projects/src/key_and_Other.c: 837:    break ;
+[e $U 529  ]
+"839
+[; ;../Projects/src/key_and_Other.c: 839:   case 3 :
+[e :U 537 ]
+"840
+[; ;../Projects/src/key_and_Other.c: 840:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 538  ]
+"841
+[; ;../Projects/src/key_and_Other.c: 841:    {
+{
+"842
+[; ;../Projects/src/key_and_Other.c: 842:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"843
+[; ;../Projects/src/key_and_Other.c: 843:     return ;
+[e $UE 528  ]
+"844
+[; ;../Projects/src/key_and_Other.c: 844:    }
+}
+[e :U 538 ]
+"846
+[; ;../Projects/src/key_and_Other.c: 846:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 539  ]
+"847
+[; ;../Projects/src/key_and_Other.c: 847:    {
+{
+"848
+[; ;../Projects/src/key_and_Other.c: 848:     return ;
+[e $UE 528  ]
+"849
+[; ;../Projects/src/key_and_Other.c: 849:    }
+}
+[e :U 539 ]
+"851
+[; ;../Projects/src/key_and_Other.c: 851:    if ( RAM_RegSW.BIT.Bit5 )
+[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 540  ]
+"852
+[; ;../Projects/src/key_and_Other.c: 852:    {
+{
+"853
+[; ;../Projects/src/key_and_Other.c: 853:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 541  ]
+"854
+[; ;../Projects/src/key_and_Other.c: 854:     {
+{
+"855
+[; ;../Projects/src/key_and_Other.c: 855:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"856
+[; ;../Projects/src/key_and_Other.c: 856:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"858
+[; ;../Projects/src/key_and_Other.c: 858:     }
+}
+[e $U 542  ]
+"859
+[; ;../Projects/src/key_and_Other.c: 859:     else
+[e :U 541 ]
+"860
+[; ;../Projects/src/key_and_Other.c: 860:     {
+{
+"861
+[; ;../Projects/src/key_and_Other.c: 861:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"862
+[; ;../Projects/src/key_and_Other.c: 862:      return ;
+[e $UE 528  ]
+"863
+[; ;../Projects/src/key_and_Other.c: 863:     }
+}
+[e :U 542 ]
+"864
+[; ;../Projects/src/key_and_Other.c: 864:    }
+}
+[e $U 543  ]
+"865
+[; ;../Projects/src/key_and_Other.c: 865:    else
+[e :U 540 ]
+"866
+[; ;../Projects/src/key_and_Other.c: 866:    {
+{
+"867
+[; ;../Projects/src/key_and_Other.c: 867:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 544  ]
+"868
+[; ;../Projects/src/key_and_Other.c: 868:     {
+{
+"869
+[; ;../Projects/src/key_and_Other.c: 869:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"870
+[; ;../Projects/src/key_and_Other.c: 870:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"872
+[; ;../Projects/src/key_and_Other.c: 872:     }
+}
+[e $U 545  ]
+"873
+[; ;../Projects/src/key_and_Other.c: 873:     else
+[e :U 544 ]
+"874
+[; ;../Projects/src/key_and_Other.c: 874:     {
+{
+"875
+[; ;../Projects/src/key_and_Other.c: 875:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"876
+[; ;../Projects/src/key_and_Other.c: 876:      return ;
+[e $UE 528  ]
+"877
+[; ;../Projects/src/key_and_Other.c: 877:     }
+}
+[e :U 545 ]
+"878
+[; ;../Projects/src/key_and_Other.c: 878:    }
+}
+[e :U 543 ]
+"879
+[; ;../Projects/src/key_and_Other.c: 879:    break ;
+[e $U 529  ]
+"881
+[; ;../Projects/src/key_and_Other.c: 881:   case 4 :
+[e :U 546 ]
+"882
+[; ;../Projects/src/key_and_Other.c: 882:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 547  ]
+"883
+[; ;../Projects/src/key_and_Other.c: 883:    {
+{
+"884
+[; ;../Projects/src/key_and_Other.c: 884:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"885
+[; ;../Projects/src/key_and_Other.c: 885:     m_KeyDupliSetTimeout = 3000 ;
+[e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
+"887
+[; ;../Projects/src/key_and_Other.c: 887:     _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
+"888
+[; ;../Projects/src/key_and_Other.c: 888:     RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"889
+[; ;../Projects/src/key_and_Other.c: 889:    }
+}
+[e :U 547 ]
+"895
+[; ;../Projects/src/key_and_Other.c: 895:    break ;
+[e $U 529  ]
+"897
+[; ;../Projects/src/key_and_Other.c: 897:   case 5 :
+[e :U 548 ]
+"898
+[; ;../Projects/src/key_and_Other.c: 898:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 549  ]
+"899
+[; ;../Projects/src/key_and_Other.c: 899:    {
+{
+"900
+[; ;../Projects/src/key_and_Other.c: 900:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"901
+[; ;../Projects/src/key_and_Other.c: 901:     return ;
+[e $UE 528  ]
+"902
+[; ;../Projects/src/key_and_Other.c: 902:    }
+}
+[e :U 549 ]
+"904
+[; ;../Projects/src/key_and_Other.c: 904:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 550  ]
+"905
+[; ;../Projects/src/key_and_Other.c: 905:    {
+{
+"906
+[; ;../Projects/src/key_and_Other.c: 906:     return ;
+[e $UE 528  ]
+"907
+[; ;../Projects/src/key_and_Other.c: 907:    }
+}
+[e :U 550 ]
+"909
+[; ;../Projects/src/key_and_Other.c: 909:    if ( RAM_RegSW.BIT.Bit5 )
+[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 551  ]
+"910
+[; ;../Projects/src/key_and_Other.c: 910:    {
+{
+"911
+[; ;../Projects/src/key_and_Other.c: 911:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 552  ]
+"912
+[; ;../Projects/src/key_and_Other.c: 912:     {
+{
+"913
+[; ;../Projects/src/key_and_Other.c: 913:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"914
+[; ;../Projects/src/key_and_Other.c: 914:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"915
+[; ;../Projects/src/key_and_Other.c: 915:      RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"916
+[; ;../Projects/src/key_and_Other.c: 916:     }
+}
+[e $U 553  ]
+"917
+[; ;../Projects/src/key_and_Other.c: 917:     else
+[e :U 552 ]
+"918
+[; ;../Projects/src/key_and_Other.c: 918:     {
+{
+"919
+[; ;../Projects/src/key_and_Other.c: 919:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"920
+[; ;../Projects/src/key_and_Other.c: 920:      return ;
+[e $UE 528  ]
+"921
+[; ;../Projects/src/key_and_Other.c: 921:     }
+}
+[e :U 553 ]
+"922
+[; ;../Projects/src/key_and_Other.c: 922:    }
+}
+[e $U 554  ]
+"923
+[; ;../Projects/src/key_and_Other.c: 923:    else
+[e :U 551 ]
+"924
+[; ;../Projects/src/key_and_Other.c: 924:    {
+{
+"925
+[; ;../Projects/src/key_and_Other.c: 925:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 555  ]
+"926
+[; ;../Projects/src/key_and_Other.c: 926:     {
+{
+"927
+[; ;../Projects/src/key_and_Other.c: 927:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"928
+[; ;../Projects/src/key_and_Other.c: 928:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"929
+[; ;../Projects/src/key_and_Other.c: 929:     }
+}
+[e $U 556  ]
+"930
+[; ;../Projects/src/key_and_Other.c: 930:     else
+[e :U 555 ]
+"931
+[; ;../Projects/src/key_and_Other.c: 931:     {
+{
+"932
+[; ;../Projects/src/key_and_Other.c: 932:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"933
+[; ;../Projects/src/key_and_Other.c: 933:      return ;
+[e $UE 528  ]
+"934
+[; ;../Projects/src/key_and_Other.c: 934:     }
+}
+[e :U 556 ]
+"935
+[; ;../Projects/src/key_and_Other.c: 935:    }
+}
+[e :U 554 ]
+"936
+[; ;../Projects/src/key_and_Other.c: 936:    break ;
+[e $U 529  ]
+"938
+[; ;../Projects/src/key_and_Other.c: 938:   case 6 :
+[e :U 557 ]
+"939
+[; ;../Projects/src/key_and_Other.c: 939:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 558  ]
+"940
+[; ;../Projects/src/key_and_Other.c: 940:    {
+{
+"941
+[; ;../Projects/src/key_and_Other.c: 941:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"942
+[; ;../Projects/src/key_and_Other.c: 942:     m_KeyDupliSetTimeout = 3000 ;
+[e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
+"944
+[; ;../Projects/src/key_and_Other.c: 944:     _ReqBuzzer(103,103,2);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
+"945
+[; ;../Projects/src/key_and_Other.c: 945:                                 RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"946
+[; ;../Projects/src/key_and_Other.c: 946:    }
+}
+[e :U 558 ]
+"952
+[; ;../Projects/src/key_and_Other.c: 952:    break ;
+[e $U 529  ]
+"954
+[; ;../Projects/src/key_and_Other.c: 954:   case 7 :
+[e :U 559 ]
+"955
+[; ;../Projects/src/key_and_Other.c: 955:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 560  ]
+"956
+[; ;../Projects/src/key_and_Other.c: 956:    {
+{
+"957
+[; ;../Projects/src/key_and_Other.c: 957:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"958
+[; ;../Projects/src/key_and_Other.c: 958:     return ;
+[e $UE 528  ]
+"959
+[; ;../Projects/src/key_and_Other.c: 959:    }
+}
+[e :U 560 ]
+"961
+[; ;../Projects/src/key_and_Other.c: 961:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 561  ]
+"962
+[; ;../Projects/src/key_and_Other.c: 962:    {
+{
+"963
+[; ;../Projects/src/key_and_Other.c: 963:     return ;
+[e $UE 528  ]
+"964
+[; ;../Projects/src/key_and_Other.c: 964:    }
+}
+[e :U 561 ]
+"966
+[; ;../Projects/src/key_and_Other.c: 966:    if ( RAM_RegSW.BIT.Bit5 )
+[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 562  ]
+"967
+[; ;../Projects/src/key_and_Other.c: 967:    {
+{
+"968
+[; ;../Projects/src/key_and_Other.c: 968:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 563  ]
+"969
+[; ;../Projects/src/key_and_Other.c: 969:     {
+{
+"970
+[; ;../Projects/src/key_and_Other.c: 970:      m_KeyDupliSetTimeout = 10000 ;
+[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
+"971
+[; ;../Projects/src/key_and_Other.c: 971:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"972
+[; ;../Projects/src/key_and_Other.c: 972:      RAM_RegSW.BIT.Bit7 = 1 ;
+[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+"973
+[; ;../Projects/src/key_and_Other.c: 973:     }
+}
+[e $U 564  ]
+"974
+[; ;../Projects/src/key_and_Other.c: 974:     else
+[e :U 563 ]
+"975
+[; ;../Projects/src/key_and_Other.c: 975:     {
+{
+"976
+[; ;../Projects/src/key_and_Other.c: 976:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"977
+[; ;../Projects/src/key_and_Other.c: 977:      return ;
+[e $UE 528  ]
+"978
+[; ;../Projects/src/key_and_Other.c: 978:     }
+}
+[e :U 564 ]
+"979
+[; ;../Projects/src/key_and_Other.c: 979:    }
+}
+[e $U 565  ]
+"980
+[; ;../Projects/src/key_and_Other.c: 980:    else
+[e :U 562 ]
+"981
+[; ;../Projects/src/key_and_Other.c: 981:    {
+{
+"982
+[; ;../Projects/src/key_and_Other.c: 982:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 566  ]
+"983
+[; ;../Projects/src/key_and_Other.c: 983:     {
+{
+"984
+[; ;../Projects/src/key_and_Other.c: 984:      m_KeyDupliSetTimeout = 10000 ;
+[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
+"985
+[; ;../Projects/src/key_and_Other.c: 985:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"986
+[; ;../Projects/src/key_and_Other.c: 986:     }
+}
+[e $U 567  ]
+"987
+[; ;../Projects/src/key_and_Other.c: 987:     else
+[e :U 566 ]
+"988
+[; ;../Projects/src/key_and_Other.c: 988:     {
+{
+"989
+[; ;../Projects/src/key_and_Other.c: 989:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"990
+[; ;../Projects/src/key_and_Other.c: 990:      return ;
+[e $UE 528  ]
+"991
+[; ;../Projects/src/key_and_Other.c: 991:     }
+}
+[e :U 567 ]
+"992
+[; ;../Projects/src/key_and_Other.c: 992:    }
+}
+[e :U 565 ]
+"993
+[; ;../Projects/src/key_and_Other.c: 993:    break ;
+[e $U 529  ]
+"995
+[; ;../Projects/src/key_and_Other.c: 995:   case 8 :
+[e :U 568 ]
+"996
+[; ;../Projects/src/key_and_Other.c: 996:   case 9 :
+[e :U 569 ]
+"997
+[; ;../Projects/src/key_and_Other.c: 997:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 570  ]
+"998
+[; ;../Projects/src/key_and_Other.c: 998:    {
+{
+"999
+[; ;../Projects/src/key_and_Other.c: 999:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1000
+[; ;../Projects/src/key_and_Other.c: 1000:     return ;
+[e $UE 528  ]
+"1001
+[; ;../Projects/src/key_and_Other.c: 1001:    }
+}
+[e :U 570 ]
+"1003
+[; ;../Projects/src/key_and_Other.c: 1003:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 571  ]
+"1004
+[; ;../Projects/src/key_and_Other.c: 1004:    {
+{
+"1005
+[; ;../Projects/src/key_and_Other.c: 1005:     return ;
+[e $UE 528  ]
+"1006
+[; ;../Projects/src/key_and_Other.c: 1006:    }
+}
+[e :U 571 ]
+"1008
+[; ;../Projects/src/key_and_Other.c: 1008:    if ( RAM_RegSW.BIT.Bit5 )
+[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 572  ]
+"1009
+[; ;../Projects/src/key_and_Other.c: 1009:    {
+{
+"1010
+[; ;../Projects/src/key_and_Other.c: 1010:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 573  ]
+"1011
+[; ;../Projects/src/key_and_Other.c: 1011:     {
+{
+"1012
+[; ;../Projects/src/key_and_Other.c: 1012:      if ( m_KeyOptSetMode == 9 )
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 574  ]
+"1013
+[; ;../Projects/src/key_and_Other.c: 1013:      {
+{
+"1014
+[; ;../Projects/src/key_and_Other.c: 1014:       m_KeyOpt = rom_KeyOpt ;
+[e = _m_KeyOpt _rom_KeyOpt ]
+"1015
+[; ;../Projects/src/key_and_Other.c: 1015:       if ( m_KeyOpt )
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 575  ]
+"1016
+[; ;../Projects/src/key_and_Other.c: 1016:       {
+{
+"1017
+[; ;../Projects/src/key_and_Other.c: 1017:        m_KeyOpt = 0 ;
+[e = _m_KeyOpt -> -> 0 `i `uc ]
+"1018
+[; ;../Projects/src/key_and_Other.c: 1018:       }
+}
+[e $U 576  ]
+"1019
+[; ;../Projects/src/key_and_Other.c: 1019:       else
+[e :U 575 ]
+"1020
+[; ;../Projects/src/key_and_Other.c: 1020:       {
+{
+"1021
+[; ;../Projects/src/key_and_Other.c: 1021:        m_KeyOpt = 1 ;
+[e = _m_KeyOpt -> -> 1 `i `uc ]
+"1022
+[; ;../Projects/src/key_and_Other.c: 1022:       }
+}
+[e :U 576 ]
+"1023
+[; ;../Projects/src/key_and_Other.c: 1023:       rom_KeyOpt=m_KeyOpt;
+[e = _rom_KeyOpt _m_KeyOpt ]
+"1024
+[; ;../Projects/src/key_and_Other.c: 1024:       KeyOpt_EEPROM_write();
+[e ( _KeyOpt_EEPROM_write ..  ]
+"1028
+[; ;../Projects/src/key_and_Other.c: 1028:       _ReqBuzzer(103,103,4);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
+"1029
+[; ;../Projects/src/key_and_Other.c: 1029:                                                 RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"1030
+[; ;../Projects/src/key_and_Other.c: 1030:       RAM_SW.BIT.Bit3=0;
+[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+"1031
+[; ;../Projects/src/key_and_Other.c: 1031:       TB_5s=20;
+[e = _TB_5s -> -> 20 `i `uc ]
+"1032
+[; ;../Projects/src/key_and_Other.c: 1032:       _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1033
+[; ;../Projects/src/key_and_Other.c: 1033:       return ;
+[e $UE 528  ]
+"1034
+[; ;../Projects/src/key_and_Other.c: 1034:      }
+}
+[e :U 574 ]
+"1035
+[; ;../Projects/src/key_and_Other.c: 1035:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"1036
+[; ;../Projects/src/key_and_Other.c: 1036:     }
+}
+[e $U 577  ]
+"1037
+[; ;../Projects/src/key_and_Other.c: 1037:     else
+[e :U 573 ]
+"1038
+[; ;../Projects/src/key_and_Other.c: 1038:     {
+{
+"1039
+[; ;../Projects/src/key_and_Other.c: 1039:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1040
+[; ;../Projects/src/key_and_Other.c: 1040:      return ;
+[e $UE 528  ]
+"1041
+[; ;../Projects/src/key_and_Other.c: 1041:     }
+}
+[e :U 577 ]
+"1042
+[; ;../Projects/src/key_and_Other.c: 1042:    }
+}
+[e $U 578  ]
+"1043
+[; ;../Projects/src/key_and_Other.c: 1043:    else
+[e :U 572 ]
+"1044
+[; ;../Projects/src/key_and_Other.c: 1044:    {
+{
+"1045
+[; ;../Projects/src/key_and_Other.c: 1045:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 579  ]
+"1046
+[; ;../Projects/src/key_and_Other.c: 1046:     {
+{
+"1047
+[; ;../Projects/src/key_and_Other.c: 1047:      if ( m_KeyOptSetMode == 9 )
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 580  ]
+"1048
+[; ;../Projects/src/key_and_Other.c: 1048:      {
+{
+"1049
+[; ;../Projects/src/key_and_Other.c: 1049:       m_KeyOpt = rom_KeyOpt ;
+[e = _m_KeyOpt _rom_KeyOpt ]
+"1050
+[; ;../Projects/src/key_and_Other.c: 1050:       if ( m_KeyOpt )
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 581  ]
+"1051
+[; ;../Projects/src/key_and_Other.c: 1051:       {
+{
+"1052
+[; ;../Projects/src/key_and_Other.c: 1052:        m_KeyOpt = 0 ;
+[e = _m_KeyOpt -> -> 0 `i `uc ]
+"1053
+[; ;../Projects/src/key_and_Other.c: 1053:       }
+}
+[e $U 582  ]
+"1054
+[; ;../Projects/src/key_and_Other.c: 1054:       else
+[e :U 581 ]
+"1055
+[; ;../Projects/src/key_and_Other.c: 1055:       {
+{
+"1056
+[; ;../Projects/src/key_and_Other.c: 1056:        m_KeyOpt = 1 ;
+[e = _m_KeyOpt -> -> 1 `i `uc ]
+"1057
+[; ;../Projects/src/key_and_Other.c: 1057:       }
+}
+[e :U 582 ]
+"1058
+[; ;../Projects/src/key_and_Other.c: 1058:       rom_KeyOpt=m_KeyOpt;
+[e = _rom_KeyOpt _m_KeyOpt ]
+"1059
+[; ;../Projects/src/key_and_Other.c: 1059:       KeyOpt_EEPROM_write();
+[e ( _KeyOpt_EEPROM_write ..  ]
+"1062
+[; ;../Projects/src/key_and_Other.c: 1062:       _ReqBuzzer(103,103,4);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
+"1063
+[; ;../Projects/src/key_and_Other.c: 1063:                                                 RAM_OP2.BIT.Bit3=1;
+[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+"1064
+[; ;../Projects/src/key_and_Other.c: 1064:       RAM_SW.BIT.Bit3=0;
+[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+"1065
+[; ;../Projects/src/key_and_Other.c: 1065:       _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1067
+[; ;../Projects/src/key_and_Other.c: 1067:       return ;
+[e $UE 528  ]
+"1068
+[; ;../Projects/src/key_and_Other.c: 1068:      }
+}
+[e :U 580 ]
+"1069
+[; ;../Projects/src/key_and_Other.c: 1069:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"1070
+[; ;../Projects/src/key_and_Other.c: 1070:     }
+}
+[e $U 583  ]
+"1071
+[; ;../Projects/src/key_and_Other.c: 1071:     else
+[e :U 579 ]
+"1072
+[; ;../Projects/src/key_and_Other.c: 1072:     {
+{
+"1073
+[; ;../Projects/src/key_and_Other.c: 1073:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1074
+[; ;../Projects/src/key_and_Other.c: 1074:      return ;
+[e $UE 528  ]
+"1075
+[; ;../Projects/src/key_and_Other.c: 1075:     }
+}
+[e :U 583 ]
+"1076
+[; ;../Projects/src/key_and_Other.c: 1076:    }
+}
+[e :U 578 ]
+"1077
+[; ;../Projects/src/key_and_Other.c: 1077:    break ;
+[e $U 529  ]
+"1079
+[; ;../Projects/src/key_and_Other.c: 1079:   case 10 :
+[e :U 584 ]
+"1080
+[; ;../Projects/src/key_and_Other.c: 1080:    if ( !RAM_RegSW.BIT.Bit7 )
+[e $ ! ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 585  ]
+"1081
+[; ;../Projects/src/key_and_Other.c: 1081:    {
+{
+"1083
+[; ;../Projects/src/key_and_Other.c: 1083:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"1084
+[; ;../Projects/src/key_and_Other.c: 1084:     return ;
+[e $UE 528  ]
+"1085
+[; ;../Projects/src/key_and_Other.c: 1085:    }
+}
+[e :U 585 ]
+"1086
+[; ;../Projects/src/key_and_Other.c: 1086:    break ;
+[e $U 529  ]
+"1088
+[; ;../Projects/src/key_and_Other.c: 1088:  }
+}
+[e $U 529  ]
+[e :U 530 ]
+[e [\ -> _m_KeyOptSetMode `i , $ -> 1 `i 531
+ , $ -> 2 `i 534
+ , $ -> 3 `i 537
+ , $ -> 4 `i 546
+ , $ -> 5 `i 548
+ , $ -> 6 `i 557
+ , $ -> 7 `i 559
+ , $ -> 8 `i 568
+ , $ -> 9 `i 569
+ , $ -> 10 `i 584
+ 529 ]
+[e :U 529 ]
+"1089
+[; ;../Projects/src/key_and_Other.c: 1089: }
+[e :UE 528 ]
+}
+"1099
+[; ;../Projects/src/key_and_Other.c: 1099: void _RegistrationMode( void )
+[v __RegistrationMode `(v ~T0 @X0 1 ef ]
+"1100
+[; ;../Projects/src/key_and_Other.c: 1100: {
+{
+[e :U __RegistrationMode ]
+[f ]
+"1101
+[; ;../Projects/src/key_and_Other.c: 1101:  if ( !_GetRegMode() )
+[e $ ! ! != -> ( __GetRegMode ..  `i -> 0 `i 587  ]
+"1102
+[; ;../Projects/src/key_and_Other.c: 1102:  {
+{
+"1103
+[; ;../Projects/src/key_and_Other.c: 1103:   return ;
+[e $UE 586  ]
+"1104
+[; ;../Projects/src/key_and_Other.c: 1104:  }
+}
+[e :U 587 ]
+"1106
+[; ;../Projects/src/key_and_Other.c: 1106:         if(RAM_OP1.BIT.Bit5==0){
+[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 588  ]
+{
+"1107
+[; ;../Projects/src/key_and_Other.c: 1107:  RAM_OP1.BIT.Bit5=1;
+[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+"1108
+[; ;../Projects/src/key_and_Other.c: 1108:  RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"1109
+[; ;../Projects/src/key_and_Other.c: 1109:         }
+}
+[e :U 588 ]
+"1110
+[; ;../Projects/src/key_and_Other.c: 1110:  if(m_TimerRegMode){
+[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 589  ]
+{
+"1111
+[; ;../Projects/src/key_and_Other.c: 1111:    TB_5s=51;
+[e = _TB_5s -> -> 51 `i `uc ]
+"1112
+[; ;../Projects/src/key_and_Other.c: 1112:           time_led++;
+[e ++ _time_led -> -> 1 `i `ui ]
+"1113
+[; ;../Projects/src/key_and_Other.c: 1113:           if(time_led>=500){time_led=0;RB5=!RB5;}
+[e $ ! >= _time_led -> -> 500 `i `ui 590  ]
+{
+[e = _time_led -> -> 0 `i `ui ]
+[e = _RB5 ! _RB5 ]
+}
+[e :U 590 ]
+"1114
+[; ;../Projects/src/key_and_Other.c: 1114:  }
+}
+[e $U 591  ]
+"1115
+[; ;../Projects/src/key_and_Other.c: 1115:  else {
+[e :U 589 ]
+{
+"1117
+[; ;../Projects/src/key_and_Other.c: 1117:          _ReqBuzzer(500,250,2);
+[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 250 `i `uc -> -> 2 `i `uc ]
+"1118
+[; ;../Projects/src/key_and_Other.c: 1118:   RB5=0;
+[e = _RB5 -> -> 0 `i `b ]
+"1119
+[; ;../Projects/src/key_and_Other.c: 1119:   m_RegMode = 0 ;
+[e = _m_RegMode -> -> 0 `i `uc ]
+"1120
+[; ;../Projects/src/key_and_Other.c: 1120:  }
+}
+[e :U 591 ]
+"1131
+[; ;../Projects/src/key_and_Other.c: 1131:  switch ( m_KindOfKey )
+[e $U 593  ]
+"1132
+[; ;../Projects/src/key_and_Other.c: 1132:  {
+{
+"1133
+[; ;../Projects/src/key_and_Other.c: 1133:   case 1 :
+[e :U 594 ]
+"1134
+[; ;../Projects/src/key_and_Other.c: 1134:    if ( ++m_RegID[m_RegDigit] > '9' )
+[e $ ! > -> =+ *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 1 `i `uc `ui -> 57 `ui 595  ]
+"1135
+[; ;../Projects/src/key_and_Other.c: 1135:    {
+{
+"1136
+[; ;../Projects/src/key_and_Other.c: 1136:     m_RegID[m_RegDigit] = '0' ;
+[e = *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+"1137
+[; ;../Projects/src/key_and_Other.c: 1137:    }
+}
+[e :U 595 ]
+"1139
+[; ;../Projects/src/key_and_Other.c: 1139:    _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
+"1140
+[; ;../Projects/src/key_and_Other.c: 1140:    m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1141
+[; ;../Projects/src/key_and_Other.c: 1141:    break ;
+[e $U 592  ]
+"1143
+[; ;../Projects/src/key_and_Other.c: 1143:   case 2 :
+[e :U 596 ]
+"1144
+[; ;../Projects/src/key_and_Other.c: 1144:    if ( ++m_RegDigit > 8 )
+[e $ ! > -> =+ _m_RegDigit -> -> 1 `i `uc `i -> 8 `i 597  ]
+"1145
+[; ;../Projects/src/key_and_Other.c: 1145:    {
+{
+"1146
+[; ;../Projects/src/key_and_Other.c: 1146:     m_RegDigit= 8 ;
+[e = _m_RegDigit -> -> 8 `i `uc ]
+"1147
+[; ;../Projects/src/key_and_Other.c: 1147:    }
+}
+[e $U 598  ]
+"1149
+[; ;../Projects/src/key_and_Other.c: 1149:    else
+[e :U 597 ]
+"1150
+[; ;../Projects/src/key_and_Other.c: 1150:    {
+{
+"1152
+[; ;../Projects/src/key_and_Other.c: 1152:      _ReqBuzzer(103,103,1);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
+"1153
+[; ;../Projects/src/key_and_Other.c: 1153:    }
+}
+[e :U 598 ]
+"1158
+[; ;../Projects/src/key_and_Other.c: 1158:    m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1159
+[; ;../Projects/src/key_and_Other.c: 1159:    break ;
+[e $U 592  ]
+"1161
+[; ;../Projects/src/key_and_Other.c: 1161:   case 3 :
+[e :U 599 ]
+"1162
+[; ;../Projects/src/key_and_Other.c: 1162:    _IdClear() ;
+[e ( __IdClear ..  ]
+"1164
+[; ;../Projects/src/key_and_Other.c: 1164:    _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+"1165
+[; ;../Projects/src/key_and_Other.c: 1165:    m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1166
+[; ;../Projects/src/key_and_Other.c: 1166:    break ;
+[e $U 592  ]
+"1168
+[; ;../Projects/src/key_and_Other.c: 1168:   case 5 :
+[e :U 600 ]
+"1170
+[; ;../Projects/src/key_and_Other.c: 1170:    if ( m_RegDigit < 8 )
+[e $ ! < -> _m_RegDigit `i -> 8 `i 601  ]
+"1171
+[; ;../Projects/src/key_and_Other.c: 1171:    {
+{
+"1172
+[; ;../Projects/src/key_and_Other.c: 1172:     return ;
+[e $UE 586  ]
+"1173
+[; ;../Projects/src/key_and_Other.c: 1173:    }
+}
+[e :U 601 ]
+"1178
+[; ;../Projects/src/key_and_Other.c: 1178:    ID_data_add.IDL = (unsigned long)atol_de(m_RegID) ;
+[e = . _ID_data_add 0 ( _atol_de (1 &U _m_RegID ]
+"1181
+[; ;../Projects/src/key_and_Other.c: 1181:    if ( ID_data_add.IDL > 16777214 )
+[e $ ! > . _ID_data_add 0 -> -> 16777214 `l `ul 602  ]
+"1183
+[; ;../Projects/src/key_and_Other.c: 1183:    {
+{
+"1185
+[; ;../Projects/src/key_and_Other.c: 1185:            _ReqBuzzer(100,100,3);
+[e ( __ReqBuzzer (3 , , -> -> 100 `i `ui -> -> 100 `i `uc -> -> 3 `i `uc ]
+"1186
+[; ;../Projects/src/key_and_Other.c: 1186:    }
+}
+[e $U 603  ]
+"1187
+[; ;../Projects/src/key_and_Other.c: 1187:    else
+[e :U 602 ]
+"1188
+[; ;../Projects/src/key_and_Other.c: 1188:    {
+{
+"1189
+[; ;../Projects/src/key_and_Other.c: 1189:     _ReqTxdEdit(20,20) ;
+[e ( __ReqTxdEdit (2 , -> -> 20 `i `uc -> -> 20 `i `uc ]
+"1191
+[; ;../Projects/src/key_and_Other.c: 1191:    }
+}
+[e :U 603 ]
+"1192
+[; ;../Projects/src/key_and_Other.c: 1192:    m_RegMode = 0 ;
+[e = _m_RegMode -> -> 0 `i `uc ]
+"1193
+[; ;../Projects/src/key_and_Other.c: 1193:    break ;
+[e $U 592  ]
+"1194
+[; ;../Projects/src/key_and_Other.c: 1194:  }
+}
+[e $U 592  ]
+[e :U 593 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 594
+ , $ -> 2 `i 596
+ , $ -> 3 `i 599
+ , $ -> 5 `i 600
+ 592 ]
+[e :U 592 ]
+"1195
+[; ;../Projects/src/key_and_Other.c: 1195: }
+[e :UE 586 ]
+}
+"1200
+[; ;../Projects/src/key_and_Other.c: 1200: unsigned long atol_de (unsigned char* m_RegID_x)
+[v _atol_de `(ul ~T0 @X0 1 ef1`*uc ]
+"1201
+[; ;../Projects/src/key_and_Other.c: 1201: {
+{
+[e :U _atol_de ]
+"1200
+[; ;../Projects/src/key_and_Other.c: 1200: unsigned long atol_de (unsigned char* m_RegID_x)
+[v _m_RegID_x `*uc ~T0 @X0 1 r1 ]
+"1201
+[; ;../Projects/src/key_and_Other.c: 1201: {
+[f ]
+"1202
+[; ;../Projects/src/key_and_Other.c: 1202:   unsigned char i,j;
+[v _i `uc ~T0 @X0 1 a ]
+[v _j `uc ~T0 @X0 1 a ]
+"1203
+[; ;../Projects/src/key_and_Other.c: 1203:   unsigned long m_ID=0;
+[v _m_ID `ul ~T0 @X0 1 a ]
+[e = _m_ID -> -> -> 0 `i `l `ul ]
+"1205
+[; ;../Projects/src/key_and_Other.c: 1205:   for(i=0;i<8;i++){
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 605  ]
+[e $U 606  ]
+[e :U 605 ]
+{
+"1206
+[; ;../Projects/src/key_and_Other.c: 1206:     j=m_RegID_x[i]-'0';
+[e = _j -> - -> *U + _m_RegID_x * -> _i `ux -> -> # *U _m_RegID_x `ui `ux `ui -> 48 `ui `uc ]
+"1207
+[; ;../Projects/src/key_and_Other.c: 1207:     m_ID=m_ID*10+j;
+[e = _m_ID + * _m_ID -> -> -> 10 `i `l `ul -> _j `ul ]
+"1208
+[; ;../Projects/src/key_and_Other.c: 1208:   }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 605  ]
+[e :U 606 ]
+}
+"1209
+[; ;../Projects/src/key_and_Other.c: 1209:   return(m_ID);
+[e ) _m_ID ]
+[e $UE 604  ]
+"1210
+[; ;../Projects/src/key_and_Other.c: 1210: }
+[e :UE 604 ]
+}
+"1222
+[; ;../Projects/src/key_and_Other.c: 1222: void _SetRegistrationMode( unsigned char mode )
+[v __SetRegistrationMode `(v ~T0 @X0 1 ef1`uc ]
+"1223
+[; ;../Projects/src/key_and_Other.c: 1223: {
+{
+[e :U __SetRegistrationMode ]
+"1222
+[; ;../Projects/src/key_and_Other.c: 1222: void _SetRegistrationMode( unsigned char mode )
+[v _mode `uc ~T0 @X0 1 r1 ]
+"1223
+[; ;../Projects/src/key_and_Other.c: 1223: {
+[f ]
+"1224
+[; ;../Projects/src/key_and_Other.c: 1224:  if ( _GetRegMode() )
+[e $ ! != -> ( __GetRegMode ..  `i -> 0 `i 609  ]
+"1225
+[; ;../Projects/src/key_and_Other.c: 1225:  {
+{
+"1226
+[; ;../Projects/src/key_and_Other.c: 1226:   return ;
+[e $UE 608  ]
+"1227
+[; ;../Projects/src/key_and_Other.c: 1227:  }
+}
+[e :U 609 ]
+"1229
+[; ;../Projects/src/key_and_Other.c: 1229:  m_RegMode = mode ;
+[e = _m_RegMode _mode ]
+"1236
+[; ;../Projects/src/key_and_Other.c: 1236:  _IdClear() ;
+[e ( __IdClear ..  ]
+"1243
+[; ;../Projects/src/key_and_Other.c: 1243:  _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+"1244
+[; ;../Projects/src/key_and_Other.c: 1244:  m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1245
+[; ;../Projects/src/key_and_Other.c: 1245: }
+[e :UE 608 ]
+}
+"1246
+[; ;../Projects/src/key_and_Other.c: 1246: unsigned char _GetRegMode( void )
+[v __GetRegMode `(uc ~T0 @X0 1 ef ]
+"1247
+[; ;../Projects/src/key_and_Other.c: 1247: {
+{
+[e :U __GetRegMode ]
+[f ]
+"1248
+[; ;../Projects/src/key_and_Other.c: 1248:  return( m_RegMode ) ;
+[e ) _m_RegMode ]
+[e $UE 610  ]
+"1249
+[; ;../Projects/src/key_and_Other.c: 1249: }
+[e :UE 610 ]
+}
+"1256
+[; ;../Projects/src/key_and_Other.c: 1256: void _IdClear( void )
+[v __IdClear `(v ~T0 @X0 1 ef ]
+"1257
+[; ;../Projects/src/key_and_Other.c: 1257: {
+{
+[e :U __IdClear ]
+[f ]
+"1258
+[; ;../Projects/src/key_and_Other.c: 1258:  register unsigned char i ;
+[v _i `uc ~T0 @X0 1 A ]
+"1260
+[; ;../Projects/src/key_and_Other.c: 1260:  m_RegDigit = 0 ;
+[e = _m_RegDigit -> -> 0 `i `uc ]
+"1262
+[; ;../Projects/src/key_and_Other.c: 1262:  for ( i=0; i<8; i++ )
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 612  ]
+[e $U 613  ]
+[e :U 612 ]
+"1263
+[; ;../Projects/src/key_and_Other.c: 1263:  {
+{
+"1264
+[; ;../Projects/src/key_and_Other.c: 1264:   m_RegID[i] = '0' ;
+[e = *U + &U _m_RegID * -> _i `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+"1265
+[; ;../Projects/src/key_and_Other.c: 1265:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 612  ]
+[e :U 613 ]
+}
+"1266
+[; ;../Projects/src/key_and_Other.c: 1266:  m_RegID[8] = 0 ;
+[e = *U + &U _m_RegID * -> -> -> 8 `i `ui `ux -> -> # *U &U _m_RegID `ui `ux -> -> 0 `i `uc ]
+"1268
+[; ;../Projects/src/key_and_Other.c: 1268: }
+[e :UE 611 ]
+}
+"1280
+[; ;../Projects/src/key_and_Other.c: 1280: void _SwIn( unsigned char sw )
+[v __SwIn `(v ~T0 @X0 1 ef1`uc ]
+"1281
+[; ;../Projects/src/key_and_Other.c: 1281: {
+{
+[e :U __SwIn ]
+"1280
+[; ;../Projects/src/key_and_Other.c: 1280: void _SwIn( unsigned char sw )
+[v _sw `uc ~T0 @X0 1 r1 ]
+"1281
+[; ;../Projects/src/key_and_Other.c: 1281: {
+[f ]
+"1282
+[; ;../Projects/src/key_and_Other.c: 1282:  m_KeyNew<<= 1 ;
+[e =<< _m_KeyNew -> -> 1 `i `uc ]
+"1283
+[; ;../Projects/src/key_and_Other.c: 1283:  if ( sw )
+[e $ ! != -> _sw `i -> 0 `i 616  ]
+"1284
+[; ;../Projects/src/key_and_Other.c: 1284:  {
+{
+"1285
+[; ;../Projects/src/key_and_Other.c: 1285:   m_KeyNew |= 1 ;
+[e =| _m_KeyNew -> -> 1 `i `uc ]
+"1286
+[; ;../Projects/src/key_and_Other.c: 1286:  }
+}
+[e :U 616 ]
+"1287
+[; ;../Projects/src/key_and_Other.c: 1287: }
+[e :UE 615 ]
+}
+"1289
+[; ;../Projects/src/key_and_Other.c: 1289: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
+[v __ReqBuzzer `(v ~T0 @X0 1 ef3`ui`uc`uc ]
+"1290
+[; ;../Projects/src/key_and_Other.c: 1290: {
+{
+[e :U __ReqBuzzer ]
+"1289
+[; ;../Projects/src/key_and_Other.c: 1289: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
+[v _BEEP_on_SET `ui ~T0 @X0 1 r1 ]
+[v _BEEP_off_SET `uc ~T0 @X0 1 r2 ]
+[v _BEEP_freq_SET `uc ~T0 @X0 1 r3 ]
+"1290
+[; ;../Projects/src/key_and_Other.c: 1290: {
+[f ]
+"1291
+[; ;../Projects/src/key_and_Other.c: 1291:   if(RAM_SW.BIT.Bit6==0){
+[e $ ! == -> . . _RAM_SW 1 6 `i -> 0 `i 618  ]
+{
+"1292
+[; ;../Projects/src/key_and_Other.c: 1292:      BASE_TIME_BEEP_on=BEEP_on_SET;
+[e = _BASE_TIME_BEEP_on _BEEP_on_SET ]
+"1293
+[; ;../Projects/src/key_and_Other.c: 1293:      BASE_TIME_BEEP_off=BEEP_off_SET;
+[e = _BASE_TIME_BEEP_off _BEEP_off_SET ]
+"1294
+[; ;../Projects/src/key_and_Other.c: 1294:      TIME_BEEP_on=BASE_TIME_BEEP_on;
+[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
+"1295
+[; ;../Projects/src/key_and_Other.c: 1295:      TIME_BEEP_off=BASE_TIME_BEEP_off;
+[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
+"1296
+[; ;../Projects/src/key_and_Other.c: 1296:      TIME_BEEP_freq=BEEP_freq_SET;
+[e = _TIME_BEEP_freq _BEEP_freq_SET ]
+"1297
+[; ;../Projects/src/key_and_Other.c: 1297:   }
+}
+[e :U 618 ]
+"1298
+[; ;../Projects/src/key_and_Other.c: 1298: }
+[e :UE 617 ]
+}
+"1328
+[; ;../Projects/src/key_and_Other.c: 1328: void test_mode_control(void)
+[v _test_mode_control `(v ~T0 @X0 1 ef ]
+"1329
+[; ;../Projects/src/key_and_Other.c: 1329: {
+{
+[e :U _test_mode_control ]
+[f ]
+"1331
+[; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
+[e $U 620  ]
+[e :U 621 ]
+{
+"1332
+[; ;../Projects/src/key_and_Other.c: 1332:   ClearWDT();
+[e ( _ClearWDT ..  ]
+"1334
+[; ;../Projects/src/key_and_Other.c: 1334:   if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
+[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 623  ]
+"1335
+[; ;../Projects/src/key_and_Other.c: 1335:   {
+{
+"1336
+[; ;../Projects/src/key_and_Other.c: 1336:    Delayus(100);
+[e ( _Delayus (1 -> -> 100 `i `uc ]
+"1337
+[; ;../Projects/src/key_and_Other.c: 1337:    if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
+[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 624  ]
+"1338
+[; ;../Projects/src/key_and_Other.c: 1338:       {
+{
+"1339
+[; ;../Projects/src/key_and_Other.c: 1339:     RAM_OP2.BIT.Bit1=1;
+[e = . . _RAM_OP2 1 1 -> -> 1 `i `uc ]
+"1340
+[; ;../Projects/src/key_and_Other.c: 1340:     RAM_OP1.BIT.Bit1=0;
+[e = . . _RAM_OP1 1 1 -> -> 0 `i `uc ]
+"1341
+[; ;../Projects/src/key_and_Other.c: 1341:     RAM_OP1.BIT.Bit2=0;
+[e = . . _RAM_OP1 1 2 -> -> 0 `i `uc ]
+"1342
+[; ;../Projects/src/key_and_Other.c: 1342:     RAM_OP1.BIT.Bit3=0;
+[e = . . _RAM_OP1 1 3 -> -> 0 `i `uc ]
+"1343
+[; ;../Projects/src/key_and_Other.c: 1343:     TEST_No++;
+[e ++ _TEST_No -> -> 1 `i `uc ]
+"1344
+[; ;../Projects/src/key_and_Other.c: 1344:     if(TEST_No>3)TEST_No=1;
+[e $ ! > -> _TEST_No `i -> 3 `i 625  ]
+[e = _TEST_No -> -> 1 `i `uc ]
+[e :U 625 ]
+"1345
+[; ;../Projects/src/key_and_Other.c: 1345:    }
+}
+[e :U 624 ]
+"1346
+[; ;../Projects/src/key_and_Other.c: 1346:   }
+}
+[e $U 626  ]
+"1347
+[; ;../Projects/src/key_and_Other.c: 1347:   else RAM_OP2.BIT.Bit1=0;
+[e :U 623 ]
+[e = . . _RAM_OP2 1 1 -> -> 0 `i `uc ]
+[e :U 626 ]
+"1349
+[; ;../Projects/src/key_and_Other.c: 1349:   if((TEST_No==1)&&(RAM_OP1.BIT.Bit1==0)){
+[e $ ! && == -> _TEST_No `i -> 1 `i == -> . . _RAM_OP1 1 1 `i -> 0 `i 627  ]
+{
+"1350
+[; ;../Projects/src/key_and_Other.c: 1350:     RAM_OP1.BIT.Bit1=1;
+[e = . . _RAM_OP1 1 1 -> -> 1 `i `uc ]
+"1351
+[; ;../Projects/src/key_and_Other.c: 1351:     dd_set_ADF7021_Power_on();
+[e ( _dd_set_ADF7021_Power_on ..  ]
+"1352
+[; ;../Projects/src/key_and_Other.c: 1352:     dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
+"1353
+[; ;../Projects/src/key_and_Other.c: 1353:     RAM_OP2.BIT.Bit7=0;
+[e = . . _RAM_OP2 1 7 -> -> 0 `i `uc ]
+"1354
+[; ;../Projects/src/key_and_Other.c: 1354:     RC0=0;
+[e = _RC0 -> -> 0 `i `b ]
+"1355
+[; ;../Projects/src/key_and_Other.c: 1355:   }
+}
+[e :U 627 ]
+"1358
+[; ;../Projects/src/key_and_Other.c: 1358:    if((TEST_No==2)&&(RAM_OP1.BIT.Bit2==0)){
+[e $ ! && == -> _TEST_No `i -> 2 `i == -> . . _RAM_OP1 1 2 `i -> 0 `i 628  ]
+{
+"1359
+[; ;../Projects/src/key_and_Other.c: 1359:     RAM_OP1.BIT.Bit2=1;
+[e = . . _RAM_OP1 1 2 -> -> 1 `i `uc ]
+"1361
+[; ;../Projects/src/key_and_Other.c: 1361:     RC2=0;
+[e = _RC2 -> -> 0 `i `b ]
+"1362
+[; ;../Projects/src/key_and_Other.c: 1362:     RAM_OP2.BIT.Bit7=0;
+[e = . . _RAM_OP2 1 7 -> -> 0 `i `uc ]
+"1363
+[; ;../Projects/src/key_and_Other.c: 1363:     RC0=0;
+[e = _RC0 -> -> 0 `i `b ]
+"1364
+[; ;../Projects/src/key_and_Other.c: 1364:   }
+}
+[e :U 628 ]
+"1367
+[; ;../Projects/src/key_and_Other.c: 1367:   if((TEST_No==3)&&(RAM_OP1.BIT.Bit3==0)){
+[e $ ! && == -> _TEST_No `i -> 3 `i == -> . . _RAM_OP1 1 3 `i -> 0 `i 629  ]
+{
+"1368
+[; ;../Projects/src/key_and_Other.c: 1368:     RAM_OP1.BIT.Bit3=1;
+[e = . . _RAM_OP1 1 3 -> -> 1 `i `uc ]
+"1369
+[; ;../Projects/src/key_and_Other.c: 1369:     dd_set_ADF7021_Power_on();
+[e ( _dd_set_ADF7021_Power_on ..  ]
+"1370
+[; ;../Projects/src/key_and_Other.c: 1370:     dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
+"1371
+[; ;../Projects/src/key_and_Other.c: 1371:     RAM_OP2.BIT.Bit7=1;
+[e = . . _RAM_OP2 1 7 -> -> 1 `i `uc ]
+"1372
+[; ;../Projects/src/key_and_Other.c: 1372:   }
+}
+[e :U 629 ]
+"1376
+[; ;../Projects/src/key_and_Other.c: 1376:   if((RA2==1)&&(RAM_OP2.BIT.Bit7==1)&&(RAM_OP2.BIT.Bit6==0)){
+[e $ ! && && == -> _RA2 `i -> 1 `i == -> . . _RAM_OP2 1 7 `i -> 1 `i == -> . . _RAM_OP2 1 6 `i -> 0 `i 630  ]
+{
+"1377
+[; ;../Projects/src/key_and_Other.c: 1377:      RC0=!RC0;
+[e = _RC0 ! _RC0 ]
+"1378
+[; ;../Projects/src/key_and_Other.c: 1378:      RAM_OP2.BIT.Bit6=1;
+[e = . . _RAM_OP2 1 6 -> -> 1 `i `uc ]
+"1379
+[; ;../Projects/src/key_and_Other.c: 1379:   }
+}
+[e :U 630 ]
+"1380
+[; ;../Projects/src/key_and_Other.c: 1380:   if(RA2==0)RAM_OP2.BIT.Bit6=0;
+[e $ ! == -> _RA2 `i -> 0 `i 631  ]
+[e = . . _RAM_OP2 1 6 -> -> 0 `i `uc ]
+[e :U 631 ]
+"1384
+[; ;../Projects/src/key_and_Other.c: 1384:  }
+}
+[e :U 620 ]
+"1331
+[; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
+[e $ == -> _RC3 `i -> 0 `i 621  ]
+[e :U 622 ]
+"1385
+[; ;../Projects/src/key_and_Other.c: 1385:   UART1_end();
+[e ( _UART1_end ..  ]
+"1386
+[; ;../Projects/src/key_and_Other.c: 1386:   RB7=0;
+[e = _RB7 -> -> 0 `i `b ]
+"1387
+[; ;../Projects/src/key_and_Other.c: 1387:   RB5=0;
+[e = _RB5 -> -> 0 `i `b ]
+"1388
+[; ;../Projects/src/key_and_Other.c: 1388:   RAM_OP1.BIT.Bit1=0;
+[e = . . _RAM_OP1 1 1 -> -> 0 `i `uc ]
+"1389
+[; ;../Projects/src/key_and_Other.c: 1389:   RAM_OP1.BIT.Bit2=0;
+[e = . . _RAM_OP1 1 2 -> -> 0 `i `uc ]
+"1390
+[; ;../Projects/src/key_and_Other.c: 1390:   RAM_OP1.BIT.Bit3=0;
+[e = . . _RAM_OP1 1 3 -> -> 0 `i `uc ]
+"1391
+[; ;../Projects/src/key_and_Other.c: 1391: }
+[e :UE 619 ]
+}
