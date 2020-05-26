@@ -96,7 +96,23 @@ void dd_set_ADF7021_Power_on(void)
 	}
 }
 
-
+void dd_set_ADF7021_Power_on_test(void)
+{
+//	if (ADF7021_CE == 0)
+//	{
+//		ADF7021_CE = 1;
+	if (ADF7021_POWER == FG_NOT_allow_out)
+	{
+		ADF7021_POWER = FG_allow_out;  
+		//ADF7021_CE=1;
+		//Delayus(65);             //delay 100us
+                 Delayus(130);             //delay 200us
+		 Delayus(130);             //delay 200us
+		 Delayus(130);             //delay 200us
+		 Delayus(130);             //delay 200us
+		 Delayus(130);             //delay 200us  
+	}
+}
 void dd_set_TX_mode(void)
 {
 //	ADF70XX_REG_T register_value;       FSK mode

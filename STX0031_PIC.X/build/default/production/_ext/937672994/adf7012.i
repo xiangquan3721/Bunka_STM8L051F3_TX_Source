@@ -4847,10 +4847,26 @@ void dd_set_ADF7021_Power_on(void)
  }
 }
 
+void dd_set_ADF7021_Power_on_test(void)
+{
 
+
+
+ if (RC2 == 0)
+ {
+  RC2 = 1;
+
+
+                 Delayus(130);
+   Delayus(130);
+   Delayus(130);
+   Delayus(130);
+   Delayus(130);
+ }
+}
 void dd_set_TX_mode(void)
 {
-# 175 "../Projects/src/adf7012.c"
+# 191 "../Projects/src/adf7012.c"
       ADF70XX_REG_T register_value;
 
 

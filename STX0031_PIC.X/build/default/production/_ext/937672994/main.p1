@@ -618,208 +618,197 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7005
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7005: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"39 ../Projects/src/main.c
-[; ;../Projects/src/main.c: 39: __asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
-[; <" GLOBAL nosup@@$_$_CONFIG ;# ">
-[; <" nosup@@$_$_CONFIG SET 0 ;# ">
-"40
-[; ;../Projects/src/main.c: 40: __asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
-[; <" GLOBAL nosup@@$_$_CONFIG ;# ">
-[; <" nosup@@$_$_CONFIG SET 0 ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"43
-[; ;../Projects/src/main.c: 43: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
+"43 ../Projects/src/main.c
+[; ;../Projects/src/main.c: 43:               ClearWDT();
+[p x FOSC = INTOSC ]
 "44
-[; ;../Projects/src/main.c: 44: {
+[; ;../Projects/src/main.c: 44:             }
+[p x WDTE = OFF ]
+"45
+[; ;../Projects/src/main.c: 45:           }
+[p x PWRTE = ON ]
+"46
+[; ;../Projects/src/main.c: 46: 
+[p x MCLRE = OFF ]
+"47
+[; ;../Projects/src/main.c: 47:  }
+[p x CP = OFF ]
+"48
+[; ;../Projects/src/main.c: 48: 
+[p x CPD = OFF ]
+"49
+[; ;../Projects/src/main.c: 49:  }
+[p x BOREN = OFF ]
+"50
+[; ;../Projects/src/main.c: 50: 
+[p x CLKOUTEN = OFF ]
+"51
+[; ;../Projects/src/main.c: 51: }
+[p x IESO = OFF ]
+"52
+[; ;../Projects/src/main.c: 52: 
+[p x FCMEN = OFF ]
+"55
+[; ;../Projects/src/main.c: 55: {
+[p x WRT = OFF ]
+"56
+[; ;../Projects/src/main.c: 56:  (INTCONbits.GIE = 0);
+[p x PLLEN = OFF ]
+"57
+[; ;../Projects/src/main.c: 57:  if(IOCIF==1)
+[p x STVREN = OFF ]
+"58
+[; ;../Projects/src/main.c: 58:  {
+[p x BORV = LO ]
+"59
+[; ;../Projects/src/main.c: 59:    EXTI_PORTA1();
+[p x LVP = OFF ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"62
+[; ;../Projects/src/main.c: 62:  }
+[v _main `(v ~T0 @X0 1 ef ]
+"63
+[; ;../Projects/src/main.c: 63: 
 {
 [e :U _main ]
 [f ]
-"46
-[; ;../Projects/src/main.c: 46:   VHF_GPIO_INIT();
+"65
+[; ;../Projects/src/main.c: 65:  {
 [e ( _VHF_GPIO_INIT ..  ]
-"47
-[; ;../Projects/src/main.c: 47:   WDT_init();
+"66
+[; ;../Projects/src/main.c: 66:      RAM_OP1.BIT.Bit6 = 1;
 [e ( _WDT_init ..  ]
-"48
-[; ;../Projects/src/main.c: 48:   SysClock_Init();
+"67
+[; ;../Projects/src/main.c: 67:      TMR2IF=0;
 [e ( _SysClock_Init ..  ]
-"49
-[; ;../Projects/src/main.c: 49:   EXIT_init();
+"68
+[; ;../Projects/src/main.c: 68:  }
 [e ( _EXIT_init ..  ]
-"50
-[; ;../Projects/src/main.c: 50:   InitialFlashReg();
+"69
+[; ;../Projects/src/main.c: 69:  (INTCONbits.GIE = 1);
 [e ( _InitialFlashReg ..  ]
-"51
-[; ;../Projects/src/main.c: 51:   eeprom_sys_load();
+"70
+[; ;../Projects/src/main.c: 70: }
 [e ( _eeprom_sys_load ..  ]
-"52
-[; ;../Projects/src/main.c: 52:   _Init_RAM();
+"71
 [e ( __Init_RAM ..  ]
-"53
-[; ;../Projects/src/main.c: 53:   TIM4_Init();
+"72
 [e ( _TIM4_Init ..  ]
-"54
-[; ;../Projects/src/main.c: 54:   START_AD_SAMPLER();
+"73
 [e ( _START_AD_SAMPLER ..  ]
-"56
-[; ;../Projects/src/main.c: 56:   PEIE=1;
+"75
 [e = _PEIE -> -> 1 `i `b ]
-"57
-[; ;../Projects/src/main.c: 57:   GIE = 1;
+"76
 [e = _GIE -> -> 1 `i `b ]
-"58
-[; ;../Projects/src/main.c: 58:     while(RC3==0){
+"77
 [e $U 388  ]
 [e :U 389 ]
 {
-"59
-[; ;../Projects/src/main.c: 59:     RB7=1;
+"78
 [e = _RB7 -> -> 1 `i `b ]
-"60
-[; ;../Projects/src/main.c: 60:     RB5=1;
+"79
 [e = _RB5 -> -> 1 `i `b ]
-"61
-[; ;../Projects/src/main.c: 61:     UART1_INIT();
+"80
 [e ( _UART1_INIT ..  ]
-"62
-[; ;../Projects/src/main.c: 62:     test_mode_control();
+"81
 [e ( _test_mode_control ..  ]
-"63
-[; ;../Projects/src/main.c: 63:     }
+"82
 }
 [e :U 388 ]
-"58
-[; ;../Projects/src/main.c: 58:     while(RC3==0){
+"77
 [e $ == -> _RC3 `i -> 0 `i 389  ]
 [e :U 390 ]
-"66
-[; ;../Projects/src/main.c: 66:    TIME_power_on_AD=0;
+"85
 [e = _TIME_power_on_AD -> -> 0 `i `ui ]
-"68
-[; ;../Projects/src/main.c: 68:   while (1)
+"87
 [e :U 392 ]
-"69
-[; ;../Projects/src/main.c: 69:   {
+"88
 {
-"71
-[; ;../Projects/src/main.c: 71:  key_check();
+"90
 [e ( _key_check ..  ]
-"72
-[; ;../Projects/src/main.c: 72:  time_control();
+"91
 [e ( _time_control ..  ]
-"73
-[; ;../Projects/src/main.c: 73:  AD_control();
+"92
 [e ( _AD_control ..  ]
-"76
-[; ;../Projects/src/main.c: 76:         if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(RAM_OP1.BIT.Bit5==1)&&(key_Value!=2)&&(RAM_OP1.BIT.Bit0==0)){
+"95
 [e $ ! && && && && == -> _TB_5s `i -> 0 `i == -> _m_KeyOptSetMode `i -> 0 `i == -> . . _RAM_OP1 1 5 `i -> 1 `i != _key_Value -> -> 2 `i `ui == -> . . _RAM_OP1 1 0 `i -> 0 `i 394  ]
 {
-"77
-[; ;../Projects/src/main.c: 77:    RAM_OP1.BIT.Bit5=0;
+"96
 [e = . . _RAM_OP1 1 5 -> -> 0 `i `uc ]
-"78
-[; ;../Projects/src/main.c: 78:    RB7=0;
+"97
 [e = _RB7 -> -> 0 `i `b ]
-"79
-[; ;../Projects/src/main.c: 79:           RAM_SW.BIT.Bit5=1;
+"98
 [e = . . _RAM_SW 1 5 -> -> 1 `i `uc ]
-"81
-[; ;../Projects/src/main.c: 81:    while(1){
+"100
 [e :U 396 ]
 {
-"82
-[; ;../Projects/src/main.c: 82:             if(RAM_SW.BIT.Bit7==1)ClearWDT();
+"101
 [e $ ! == -> . . _RAM_SW 1 7 `i -> 1 `i 398  ]
 [e ( _ClearWDT ..  ]
 [e $U 399  ]
-"83
-[; ;../Projects/src/main.c: 83:             else if((RAM_SW.BIT.Bit7==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
+"102
 [e :U 398 ]
 [e $ ! && && == -> . . _RAM_SW 1 7 `i -> 0 `i >= -> _m_KeyNo `i -> 1 `i <= -> _m_KeyNo `i -> 4 `i 400  ]
 {
-"84
-[; ;../Projects/src/main.c: 84:               key_check();
+"103
 [e ( _key_check ..  ]
-"85
-[; ;../Projects/src/main.c: 85:               ClearWDT();
+"104
 [e ( _ClearWDT ..  ]
-"86
-[; ;../Projects/src/main.c: 86:             }
+"105
 }
 [e :U 400 ]
 [e :U 399 ]
-"87
-[; ;../Projects/src/main.c: 87:           }
+"106
 }
 [e :U 395 ]
 [e $U 396  ]
 [e :U 397 ]
-"89
-[; ;../Projects/src/main.c: 89:  }
+"108
 }
 [e :U 394 ]
-"91
-[; ;../Projects/src/main.c: 91:  }
+"110
 }
 [e :U 391 ]
 [e $U 392  ]
 [e :U 393 ]
-"93
-[; ;../Projects/src/main.c: 93: }
+"112
 [e :UE 387 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"96
-[; ;../Projects/src/main.c: 96: void __attribute__((picinterrupt(("")))) ISR(void)
+"115
 [v _ISR `(v ~T1 @X0 1 ef ]
-"97
-[; ;../Projects/src/main.c: 97: {
+"116
 {
 [e :U _ISR ]
 [f ]
-"98
-[; ;../Projects/src/main.c: 98:  (INTCONbits.GIE = 0);
+"117
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-"99
-[; ;../Projects/src/main.c: 99:  if(IOCIF==1)
+"118
 [e $ ! == -> _IOCIF `i -> 1 `i 402  ]
-"100
-[; ;../Projects/src/main.c: 100:  {
+"119
 {
-"101
-[; ;../Projects/src/main.c: 101:    EXTI_PORTA1();
+"120
 [e ( _EXTI_PORTA1 ..  ]
-"102
-[; ;../Projects/src/main.c: 102:    IOCAF=0;
+"121
 [e = _IOCAF -> -> 0 `i `uc ]
-"103
-[; ;../Projects/src/main.c: 103:    IOCIF=0;
+"122
 [e = _IOCIF -> -> 0 `i `b ]
-"104
-[; ;../Projects/src/main.c: 104:  }
+"123
 }
 [e :U 402 ]
-"106
-[; ;../Projects/src/main.c: 106:   if(TMR2IF==1)
+"125
 [e $ ! == -> _TMR2IF `i -> 1 `i 403  ]
-"107
-[; ;../Projects/src/main.c: 107:  {
+"126
 {
-"108
-[; ;../Projects/src/main.c: 108:      RAM_OP1.BIT.Bit6 = 1;
+"127
 [e = . . _RAM_OP1 1 6 -> -> 1 `i `uc ]
-"109
-[; ;../Projects/src/main.c: 109:      TMR2IF=0;
+"128
 [e = _TMR2IF -> -> 0 `i `b ]
-"110
-[; ;../Projects/src/main.c: 110:  }
+"129
 }
 [e :U 403 ]
-"111
-[; ;../Projects/src/main.c: 111:  (INTCONbits.GIE = 1);
+"130
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"112
-[; ;../Projects/src/main.c: 112: }
+"131
 [e :UE 401 ]
 }

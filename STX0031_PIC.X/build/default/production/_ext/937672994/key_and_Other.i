@@ -4790,6 +4790,7 @@ extern unsigned char TEST_No;
 # 11 "../Projects/inc\\adf7012.h"
 void dd_write_7021_reg(unsigned char* reg_bytes);
 void dd_set_ADF7021_Power_on(void);
+void dd_set_ADF7021_Power_on_test(void);
 void dd_set_TX_mode(void);
 void dd_set_ADF7021_Power_on_Init(void);
 # 14 "../Projects/src/key_and_Other.c" 2
@@ -6027,12 +6028,12 @@ void test_mode_control(void)
  while(RC3==0){
   ClearWDT();
 
-  if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
+  if(RB4==0)
   {
    Delayus(100);
-   if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
+   if((RB4==0)&&(RAM_OP3.BIT.Bit1==0))
       {
-    RAM_OP2.BIT.Bit1=1;
+    RAM_OP3.BIT.Bit1=1;
     RAM_OP1.BIT.Bit1=0;
     RAM_OP1.BIT.Bit2=0;
     RAM_OP1.BIT.Bit3=0;
@@ -6040,11 +6041,11 @@ void test_mode_control(void)
     if(TEST_No>3)TEST_No=1;
    }
   }
-  else RAM_OP2.BIT.Bit1=0;
+  else RAM_OP3.BIT.Bit1=0;
 
   if((TEST_No==1)&&(RAM_OP1.BIT.Bit1==0)){
     RAM_OP1.BIT.Bit1=1;
-    dd_set_ADF7021_Power_on();
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     RAM_OP2.BIT.Bit7=0;
     RC0=0;
@@ -6062,7 +6063,7 @@ void test_mode_control(void)
 
   if((TEST_No==3)&&(RAM_OP1.BIT.Bit3==0)){
     RAM_OP1.BIT.Bit3=1;
-    dd_set_ADF7021_Power_on();
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     RAM_OP2.BIT.Bit7=1;
   }

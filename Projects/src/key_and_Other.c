@@ -1331,7 +1331,7 @@ void test_mode_control(void)
  while(PIN_test_mode==0){  
   ClearWDT(); // Service the WDT 
 
-  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
+  if(PIN_KEY_OPEN==0)
   {
 	  Delayus(100);
 	  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
@@ -1348,7 +1348,7 @@ void test_mode_control(void)
 
   if((TEST_No==1)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
-    dd_set_ADF7021_Power_on();
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
@@ -1366,7 +1366,7 @@ void test_mode_control(void)
   
   if((TEST_No==3)&&(FG_KEY_CLOSE==0)){
     FG_KEY_CLOSE=1;
-    dd_set_ADF7021_Power_on();
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     FG_test_mode=1;
   }

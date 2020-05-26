@@ -114,8 +114,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "237
 [; ;../Projects/inc\ram.h: 237: extern unsigned int m_ChatterCount;
 [v _m_ChatterCount `ui ~T0 @X0 0 e ]
-"14 ../Projects/inc\adf7012.h
-[; ;../Projects/inc\adf7012.h: 14: void dd_set_ADF7021_Power_on_Init(void);
+"15 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 15: void dd_set_ADF7021_Power_on_Init(void);
 [v _dd_set_ADF7021_Power_on_Init `(v ~T0 @X0 0 ef ]
 "166 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 166: extern unsigned int BASE_TIME_BEEP_on;
@@ -238,8 +238,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ../Projects/inc\adf7012.h
 [; ;../Projects/inc\adf7012.h: 12: void dd_set_ADF7021_Power_on(void);
 [v _dd_set_ADF7021_Power_on `(v ~T0 @X0 0 ef ]
-"13
-[; ;../Projects/inc\adf7012.h: 13: void dd_set_TX_mode(void);
+"14
+[; ;../Projects/inc\adf7012.h: 14: void dd_set_TX_mode(void);
 [v _dd_set_TX_mode `(v ~T0 @X0 0 ef ]
 "13 ../Projects/inc\EXIT_FUN.h
 [; ;../Projects/inc\EXIT_FUN.h: 13: void SendTxData(void);
@@ -272,9 +272,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56 ../Projects/inc\initial.h
 [; ;../Projects/inc\initial.h: 56: void Delayus(unsigned char timer);
 [v _Delayus `(v ~T0 @X0 0 ef1`uc ]
-"269 ../Projects/inc\ram.h
+"66 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 66:  struct {
+[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S382 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
+"64
+[; ;../Projects/inc\ram.h: 64: extern volatile union{
+[u S381 `uc 1 `S382 1 ]
+[n S381 . BYTE BIT ]
+"76
+[; ;../Projects/inc\ram.h: 76: }RAM_OP3;
+[v _RAM_OP3 `VS381 ~T0 @X0 0 e ]
+"269
 [; ;../Projects/inc\ram.h: 269: extern unsigned char TEST_No;
 [v _TEST_No `uc ~T0 @X0 0 e ]
+"13 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 13: void dd_set_ADF7021_Power_on_test(void);
+[v _dd_set_ADF7021_Power_on_test `(v ~T0 @X0 0 ef ]
 "8016 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8016: extern volatile __bit RC0 __attribute__((address(0x70)));
 [v _RC0 `Vb ~T0 @X0 0 e@112 ]
@@ -3815,8 +3829,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1332:   ClearWDT();
 [e ( _ClearWDT ..  ]
 "1334
-[; ;../Projects/src/key_and_Other.c: 1334:   if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 623  ]
+[; ;../Projects/src/key_and_Other.c: 1334:   if(RB4==0)
+[e $ ! == -> _RB4 `i -> 0 `i 623  ]
 "1335
 [; ;../Projects/src/key_and_Other.c: 1335:   {
 {
@@ -3824,14 +3838,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1336:    Delayus(100);
 [e ( _Delayus (1 -> -> 100 `i `uc ]
 "1337
-[; ;../Projects/src/key_and_Other.c: 1337:    if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 624  ]
+[; ;../Projects/src/key_and_Other.c: 1337:    if((RB4==0)&&(RAM_OP3.BIT.Bit1==0))
+[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP3 1 1 `i -> 0 `i 624  ]
 "1338
 [; ;../Projects/src/key_and_Other.c: 1338:       {
 {
 "1339
-[; ;../Projects/src/key_and_Other.c: 1339:     RAM_OP2.BIT.Bit1=1;
-[e = . . _RAM_OP2 1 1 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1339:     RAM_OP3.BIT.Bit1=1;
+[e = . . _RAM_OP3 1 1 -> -> 1 `i `uc ]
 "1340
 [; ;../Projects/src/key_and_Other.c: 1340:     RAM_OP1.BIT.Bit1=0;
 [e = . . _RAM_OP1 1 1 -> -> 0 `i `uc ]
@@ -3858,9 +3872,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 626  ]
 "1347
-[; ;../Projects/src/key_and_Other.c: 1347:   else RAM_OP2.BIT.Bit1=0;
+[; ;../Projects/src/key_and_Other.c: 1347:   else RAM_OP3.BIT.Bit1=0;
 [e :U 623 ]
-[e = . . _RAM_OP2 1 1 -> -> 0 `i `uc ]
+[e = . . _RAM_OP3 1 1 -> -> 0 `i `uc ]
 [e :U 626 ]
 "1349
 [; ;../Projects/src/key_and_Other.c: 1349:   if((TEST_No==1)&&(RAM_OP1.BIT.Bit1==0)){
@@ -3870,8 +3884,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1350:     RAM_OP1.BIT.Bit1=1;
 [e = . . _RAM_OP1 1 1 -> -> 1 `i `uc ]
 "1351
-[; ;../Projects/src/key_and_Other.c: 1351:     dd_set_ADF7021_Power_on();
-[e ( _dd_set_ADF7021_Power_on ..  ]
+[; ;../Projects/src/key_and_Other.c: 1351:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
 "1352
 [; ;../Projects/src/key_and_Other.c: 1352:     dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]
@@ -3913,8 +3927,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1368:     RAM_OP1.BIT.Bit3=1;
 [e = . . _RAM_OP1 1 3 -> -> 1 `i `uc ]
 "1369
-[; ;../Projects/src/key_and_Other.c: 1369:     dd_set_ADF7021_Power_on();
-[e ( _dd_set_ADF7021_Power_on ..  ]
+[; ;../Projects/src/key_and_Other.c: 1369:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
 "1370
 [; ;../Projects/src/key_and_Other.c: 1370:     dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]

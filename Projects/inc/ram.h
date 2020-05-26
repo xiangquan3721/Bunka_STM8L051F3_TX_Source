@@ -78,7 +78,7 @@ extern volatile union{
 	#define 	FLAG_BYTE3		RAM_OP3.BYTE	 
 	//------------------------------------------------
 	#define		FLAG_ADF7021_DATA_tx		RAM_OP3.BIT.Bit0	// 
-	 #define 	FLAG_KEY_COUNT		        RAM_OP2.BIT.Bit1	//
+	 #define 	FLAG_KEY_COUNT		        RAM_OP3.BIT.Bit1	//
 	// #define 			RAM_OP2.BIT.Bit2	//
 	// #define 			RAM_OP2.BIT.Bit3	//
 	// #define 			RAM_OP2.BIT.Bit4	//
