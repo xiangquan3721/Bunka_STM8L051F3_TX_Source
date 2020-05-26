@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8022 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
 [v _RC2 `Vb ~T0 @X0 0 e@114 ]
-"178 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 178: extern ADF70XX_REG_T ROM_adf7012_value[4];
+"214 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 214: extern ADF70XX_REG_T ROM_adf7012_value[4];
 [v _ROM_adf7012_value `S374 ~T0 @X0 -> 0 `x e ]
 "56 ../Projects/inc\initial.h
 [; ;../Projects/inc\initial.h: 56: void Delayus(unsigned char timer);
@@ -543,9 +543,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/adf7012.c: 32:     for (i=0; i<=3; i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ <= -> _i `i -> 3 `i 388  ]
-[e $U 389  ]
-[e :U 388 ]
+[e $ <= -> _i `i -> 3 `i 378  ]
+[e $U 379  ]
+[e :U 378 ]
 "33
 [; ;../Projects/src/adf7012.c: 33:     {
 {
@@ -556,9 +556,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/adf7012.c: 36:         for (j=8; j>0; j--)
 {
 [e = _j -> -> 8 `i `uc ]
-[e $ > -> _j `i -> 0 `i 391  ]
-[e $U 392  ]
-[e :U 391 ]
+[e $ > -> _j `i -> 0 `i 381  ]
+[e $U 382  ]
+[e :U 381 ]
 "37
 [; ;../Projects/src/adf7012.c: 37:         {
 {
@@ -567,14 +567,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RB6 -> -> 0 `i `b ]
 "39
 [; ;../Projects/src/adf7012.c: 39:             if (byte & 0x80) RC7 = 1;
-[e $ ! != & -> _byte `i -> 128 `i -> 0 `i 394  ]
+[e $ ! != & -> _byte `i -> 128 `i -> 0 `i 384  ]
 [e = _RC7 -> -> 1 `i `b ]
-[e $U 395  ]
+[e $U 385  ]
 "40
 [; ;../Projects/src/adf7012.c: 40:             else RC7 = 0;
-[e :U 394 ]
+[e :U 384 ]
 [e = _RC7 -> -> 0 `i `b ]
-[e :U 395 ]
+[e :U 385 ]
 "41
 [; ;../Projects/src/adf7012.c: 41:             RB6 = 1;
 [e = _RB6 -> -> 1 `i `b ]
@@ -585,8 +585,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/adf7012.c: 43:         }
 }
 [e -- _j -> -> 1 `i `uc ]
-[e $ > -> _j `i -> 0 `i 391  ]
-[e :U 392 ]
+[e $ > -> _j `i -> 0 `i 381  ]
+[e :U 382 ]
 }
 "44
 [; ;../Projects/src/adf7012.c: 44:         RB6 = 0;
@@ -595,8 +595,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/adf7012.c: 45:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 3 `i 388  ]
-[e :U 389 ]
+[e $ <= -> _i `i -> 3 `i 378  ]
+[e :U 379 ]
 }
 "50
 [; ;../Projects/src/adf7012.c: 50:     RC6 = 1;
@@ -612,7 +612,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RC6 -> -> 0 `i `b ]
 "57
 [; ;../Projects/src/adf7012.c: 57: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "59
 [; ;../Projects/src/adf7012.c: 59: void dd_set_ADF7021_Power_on_Init(void)
@@ -627,7 +627,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _register_value `S374 ~T0 @X0 1 a ]
 "62
 [; ;../Projects/src/adf7012.c: 62:  if (RC2 == 0)
-[e $ ! == -> _RC2 `i -> 0 `i 397  ]
+[e $ ! == -> _RC2 `i -> 0 `i 387  ]
 "63
 [; ;../Projects/src/adf7012.c: 63:  {
 {
@@ -643,10 +643,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "77
 [; ;../Projects/src/adf7012.c: 77:  }
 }
-[e :U 397 ]
+[e :U 387 ]
 "78
 [; ;../Projects/src/adf7012.c: 78: }
-[e :UE 396 ]
+[e :UE 386 ]
 }
 "81
 [; ;../Projects/src/adf7012.c: 81: void dd_set_ADF7021_Power_on(void)
@@ -658,7 +658,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "86
 [; ;../Projects/src/adf7012.c: 86:  if (RC2 == 0)
-[e $ ! == -> _RC2 `i -> 0 `i 399  ]
+[e $ ! == -> _RC2 `i -> 0 `i 389  ]
 "87
 [; ;../Projects/src/adf7012.c: 87:  {
 {
@@ -668,59 +668,99 @@ Version 4.0 HI-TECH Software Intermediate Code
 "96
 [; ;../Projects/src/adf7012.c: 96:  }
 }
-[e :U 399 ]
+[e :U 389 ]
 "97
 [; ;../Projects/src/adf7012.c: 97: }
-[e :UE 398 ]
+[e :UE 388 ]
 }
-"100
-[; ;../Projects/src/adf7012.c: 100: void dd_set_TX_mode(void)
+"98
+[; ;../Projects/src/adf7012.c: 98: void dd_set_ADF7021_Power_on_test(void)
+[v _dd_set_ADF7021_Power_on_test `(v ~T0 @X0 1 ef ]
+"99
+[; ;../Projects/src/adf7012.c: 99: {
+{
+[e :U _dd_set_ADF7021_Power_on_test ]
+[f ]
+"103
+[; ;../Projects/src/adf7012.c: 103:  if (RC2 == 0)
+[e $ ! == -> _RC2 `i -> 0 `i 391  ]
+"104
+[; ;../Projects/src/adf7012.c: 104:  {
+{
+"105
+[; ;../Projects/src/adf7012.c: 105:   RC2 = 1;
+[e = _RC2 -> -> 1 `i `b ]
+"108
+[; ;../Projects/src/adf7012.c: 108:                  Delayus(130);
+[e ( _Delayus (1 -> -> 130 `i `uc ]
+"109
+[; ;../Projects/src/adf7012.c: 109:    Delayus(130);
+[e ( _Delayus (1 -> -> 130 `i `uc ]
+"110
+[; ;../Projects/src/adf7012.c: 110:    Delayus(130);
+[e ( _Delayus (1 -> -> 130 `i `uc ]
+"111
+[; ;../Projects/src/adf7012.c: 111:    Delayus(130);
+[e ( _Delayus (1 -> -> 130 `i `uc ]
+"112
+[; ;../Projects/src/adf7012.c: 112:    Delayus(130);
+[e ( _Delayus (1 -> -> 130 `i `uc ]
+"113
+[; ;../Projects/src/adf7012.c: 113:  }
+}
+[e :U 391 ]
+"114
+[; ;../Projects/src/adf7012.c: 114: }
+[e :UE 390 ]
+}
+"116
+[; ;../Projects/src/adf7012.c: 116: void dd_set_TX_mode(void)
 [v _dd_set_TX_mode `(v ~T0 @X0 1 ef ]
-"101
-[; ;../Projects/src/adf7012.c: 101: {
+"117
+[; ;../Projects/src/adf7012.c: 117: {
 {
 [e :U _dd_set_TX_mode ]
 [f ]
-"175
-[; ;../Projects/src/adf7012.c: 175:       ADF70XX_REG_T register_value;
+"191
+[; ;../Projects/src/adf7012.c: 191:       ADF70XX_REG_T register_value;
 [v _register_value `S374 ~T0 @X0 1 a ]
-"178
-[; ;../Projects/src/adf7012.c: 178:       register_value.whole_reg = ROM_adf7012_value[0].whole_reg;
-[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 0 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
-"179
-[; ;../Projects/src/adf7012.c: 179:       dd_write_7021_reg(&register_value.byte[0]);
-[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
-"180
-[; ;../Projects/src/adf7012.c: 180:       Delayus(25);
-[e ( _Delayus (1 -> -> 25 `i `uc ]
-"183
-[; ;../Projects/src/adf7012.c: 183:       register_value.whole_reg = ROM_adf7012_value[1].whole_reg;
-[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 1 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
-"184
-[; ;../Projects/src/adf7012.c: 184:       dd_write_7021_reg(&register_value.byte[0]);
-[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
-"185
-[; ;../Projects/src/adf7012.c: 185:       Delayus(25);
-[e ( _Delayus (1 -> -> 25 `i `uc ]
-"188
-[; ;../Projects/src/adf7012.c: 188:       register_value.whole_reg = ROM_adf7012_value[2].whole_reg;
-[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 2 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
-"189
-[; ;../Projects/src/adf7012.c: 189:       dd_write_7021_reg(&register_value.byte[0]);
-[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
-"190
-[; ;../Projects/src/adf7012.c: 190:       Delayus(25);
-[e ( _Delayus (1 -> -> 25 `i `uc ]
 "194
-[; ;../Projects/src/adf7012.c: 194:       register_value.whole_reg = ROM_adf7012_value[3].whole_reg;
-[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 3 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
+[; ;../Projects/src/adf7012.c: 194:       register_value.whole_reg = ROM_adf7012_value[0].whole_reg;
+[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 0 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
 "195
 [; ;../Projects/src/adf7012.c: 195:       dd_write_7021_reg(&register_value.byte[0]);
 [e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
 "196
 [; ;../Projects/src/adf7012.c: 196:       Delayus(25);
 [e ( _Delayus (1 -> -> 25 `i `uc ]
-"197
-[; ;../Projects/src/adf7012.c: 197: }
-[e :UE 400 ]
+"199
+[; ;../Projects/src/adf7012.c: 199:       register_value.whole_reg = ROM_adf7012_value[1].whole_reg;
+[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 1 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
+"200
+[; ;../Projects/src/adf7012.c: 200:       dd_write_7021_reg(&register_value.byte[0]);
+[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
+"201
+[; ;../Projects/src/adf7012.c: 201:       Delayus(25);
+[e ( _Delayus (1 -> -> 25 `i `uc ]
+"204
+[; ;../Projects/src/adf7012.c: 204:       register_value.whole_reg = ROM_adf7012_value[2].whole_reg;
+[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 2 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
+"205
+[; ;../Projects/src/adf7012.c: 205:       dd_write_7021_reg(&register_value.byte[0]);
+[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
+"206
+[; ;../Projects/src/adf7012.c: 206:       Delayus(25);
+[e ( _Delayus (1 -> -> 25 `i `uc ]
+"210
+[; ;../Projects/src/adf7012.c: 210:       register_value.whole_reg = ROM_adf7012_value[3].whole_reg;
+[e = . _register_value 0 . *U + &U _ROM_adf7012_value * -> -> -> 3 `i `ui `ux -> -> # *U &U _ROM_adf7012_value `ui `ux 0 ]
+"211
+[; ;../Projects/src/adf7012.c: 211:       dd_write_7021_reg(&register_value.byte[0]);
+[e ( _dd_write_7021_reg (1 &U *U + &U . _register_value 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _register_value 1 `ui `ux ]
+"212
+[; ;../Projects/src/adf7012.c: 212:       Delayus(25);
+[e ( _Delayus (1 -> -> 25 `i `uc ]
+"213
+[; ;../Projects/src/adf7012.c: 213: }
+[e :UE 392 ]
 }

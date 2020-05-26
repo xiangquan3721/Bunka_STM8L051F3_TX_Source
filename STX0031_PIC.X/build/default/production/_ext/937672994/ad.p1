@@ -1,24 +1,24 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"256 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 256: extern unsigned long RAM_BAT_SUM;
+"292 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 292: extern unsigned long RAM_BAT_SUM;
 [v _RAM_BAT_SUM `ul ~T0 @X0 0 e ]
-"255
-[; ;../Projects/inc\ram.h: 255: extern unsigned char AD_DATA_BUFF[2];
+"291
+[; ;../Projects/inc\ram.h: 291: extern unsigned char AD_DATA_BUFF[2];
 [v _AD_DATA_BUFF `uc ~T0 @X0 -> 0 `x e ]
-"258
-[; ;../Projects/inc\ram.h: 258: extern unsigned char RAM_BAT_CNT;
+"294
+[; ;../Projects/inc\ram.h: 294: extern unsigned char RAM_BAT_CNT;
 [v _RAM_BAT_CNT `uc ~T0 @X0 0 e ]
-"257
-[; ;../Projects/inc\ram.h: 257: extern unsigned int RAM_BAT_AVG;
+"293
+[; ;../Projects/inc\ram.h: 293: extern unsigned int RAM_BAT_AVG;
 [v _RAM_BAT_AVG `ui ~T0 @X0 0 e ]
-"260
-[; ;../Projects/inc\ram.h: 260: extern unsigned long BAT_Voltage_value;
+"296
+[; ;../Projects/inc\ram.h: 296: extern unsigned long BAT_Voltage_value;
 [v _BAT_Voltage_value `ul ~T0 @X0 0 e ]
-"267
-[; ;../Projects/inc\ram.h: 267: extern unsigned int TIME_power_on_AD;
+"303
+[; ;../Projects/inc\ram.h: 303: extern unsigned int TIME_power_on_AD;
 [v _TIME_power_on_AD `ui ~T0 @X0 0 e ]
-"259
-[; ;../Projects/inc\ram.h: 259: extern unsigned char BAT_out;
+"295
+[; ;../Projects/inc\ram.h: 295: extern unsigned char BAT_out;
 [v _BAT_out `uc ~T0 @X0 0 e ]
 "54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 54: __asm("INDF0 equ 00h");
@@ -520,7 +520,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "23
 [; ;../Projects/src/ad.c: 23: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "25
 [; ;../Projects/src/ad.c: 25: void ADC2_EOC_INT(void){
@@ -536,7 +536,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _RAM_BAT_CNT -> -> 1 `i `uc ]
 "31
 [; ;../Projects/src/ad.c: 31:         if(RAM_BAT_CNT>=20){
-[e $ ! >= -> _RAM_BAT_CNT `i -> 20 `i 389  ]
+[e $ ! >= -> _RAM_BAT_CNT `i -> 20 `i 379  ]
 {
 "32
 [; ;../Projects/src/ad.c: 32:   RAM_BAT_CNT = 0;
@@ -553,13 +553,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;../Projects/src/ad.c: 36:  }
 }
-[e :U 389 ]
+[e :U 379 ]
 "37
 [; ;../Projects/src/ad.c: 37:         START_AD_SAMPLER();
 [e ( _START_AD_SAMPLER ..  ]
 "38
 [; ;../Projects/src/ad.c: 38: }
-[e :UE 388 ]
+[e :UE 378 ]
 }
 "42
 [; ;../Projects/src/ad.c: 42: void AD_control(void){
@@ -569,32 +569,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "43
 [; ;../Projects/src/ad.c: 43:       if(TIME_power_on_AD)
-[e $ ! != _TIME_power_on_AD -> -> 0 `i `ui 391  ]
+[e $ ! != _TIME_power_on_AD -> -> 0 `i `ui 381  ]
 "44
 [; ;../Projects/src/ad.c: 44:       {
 {
 "45
 [; ;../Projects/src/ad.c: 45:           if(BAT_Voltage_value>2400)BAT_out=0;
-[e $ ! > _BAT_Voltage_value -> -> -> 2400 `i `l `ul 392  ]
+[e $ ! > _BAT_Voltage_value -> -> -> 2400 `i `l `ul 382  ]
 [e = _BAT_out -> -> 0 `i `uc ]
-[e $U 393  ]
+[e $U 383  ]
 "46
 [; ;../Projects/src/ad.c: 46:           else if((BAT_Voltage_value<=2400)&&(BAT_Voltage_value>2200))BAT_out=1;
-[e :U 392 ]
-[e $ ! && <= _BAT_Voltage_value -> -> -> 2400 `i `l `ul > _BAT_Voltage_value -> -> -> 2200 `i `l `ul 394  ]
+[e :U 382 ]
+[e $ ! && <= _BAT_Voltage_value -> -> -> 2400 `i `l `ul > _BAT_Voltage_value -> -> -> 2200 `i `l `ul 384  ]
 [e = _BAT_out -> -> 1 `i `uc ]
-[e $U 395  ]
+[e $U 385  ]
 "47
 [; ;../Projects/src/ad.c: 47:           else BAT_out=2;
-[e :U 394 ]
+[e :U 384 ]
 [e = _BAT_out -> -> 2 `i `uc ]
-[e :U 395 ]
-[e :U 393 ]
+[e :U 385 ]
+[e :U 383 ]
 "48
 [; ;../Projects/src/ad.c: 48:       }
 }
-[e :U 391 ]
+[e :U 381 ]
 "49
 [; ;../Projects/src/ad.c: 49: }
-[e :UE 390 ]
+[e :UE 380 ]
 }

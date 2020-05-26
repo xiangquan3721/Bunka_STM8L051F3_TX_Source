@@ -13,74 +13,74 @@
 
 
 
-volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP1;
-
-volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP2;
-
-volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP3;
-
-volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_RegSW;
-volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_SW;
+//volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP1;
+//
+//volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP2;
+//
+//volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP3;
+//
+//volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_RegSW;
+//volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_SW;
 
 
 
@@ -154,4 +154,37 @@ UINT16 TIME_power_on_AD=0;
 
 UINT8 TEST_No=0;
 
-
+UINT8		FLAG_APP_TX=0;
+UINT8 	FG_KEY_OPEN=0;
+UINT8 	FG_KEY_STOP=0;
+UINT8 	FG_KEY_CLOSE=0;
+UINT8 	FG_KEY_LOGIN=0;
+UINT8 	FG_PWRON=0;
+UINT8 	FG_1ms=0;
+UINT8 	FG_100ms=0;
+UINT8		FLAG_beep=0;
+UINT8 	FG_beep_on=0;
+UINT8 	FG_beep_off=0;
+UINT8 	FG_LED_on=0;
+UINT8 	mb_AutoTxOnOff=0;
+UINT8 	mb_AutoTxInhibit=0;
+UINT8 	FG_test1=0;
+UINT8 	FG_test_mode=0;
+UINT8	FLAG_ADF7021_DATA_tx=0;
+UINT8 	FLAG_KEY_COUNT=0;
+UINT8		mb_RegSw=0;
+UINT8 	mb_RegStopSw=0;
+UINT8 	mb_RegOpenSw=0;
+UINT8 	mb_RegCloseSw=0;
+UINT8 	mb_RegVentSw=0;
+UINT8 	m_KeyOptSetOpenStop=0;
+UINT8 	mb_NoPush=0;
+UINT8 	mb_NoPushWait=0;
+UINT8		mb_OpenSw=0;
+UINT8 	mb_StopSw=0;
+UINT8 	mb_CloseSw=0;
+UINT8 	FG_d_StopKey=0;
+UINT8 	BIT_SIO=0;
+UINT8 	FG_10s=0;
+UINT8 	FG_BAT=0;
+UINT8 	FG_Complex_Single_shot=0;

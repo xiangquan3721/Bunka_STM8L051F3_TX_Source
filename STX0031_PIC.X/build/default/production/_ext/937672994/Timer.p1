@@ -17,17 +17,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1008
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 1008: extern volatile unsigned char T2CON __attribute__((address(0x01C)));
 [v _T2CON `Vuc ~T0 @X0 0 e@28 ]
-"12 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 12:  struct {
-[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S378 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"10
-[; ;../Projects/inc\ram.h: 10: extern volatile union{
-[u S377 `uc 1 `S378 1 ]
-[n S377 . BYTE BIT ]
-"22
-[; ;../Projects/inc\ram.h: 22: }RAM_OP1;
-[v _RAM_OP1 `VS377 ~T0 @X0 0 e ]
+"149 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 149: extern unsigned char FG_1ms;
+[v _FG_1ms `uc ~T0 @X0 0 e ]
 "54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -528,7 +520,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "32
 [; ;../Projects/src/Timer.c: 32: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "33
 [; ;../Projects/src/Timer.c: 33: void Tone_OFF(void){
@@ -541,7 +533,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RA5 -> -> 0 `i `b ]
 "36
 [; ;../Projects/src/Timer.c: 36: }
-[e :UE 388 ]
+[e :UE 378 ]
 }
 "38
 [; ;../Projects/src/Timer.c: 38: void TIM4_Init(void){
@@ -566,7 +558,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _T2CON -> -> 77 `i `uc ]
 "45
 [; ;../Projects/src/Timer.c: 45: }
-[e :UE 389 ]
+[e :UE 379 ]
 }
 "47
 [; ;../Projects/src/Timer.c: 47: void TIM4_UPD_OVF(void){
@@ -575,9 +567,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _TIM4_UPD_OVF ]
 [f ]
 "48
-[; ;../Projects/src/Timer.c: 48:         RAM_OP1.BIT.Bit6 = 1;
-[e = . . _RAM_OP1 1 6 -> -> 1 `i `uc ]
+[; ;../Projects/src/Timer.c: 48:         FG_1ms = 1;
+[e = _FG_1ms -> -> 1 `i `uc ]
 "49
 [; ;../Projects/src/Timer.c: 49: }
-[e :UE 390 ]
+[e :UE 380 ]
 }

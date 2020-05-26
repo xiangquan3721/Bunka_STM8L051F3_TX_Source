@@ -4642,77 +4642,46 @@ void ClearWDT(void);
 # 12 "../Projects/src/ad.c" 2
 
 # 1 "../Projects/inc\\ram.h" 1
-# 10 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP1;
-# 37 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP2;
-# 64 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP3;
-# 90 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_RegSW;
-# 116 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_SW;
-# 146 "../Projects/inc\\ram.h"
+# 143 "../Projects/inc\\ram.h"
+extern unsigned char FLAG_APP_TX;
+extern unsigned char FG_KEY_OPEN;
+extern unsigned char FG_KEY_STOP;
+extern unsigned char FG_KEY_CLOSE;
+extern unsigned char FG_KEY_LOGIN;
+extern unsigned char FG_PWRON;
+extern unsigned char FG_1ms;
+extern unsigned char FG_100ms;
+extern unsigned char FLAG_beep;
+extern unsigned char FG_beep_on;
+extern unsigned char FG_beep_off;
+extern unsigned char FG_LED_on;
+extern unsigned char mb_AutoTxOnOff;
+extern unsigned char mb_AutoTxInhibit;
+extern unsigned char FG_test1;
+extern unsigned char FG_test_mode;
+extern unsigned char FLAG_ADF7021_DATA_tx;
+extern unsigned char FLAG_KEY_COUNT;
+extern unsigned char mb_RegSw;
+extern unsigned char mb_RegStopSw;
+extern unsigned char mb_RegOpenSw;
+extern unsigned char mb_RegCloseSw;
+extern unsigned char mb_RegVentSw;
+extern unsigned char m_KeyOptSetOpenStop;
+extern unsigned char mb_NoPush;
+extern unsigned char mb_NoPushWait;
+extern unsigned char mb_OpenSw;
+extern unsigned char mb_StopSw;
+extern unsigned char mb_CloseSw;
+extern unsigned char FG_d_StopKey;
+extern unsigned char BIT_SIO;
+extern unsigned char FG_10s;
+extern unsigned char FG_BAT;
+extern unsigned char FG_Complex_Single_shot;
+
+
+
+
+
 extern unsigned char TB_51s;
 extern unsigned char TB_sum_5s;
 
@@ -4747,7 +4716,7 @@ extern unsigned char SIO_buff[16];
 extern unsigned char SIO_DATA[16];
 extern ADF70XX_REG_T ROM_adf7012_value[4];
 extern const ADF70XX_REG_T Default_adf7012_value[4];
-# 234 "../Projects/inc\\ram.h"
+# 270 "../Projects/inc\\ram.h"
 extern unsigned char m_KeyNew;
 extern unsigned char m_KindOfKey;
 extern unsigned char m_KeyOld;
@@ -4827,6 +4796,7 @@ void KeyOpt_EEPROM_write(void);
 # 11 "../Projects/inc\\adf7012.h"
 void dd_write_7021_reg(unsigned char* reg_bytes);
 void dd_set_ADF7021_Power_on(void);
+void dd_set_ADF7021_Power_on_test(void);
 void dd_set_TX_mode(void);
 void dd_set_ADF7021_Power_on_Init(void);
 # 16 "../Projects/src/ad.c" 2

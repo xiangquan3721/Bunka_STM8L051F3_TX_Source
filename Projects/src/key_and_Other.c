@@ -1331,46 +1331,34 @@ void test_mode_control(void)
  while(PIN_test_mode==0){  
   ClearWDT(); // Service the WDT 
 
-  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
-  {
-	  Delayus(100);
-	  if((PIN_KEY_OPEN==0)&&(FLAG_KEY_COUNT==0))
-      {
-		  FLAG_KEY_COUNT=1;
-		  FG_KEY_OPEN=0;
-		  FG_KEY_STOP=0;
-		  FG_KEY_CLOSE=0;
-		  TEST_No++;
-		  if(TEST_No>3)TEST_No=1;
-	  }
-  }
-  else FLAG_KEY_COUNT=0;
 
-  if((TEST_No==1)&&(FG_KEY_OPEN==0)){
+
+  if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
-    dd_set_ADF7021_Power_on();
+    //dd_set_ADF7021_Power_on_test();
+    ADF7021_POWER =1;
     dd_set_TX_mode();
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
   }
-  //if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
+  if(PIN_KEY_OPEN==1)FG_KEY_OPEN=0;
   
-   if((TEST_No==2)&&(FG_KEY_STOP==0)){
+   if((PIN_KEY_STOP==0)&&(FG_KEY_STOP==0)){
     FG_KEY_STOP=1;
     //ADF7021_CE = 0;
     ADF7021_POWER=FG_NOT_allow_out;
     FG_test_mode=0;
     ADF7021_DATA_tx=0;
   }
-  //if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
+  if(PIN_KEY_STOP==1)FG_KEY_STOP=0; 
   
-  if((TEST_No==3)&&(FG_KEY_CLOSE==0)){
+  if((PIN_KEY_CLOSE==0)&&(FG_KEY_CLOSE==0)){
     FG_KEY_CLOSE=1;
-    dd_set_ADF7021_Power_on();
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     FG_test_mode=1;
   }
-  //if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
+  if(PIN_KEY_CLOSE==1)FG_KEY_CLOSE=0;  
   
 	
   if((ADF7021_DATA_CLK==1)&&(FG_test_mode==1)&&(FG_test1==0)){

@@ -1,44 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ../Projects/src/ram.c
-[; ;../Projects/src/ram.c: 18:  struct {
-[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S378 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"16
-[; ;../Projects/src/ram.c: 16: volatile union{
-[u S377 `uc 1 `S378 1 ]
-[n S377 . BYTE BIT ]
-"32
-[; ;../Projects/src/ram.c: 32:  struct {
-[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S380 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"30
-[; ;../Projects/src/ram.c: 30: volatile union{
-[u S379 `uc 1 `S380 1 ]
-[n S379 . BYTE BIT ]
-"46
-[; ;../Projects/src/ram.c: 46:  struct {
-[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S382 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"44
-[; ;../Projects/src/ram.c: 44: volatile union{
-[u S381 `uc 1 `S382 1 ]
-[n S381 . BYTE BIT ]
-"60
-[; ;../Projects/src/ram.c: 60:  struct {
-[s S384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S384 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"58
-[; ;../Projects/src/ram.c: 58: volatile union{
-[u S383 `uc 1 `S384 1 ]
-[n S383 . BYTE BIT ]
-"73
-[; ;../Projects/src/ram.c: 73:  struct {
-[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S386 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"71
-[; ;../Projects/src/ram.c: 71: volatile union{
-[u S385 `uc 1 `S386 1 ]
-[n S385 . BYTE BIT ]
 "41 ../Projects/inc\initial.h
 [; ;../Projects/inc\initial.h: 41:   typedef union {
 [u S375 `ul 1 `uc -> 4 `i ]
@@ -539,22 +499,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7005
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7005: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"28 ../Projects/src/ram.c
-[; ;../Projects/src/ram.c: 28: }RAM_OP1;
-[v _RAM_OP1 `VS377 ~T0 @X0 1 e ]
-"42
-[; ;../Projects/src/ram.c: 42: }RAM_OP2;
-[v _RAM_OP2 `VS379 ~T0 @X0 1 e ]
-"56
-[; ;../Projects/src/ram.c: 56: }RAM_OP3;
-[v _RAM_OP3 `VS381 ~T0 @X0 1 e ]
-"70
-[; ;../Projects/src/ram.c: 70: }RAM_RegSW;
-[v _RAM_RegSW `VS383 ~T0 @X0 1 e ]
-"83
-[; ;../Projects/src/ram.c: 83: }RAM_SW;
-[v _RAM_SW `VS385 ~T0 @X0 1 e ]
-"87
+"87 ../Projects/src/ram.c
 [; ;../Projects/src/ram.c: 87: unsigned char TB_51s;
 [v _TB_51s `uc ~T0 @X0 1 e ]
 "88
@@ -766,5 +711,209 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/ram.c: 155: unsigned char TEST_No=0;
 [v _TEST_No `uc ~T0 @X0 1 e ]
 [i _TEST_No
+-> -> 0 `i `uc
+]
+"157
+[; ;../Projects/src/ram.c: 157: unsigned char FLAG_APP_TX=0;
+[v _FLAG_APP_TX `uc ~T0 @X0 1 e ]
+[i _FLAG_APP_TX
+-> -> 0 `i `uc
+]
+"158
+[; ;../Projects/src/ram.c: 158: unsigned char FG_KEY_OPEN=0;
+[v _FG_KEY_OPEN `uc ~T0 @X0 1 e ]
+[i _FG_KEY_OPEN
+-> -> 0 `i `uc
+]
+"159
+[; ;../Projects/src/ram.c: 159: unsigned char FG_KEY_STOP=0;
+[v _FG_KEY_STOP `uc ~T0 @X0 1 e ]
+[i _FG_KEY_STOP
+-> -> 0 `i `uc
+]
+"160
+[; ;../Projects/src/ram.c: 160: unsigned char FG_KEY_CLOSE=0;
+[v _FG_KEY_CLOSE `uc ~T0 @X0 1 e ]
+[i _FG_KEY_CLOSE
+-> -> 0 `i `uc
+]
+"161
+[; ;../Projects/src/ram.c: 161: unsigned char FG_KEY_LOGIN=0;
+[v _FG_KEY_LOGIN `uc ~T0 @X0 1 e ]
+[i _FG_KEY_LOGIN
+-> -> 0 `i `uc
+]
+"162
+[; ;../Projects/src/ram.c: 162: unsigned char FG_PWRON=0;
+[v _FG_PWRON `uc ~T0 @X0 1 e ]
+[i _FG_PWRON
+-> -> 0 `i `uc
+]
+"163
+[; ;../Projects/src/ram.c: 163: unsigned char FG_1ms=0;
+[v _FG_1ms `uc ~T0 @X0 1 e ]
+[i _FG_1ms
+-> -> 0 `i `uc
+]
+"164
+[; ;../Projects/src/ram.c: 164: unsigned char FG_100ms=0;
+[v _FG_100ms `uc ~T0 @X0 1 e ]
+[i _FG_100ms
+-> -> 0 `i `uc
+]
+"165
+[; ;../Projects/src/ram.c: 165: unsigned char FLAG_beep=0;
+[v _FLAG_beep `uc ~T0 @X0 1 e ]
+[i _FLAG_beep
+-> -> 0 `i `uc
+]
+"166
+[; ;../Projects/src/ram.c: 166: unsigned char FG_beep_on=0;
+[v _FG_beep_on `uc ~T0 @X0 1 e ]
+[i _FG_beep_on
+-> -> 0 `i `uc
+]
+"167
+[; ;../Projects/src/ram.c: 167: unsigned char FG_beep_off=0;
+[v _FG_beep_off `uc ~T0 @X0 1 e ]
+[i _FG_beep_off
+-> -> 0 `i `uc
+]
+"168
+[; ;../Projects/src/ram.c: 168: unsigned char FG_LED_on=0;
+[v _FG_LED_on `uc ~T0 @X0 1 e ]
+[i _FG_LED_on
+-> -> 0 `i `uc
+]
+"169
+[; ;../Projects/src/ram.c: 169: unsigned char mb_AutoTxOnOff=0;
+[v _mb_AutoTxOnOff `uc ~T0 @X0 1 e ]
+[i _mb_AutoTxOnOff
+-> -> 0 `i `uc
+]
+"170
+[; ;../Projects/src/ram.c: 170: unsigned char mb_AutoTxInhibit=0;
+[v _mb_AutoTxInhibit `uc ~T0 @X0 1 e ]
+[i _mb_AutoTxInhibit
+-> -> 0 `i `uc
+]
+"171
+[; ;../Projects/src/ram.c: 171: unsigned char FG_test1=0;
+[v _FG_test1 `uc ~T0 @X0 1 e ]
+[i _FG_test1
+-> -> 0 `i `uc
+]
+"172
+[; ;../Projects/src/ram.c: 172: unsigned char FG_test_mode=0;
+[v _FG_test_mode `uc ~T0 @X0 1 e ]
+[i _FG_test_mode
+-> -> 0 `i `uc
+]
+"173
+[; ;../Projects/src/ram.c: 173: unsigned char FLAG_ADF7021_DATA_tx=0;
+[v _FLAG_ADF7021_DATA_tx `uc ~T0 @X0 1 e ]
+[i _FLAG_ADF7021_DATA_tx
+-> -> 0 `i `uc
+]
+"174
+[; ;../Projects/src/ram.c: 174: unsigned char FLAG_KEY_COUNT=0;
+[v _FLAG_KEY_COUNT `uc ~T0 @X0 1 e ]
+[i _FLAG_KEY_COUNT
+-> -> 0 `i `uc
+]
+"175
+[; ;../Projects/src/ram.c: 175: unsigned char mb_RegSw=0;
+[v _mb_RegSw `uc ~T0 @X0 1 e ]
+[i _mb_RegSw
+-> -> 0 `i `uc
+]
+"176
+[; ;../Projects/src/ram.c: 176: unsigned char mb_RegStopSw=0;
+[v _mb_RegStopSw `uc ~T0 @X0 1 e ]
+[i _mb_RegStopSw
+-> -> 0 `i `uc
+]
+"177
+[; ;../Projects/src/ram.c: 177: unsigned char mb_RegOpenSw=0;
+[v _mb_RegOpenSw `uc ~T0 @X0 1 e ]
+[i _mb_RegOpenSw
+-> -> 0 `i `uc
+]
+"178
+[; ;../Projects/src/ram.c: 178: unsigned char mb_RegCloseSw=0;
+[v _mb_RegCloseSw `uc ~T0 @X0 1 e ]
+[i _mb_RegCloseSw
+-> -> 0 `i `uc
+]
+"179
+[; ;../Projects/src/ram.c: 179: unsigned char mb_RegVentSw=0;
+[v _mb_RegVentSw `uc ~T0 @X0 1 e ]
+[i _mb_RegVentSw
+-> -> 0 `i `uc
+]
+"180
+[; ;../Projects/src/ram.c: 180: unsigned char m_KeyOptSetOpenStop=0;
+[v _m_KeyOptSetOpenStop `uc ~T0 @X0 1 e ]
+[i _m_KeyOptSetOpenStop
+-> -> 0 `i `uc
+]
+"181
+[; ;../Projects/src/ram.c: 181: unsigned char mb_NoPush=0;
+[v _mb_NoPush `uc ~T0 @X0 1 e ]
+[i _mb_NoPush
+-> -> 0 `i `uc
+]
+"182
+[; ;../Projects/src/ram.c: 182: unsigned char mb_NoPushWait=0;
+[v _mb_NoPushWait `uc ~T0 @X0 1 e ]
+[i _mb_NoPushWait
+-> -> 0 `i `uc
+]
+"183
+[; ;../Projects/src/ram.c: 183: unsigned char mb_OpenSw=0;
+[v _mb_OpenSw `uc ~T0 @X0 1 e ]
+[i _mb_OpenSw
+-> -> 0 `i `uc
+]
+"184
+[; ;../Projects/src/ram.c: 184: unsigned char mb_StopSw=0;
+[v _mb_StopSw `uc ~T0 @X0 1 e ]
+[i _mb_StopSw
+-> -> 0 `i `uc
+]
+"185
+[; ;../Projects/src/ram.c: 185: unsigned char mb_CloseSw=0;
+[v _mb_CloseSw `uc ~T0 @X0 1 e ]
+[i _mb_CloseSw
+-> -> 0 `i `uc
+]
+"186
+[; ;../Projects/src/ram.c: 186: unsigned char FG_d_StopKey=0;
+[v _FG_d_StopKey `uc ~T0 @X0 1 e ]
+[i _FG_d_StopKey
+-> -> 0 `i `uc
+]
+"187
+[; ;../Projects/src/ram.c: 187: unsigned char BIT_SIO=0;
+[v _BIT_SIO `uc ~T0 @X0 1 e ]
+[i _BIT_SIO
+-> -> 0 `i `uc
+]
+"188
+[; ;../Projects/src/ram.c: 188: unsigned char FG_10s=0;
+[v _FG_10s `uc ~T0 @X0 1 e ]
+[i _FG_10s
+-> -> 0 `i `uc
+]
+"189
+[; ;../Projects/src/ram.c: 189: unsigned char FG_BAT=0;
+[v _FG_BAT `uc ~T0 @X0 1 e ]
+[i _FG_BAT
+-> -> 0 `i `uc
+]
+"190
+[; ;../Projects/src/ram.c: 190: unsigned char FG_Complex_Single_shot=0;
+[v _FG_Complex_Single_shot `uc ~T0 @X0 1 e ]
+[i _FG_Complex_Single_shot
 -> -> 0 `i `uc
 ]

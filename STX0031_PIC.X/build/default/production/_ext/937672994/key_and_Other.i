@@ -4642,77 +4642,46 @@ void ClearWDT(void);
 # 12 "../Projects/src/key_and_Other.c" 2
 
 # 1 "../Projects/inc\\ram.h" 1
-# 10 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP1;
-# 37 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP2;
-# 64 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP3;
-# 90 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_RegSW;
-# 116 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_SW;
-# 146 "../Projects/inc\\ram.h"
+# 143 "../Projects/inc\\ram.h"
+extern unsigned char FLAG_APP_TX;
+extern unsigned char FG_KEY_OPEN;
+extern unsigned char FG_KEY_STOP;
+extern unsigned char FG_KEY_CLOSE;
+extern unsigned char FG_KEY_LOGIN;
+extern unsigned char FG_PWRON;
+extern unsigned char FG_1ms;
+extern unsigned char FG_100ms;
+extern unsigned char FLAG_beep;
+extern unsigned char FG_beep_on;
+extern unsigned char FG_beep_off;
+extern unsigned char FG_LED_on;
+extern unsigned char mb_AutoTxOnOff;
+extern unsigned char mb_AutoTxInhibit;
+extern unsigned char FG_test1;
+extern unsigned char FG_test_mode;
+extern unsigned char FLAG_ADF7021_DATA_tx;
+extern unsigned char FLAG_KEY_COUNT;
+extern unsigned char mb_RegSw;
+extern unsigned char mb_RegStopSw;
+extern unsigned char mb_RegOpenSw;
+extern unsigned char mb_RegCloseSw;
+extern unsigned char mb_RegVentSw;
+extern unsigned char m_KeyOptSetOpenStop;
+extern unsigned char mb_NoPush;
+extern unsigned char mb_NoPushWait;
+extern unsigned char mb_OpenSw;
+extern unsigned char mb_StopSw;
+extern unsigned char mb_CloseSw;
+extern unsigned char FG_d_StopKey;
+extern unsigned char BIT_SIO;
+extern unsigned char FG_10s;
+extern unsigned char FG_BAT;
+extern unsigned char FG_Complex_Single_shot;
+
+
+
+
+
 extern unsigned char TB_51s;
 extern unsigned char TB_sum_5s;
 
@@ -4747,7 +4716,7 @@ extern unsigned char SIO_buff[16];
 extern unsigned char SIO_DATA[16];
 extern ADF70XX_REG_T ROM_adf7012_value[4];
 extern const ADF70XX_REG_T Default_adf7012_value[4];
-# 234 "../Projects/inc\\ram.h"
+# 270 "../Projects/inc\\ram.h"
 extern unsigned char m_KeyNew;
 extern unsigned char m_KindOfKey;
 extern unsigned char m_KeyOld;
@@ -4790,6 +4759,7 @@ extern unsigned char TEST_No;
 # 11 "../Projects/inc\\adf7012.h"
 void dd_write_7021_reg(unsigned char* reg_bytes);
 void dd_set_ADF7021_Power_on(void);
+void dd_set_ADF7021_Power_on_test(void);
 void dd_set_TX_mode(void);
 void dd_set_ADF7021_Power_on_Init(void);
 # 14 "../Projects/src/key_and_Other.c" 2
@@ -4895,13 +4865,13 @@ void TIM4_UPD_OVF(void);
 
 void key_check(void)
 {
-   if(RAM_OP1.BIT.Bit6){
-    RAM_OP1.BIT.Bit6=0;
+   if(FG_1ms){
+    FG_1ms=0;
 
   if (TB_100ms) --TB_100ms;
         else{
    TB_100ms = 100;
-   RAM_OP1.BIT.Bit7 = 1;
+   FG_100ms = 1;
  }
 
     if(TIME_power_on_AD)TIME_power_on_AD--;
@@ -4909,15 +4879,15 @@ void key_check(void)
     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
-    else RAM_SW.BIT.Bit3=0;
-    if ( RAM_SW.BIT.Bit3 &&m_KeyDupli1stTimer){
+    else FG_d_StopKey=0;
+    if ( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
       if(time_led>=100){time_led=0;RB5=!RB5;}
     }
     if(m_TimerKey)--m_TimerKey;
 # 69 "../Projects/src/key_and_Other.c"
     _KeyInTx();
-    if(RAM_SW.BIT.Bit5==1)return;
+    if(FG_10s==1)return;
     _RegistrationMode();
     _DupliFuncSetMode();
 
@@ -4928,10 +4898,10 @@ void key_check(void)
 
 void time_control(void)
 {
-  if(RAM_OP1.BIT.Bit7){
-    RAM_OP1.BIT.Bit7=0;
+  if(FG_100ms){
+    FG_100ms=0;
     if(TIME_2s_RestTX)--TIME_2s_RestTX;
-    if(RAM_OP1.BIT.Bit5==1){
+    if(FG_PWRON==1){
     if ((TB_5s)&&(m_KeyOptSetMode==0)) --TB_5s;
     }
   }
@@ -5031,9 +5001,9 @@ void _KeyInTx( void )
            if(TIME_10s)--TIME_10s;
     dd_set_ADF7021_Power_on_Init();
 
-           if((BAT_out==1)||(RAM_SW.BIT.Bit6)||(TIME_10s==0)){
-       if(RAM_SW.BIT.Bit6==0){
-          RAM_SW.BIT.Bit6=1;
+           if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){
+       if(FG_BAT==0){
+          FG_BAT=1;
    if(TIME_10s==0){
                            BASE_TIME_BEEP_on=103;
                            BASE_TIME_BEEP_off=103;
@@ -5060,22 +5030,22 @@ void _KeyInTx( void )
   }
  }
         key_Value=i;
-        if(RAM_SW.BIT.Bit5==1)return;
+        if(FG_10s==1)return;
 
  if ( i == 17)
  {
-  RAM_RegSW.BIT.Bit6 = 0 ;
+  mb_NoPush = 0 ;
   _ClearSpecialMultiKeyState() ;
-  RAM_RegSW.BIT.Bit7 = 1 ;
+  mb_NoPushWait = 1 ;
   _DupliFuncClear() ;
   return ;
  }
 
- if ( RAM_RegSW.BIT.Bit7 )
+ if ( mb_NoPushWait )
  {
   if ( m_KeyNew != 0xFF )
   {
-                        if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(RAM_OP1.BIT.Bit0==0));
+                        if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));
    else return ;
   }
  }
@@ -5089,7 +5059,7 @@ void _KeyInTx( void )
   case 2 :
   case 3 :
   case 4 :
-          if(RAM_OP1.BIT.Bit0==0)_FuncStop();
+          if(FLAG_APP_TX==0)_FuncStop();
    break ;
   case 5 :
   case 6 :
@@ -5128,8 +5098,8 @@ void _FuncOpenStop( void )
  m_KindOfKey = 0 ;
  _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
  _ClearSpecialMultiKeyState() ;
- RAM_RegSW.BIT.Bit6 = 0 ;
- RAM_RegSW.BIT.Bit7 = 1 ;
+ mb_NoPush = 0 ;
+ mb_NoPushWait = 1 ;
 }
 
 
@@ -5140,13 +5110,13 @@ void _FuncOpenStop( void )
 void _FuncOpenReg( void )
 {
  _DupliFuncClear() ;
- RAM_RegSW.BIT.Bit6 = 0 ;
- if ( !RAM_RegSW.BIT.Bit2 )
+ mb_NoPush = 0 ;
+ if ( !mb_RegOpenSw )
  {
-  RAM_RegSW.BIT.Bit2 = 1 ;
+  mb_RegOpenSw = 1 ;
   m_TimerKey = 3000 ;
-  if(RAM_OP1.BIT.Bit5==0){
-            RAM_OP1.BIT.Bit5=1;
+  if(FG_PWRON==0){
+            FG_PWRON=1;
             RB7=1;
             TB_5s=78;
                 }
@@ -5164,12 +5134,12 @@ void _FuncOpenReg( void )
 void _FuncCloseReg( void )
 {
  _DupliFuncClear() ;
- if ( !RAM_RegSW.BIT.Bit3 )
+ if ( !mb_RegCloseSw )
  {
-  RAM_RegSW.BIT.Bit3 = 1 ;
+  mb_RegCloseSw = 1 ;
   m_TimerKey = 3000 ;
-  if(RAM_OP1.BIT.Bit5==0){
-            RAM_OP1.BIT.Bit5=1;
+  if(FG_PWRON==0){
+            FG_PWRON=1;
             RB7=1;
             TB_5s=78;
                 }
@@ -5187,12 +5157,12 @@ void _FuncCloseReg( void )
 void _FuncVentReg( void )
 {
  _DupliFuncClear() ;
- if ( !RAM_RegSW.BIT.Bit4 )
+ if ( !mb_RegVentSw )
  {
-  RAM_RegSW.BIT.Bit4 = 1 ;
+  mb_RegVentSw = 1 ;
   m_TimerKey = 3000 ;
-  if(RAM_OP1.BIT.Bit5==0){
-            RAM_OP1.BIT.Bit5=1;
+  if(FG_PWRON==0){
+            FG_PWRON=1;
             RB7=1;
             TB_5s=78;
                 }
@@ -5210,12 +5180,12 @@ void _FuncVentReg( void )
 void _FuncStopReg( void )
 {
  _DupliFuncClear() ;
- if ( !RAM_RegSW.BIT.Bit1 )
+ if ( !mb_RegStopSw )
  {
-  RAM_RegSW.BIT.Bit1 = 1 ;
+  mb_RegStopSw = 1 ;
   m_TimerKey = 3000 ;
-  if(RAM_OP1.BIT.Bit5==0){
-            RAM_OP1.BIT.Bit5=1;
+  if(FG_PWRON==0){
+            FG_PWRON=1;
             RB7=1;
             TB_5s=78;
                 }
@@ -5231,7 +5201,7 @@ void _Pass3secKey( unsigned char req )
   if ( !--m_TimerKey )
   {
    _ReqTxdEdit( req,0 ) ;
-                        RAM_SW.BIT.Bit7=1;
+                        FG_Complex_Single_shot=1;
    return ;
   }
  }
@@ -5244,17 +5214,17 @@ void _Pass3secKey( unsigned char req )
 void _FuncReg( void )
 {
  _DupliFuncClear() ;
- if ( RAM_RegSW.BIT.Bit6 )
+ if ( mb_NoPush )
  {
-  RAM_RegSW.BIT.Bit6 = 0 ;
+  mb_NoPush = 0 ;
   m_KindOfKey = 5 ;
   _ClearSpecialMultiKeyState() ;
-  RAM_RegSW.BIT.Bit0 = 1 ;
+  mb_RegSw = 1 ;
   m_TimerKey = 3000 ;
   if ( !m_TimerKeyMonitor )
   {
-            if(RAM_OP1.BIT.Bit5==0){
-                      RAM_OP1.BIT.Bit5=1;
+            if(FG_PWRON==0){
+                      FG_PWRON=1;
                       RB7=1;
         TB_5s=51;
                           }
@@ -5266,13 +5236,13 @@ void _FuncReg( void )
   {
    _SetRegistrationMode( 1 ) ;
    m_KindOfKey = 0 ;
-   RAM_RegSW.BIT.Bit7 = 1 ;
+   mb_NoPushWait = 1 ;
   }
   return ;
  }
 
 
- if ( RAM_RegSW.BIT.Bit0 )
+ if ( mb_RegSw )
  {
   if ( m_TimerKey )
   {
@@ -5280,7 +5250,7 @@ void _FuncReg( void )
    {
     _SetRegistrationMode( 2 ) ;
     m_KindOfKey = 0 ;
-    RAM_RegSW.BIT.Bit7 = 1 ;
+    mb_NoPushWait = 1 ;
    }
    return ;
   }
@@ -5290,38 +5260,38 @@ void _FuncStop( void )
 {
  if ( _GetNoPushState() )
  {
-  if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit1 || RAM_SW.BIT.Bit2 )
+  if ( mb_OpenSw || mb_StopSw || mb_CloseSw )
   {
-   if (( !m_TimerKey )&&(RAM_SW.BIT.Bit6==0)&&(TIME_Once_twice_switch==0))
+   if (( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))
    {
 
 
-     if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit2 )
+     if ( mb_OpenSw || mb_CloseSw )
      {
       m_KeyOptSetMode = 10 ;
 
 
       m_KindOfKey = 0 ;
-      RAM_RegSW.BIT.Bit7 = 1 ;
+      mb_NoPushWait = 1 ;
       return ;
      }
      m_KeyOptSetMode = 1 ;
 
      _ReqBuzzer(103,103,1);
-      RAM_OP2.BIT.Bit3=1;
-      if(RAM_OP1.BIT.Bit5==0){
-                                             RAM_OP1.BIT.Bit5=1;
+      FG_LED_on=1;
+      if(FG_PWRON==0){
+                                             FG_PWRON=1;
                                              RB7=1;
                                              TB_5s=TB_51s;
                                                 }
      m_KeyDupliSetTimeout = 4000 ;
      m_KindOfKey = 0 ;
-     RAM_RegSW.BIT.Bit6=0;
-     RAM_RegSW.BIT.Bit7 = 1 ;
-     RAM_RegSW.BIT.Bit5 = 1 ;
-     if ( RAM_SW.BIT.Bit0 )
+     mb_NoPush=0;
+     mb_NoPushWait = 1 ;
+     m_KeyOptSetOpenStop = 1 ;
+     if ( mb_OpenSw )
      {
-      RAM_RegSW.BIT.Bit5 = 0 ;
+      m_KeyOptSetOpenStop = 0 ;
      }
 
 
@@ -5340,17 +5310,17 @@ void _FuncStop( void )
  switch ( m_KindOfKey )
  {
   case 1 :
-   RAM_SW.BIT.Bit0 = 1 ;
+   mb_OpenSw = 1 ;
    m_TimerKey = 5000 ;
    break;
 
   case 2 :
-   RAM_SW.BIT.Bit1 = 1 ;
+   mb_StopSw = 1 ;
    m_TimerKey = 5000 ;
    break;
 
   case 3 :
-   RAM_SW.BIT.Bit2 = 1 ;
+   mb_CloseSw = 1 ;
    m_TimerKey = 5000 ;
    break;
  }
@@ -5378,7 +5348,7 @@ void _FuncStop( void )
   _DupliFuncClear() ;
   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
   m_TimerKeyMonitor = 0 ;
-  RAM_SW.BIT.Bit3=1;
+  FG_d_StopKey=1;
   m_KeyDupli1stTimer = 3000 ;
   time_led=0;
   return ;
@@ -5389,9 +5359,9 @@ void _FuncStop( void )
 # 593 "../Projects/src/key_and_Other.c"
   case 1 :
   case 3 :
-   if ( RAM_SW.BIT.Bit3 && m_KeyDupli1stTimer)
+   if ( FG_d_StopKey && m_KeyDupli1stTimer)
    {
-           RAM_SW.BIT.Bit3=0;
+           FG_d_StopKey=0;
     m_KeyDupli1stTimer=0;
     _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
     m_TimerKeyMonitor = 0 ;
@@ -5413,14 +5383,14 @@ void _FuncAutoTxStop( void )
 }
 void _FuncNoPush( void )
 {
- RAM_SW.BIT.Bit0 = 0 ;
- RAM_SW.BIT.Bit1 = 0 ;
- RAM_SW.BIT.Bit2 = 0 ;
- RAM_SW.BIT.Bit6=0;
+ mb_OpenSw = 0 ;
+ mb_StopSw = 0 ;
+ mb_CloseSw = 0 ;
+ FG_BAT=0;
 
  _ClearSpecialMultiKeyState() ;
- RAM_RegSW.BIT.Bit6 = 1 ;
- RAM_RegSW.BIT.Bit7 = 0 ;
+ mb_NoPush = 1 ;
+ mb_NoPushWait = 0 ;
  m_KindOfKey = 0xFF;
 
 
@@ -5435,11 +5405,11 @@ void _SetKeyChatterCount( void )
 # 647 "../Projects/src/key_and_Other.c"
 void _ClearSpecialMultiKeyState( void )
 {
- RAM_RegSW.BIT.Bit0 = 0 ;
- RAM_RegSW.BIT.Bit1 = 0 ;
- RAM_RegSW.BIT.Bit2 = 0 ;
- RAM_RegSW.BIT.Bit3 = 0 ;
- RAM_RegSW.BIT.Bit4 = 0 ;
+ mb_RegSw = 0 ;
+ mb_RegStopSw = 0 ;
+ mb_RegOpenSw = 0 ;
+ mb_RegCloseSw = 0 ;
+ mb_RegVentSw = 0 ;
 }
 # 664 "../Projects/src/key_and_Other.c"
 void _DupliFuncClear( void )
@@ -5458,12 +5428,12 @@ void _DupliFuncClear( void )
 # 687 "../Projects/src/key_and_Other.c"
 unsigned char _GetNoPushState( void )
 {
- if ( !RAM_RegSW.BIT.Bit6 )
+ if ( !mb_NoPush )
  {
   return(1) ;
  }
 
- RAM_RegSW.BIT.Bit6 = 0 ;
+ mb_NoPush = 0 ;
 
 
 
@@ -5475,15 +5445,15 @@ unsigned char _GetNoPushState( void )
 void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
 {
   unsigned char time_key;
-  if((TB_sum_5s<69)&&(RAM_OP1.BIT.Bit5==1)&&(TB_5s<25)){
+  if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){
     time_key=25-TB_5s;
     TB_sum_5s=TB_sum_5s+time_key;
     if((69-TB_sum_5s)>=27)TB_5s=25;
 
   }
   if((TB_5s>=25)||(TIME_2s_RestTX==0)){
-        if(RAM_OP1.BIT.Bit5==0){
- RAM_OP1.BIT.Bit5=1;
+        if(FG_PWRON==0){
+ FG_PWRON=1;
  RB7=1;
  TB_5s=TB_51s;
         }
@@ -5566,7 +5536,7 @@ void _DupliFuncSetMode( void )
  switch ( m_KeyOptSetMode )
  {
   case 1 :
-   if ( !RAM_RegSW.BIT.Bit7 )
+   if ( !mb_NoPushWait )
    {
     m_KeyDupliSetTimeout = 1000 ;
     ++m_KeyOptSetMode ;
@@ -5588,7 +5558,7 @@ void _DupliFuncSetMode( void )
     m_KeyDupliSetTimeout = 3000 ;
 
     _ReqBuzzer(103,103,0);
-    RAM_OP2.BIT.Bit3=1;
+    FG_LED_on=1;
    }
 
    if ( m_KindOfKey != 0 && m_KindOfKey != 0xFF )
@@ -5609,7 +5579,7 @@ void _DupliFuncSetMode( void )
     return ;
    }
 
-   if ( RAM_RegSW.BIT.Bit5 )
+   if ( m_KeyOptSetOpenStop )
    {
     if ( m_KindOfKey == 2 )
     {
@@ -5646,7 +5616,7 @@ void _DupliFuncSetMode( void )
     m_KeyDupliSetTimeout = 3000 ;
 
     _ReqBuzzer(103,103,0);
-    RAM_OP2.BIT.Bit3=1;
+    FG_LED_on=1;
    }
 
 
@@ -5667,13 +5637,13 @@ void _DupliFuncSetMode( void )
     return ;
    }
 
-   if ( RAM_RegSW.BIT.Bit5 )
+   if ( m_KeyOptSetOpenStop )
    {
     if ( m_KindOfKey == 2 )
     {
      m_KeyDupliSetTimeout = 1000 ;
      ++m_KeyOptSetMode ;
-     RAM_RegSW.BIT.Bit7 = 1 ;
+     mb_NoPushWait = 1 ;
     }
     else
     {
@@ -5703,7 +5673,7 @@ void _DupliFuncSetMode( void )
     m_KeyDupliSetTimeout = 3000 ;
 
     _ReqBuzzer(103,103,2);
-                                RAM_OP2.BIT.Bit3=1;
+                                FG_LED_on=1;
    }
 
 
@@ -5724,13 +5694,13 @@ void _DupliFuncSetMode( void )
     return ;
    }
 
-   if ( RAM_RegSW.BIT.Bit5 )
+   if ( m_KeyOptSetOpenStop )
    {
     if ( m_KindOfKey == 2 )
     {
      m_KeyDupliSetTimeout = 10000 ;
      ++m_KeyOptSetMode ;
-     RAM_RegSW.BIT.Bit7 = 1 ;
+     mb_NoPushWait = 1 ;
     }
     else
     {
@@ -5766,7 +5736,7 @@ void _DupliFuncSetMode( void )
     return ;
    }
 
-   if ( RAM_RegSW.BIT.Bit5 )
+   if ( m_KeyOptSetOpenStop )
    {
     if ( m_KindOfKey == 2 )
     {
@@ -5787,8 +5757,8 @@ void _DupliFuncSetMode( void )
 
 
       _ReqBuzzer(103,103,4);
-                                                RAM_OP2.BIT.Bit3=1;
-      RAM_SW.BIT.Bit3=0;
+                                                FG_LED_on=1;
+      FG_d_StopKey=0;
       TB_5s=20;
       _DupliFuncClear() ;
       return ;
@@ -5821,8 +5791,8 @@ void _DupliFuncSetMode( void )
 
 
       _ReqBuzzer(103,103,4);
-                                                RAM_OP2.BIT.Bit3=1;
-      RAM_SW.BIT.Bit3=0;
+                                                FG_LED_on=1;
+      FG_d_StopKey=0;
       _DupliFuncClear() ;
 
       return ;
@@ -5838,7 +5808,7 @@ void _DupliFuncSetMode( void )
    break ;
 
   case 10 :
-   if ( !RAM_RegSW.BIT.Bit7 )
+   if ( !mb_NoPushWait )
    {
 
     _DupliFuncClear() ;
@@ -5856,8 +5826,8 @@ void _RegistrationMode( void )
   return ;
  }
 
-        if(RAM_OP1.BIT.Bit5==0){
- RAM_OP1.BIT.Bit5=1;
+        if(FG_PWRON==0){
+ FG_PWRON=1;
  RB7=1;
         }
  if(m_TimerRegMode){
@@ -6012,7 +5982,7 @@ void _SwIn( unsigned char sw )
 
 void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
 {
-  if(RAM_SW.BIT.Bit6==0){
+  if(FG_BAT==0){
      BASE_TIME_BEEP_on=BEEP_on_SET;
      BASE_TIME_BEEP_off=BEEP_off_SET;
      TIME_BEEP_on=BASE_TIME_BEEP_on;
@@ -6027,53 +5997,41 @@ void test_mode_control(void)
  while(RC3==0){
   ClearWDT();
 
-  if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-  {
-   Delayus(100);
-   if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-      {
-    RAM_OP2.BIT.Bit1=1;
-    RAM_OP1.BIT.Bit1=0;
-    RAM_OP1.BIT.Bit2=0;
-    RAM_OP1.BIT.Bit3=0;
-    TEST_No++;
-    if(TEST_No>3)TEST_No=1;
-   }
-  }
-  else RAM_OP2.BIT.Bit1=0;
 
-  if((TEST_No==1)&&(RAM_OP1.BIT.Bit1==0)){
-    RAM_OP1.BIT.Bit1=1;
-    dd_set_ADF7021_Power_on();
+
+  if((RB4==0)&&(FG_KEY_OPEN==0)){
+    FG_KEY_OPEN=1;
+
+    RC2 =1;
     dd_set_TX_mode();
-    RAM_OP2.BIT.Bit7=0;
+    FG_test_mode=0;
     RC0=0;
   }
+  if(RB4==1)FG_KEY_OPEN=0;
 
-
-   if((TEST_No==2)&&(RAM_OP1.BIT.Bit2==0)){
-    RAM_OP1.BIT.Bit2=1;
+   if((RC4==0)&&(FG_KEY_STOP==0)){
+    FG_KEY_STOP=1;
 
     RC2=0;
-    RAM_OP2.BIT.Bit7=0;
+    FG_test_mode=0;
     RC0=0;
   }
+  if(RC4==1)FG_KEY_STOP=0;
 
-
-  if((TEST_No==3)&&(RAM_OP1.BIT.Bit3==0)){
-    RAM_OP1.BIT.Bit3=1;
-    dd_set_ADF7021_Power_on();
+  if((RA4==0)&&(FG_KEY_CLOSE==0)){
+    FG_KEY_CLOSE=1;
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
-    RAM_OP2.BIT.Bit7=1;
+    FG_test_mode=1;
   }
+  if(RA4==1)FG_KEY_CLOSE=0;
 
 
-
-  if((RA2==1)&&(RAM_OP2.BIT.Bit7==1)&&(RAM_OP2.BIT.Bit6==0)){
+  if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
      RC0=!RC0;
-     RAM_OP2.BIT.Bit6=1;
+     FG_test1=1;
   }
-  if(RA2==0)RAM_OP2.BIT.Bit6=0;
+  if(RA2==0)FG_test1=0;
 
 
 
@@ -6081,7 +6039,7 @@ void test_mode_control(void)
   UART1_end();
   RB7=0;
   RB5=0;
-  RAM_OP1.BIT.Bit1=0;
-  RAM_OP1.BIT.Bit2=0;
-  RAM_OP1.BIT.Bit3=0;
+  FG_KEY_OPEN=0;
+  FG_KEY_STOP=0;
+  FG_KEY_CLOSE=0;
 }

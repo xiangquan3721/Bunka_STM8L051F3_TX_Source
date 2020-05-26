@@ -10,5 +10,6 @@
 
 void dd_write_7021_reg(unsigned char* reg_bytes);
 void dd_set_ADF7021_Power_on(void);
+void dd_set_ADF7021_Power_on_test(void);
 void dd_set_TX_mode(void);
 void dd_set_ADF7021_Power_on_Init(void);

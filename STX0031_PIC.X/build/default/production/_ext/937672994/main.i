@@ -4635,77 +4635,46 @@ void ClearWDT(void);
 # 27 "../Projects/src/main.c" 2
 
 # 1 "../Projects/inc\\ram.h" 1
-# 10 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP1;
-# 37 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP2;
-# 64 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP3;
-# 90 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_RegSW;
-# 116 "../Projects/inc\\ram.h"
-extern volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_SW;
-# 146 "../Projects/inc\\ram.h"
+# 143 "../Projects/inc\\ram.h"
+extern unsigned char FLAG_APP_TX;
+extern unsigned char FG_KEY_OPEN;
+extern unsigned char FG_KEY_STOP;
+extern unsigned char FG_KEY_CLOSE;
+extern unsigned char FG_KEY_LOGIN;
+extern unsigned char FG_PWRON;
+extern unsigned char FG_1ms;
+extern unsigned char FG_100ms;
+extern unsigned char FLAG_beep;
+extern unsigned char FG_beep_on;
+extern unsigned char FG_beep_off;
+extern unsigned char FG_LED_on;
+extern unsigned char mb_AutoTxOnOff;
+extern unsigned char mb_AutoTxInhibit;
+extern unsigned char FG_test1;
+extern unsigned char FG_test_mode;
+extern unsigned char FLAG_ADF7021_DATA_tx;
+extern unsigned char FLAG_KEY_COUNT;
+extern unsigned char mb_RegSw;
+extern unsigned char mb_RegStopSw;
+extern unsigned char mb_RegOpenSw;
+extern unsigned char mb_RegCloseSw;
+extern unsigned char mb_RegVentSw;
+extern unsigned char m_KeyOptSetOpenStop;
+extern unsigned char mb_NoPush;
+extern unsigned char mb_NoPushWait;
+extern unsigned char mb_OpenSw;
+extern unsigned char mb_StopSw;
+extern unsigned char mb_CloseSw;
+extern unsigned char FG_d_StopKey;
+extern unsigned char BIT_SIO;
+extern unsigned char FG_10s;
+extern unsigned char FG_BAT;
+extern unsigned char FG_Complex_Single_shot;
+
+
+
+
+
 extern unsigned char TB_51s;
 extern unsigned char TB_sum_5s;
 
@@ -4740,7 +4709,7 @@ extern unsigned char SIO_buff[16];
 extern unsigned char SIO_DATA[16];
 extern ADF70XX_REG_T ROM_adf7012_value[4];
 extern const ADF70XX_REG_T Default_adf7012_value[4];
-# 234 "../Projects/inc\\ram.h"
+# 270 "../Projects/inc\\ram.h"
 extern unsigned char m_KeyNew;
 extern unsigned char m_KindOfKey;
 extern unsigned char m_KeyOld;
@@ -4792,6 +4761,7 @@ void TIM4_UPD_OVF(void);
 # 11 "../Projects/inc\\adf7012.h"
 void dd_write_7021_reg(unsigned char* reg_bytes);
 void dd_set_ADF7021_Power_on(void);
+void dd_set_ADF7021_Power_on_test(void);
 void dd_set_TX_mode(void);
 void dd_set_ADF7021_Power_on_Init(void);
 # 30 "../Projects/src/main.c" 2
@@ -4888,12 +4858,32 @@ void AD_control(void);
 
 
 
-__asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
-__asm("GLOBAL nosup@@$_$_" "CONFIG" "\nnosup@@$_$_" "CONFIG" " SET 0");
+
+
+
+
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PLLEN = OFF
+#pragma config STVREN = OFF
+#pragma config BORV = LO
+#pragma config LVP = OFF
 
 
 void main(void)
 {
+    unsigned int aaa=0;
 
   VHF_GPIO_INIT();
   WDT_init();
@@ -4907,6 +4897,8 @@ void main(void)
 
   PEIE=1;
   GIE = 1;
+  for(aaa=0;aaa<1000;aaa++)
+      Delayus(130);
     while(RC3==0){
     RB7=1;
     RB5=1;
@@ -4925,14 +4917,14 @@ void main(void)
  AD_control();
 
 
-        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(RAM_OP1.BIT.Bit5==1)&&(key_Value!=2)&&(RAM_OP1.BIT.Bit0==0)){
-   RAM_OP1.BIT.Bit5=0;
+        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0)){
+   FG_PWRON=0;
    RB7=0;
-          RAM_SW.BIT.Bit5=1;
+          FG_10s=1;
 
    while(1){
-            if(RAM_SW.BIT.Bit7==1)ClearWDT();
-            else if((RAM_SW.BIT.Bit7==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
+            if(FG_Complex_Single_shot==1)ClearWDT();
+            else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
               key_check();
               ClearWDT();
             }
@@ -4957,7 +4949,7 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
   if(TMR2IF==1)
  {
-     RAM_OP1.BIT.Bit6 = 1;
+     FG_1ms = 1;
      TMR2IF=0;
  }
  (INTCONbits.GIE = 1);

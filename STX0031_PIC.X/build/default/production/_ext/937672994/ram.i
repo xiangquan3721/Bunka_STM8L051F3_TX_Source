@@ -4640,81 +4640,7 @@ void _Init_RAM(void);
 void WDT_init(void);
 void ClearWDT(void);
 # 12 "../Projects/src/ram.c" 2
-
-
-
-
-volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP1;
-
-volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP2;
-
-volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_OP3;
-
-volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_RegSW;
-volatile union{
- unsigned char BYTE;
- struct {
-  unsigned char Bit0: 1;
-  unsigned char Bit1: 1;
-  unsigned char Bit2: 1;
-  unsigned char Bit3: 1;
-  unsigned char Bit4: 1;
-  unsigned char Bit5: 1;
-  unsigned char Bit6: 1;
-  unsigned char Bit7: 1;
- }BIT;
-}RAM_SW;
-
-
-
+# 87 "../Projects/src/ram.c"
 unsigned char TB_51s;
 unsigned char TB_sum_5s;
 
@@ -4784,3 +4710,38 @@ unsigned char TIME_2s_RestTX=0;
 unsigned int TIME_power_on_AD=0;
 
 unsigned char TEST_No=0;
+
+unsigned char FLAG_APP_TX=0;
+unsigned char FG_KEY_OPEN=0;
+unsigned char FG_KEY_STOP=0;
+unsigned char FG_KEY_CLOSE=0;
+unsigned char FG_KEY_LOGIN=0;
+unsigned char FG_PWRON=0;
+unsigned char FG_1ms=0;
+unsigned char FG_100ms=0;
+unsigned char FLAG_beep=0;
+unsigned char FG_beep_on=0;
+unsigned char FG_beep_off=0;
+unsigned char FG_LED_on=0;
+unsigned char mb_AutoTxOnOff=0;
+unsigned char mb_AutoTxInhibit=0;
+unsigned char FG_test1=0;
+unsigned char FG_test_mode=0;
+unsigned char FLAG_ADF7021_DATA_tx=0;
+unsigned char FLAG_KEY_COUNT=0;
+unsigned char mb_RegSw=0;
+unsigned char mb_RegStopSw=0;
+unsigned char mb_RegOpenSw=0;
+unsigned char mb_RegCloseSw=0;
+unsigned char mb_RegVentSw=0;
+unsigned char m_KeyOptSetOpenStop=0;
+unsigned char mb_NoPush=0;
+unsigned char mb_NoPushWait=0;
+unsigned char mb_OpenSw=0;
+unsigned char mb_StopSw=0;
+unsigned char mb_CloseSw=0;
+unsigned char FG_d_StopKey=0;
+unsigned char BIT_SIO=0;
+unsigned char FG_10s=0;
+unsigned char FG_BAT=0;
+unsigned char FG_Complex_Single_shot=0;

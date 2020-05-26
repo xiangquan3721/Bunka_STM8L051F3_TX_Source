@@ -1,57 +1,47 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"12 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 12:  struct {
-[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S378 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"10
-[; ;../Projects/inc\ram.h: 10: extern volatile union{
-[u S377 `uc 1 `S378 1 ]
-[n S377 . BYTE BIT ]
-"22
-[; ;../Projects/inc\ram.h: 22: }RAM_OP1;
-[v _RAM_OP1 `VS377 ~T0 @X0 0 e ]
-"171
-[; ;../Projects/inc\ram.h: 171: extern unsigned char TB_100ms;
+"149 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 149: extern unsigned char FG_1ms;
+[v _FG_1ms `uc ~T0 @X0 0 e ]
+"207
+[; ;../Projects/inc\ram.h: 207: extern unsigned char TB_100ms;
 [v _TB_100ms `uc ~T0 @X0 0 e ]
-"267
-[; ;../Projects/inc\ram.h: 267: extern unsigned int TIME_power_on_AD;
+"150
+[; ;../Projects/inc\ram.h: 150: extern unsigned char FG_100ms;
+[v _FG_100ms `uc ~T0 @X0 0 e ]
+"303
+[; ;../Projects/inc\ram.h: 303: extern unsigned int TIME_power_on_AD;
 [v _TIME_power_on_AD `ui ~T0 @X0 0 e ]
-"253
-[; ;../Projects/inc\ram.h: 253: extern unsigned int m_TimerRegMode;
+"289
+[; ;../Projects/inc\ram.h: 289: extern unsigned int m_TimerRegMode;
 [v _m_TimerRegMode `ui ~T0 @X0 0 e ]
-"245
-[; ;../Projects/inc\ram.h: 245: extern unsigned int m_KeyDupliSetTimeout;
+"281
+[; ;../Projects/inc\ram.h: 281: extern unsigned int m_KeyDupliSetTimeout;
 [v _m_KeyDupliSetTimeout `ui ~T0 @X0 0 e ]
-"248
-[; ;../Projects/inc\ram.h: 248: extern unsigned int m_TimerKeyMonitor;
+"284
+[; ;../Projects/inc\ram.h: 284: extern unsigned int m_TimerKeyMonitor;
 [v _m_TimerKeyMonitor `ui ~T0 @X0 0 e ]
-"243
-[; ;../Projects/inc\ram.h: 243: extern unsigned int m_KeyDupli1stTimer;
+"279
+[; ;../Projects/inc\ram.h: 279: extern unsigned int m_KeyDupli1stTimer;
 [v _m_KeyDupli1stTimer `ui ~T0 @X0 0 e ]
-"118
-[; ;../Projects/inc\ram.h: 118:  struct {
-[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S386 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"116
-[; ;../Projects/inc\ram.h: 116: extern volatile union{
-[u S385 `uc 1 `S386 1 ]
-[n S385 . BYTE BIT ]
-"128
-[; ;../Projects/inc\ram.h: 128: }RAM_SW;
-[v _RAM_SW `VS385 ~T0 @X0 0 e ]
-"247
-[; ;../Projects/inc\ram.h: 247: extern unsigned int time_led;
+"172
+[; ;../Projects/inc\ram.h: 172: extern unsigned char FG_d_StopKey;
+[v _FG_d_StopKey `uc ~T0 @X0 0 e ]
+"283
+[; ;../Projects/inc\ram.h: 283: extern unsigned int time_led;
 [v _time_led `ui ~T0 @X0 0 e ]
 "8007 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8007: extern volatile __bit RB5 __attribute__((address(0x6D)));
 [v _RB5 `Vb ~T0 @X0 0 e@109 ]
-"238 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 238: extern unsigned int m_TimerKey;
+"274 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 274: extern unsigned int m_TimerKey;
 [v _m_TimerKey `ui ~T0 @X0 0 e ]
 "28 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 28: void _KeyInTx( void );
 [v __KeyInTx `(v ~T0 @X0 0 ef ]
-"37
+"174 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 174: extern unsigned char FG_10s;
+[v _FG_10s `uc ~T0 @X0 0 e ]
+"37 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 37: void _RegistrationMode( void );
 [v __RegistrationMode `(v ~T0 @X0 0 ef ]
 "33
@@ -60,23 +50,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59 ../Projects/inc\initial.h
 [; ;../Projects/inc\initial.h: 59: void ClearWDT(void);
 [v _ClearWDT `(v ~T0 @X0 0 ef ]
-"266 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 266: extern unsigned char TIME_2s_RestTX;
+"302 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 302: extern unsigned char TIME_2s_RestTX;
 [v _TIME_2s_RestTX `uc ~T0 @X0 0 e ]
-"172
-[; ;../Projects/inc\ram.h: 172: extern unsigned char TB_5s;
+"148
+[; ;../Projects/inc\ram.h: 148: extern unsigned char FG_PWRON;
+[v _FG_PWRON `uc ~T0 @X0 0 e ]
+"208
+[; ;../Projects/inc\ram.h: 208: extern unsigned char TB_5s;
 [v _TB_5s `uc ~T0 @X0 0 e ]
-"244
-[; ;../Projects/inc\ram.h: 244: extern unsigned char m_KeyOptSetMode;
+"280
+[; ;../Projects/inc\ram.h: 280: extern unsigned char m_KeyOptSetMode;
 [v _m_KeyOptSetMode `uc ~T0 @X0 0 e ]
-"235
-[; ;../Projects/inc\ram.h: 235: extern unsigned char m_KindOfKey;
+"271
+[; ;../Projects/inc\ram.h: 271: extern unsigned char m_KindOfKey;
 [v _m_KindOfKey `uc ~T0 @X0 0 e ]
-"234
-[; ;../Projects/inc\ram.h: 234: extern unsigned char m_KeyNew;
+"270
+[; ;../Projects/inc\ram.h: 270: extern unsigned char m_KeyNew;
 [v _m_KeyNew `uc ~T0 @X0 0 e ]
-"259
-[; ;../Projects/inc\ram.h: 259: extern unsigned char BAT_out;
+"295
+[; ;../Projects/inc\ram.h: 295: extern unsigned char BAT_out;
 [v _BAT_out `uc ~T0 @X0 0 e ]
 "16 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 16: void _SwIn( unsigned char sw );
@@ -96,8 +89,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8031
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8031: extern volatile __bit RC5 __attribute__((address(0x75)));
 [v _RC5 `Vb ~T0 @X0 0 e@117 ]
-"236 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 236: extern unsigned char m_KeyOld;
+"272 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 272: extern unsigned char m_KeyOld;
 [v _m_KeyOld `uc ~T0 @X0 0 e ]
 "27 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 27: void _SetKeyChatterCount( void );
@@ -105,54 +98,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;../Projects/inc\key_and_Other.h: 29: void _ClearSpecialMultiKeyState( void );
 [v __ClearSpecialMultiKeyState `(v ~T0 @X0 0 ef ]
-"262 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 262: extern unsigned int TIME_Once_twice_switch;
+"298 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 298: extern unsigned int TIME_Once_twice_switch;
 [v _TIME_Once_twice_switch `ui ~T0 @X0 0 e ]
-"263
-[; ;../Projects/inc\ram.h: 263: extern unsigned int TIME_10s;
+"299
+[; ;../Projects/inc\ram.h: 299: extern unsigned int TIME_10s;
 [v _TIME_10s `ui ~T0 @X0 0 e ]
-"237
-[; ;../Projects/inc\ram.h: 237: extern unsigned int m_ChatterCount;
+"273
+[; ;../Projects/inc\ram.h: 273: extern unsigned int m_ChatterCount;
 [v _m_ChatterCount `ui ~T0 @X0 0 e ]
-"14 ../Projects/inc\adf7012.h
-[; ;../Projects/inc\adf7012.h: 14: void dd_set_ADF7021_Power_on_Init(void);
+"15 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 15: void dd_set_ADF7021_Power_on_Init(void);
 [v _dd_set_ADF7021_Power_on_Init `(v ~T0 @X0 0 ef ]
-"166 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 166: extern unsigned int BASE_TIME_BEEP_on;
+"175 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 175: extern unsigned char FG_BAT;
+[v _FG_BAT `uc ~T0 @X0 0 e ]
+"202
+[; ;../Projects/inc\ram.h: 202: extern unsigned int BASE_TIME_BEEP_on;
 [v _BASE_TIME_BEEP_on `ui ~T0 @X0 0 e ]
-"167
-[; ;../Projects/inc\ram.h: 167: extern unsigned char BASE_TIME_BEEP_off;
+"203
+[; ;../Projects/inc\ram.h: 203: extern unsigned char BASE_TIME_BEEP_off;
 [v _BASE_TIME_BEEP_off `uc ~T0 @X0 0 e ]
-"164
-[; ;../Projects/inc\ram.h: 164: extern unsigned int TIME_BEEP_on;
+"200
+[; ;../Projects/inc\ram.h: 200: extern unsigned int TIME_BEEP_on;
 [v _TIME_BEEP_on `ui ~T0 @X0 0 e ]
-"165
-[; ;../Projects/inc\ram.h: 165: extern unsigned char TIME_BEEP_off;
+"201
+[; ;../Projects/inc\ram.h: 201: extern unsigned char TIME_BEEP_off;
 [v _TIME_BEEP_off `uc ~T0 @X0 0 e ]
-"168
-[; ;../Projects/inc\ram.h: 168: extern unsigned char TIME_BEEP_freq;
+"204
+[; ;../Projects/inc\ram.h: 204: extern unsigned char TIME_BEEP_freq;
 [v _TIME_BEEP_freq `uc ~T0 @X0 0 e ]
-"239
-[; ;../Projects/inc\ram.h: 239: extern unsigned char m_KeyNo;
+"275
+[; ;../Projects/inc\ram.h: 275: extern unsigned char m_KeyNo;
 [v _m_KeyNo `uc ~T0 @X0 0 e ]
-"264
-[; ;../Projects/inc\ram.h: 264: extern unsigned int key_Value;
+"300
+[; ;../Projects/inc\ram.h: 300: extern unsigned int key_Value;
 [v _key_Value `ui ~T0 @X0 0 e ]
-"92
-[; ;../Projects/inc\ram.h: 92:  struct {
-[s S384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S384 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"90
-[; ;../Projects/inc\ram.h: 90: extern volatile union{
-[u S383 `uc 1 `S384 1 ]
-[n S383 . BYTE BIT ]
-"102
-[; ;../Projects/inc\ram.h: 102: }RAM_RegSW;
-[v _RAM_RegSW `VS383 ~T0 @X0 0 e ]
+"167
+[; ;../Projects/inc\ram.h: 167: extern unsigned char mb_NoPush;
+[v _mb_NoPush `uc ~T0 @X0 0 e ]
+"168
+[; ;../Projects/inc\ram.h: 168: extern unsigned char mb_NoPushWait;
+[v _mb_NoPushWait `uc ~T0 @X0 0 e ]
 "30 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 30: void _DupliFuncClear( void );
 [v __DupliFuncClear `(v ~T0 @X0 0 ef ]
-"17
+"143 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 143: extern unsigned char FLAG_APP_TX;
+[v _FLAG_APP_TX `uc ~T0 @X0 0 e ]
+"17 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 17: void _FuncReg( void );
 [v __FuncReg `(v ~T0 @X0 0 ef ]
 "18
@@ -185,14 +179,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;../Projects/inc\key_and_Other.h: 32: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq );
 [v __ReqTxdEdit `(v ~T0 @X0 0 ef2`uc`uc ]
+"163 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 163: extern unsigned char mb_RegOpenSw;
+[v _mb_RegOpenSw `uc ~T0 @X0 0 e ]
 "8013 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8013: extern volatile __bit RB7 __attribute__((address(0x6F)));
 [v _RB7 `Vb ~T0 @X0 0 e@111 ]
 "40 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 40: void _Pass3secKey( unsigned char req );
 [v __Pass3secKey `(v ~T0 @X0 0 ef1`uc ]
-"249 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 249: extern unsigned char m_KeyCount;
+"164 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 164: extern unsigned char mb_RegCloseSw;
+[v _mb_RegCloseSw `uc ~T0 @X0 0 e ]
+"165
+[; ;../Projects/inc\ram.h: 165: extern unsigned char mb_RegVentSw;
+[v _mb_RegVentSw `uc ~T0 @X0 0 e ]
+"162
+[; ;../Projects/inc\ram.h: 162: extern unsigned char mb_RegStopSw;
+[v _mb_RegStopSw `uc ~T0 @X0 0 e ]
+"176
+[; ;../Projects/inc\ram.h: 176: extern unsigned char FG_Complex_Single_shot;
+[v _FG_Complex_Single_shot `uc ~T0 @X0 0 e ]
+"161
+[; ;../Projects/inc\ram.h: 161: extern unsigned char mb_RegSw;
+[v _mb_RegSw `uc ~T0 @X0 0 e ]
+"285
+[; ;../Projects/inc\ram.h: 285: extern unsigned char m_KeyCount;
 [v _m_KeyCount `uc ~T0 @X0 0 e ]
 "34 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 34: void _SetRegistrationMode( unsigned char mode );
@@ -200,46 +212,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31
 [; ;../Projects/inc\key_and_Other.h: 31: unsigned char _GetNoPushState( void );
 [v __GetNoPushState `(uc ~T0 @X0 0 ef ]
-"44
+"169 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 169: extern unsigned char mb_OpenSw;
+[v _mb_OpenSw `uc ~T0 @X0 0 e ]
+"170
+[; ;../Projects/inc\ram.h: 170: extern unsigned char mb_StopSw;
+[v _mb_StopSw `uc ~T0 @X0 0 e ]
+"171
+[; ;../Projects/inc\ram.h: 171: extern unsigned char mb_CloseSw;
+[v _mb_CloseSw `uc ~T0 @X0 0 e ]
+"44 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 44: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET);
 [v __ReqBuzzer `(v ~T0 @X0 0 ef3`ui`uc`uc ]
-"39 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 39:  struct {
-[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S380 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"37
-[; ;../Projects/inc\ram.h: 37: extern volatile union{
-[u S379 `uc 1 `S380 1 ]
-[n S379 . BYTE BIT ]
-"49
-[; ;../Projects/inc\ram.h: 49: }RAM_OP2;
-[v _RAM_OP2 `VS379 ~T0 @X0 0 e ]
-"146
-[; ;../Projects/inc\ram.h: 146: extern unsigned char TB_51s;
+"154 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 154: extern unsigned char FG_LED_on;
+[v _FG_LED_on `uc ~T0 @X0 0 e ]
+"182
+[; ;../Projects/inc\ram.h: 182: extern unsigned char TB_51s;
 [v _TB_51s `uc ~T0 @X0 0 e ]
-"250
-[; ;../Projects/inc\ram.h: 250: extern unsigned char m_RegMode;
+"166
+[; ;../Projects/inc\ram.h: 166: extern unsigned char m_KeyOptSetOpenStop;
+[v _m_KeyOptSetOpenStop `uc ~T0 @X0 0 e ]
+"286
+[; ;../Projects/inc\ram.h: 286: extern unsigned char m_RegMode;
 [v _m_RegMode `uc ~T0 @X0 0 e ]
-"246
-[; ;../Projects/inc\ram.h: 246: extern unsigned char rom_KeyOpt;
+"282
+[; ;../Projects/inc\ram.h: 282: extern unsigned char rom_KeyOpt;
 [v _rom_KeyOpt `uc ~T0 @X0 0 e ]
-"241
-[; ;../Projects/inc\ram.h: 241: extern unsigned char m_KeyOpenCount;
+"277
+[; ;../Projects/inc\ram.h: 277: extern unsigned char m_KeyOpenCount;
 [v _m_KeyOpenCount `uc ~T0 @X0 0 e ]
-"242
-[; ;../Projects/inc\ram.h: 242: extern unsigned char m_KeyCloseCount;
+"278
+[; ;../Projects/inc\ram.h: 278: extern unsigned char m_KeyCloseCount;
 [v _m_KeyCloseCount `uc ~T0 @X0 0 e ]
-"147
-[; ;../Projects/inc\ram.h: 147: extern unsigned char TB_sum_5s;
+"183
+[; ;../Projects/inc\ram.h: 183: extern unsigned char TB_sum_5s;
 [v _TB_sum_5s `uc ~T0 @X0 0 e ]
-"158
-[; ;../Projects/inc\ram.h: 158: extern unsigned char Control_code;
+"194
+[; ;../Projects/inc\ram.h: 194: extern unsigned char Control_code;
 [v _Control_code `uc ~T0 @X0 0 e ]
 "12 ../Projects/inc\adf7012.h
 [; ;../Projects/inc\adf7012.h: 12: void dd_set_ADF7021_Power_on(void);
 [v _dd_set_ADF7021_Power_on `(v ~T0 @X0 0 ef ]
-"13
-[; ;../Projects/inc\adf7012.h: 13: void dd_set_TX_mode(void);
+"14
+[; ;../Projects/inc\adf7012.h: 14: void dd_set_TX_mode(void);
 [v _dd_set_TX_mode `(v ~T0 @X0 0 ef ]
 "13 ../Projects/inc\EXIT_FUN.h
 [; ;../Projects/inc\EXIT_FUN.h: 13: void SendTxData(void);
@@ -250,11 +266,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 35: unsigned char _GetRegMode( void );
 [v __GetRegMode `(uc ~T0 @X0 0 ef ]
-"251 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 251: extern unsigned char m_RegID[9];
+"287 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 287: extern unsigned char m_RegID[9];
 [v _m_RegID `uc ~T0 @X0 -> 0 `x e ]
-"252
-[; ;../Projects/inc\ram.h: 252: extern unsigned char m_RegDigit;
+"288
+[; ;../Projects/inc\ram.h: 288: extern unsigned char m_RegDigit;
 [v _m_RegDigit `uc ~T0 @X0 0 e ]
 "36 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 36: void _IdClear( void );
@@ -263,28 +279,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/inc\initial.h: 41:   typedef union {
 [u S375 `ul 1 `uc -> 4 `i ]
 [n S375 . IDL IDB ]
-"157 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 157: extern uni_rom_id ID_data_add;
+"193 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 193: extern uni_rom_id ID_data_add;
 [v _ID_data_add `S375 ~T0 @X0 0 e ]
 "38 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 38: unsigned long atol_de (unsigned char* m_RegID_x);
 [v _atol_de `(ul ~T0 @X0 0 ef1`*uc ]
-"56 ../Projects/inc\initial.h
-[; ;../Projects/inc\initial.h: 56: void Delayus(unsigned char timer);
-[v _Delayus `(v ~T0 @X0 0 ef1`uc ]
-"269 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 269: extern unsigned char TEST_No;
-[v _TEST_No `uc ~T0 @X0 0 e ]
+"144 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 144: extern unsigned char FG_KEY_OPEN;
+[v _FG_KEY_OPEN `uc ~T0 @X0 0 e ]
+"8022 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
+[v _RC2 `Vb ~T0 @X0 0 e@114 ]
+"158 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 158: extern unsigned char FG_test_mode;
+[v _FG_test_mode `uc ~T0 @X0 0 e ]
 "8016 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8016: extern volatile __bit RC0 __attribute__((address(0x70)));
 [v _RC0 `Vb ~T0 @X0 0 e@112 ]
-"8022
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
-[v _RC2 `Vb ~T0 @X0 0 e@114 ]
-"7992
+"145 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 145: extern unsigned char FG_KEY_STOP;
+[v _FG_KEY_STOP `uc ~T0 @X0 0 e ]
+"146
+[; ;../Projects/inc\ram.h: 146: extern unsigned char FG_KEY_CLOSE;
+[v _FG_KEY_CLOSE `uc ~T0 @X0 0 e ]
+"13 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 13: void dd_set_ADF7021_Power_on_test(void);
+[v _dd_set_ADF7021_Power_on_test `(v ~T0 @X0 0 ef ]
+"7992 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7992: extern volatile __bit RA2 __attribute__((address(0x62)));
 [v _RA2 `Vb ~T0 @X0 0 e@98 ]
-"8025
+"157 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 157: extern unsigned char FG_test1;
+[v _FG_test1 `uc ~T0 @X0 0 e ]
+"8025 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8025: extern volatile __bit RC3 __attribute__((address(0x73)));
 [v _RC3 `Vb ~T0 @X0 0 e@115 ]
 "17 ../Projects/inc\uart.h
@@ -791,93 +819,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _key_check ]
 [f ]
 "24
-[; ;../Projects/src/key_and_Other.c: 24:    if(RAM_OP1.BIT.Bit6){
-[e $ ! != -> . . _RAM_OP1 1 6 `i -> 0 `i 388  ]
+[; ;../Projects/src/key_and_Other.c: 24:    if(FG_1ms){
+[e $ ! != -> _FG_1ms `i -> 0 `i 378  ]
 {
 "25
-[; ;../Projects/src/key_and_Other.c: 25:     RAM_OP1.BIT.Bit6=0;
-[e = . . _RAM_OP1 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 25:     FG_1ms=0;
+[e = _FG_1ms -> -> 0 `i `uc ]
 "27
 [; ;../Projects/src/key_and_Other.c: 27:   if (TB_100ms) --TB_100ms;
-[e $ ! != -> _TB_100ms `i -> 0 `i 389  ]
+[e $ ! != -> _TB_100ms `i -> 0 `i 379  ]
 [e =- _TB_100ms -> -> 1 `i `uc ]
-[e $U 390  ]
+[e $U 380  ]
 "28
 [; ;../Projects/src/key_and_Other.c: 28:         else{
-[e :U 389 ]
+[e :U 379 ]
 {
 "29
 [; ;../Projects/src/key_and_Other.c: 29:    TB_100ms = 100;
 [e = _TB_100ms -> -> 100 `i `uc ]
 "30
-[; ;../Projects/src/key_and_Other.c: 30:    RAM_OP1.BIT.Bit7 = 1;
-[e = . . _RAM_OP1 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 30:    FG_100ms = 1;
+[e = _FG_100ms -> -> 1 `i `uc ]
 "31
 [; ;../Projects/src/key_and_Other.c: 31:  }
 }
-[e :U 390 ]
+[e :U 380 ]
 "33
 [; ;../Projects/src/key_and_Other.c: 33:     if(TIME_power_on_AD)TIME_power_on_AD--;
-[e $ ! != _TIME_power_on_AD -> -> 0 `i `ui 391  ]
+[e $ ! != _TIME_power_on_AD -> -> 0 `i `ui 381  ]
 [e -- _TIME_power_on_AD -> -> 1 `i `ui ]
-[e :U 391 ]
+[e :U 381 ]
 "34
 [; ;../Projects/src/key_and_Other.c: 34:     if(m_TimerRegMode)--m_TimerRegMode;
-[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 392  ]
+[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 382  ]
 [e =- _m_TimerRegMode -> -> 1 `i `ui ]
-[e :U 392 ]
+[e :U 382 ]
 "35
 [; ;../Projects/src/key_and_Other.c: 35:     if(m_KeyDupliSetTimeout)--m_KeyDupliSetTimeout;
-[e $ ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 393  ]
+[e $ ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 383  ]
 [e =- _m_KeyDupliSetTimeout -> -> 1 `i `ui ]
-[e :U 393 ]
+[e :U 383 ]
 "36
 [; ;../Projects/src/key_and_Other.c: 36:     if(m_TimerKeyMonitor)--m_TimerKeyMonitor;
-[e $ ! != _m_TimerKeyMonitor -> -> 0 `i `ui 394  ]
+[e $ ! != _m_TimerKeyMonitor -> -> 0 `i `ui 384  ]
 [e =- _m_TimerKeyMonitor -> -> 1 `i `ui ]
-[e :U 394 ]
+[e :U 384 ]
 "37
 [; ;../Projects/src/key_and_Other.c: 37:     if(m_KeyDupli1stTimer)--m_KeyDupli1stTimer;
-[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 395  ]
+[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 385  ]
 [e =- _m_KeyDupli1stTimer -> -> 1 `i `ui ]
-[e $U 396  ]
+[e $U 386  ]
 "38
-[; ;../Projects/src/key_and_Other.c: 38:     else RAM_SW.BIT.Bit3=0;
-[e :U 395 ]
-[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
-[e :U 396 ]
+[; ;../Projects/src/key_and_Other.c: 38:     else FG_d_StopKey=0;
+[e :U 385 ]
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
+[e :U 386 ]
 "39
-[; ;../Projects/src/key_and_Other.c: 39:     if ( RAM_SW.BIT.Bit3 &&m_KeyDupli1stTimer){
-[e $ ! && != -> . . _RAM_SW 1 3 `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 397  ]
+[; ;../Projects/src/key_and_Other.c: 39:     if ( FG_d_StopKey &&m_KeyDupli1stTimer){
+[e $ ! && != -> _FG_d_StopKey `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 387  ]
 {
 "40
 [; ;../Projects/src/key_and_Other.c: 40:       time_led++;
 [e ++ _time_led -> -> 1 `i `ui ]
 "41
 [; ;../Projects/src/key_and_Other.c: 41:       if(time_led>=100){time_led=0;RB5=!RB5;}
-[e $ ! >= _time_led -> -> 100 `i `ui 398  ]
+[e $ ! >= _time_led -> -> 100 `i `ui 388  ]
 {
 [e = _time_led -> -> 0 `i `ui ]
 [e = _RB5 ! _RB5 ]
 }
-[e :U 398 ]
+[e :U 388 ]
 "42
 [; ;../Projects/src/key_and_Other.c: 42:     }
 }
-[e :U 397 ]
+[e :U 387 ]
 "43
 [; ;../Projects/src/key_and_Other.c: 43:     if(m_TimerKey)--m_TimerKey;
-[e $ ! != _m_TimerKey -> -> 0 `i `ui 399  ]
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 389  ]
 [e =- _m_TimerKey -> -> 1 `i `ui ]
-[e :U 399 ]
+[e :U 389 ]
 "69
 [; ;../Projects/src/key_and_Other.c: 69:     _KeyInTx();
 [e ( __KeyInTx ..  ]
 "70
-[; ;../Projects/src/key_and_Other.c: 70:     if(RAM_SW.BIT.Bit5==1)return;
-[e $ ! == -> . . _RAM_SW 1 5 `i -> 1 `i 400  ]
-[e $UE 387  ]
-[e :U 400 ]
+[; ;../Projects/src/key_and_Other.c: 70:     if(FG_10s==1)return;
+[e $ ! == -> _FG_10s `i -> 1 `i 390  ]
+[e $UE 377  ]
+[e :U 390 ]
 "71
 [; ;../Projects/src/key_and_Other.c: 71:     _RegistrationMode();
 [e ( __RegistrationMode ..  ]
@@ -890,10 +918,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "75
 [; ;../Projects/src/key_and_Other.c: 75:   }
 }
-[e :U 388 ]
+[e :U 378 ]
 "76
 [; ;../Projects/src/key_and_Other.c: 76: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "79
 [; ;../Projects/src/key_and_Other.c: 79: void time_control(void)
@@ -904,37 +932,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _time_control ]
 [f ]
 "81
-[; ;../Projects/src/key_and_Other.c: 81:   if(RAM_OP1.BIT.Bit7){
-[e $ ! != -> . . _RAM_OP1 1 7 `i -> 0 `i 402  ]
+[; ;../Projects/src/key_and_Other.c: 81:   if(FG_100ms){
+[e $ ! != -> _FG_100ms `i -> 0 `i 392  ]
 {
 "82
-[; ;../Projects/src/key_and_Other.c: 82:     RAM_OP1.BIT.Bit7=0;
-[e = . . _RAM_OP1 1 7 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 82:     FG_100ms=0;
+[e = _FG_100ms -> -> 0 `i `uc ]
 "83
 [; ;../Projects/src/key_and_Other.c: 83:     if(TIME_2s_RestTX)--TIME_2s_RestTX;
-[e $ ! != -> _TIME_2s_RestTX `i -> 0 `i 403  ]
+[e $ ! != -> _TIME_2s_RestTX `i -> 0 `i 393  ]
 [e =- _TIME_2s_RestTX -> -> 1 `i `uc ]
-[e :U 403 ]
+[e :U 393 ]
 "84
-[; ;../Projects/src/key_and_Other.c: 84:     if(RAM_OP1.BIT.Bit5==1){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 1 `i 404  ]
+[; ;../Projects/src/key_and_Other.c: 84:     if(FG_PWRON==1){
+[e $ ! == -> _FG_PWRON `i -> 1 `i 394  ]
 {
 "85
 [; ;../Projects/src/key_and_Other.c: 85:     if ((TB_5s)&&(m_KeyOptSetMode==0)) --TB_5s;
-[e $ ! && != -> _TB_5s `i -> 0 `i == -> _m_KeyOptSetMode `i -> 0 `i 405  ]
+[e $ ! && != -> _TB_5s `i -> 0 `i == -> _m_KeyOptSetMode `i -> 0 `i 395  ]
 [e =- _TB_5s -> -> 1 `i `uc ]
-[e :U 405 ]
+[e :U 395 ]
 "86
 [; ;../Projects/src/key_and_Other.c: 86:     }
 }
-[e :U 404 ]
+[e :U 394 ]
 "87
 [; ;../Projects/src/key_and_Other.c: 87:   }
 }
-[e :U 402 ]
+[e :U 392 ]
 "89
 [; ;../Projects/src/key_and_Other.c: 89: }
-[e :UE 401 ]
+[e :UE 391 ]
 }
 "112
 [; ;../Projects/src/key_and_Other.c: 112: const unsigned char ct_KeyDataTable[]
@@ -979,9 +1007,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyNew -> -> 255 `i `uc ]
 "158
 [; ;../Projects/src/key_and_Other.c: 158:         if(BAT_out==2)return;
-[e $ ! == -> _BAT_out `i -> 2 `i 407  ]
-[e $UE 406  ]
-[e :U 407 ]
+[e $ ! == -> _BAT_out `i -> 2 `i 397  ]
+[e $UE 396  ]
+[e :U 397 ]
 "161
 [; ;../Projects/src/key_and_Other.c: 161:  _SwIn( RB4 ) ;
 [e ( __SwIn (1 -> _RB4 `uc ]
@@ -1005,7 +1033,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __SwIn (1 -> -> 1 `i `uc ]
 "177
 [; ;../Projects/src/key_and_Other.c: 177:  if ( m_KeyNew != m_KeyOld )
-[e $ ! != -> _m_KeyNew `i -> _m_KeyOld `i 408  ]
+[e $ ! != -> _m_KeyNew `i -> _m_KeyOld `i 398  ]
 "178
 [; ;../Projects/src/key_and_Other.c: 178:  {
 {
@@ -1026,60 +1054,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TIME_10s -> -> 10100 `i `ui ]
 "184
 [; ;../Projects/src/key_and_Other.c: 184:   return ;
-[e $UE 406  ]
+[e $UE 396  ]
 "185
 [; ;../Projects/src/key_and_Other.c: 185:  }
 }
-[e :U 408 ]
+[e :U 398 ]
 "187
 [; ;../Projects/src/key_and_Other.c: 187:  if ( --m_ChatterCount )
-[e $ ! != =- _m_ChatterCount -> -> 1 `i `ui -> -> 0 `i `ui 409  ]
+[e $ ! != =- _m_ChatterCount -> -> 1 `i `ui -> -> 0 `i `ui 399  ]
 "188
 [; ;../Projects/src/key_and_Other.c: 188:  {
 {
 "189
 [; ;../Projects/src/key_and_Other.c: 189:   return ;
-[e $UE 406  ]
+[e $UE 396  ]
 "190
 [; ;../Projects/src/key_and_Other.c: 190:  }
 }
-[e :U 409 ]
+[e :U 399 ]
 "191
 [; ;../Projects/src/key_and_Other.c: 191:  m_ChatterCount = 1 ;
 [e = _m_ChatterCount -> -> 1 `i `ui ]
 "194
 [; ;../Projects/src/key_and_Other.c: 194:  if ( m_KeyNew != 0xFF )
-[e $ ! != -> _m_KeyNew `i -> 255 `i 410  ]
+[e $ ! != -> _m_KeyNew `i -> 255 `i 400  ]
 "195
 [; ;../Projects/src/key_and_Other.c: 195:  {
 {
 "201
 [; ;../Projects/src/key_and_Other.c: 201:            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;
-[e $ ! != _TIME_Once_twice_switch -> -> 0 `i `ui 411  ]
+[e $ ! != _TIME_Once_twice_switch -> -> 0 `i `ui 401  ]
 [e =- _TIME_Once_twice_switch -> -> 1 `i `ui ]
-[e :U 411 ]
+[e :U 401 ]
 "202
 [; ;../Projects/src/key_and_Other.c: 202:            if(TIME_10s)--TIME_10s;
-[e $ ! != _TIME_10s -> -> 0 `i `ui 412  ]
+[e $ ! != _TIME_10s -> -> 0 `i `ui 402  ]
 [e =- _TIME_10s -> -> 1 `i `ui ]
-[e :U 412 ]
+[e :U 402 ]
 "203
 [; ;../Projects/src/key_and_Other.c: 203:     dd_set_ADF7021_Power_on_Init();
 [e ( _dd_set_ADF7021_Power_on_Init ..  ]
 "205
-[; ;../Projects/src/key_and_Other.c: 205:            if((BAT_out==1)||(RAM_SW.BIT.Bit6)||(TIME_10s==0)){
-[e $ ! || || == -> _BAT_out `i -> 1 `i != -> . . _RAM_SW 1 6 `i -> 0 `i == _TIME_10s -> -> 0 `i `ui 413  ]
+[; ;../Projects/src/key_and_Other.c: 205:            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){
+[e $ ! || || == -> _BAT_out `i -> 1 `i != -> _FG_BAT `i -> 0 `i == _TIME_10s -> -> 0 `i `ui 403  ]
 {
 "206
-[; ;../Projects/src/key_and_Other.c: 206:        if(RAM_SW.BIT.Bit6==0){
-[e $ ! == -> . . _RAM_SW 1 6 `i -> 0 `i 414  ]
+[; ;../Projects/src/key_and_Other.c: 206:        if(FG_BAT==0){
+[e $ ! == -> _FG_BAT `i -> 0 `i 404  ]
 {
 "207
-[; ;../Projects/src/key_and_Other.c: 207:           RAM_SW.BIT.Bit6=1;
-[e = . . _RAM_SW 1 6 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 207:           FG_BAT=1;
+[e = _FG_BAT -> -> 1 `i `uc ]
 "208
 [; ;../Projects/src/key_and_Other.c: 208:    if(TIME_10s==0){
-[e $ ! == _TIME_10s -> -> 0 `i `ui 415  ]
+[e $ ! == _TIME_10s -> -> 0 `i `ui 405  ]
 {
 "209
 [; ;../Projects/src/key_and_Other.c: 209:                            BASE_TIME_BEEP_on=103;
@@ -1090,10 +1118,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "211
 [; ;../Projects/src/key_and_Other.c: 211:                         }
 }
-[e $U 416  ]
+[e $U 406  ]
 "212
 [; ;../Projects/src/key_and_Other.c: 212:                         else {
-[e :U 415 ]
+[e :U 405 ]
 {
 "213
 [; ;../Projects/src/key_and_Other.c: 213:                            BASE_TIME_BEEP_on=40;
@@ -1104,7 +1132,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "215
 [; ;../Projects/src/key_and_Other.c: 215:                         }
 }
-[e :U 416 ]
+[e :U 406 ]
 "216
 [; ;../Projects/src/key_and_Other.c: 216:                         TIME_BEEP_on=BASE_TIME_BEEP_on;
 [e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
@@ -1117,35 +1145,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "219
 [; ;../Projects/src/key_and_Other.c: 219:        }
 }
-[e $U 417  ]
+[e $U 407  ]
 "220
 [; ;../Projects/src/key_and_Other.c: 220:        else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
-[e :U 414 ]
-[e $ ! <= -> _TIME_BEEP_freq `i -> 1 `i 418  ]
+[e :U 404 ]
+[e $ ! <= -> _TIME_BEEP_freq `i -> 1 `i 408  ]
 [e = _TIME_BEEP_freq -> -> 2 `i `uc ]
-[e :U 418 ]
-[e :U 417 ]
+[e :U 408 ]
+[e :U 407 ]
 "221
 [; ;../Projects/src/key_and_Other.c: 221:      }
 }
-[e :U 413 ]
+[e :U 403 ]
 "222
 [; ;../Projects/src/key_and_Other.c: 222:  }
 }
-[e :U 410 ]
+[e :U 400 ]
 "225
 [; ;../Projects/src/key_and_Other.c: 225:  for ( i=0; i<17;i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 17 `i 419  ]
-[e $U 420  ]
-[e :U 419 ]
+[e $ < -> _i `i -> 17 `i 409  ]
+[e $U 410  ]
+[e :U 409 ]
 "226
 [; ;../Projects/src/key_and_Other.c: 226:  {
 {
 "227
 [; ;../Projects/src/key_and_Other.c: 227:   if ( m_KeyNew == ct_KeyDataTable[i] )
-[e $ ! == -> _m_KeyNew `i -> *U + &U _ct_KeyDataTable * -> _i `ux -> -> # *U &U _ct_KeyDataTable `ui `ux `i 422  ]
+[e $ ! == -> _m_KeyNew `i -> *U + &U _ct_KeyDataTable * -> _i `ux -> -> # *U &U _ct_KeyDataTable `ui `ux `i 412  ]
 "228
 [; ;../Projects/src/key_and_Other.c: 228:   {
 {
@@ -1154,226 +1182,226 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyNo _i ]
 "230
 [; ;../Projects/src/key_and_Other.c: 230:    break ;
-[e $U 420  ]
+[e $U 410  ]
 "231
 [; ;../Projects/src/key_and_Other.c: 231:   }
 }
-[e :U 422 ]
+[e :U 412 ]
 "232
 [; ;../Projects/src/key_and_Other.c: 232:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 17 `i 419  ]
-[e :U 420 ]
+[e $ < -> _i `i -> 17 `i 409  ]
+[e :U 410 ]
 }
 "233
 [; ;../Projects/src/key_and_Other.c: 233:         key_Value=i;
 [e = _key_Value -> _i `ui ]
 "234
-[; ;../Projects/src/key_and_Other.c: 234:         if(RAM_SW.BIT.Bit5==1)return;
-[e $ ! == -> . . _RAM_SW 1 5 `i -> 1 `i 423  ]
-[e $UE 406  ]
-[e :U 423 ]
+[; ;../Projects/src/key_and_Other.c: 234:         if(FG_10s==1)return;
+[e $ ! == -> _FG_10s `i -> 1 `i 413  ]
+[e $UE 396  ]
+[e :U 413 ]
 "236
 [; ;../Projects/src/key_and_Other.c: 236:  if ( i == 17)
-[e $ ! == -> _i `i -> 17 `i 424  ]
+[e $ ! == -> _i `i -> 17 `i 414  ]
 "237
 [; ;../Projects/src/key_and_Other.c: 237:  {
 {
 "238
-[; ;../Projects/src/key_and_Other.c: 238:   RAM_RegSW.BIT.Bit6 = 0 ;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 238:   mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "239
 [; ;../Projects/src/key_and_Other.c: 239:   _ClearSpecialMultiKeyState() ;
 [e ( __ClearSpecialMultiKeyState ..  ]
 "240
-[; ;../Projects/src/key_and_Other.c: 240:   RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 240:   mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "241
 [; ;../Projects/src/key_and_Other.c: 241:   _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "242
 [; ;../Projects/src/key_and_Other.c: 242:   return ;
-[e $UE 406  ]
+[e $UE 396  ]
 "243
 [; ;../Projects/src/key_and_Other.c: 243:  }
 }
-[e :U 424 ]
+[e :U 414 ]
 "245
-[; ;../Projects/src/key_and_Other.c: 245:  if ( RAM_RegSW.BIT.Bit7 )
-[e $ ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 425  ]
+[; ;../Projects/src/key_and_Other.c: 245:  if ( mb_NoPushWait )
+[e $ ! != -> _mb_NoPushWait `i -> 0 `i 415  ]
 "246
 [; ;../Projects/src/key_and_Other.c: 246:  {
 {
 "247
 [; ;../Projects/src/key_and_Other.c: 247:   if ( m_KeyNew != 0xFF )
-[e $ ! != -> _m_KeyNew `i -> 255 `i 426  ]
+[e $ ! != -> _m_KeyNew `i -> 255 `i 416  ]
 "248
 [; ;../Projects/src/key_and_Other.c: 248:   {
 {
 "249
-[; ;../Projects/src/key_and_Other.c: 249:                         if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(RAM_OP1.BIT.Bit0==0));
-[e $ ! && || || || || == -> _i `i -> 5 `i == -> _i `i -> 6 `i == -> _i `i -> 7 `i == -> _i `i -> 9 `i == -> _i `i -> 12 `i == -> . . _RAM_OP1 1 0 `i -> 0 `i 427  ]
-[e $U 428  ]
+[; ;../Projects/src/key_and_Other.c: 249:                         if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));
+[e $ ! && || || || || == -> _i `i -> 5 `i == -> _i `i -> 6 `i == -> _i `i -> 7 `i == -> _i `i -> 9 `i == -> _i `i -> 12 `i == -> _FLAG_APP_TX `i -> 0 `i 417  ]
+[e $U 418  ]
 "250
 [; ;../Projects/src/key_and_Other.c: 250:    else return ;
-[e :U 427 ]
-[e $UE 406  ]
-[e :U 428 ]
+[e :U 417 ]
+[e $UE 396  ]
+[e :U 418 ]
 "251
 [; ;../Projects/src/key_and_Other.c: 251:   }
 }
-[e :U 426 ]
+[e :U 416 ]
 "252
 [; ;../Projects/src/key_and_Other.c: 252:  }
 }
-[e :U 425 ]
+[e :U 415 ]
 "254
 [; ;../Projects/src/key_and_Other.c: 254:  switch ( i )
-[e $U 430  ]
+[e $U 420  ]
 "255
 [; ;../Projects/src/key_and_Other.c: 255:  {
 {
 "256
 [; ;../Projects/src/key_and_Other.c: 256:   case 0 :
-[e :U 431 ]
+[e :U 421 ]
 "257
 [; ;../Projects/src/key_and_Other.c: 257:           _FuncReg();
 [e ( __FuncReg ..  ]
 "258
 [; ;../Projects/src/key_and_Other.c: 258:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "259
 [; ;../Projects/src/key_and_Other.c: 259:   case 1 :
-[e :U 432 ]
+[e :U 422 ]
 "260
 [; ;../Projects/src/key_and_Other.c: 260:   case 2 :
-[e :U 433 ]
+[e :U 423 ]
 "261
 [; ;../Projects/src/key_and_Other.c: 261:   case 3 :
-[e :U 434 ]
+[e :U 424 ]
 "262
 [; ;../Projects/src/key_and_Other.c: 262:   case 4 :
-[e :U 435 ]
+[e :U 425 ]
 "263
-[; ;../Projects/src/key_and_Other.c: 263:           if(RAM_OP1.BIT.Bit0==0)_FuncStop();
-[e $ ! == -> . . _RAM_OP1 1 0 `i -> 0 `i 436  ]
+[; ;../Projects/src/key_and_Other.c: 263:           if(FLAG_APP_TX==0)_FuncStop();
+[e $ ! == -> _FLAG_APP_TX `i -> 0 `i 426  ]
 [e ( __FuncStop ..  ]
-[e :U 436 ]
+[e :U 426 ]
 "264
 [; ;../Projects/src/key_and_Other.c: 264:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "265
 [; ;../Projects/src/key_and_Other.c: 265:   case 5 :
-[e :U 437 ]
+[e :U 427 ]
 "266
 [; ;../Projects/src/key_and_Other.c: 266:   case 6 :
-[e :U 438 ]
+[e :U 428 ]
 "267
 [; ;../Projects/src/key_and_Other.c: 267:   case 7 :
-[e :U 439 ]
+[e :U 429 ]
 "268
 [; ;../Projects/src/key_and_Other.c: 268:   case 9 :
-[e :U 440 ]
+[e :U 430 ]
 "269
 [; ;../Projects/src/key_and_Other.c: 269:   case 12 :
-[e :U 441 ]
+[e :U 431 ]
 "270
 [; ;../Projects/src/key_and_Other.c: 270:           _FuncOpenStop();
 [e ( __FuncOpenStop ..  ]
 "271
 [; ;../Projects/src/key_and_Other.c: 271:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "272
 [; ;../Projects/src/key_and_Other.c: 272:   case 8 :
-[e :U 442 ]
+[e :U 432 ]
 "273
 [; ;../Projects/src/key_and_Other.c: 273:           _FuncOpenReg();
 [e ( __FuncOpenReg ..  ]
 "274
 [; ;../Projects/src/key_and_Other.c: 274:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "275
 [; ;../Projects/src/key_and_Other.c: 275:   case 10 :
-[e :U 443 ]
+[e :U 433 ]
 "276
 [; ;../Projects/src/key_and_Other.c: 276:           _FuncStopReg();
 [e ( __FuncStopReg ..  ]
 "277
 [; ;../Projects/src/key_and_Other.c: 277:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "278
 [; ;../Projects/src/key_and_Other.c: 278:   case 11 :
-[e :U 444 ]
+[e :U 434 ]
 "279
 [; ;../Projects/src/key_and_Other.c: 279:           _FuncCloseReg();
 [e ( __FuncCloseReg ..  ]
 "280
 [; ;../Projects/src/key_and_Other.c: 280:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "281
 [; ;../Projects/src/key_and_Other.c: 281:   case 13 :
-[e :U 445 ]
+[e :U 435 ]
 "282
 [; ;../Projects/src/key_and_Other.c: 282:           _FuncVentReg();
 [e ( __FuncVentReg ..  ]
 "283
 [; ;../Projects/src/key_and_Other.c: 283:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "284
 [; ;../Projects/src/key_and_Other.c: 284:   case 14 :
-[e :U 446 ]
+[e :U 436 ]
 "285
 [; ;../Projects/src/key_and_Other.c: 285:           _FuncAutoTxStart();
 [e ( __FuncAutoTxStart ..  ]
 "286
 [; ;../Projects/src/key_and_Other.c: 286:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "287
 [; ;../Projects/src/key_and_Other.c: 287:   case 15 :
-[e :U 447 ]
+[e :U 437 ]
 "288
 [; ;../Projects/src/key_and_Other.c: 288:           _FuncAutoTxStop();
 [e ( __FuncAutoTxStop ..  ]
 "289
 [; ;../Projects/src/key_and_Other.c: 289:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "290
 [; ;../Projects/src/key_and_Other.c: 290:   case 16 :
-[e :U 448 ]
+[e :U 438 ]
 "291
 [; ;../Projects/src/key_and_Other.c: 291:           _FuncNoPush();
 [e ( __FuncNoPush ..  ]
 "292
 [; ;../Projects/src/key_and_Other.c: 292:    break ;
-[e $U 429  ]
+[e $U 419  ]
 "293
 [; ;../Projects/src/key_and_Other.c: 293:  }
 }
-[e $U 429  ]
-[e :U 430 ]
-[e [\ -> _i `i , $ -> 0 `i 431
- , $ -> 1 `i 432
- , $ -> 2 `i 433
- , $ -> 3 `i 434
- , $ -> 4 `i 435
- , $ -> 5 `i 437
- , $ -> 6 `i 438
- , $ -> 7 `i 439
- , $ -> 9 `i 440
- , $ -> 12 `i 441
- , $ -> 8 `i 442
- , $ -> 10 `i 443
- , $ -> 11 `i 444
- , $ -> 13 `i 445
- , $ -> 14 `i 446
- , $ -> 15 `i 447
- , $ -> 16 `i 448
- 429 ]
-[e :U 429 ]
+[e $U 419  ]
+[e :U 420 ]
+[e [\ -> _i `i , $ -> 0 `i 421
+ , $ -> 1 `i 422
+ , $ -> 2 `i 423
+ , $ -> 3 `i 424
+ , $ -> 4 `i 425
+ , $ -> 5 `i 427
+ , $ -> 6 `i 428
+ , $ -> 7 `i 429
+ , $ -> 9 `i 430
+ , $ -> 12 `i 431
+ , $ -> 8 `i 432
+ , $ -> 10 `i 433
+ , $ -> 11 `i 434
+ , $ -> 13 `i 435
+ , $ -> 14 `i 436
+ , $ -> 15 `i 437
+ , $ -> 16 `i 438
+ 419 ]
+[e :U 419 ]
 "294
 [; ;../Projects/src/key_and_Other.c: 294: }
-[e :UE 406 ]
+[e :UE 396 ]
 }
 "305
 [; ;../Projects/src/key_and_Other.c: 305: void _FuncOpenStop( void )
@@ -1396,14 +1424,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 310:  _ClearSpecialMultiKeyState() ;
 [e ( __ClearSpecialMultiKeyState ..  ]
 "311
-[; ;../Projects/src/key_and_Other.c: 311:  RAM_RegSW.BIT.Bit6 = 0 ;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 311:  mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "312
-[; ;../Projects/src/key_and_Other.c: 312:  RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 312:  mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "313
 [; ;../Projects/src/key_and_Other.c: 313: }
-[e :UE 449 ]
+[e :UE 439 ]
 }
 "320
 [; ;../Projects/src/key_and_Other.c: 320: void _FuncOpenReg( void )
@@ -1417,27 +1445,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 322:  _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "323
-[; ;../Projects/src/key_and_Other.c: 323:  RAM_RegSW.BIT.Bit6 = 0 ;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 323:  mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "324
-[; ;../Projects/src/key_and_Other.c: 324:  if ( !RAM_RegSW.BIT.Bit2 )
-[e $ ! ! != -> . . _RAM_RegSW 1 2 `i -> 0 `i 451  ]
+[; ;../Projects/src/key_and_Other.c: 324:  if ( !mb_RegOpenSw )
+[e $ ! ! != -> _mb_RegOpenSw `i -> 0 `i 441  ]
 "325
 [; ;../Projects/src/key_and_Other.c: 325:  {
 {
 "326
-[; ;../Projects/src/key_and_Other.c: 326:   RAM_RegSW.BIT.Bit2 = 1 ;
-[e = . . _RAM_RegSW 1 2 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 326:   mb_RegOpenSw = 1 ;
+[e = _mb_RegOpenSw -> -> 1 `i `uc ]
 "327
 [; ;../Projects/src/key_and_Other.c: 327:   m_TimerKey = 3000 ;
 [e = _m_TimerKey -> -> 3000 `i `ui ]
 "328
-[; ;../Projects/src/key_and_Other.c: 328:   if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 452  ]
+[; ;../Projects/src/key_and_Other.c: 328:   if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 442  ]
 {
 "329
-[; ;../Projects/src/key_and_Other.c: 329:             RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 329:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "330
 [; ;../Projects/src/key_and_Other.c: 330:             RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1447,20 +1475,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "332
 [; ;../Projects/src/key_and_Other.c: 332:                 }
 }
-[e :U 452 ]
+[e :U 442 ]
 "333
 [; ;../Projects/src/key_and_Other.c: 333:   return ;
-[e $UE 450  ]
+[e $UE 440  ]
 "334
 [; ;../Projects/src/key_and_Other.c: 334:  }
 }
-[e :U 451 ]
+[e :U 441 ]
 "336
 [; ;../Projects/src/key_and_Other.c: 336:  _Pass3secKey( 8 ) ;
 [e ( __Pass3secKey (1 -> -> 8 `i `uc ]
 "337
 [; ;../Projects/src/key_and_Other.c: 337: }
-[e :UE 450 ]
+[e :UE 440 ]
 }
 "344
 [; ;../Projects/src/key_and_Other.c: 344: void _FuncCloseReg( void )
@@ -1474,24 +1502,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 346:  _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "347
-[; ;../Projects/src/key_and_Other.c: 347:  if ( !RAM_RegSW.BIT.Bit3 )
-[e $ ! ! != -> . . _RAM_RegSW 1 3 `i -> 0 `i 454  ]
+[; ;../Projects/src/key_and_Other.c: 347:  if ( !mb_RegCloseSw )
+[e $ ! ! != -> _mb_RegCloseSw `i -> 0 `i 444  ]
 "348
 [; ;../Projects/src/key_and_Other.c: 348:  {
 {
 "349
-[; ;../Projects/src/key_and_Other.c: 349:   RAM_RegSW.BIT.Bit3 = 1 ;
-[e = . . _RAM_RegSW 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 349:   mb_RegCloseSw = 1 ;
+[e = _mb_RegCloseSw -> -> 1 `i `uc ]
 "350
 [; ;../Projects/src/key_and_Other.c: 350:   m_TimerKey = 3000 ;
 [e = _m_TimerKey -> -> 3000 `i `ui ]
 "351
-[; ;../Projects/src/key_and_Other.c: 351:   if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 455  ]
+[; ;../Projects/src/key_and_Other.c: 351:   if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 445  ]
 {
 "352
-[; ;../Projects/src/key_and_Other.c: 352:             RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 352:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "353
 [; ;../Projects/src/key_and_Other.c: 353:             RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1501,20 +1529,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "355
 [; ;../Projects/src/key_and_Other.c: 355:                 }
 }
-[e :U 455 ]
+[e :U 445 ]
 "356
 [; ;../Projects/src/key_and_Other.c: 356:   return ;
-[e $UE 453  ]
+[e $UE 443  ]
 "357
 [; ;../Projects/src/key_and_Other.c: 357:  }
 }
-[e :U 454 ]
+[e :U 444 ]
 "359
 [; ;../Projects/src/key_and_Other.c: 359:  _Pass3secKey( 11 ) ;
 [e ( __Pass3secKey (1 -> -> 11 `i `uc ]
 "360
 [; ;../Projects/src/key_and_Other.c: 360: }
-[e :UE 453 ]
+[e :UE 443 ]
 }
 "367
 [; ;../Projects/src/key_and_Other.c: 367: void _FuncVentReg( void )
@@ -1528,24 +1556,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 369:  _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "370
-[; ;../Projects/src/key_and_Other.c: 370:  if ( !RAM_RegSW.BIT.Bit4 )
-[e $ ! ! != -> . . _RAM_RegSW 1 4 `i -> 0 `i 457  ]
+[; ;../Projects/src/key_and_Other.c: 370:  if ( !mb_RegVentSw )
+[e $ ! ! != -> _mb_RegVentSw `i -> 0 `i 447  ]
 "371
 [; ;../Projects/src/key_and_Other.c: 371:  {
 {
 "372
-[; ;../Projects/src/key_and_Other.c: 372:   RAM_RegSW.BIT.Bit4 = 1 ;
-[e = . . _RAM_RegSW 1 4 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 372:   mb_RegVentSw = 1 ;
+[e = _mb_RegVentSw -> -> 1 `i `uc ]
 "373
 [; ;../Projects/src/key_and_Other.c: 373:   m_TimerKey = 3000 ;
 [e = _m_TimerKey -> -> 3000 `i `ui ]
 "374
-[; ;../Projects/src/key_and_Other.c: 374:   if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 458  ]
+[; ;../Projects/src/key_and_Other.c: 374:   if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 448  ]
 {
 "375
-[; ;../Projects/src/key_and_Other.c: 375:             RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 375:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "376
 [; ;../Projects/src/key_and_Other.c: 376:             RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1555,20 +1583,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "378
 [; ;../Projects/src/key_and_Other.c: 378:                 }
 }
-[e :U 458 ]
+[e :U 448 ]
 "379
 [; ;../Projects/src/key_and_Other.c: 379:   return ;
-[e $UE 456  ]
+[e $UE 446  ]
 "380
 [; ;../Projects/src/key_and_Other.c: 380:  }
 }
-[e :U 457 ]
+[e :U 447 ]
 "382
 [; ;../Projects/src/key_and_Other.c: 382:  _Pass3secKey( 13 ) ;
 [e ( __Pass3secKey (1 -> -> 13 `i `uc ]
 "383
 [; ;../Projects/src/key_and_Other.c: 383: }
-[e :UE 456 ]
+[e :UE 446 ]
 }
 "390
 [; ;../Projects/src/key_and_Other.c: 390: void _FuncStopReg( void )
@@ -1582,24 +1610,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 392:  _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "393
-[; ;../Projects/src/key_and_Other.c: 393:  if ( !RAM_RegSW.BIT.Bit1 )
-[e $ ! ! != -> . . _RAM_RegSW 1 1 `i -> 0 `i 460  ]
+[; ;../Projects/src/key_and_Other.c: 393:  if ( !mb_RegStopSw )
+[e $ ! ! != -> _mb_RegStopSw `i -> 0 `i 450  ]
 "394
 [; ;../Projects/src/key_and_Other.c: 394:  {
 {
 "395
-[; ;../Projects/src/key_and_Other.c: 395:   RAM_RegSW.BIT.Bit1 = 1 ;
-[e = . . _RAM_RegSW 1 1 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 395:   mb_RegStopSw = 1 ;
+[e = _mb_RegStopSw -> -> 1 `i `uc ]
 "396
 [; ;../Projects/src/key_and_Other.c: 396:   m_TimerKey = 3000 ;
 [e = _m_TimerKey -> -> 3000 `i `ui ]
 "397
-[; ;../Projects/src/key_and_Other.c: 397:   if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 461  ]
+[; ;../Projects/src/key_and_Other.c: 397:   if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 451  ]
 {
 "398
-[; ;../Projects/src/key_and_Other.c: 398:             RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 398:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "399
 [; ;../Projects/src/key_and_Other.c: 399:             RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1609,20 +1637,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "401
 [; ;../Projects/src/key_and_Other.c: 401:                 }
 }
-[e :U 461 ]
+[e :U 451 ]
 "402
 [; ;../Projects/src/key_and_Other.c: 402:   return ;
-[e $UE 459  ]
+[e $UE 449  ]
 "403
 [; ;../Projects/src/key_and_Other.c: 403:  }
 }
-[e :U 460 ]
+[e :U 450 ]
 "405
 [; ;../Projects/src/key_and_Other.c: 405:  _Pass3secKey( 10 ) ;
 [e ( __Pass3secKey (1 -> -> 10 `i `uc ]
 "406
 [; ;../Projects/src/key_and_Other.c: 406: }
-[e :UE 459 ]
+[e :UE 449 ]
 }
 "407
 [; ;../Projects/src/key_and_Other.c: 407: void _Pass3secKey( unsigned char req )
@@ -1639,13 +1667,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "409
 [; ;../Projects/src/key_and_Other.c: 409:  if ( m_TimerKey )
-[e $ ! != _m_TimerKey -> -> 0 `i `ui 463  ]
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 453  ]
 "410
 [; ;../Projects/src/key_and_Other.c: 410:  {
 {
 "411
 [; ;../Projects/src/key_and_Other.c: 411:   if ( !--m_TimerKey )
-[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 464  ]
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 454  ]
 "412
 [; ;../Projects/src/key_and_Other.c: 412:   {
 {
@@ -1653,22 +1681,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 413:    _ReqTxdEdit( req,0 ) ;
 [e ( __ReqTxdEdit (2 , _req -> -> 0 `i `uc ]
 "414
-[; ;../Projects/src/key_and_Other.c: 414:                         RAM_SW.BIT.Bit7=1;
-[e = . . _RAM_SW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 414:                         FG_Complex_Single_shot=1;
+[e = _FG_Complex_Single_shot -> -> 1 `i `uc ]
 "415
 [; ;../Projects/src/key_and_Other.c: 415:    return ;
-[e $UE 462  ]
+[e $UE 452  ]
 "416
 [; ;../Projects/src/key_and_Other.c: 416:   }
 }
-[e :U 464 ]
+[e :U 454 ]
 "417
 [; ;../Projects/src/key_and_Other.c: 417:  }
 }
-[e :U 463 ]
+[e :U 453 ]
 "418
 [; ;../Projects/src/key_and_Other.c: 418: }
-[e :UE 462 ]
+[e :UE 452 ]
 }
 "424
 [; ;../Projects/src/key_and_Other.c: 424: void _FuncReg( void )
@@ -1682,14 +1710,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 426:  _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "427
-[; ;../Projects/src/key_and_Other.c: 427:  if ( RAM_RegSW.BIT.Bit6 )
-[e $ ! != -> . . _RAM_RegSW 1 6 `i -> 0 `i 466  ]
+[; ;../Projects/src/key_and_Other.c: 427:  if ( mb_NoPush )
+[e $ ! != -> _mb_NoPush `i -> 0 `i 456  ]
 "428
 [; ;../Projects/src/key_and_Other.c: 428:  {
 {
 "429
-[; ;../Projects/src/key_and_Other.c: 429:   RAM_RegSW.BIT.Bit6 = 0 ;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 429:   mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "430
 [; ;../Projects/src/key_and_Other.c: 430:   m_KindOfKey = 5 ;
 [e = _m_KindOfKey -> -> 5 `i `uc ]
@@ -1697,24 +1725,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 431:   _ClearSpecialMultiKeyState() ;
 [e ( __ClearSpecialMultiKeyState ..  ]
 "432
-[; ;../Projects/src/key_and_Other.c: 432:   RAM_RegSW.BIT.Bit0 = 1 ;
-[e = . . _RAM_RegSW 1 0 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 432:   mb_RegSw = 1 ;
+[e = _mb_RegSw -> -> 1 `i `uc ]
 "433
 [; ;../Projects/src/key_and_Other.c: 433:   m_TimerKey = 3000 ;
 [e = _m_TimerKey -> -> 3000 `i `ui ]
 "434
 [; ;../Projects/src/key_and_Other.c: 434:   if ( !m_TimerKeyMonitor )
-[e $ ! ! != _m_TimerKeyMonitor -> -> 0 `i `ui 467  ]
+[e $ ! ! != _m_TimerKeyMonitor -> -> 0 `i `ui 457  ]
 "435
 [; ;../Projects/src/key_and_Other.c: 435:   {
 {
 "436
-[; ;../Projects/src/key_and_Other.c: 436:             if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 468  ]
+[; ;../Projects/src/key_and_Other.c: 436:             if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 458  ]
 {
 "437
-[; ;../Projects/src/key_and_Other.c: 437:                       RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 437:                       FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "438
 [; ;../Projects/src/key_and_Other.c: 438:                       RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1724,7 +1752,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "440
 [; ;../Projects/src/key_and_Other.c: 440:                           }
 }
-[e :U 468 ]
+[e :U 458 ]
 "441
 [; ;../Projects/src/key_and_Other.c: 441:    m_TimerKeyMonitor = 10000 ;
 [e = _m_TimerKeyMonitor -> -> 10000 `i `ui ]
@@ -1733,14 +1761,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyCount -> -> 2 `i `uc ]
 "443
 [; ;../Projects/src/key_and_Other.c: 443:    return ;
-[e $UE 465  ]
+[e $UE 455  ]
 "444
 [; ;../Projects/src/key_and_Other.c: 444:   }
 }
-[e :U 467 ]
+[e :U 457 ]
 "445
 [; ;../Projects/src/key_and_Other.c: 445:   if ( !--m_KeyCount )
-[e $ ! ! != -> =- _m_KeyCount -> -> 1 `i `uc `i -> 0 `i 469  ]
+[e $ ! ! != -> =- _m_KeyCount -> -> 1 `i `uc `i -> 0 `i 459  ]
 "446
 [; ;../Projects/src/key_and_Other.c: 446:   {
 {
@@ -1751,34 +1779,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 448:    m_KindOfKey = 0 ;
 [e = _m_KindOfKey -> -> 0 `i `uc ]
 "449
-[; ;../Projects/src/key_and_Other.c: 449:    RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 449:    mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "450
 [; ;../Projects/src/key_and_Other.c: 450:   }
 }
-[e :U 469 ]
+[e :U 459 ]
 "451
 [; ;../Projects/src/key_and_Other.c: 451:   return ;
-[e $UE 465  ]
+[e $UE 455  ]
 "452
 [; ;../Projects/src/key_and_Other.c: 452:  }
 }
-[e :U 466 ]
+[e :U 456 ]
 "455
-[; ;../Projects/src/key_and_Other.c: 455:  if ( RAM_RegSW.BIT.Bit0 )
-[e $ ! != -> . . _RAM_RegSW 1 0 `i -> 0 `i 470  ]
+[; ;../Projects/src/key_and_Other.c: 455:  if ( mb_RegSw )
+[e $ ! != -> _mb_RegSw `i -> 0 `i 460  ]
 "456
 [; ;../Projects/src/key_and_Other.c: 456:  {
 {
 "457
 [; ;../Projects/src/key_and_Other.c: 457:   if ( m_TimerKey )
-[e $ ! != _m_TimerKey -> -> 0 `i `ui 471  ]
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 461  ]
 "458
 [; ;../Projects/src/key_and_Other.c: 458:   {
 {
 "459
 [; ;../Projects/src/key_and_Other.c: 459:    if ( !--m_TimerKey )
-[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 472  ]
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 462  ]
 "460
 [; ;../Projects/src/key_and_Other.c: 460:    {
 {
@@ -1789,26 +1817,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 462:     m_KindOfKey = 0 ;
 [e = _m_KindOfKey -> -> 0 `i `uc ]
 "463
-[; ;../Projects/src/key_and_Other.c: 463:     RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 463:     mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "464
 [; ;../Projects/src/key_and_Other.c: 464:    }
 }
-[e :U 472 ]
+[e :U 462 ]
 "465
 [; ;../Projects/src/key_and_Other.c: 465:    return ;
-[e $UE 465  ]
+[e $UE 455  ]
 "466
 [; ;../Projects/src/key_and_Other.c: 466:   }
 }
-[e :U 471 ]
+[e :U 461 ]
 "467
 [; ;../Projects/src/key_and_Other.c: 467:  }
 }
-[e :U 470 ]
+[e :U 460 ]
 "468
 [; ;../Projects/src/key_and_Other.c: 468: }
-[e :UE 465 ]
+[e :UE 455 ]
 }
 "469
 [; ;../Projects/src/key_and_Other.c: 469: void _FuncStop( void )
@@ -1820,25 +1848,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "471
 [; ;../Projects/src/key_and_Other.c: 471:  if ( _GetNoPushState() )
-[e $ ! != -> ( __GetNoPushState ..  `i -> 0 `i 474  ]
+[e $ ! != -> ( __GetNoPushState ..  `i -> 0 `i 464  ]
 "472
 [; ;../Projects/src/key_and_Other.c: 472:  {
 {
 "473
-[; ;../Projects/src/key_and_Other.c: 473:   if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit1 || RAM_SW.BIT.Bit2 )
-[e $ ! || || != -> . . _RAM_SW 1 0 `i -> 0 `i != -> . . _RAM_SW 1 1 `i -> 0 `i != -> . . _RAM_SW 1 2 `i -> 0 `i 475  ]
+[; ;../Projects/src/key_and_Other.c: 473:   if ( mb_OpenSw || mb_StopSw || mb_CloseSw )
+[e $ ! || || != -> _mb_OpenSw `i -> 0 `i != -> _mb_StopSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 465  ]
 "474
 [; ;../Projects/src/key_and_Other.c: 474:   {
 {
 "475
-[; ;../Projects/src/key_and_Other.c: 475:    if (( !m_TimerKey )&&(RAM_SW.BIT.Bit6==0)&&(TIME_Once_twice_switch==0))
-[e $ ! && && ! != _m_TimerKey -> -> 0 `i `ui == -> . . _RAM_SW 1 6 `i -> 0 `i == _TIME_Once_twice_switch -> -> 0 `i `ui 476  ]
+[; ;../Projects/src/key_and_Other.c: 475:    if (( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))
+[e $ ! && && ! != _m_TimerKey -> -> 0 `i `ui == -> _FG_BAT `i -> 0 `i == _TIME_Once_twice_switch -> -> 0 `i `ui 466  ]
 "476
 [; ;../Projects/src/key_and_Other.c: 476:    {
 {
 "479
-[; ;../Projects/src/key_and_Other.c: 479:      if ( RAM_SW.BIT.Bit0 || RAM_SW.BIT.Bit2 )
-[e $ ! || != -> . . _RAM_SW 1 0 `i -> 0 `i != -> . . _RAM_SW 1 2 `i -> 0 `i 477  ]
+[; ;../Projects/src/key_and_Other.c: 479:      if ( mb_OpenSw || mb_CloseSw )
+[e $ ! || != -> _mb_OpenSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 467  ]
 "480
 [; ;../Projects/src/key_and_Other.c: 480:      {
 {
@@ -1849,15 +1877,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 484:       m_KindOfKey = 0 ;
 [e = _m_KindOfKey -> -> 0 `i `uc ]
 "485
-[; ;../Projects/src/key_and_Other.c: 485:       RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 485:       mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "486
 [; ;../Projects/src/key_and_Other.c: 486:       return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "487
 [; ;../Projects/src/key_and_Other.c: 487:      }
 }
-[e :U 477 ]
+[e :U 467 ]
 "488
 [; ;../Projects/src/key_and_Other.c: 488:      m_KeyOptSetMode = 1 ;
 [e = _m_KeyOptSetMode -> -> 1 `i `uc ]
@@ -1865,15 +1893,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 490:      _ReqBuzzer(103,103,1);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
 "491
-[; ;../Projects/src/key_and_Other.c: 491:       RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 491:       FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "492
-[; ;../Projects/src/key_and_Other.c: 492:       if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 478  ]
+[; ;../Projects/src/key_and_Other.c: 492:       if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 468  ]
 {
 "493
-[; ;../Projects/src/key_and_Other.c: 493:                                              RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 493:                                              FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "494
 [; ;../Projects/src/key_and_Other.c: 494:                                              RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -1883,7 +1911,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "496
 [; ;../Projects/src/key_and_Other.c: 496:                                                 }
 }
-[e :U 478 ]
+[e :U 468 ]
 "497
 [; ;../Projects/src/key_and_Other.c: 497:      m_KeyDupliSetTimeout = 4000 ;
 [e = _m_KeyDupliSetTimeout -> -> 4000 `i `ui ]
@@ -1891,116 +1919,116 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 498:      m_KindOfKey = 0 ;
 [e = _m_KindOfKey -> -> 0 `i `uc ]
 "499
-[; ;../Projects/src/key_and_Other.c: 499:      RAM_RegSW.BIT.Bit6=0;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 499:      mb_NoPush=0;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "500
-[; ;../Projects/src/key_and_Other.c: 500:      RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 500:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "501
-[; ;../Projects/src/key_and_Other.c: 501:      RAM_RegSW.BIT.Bit5 = 1 ;
-[e = . . _RAM_RegSW 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 501:      m_KeyOptSetOpenStop = 1 ;
+[e = _m_KeyOptSetOpenStop -> -> 1 `i `uc ]
 "502
-[; ;../Projects/src/key_and_Other.c: 502:      if ( RAM_SW.BIT.Bit0 )
-[e $ ! != -> . . _RAM_SW 1 0 `i -> 0 `i 479  ]
+[; ;../Projects/src/key_and_Other.c: 502:      if ( mb_OpenSw )
+[e $ ! != -> _mb_OpenSw `i -> 0 `i 469  ]
 "503
 [; ;../Projects/src/key_and_Other.c: 503:      {
 {
 "504
-[; ;../Projects/src/key_and_Other.c: 504:       RAM_RegSW.BIT.Bit5 = 0 ;
-[e = . . _RAM_RegSW 1 5 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 504:       m_KeyOptSetOpenStop = 0 ;
+[e = _m_KeyOptSetOpenStop -> -> 0 `i `uc ]
 "505
 [; ;../Projects/src/key_and_Other.c: 505:      }
 }
-[e :U 479 ]
+[e :U 469 ]
 "508
 [; ;../Projects/src/key_and_Other.c: 508:    }
 }
-[e :U 476 ]
+[e :U 466 ]
 "509
 [; ;../Projects/src/key_and_Other.c: 509:    return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "510
 [; ;../Projects/src/key_and_Other.c: 510:   }
 }
-[e :U 475 ]
+[e :U 465 ]
 "511
 [; ;../Projects/src/key_and_Other.c: 511:   return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "512
 [; ;../Projects/src/key_and_Other.c: 512:  }
 }
-[e :U 474 ]
+[e :U 464 ]
 "514
 [; ;../Projects/src/key_and_Other.c: 514:  m_KindOfKey = m_KeyNo ;
 [e = _m_KindOfKey _m_KeyNo ]
 "515
 [; ;../Projects/src/key_and_Other.c: 515:  if ( m_KeyOptSetMode ||m_RegMode)
-[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 480  ]
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 470  ]
 "516
 [; ;../Projects/src/key_and_Other.c: 516:  {
 {
 "517
 [; ;../Projects/src/key_and_Other.c: 517:   return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "518
 [; ;../Projects/src/key_and_Other.c: 518:  }
 }
-[e :U 480 ]
+[e :U 470 ]
 "520
 [; ;../Projects/src/key_and_Other.c: 520:  switch ( m_KindOfKey )
-[e $U 482  ]
+[e $U 472  ]
 "521
 [; ;../Projects/src/key_and_Other.c: 521:  {
 {
 "522
 [; ;../Projects/src/key_and_Other.c: 522:   case 1 :
-[e :U 483 ]
+[e :U 473 ]
 "523
-[; ;../Projects/src/key_and_Other.c: 523:    RAM_SW.BIT.Bit0 = 1 ;
-[e = . . _RAM_SW 1 0 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 523:    mb_OpenSw = 1 ;
+[e = _mb_OpenSw -> -> 1 `i `uc ]
 "524
 [; ;../Projects/src/key_and_Other.c: 524:    m_TimerKey = 5000 ;
 [e = _m_TimerKey -> -> 5000 `i `ui ]
 "525
 [; ;../Projects/src/key_and_Other.c: 525:    break;
-[e $U 481  ]
+[e $U 471  ]
 "527
 [; ;../Projects/src/key_and_Other.c: 527:   case 2 :
-[e :U 484 ]
+[e :U 474 ]
 "528
-[; ;../Projects/src/key_and_Other.c: 528:    RAM_SW.BIT.Bit1 = 1 ;
-[e = . . _RAM_SW 1 1 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 528:    mb_StopSw = 1 ;
+[e = _mb_StopSw -> -> 1 `i `uc ]
 "529
 [; ;../Projects/src/key_and_Other.c: 529:    m_TimerKey = 5000 ;
 [e = _m_TimerKey -> -> 5000 `i `ui ]
 "530
 [; ;../Projects/src/key_and_Other.c: 530:    break;
-[e $U 481  ]
+[e $U 471  ]
 "532
 [; ;../Projects/src/key_and_Other.c: 532:   case 3 :
-[e :U 485 ]
+[e :U 475 ]
 "533
-[; ;../Projects/src/key_and_Other.c: 533:    RAM_SW.BIT.Bit2 = 1 ;
-[e = . . _RAM_SW 1 2 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 533:    mb_CloseSw = 1 ;
+[e = _mb_CloseSw -> -> 1 `i `uc ]
 "534
 [; ;../Projects/src/key_and_Other.c: 534:    m_TimerKey = 5000 ;
 [e = _m_TimerKey -> -> 5000 `i `ui ]
 "535
 [; ;../Projects/src/key_and_Other.c: 535:    break;
-[e $U 481  ]
+[e $U 471  ]
 "536
 [; ;../Projects/src/key_and_Other.c: 536:  }
 }
-[e $U 481  ]
-[e :U 482 ]
-[e [\ -> _m_KindOfKey `i , $ -> 1 `i 483
- , $ -> 2 `i 484
- , $ -> 3 `i 485
- 481 ]
-[e :U 481 ]
+[e $U 471  ]
+[e :U 472 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 473
+ , $ -> 2 `i 474
+ , $ -> 3 `i 475
+ 471 ]
+[e :U 471 ]
 "539
 [; ;../Projects/src/key_and_Other.c: 539:  if ( !rom_KeyOpt || m_KindOfKey == 4 )
-[e $ ! || ! != -> _rom_KeyOpt `i -> 0 `i == -> _m_KindOfKey `i -> 4 `i 486  ]
+[e $ ! || ! != -> _rom_KeyOpt `i -> 0 `i == -> _m_KindOfKey `i -> 4 `i 476  ]
 "543
 [; ;../Projects/src/key_and_Other.c: 543:  {
 {
@@ -2015,27 +2043,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
 "547
 [; ;../Projects/src/key_and_Other.c: 547:   return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "548
 [; ;../Projects/src/key_and_Other.c: 548:  }
 }
-[e :U 486 ]
+[e :U 476 ]
 "551
 [; ;../Projects/src/key_and_Other.c: 551:  if ( m_KeyOptSetMode || m_RegMode )
-[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 487  ]
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 477  ]
 "552
 [; ;../Projects/src/key_and_Other.c: 552:  {
 {
 "553
 [; ;../Projects/src/key_and_Other.c: 553:   return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "554
 [; ;../Projects/src/key_and_Other.c: 554:  }
 }
-[e :U 487 ]
+[e :U 477 ]
 "556
 [; ;../Projects/src/key_and_Other.c: 556:  if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 488  ]
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 478  ]
 "557
 [; ;../Projects/src/key_and_Other.c: 557:  {
 {
@@ -2049,8 +2077,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 560:   m_TimerKeyMonitor = 0 ;
 [e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
 "561
-[; ;../Projects/src/key_and_Other.c: 561:   RAM_SW.BIT.Bit3=1;
-[e = . . _RAM_SW 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 561:   FG_d_StopKey=1;
+[e = _FG_d_StopKey -> -> 1 `i `uc ]
 "562
 [; ;../Projects/src/key_and_Other.c: 562:   m_KeyDupli1stTimer = 3000 ;
 [e = _m_KeyDupli1stTimer -> -> 3000 `i `ui ]
@@ -2059,32 +2087,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _time_led -> -> 0 `i `ui ]
 "564
 [; ;../Projects/src/key_and_Other.c: 564:   return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "565
 [; ;../Projects/src/key_and_Other.c: 565:  }
 }
-[e :U 488 ]
+[e :U 478 ]
 "567
 [; ;../Projects/src/key_and_Other.c: 567:  switch ( m_KindOfKey )
-[e $U 490  ]
+[e $U 480  ]
 "568
 [; ;../Projects/src/key_and_Other.c: 568:  {
 {
 "593
 [; ;../Projects/src/key_and_Other.c: 593:   case 1 :
-[e :U 491 ]
+[e :U 481 ]
 "594
 [; ;../Projects/src/key_and_Other.c: 594:   case 3 :
-[e :U 492 ]
+[e :U 482 ]
 "595
-[; ;../Projects/src/key_and_Other.c: 595:    if ( RAM_SW.BIT.Bit3 && m_KeyDupli1stTimer)
-[e $ ! && != -> . . _RAM_SW 1 3 `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 493  ]
+[; ;../Projects/src/key_and_Other.c: 595:    if ( FG_d_StopKey && m_KeyDupli1stTimer)
+[e $ ! && != -> _FG_d_StopKey `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 483  ]
 "596
 [; ;../Projects/src/key_and_Other.c: 596:    {
 {
 "597
-[; ;../Projects/src/key_and_Other.c: 597:            RAM_SW.BIT.Bit3=0;
-[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 597:            FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
 "598
 [; ;../Projects/src/key_and_Other.c: 598:     m_KeyDupli1stTimer=0;
 [e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
@@ -2099,26 +2127,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "602
 [; ;../Projects/src/key_and_Other.c: 602:     return ;
-[e $UE 473  ]
+[e $UE 463  ]
 "603
 [; ;../Projects/src/key_and_Other.c: 603:    }
 }
-[e :U 493 ]
+[e :U 483 ]
 "604
 [; ;../Projects/src/key_and_Other.c: 604:    break;
-[e $U 489  ]
+[e $U 479  ]
 "606
 [; ;../Projects/src/key_and_Other.c: 606:  }
 }
-[e $U 489  ]
-[e :U 490 ]
-[e [\ -> _m_KindOfKey `i , $ -> 1 `i 491
- , $ -> 3 `i 492
- 489 ]
-[e :U 489 ]
+[e $U 479  ]
+[e :U 480 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 481
+ , $ -> 3 `i 482
+ 479 ]
+[e :U 479 ]
 "607
 [; ;../Projects/src/key_and_Other.c: 607: }
-[e :UE 473 ]
+[e :UE 463 ]
 }
 "609
 [; ;../Projects/src/key_and_Other.c: 609: void _FuncAutoTxStart( void )
@@ -2130,7 +2158,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "612
 [; ;../Projects/src/key_and_Other.c: 612: }
-[e :UE 494 ]
+[e :UE 484 ]
 }
 "613
 [; ;../Projects/src/key_and_Other.c: 613: void _FuncAutoTxStop( void )
@@ -2142,7 +2170,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "616
 [; ;../Projects/src/key_and_Other.c: 616: }
-[e :UE 495 ]
+[e :UE 485 ]
 }
 "617
 [; ;../Projects/src/key_and_Other.c: 617: void _FuncNoPush( void )
@@ -2153,32 +2181,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U __FuncNoPush ]
 [f ]
 "619
-[; ;../Projects/src/key_and_Other.c: 619:  RAM_SW.BIT.Bit0 = 0 ;
-[e = . . _RAM_SW 1 0 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 619:  mb_OpenSw = 0 ;
+[e = _mb_OpenSw -> -> 0 `i `uc ]
 "620
-[; ;../Projects/src/key_and_Other.c: 620:  RAM_SW.BIT.Bit1 = 0 ;
-[e = . . _RAM_SW 1 1 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 620:  mb_StopSw = 0 ;
+[e = _mb_StopSw -> -> 0 `i `uc ]
 "621
-[; ;../Projects/src/key_and_Other.c: 621:  RAM_SW.BIT.Bit2 = 0 ;
-[e = . . _RAM_SW 1 2 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 621:  mb_CloseSw = 0 ;
+[e = _mb_CloseSw -> -> 0 `i `uc ]
 "622
-[; ;../Projects/src/key_and_Other.c: 622:  RAM_SW.BIT.Bit6=0;
-[e = . . _RAM_SW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 622:  FG_BAT=0;
+[e = _FG_BAT -> -> 0 `i `uc ]
 "624
 [; ;../Projects/src/key_and_Other.c: 624:  _ClearSpecialMultiKeyState() ;
 [e ( __ClearSpecialMultiKeyState ..  ]
 "625
-[; ;../Projects/src/key_and_Other.c: 625:  RAM_RegSW.BIT.Bit6 = 1 ;
-[e = . . _RAM_RegSW 1 6 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 625:  mb_NoPush = 1 ;
+[e = _mb_NoPush -> -> 1 `i `uc ]
 "626
-[; ;../Projects/src/key_and_Other.c: 626:  RAM_RegSW.BIT.Bit7 = 0 ;
-[e = . . _RAM_RegSW 1 7 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 626:  mb_NoPushWait = 0 ;
+[e = _mb_NoPushWait -> -> 0 `i `uc ]
 "627
 [; ;../Projects/src/key_and_Other.c: 627:  m_KindOfKey = 0xFF;
 [e = _m_KindOfKey -> -> 255 `i `uc ]
 "632
 [; ;../Projects/src/key_and_Other.c: 632: }
-[e :UE 496 ]
+[e :UE 486 ]
 }
 "633
 [; ;../Projects/src/key_and_Other.c: 633: void _SetKeyChatterCount( void )
@@ -2196,7 +2224,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_TimerKey -> -> 0 `i `ui ]
 "637
 [; ;../Projects/src/key_and_Other.c: 637: }
-[e :UE 497 ]
+[e :UE 487 ]
 }
 "647
 [; ;../Projects/src/key_and_Other.c: 647: void _ClearSpecialMultiKeyState( void )
@@ -2207,23 +2235,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U __ClearSpecialMultiKeyState ]
 [f ]
 "649
-[; ;../Projects/src/key_and_Other.c: 649:  RAM_RegSW.BIT.Bit0 = 0 ;
-[e = . . _RAM_RegSW 1 0 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 649:  mb_RegSw = 0 ;
+[e = _mb_RegSw -> -> 0 `i `uc ]
 "650
-[; ;../Projects/src/key_and_Other.c: 650:  RAM_RegSW.BIT.Bit1 = 0 ;
-[e = . . _RAM_RegSW 1 1 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 650:  mb_RegStopSw = 0 ;
+[e = _mb_RegStopSw -> -> 0 `i `uc ]
 "651
-[; ;../Projects/src/key_and_Other.c: 651:  RAM_RegSW.BIT.Bit2 = 0 ;
-[e = . . _RAM_RegSW 1 2 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 651:  mb_RegOpenSw = 0 ;
+[e = _mb_RegOpenSw -> -> 0 `i `uc ]
 "652
-[; ;../Projects/src/key_and_Other.c: 652:  RAM_RegSW.BIT.Bit3 = 0 ;
-[e = . . _RAM_RegSW 1 3 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 652:  mb_RegCloseSw = 0 ;
+[e = _mb_RegCloseSw -> -> 0 `i `uc ]
 "653
-[; ;../Projects/src/key_and_Other.c: 653:  RAM_RegSW.BIT.Bit4 = 0 ;
-[e = . . _RAM_RegSW 1 4 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 653:  mb_RegVentSw = 0 ;
+[e = _mb_RegVentSw -> -> 0 `i `uc ]
 "654
 [; ;../Projects/src/key_and_Other.c: 654: }
-[e :UE 498 ]
+[e :UE 488 ]
 }
 "664
 [; ;../Projects/src/key_and_Other.c: 664: void _DupliFuncClear( void )
@@ -2244,7 +2272,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyCloseCount -> -> 2 `i `uc ]
 "671
 [; ;../Projects/src/key_and_Other.c: 671:  if ( m_KeyDupli1stTimer )
-[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 500  ]
+[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 490  ]
 "672
 [; ;../Projects/src/key_and_Other.c: 672:  {
 {
@@ -2254,10 +2282,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "675
 [; ;../Projects/src/key_and_Other.c: 675:  }
 }
-[e :U 500 ]
+[e :U 490 ]
 "676
 [; ;../Projects/src/key_and_Other.c: 676: }
-[e :UE 499 ]
+[e :UE 489 ]
 }
 "687
 [; ;../Projects/src/key_and_Other.c: 687: unsigned char _GetNoPushState( void )
@@ -2268,22 +2296,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U __GetNoPushState ]
 [f ]
 "689
-[; ;../Projects/src/key_and_Other.c: 689:  if ( !RAM_RegSW.BIT.Bit6 )
-[e $ ! ! != -> . . _RAM_RegSW 1 6 `i -> 0 `i 502  ]
+[; ;../Projects/src/key_and_Other.c: 689:  if ( !mb_NoPush )
+[e $ ! ! != -> _mb_NoPush `i -> 0 `i 492  ]
 "690
 [; ;../Projects/src/key_and_Other.c: 690:  {
 {
 "691
 [; ;../Projects/src/key_and_Other.c: 691:   return(1) ;
 [e ) -> -> 1 `i `uc ]
-[e $UE 501  ]
+[e $UE 491  ]
 "692
 [; ;../Projects/src/key_and_Other.c: 692:  }
 }
-[e :U 502 ]
+[e :U 492 ]
 "694
-[; ;../Projects/src/key_and_Other.c: 694:  RAM_RegSW.BIT.Bit6 = 0 ;
-[e = . . _RAM_RegSW 1 6 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 694:  mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "699
 [; ;../Projects/src/key_and_Other.c: 699:  m_TimerKey = 0 ;
 [e = _m_TimerKey -> -> 0 `i `ui ]
@@ -2293,10 +2321,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "701
 [; ;../Projects/src/key_and_Other.c: 701:  return(0) ;
 [e ) -> -> 0 `i `uc ]
-[e $UE 501  ]
+[e $UE 491  ]
 "702
 [; ;../Projects/src/key_and_Other.c: 702: }
-[e :UE 501 ]
+[e :UE 491 ]
 }
 "703
 [; ;../Projects/src/key_and_Other.c: 703: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
@@ -2316,8 +2344,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 705:   unsigned char time_key;
 [v _time_key `uc ~T0 @X0 1 a ]
 "706
-[; ;../Projects/src/key_and_Other.c: 706:   if((TB_sum_5s<69)&&(RAM_OP1.BIT.Bit5==1)&&(TB_5s<25)){
-[e $ ! && && < -> _TB_sum_5s `i -> 69 `i == -> . . _RAM_OP1 1 5 `i -> 1 `i < -> _TB_5s `i -> 25 `i 504  ]
+[; ;../Projects/src/key_and_Other.c: 706:   if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){
+[e $ ! && && < -> _TB_sum_5s `i -> 69 `i == -> _FG_PWRON `i -> 1 `i < -> _TB_5s `i -> 25 `i 494  ]
 {
 "707
 [; ;../Projects/src/key_and_Other.c: 707:     time_key=25-TB_5s;
@@ -2327,24 +2355,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TB_sum_5s -> + -> _TB_sum_5s `i -> _time_key `i `uc ]
 "709
 [; ;../Projects/src/key_and_Other.c: 709:     if((69-TB_sum_5s)>=27)TB_5s=25;
-[e $ ! >= - -> 69 `i -> _TB_sum_5s `i -> 27 `i 505  ]
+[e $ ! >= - -> 69 `i -> _TB_sum_5s `i -> 27 `i 495  ]
 [e = _TB_5s -> -> 25 `i `uc ]
-[e :U 505 ]
+[e :U 495 ]
 "711
 [; ;../Projects/src/key_and_Other.c: 711:   }
 }
-[e :U 504 ]
+[e :U 494 ]
 "712
 [; ;../Projects/src/key_and_Other.c: 712:   if((TB_5s>=25)||(TIME_2s_RestTX==0)){
-[e $ ! || >= -> _TB_5s `i -> 25 `i == -> _TIME_2s_RestTX `i -> 0 `i 506  ]
+[e $ ! || >= -> _TB_5s `i -> 25 `i == -> _TIME_2s_RestTX `i -> 0 `i 496  ]
 {
 "713
-[; ;../Projects/src/key_and_Other.c: 713:         if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 507  ]
+[; ;../Projects/src/key_and_Other.c: 713:         if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 497  ]
 {
 "714
-[; ;../Projects/src/key_and_Other.c: 714:  RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 714:  FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "715
 [; ;../Projects/src/key_and_Other.c: 715:  RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
@@ -2354,183 +2382,183 @@ Version 4.0 HI-TECH Software Intermediate Code
 "717
 [; ;../Projects/src/key_and_Other.c: 717:         }
 }
-[e :U 507 ]
+[e :U 497 ]
 "718
 [; ;../Projects/src/key_and_Other.c: 718:    switch ( txreq )
-[e $U 509  ]
+[e $U 499  ]
 "719
 [; ;../Projects/src/key_and_Other.c: 719:  {
 {
 "720
 [; ;../Projects/src/key_and_Other.c: 720:   case 1 :
-[e :U 510 ]
+[e :U 500 ]
 "721
 [; ;../Projects/src/key_and_Other.c: 721:           Control_code=0x08;
 [e = _Control_code -> -> 8 `i `uc ]
 "722
 [; ;../Projects/src/key_and_Other.c: 722:    break ;
-[e $U 508  ]
+[e $U 498  ]
 "723
 [; ;../Projects/src/key_and_Other.c: 723:   case 2 :
-[e :U 511 ]
+[e :U 501 ]
 "724
 [; ;../Projects/src/key_and_Other.c: 724:           Control_code=0x04;
 [e = _Control_code -> -> 4 `i `uc ]
 "725
 [; ;../Projects/src/key_and_Other.c: 725:    break ;
-[e $U 508  ]
+[e $U 498  ]
 "726
 [; ;../Projects/src/key_and_Other.c: 726:   case 3 :
-[e :U 512 ]
+[e :U 502 ]
 "727
 [; ;../Projects/src/key_and_Other.c: 727:           Control_code=0x02;
 [e = _Control_code -> -> 2 `i `uc ]
 "728
 [; ;../Projects/src/key_and_Other.c: 728:    break ;
-[e $U 508  ]
+[e $U 498  ]
 "729
 [; ;../Projects/src/key_and_Other.c: 729:   case 4 :
-[e :U 513 ]
+[e :U 503 ]
 "730
 [; ;../Projects/src/key_and_Other.c: 730:           Control_code=0x01;
 [e = _Control_code -> -> 1 `i `uc ]
 "731
 [; ;../Projects/src/key_and_Other.c: 731:    break ;
-[e $U 508  ]
+[e $U 498  ]
 "732
 [; ;../Projects/src/key_and_Other.c: 732:   case 10 :
-[e :U 514 ]
+[e :U 504 ]
 "733
 [; ;../Projects/src/key_and_Other.c: 733:           Control_code=0x14;
 [e = _Control_code -> -> 20 `i `uc ]
 "734
 [; ;../Projects/src/key_and_Other.c: 734:    break ;
-[e $U 508  ]
+[e $U 498  ]
 "735
 [; ;../Projects/src/key_and_Other.c: 735:   case 5 :
-[e :U 515 ]
+[e :U 505 ]
 "736
 [; ;../Projects/src/key_and_Other.c: 736:           Control_code=0x0C;
 [e = _Control_code -> -> 12 `i `uc ]
 "737
 [; ;../Projects/src/key_and_Other.c: 737:           break ;
-[e $U 508  ]
+[e $U 498  ]
 "738
 [; ;../Projects/src/key_and_Other.c: 738:   case 6 :
-[e :U 516 ]
+[e :U 506 ]
 "739
 [; ;../Projects/src/key_and_Other.c: 739:          Control_code=0x0A;
 [e = _Control_code -> -> 10 `i `uc ]
 "740
 [; ;../Projects/src/key_and_Other.c: 740:           break ;
-[e $U 508  ]
+[e $U 498  ]
 "741
 [; ;../Projects/src/key_and_Other.c: 741:   case 7 :
-[e :U 517 ]
+[e :U 507 ]
 "742
 [; ;../Projects/src/key_and_Other.c: 742:          Control_code=0x09;
 [e = _Control_code -> -> 9 `i `uc ]
 "743
 [; ;../Projects/src/key_and_Other.c: 743:           break ;
-[e $U 508  ]
+[e $U 498  ]
 "744
 [; ;../Projects/src/key_and_Other.c: 744:   case 9 :
-[e :U 518 ]
+[e :U 508 ]
 "745
 [; ;../Projects/src/key_and_Other.c: 745:          Control_code=0x06;
 [e = _Control_code -> -> 6 `i `uc ]
 "746
 [; ;../Projects/src/key_and_Other.c: 746:           break ;
-[e $U 508  ]
+[e $U 498  ]
 "747
 [; ;../Projects/src/key_and_Other.c: 747:   case 12 :
-[e :U 519 ]
+[e :U 509 ]
 "748
 [; ;../Projects/src/key_and_Other.c: 748:          Control_code=0x03;
 [e = _Control_code -> -> 3 `i `uc ]
 "749
 [; ;../Projects/src/key_and_Other.c: 749:           break ;
-[e $U 508  ]
+[e $U 498  ]
 "750
 [; ;../Projects/src/key_and_Other.c: 750:  }
 }
-[e $U 508  ]
-[e :U 509 ]
-[e [\ -> _txreq `i , $ -> 1 `i 510
- , $ -> 2 `i 511
- , $ -> 3 `i 512
- , $ -> 4 `i 513
- , $ -> 10 `i 514
- , $ -> 5 `i 515
- , $ -> 6 `i 516
- , $ -> 7 `i 517
- , $ -> 9 `i 518
- , $ -> 12 `i 519
- 508 ]
-[e :U 508 ]
+[e $U 498  ]
+[e :U 499 ]
+[e [\ -> _txreq `i , $ -> 1 `i 500
+ , $ -> 2 `i 501
+ , $ -> 3 `i 502
+ , $ -> 4 `i 503
+ , $ -> 10 `i 504
+ , $ -> 5 `i 505
+ , $ -> 6 `i 506
+ , $ -> 7 `i 507
+ , $ -> 9 `i 508
+ , $ -> 12 `i 509
+ 498 ]
+[e :U 498 ]
 "751
 [; ;../Projects/src/key_and_Other.c: 751:    switch ( buzreq )
-[e $U 521  ]
+[e $U 511  ]
 "752
 [; ;../Projects/src/key_and_Other.c: 752:  {
 {
 "753
 [; ;../Projects/src/key_and_Other.c: 753:   case 1 :
-[e :U 522 ]
+[e :U 512 ]
 "754
 [; ;../Projects/src/key_and_Other.c: 754:          _ReqBuzzer(103,103,0);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "758
 [; ;../Projects/src/key_and_Other.c: 758:    break ;
-[e $U 520  ]
+[e $U 510  ]
 "759
 [; ;../Projects/src/key_and_Other.c: 759:   case 2 :
-[e :U 523 ]
+[e :U 513 ]
 "760
 [; ;../Projects/src/key_and_Other.c: 760:          _ReqBuzzer(103,103,1);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
 "764
 [; ;../Projects/src/key_and_Other.c: 764:    break ;
-[e $U 520  ]
+[e $U 510  ]
 "765
 [; ;../Projects/src/key_and_Other.c: 765:   case 3 :
-[e :U 524 ]
+[e :U 514 ]
 "766
 [; ;../Projects/src/key_and_Other.c: 766:         _ReqBuzzer(103,103,2);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
 "770
 [; ;../Projects/src/key_and_Other.c: 770:    break ;
-[e $U 520  ]
+[e $U 510  ]
 "771
 [; ;../Projects/src/key_and_Other.c: 771:   case 4 :
-[e :U 525 ]
+[e :U 515 ]
 "772
 [; ;../Projects/src/key_and_Other.c: 772:         _ReqBuzzer(500,1,0);
 [e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "773
 [; ;../Projects/src/key_and_Other.c: 773:         break ;
-[e $U 520  ]
+[e $U 510  ]
 "774
 [; ;../Projects/src/key_and_Other.c: 774:   case 20 :
-[e :U 526 ]
+[e :U 516 ]
 "775
 [; ;../Projects/src/key_and_Other.c: 775:          _ReqBuzzer(1000,1,0);
 [e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "779
 [; ;../Projects/src/key_and_Other.c: 779:    break ;
-[e $U 520  ]
+[e $U 510  ]
 "780
 [; ;../Projects/src/key_and_Other.c: 780:  }
 }
-[e $U 520  ]
-[e :U 521 ]
-[e [\ -> _buzreq `i , $ -> 1 `i 522
- , $ -> 2 `i 523
- , $ -> 3 `i 524
- , $ -> 4 `i 525
- , $ -> 20 `i 526
- 520 ]
-[e :U 520 ]
+[e $U 510  ]
+[e :U 511 ]
+[e [\ -> _buzreq `i , $ -> 1 `i 512
+ , $ -> 2 `i 513
+ , $ -> 3 `i 514
+ , $ -> 4 `i 515
+ , $ -> 20 `i 516
+ 510 ]
+[e :U 510 ]
 "781
 [; ;../Projects/src/key_and_Other.c: 781:         dd_set_ADF7021_Power_on();
 [e ( _dd_set_ADF7021_Power_on ..  ]
@@ -2546,15 +2574,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "787
 [; ;../Projects/src/key_and_Other.c: 787:   }
 }
-[e $U 527  ]
+[e $U 517  ]
 "788
 [; ;../Projects/src/key_and_Other.c: 788:   else RB5=0;
-[e :U 506 ]
+[e :U 496 ]
 [e = _RB5 -> -> 0 `i `b ]
-[e :U 527 ]
+[e :U 517 ]
 "789
 [; ;../Projects/src/key_and_Other.c: 789: }
-[e :UE 503 ]
+[e :UE 493 ]
 }
 "802
 [; ;../Projects/src/key_and_Other.c: 802: void _DupliFuncSetMode( void )
@@ -2569,16 +2597,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _m_KeyOpt `uc ~T0 @X0 1 a ]
 "805
 [; ;../Projects/src/key_and_Other.c: 805:  switch ( m_KeyOptSetMode )
-[e $U 530  ]
+[e $U 520  ]
 "806
 [; ;../Projects/src/key_and_Other.c: 806:  {
 {
 "807
 [; ;../Projects/src/key_and_Other.c: 807:   case 1 :
-[e :U 531 ]
+[e :U 521 ]
 "808
-[; ;../Projects/src/key_and_Other.c: 808:    if ( !RAM_RegSW.BIT.Bit7 )
-[e $ ! ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 532  ]
+[; ;../Projects/src/key_and_Other.c: 808:    if ( !mb_NoPushWait )
+[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 522  ]
 "809
 [; ;../Projects/src/key_and_Other.c: 809:    {
 {
@@ -2590,14 +2618,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "812
 [; ;../Projects/src/key_and_Other.c: 812:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "813
 [; ;../Projects/src/key_and_Other.c: 813:    }
 }
-[e :U 532 ]
+[e :U 522 ]
 "814
 [; ;../Projects/src/key_and_Other.c: 814:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 533  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 523  ]
 "815
 [; ;../Projects/src/key_and_Other.c: 815:    {
 {
@@ -2607,16 +2635,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "820
 [; ;../Projects/src/key_and_Other.c: 820:    }
 }
-[e :U 533 ]
+[e :U 523 ]
 "821
 [; ;../Projects/src/key_and_Other.c: 821:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "823
 [; ;../Projects/src/key_and_Other.c: 823:   case 2 :
-[e :U 534 ]
+[e :U 524 ]
 "824
 [; ;../Projects/src/key_and_Other.c: 824:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 535  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 525  ]
 "825
 [; ;../Projects/src/key_and_Other.c: 825:    {
 {
@@ -2630,15 +2658,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 829:     _ReqBuzzer(103,103,0);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "830
-[; ;../Projects/src/key_and_Other.c: 830:     RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 830:     FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "831
 [; ;../Projects/src/key_and_Other.c: 831:    }
 }
-[e :U 535 ]
+[e :U 525 ]
 "833
 [; ;../Projects/src/key_and_Other.c: 833:    if ( m_KindOfKey != 0 && m_KindOfKey != 0xFF )
-[e $ ! && != -> _m_KindOfKey `i -> 0 `i != -> _m_KindOfKey `i -> 255 `i 536  ]
+[e $ ! && != -> _m_KindOfKey `i -> 0 `i != -> _m_KindOfKey `i -> 255 `i 526  ]
 "834
 [; ;../Projects/src/key_and_Other.c: 834:    {
 {
@@ -2648,16 +2676,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "836
 [; ;../Projects/src/key_and_Other.c: 836:    }
 }
-[e :U 536 ]
+[e :U 526 ]
 "837
 [; ;../Projects/src/key_and_Other.c: 837:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "839
 [; ;../Projects/src/key_and_Other.c: 839:   case 3 :
-[e :U 537 ]
+[e :U 527 ]
 "840
 [; ;../Projects/src/key_and_Other.c: 840:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 538  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 528  ]
 "841
 [; ;../Projects/src/key_and_Other.c: 841:    {
 {
@@ -2666,33 +2694,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "843
 [; ;../Projects/src/key_and_Other.c: 843:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "844
 [; ;../Projects/src/key_and_Other.c: 844:    }
 }
-[e :U 538 ]
+[e :U 528 ]
 "846
 [; ;../Projects/src/key_and_Other.c: 846:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 539  ]
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 529  ]
 "847
 [; ;../Projects/src/key_and_Other.c: 847:    {
 {
 "848
 [; ;../Projects/src/key_and_Other.c: 848:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "849
 [; ;../Projects/src/key_and_Other.c: 849:    }
 }
-[e :U 539 ]
+[e :U 529 ]
 "851
-[; ;../Projects/src/key_and_Other.c: 851:    if ( RAM_RegSW.BIT.Bit5 )
-[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 540  ]
+[; ;../Projects/src/key_and_Other.c: 851:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 530  ]
 "852
 [; ;../Projects/src/key_and_Other.c: 852:    {
 {
 "853
 [; ;../Projects/src/key_and_Other.c: 853:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 541  ]
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 531  ]
 "854
 [; ;../Projects/src/key_and_Other.c: 854:     {
 {
@@ -2705,10 +2733,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "858
 [; ;../Projects/src/key_and_Other.c: 858:     }
 }
-[e $U 542  ]
+[e $U 532  ]
 "859
 [; ;../Projects/src/key_and_Other.c: 859:     else
-[e :U 541 ]
+[e :U 531 ]
 "860
 [; ;../Projects/src/key_and_Other.c: 860:     {
 {
@@ -2717,24 +2745,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "862
 [; ;../Projects/src/key_and_Other.c: 862:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "863
 [; ;../Projects/src/key_and_Other.c: 863:     }
 }
-[e :U 542 ]
+[e :U 532 ]
 "864
 [; ;../Projects/src/key_and_Other.c: 864:    }
 }
-[e $U 543  ]
+[e $U 533  ]
 "865
 [; ;../Projects/src/key_and_Other.c: 865:    else
-[e :U 540 ]
+[e :U 530 ]
 "866
 [; ;../Projects/src/key_and_Other.c: 866:    {
 {
 "867
 [; ;../Projects/src/key_and_Other.c: 867:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 544  ]
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 534  ]
 "868
 [; ;../Projects/src/key_and_Other.c: 868:     {
 {
@@ -2747,10 +2775,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "872
 [; ;../Projects/src/key_and_Other.c: 872:     }
 }
-[e $U 545  ]
+[e $U 535  ]
 "873
 [; ;../Projects/src/key_and_Other.c: 873:     else
-[e :U 544 ]
+[e :U 534 ]
 "874
 [; ;../Projects/src/key_and_Other.c: 874:     {
 {
@@ -2759,24 +2787,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "876
 [; ;../Projects/src/key_and_Other.c: 876:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "877
 [; ;../Projects/src/key_and_Other.c: 877:     }
 }
-[e :U 545 ]
+[e :U 535 ]
 "878
 [; ;../Projects/src/key_and_Other.c: 878:    }
 }
-[e :U 543 ]
+[e :U 533 ]
 "879
 [; ;../Projects/src/key_and_Other.c: 879:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "881
 [; ;../Projects/src/key_and_Other.c: 881:   case 4 :
-[e :U 546 ]
+[e :U 536 ]
 "882
 [; ;../Projects/src/key_and_Other.c: 882:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 547  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 537  ]
 "883
 [; ;../Projects/src/key_and_Other.c: 883:    {
 {
@@ -2790,21 +2818,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 887:     _ReqBuzzer(103,103,0);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "888
-[; ;../Projects/src/key_and_Other.c: 888:     RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 888:     FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "889
 [; ;../Projects/src/key_and_Other.c: 889:    }
 }
-[e :U 547 ]
+[e :U 537 ]
 "895
 [; ;../Projects/src/key_and_Other.c: 895:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "897
 [; ;../Projects/src/key_and_Other.c: 897:   case 5 :
-[e :U 548 ]
+[e :U 538 ]
 "898
 [; ;../Projects/src/key_and_Other.c: 898:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 549  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 539  ]
 "899
 [; ;../Projects/src/key_and_Other.c: 899:    {
 {
@@ -2813,33 +2841,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "901
 [; ;../Projects/src/key_and_Other.c: 901:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "902
 [; ;../Projects/src/key_and_Other.c: 902:    }
 }
-[e :U 549 ]
+[e :U 539 ]
 "904
 [; ;../Projects/src/key_and_Other.c: 904:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 550  ]
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 540  ]
 "905
 [; ;../Projects/src/key_and_Other.c: 905:    {
 {
 "906
 [; ;../Projects/src/key_and_Other.c: 906:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "907
 [; ;../Projects/src/key_and_Other.c: 907:    }
 }
-[e :U 550 ]
+[e :U 540 ]
 "909
-[; ;../Projects/src/key_and_Other.c: 909:    if ( RAM_RegSW.BIT.Bit5 )
-[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 551  ]
+[; ;../Projects/src/key_and_Other.c: 909:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 541  ]
 "910
 [; ;../Projects/src/key_and_Other.c: 910:    {
 {
 "911
 [; ;../Projects/src/key_and_Other.c: 911:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 552  ]
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 542  ]
 "912
 [; ;../Projects/src/key_and_Other.c: 912:     {
 {
@@ -2850,15 +2878,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 914:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "915
-[; ;../Projects/src/key_and_Other.c: 915:      RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 915:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "916
 [; ;../Projects/src/key_and_Other.c: 916:     }
 }
-[e $U 553  ]
+[e $U 543  ]
 "917
 [; ;../Projects/src/key_and_Other.c: 917:     else
-[e :U 552 ]
+[e :U 542 ]
 "918
 [; ;../Projects/src/key_and_Other.c: 918:     {
 {
@@ -2867,24 +2895,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "920
 [; ;../Projects/src/key_and_Other.c: 920:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "921
 [; ;../Projects/src/key_and_Other.c: 921:     }
 }
-[e :U 553 ]
+[e :U 543 ]
 "922
 [; ;../Projects/src/key_and_Other.c: 922:    }
 }
-[e $U 554  ]
+[e $U 544  ]
 "923
 [; ;../Projects/src/key_and_Other.c: 923:    else
-[e :U 551 ]
+[e :U 541 ]
 "924
 [; ;../Projects/src/key_and_Other.c: 924:    {
 {
 "925
 [; ;../Projects/src/key_and_Other.c: 925:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 555  ]
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 545  ]
 "926
 [; ;../Projects/src/key_and_Other.c: 926:     {
 {
@@ -2897,10 +2925,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "929
 [; ;../Projects/src/key_and_Other.c: 929:     }
 }
-[e $U 556  ]
+[e $U 546  ]
 "930
 [; ;../Projects/src/key_and_Other.c: 930:     else
-[e :U 555 ]
+[e :U 545 ]
 "931
 [; ;../Projects/src/key_and_Other.c: 931:     {
 {
@@ -2909,24 +2937,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "933
 [; ;../Projects/src/key_and_Other.c: 933:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "934
 [; ;../Projects/src/key_and_Other.c: 934:     }
 }
-[e :U 556 ]
+[e :U 546 ]
 "935
 [; ;../Projects/src/key_and_Other.c: 935:    }
 }
-[e :U 554 ]
+[e :U 544 ]
 "936
 [; ;../Projects/src/key_and_Other.c: 936:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "938
 [; ;../Projects/src/key_and_Other.c: 938:   case 6 :
-[e :U 557 ]
+[e :U 547 ]
 "939
 [; ;../Projects/src/key_and_Other.c: 939:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 558  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 548  ]
 "940
 [; ;../Projects/src/key_and_Other.c: 940:    {
 {
@@ -2940,21 +2968,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 944:     _ReqBuzzer(103,103,2);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
 "945
-[; ;../Projects/src/key_and_Other.c: 945:                                 RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 945:                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "946
 [; ;../Projects/src/key_and_Other.c: 946:    }
 }
-[e :U 558 ]
+[e :U 548 ]
 "952
 [; ;../Projects/src/key_and_Other.c: 952:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "954
 [; ;../Projects/src/key_and_Other.c: 954:   case 7 :
-[e :U 559 ]
+[e :U 549 ]
 "955
 [; ;../Projects/src/key_and_Other.c: 955:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 560  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 550  ]
 "956
 [; ;../Projects/src/key_and_Other.c: 956:    {
 {
@@ -2963,33 +2991,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "958
 [; ;../Projects/src/key_and_Other.c: 958:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "959
 [; ;../Projects/src/key_and_Other.c: 959:    }
 }
-[e :U 560 ]
+[e :U 550 ]
 "961
 [; ;../Projects/src/key_and_Other.c: 961:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 561  ]
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 551  ]
 "962
 [; ;../Projects/src/key_and_Other.c: 962:    {
 {
 "963
 [; ;../Projects/src/key_and_Other.c: 963:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "964
 [; ;../Projects/src/key_and_Other.c: 964:    }
 }
-[e :U 561 ]
+[e :U 551 ]
 "966
-[; ;../Projects/src/key_and_Other.c: 966:    if ( RAM_RegSW.BIT.Bit5 )
-[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 562  ]
+[; ;../Projects/src/key_and_Other.c: 966:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 552  ]
 "967
 [; ;../Projects/src/key_and_Other.c: 967:    {
 {
 "968
 [; ;../Projects/src/key_and_Other.c: 968:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 563  ]
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 553  ]
 "969
 [; ;../Projects/src/key_and_Other.c: 969:     {
 {
@@ -3000,15 +3028,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 971:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "972
-[; ;../Projects/src/key_and_Other.c: 972:      RAM_RegSW.BIT.Bit7 = 1 ;
-[e = . . _RAM_RegSW 1 7 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 972:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "973
 [; ;../Projects/src/key_and_Other.c: 973:     }
 }
-[e $U 564  ]
+[e $U 554  ]
 "974
 [; ;../Projects/src/key_and_Other.c: 974:     else
-[e :U 563 ]
+[e :U 553 ]
 "975
 [; ;../Projects/src/key_and_Other.c: 975:     {
 {
@@ -3017,24 +3045,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "977
 [; ;../Projects/src/key_and_Other.c: 977:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "978
 [; ;../Projects/src/key_and_Other.c: 978:     }
 }
-[e :U 564 ]
+[e :U 554 ]
 "979
 [; ;../Projects/src/key_and_Other.c: 979:    }
 }
-[e $U 565  ]
+[e $U 555  ]
 "980
 [; ;../Projects/src/key_and_Other.c: 980:    else
-[e :U 562 ]
+[e :U 552 ]
 "981
 [; ;../Projects/src/key_and_Other.c: 981:    {
 {
 "982
 [; ;../Projects/src/key_and_Other.c: 982:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 566  ]
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 556  ]
 "983
 [; ;../Projects/src/key_and_Other.c: 983:     {
 {
@@ -3047,10 +3075,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "986
 [; ;../Projects/src/key_and_Other.c: 986:     }
 }
-[e $U 567  ]
+[e $U 557  ]
 "987
 [; ;../Projects/src/key_and_Other.c: 987:     else
-[e :U 566 ]
+[e :U 556 ]
 "988
 [; ;../Projects/src/key_and_Other.c: 988:     {
 {
@@ -3059,27 +3087,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "990
 [; ;../Projects/src/key_and_Other.c: 990:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "991
 [; ;../Projects/src/key_and_Other.c: 991:     }
 }
-[e :U 567 ]
+[e :U 557 ]
 "992
 [; ;../Projects/src/key_and_Other.c: 992:    }
 }
-[e :U 565 ]
+[e :U 555 ]
 "993
 [; ;../Projects/src/key_and_Other.c: 993:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "995
 [; ;../Projects/src/key_and_Other.c: 995:   case 8 :
-[e :U 568 ]
+[e :U 558 ]
 "996
 [; ;../Projects/src/key_and_Other.c: 996:   case 9 :
-[e :U 569 ]
+[e :U 559 ]
 "997
 [; ;../Projects/src/key_and_Other.c: 997:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 570  ]
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 560  ]
 "998
 [; ;../Projects/src/key_and_Other.c: 998:    {
 {
@@ -3088,39 +3116,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "1000
 [; ;../Projects/src/key_and_Other.c: 1000:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1001
 [; ;../Projects/src/key_and_Other.c: 1001:    }
 }
-[e :U 570 ]
+[e :U 560 ]
 "1003
 [; ;../Projects/src/key_and_Other.c: 1003:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 571  ]
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 561  ]
 "1004
 [; ;../Projects/src/key_and_Other.c: 1004:    {
 {
 "1005
 [; ;../Projects/src/key_and_Other.c: 1005:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1006
 [; ;../Projects/src/key_and_Other.c: 1006:    }
 }
-[e :U 571 ]
+[e :U 561 ]
 "1008
-[; ;../Projects/src/key_and_Other.c: 1008:    if ( RAM_RegSW.BIT.Bit5 )
-[e $ ! != -> . . _RAM_RegSW 1 5 `i -> 0 `i 572  ]
+[; ;../Projects/src/key_and_Other.c: 1008:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 562  ]
 "1009
 [; ;../Projects/src/key_and_Other.c: 1009:    {
 {
 "1010
 [; ;../Projects/src/key_and_Other.c: 1010:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 573  ]
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 563  ]
 "1011
 [; ;../Projects/src/key_and_Other.c: 1011:     {
 {
 "1012
 [; ;../Projects/src/key_and_Other.c: 1012:      if ( m_KeyOptSetMode == 9 )
-[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 574  ]
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 564  ]
 "1013
 [; ;../Projects/src/key_and_Other.c: 1013:      {
 {
@@ -3129,7 +3157,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyOpt _rom_KeyOpt ]
 "1015
 [; ;../Projects/src/key_and_Other.c: 1015:       if ( m_KeyOpt )
-[e $ ! != -> _m_KeyOpt `i -> 0 `i 575  ]
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 565  ]
 "1016
 [; ;../Projects/src/key_and_Other.c: 1016:       {
 {
@@ -3139,10 +3167,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1018
 [; ;../Projects/src/key_and_Other.c: 1018:       }
 }
-[e $U 576  ]
+[e $U 566  ]
 "1019
 [; ;../Projects/src/key_and_Other.c: 1019:       else
-[e :U 575 ]
+[e :U 565 ]
 "1020
 [; ;../Projects/src/key_and_Other.c: 1020:       {
 {
@@ -3152,7 +3180,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1022
 [; ;../Projects/src/key_and_Other.c: 1022:       }
 }
-[e :U 576 ]
+[e :U 566 ]
 "1023
 [; ;../Projects/src/key_and_Other.c: 1023:       rom_KeyOpt=m_KeyOpt;
 [e = _rom_KeyOpt _m_KeyOpt ]
@@ -3163,11 +3191,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1028:       _ReqBuzzer(103,103,4);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1029
-[; ;../Projects/src/key_and_Other.c: 1029:                                                 RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1029:                                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "1030
-[; ;../Projects/src/key_and_Other.c: 1030:       RAM_SW.BIT.Bit3=0;
-[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1030:       FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
 "1031
 [; ;../Projects/src/key_and_Other.c: 1031:       TB_5s=20;
 [e = _TB_5s -> -> 20 `i `uc ]
@@ -3176,21 +3204,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "1033
 [; ;../Projects/src/key_and_Other.c: 1033:       return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1034
 [; ;../Projects/src/key_and_Other.c: 1034:      }
 }
-[e :U 574 ]
+[e :U 564 ]
 "1035
 [; ;../Projects/src/key_and_Other.c: 1035:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "1036
 [; ;../Projects/src/key_and_Other.c: 1036:     }
 }
-[e $U 577  ]
+[e $U 567  ]
 "1037
 [; ;../Projects/src/key_and_Other.c: 1037:     else
-[e :U 573 ]
+[e :U 563 ]
 "1038
 [; ;../Projects/src/key_and_Other.c: 1038:     {
 {
@@ -3199,30 +3227,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "1040
 [; ;../Projects/src/key_and_Other.c: 1040:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1041
 [; ;../Projects/src/key_and_Other.c: 1041:     }
 }
-[e :U 577 ]
+[e :U 567 ]
 "1042
 [; ;../Projects/src/key_and_Other.c: 1042:    }
 }
-[e $U 578  ]
+[e $U 568  ]
 "1043
 [; ;../Projects/src/key_and_Other.c: 1043:    else
-[e :U 572 ]
+[e :U 562 ]
 "1044
 [; ;../Projects/src/key_and_Other.c: 1044:    {
 {
 "1045
 [; ;../Projects/src/key_and_Other.c: 1045:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 579  ]
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 569  ]
 "1046
 [; ;../Projects/src/key_and_Other.c: 1046:     {
 {
 "1047
 [; ;../Projects/src/key_and_Other.c: 1047:      if ( m_KeyOptSetMode == 9 )
-[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 580  ]
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 570  ]
 "1048
 [; ;../Projects/src/key_and_Other.c: 1048:      {
 {
@@ -3231,7 +3259,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_KeyOpt _rom_KeyOpt ]
 "1050
 [; ;../Projects/src/key_and_Other.c: 1050:       if ( m_KeyOpt )
-[e $ ! != -> _m_KeyOpt `i -> 0 `i 581  ]
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 571  ]
 "1051
 [; ;../Projects/src/key_and_Other.c: 1051:       {
 {
@@ -3241,10 +3269,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1053
 [; ;../Projects/src/key_and_Other.c: 1053:       }
 }
-[e $U 582  ]
+[e $U 572  ]
 "1054
 [; ;../Projects/src/key_and_Other.c: 1054:       else
-[e :U 581 ]
+[e :U 571 ]
 "1055
 [; ;../Projects/src/key_and_Other.c: 1055:       {
 {
@@ -3254,7 +3282,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1057
 [; ;../Projects/src/key_and_Other.c: 1057:       }
 }
-[e :U 582 ]
+[e :U 572 ]
 "1058
 [; ;../Projects/src/key_and_Other.c: 1058:       rom_KeyOpt=m_KeyOpt;
 [e = _rom_KeyOpt _m_KeyOpt ]
@@ -3265,31 +3293,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1062:       _ReqBuzzer(103,103,4);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1063
-[; ;../Projects/src/key_and_Other.c: 1063:                                                 RAM_OP2.BIT.Bit3=1;
-[e = . . _RAM_OP2 1 3 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1063:                                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "1064
-[; ;../Projects/src/key_and_Other.c: 1064:       RAM_SW.BIT.Bit3=0;
-[e = . . _RAM_SW 1 3 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1064:       FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
 "1065
 [; ;../Projects/src/key_and_Other.c: 1065:       _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
 "1067
 [; ;../Projects/src/key_and_Other.c: 1067:       return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1068
 [; ;../Projects/src/key_and_Other.c: 1068:      }
 }
-[e :U 580 ]
+[e :U 570 ]
 "1069
 [; ;../Projects/src/key_and_Other.c: 1069:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "1070
 [; ;../Projects/src/key_and_Other.c: 1070:     }
 }
-[e $U 583  ]
+[e $U 573  ]
 "1071
 [; ;../Projects/src/key_and_Other.c: 1071:     else
-[e :U 579 ]
+[e :U 569 ]
 "1072
 [; ;../Projects/src/key_and_Other.c: 1072:     {
 {
@@ -3298,24 +3326,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "1074
 [; ;../Projects/src/key_and_Other.c: 1074:      return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1075
 [; ;../Projects/src/key_and_Other.c: 1075:     }
 }
-[e :U 583 ]
+[e :U 573 ]
 "1076
 [; ;../Projects/src/key_and_Other.c: 1076:    }
 }
-[e :U 578 ]
+[e :U 568 ]
 "1077
 [; ;../Projects/src/key_and_Other.c: 1077:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "1079
 [; ;../Projects/src/key_and_Other.c: 1079:   case 10 :
-[e :U 584 ]
+[e :U 574 ]
 "1080
-[; ;../Projects/src/key_and_Other.c: 1080:    if ( !RAM_RegSW.BIT.Bit7 )
-[e $ ! ! != -> . . _RAM_RegSW 1 7 `i -> 0 `i 585  ]
+[; ;../Projects/src/key_and_Other.c: 1080:    if ( !mb_NoPushWait )
+[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 575  ]
 "1081
 [; ;../Projects/src/key_and_Other.c: 1081:    {
 {
@@ -3324,34 +3352,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __DupliFuncClear ..  ]
 "1084
 [; ;../Projects/src/key_and_Other.c: 1084:     return ;
-[e $UE 528  ]
+[e $UE 518  ]
 "1085
 [; ;../Projects/src/key_and_Other.c: 1085:    }
 }
-[e :U 585 ]
+[e :U 575 ]
 "1086
 [; ;../Projects/src/key_and_Other.c: 1086:    break ;
-[e $U 529  ]
+[e $U 519  ]
 "1088
 [; ;../Projects/src/key_and_Other.c: 1088:  }
 }
-[e $U 529  ]
-[e :U 530 ]
-[e [\ -> _m_KeyOptSetMode `i , $ -> 1 `i 531
- , $ -> 2 `i 534
- , $ -> 3 `i 537
- , $ -> 4 `i 546
- , $ -> 5 `i 548
- , $ -> 6 `i 557
- , $ -> 7 `i 559
- , $ -> 8 `i 568
- , $ -> 9 `i 569
- , $ -> 10 `i 584
- 529 ]
-[e :U 529 ]
+[e $U 519  ]
+[e :U 520 ]
+[e [\ -> _m_KeyOptSetMode `i , $ -> 1 `i 521
+ , $ -> 2 `i 524
+ , $ -> 3 `i 527
+ , $ -> 4 `i 536
+ , $ -> 5 `i 538
+ , $ -> 6 `i 547
+ , $ -> 7 `i 549
+ , $ -> 8 `i 558
+ , $ -> 9 `i 559
+ , $ -> 10 `i 574
+ 519 ]
+[e :U 519 ]
 "1089
 [; ;../Projects/src/key_and_Other.c: 1089: }
-[e :UE 528 ]
+[e :UE 518 ]
 }
 "1099
 [; ;../Projects/src/key_and_Other.c: 1099: void _RegistrationMode( void )
@@ -3363,34 +3391,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1101
 [; ;../Projects/src/key_and_Other.c: 1101:  if ( !_GetRegMode() )
-[e $ ! ! != -> ( __GetRegMode ..  `i -> 0 `i 587  ]
+[e $ ! ! != -> ( __GetRegMode ..  `i -> 0 `i 577  ]
 "1102
 [; ;../Projects/src/key_and_Other.c: 1102:  {
 {
 "1103
 [; ;../Projects/src/key_and_Other.c: 1103:   return ;
-[e $UE 586  ]
+[e $UE 576  ]
 "1104
 [; ;../Projects/src/key_and_Other.c: 1104:  }
 }
-[e :U 587 ]
+[e :U 577 ]
 "1106
-[; ;../Projects/src/key_and_Other.c: 1106:         if(RAM_OP1.BIT.Bit5==0){
-[e $ ! == -> . . _RAM_OP1 1 5 `i -> 0 `i 588  ]
+[; ;../Projects/src/key_and_Other.c: 1106:         if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 578  ]
 {
 "1107
-[; ;../Projects/src/key_and_Other.c: 1107:  RAM_OP1.BIT.Bit5=1;
-[e = . . _RAM_OP1 1 5 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1107:  FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "1108
 [; ;../Projects/src/key_and_Other.c: 1108:  RB7=1;
 [e = _RB7 -> -> 1 `i `b ]
 "1109
 [; ;../Projects/src/key_and_Other.c: 1109:         }
 }
-[e :U 588 ]
+[e :U 578 ]
 "1110
 [; ;../Projects/src/key_and_Other.c: 1110:  if(m_TimerRegMode){
-[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 589  ]
+[e $ ! != _m_TimerRegMode -> -> 0 `i `ui 579  ]
 {
 "1111
 [; ;../Projects/src/key_and_Other.c: 1111:    TB_5s=51;
@@ -3400,19 +3428,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ _time_led -> -> 1 `i `ui ]
 "1113
 [; ;../Projects/src/key_and_Other.c: 1113:           if(time_led>=500){time_led=0;RB5=!RB5;}
-[e $ ! >= _time_led -> -> 500 `i `ui 590  ]
+[e $ ! >= _time_led -> -> 500 `i `ui 580  ]
 {
 [e = _time_led -> -> 0 `i `ui ]
 [e = _RB5 ! _RB5 ]
 }
-[e :U 590 ]
+[e :U 580 ]
 "1114
 [; ;../Projects/src/key_and_Other.c: 1114:  }
 }
-[e $U 591  ]
+[e $U 581  ]
 "1115
 [; ;../Projects/src/key_and_Other.c: 1115:  else {
-[e :U 589 ]
+[e :U 579 ]
 {
 "1117
 [; ;../Projects/src/key_and_Other.c: 1117:          _ReqBuzzer(500,250,2);
@@ -3426,19 +3454,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1120
 [; ;../Projects/src/key_and_Other.c: 1120:  }
 }
-[e :U 591 ]
+[e :U 581 ]
 "1131
 [; ;../Projects/src/key_and_Other.c: 1131:  switch ( m_KindOfKey )
-[e $U 593  ]
+[e $U 583  ]
 "1132
 [; ;../Projects/src/key_and_Other.c: 1132:  {
 {
 "1133
 [; ;../Projects/src/key_and_Other.c: 1133:   case 1 :
-[e :U 594 ]
+[e :U 584 ]
 "1134
 [; ;../Projects/src/key_and_Other.c: 1134:    if ( ++m_RegID[m_RegDigit] > '9' )
-[e $ ! > -> =+ *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 1 `i `uc `ui -> 57 `ui 595  ]
+[e $ ! > -> =+ *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 1 `i `uc `ui -> 57 `ui 585  ]
 "1135
 [; ;../Projects/src/key_and_Other.c: 1135:    {
 {
@@ -3448,7 +3476,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1137
 [; ;../Projects/src/key_and_Other.c: 1137:    }
 }
-[e :U 595 ]
+[e :U 585 ]
 "1139
 [; ;../Projects/src/key_and_Other.c: 1139:    _ReqBuzzer(103,103,0);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
@@ -3457,13 +3485,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_TimerRegMode -> -> 60000 `l `ui ]
 "1141
 [; ;../Projects/src/key_and_Other.c: 1141:    break ;
-[e $U 592  ]
+[e $U 582  ]
 "1143
 [; ;../Projects/src/key_and_Other.c: 1143:   case 2 :
-[e :U 596 ]
+[e :U 586 ]
 "1144
 [; ;../Projects/src/key_and_Other.c: 1144:    if ( ++m_RegDigit > 8 )
-[e $ ! > -> =+ _m_RegDigit -> -> 1 `i `uc `i -> 8 `i 597  ]
+[e $ ! > -> =+ _m_RegDigit -> -> 1 `i `uc `i -> 8 `i 587  ]
 "1145
 [; ;../Projects/src/key_and_Other.c: 1145:    {
 {
@@ -3473,10 +3501,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1147
 [; ;../Projects/src/key_and_Other.c: 1147:    }
 }
-[e $U 598  ]
+[e $U 588  ]
 "1149
 [; ;../Projects/src/key_and_Other.c: 1149:    else
-[e :U 597 ]
+[e :U 587 ]
 "1150
 [; ;../Projects/src/key_and_Other.c: 1150:    {
 {
@@ -3486,16 +3514,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1153
 [; ;../Projects/src/key_and_Other.c: 1153:    }
 }
-[e :U 598 ]
+[e :U 588 ]
 "1158
 [; ;../Projects/src/key_and_Other.c: 1158:    m_TimerRegMode = 60000 ;
 [e = _m_TimerRegMode -> -> 60000 `l `ui ]
 "1159
 [; ;../Projects/src/key_and_Other.c: 1159:    break ;
-[e $U 592  ]
+[e $U 582  ]
 "1161
 [; ;../Projects/src/key_and_Other.c: 1161:   case 3 :
-[e :U 599 ]
+[e :U 589 ]
 "1162
 [; ;../Projects/src/key_and_Other.c: 1162:    _IdClear() ;
 [e ( __IdClear ..  ]
@@ -3507,29 +3535,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_TimerRegMode -> -> 60000 `l `ui ]
 "1166
 [; ;../Projects/src/key_and_Other.c: 1166:    break ;
-[e $U 592  ]
+[e $U 582  ]
 "1168
 [; ;../Projects/src/key_and_Other.c: 1168:   case 5 :
-[e :U 600 ]
+[e :U 590 ]
 "1170
 [; ;../Projects/src/key_and_Other.c: 1170:    if ( m_RegDigit < 8 )
-[e $ ! < -> _m_RegDigit `i -> 8 `i 601  ]
+[e $ ! < -> _m_RegDigit `i -> 8 `i 591  ]
 "1171
 [; ;../Projects/src/key_and_Other.c: 1171:    {
 {
 "1172
 [; ;../Projects/src/key_and_Other.c: 1172:     return ;
-[e $UE 586  ]
+[e $UE 576  ]
 "1173
 [; ;../Projects/src/key_and_Other.c: 1173:    }
 }
-[e :U 601 ]
+[e :U 591 ]
 "1178
 [; ;../Projects/src/key_and_Other.c: 1178:    ID_data_add.IDL = (unsigned long)atol_de(m_RegID) ;
 [e = . _ID_data_add 0 ( _atol_de (1 &U _m_RegID ]
 "1181
 [; ;../Projects/src/key_and_Other.c: 1181:    if ( ID_data_add.IDL > 16777214 )
-[e $ ! > . _ID_data_add 0 -> -> 16777214 `l `ul 602  ]
+[e $ ! > . _ID_data_add 0 -> -> 16777214 `l `ul 592  ]
 "1183
 [; ;../Projects/src/key_and_Other.c: 1183:    {
 {
@@ -3539,10 +3567,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1186
 [; ;../Projects/src/key_and_Other.c: 1186:    }
 }
-[e $U 603  ]
+[e $U 593  ]
 "1187
 [; ;../Projects/src/key_and_Other.c: 1187:    else
-[e :U 602 ]
+[e :U 592 ]
 "1188
 [; ;../Projects/src/key_and_Other.c: 1188:    {
 {
@@ -3552,27 +3580,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1191
 [; ;../Projects/src/key_and_Other.c: 1191:    }
 }
-[e :U 603 ]
+[e :U 593 ]
 "1192
 [; ;../Projects/src/key_and_Other.c: 1192:    m_RegMode = 0 ;
 [e = _m_RegMode -> -> 0 `i `uc ]
 "1193
 [; ;../Projects/src/key_and_Other.c: 1193:    break ;
-[e $U 592  ]
+[e $U 582  ]
 "1194
 [; ;../Projects/src/key_and_Other.c: 1194:  }
 }
-[e $U 592  ]
-[e :U 593 ]
-[e [\ -> _m_KindOfKey `i , $ -> 1 `i 594
- , $ -> 2 `i 596
- , $ -> 3 `i 599
- , $ -> 5 `i 600
- 592 ]
-[e :U 592 ]
+[e $U 582  ]
+[e :U 583 ]
+[e [\ -> _m_KindOfKey `i , $ -> 1 `i 584
+ , $ -> 2 `i 586
+ , $ -> 3 `i 589
+ , $ -> 5 `i 590
+ 582 ]
+[e :U 582 ]
 "1195
 [; ;../Projects/src/key_and_Other.c: 1195: }
-[e :UE 586 ]
+[e :UE 576 ]
 }
 "1200
 [; ;../Projects/src/key_and_Other.c: 1200: unsigned long atol_de (unsigned char* m_RegID_x)
@@ -3599,9 +3627,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1205:   for(i=0;i<8;i++){
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 605  ]
-[e $U 606  ]
-[e :U 605 ]
+[e $ < -> _i `i -> 8 `i 595  ]
+[e $U 596  ]
+[e :U 595 ]
 {
 "1206
 [; ;../Projects/src/key_and_Other.c: 1206:     j=m_RegID_x[i]-'0';
@@ -3613,16 +3641,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1208:   }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 605  ]
-[e :U 606 ]
+[e $ < -> _i `i -> 8 `i 595  ]
+[e :U 596 ]
 }
 "1209
 [; ;../Projects/src/key_and_Other.c: 1209:   return(m_ID);
 [e ) _m_ID ]
-[e $UE 604  ]
+[e $UE 594  ]
 "1210
 [; ;../Projects/src/key_and_Other.c: 1210: }
-[e :UE 604 ]
+[e :UE 594 ]
 }
 "1222
 [; ;../Projects/src/key_and_Other.c: 1222: void _SetRegistrationMode( unsigned char mode )
@@ -3639,17 +3667,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1224
 [; ;../Projects/src/key_and_Other.c: 1224:  if ( _GetRegMode() )
-[e $ ! != -> ( __GetRegMode ..  `i -> 0 `i 609  ]
+[e $ ! != -> ( __GetRegMode ..  `i -> 0 `i 599  ]
 "1225
 [; ;../Projects/src/key_and_Other.c: 1225:  {
 {
 "1226
 [; ;../Projects/src/key_and_Other.c: 1226:   return ;
-[e $UE 608  ]
+[e $UE 598  ]
 "1227
 [; ;../Projects/src/key_and_Other.c: 1227:  }
 }
-[e :U 609 ]
+[e :U 599 ]
 "1229
 [; ;../Projects/src/key_and_Other.c: 1229:  m_RegMode = mode ;
 [e = _m_RegMode _mode ]
@@ -3664,7 +3692,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _m_TimerRegMode -> -> 60000 `l `ui ]
 "1245
 [; ;../Projects/src/key_and_Other.c: 1245: }
-[e :UE 608 ]
+[e :UE 598 ]
 }
 "1246
 [; ;../Projects/src/key_and_Other.c: 1246: unsigned char _GetRegMode( void )
@@ -3677,10 +3705,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1248
 [; ;../Projects/src/key_and_Other.c: 1248:  return( m_RegMode ) ;
 [e ) _m_RegMode ]
-[e $UE 610  ]
+[e $UE 600  ]
 "1249
 [; ;../Projects/src/key_and_Other.c: 1249: }
-[e :UE 610 ]
+[e :UE 600 ]
 }
 "1256
 [; ;../Projects/src/key_and_Other.c: 1256: void _IdClear( void )
@@ -3700,9 +3728,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1262:  for ( i=0; i<8; i++ )
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 612  ]
-[e $U 613  ]
-[e :U 612 ]
+[e $ < -> _i `i -> 8 `i 602  ]
+[e $U 603  ]
+[e :U 602 ]
 "1263
 [; ;../Projects/src/key_and_Other.c: 1263:  {
 {
@@ -3713,15 +3741,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1265:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 612  ]
-[e :U 613 ]
+[e $ < -> _i `i -> 8 `i 602  ]
+[e :U 603 ]
 }
 "1266
 [; ;../Projects/src/key_and_Other.c: 1266:  m_RegID[8] = 0 ;
 [e = *U + &U _m_RegID * -> -> -> 8 `i `ui `ux -> -> # *U &U _m_RegID `ui `ux -> -> 0 `i `uc ]
 "1268
 [; ;../Projects/src/key_and_Other.c: 1268: }
-[e :UE 611 ]
+[e :UE 601 ]
 }
 "1280
 [; ;../Projects/src/key_and_Other.c: 1280: void _SwIn( unsigned char sw )
@@ -3741,7 +3769,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =<< _m_KeyNew -> -> 1 `i `uc ]
 "1283
 [; ;../Projects/src/key_and_Other.c: 1283:  if ( sw )
-[e $ ! != -> _sw `i -> 0 `i 616  ]
+[e $ ! != -> _sw `i -> 0 `i 606  ]
 "1284
 [; ;../Projects/src/key_and_Other.c: 1284:  {
 {
@@ -3751,10 +3779,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1286
 [; ;../Projects/src/key_and_Other.c: 1286:  }
 }
-[e :U 616 ]
+[e :U 606 ]
 "1287
 [; ;../Projects/src/key_and_Other.c: 1287: }
-[e :UE 615 ]
+[e :UE 605 ]
 }
 "1289
 [; ;../Projects/src/key_and_Other.c: 1289: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
@@ -3772,8 +3800,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/key_and_Other.c: 1290: {
 [f ]
 "1291
-[; ;../Projects/src/key_and_Other.c: 1291:   if(RAM_SW.BIT.Bit6==0){
-[e $ ! == -> . . _RAM_SW 1 6 `i -> 0 `i 618  ]
+[; ;../Projects/src/key_and_Other.c: 1291:   if(FG_BAT==0){
+[e $ ! == -> _FG_BAT `i -> 0 `i 608  ]
 {
 "1292
 [; ;../Projects/src/key_and_Other.c: 1292:      BASE_TIME_BEEP_on=BEEP_on_SET;
@@ -3793,10 +3821,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1297
 [; ;../Projects/src/key_and_Other.c: 1297:   }
 }
-[e :U 618 ]
+[e :U 608 ]
 "1298
 [; ;../Projects/src/key_and_Other.c: 1298: }
-[e :UE 617 ]
+[e :UE 607 ]
 }
 "1328
 [; ;../Projects/src/key_and_Other.c: 1328: void test_mode_control(void)
@@ -3808,169 +3836,136 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1331
 [; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
-[e $U 620  ]
-[e :U 621 ]
+[e $U 610  ]
+[e :U 611 ]
 {
 "1332
 [; ;../Projects/src/key_and_Other.c: 1332:   ClearWDT();
 [e ( _ClearWDT ..  ]
-"1334
-[; ;../Projects/src/key_and_Other.c: 1334:   if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 623  ]
-"1335
-[; ;../Projects/src/key_and_Other.c: 1335:   {
-{
 "1336
-[; ;../Projects/src/key_and_Other.c: 1336:    Delayus(100);
-[e ( _Delayus (1 -> -> 100 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1336:   if((RB4==0)&&(FG_KEY_OPEN==0)){
+[e $ ! && == -> _RB4 `i -> 0 `i == -> _FG_KEY_OPEN `i -> 0 `i 613  ]
+{
 "1337
-[; ;../Projects/src/key_and_Other.c: 1337:    if((RB4==0)&&(RAM_OP2.BIT.Bit1==0))
-[e $ ! && == -> _RB4 `i -> 0 `i == -> . . _RAM_OP2 1 1 `i -> 0 `i 624  ]
-"1338
-[; ;../Projects/src/key_and_Other.c: 1338:       {
-{
+[; ;../Projects/src/key_and_Other.c: 1337:     FG_KEY_OPEN=1;
+[e = _FG_KEY_OPEN -> -> 1 `i `uc ]
 "1339
-[; ;../Projects/src/key_and_Other.c: 1339:     RAM_OP2.BIT.Bit1=1;
-[e = . . _RAM_OP2 1 1 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1339:     RC2 =1;
+[e = _RC2 -> -> 1 `i `b ]
 "1340
-[; ;../Projects/src/key_and_Other.c: 1340:     RAM_OP1.BIT.Bit1=0;
-[e = . . _RAM_OP1 1 1 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1340:     dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
 "1341
-[; ;../Projects/src/key_and_Other.c: 1341:     RAM_OP1.BIT.Bit2=0;
-[e = . . _RAM_OP1 1 2 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1341:     FG_test_mode=0;
+[e = _FG_test_mode -> -> 0 `i `uc ]
 "1342
-[; ;../Projects/src/key_and_Other.c: 1342:     RAM_OP1.BIT.Bit3=0;
-[e = . . _RAM_OP1 1 3 -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1342:     RC0=0;
+[e = _RC0 -> -> 0 `i `b ]
 "1343
-[; ;../Projects/src/key_and_Other.c: 1343:     TEST_No++;
-[e ++ _TEST_No -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1343:   }
+}
+[e :U 613 ]
 "1344
-[; ;../Projects/src/key_and_Other.c: 1344:     if(TEST_No>3)TEST_No=1;
-[e $ ! > -> _TEST_No `i -> 3 `i 625  ]
-[e = _TEST_No -> -> 1 `i `uc ]
-[e :U 625 ]
-"1345
-[; ;../Projects/src/key_and_Other.c: 1345:    }
-}
-[e :U 624 ]
+[; ;../Projects/src/key_and_Other.c: 1344:   if(RB4==1)FG_KEY_OPEN=0;
+[e $ ! == -> _RB4 `i -> 1 `i 614  ]
+[e = _FG_KEY_OPEN -> -> 0 `i `uc ]
+[e :U 614 ]
 "1346
-[; ;../Projects/src/key_and_Other.c: 1346:   }
-}
-[e $U 626  ]
+[; ;../Projects/src/key_and_Other.c: 1346:    if((RC4==0)&&(FG_KEY_STOP==0)){
+[e $ ! && == -> _RC4 `i -> 0 `i == -> _FG_KEY_STOP `i -> 0 `i 615  ]
+{
 "1347
-[; ;../Projects/src/key_and_Other.c: 1347:   else RAM_OP2.BIT.Bit1=0;
-[e :U 623 ]
-[e = . . _RAM_OP2 1 1 -> -> 0 `i `uc ]
-[e :U 626 ]
+[; ;../Projects/src/key_and_Other.c: 1347:     FG_KEY_STOP=1;
+[e = _FG_KEY_STOP -> -> 1 `i `uc ]
 "1349
-[; ;../Projects/src/key_and_Other.c: 1349:   if((TEST_No==1)&&(RAM_OP1.BIT.Bit1==0)){
-[e $ ! && == -> _TEST_No `i -> 1 `i == -> . . _RAM_OP1 1 1 `i -> 0 `i 627  ]
-{
-"1350
-[; ;../Projects/src/key_and_Other.c: 1350:     RAM_OP1.BIT.Bit1=1;
-[e = . . _RAM_OP1 1 1 -> -> 1 `i `uc ]
-"1351
-[; ;../Projects/src/key_and_Other.c: 1351:     dd_set_ADF7021_Power_on();
-[e ( _dd_set_ADF7021_Power_on ..  ]
-"1352
-[; ;../Projects/src/key_and_Other.c: 1352:     dd_set_TX_mode();
-[e ( _dd_set_TX_mode ..  ]
-"1353
-[; ;../Projects/src/key_and_Other.c: 1353:     RAM_OP2.BIT.Bit7=0;
-[e = . . _RAM_OP2 1 7 -> -> 0 `i `uc ]
-"1354
-[; ;../Projects/src/key_and_Other.c: 1354:     RC0=0;
-[e = _RC0 -> -> 0 `i `b ]
-"1355
-[; ;../Projects/src/key_and_Other.c: 1355:   }
-}
-[e :U 627 ]
-"1358
-[; ;../Projects/src/key_and_Other.c: 1358:    if((TEST_No==2)&&(RAM_OP1.BIT.Bit2==0)){
-[e $ ! && == -> _TEST_No `i -> 2 `i == -> . . _RAM_OP1 1 2 `i -> 0 `i 628  ]
-{
-"1359
-[; ;../Projects/src/key_and_Other.c: 1359:     RAM_OP1.BIT.Bit2=1;
-[e = . . _RAM_OP1 1 2 -> -> 1 `i `uc ]
-"1361
-[; ;../Projects/src/key_and_Other.c: 1361:     RC2=0;
+[; ;../Projects/src/key_and_Other.c: 1349:     RC2=0;
 [e = _RC2 -> -> 0 `i `b ]
-"1362
-[; ;../Projects/src/key_and_Other.c: 1362:     RAM_OP2.BIT.Bit7=0;
-[e = . . _RAM_OP2 1 7 -> -> 0 `i `uc ]
-"1363
-[; ;../Projects/src/key_and_Other.c: 1363:     RC0=0;
+"1350
+[; ;../Projects/src/key_and_Other.c: 1350:     FG_test_mode=0;
+[e = _FG_test_mode -> -> 0 `i `uc ]
+"1351
+[; ;../Projects/src/key_and_Other.c: 1351:     RC0=0;
 [e = _RC0 -> -> 0 `i `b ]
-"1364
-[; ;../Projects/src/key_and_Other.c: 1364:   }
+"1352
+[; ;../Projects/src/key_and_Other.c: 1352:   }
 }
-[e :U 628 ]
-"1367
-[; ;../Projects/src/key_and_Other.c: 1367:   if((TEST_No==3)&&(RAM_OP1.BIT.Bit3==0)){
-[e $ ! && == -> _TEST_No `i -> 3 `i == -> . . _RAM_OP1 1 3 `i -> 0 `i 629  ]
+[e :U 615 ]
+"1353
+[; ;../Projects/src/key_and_Other.c: 1353:   if(RC4==1)FG_KEY_STOP=0;
+[e $ ! == -> _RC4 `i -> 1 `i 616  ]
+[e = _FG_KEY_STOP -> -> 0 `i `uc ]
+[e :U 616 ]
+"1355
+[; ;../Projects/src/key_and_Other.c: 1355:   if((RA4==0)&&(FG_KEY_CLOSE==0)){
+[e $ ! && == -> _RA4 `i -> 0 `i == -> _FG_KEY_CLOSE `i -> 0 `i 617  ]
 {
-"1368
-[; ;../Projects/src/key_and_Other.c: 1368:     RAM_OP1.BIT.Bit3=1;
-[e = . . _RAM_OP1 1 3 -> -> 1 `i `uc ]
-"1369
-[; ;../Projects/src/key_and_Other.c: 1369:     dd_set_ADF7021_Power_on();
-[e ( _dd_set_ADF7021_Power_on ..  ]
-"1370
-[; ;../Projects/src/key_and_Other.c: 1370:     dd_set_TX_mode();
+"1356
+[; ;../Projects/src/key_and_Other.c: 1356:     FG_KEY_CLOSE=1;
+[e = _FG_KEY_CLOSE -> -> 1 `i `uc ]
+"1357
+[; ;../Projects/src/key_and_Other.c: 1357:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
+"1358
+[; ;../Projects/src/key_and_Other.c: 1358:     dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]
-"1371
-[; ;../Projects/src/key_and_Other.c: 1371:     RAM_OP2.BIT.Bit7=1;
-[e = . . _RAM_OP2 1 7 -> -> 1 `i `uc ]
-"1372
-[; ;../Projects/src/key_and_Other.c: 1372:   }
+"1359
+[; ;../Projects/src/key_and_Other.c: 1359:     FG_test_mode=1;
+[e = _FG_test_mode -> -> 1 `i `uc ]
+"1360
+[; ;../Projects/src/key_and_Other.c: 1360:   }
 }
-[e :U 629 ]
-"1376
-[; ;../Projects/src/key_and_Other.c: 1376:   if((RA2==1)&&(RAM_OP2.BIT.Bit7==1)&&(RAM_OP2.BIT.Bit6==0)){
-[e $ ! && && == -> _RA2 `i -> 1 `i == -> . . _RAM_OP2 1 7 `i -> 1 `i == -> . . _RAM_OP2 1 6 `i -> 0 `i 630  ]
+[e :U 617 ]
+"1361
+[; ;../Projects/src/key_and_Other.c: 1361:   if(RA4==1)FG_KEY_CLOSE=0;
+[e $ ! == -> _RA4 `i -> 1 `i 618  ]
+[e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
+[e :U 618 ]
+"1364
+[; ;../Projects/src/key_and_Other.c: 1364:   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
+[e $ ! && && == -> _RA2 `i -> 1 `i == -> _FG_test_mode `i -> 1 `i == -> _FG_test1 `i -> 0 `i 619  ]
 {
-"1377
-[; ;../Projects/src/key_and_Other.c: 1377:      RC0=!RC0;
+"1365
+[; ;../Projects/src/key_and_Other.c: 1365:      RC0=!RC0;
 [e = _RC0 ! _RC0 ]
-"1378
-[; ;../Projects/src/key_and_Other.c: 1378:      RAM_OP2.BIT.Bit6=1;
-[e = . . _RAM_OP2 1 6 -> -> 1 `i `uc ]
-"1379
-[; ;../Projects/src/key_and_Other.c: 1379:   }
+"1366
+[; ;../Projects/src/key_and_Other.c: 1366:      FG_test1=1;
+[e = _FG_test1 -> -> 1 `i `uc ]
+"1367
+[; ;../Projects/src/key_and_Other.c: 1367:   }
 }
-[e :U 630 ]
-"1380
-[; ;../Projects/src/key_and_Other.c: 1380:   if(RA2==0)RAM_OP2.BIT.Bit6=0;
-[e $ ! == -> _RA2 `i -> 0 `i 631  ]
-[e = . . _RAM_OP2 1 6 -> -> 0 `i `uc ]
-[e :U 631 ]
-"1384
-[; ;../Projects/src/key_and_Other.c: 1384:  }
-}
+[e :U 619 ]
+"1368
+[; ;../Projects/src/key_and_Other.c: 1368:   if(RA2==0)FG_test1=0;
+[e $ ! == -> _RA2 `i -> 0 `i 620  ]
+[e = _FG_test1 -> -> 0 `i `uc ]
 [e :U 620 ]
+"1372
+[; ;../Projects/src/key_and_Other.c: 1372:  }
+}
+[e :U 610 ]
 "1331
 [; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
-[e $ == -> _RC3 `i -> 0 `i 621  ]
-[e :U 622 ]
-"1385
-[; ;../Projects/src/key_and_Other.c: 1385:   UART1_end();
+[e $ == -> _RC3 `i -> 0 `i 611  ]
+[e :U 612 ]
+"1373
+[; ;../Projects/src/key_and_Other.c: 1373:   UART1_end();
 [e ( _UART1_end ..  ]
-"1386
-[; ;../Projects/src/key_and_Other.c: 1386:   RB7=0;
+"1374
+[; ;../Projects/src/key_and_Other.c: 1374:   RB7=0;
 [e = _RB7 -> -> 0 `i `b ]
-"1387
-[; ;../Projects/src/key_and_Other.c: 1387:   RB5=0;
+"1375
+[; ;../Projects/src/key_and_Other.c: 1375:   RB5=0;
 [e = _RB5 -> -> 0 `i `b ]
-"1388
-[; ;../Projects/src/key_and_Other.c: 1388:   RAM_OP1.BIT.Bit1=0;
-[e = . . _RAM_OP1 1 1 -> -> 0 `i `uc ]
-"1389
-[; ;../Projects/src/key_and_Other.c: 1389:   RAM_OP1.BIT.Bit2=0;
-[e = . . _RAM_OP1 1 2 -> -> 0 `i `uc ]
-"1390
-[; ;../Projects/src/key_and_Other.c: 1390:   RAM_OP1.BIT.Bit3=0;
-[e = . . _RAM_OP1 1 3 -> -> 0 `i `uc ]
-"1391
-[; ;../Projects/src/key_and_Other.c: 1391: }
-[e :UE 619 ]
+"1376
+[; ;../Projects/src/key_and_Other.c: 1376:   FG_KEY_OPEN=0;
+[e = _FG_KEY_OPEN -> -> 0 `i `uc ]
+"1377
+[; ;../Projects/src/key_and_Other.c: 1377:   FG_KEY_STOP=0;
+[e = _FG_KEY_STOP -> -> 0 `i `uc ]
+"1378
+[; ;../Projects/src/key_and_Other.c: 1378:   FG_KEY_CLOSE=0;
+[e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
+"1379
+[; ;../Projects/src/key_and_Other.c: 1379: }
+[e :UE 609 ]
 }

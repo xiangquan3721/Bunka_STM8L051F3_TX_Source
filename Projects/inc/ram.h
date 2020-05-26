@@ -7,137 +7,173 @@
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
 
-extern volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP1;
-	//************************************************
-	#define 	FLAG_BYTE0		RAM_OP1.BYTE	 
-	//------------------------------------------------
-	#define		FLAG_APP_TX		RAM_OP1.BIT.Bit0	// 
-	#define 	FG_KEY_OPEN		RAM_OP1.BIT.Bit1	//
-	#define 	FG_KEY_STOP		RAM_OP1.BIT.Bit2	//
-	#define 	FG_KEY_CLOSE		RAM_OP1.BIT.Bit3	//
-	#define 	FG_KEY_LOGIN		RAM_OP1.BIT.Bit4	//
-	#define 	FG_PWRON		RAM_OP1.BIT.Bit5	//
-	#define 	FG_1ms		        RAM_OP1.BIT.Bit6	//
-	#define 	FG_100ms		RAM_OP1.BIT.Bit7	//
-	//************************************************
+//extern volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP1;
+//	//************************************************
+//	#define 	FLAG_BYTE0		RAM_OP1.BYTE	 
+//	//------------------------------------------------
+//	#define		FLAG_APP_TX		RAM_OP1.BIT.Bit0	// 
+//	#define 	FG_KEY_OPEN		RAM_OP1.BIT.Bit1	//
+//	#define 	FG_KEY_STOP		RAM_OP1.BIT.Bit2	//
+//	#define 	FG_KEY_CLOSE		RAM_OP1.BIT.Bit3	//
+//	#define 	FG_KEY_LOGIN		RAM_OP1.BIT.Bit4	//
+//	#define 	FG_PWRON		RAM_OP1.BIT.Bit5	//
+//	#define 	FG_1ms		        RAM_OP1.BIT.Bit6	//
+//	#define 	FG_100ms		RAM_OP1.BIT.Bit7	//
+//	//************************************************
+//
+//
+//extern volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP2;
+//	//************************************************
+//	#define 	FLAG_BYTE1		RAM_OP2.BYTE	 
+//	//------------------------------------------------
+//	#define		FLAG_beep		RAM_OP2.BIT.Bit0	// 
+//	#define 	FG_beep_on		RAM_OP2.BIT.Bit1	//
+//	#define 	FG_beep_off		RAM_OP2.BIT.Bit2	//
+//	#define 	FG_LED_on		RAM_OP2.BIT.Bit3	//
+//	#define 	mb_AutoTxOnOff		RAM_OP2.BIT.Bit4	//
+//	#define 	mb_AutoTxInhibit	RAM_OP2.BIT.Bit5	//
+//	#define 	FG_test1		RAM_OP2.BIT.Bit6	//
+//	#define 	FG_test_mode		RAM_OP2.BIT.Bit7	//
+//	//************************************************
+//
+//
+//extern volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_OP3;
+//	//************************************************
+//	#define 	FLAG_BYTE3		RAM_OP3.BYTE	 
+//	//------------------------------------------------
+//	#define		FLAG_ADF7021_DATA_tx		RAM_OP3.BIT.Bit0	// 
+//	 #define 	FLAG_KEY_COUNT		        RAM_OP3.BIT.Bit1	//
+//	// #define 			RAM_OP2.BIT.Bit2	//
+//	// #define 			RAM_OP2.BIT.Bit3	//
+//	// #define 			RAM_OP2.BIT.Bit4	//
+//	// #define 		RAM_OP2.BIT.Bit5	//
+//	// #define 			RAM_OP2.BIT.Bit6	//
+//	// #define 			RAM_OP2.BIT.Bit7	//
+//	//************************************************	
+//
+//extern volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_RegSW;
+//	//************************************************
+//	#define 	FLAG_BYTE_RegSW		RAM_RegSW.BYTE	 
+//	//------------------------------------------------
+//	#define		mb_RegSw		RAM_RegSW.BIT.Bit0	// 
+//	#define 	mb_RegStopSw		RAM_RegSW.BIT.Bit1	//
+//	#define 	mb_RegOpenSw		RAM_RegSW.BIT.Bit2	//
+//	#define 	mb_RegCloseSw		RAM_RegSW.BIT.Bit3	//
+//	#define 	mb_RegVentSw		RAM_RegSW.BIT.Bit4	//
+//	#define 	m_KeyOptSetOpenStop	RAM_RegSW.BIT.Bit5	//
+//	#define 	mb_NoPush		RAM_RegSW.BIT.Bit6	//
+//	#define 	mb_NoPushWait		RAM_RegSW.BIT.Bit7	//
+//	//************************************************
+//
+//extern volatile union{
+//	unsigned char BYTE;	
+//	struct { 
+//		unsigned char	Bit0:	1;
+//		unsigned char	Bit1:	1;
+//		unsigned char	Bit2:	1;
+//		unsigned char	Bit3:	1;
+//		unsigned char	Bit4:	1;
+//		unsigned char	Bit5:	1;
+//		unsigned char	Bit6:	1;
+//		unsigned char	Bit7:	1;
+//	}BIT; 	
+//}RAM_SW;
+//	//************************************************
+//	#define 	FLAG_BYTE_SW		RAM_SW.BYTE	 
+//	//------------------------------------------------
+//	#define		mb_OpenSw		RAM_SW.BIT.Bit0	// 
+//	#define 	mb_StopSw		RAM_SW.BIT.Bit1	//
+//	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
+//	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
+//	#define 	BIT_SIO		        RAM_SW.BIT.Bit4	//
+//	#define 	FG_10s        		RAM_SW.BIT.Bit5	// 2015.1.31修正3
+//	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
+//	#define 	FG_Complex_Single_shot	RAM_SW.BIT.Bit7	//2015.1.31修正2
+//	//************************************************
 
 
-extern volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP2;
-	//************************************************
-	#define 	FLAG_BYTE1		RAM_OP2.BYTE	 
-	//------------------------------------------------
-	#define		FLAG_beep		RAM_OP2.BIT.Bit0	// 
-	#define 	FG_beep_on		RAM_OP2.BIT.Bit1	//
-	#define 	FG_beep_off		RAM_OP2.BIT.Bit2	//
-	#define 	FG_LED_on		RAM_OP2.BIT.Bit3	//
-	#define 	mb_AutoTxOnOff		RAM_OP2.BIT.Bit4	//
-	#define 	mb_AutoTxInhibit	RAM_OP2.BIT.Bit5	//
-	#define 	FG_test1		RAM_OP2.BIT.Bit6	//
-	#define 	FG_test_mode		RAM_OP2.BIT.Bit7	//
-	//************************************************
-
-
-extern volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_OP3;
-	//************************************************
-	#define 	FLAG_BYTE3		RAM_OP3.BYTE	 
-	//------------------------------------------------
-	#define		FLAG_ADF7021_DATA_tx		RAM_OP3.BIT.Bit0	// 
-	 #define 	FLAG_KEY_COUNT		        RAM_OP2.BIT.Bit1	//
-	// #define 			RAM_OP2.BIT.Bit2	//
-	// #define 			RAM_OP2.BIT.Bit3	//
-	// #define 			RAM_OP2.BIT.Bit4	//
-	// #define 		RAM_OP2.BIT.Bit5	//
-	// #define 			RAM_OP2.BIT.Bit6	//
-	// #define 			RAM_OP2.BIT.Bit7	//
-	//************************************************	
-
-extern volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_RegSW;
-	//************************************************
-	#define 	FLAG_BYTE_RegSW		RAM_RegSW.BYTE	 
-	//------------------------------------------------
-	#define		mb_RegSw		RAM_RegSW.BIT.Bit0	// 
-	#define 	mb_RegStopSw		RAM_RegSW.BIT.Bit1	//
-	#define 	mb_RegOpenSw		RAM_RegSW.BIT.Bit2	//
-	#define 	mb_RegCloseSw		RAM_RegSW.BIT.Bit3	//
-	#define 	mb_RegVentSw		RAM_RegSW.BIT.Bit4	//
-	#define 	m_KeyOptSetOpenStop	RAM_RegSW.BIT.Bit5	//
-	#define 	mb_NoPush		RAM_RegSW.BIT.Bit6	//
-	#define 	mb_NoPushWait		RAM_RegSW.BIT.Bit7	//
-	//************************************************
-
-extern volatile union{
-	unsigned char BYTE;	
-	struct { 
-		unsigned char	Bit0:	1;
-		unsigned char	Bit1:	1;
-		unsigned char	Bit2:	1;
-		unsigned char	Bit3:	1;
-		unsigned char	Bit4:	1;
-		unsigned char	Bit5:	1;
-		unsigned char	Bit6:	1;
-		unsigned char	Bit7:	1;
-	}BIT; 	
-}RAM_SW;
-	//************************************************
-	#define 	FLAG_BYTE_SW		RAM_SW.BYTE	 
-	//------------------------------------------------
-	#define		mb_OpenSw		RAM_SW.BIT.Bit0	// 
-	#define 	mb_StopSw		RAM_SW.BIT.Bit1	//
-	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
-	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
-	#define 	BIT_SIO		        RAM_SW.BIT.Bit4	//
-	#define 	FG_10s        		RAM_SW.BIT.Bit5	// 2015.1.31修正3
-	#define 	FG_BAT		        RAM_SW.BIT.Bit6	//
-	#define 	FG_Complex_Single_shot	RAM_SW.BIT.Bit7	//2015.1.31修正2
-	//************************************************
+extern UINT8		FLAG_APP_TX;
+extern UINT8 	FG_KEY_OPEN;
+extern UINT8 	FG_KEY_STOP;
+extern UINT8 	FG_KEY_CLOSE;
+extern UINT8 	FG_KEY_LOGIN;
+extern UINT8 	FG_PWRON;
+extern UINT8 	FG_1ms;
+extern UINT8 	FG_100ms;
+extern UINT8		FLAG_beep;
+extern UINT8 	FG_beep_on;
+extern UINT8 	FG_beep_off;
+extern UINT8 	FG_LED_on;
+extern UINT8 	mb_AutoTxOnOff;
+extern UINT8 	mb_AutoTxInhibit;
+extern UINT8 	FG_test1;
+extern UINT8 	FG_test_mode;
+extern UINT8	FLAG_ADF7021_DATA_tx;
+extern UINT8 	FLAG_KEY_COUNT;
+extern UINT8		mb_RegSw;
+extern UINT8 	mb_RegStopSw;
+extern UINT8 	mb_RegOpenSw;
+extern UINT8 	mb_RegCloseSw;
+extern UINT8 	mb_RegVentSw;
+extern UINT8 	m_KeyOptSetOpenStop;
+extern UINT8 	mb_NoPush;
+extern UINT8 	mb_NoPushWait;
+extern UINT8		mb_OpenSw;
+extern UINT8 	mb_StopSw;
+extern UINT8 	mb_CloseSw;
+extern UINT8 	FG_d_StopKey;
+extern UINT8 	BIT_SIO;
+extern UINT8 	FG_10s;
+extern UINT8 	FG_BAT;
+extern UINT8 	FG_Complex_Single_shot;
 
 
 #define BASE_100ms	 100

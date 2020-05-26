@@ -3,21 +3,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/inc\initial.h: 41:   typedef union {
 [u S375 `ul 1 `uc -> 4 `i ]
 [n S375 . IDL IDB ]
-"156 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 156: extern uni_rom_id ID_data;
+"192 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 192: extern uni_rom_id ID_data;
 [v _ID_data `S375 ~T0 @X0 0 e ]
 "35 ../Projects/inc\initial.h
 [; ;../Projects/inc\initial.h: 35:   typedef union{
 [u S374 `ul 1 `uc -> 4 `i ]
 [n S374 . whole_reg byte ]
-"178 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 178: extern ADF70XX_REG_T ROM_adf7012_value[4];
+"214 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 214: extern ADF70XX_REG_T ROM_adf7012_value[4];
 [v _ROM_adf7012_value `S374 ~T0 @X0 -> 0 `x e ]
-"179
-[; ;../Projects/inc\ram.h: 179: extern const ADF70XX_REG_T Default_adf7012_value[4];
+"215
+[; ;../Projects/inc\ram.h: 215: extern const ADF70XX_REG_T Default_adf7012_value[4];
 [v _Default_adf7012_value `CS374 ~T0 @X0 -> 0 `x e ]
-"246
-[; ;../Projects/inc\ram.h: 246: extern unsigned char rom_KeyOpt;
+"282
+[; ;../Projects/inc\ram.h: 282: extern unsigned char rom_KeyOpt;
 [v _rom_KeyOpt `uc ~T0 @X0 0 e ]
 "54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 54: __asm("INDF0 equ 00h");
@@ -519,7 +519,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "112
 [; ;../Projects/src/eeprom.c: 112: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "115
 [; ;../Projects/src/eeprom.c: 115: void UnlockFlash(unsigned char Type){
@@ -530,7 +530,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "117
 [; ;../Projects/src/eeprom.c: 117: }
-[e :UE 388 ]
+[e :UE 378 ]
 }
 "119
 [; ;../Projects/src/eeprom.c: 119: void LockFlash(unsigned char Type ){
@@ -541,7 +541,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "121
 [; ;../Projects/src/eeprom.c: 121: }
-[e :UE 389 ]
+[e :UE 379 ]
 }
 "123
 [; ;../Projects/src/eeprom.c: 123: unsigned char ReadByteEEPROM( unsigned long Addr ){
@@ -553,10 +553,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "124
 [; ;../Projects/src/eeprom.c: 124:  return(*(( __far unsigned char* ) Addr ));
 [e ) *U -> _Addr `*Fuc ]
-[e $UE 390  ]
+[e $UE 380  ]
 "125
 [; ;../Projects/src/eeprom.c: 125: }
-[e :UE 390 ]
+[e :UE 380 ]
 }
 "127
 [; ;../Projects/src/eeprom.c: 127: void WriteByteToFLASH(unsigned long Addr, unsigned char Dat){
@@ -571,7 +571,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U -> _Addr `*Fuc _Dat ]
 "129
 [; ;../Projects/src/eeprom.c: 129: }
-[e :UE 391 ]
+[e :UE 381 ]
 }
 "131
 [; ;../Projects/src/eeprom.c: 131: void EraseByteFLASH( unsigned int Addr){
@@ -585,7 +585,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U -> _Addr `*Nuc -> -> 0 `i `uc ]
 "133
 [; ;../Projects/src/eeprom.c: 133: }
-[e :UE 392 ]
+[e :UE 382 ]
 }
 "135
 [; ;../Projects/src/eeprom.c: 135: void eeprom_save(void){
@@ -604,22 +604,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/eeprom.c: 139:  for (i=0;i<16;i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 16 `i 394  ]
-[e $U 395  ]
-[e :U 394 ]
+[e $ < -> _i `i -> 16 `i 384  ]
+[e $U 385  ]
+[e :U 384 ]
 "140
 [; ;../Projects/src/eeprom.c: 140:   WriteByteToFLASH( 0x1000 +i, eeprom_sys_buff);
 [e ( _WriteByteToFLASH (2 , -> -> + -> 4096 `i -> _i `i `l `ul _eeprom_sys_buff ]
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 16 `i 394  ]
-[e :U 395 ]
+[e $ < -> _i `i -> 16 `i 384  ]
+[e :U 385 ]
 }
 "141
 [; ;../Projects/src/eeprom.c: 141:  LockFlash( ((unsigned char)0x01 ) );
 [e ( _LockFlash (1 -> -> 1 `i `uc ]
 "142
 [; ;../Projects/src/eeprom.c: 142: }
-[e :UE 393 ]
+[e :UE 383 ]
 }
 "143
 [; ;../Projects/src/eeprom.c: 143: void eeprom_sys_load(void){
@@ -638,9 +638,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/eeprom.c: 188:   for (i=0;i<4;i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 398  ]
-[e $U 399  ]
-[e :U 398 ]
+[e $ < -> _i `i -> 4 `i 388  ]
+[e $U 389  ]
+[e :U 388 ]
 "189
 [; ;../Projects/src/eeprom.c: 189:   {
 {
@@ -651,12 +651,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/eeprom.c: 197:   }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 398  ]
-[e :U 399 ]
+[e $ < -> _i `i -> 4 `i 388  ]
+[e :U 389 ]
 }
 "199
 [; ;../Projects/src/eeprom.c: 199: }
-[e :UE 397 ]
+[e :UE 387 ]
 }
 "202
 [; ;../Projects/src/eeprom.c: 202: void KeyOpt_EEPROM_write(void)
@@ -677,5 +677,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _LockFlash (1 -> -> 1 `i `uc ]
 "235
 [; ;../Projects/src/eeprom.c: 235: }
-[e :UE 401 ]
+[e :UE 391 ]
 }

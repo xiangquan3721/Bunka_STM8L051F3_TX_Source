@@ -35,6 +35,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3655
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 3655: extern volatile unsigned char WPUC __attribute__((address(0x20E)));
 [v _WPUC `Vuc ~T0 @X0 0 e@526 ]
+"8007
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8007: extern volatile __bit RB5 __attribute__((address(0x6D)));
+[v _RB5 `Vb ~T0 @X0 0 e@109 ]
 "8010
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8010: extern volatile __bit RB6 __attribute__((address(0x6E)));
 [v _RB6 `Vb ~T0 @X0 0 e@110 ]
@@ -56,46 +59,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8013
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8013: extern volatile __bit RB7 __attribute__((address(0x6F)));
 [v _RB7 `Vb ~T0 @X0 0 e@111 ]
-"171 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 171: extern unsigned char TB_100ms;
+"207 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 207: extern unsigned char TB_100ms;
 [v _TB_100ms `uc ~T0 @X0 0 e ]
-"146
-[; ;../Projects/inc\ram.h: 146: extern unsigned char TB_51s;
+"182
+[; ;../Projects/inc\ram.h: 182: extern unsigned char TB_51s;
 [v _TB_51s `uc ~T0 @X0 0 e ]
-"172
-[; ;../Projects/inc\ram.h: 172: extern unsigned char TB_5s;
+"208
+[; ;../Projects/inc\ram.h: 208: extern unsigned char TB_5s;
 [v _TB_5s `uc ~T0 @X0 0 e ]
 "27 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 27: void _SetKeyChatterCount( void );
 [v __SetKeyChatterCount `(v ~T0 @X0 0 ef ]
-"234 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 234: extern unsigned char m_KeyNew;
+"270 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 270: extern unsigned char m_KeyNew;
 [v _m_KeyNew `uc ~T0 @X0 0 e ]
-"236
-[; ;../Projects/inc\ram.h: 236: extern unsigned char m_KeyOld;
+"272
+[; ;../Projects/inc\ram.h: 272: extern unsigned char m_KeyOld;
 [v _m_KeyOld `uc ~T0 @X0 0 e ]
-"235
-[; ;../Projects/inc\ram.h: 235: extern unsigned char m_KindOfKey;
+"271
+[; ;../Projects/inc\ram.h: 271: extern unsigned char m_KindOfKey;
 [v _m_KindOfKey `uc ~T0 @X0 0 e ]
-"92
-[; ;../Projects/inc\ram.h: 92:  struct {
-[s S384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S384 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"90
-[; ;../Projects/inc\ram.h: 90: extern volatile union{
-[u S383 `uc 1 `S384 1 ]
-[n S383 . BYTE BIT ]
-"102
-[; ;../Projects/inc\ram.h: 102: }RAM_RegSW;
-[v _RAM_RegSW `VS383 ~T0 @X0 0 e ]
+"167
+[; ;../Projects/inc\ram.h: 167: extern unsigned char mb_NoPush;
+[v _mb_NoPush `uc ~T0 @X0 0 e ]
+"168
+[; ;../Projects/inc\ram.h: 168: extern unsigned char mb_NoPushWait;
+[v _mb_NoPushWait `uc ~T0 @X0 0 e ]
 "29 ../Projects/inc\key_and_Other.h
 [; ;../Projects/inc\key_and_Other.h: 29: void _ClearSpecialMultiKeyState( void );
 [v __ClearSpecialMultiKeyState `(v ~T0 @X0 0 ef ]
-"238 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 238: extern unsigned int m_TimerKey;
+"274 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 274: extern unsigned int m_TimerKey;
 [v _m_TimerKey `ui ~T0 @X0 0 e ]
-"248
-[; ;../Projects/inc\ram.h: 248: extern unsigned int m_TimerKeyMonitor;
+"284
+[; ;../Projects/inc\ram.h: 284: extern unsigned int m_TimerKeyMonitor;
 [v _m_TimerKeyMonitor `ui ~T0 @X0 0 e ]
 "54 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 54: __asm("INDF0 equ 00h");
@@ -599,7 +597,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "19
 [; ;../Projects/src/initial.c: 19: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "21
 [; ;../Projects/src/initial.c: 21: void WDT_init(void)
@@ -611,7 +609,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "24
 [; ;../Projects/src/initial.c: 24: }
-[e :UE 388 ]
+[e :UE 378 ]
 }
 "25
 [; ;../Projects/src/initial.c: 25: void ClearWDT(void)
@@ -623,7 +621,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "28
 [; ;../Projects/src/initial.c: 28: }
-[e :UE 389 ]
+[e :UE 379 ]
 }
 "31
 [; ;../Projects/src/initial.c: 31: void SysClock_Init( void )
@@ -638,14 +636,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _OSCCON -> -> 120 `i `uc ]
 "34
 [; ;../Projects/src/initial.c: 34:   while(!HFIOFR);
-[e $U 391  ]
-[e :U 392 ]
-[e :U 391 ]
-[e $ ! _HFIOFR 392  ]
-[e :U 393 ]
+[e $U 381  ]
+[e :U 382 ]
+[e :U 381 ]
+[e $ ! _HFIOFR 382  ]
+[e :U 383 ]
 "35
 [; ;../Projects/src/initial.c: 35: }
-[e :UE 390 ]
+[e :UE 380 ]
 }
 "37
 [; ;../Projects/src/initial.c: 37: void beep_init( void )
@@ -657,7 +655,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "40
 [; ;../Projects/src/initial.c: 40: }
-[e :UE 394 ]
+[e :UE 384 ]
 }
 "45
 [; ;../Projects/src/initial.c: 45: void VHF_GPIO_INIT(void)
@@ -683,121 +681,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/initial.c: 52:   TRISA=0B00010100;
 [e = _TRISA -> -> 20 `i `uc ]
 "53
-[; ;../Projects/src/initial.c: 53:   WPUA=0B00000000;
-[e = _WPUA -> -> 0 `i `uc ]
+[; ;../Projects/src/initial.c: 53:   WPUA =0B00010100;
+[e = _WPUA -> -> 20 `i `uc ]
 "54
 [; ;../Projects/src/initial.c: 54:   TRISB=0B01010000;
 [e = _TRISB -> -> 80 `i `uc ]
 "55
-[; ;../Projects/src/initial.c: 55:   WPUB=0B00000000;
-[e = _WPUB -> -> 0 `i `uc ]
+[; ;../Projects/src/initial.c: 55:   WPUB =0B11010000;
+[e = _WPUB -> -> 208 `i `uc ]
 "56
 [; ;../Projects/src/initial.c: 56:   TRISC=0B00111010;
 [e = _TRISC -> -> 58 `i `uc ]
 "57
-[; ;../Projects/src/initial.c: 57:   WPUC=0B00000000;
-[e = _WPUC -> -> 0 `i `uc ]
-"60
-[; ;../Projects/src/initial.c: 60:   RB6=0;
+[; ;../Projects/src/initial.c: 57:   WPUC =0B00111100;
+[e = _WPUC -> -> 60 `i `uc ]
+"59
+[; ;../Projects/src/initial.c: 59:   RB5=0;
+[e = _RB5 -> -> 0 `i `b ]
+"61
+[; ;../Projects/src/initial.c: 61:   RB6=0;
 [e = _RB6 -> -> 0 `i `b ]
-"62
-[; ;../Projects/src/initial.c: 62:   RC7=0;
+"63
+[; ;../Projects/src/initial.c: 63:   RC7=0;
 [e = _RC7 -> -> 0 `i `b ]
-"64
-[; ;../Projects/src/initial.c: 64:   RC6=0;
+"65
+[; ;../Projects/src/initial.c: 65:   RC6=0;
 [e = _RC6 -> -> 0 `i `b ]
-"66
-[; ;../Projects/src/initial.c: 66:   RC2=0;
+"67
+[; ;../Projects/src/initial.c: 67:   RC2=0;
 [e = _RC2 -> -> 0 `i `b ]
-"71
-[; ;../Projects/src/initial.c: 71:   RC0=0;
+"72
+[; ;../Projects/src/initial.c: 72:   RC0=0;
 [e = _RC0 -> -> 0 `i `b ]
-"73
-[; ;../Projects/src/initial.c: 73:   RA5=0;
+"74
+[; ;../Projects/src/initial.c: 74:   RA5=0;
 [e = _RA5 -> -> 0 `i `b ]
-"75
-[; ;../Projects/src/initial.c: 75:   RB7=0;
+"76
+[; ;../Projects/src/initial.c: 76:   RB7=0;
 [e = _RB7 -> -> 0 `i `b ]
-"77
-[; ;../Projects/src/initial.c: 77: }
-[e :UE 395 ]
-}
 "78
-[; ;../Projects/src/initial.c: 78: void _Init_RAM(void)
-[v __Init_RAM `(v ~T0 @X0 1 ef ]
+[; ;../Projects/src/initial.c: 78: }
+[e :UE 385 ]
+}
 "79
-[; ;../Projects/src/initial.c: 79: {
+[; ;../Projects/src/initial.c: 79: void _Init_RAM(void)
+[v __Init_RAM `(v ~T0 @X0 1 ef ]
+"80
+[; ;../Projects/src/initial.c: 80: {
 {
 [e :U __Init_RAM ]
 [f ]
-"80
-[; ;../Projects/src/initial.c: 80:   TB_100ms = 100;
+"81
+[; ;../Projects/src/initial.c: 81:   TB_100ms = 100;
 [e = _TB_100ms -> -> 100 `i `uc ]
-"82
-[; ;../Projects/src/initial.c: 82:   TB_51s=26;
-[e = _TB_51s -> -> 26 `i `uc ]
 "83
-[; ;../Projects/src/initial.c: 83:   TB_5s=TB_51s-1;
+[; ;../Projects/src/initial.c: 83:   TB_51s=26;
+[e = _TB_51s -> -> 26 `i `uc ]
+"84
+[; ;../Projects/src/initial.c: 84:   TB_5s=TB_51s-1;
 [e = _TB_5s -> - -> _TB_51s `i -> 1 `i `uc ]
-"89
-[; ;../Projects/src/initial.c: 89:  _SetKeyChatterCount() ;
-[e ( __SetKeyChatterCount ..  ]
 "90
-[; ;../Projects/src/initial.c: 90:  m_KeyNew = m_KeyOld = 0xFF ;
-[e = _m_KeyNew = _m_KeyOld -> -> 255 `i `uc ]
+[; ;../Projects/src/initial.c: 90:  _SetKeyChatterCount() ;
+[e ( __SetKeyChatterCount ..  ]
 "91
-[; ;../Projects/src/initial.c: 91:  m_KindOfKey = 0 ;
+[; ;../Projects/src/initial.c: 91:  m_KeyNew = m_KeyOld = 0xFF ;
+[e = _m_KeyNew = _m_KeyOld -> -> 255 `i `uc ]
+"92
+[; ;../Projects/src/initial.c: 92:  m_KindOfKey = 0 ;
 [e = _m_KindOfKey -> -> 0 `i `uc ]
-"93
-[; ;../Projects/src/initial.c: 93:  RAM_RegSW.BIT.Bit6 = 1 ;
-[e = . . _RAM_RegSW 1 6 -> -> 1 `i `uc ]
 "94
-[; ;../Projects/src/initial.c: 94:  RAM_RegSW.BIT.Bit7 = 0 ;
-[e = . . _RAM_RegSW 1 7 -> -> 0 `i `uc ]
+[; ;../Projects/src/initial.c: 94:  mb_NoPush = 1 ;
+[e = _mb_NoPush -> -> 1 `i `uc ]
 "95
-[; ;../Projects/src/initial.c: 95:  _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
+[; ;../Projects/src/initial.c: 95:  mb_NoPushWait = 0 ;
+[e = _mb_NoPushWait -> -> 0 `i `uc ]
 "96
-[; ;../Projects/src/initial.c: 96:  m_TimerKey = 0 ;
-[e = _m_TimerKey -> -> 0 `i `ui ]
+[; ;../Projects/src/initial.c: 96:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
 "97
-[; ;../Projects/src/initial.c: 97:  m_TimerKeyMonitor = 0 ;
-[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+[; ;../Projects/src/initial.c: 97:  m_TimerKey = 0 ;
+[e = _m_TimerKey -> -> 0 `i `ui ]
 "98
-[; ;../Projects/src/initial.c: 98: }
-[e :UE 396 ]
+[; ;../Projects/src/initial.c: 98:  m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+"99
+[; ;../Projects/src/initial.c: 99: }
+[e :UE 386 ]
 }
-"100
-[; ;../Projects/src/initial.c: 100: void Delayus(unsigned char timer)
-[v _Delayus `(v ~T0 @X0 1 ef1`uc ]
 "101
-[; ;../Projects/src/initial.c: 101: {
+[; ;../Projects/src/initial.c: 101: void Delayus(unsigned char timer)
+[v _Delayus `(v ~T0 @X0 1 ef1`uc ]
+"102
+[; ;../Projects/src/initial.c: 102: {
 {
 [e :U _Delayus ]
-"100
-[; ;../Projects/src/initial.c: 100: void Delayus(unsigned char timer)
-[v _timer `uc ~T0 @X0 1 r1 ]
 "101
-[; ;../Projects/src/initial.c: 101: {
-[f ]
+[; ;../Projects/src/initial.c: 101: void Delayus(unsigned char timer)
+[v _timer `uc ~T0 @X0 1 r1 ]
 "102
-[; ;../Projects/src/initial.c: 102: unsigned char x;
-[v _x `uc ~T0 @X0 1 a ]
+[; ;../Projects/src/initial.c: 102: {
+[f ]
 "103
-[; ;../Projects/src/initial.c: 103:  for(x=0;x<timer;x++)
+[; ;../Projects/src/initial.c: 103: unsigned char x;
+[v _x `uc ~T0 @X0 1 a ]
+"104
+[; ;../Projects/src/initial.c: 104:  for(x=0;x<timer;x++)
 {
 [e = _x -> -> 0 `i `uc ]
-[e $U 401  ]
-[e :U 398 ]
-"104
-[; ;../Projects/src/initial.c: 104:      __asm("nop");
+[e $U 391  ]
+[e :U 388 ]
+"105
+[; ;../Projects/src/initial.c: 105:      __asm("nop");
 [; <" nop ;# ">
 [e ++ _x -> -> 1 `i `uc ]
-[e :U 401 ]
-[e $ < -> _x `i -> _timer `i 398  ]
-[e :U 399 ]
+[e :U 391 ]
+[e $ < -> _x `i -> _timer `i 388  ]
+[e :U 389 ]
 }
-"105
-[; ;../Projects/src/initial.c: 105: }
-[e :UE 397 ]
+"106
+[; ;../Projects/src/initial.c: 106: }
+[e :UE 387 ]
 }

@@ -1,24 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"175 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 175: extern unsigned char SIO_cnt;
+"211 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 211: extern unsigned char SIO_cnt;
 [v _SIO_cnt `uc ~T0 @X0 0 e ]
-"176
-[; ;../Projects/inc\ram.h: 176: extern unsigned char SIO_buff[16];
+"212
+[; ;../Projects/inc\ram.h: 212: extern unsigned char SIO_buff[16];
 [v _SIO_buff `uc ~T0 @X0 -> 0 `x e ]
-"177
-[; ;../Projects/inc\ram.h: 177: extern unsigned char SIO_DATA[16];
+"213
+[; ;../Projects/inc\ram.h: 213: extern unsigned char SIO_DATA[16];
 [v _SIO_DATA `uc ~T0 @X0 -> 0 `x e ]
-"118
-[; ;../Projects/inc\ram.h: 118:  struct {
-[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S386 . Bit0 Bit1 Bit2 Bit3 Bit4 Bit5 Bit6 Bit7 ]
-"116
-[; ;../Projects/inc\ram.h: 116: extern volatile union{
-[u S385 `uc 1 `S386 1 ]
-[n S385 . BYTE BIT ]
-"128
-[; ;../Projects/inc\ram.h: 128: }RAM_SW;
-[v _RAM_SW `VS385 ~T0 @X0 0 e ]
+"173
+[; ;../Projects/inc\ram.h: 173: extern unsigned char BIT_SIO;
+[v _BIT_SIO `uc ~T0 @X0 0 e ]
 "16 ../Projects/inc\uart.h
 [; ;../Projects/inc\uart.h: 16: unsigned char asc_hex(unsigned char asc);
 [v _asc_hex `(uc ~T0 @X0 0 ef1`uc ]
@@ -26,8 +18,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/inc\initial.h: 41:   typedef union {
 [u S375 `ul 1 `uc -> 4 `i ]
 [n S375 . IDL IDB ]
-"156 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 156: extern uni_rom_id ID_data;
+"192 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 192: extern uni_rom_id ID_data;
 [v _ID_data `S375 ~T0 @X0 0 e ]
 "10 ../Projects/inc\eeprom.h
 [; ;../Projects/inc\eeprom.h: 10: void UnlockFlash(unsigned char Type);
@@ -42,8 +34,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/inc\initial.h: 35:   typedef union{
 [u S374 `ul 1 `uc -> 4 `i ]
 [n S374 . whole_reg byte ]
-"178 ../Projects/inc\ram.h
-[; ;../Projects/inc\ram.h: 178: extern ADF70XX_REG_T ROM_adf7012_value[4];
+"214 ../Projects/inc\ram.h
+[; ;../Projects/inc\ram.h: 214: extern ADF70XX_REG_T ROM_adf7012_value[4];
 [v _ROM_adf7012_value `S374 ~T0 @X0 -> 0 `x e ]
 "11 ../Projects/inc\adf7012.h
 [; ;../Projects/inc\adf7012.h: 11: void dd_write_7021_reg(unsigned char* reg_bytes);
@@ -554,7 +546,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "24
 [; ;../Projects/src/uart.c: 24: }
-[e :UE 387 ]
+[e :UE 377 ]
 }
 "25
 [; ;../Projects/src/uart.c: 25: void UART1_end(void){
@@ -564,7 +556,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "27
 [; ;../Projects/src/uart.c: 27: }
-[e :UE 388 ]
+[e :UE 378 ]
 }
 "29
 [; ;../Projects/src/uart.c: 29: void UART1_RX_RXNE(void){
@@ -577,9 +569,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dat `uc ~T0 @X0 1 a ]
 "33
 [; ;../Projects/src/uart.c: 33:  if (dat=='(') SIO_cnt = 0;
-[e $ ! == -> _dat `ui -> 40 `ui 390  ]
+[e $ ! == -> _dat `ui -> 40 `ui 380  ]
 [e = _SIO_cnt -> -> 0 `i `uc ]
-[e :U 390 ]
+[e :U 380 ]
 "34
 [; ;../Projects/src/uart.c: 34:  SIO_buff[SIO_cnt] = dat;
 [e = *U + &U _SIO_buff * -> _SIO_cnt `ux -> -> # *U &U _SIO_buff `ui `ux _dat ]
@@ -588,14 +580,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _SIO_cnt -> & + -> _SIO_cnt `i -> 1 `i -> 31 `i `uc ]
 "36
 [; ;../Projects/src/uart.c: 36:  if (dat==')'){
-[e $ ! == -> _dat `ui -> 41 `ui 391  ]
+[e $ ! == -> _dat `ui -> 41 `ui 381  ]
 {
 "37
 [; ;../Projects/src/uart.c: 37:   for (dat=0;dat<SIO_cnt;dat++) {
 {
 [e = _dat -> -> 0 `i `uc ]
-[e $U 395  ]
-[e :U 392 ]
+[e $U 385  ]
+[e :U 382 ]
 {
 "38
 [; ;../Projects/src/uart.c: 38:    SIO_DATA[dat] = SIO_buff[dat];
@@ -604,20 +596,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/uart.c: 39:   }
 }
 [e ++ _dat -> -> 1 `i `uc ]
-[e :U 395 ]
-[e $ < -> _dat `i -> _SIO_cnt `i 392  ]
-[e :U 393 ]
+[e :U 385 ]
+[e $ < -> _dat `i -> _SIO_cnt `i 382  ]
+[e :U 383 ]
 }
 "40
-[; ;../Projects/src/uart.c: 40:   RAM_SW.BIT.Bit4 = 1;
-[e = . . _RAM_SW 1 4 -> -> 1 `i `uc ]
+[; ;../Projects/src/uart.c: 40:   BIT_SIO = 1;
+[e = _BIT_SIO -> -> 1 `i `uc ]
 "42
 [; ;../Projects/src/uart.c: 42:  }
 }
-[e :U 391 ]
+[e :U 381 ]
 "44
 [; ;../Projects/src/uart.c: 44: }
-[e :UE 389 ]
+[e :UE 379 ]
 }
 "46
 [; ;../Projects/src/uart.c: 46: void Send_char(unsigned char ch){
@@ -628,7 +620,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "48
 [; ;../Projects/src/uart.c: 48: }
-[e :UE 396 ]
+[e :UE 386 ]
 }
 "49
 [; ;../Projects/src/uart.c: 49: unsigned char hex_asc(unsigned char hex)
@@ -651,21 +643,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _hex -> & -> _hex `i -> 15 `i `uc ]
 "53
 [; ;../Projects/src/uart.c: 53:  if (hex < 0x0A) i = hex | 0x30;
-[e $ ! < -> _hex `i -> 10 `i 398  ]
+[e $ ! < -> _hex `i -> 10 `i 388  ]
 [e = _i -> | -> _hex `i -> 48 `i `uc ]
-[e $U 399  ]
+[e $U 389  ]
 "54
 [; ;../Projects/src/uart.c: 54:  else i = hex + 0x37;
-[e :U 398 ]
+[e :U 388 ]
 [e = _i -> + -> _hex `i -> 55 `i `uc ]
-[e :U 399 ]
+[e :U 389 ]
 "55
 [; ;../Projects/src/uart.c: 55:  return i;
 [e ) _i ]
-[e $UE 397  ]
+[e $UE 387  ]
 "56
 [; ;../Projects/src/uart.c: 56: }
-[e :UE 397 ]
+[e :UE 387 ]
 }
 "57
 [; ;../Projects/src/uart.c: 57: unsigned char asc_hex_2(unsigned char asc1,unsigned char asc0)
@@ -690,10 +682,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [; ;../Projects/src/uart.c: 61:  return i;
 [e ) _i ]
-[e $UE 400  ]
+[e $UE 390  ]
 "62
 [; ;../Projects/src/uart.c: 62: }
-[e :UE 400 ]
+[e :UE 390 ]
 }
 "63
 [; ;../Projects/src/uart.c: 63: unsigned char asc_hex(unsigned char asc)
@@ -713,21 +705,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `uc ~T0 @X0 1 a ]
 "66
 [; ;../Projects/src/uart.c: 66:  if (asc < 0x3A) i = asc & 0x0F;
-[e $ ! < -> _asc `i -> 58 `i 402  ]
+[e $ ! < -> _asc `i -> 58 `i 392  ]
 [e = _i -> & -> _asc `i -> 15 `i `uc ]
-[e $U 403  ]
+[e $U 393  ]
 "67
 [; ;../Projects/src/uart.c: 67:  else i = asc - 0x37;
-[e :U 402 ]
+[e :U 392 ]
 [e = _i -> - -> _asc `i -> 55 `i `uc ]
-[e :U 403 ]
+[e :U 393 ]
 "68
 [; ;../Projects/src/uart.c: 68:  return i;
 [e ) _i ]
-[e $UE 401  ]
+[e $UE 391  ]
 "69
 [; ;../Projects/src/uart.c: 69: }
-[e :UE 401 ]
+[e :UE 391 ]
 }
 "71
 [; ;../Projects/src/uart.c: 71: void PC_PRG(void)
@@ -751,22 +743,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _d1 `uc ~T0 @X0 1 a ]
 [v _d0 `uc ~T0 @X0 1 a ]
 "77
-[; ;../Projects/src/uart.c: 77:  if (RAM_SW.BIT.Bit4){
-[e $ ! != -> . . _RAM_SW 1 4 `i -> 0 `i 405  ]
+[; ;../Projects/src/uart.c: 77:  if (BIT_SIO){
+[e $ ! != -> _BIT_SIO `i -> 0 `i 395  ]
 {
 "78
-[; ;../Projects/src/uart.c: 78:   RAM_SW.BIT.Bit4 = 0;
-[e = . . _RAM_SW 1 4 -> -> 0 `i `uc ]
+[; ;../Projects/src/uart.c: 78:   BIT_SIO = 0;
+[e = _BIT_SIO -> -> 0 `i `uc ]
 "80
 [; ;../Projects/src/uart.c: 80:   switch (SIO_DATA[1]){
-[e $U 407  ]
+[e $U 397  ]
 {
 "84
 [; ;../Projects/src/uart.c: 84:   case 'W':
-[e :U 408 ]
+[e :U 398 ]
 "86
 [; ;../Projects/src/uart.c: 86:    if (SIO_DATA[2]=='G')
-[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 71 `ui 409  ]
+[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 71 `ui 399  ]
 "87
 [; ;../Projects/src/uart.c: 87:    {
 {
@@ -836,10 +828,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "113
 [; ;../Projects/src/uart.c: 113:    }
 }
-[e :U 409 ]
+[e :U 399 ]
 "115
 [; ;../Projects/src/uart.c: 115:    if (SIO_DATA[2]=='H')
-[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 72 `ui 410  ]
+[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 72 `ui 400  ]
 "116
 [; ;../Projects/src/uart.c: 116:    {
 {
@@ -930,16 +922,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "152
 [; ;../Projects/src/uart.c: 152:    }
 }
-[e :U 410 ]
+[e :U 400 ]
 "153
 [; ;../Projects/src/uart.c: 153:           break;
-[e $U 406  ]
+[e $U 396  ]
 "157
 [; ;../Projects/src/uart.c: 157:   case 'R':
-[e :U 411 ]
+[e :U 401 ]
 "159
 [; ;../Projects/src/uart.c: 159:    if (SIO_DATA[2]=='G')
-[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 71 `ui 412  ]
+[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 71 `ui 402  ]
 "160
 [; ;../Projects/src/uart.c: 160:    {
 {
@@ -971,9 +963,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/uart.c: 169:            for (i=1;i<4;i++){
 {
 [e = _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 413  ]
-[e $U 414  ]
-[e :U 413 ]
+[e $ < -> _i `i -> 4 `i 403  ]
+[e $U 404  ]
+[e :U 403 ]
 {
 "170
 [; ;../Projects/src/uart.c: 170:          d1 = hex_asc(ID_data.IDB[i] / 16);
@@ -991,16 +983,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/uart.c: 174:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 413  ]
-[e :U 414 ]
+[e $ < -> _i `i -> 4 `i 403  ]
+[e :U 404 ]
 }
 "175
 [; ;../Projects/src/uart.c: 175:    }
 }
-[e :U 412 ]
+[e :U 402 ]
 "177
 [; ;../Projects/src/uart.c: 177:    if (SIO_DATA[2]=='H')
-[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 72 `ui 416  ]
+[e $ ! == -> *U + &U _SIO_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `ui -> 72 `ui 406  ]
 "178
 [; ;../Projects/src/uart.c: 178:    {
 {
@@ -1035,9 +1027,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/uart.c: 188:     for (j=0;j<4;j++){
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 4 `i 417  ]
-[e $U 418  ]
-[e :U 417 ]
+[e $ < -> _j `i -> 4 `i 407  ]
+[e $U 408  ]
+[e :U 407 ]
 {
 "189
 [; ;../Projects/src/uart.c: 189:          d1 = hex_asc(ROM_adf7012_value[i].byte[j] / 16);
@@ -1055,36 +1047,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/uart.c: 193:     }
 }
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 4 `i 417  ]
-[e :U 418 ]
+[e $ < -> _j `i -> 4 `i 407  ]
+[e :U 408 ]
 }
 "194
 [; ;../Projects/src/uart.c: 194:                         }
 }
-[e :U 416 ]
+[e :U 406 ]
 "195
 [; ;../Projects/src/uart.c: 195:           break;
-[e $U 406  ]
+[e $U 396  ]
 "196
 [; ;../Projects/src/uart.c: 196:   default:
-[e :U 420 ]
+[e :U 410 ]
 "197
 [; ;../Projects/src/uart.c: 197:    break;
-[e $U 406  ]
+[e $U 396  ]
 "199
 [; ;../Projects/src/uart.c: 199:   }
 }
-[e $U 406  ]
-[e :U 407 ]
-[e [\ -> *U + &U _SIO_DATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `i , $ -> -> 87 `ui `i 408
- , $ -> -> 82 `ui `i 411
- 420 ]
-[e :U 406 ]
+[e $U 396  ]
+[e :U 397 ]
+[e [\ -> *U + &U _SIO_DATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _SIO_DATA `ui `ux `i , $ -> -> 87 `ui `i 398
+ , $ -> -> 82 `ui `i 401
+ 410 ]
+[e :U 396 ]
 "200
 [; ;../Projects/src/uart.c: 200:  }
 }
-[e :U 405 ]
+[e :U 395 ]
 "201
 [; ;../Projects/src/uart.c: 201: }
-[e :UE 404 ]
+[e :UE 394 ]
 }
