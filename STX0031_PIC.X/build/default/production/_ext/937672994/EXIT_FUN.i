@@ -4771,8 +4771,6 @@ void EXIT_init(void){
 }
 
 void EXTI_PORTA1(void){
-
-  RC0=FLAG_ADF7021_DATA_tx;
   if(FLAG_APP_TX==1){
     if(txphase%8==0)ID_INT_CODE=m_RFNormalBuf[txphase/8];
     if (ID_INT_CODE & 0x80)FLAG_ADF7021_DATA_tx=1;
@@ -4789,7 +4787,7 @@ void EXTI_PORTA1(void){
   }
 
 }
-# 123 "../Projects/src/EXIT_FUN.c"
+# 121 "../Projects/src/EXIT_FUN.c"
 void SendTxData(void)
 {
   unsigned char i, def_preamble=8;

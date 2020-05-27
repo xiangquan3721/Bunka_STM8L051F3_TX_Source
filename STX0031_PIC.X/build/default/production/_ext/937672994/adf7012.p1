@@ -540,18 +540,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/adf7012.c: 23:     RB6 = 0;
 [e = _RB6 -> -> 0 `i `b ]
 "32
-[; ;../Projects/src/adf7012.c: 32:     for (i=0; i<=3; i++)
+[; ;../Projects/src/adf7012.c: 32:     for (i=4; i>=1; i--)
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ <= -> _i `i -> 3 `i 378  ]
+[e = _i -> -> 4 `i `uc ]
+[e $ >= -> _i `i -> 1 `i 378  ]
 [e $U 379  ]
 [e :U 378 ]
 "33
 [; ;../Projects/src/adf7012.c: 33:     {
 {
 "34
-[; ;../Projects/src/adf7012.c: 34:         byte = reg_bytes[i];
-[e = _byte *U + _reg_bytes * -> _i `ux -> -> # *U _reg_bytes `ui `ux ]
+[; ;../Projects/src/adf7012.c: 34:         byte = reg_bytes[i-1];
+[e = _byte *U + _reg_bytes * -> - -> _i `i -> 1 `i `x -> -> # *U _reg_bytes `i `x ]
 "36
 [; ;../Projects/src/adf7012.c: 36:         for (j=8; j>0; j--)
 {
@@ -594,8 +594,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45
 [; ;../Projects/src/adf7012.c: 45:     }
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e $ <= -> _i `i -> 3 `i 378  ]
+[e -- _i -> -> 1 `i `uc ]
+[e $ >= -> _i `i -> 1 `i 378  ]
 [e :U 379 ]
 }
 "50

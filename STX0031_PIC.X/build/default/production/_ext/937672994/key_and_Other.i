@@ -5996,15 +5996,13 @@ void test_mode_control(void)
 
  while(RC3==0){
   ClearWDT();
-
-
-
+# 1376 "../Projects/src/key_and_Other.c"
   if((RB4==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
-
-    RC2 =1;
+    dd_set_ADF7021_Power_on_test();
     dd_set_TX_mode();
     FG_test_mode=0;
+    FLAG_ADF7021_DATA_tx=0;
     RC0=0;
   }
   if(RB4==1)FG_KEY_OPEN=0;
@@ -6014,6 +6012,7 @@ void test_mode_control(void)
 
     RC2=0;
     FG_test_mode=0;
+    FLAG_ADF7021_DATA_tx=0;
     RC0=0;
   }
   if(RC4==1)FG_KEY_STOP=0;
@@ -6026,9 +6025,9 @@ void test_mode_control(void)
   }
   if(RA4==1)FG_KEY_CLOSE=0;
 
-
   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
-     RC0=!RC0;
+    FLAG_ADF7021_DATA_tx=!FLAG_ADF7021_DATA_tx;
+
      FG_test1=1;
   }
   if(RA2==0)FG_test1=0;

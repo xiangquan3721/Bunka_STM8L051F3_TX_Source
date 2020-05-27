@@ -288,24 +288,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 144: extern unsigned char FG_KEY_OPEN;
 [v _FG_KEY_OPEN `uc ~T0 @X0 0 e ]
-"8022 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
-[v _RC2 `Vb ~T0 @X0 0 e@114 ]
+"13 ../Projects/inc\adf7012.h
+[; ;../Projects/inc\adf7012.h: 13: void dd_set_ADF7021_Power_on_test(void);
+[v _dd_set_ADF7021_Power_on_test `(v ~T0 @X0 0 ef ]
 "158 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 158: extern unsigned char FG_test_mode;
 [v _FG_test_mode `uc ~T0 @X0 0 e ]
+"159
+[; ;../Projects/inc\ram.h: 159: extern unsigned char FLAG_ADF7021_DATA_tx;
+[v _FLAG_ADF7021_DATA_tx `uc ~T0 @X0 0 e ]
 "8016 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8016: extern volatile __bit RC0 __attribute__((address(0x70)));
 [v _RC0 `Vb ~T0 @X0 0 e@112 ]
 "145 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 145: extern unsigned char FG_KEY_STOP;
 [v _FG_KEY_STOP `uc ~T0 @X0 0 e ]
-"146
+"8022 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8022: extern volatile __bit RC2 __attribute__((address(0x72)));
+[v _RC2 `Vb ~T0 @X0 0 e@114 ]
+"146 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 146: extern unsigned char FG_KEY_CLOSE;
 [v _FG_KEY_CLOSE `uc ~T0 @X0 0 e ]
-"13 ../Projects/inc\adf7012.h
-[; ;../Projects/inc\adf7012.h: 13: void dd_set_ADF7021_Power_on_test(void);
-[v _dd_set_ADF7021_Power_on_test `(v ~T0 @X0 0 ef ]
 "7992 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7992: extern volatile __bit RA2 __attribute__((address(0x62)));
 [v _RA2 `Vb ~T0 @X0 0 e@98 ]
@@ -3842,130 +3845,136 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1332
 [; ;../Projects/src/key_and_Other.c: 1332:   ClearWDT();
 [e ( _ClearWDT ..  ]
-"1336
-[; ;../Projects/src/key_and_Other.c: 1336:   if((RB4==0)&&(FG_KEY_OPEN==0)){
+"1376
+[; ;../Projects/src/key_and_Other.c: 1376:   if((RB4==0)&&(FG_KEY_OPEN==0)){
 [e $ ! && == -> _RB4 `i -> 0 `i == -> _FG_KEY_OPEN `i -> 0 `i 613  ]
 {
-"1337
-[; ;../Projects/src/key_and_Other.c: 1337:     FG_KEY_OPEN=1;
+"1377
+[; ;../Projects/src/key_and_Other.c: 1377:     FG_KEY_OPEN=1;
 [e = _FG_KEY_OPEN -> -> 1 `i `uc ]
-"1339
-[; ;../Projects/src/key_and_Other.c: 1339:     RC2 =1;
-[e = _RC2 -> -> 1 `i `b ]
-"1340
-[; ;../Projects/src/key_and_Other.c: 1340:     dd_set_TX_mode();
+"1378
+[; ;../Projects/src/key_and_Other.c: 1378:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
+"1379
+[; ;../Projects/src/key_and_Other.c: 1379:     dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]
-"1341
-[; ;../Projects/src/key_and_Other.c: 1341:     FG_test_mode=0;
+"1380
+[; ;../Projects/src/key_and_Other.c: 1380:     FG_test_mode=0;
 [e = _FG_test_mode -> -> 0 `i `uc ]
-"1342
-[; ;../Projects/src/key_and_Other.c: 1342:     RC0=0;
+"1381
+[; ;../Projects/src/key_and_Other.c: 1381:     FLAG_ADF7021_DATA_tx=0;
+[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
+"1382
+[; ;../Projects/src/key_and_Other.c: 1382:     RC0=0;
 [e = _RC0 -> -> 0 `i `b ]
-"1343
-[; ;../Projects/src/key_and_Other.c: 1343:   }
+"1383
+[; ;../Projects/src/key_and_Other.c: 1383:   }
 }
 [e :U 613 ]
-"1344
-[; ;../Projects/src/key_and_Other.c: 1344:   if(RB4==1)FG_KEY_OPEN=0;
+"1384
+[; ;../Projects/src/key_and_Other.c: 1384:   if(RB4==1)FG_KEY_OPEN=0;
 [e $ ! == -> _RB4 `i -> 1 `i 614  ]
 [e = _FG_KEY_OPEN -> -> 0 `i `uc ]
 [e :U 614 ]
-"1346
-[; ;../Projects/src/key_and_Other.c: 1346:    if((RC4==0)&&(FG_KEY_STOP==0)){
+"1386
+[; ;../Projects/src/key_and_Other.c: 1386:    if((RC4==0)&&(FG_KEY_STOP==0)){
 [e $ ! && == -> _RC4 `i -> 0 `i == -> _FG_KEY_STOP `i -> 0 `i 615  ]
 {
-"1347
-[; ;../Projects/src/key_and_Other.c: 1347:     FG_KEY_STOP=1;
+"1387
+[; ;../Projects/src/key_and_Other.c: 1387:     FG_KEY_STOP=1;
 [e = _FG_KEY_STOP -> -> 1 `i `uc ]
-"1349
-[; ;../Projects/src/key_and_Other.c: 1349:     RC2=0;
+"1389
+[; ;../Projects/src/key_and_Other.c: 1389:     RC2=0;
 [e = _RC2 -> -> 0 `i `b ]
-"1350
-[; ;../Projects/src/key_and_Other.c: 1350:     FG_test_mode=0;
+"1390
+[; ;../Projects/src/key_and_Other.c: 1390:     FG_test_mode=0;
 [e = _FG_test_mode -> -> 0 `i `uc ]
-"1351
-[; ;../Projects/src/key_and_Other.c: 1351:     RC0=0;
+"1391
+[; ;../Projects/src/key_and_Other.c: 1391:     FLAG_ADF7021_DATA_tx=0;
+[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
+"1392
+[; ;../Projects/src/key_and_Other.c: 1392:     RC0=0;
 [e = _RC0 -> -> 0 `i `b ]
-"1352
-[; ;../Projects/src/key_and_Other.c: 1352:   }
+"1393
+[; ;../Projects/src/key_and_Other.c: 1393:   }
 }
 [e :U 615 ]
-"1353
-[; ;../Projects/src/key_and_Other.c: 1353:   if(RC4==1)FG_KEY_STOP=0;
+"1394
+[; ;../Projects/src/key_and_Other.c: 1394:   if(RC4==1)FG_KEY_STOP=0;
 [e $ ! == -> _RC4 `i -> 1 `i 616  ]
 [e = _FG_KEY_STOP -> -> 0 `i `uc ]
 [e :U 616 ]
-"1355
-[; ;../Projects/src/key_and_Other.c: 1355:   if((RA4==0)&&(FG_KEY_CLOSE==0)){
+"1396
+[; ;../Projects/src/key_and_Other.c: 1396:   if((RA4==0)&&(FG_KEY_CLOSE==0)){
 [e $ ! && == -> _RA4 `i -> 0 `i == -> _FG_KEY_CLOSE `i -> 0 `i 617  ]
 {
-"1356
-[; ;../Projects/src/key_and_Other.c: 1356:     FG_KEY_CLOSE=1;
+"1397
+[; ;../Projects/src/key_and_Other.c: 1397:     FG_KEY_CLOSE=1;
 [e = _FG_KEY_CLOSE -> -> 1 `i `uc ]
-"1357
-[; ;../Projects/src/key_and_Other.c: 1357:     dd_set_ADF7021_Power_on_test();
+"1398
+[; ;../Projects/src/key_and_Other.c: 1398:     dd_set_ADF7021_Power_on_test();
 [e ( _dd_set_ADF7021_Power_on_test ..  ]
-"1358
-[; ;../Projects/src/key_and_Other.c: 1358:     dd_set_TX_mode();
+"1399
+[; ;../Projects/src/key_and_Other.c: 1399:     dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]
-"1359
-[; ;../Projects/src/key_and_Other.c: 1359:     FG_test_mode=1;
+"1400
+[; ;../Projects/src/key_and_Other.c: 1400:     FG_test_mode=1;
 [e = _FG_test_mode -> -> 1 `i `uc ]
-"1360
-[; ;../Projects/src/key_and_Other.c: 1360:   }
+"1401
+[; ;../Projects/src/key_and_Other.c: 1401:   }
 }
 [e :U 617 ]
-"1361
-[; ;../Projects/src/key_and_Other.c: 1361:   if(RA4==1)FG_KEY_CLOSE=0;
+"1402
+[; ;../Projects/src/key_and_Other.c: 1402:   if(RA4==1)FG_KEY_CLOSE=0;
 [e $ ! == -> _RA4 `i -> 1 `i 618  ]
 [e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
 [e :U 618 ]
-"1364
-[; ;../Projects/src/key_and_Other.c: 1364:   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
+"1404
+[; ;../Projects/src/key_and_Other.c: 1404:   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
 [e $ ! && && == -> _RA2 `i -> 1 `i == -> _FG_test_mode `i -> 1 `i == -> _FG_test1 `i -> 0 `i 619  ]
 {
-"1365
-[; ;../Projects/src/key_and_Other.c: 1365:      RC0=!RC0;
-[e = _RC0 ! _RC0 ]
-"1366
-[; ;../Projects/src/key_and_Other.c: 1366:      FG_test1=1;
+"1405
+[; ;../Projects/src/key_and_Other.c: 1405:     FLAG_ADF7021_DATA_tx=!FLAG_ADF7021_DATA_tx;
+[e = _FLAG_ADF7021_DATA_tx -> -> ! != -> _FLAG_ADF7021_DATA_tx `i -> 0 `i `i `uc ]
+"1407
+[; ;../Projects/src/key_and_Other.c: 1407:      FG_test1=1;
 [e = _FG_test1 -> -> 1 `i `uc ]
-"1367
-[; ;../Projects/src/key_and_Other.c: 1367:   }
+"1408
+[; ;../Projects/src/key_and_Other.c: 1408:   }
 }
 [e :U 619 ]
-"1368
-[; ;../Projects/src/key_and_Other.c: 1368:   if(RA2==0)FG_test1=0;
+"1409
+[; ;../Projects/src/key_and_Other.c: 1409:   if(RA2==0)FG_test1=0;
 [e $ ! == -> _RA2 `i -> 0 `i 620  ]
 [e = _FG_test1 -> -> 0 `i `uc ]
 [e :U 620 ]
-"1372
-[; ;../Projects/src/key_and_Other.c: 1372:  }
+"1413
+[; ;../Projects/src/key_and_Other.c: 1413:  }
 }
 [e :U 610 ]
 "1331
 [; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
 [e $ == -> _RC3 `i -> 0 `i 611  ]
 [e :U 612 ]
-"1373
-[; ;../Projects/src/key_and_Other.c: 1373:   UART1_end();
+"1414
+[; ;../Projects/src/key_and_Other.c: 1414:   UART1_end();
 [e ( _UART1_end ..  ]
-"1374
-[; ;../Projects/src/key_and_Other.c: 1374:   RB7=0;
+"1415
+[; ;../Projects/src/key_and_Other.c: 1415:   RB7=0;
 [e = _RB7 -> -> 0 `i `b ]
-"1375
-[; ;../Projects/src/key_and_Other.c: 1375:   RB5=0;
+"1416
+[; ;../Projects/src/key_and_Other.c: 1416:   RB5=0;
 [e = _RB5 -> -> 0 `i `b ]
-"1376
-[; ;../Projects/src/key_and_Other.c: 1376:   FG_KEY_OPEN=0;
+"1417
+[; ;../Projects/src/key_and_Other.c: 1417:   FG_KEY_OPEN=0;
 [e = _FG_KEY_OPEN -> -> 0 `i `uc ]
-"1377
-[; ;../Projects/src/key_and_Other.c: 1377:   FG_KEY_STOP=0;
+"1418
+[; ;../Projects/src/key_and_Other.c: 1418:   FG_KEY_STOP=0;
 [e = _FG_KEY_STOP -> -> 0 `i `uc ]
-"1378
-[; ;../Projects/src/key_and_Other.c: 1378:   FG_KEY_CLOSE=0;
+"1419
+[; ;../Projects/src/key_and_Other.c: 1419:   FG_KEY_CLOSE=0;
 [e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
-"1379
-[; ;../Projects/src/key_and_Other.c: 1379: }
+"1420
+[; ;../Projects/src/key_and_Other.c: 1420: }
 [e :UE 609 ]
 }

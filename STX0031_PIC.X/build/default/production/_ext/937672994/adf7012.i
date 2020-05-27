@@ -4757,9 +4757,9 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
     RC6 = 0;
     RB6 = 0;
 # 32 "../Projects/src/adf7012.c"
-    for (i=0; i<=3; i++)
+    for (i=4; i>=1; i--)
     {
-        byte = reg_bytes[i];
+        byte = reg_bytes[i-1];
 
         for (j=8; j>0; j--)
         {

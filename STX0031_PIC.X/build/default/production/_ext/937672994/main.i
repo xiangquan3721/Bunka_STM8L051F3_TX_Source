@@ -4897,8 +4897,6 @@ void main(void)
 
   PEIE=1;
   GIE = 1;
-  for(aaa=0;aaa<1000;aaa++)
-      Delayus(130);
     while(RC3==0){
     RB7=1;
     RB5=1;
@@ -4939,9 +4937,10 @@ void main(void)
 
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
- (INTCONbits.GIE = 0);
+
  if(IOCIF==1)
  {
+   RC0=FLAG_ADF7021_DATA_tx;
    EXTI_PORTA1();
    IOCAF=0;
    IOCIF=0;
@@ -4952,5 +4951,5 @@ void __attribute__((picinterrupt(("")))) ISR(void)
      FG_1ms = 1;
      TMR2IF=0;
  }
- (INTCONbits.GIE = 1);
+
 }

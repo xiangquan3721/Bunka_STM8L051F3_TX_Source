@@ -29,9 +29,9 @@ void dd_write_7021_reg(unsigned char* reg_bytes)
 //#else
 //    for (i=3; i>=0; i--)
 //#endif
-    for (i=0; i<=3; i++)
+    for (i=4; i>=1; i--)
     {
-        byte = reg_bytes[i];
+        byte = reg_bytes[i-1];
 
         for (j=8; j>0; j--)
         {

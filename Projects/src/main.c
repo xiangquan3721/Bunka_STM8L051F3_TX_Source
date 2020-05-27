@@ -75,8 +75,6 @@ void main(void)
   
   PEIE=1;              //开外设中断
   GIE = 1;			// enable global interrupts
-  for(aaa=0;aaa<1000;aaa++)
-      Delayus(130);
     while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
@@ -117,9 +115,10 @@ void main(void)
 //===============interrupt（）中断向量================//
 void __interrupt() ISR(void)
 {
- di();
+ //di();
  if(IOCIF==1)
- {
+ {  
+   ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
    EXTI_PORTA1();  
    IOCAF=0;
    IOCIF=0;
@@ -130,7 +129,7 @@ void __interrupt() ISR(void)
      FG_1ms = 1;
      TMR2IF=0;
  }
- ei();
+ //ei();
 }
 
 

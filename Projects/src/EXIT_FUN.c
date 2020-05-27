@@ -27,8 +27,6 @@ void EXIT_init(void){
 }
 
 void EXTI_PORTA1(void){
- //ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
-  ADF7021_DATA_tx=FLAG_ADF7021_DATA_tx;
   if(FLAG_APP_TX==1){
     if(txphase%8==0)ID_INT_CODE=m_RFNormalBuf[txphase/8];
     if	(ID_INT_CODE & 0x80)FLAG_ADF7021_DATA_tx=1;//ADF7021_DATA_tx=1;

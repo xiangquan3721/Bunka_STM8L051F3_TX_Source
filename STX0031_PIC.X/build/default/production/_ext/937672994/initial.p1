@@ -684,8 +684,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/initial.c: 53:   WPUA =0B00010100;
 [e = _WPUA -> -> 20 `i `uc ]
 "54
-[; ;../Projects/src/initial.c: 54:   TRISB=0B01010000;
-[e = _TRISB -> -> 80 `i `uc ]
+[; ;../Projects/src/initial.c: 54:   TRISB=0B00010000;
+[e = _TRISB -> -> 16 `i `uc ]
 "55
 [; ;../Projects/src/initial.c: 55:   WPUB =0B11010000;
 [e = _WPUB -> -> 208 `i `uc ]
@@ -693,8 +693,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/initial.c: 56:   TRISC=0B00111010;
 [e = _TRISC -> -> 58 `i `uc ]
 "57
-[; ;../Projects/src/initial.c: 57:   WPUC =0B00111100;
-[e = _WPUC -> -> 60 `i `uc ]
+[; ;../Projects/src/initial.c: 57:   WPUC =0B01111100;
+[e = _WPUC -> -> 124 `i `uc ]
 "59
 [; ;../Projects/src/initial.c: 59:   RB5=0;
 [e = _RB5 -> -> 0 `i `b ]
