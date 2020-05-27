@@ -566,7 +566,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../Projects/src/ram.c: 114: ADF70XX_REG_T ROM_adf7012_value[4];
 [v _ROM_adf7012_value `S374 ~T0 @X0 -> 4 `i e ]
 "116
-[; ;../Projects/src/ram.c: 116:   const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x004059a6,0x0021d04f};
+[; ;../Projects/src/ram.c: 116:   const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x004041a6,0x0021d04f};
 [v _Default_adf7012_value `CS374 ~T0 @X0 -> 4 `i e ]
 [i _Default_adf7012_value
 :U ..
@@ -577,7 +577,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1396161 `l `ul
 ..
 :U 0
--> -> 4217254 `l `ul
+-> -> 4211110 `l `ul
 ..
 :U 0
 -> -> 2216015 `l `ul
