@@ -4864,7 +4864,7 @@ void AD_control(void);
 
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
-#pragma config PWRTE = ON
+#pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
 #pragma config CP = OFF
 #pragma config CPD = OFF
@@ -4883,7 +4883,6 @@ void AD_control(void);
 
 void main(void)
 {
-    unsigned int aaa=0;
 
   VHF_GPIO_INIT();
   WDT_init();

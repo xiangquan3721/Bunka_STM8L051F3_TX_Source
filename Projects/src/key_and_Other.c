@@ -164,10 +164,11 @@ void	_KeyInTx( void )
 	/*	Auto Tx Stop sw		*/
 	_SwIn( PIN_KEY_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
-	_SwIn( PIN_KEY_VENT ) ;	
-	//_SwIn( 1 ) ;
+	//_SwIn( PIN_KEY_VENT ) ;	
+	_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
-	_SwIn( PIN_KEY_LOGIN ) ;	
+	//_SwIn( PIN_KEY_LOGIN ) ;	
+    _SwIn( 1 ) ;
 	/*	Auto Tx Auto Tx Start sw		*/
 	_SwIn( 1 ) ;	
 	/*	Auto TxAuto Tx Stop sw		*/

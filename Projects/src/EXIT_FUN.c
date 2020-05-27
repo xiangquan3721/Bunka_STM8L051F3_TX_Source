@@ -144,36 +144,68 @@ void SendTxData(void)
 	   FLAG_ADF7021_DATA_tx=1;
 }
 
+//void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)
+//{
+//    uni_i unii,unij,unik;
+//  	/*	ID set	*/
+//	unii.ui = SetFixedLengthCode(ID_data_set.IDB[3]) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+//	unii.ui = SetFixedLengthCode(ID_data_set.IDB[2]) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+//	unii.ui = SetFixedLengthCode(ID_data_set.IDB[1]) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+//	/*	Control code set	*/
+//	unii.ui = SetFixedLengthCode(Control_code_set) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+//	/*	SUM set	*/
+//	unii.uc[1] = ID_data_set.IDB[1] ;
+//	unii.uc[0] = Control_code_set;
+//	unij.uc[1] = ID_data_set.IDB[3] ;
+//	unij.uc[0] = ID_data_set.IDB[2] ;
+//	unik.ui = unii.ui + unij.ui ;
+//	unii.ui = SetFixedLengthCode(unik.uc[1]) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+//	unii.ui = SetFixedLengthCode(unik.uc[0]) ;
+//	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+//	m_RFNormalBuf[count_set++] = unii.uc[1] ;    
+//}
+
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)
 {
     uni_i unii,unij,unik;
   	/*	ID set	*/
-	unii.ui = SetFixedLengthCode(ID_data_set.IDB[3]) ;
-	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+	unii.ui = SetFixedLengthCode(ID_data_set.IDB[0]) ;
 	m_RFNormalBuf[count_set++] = unii.uc[1] ;
-	unii.ui = SetFixedLengthCode(ID_data_set.IDB[2]) ;
 	m_RFNormalBuf[count_set++] = unii.uc[0] ;
-	m_RFNormalBuf[count_set++] = unii.uc[1] ;
 	unii.ui = SetFixedLengthCode(ID_data_set.IDB[1]) ;
-	m_RFNormalBuf[count_set++] = unii.uc[0] ;
 	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+	m_RFNormalBuf[count_set++] = unii.uc[0] ;
+	unii.ui = SetFixedLengthCode(ID_data_set.IDB[2]) ;
+	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+	m_RFNormalBuf[count_set++] = unii.uc[0] ;
 	/*	Control code set	*/
 	unii.ui = SetFixedLengthCode(Control_code_set) ;
-	m_RFNormalBuf[count_set++] = unii.uc[0] ;
 	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+	m_RFNormalBuf[count_set++] = unii.uc[0] ;
 	/*	SUM set	*/
-	unii.uc[1] = ID_data_set.IDB[1] ;
-	unii.uc[0] = Control_code_set;
-	unij.uc[1] = ID_data_set.IDB[3] ;
-	unij.uc[0] = ID_data_set.IDB[2] ;
+	unii.uc[0] = ID_data_set.IDB[2] ;
+	unii.uc[1] = Control_code_set;
+	unij.uc[0] = ID_data_set.IDB[0] ;
+	unij.uc[1] = ID_data_set.IDB[1] ;
 	unik.ui = unii.ui + unij.ui ;
-	unii.ui = SetFixedLengthCode(unik.uc[1]) ;
-	m_RFNormalBuf[count_set++] = unii.uc[0] ;
-	m_RFNormalBuf[count_set++] = unii.uc[1] ;
 	unii.ui = SetFixedLengthCode(unik.uc[0]) ;
+	m_RFNormalBuf[count_set++] = unii.uc[1] ;
 	m_RFNormalBuf[count_set++] = unii.uc[0] ;
-	m_RFNormalBuf[count_set++] = unii.uc[1] ;    
+	unii.ui = SetFixedLengthCode(unik.uc[1]) ;
+	m_RFNormalBuf[count_set++] = unii.uc[1] ;
+	m_RFNormalBuf[count_set++] = unii.uc[0] ;    
 }
+
 
 UINT16 SetFixedLengthCode(UINT8 data )
 {

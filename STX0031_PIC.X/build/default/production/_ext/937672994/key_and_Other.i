@@ -4963,10 +4963,11 @@ void _KeyInTx( void )
 
  _SwIn( RA4 ) ;
 
- _SwIn( RA3 ) ;
+
+ _SwIn( 1 ) ;
 
 
- _SwIn( RC5 ) ;
+    _SwIn( 1 ) ;
 
  _SwIn( 1 ) ;
 
@@ -5091,7 +5092,7 @@ void _KeyInTx( void )
    break ;
  }
 }
-# 305 "../Projects/src/key_and_Other.c"
+# 306 "../Projects/src/key_and_Other.c"
 void _FuncOpenStop( void )
 {
  _DupliFuncClear() ;
@@ -5356,7 +5357,7 @@ void _FuncStop( void )
 
  switch ( m_KindOfKey )
  {
-# 593 "../Projects/src/key_and_Other.c"
+# 594 "../Projects/src/key_and_Other.c"
   case 1 :
   case 3 :
    if ( FG_d_StopKey && m_KeyDupli1stTimer)
@@ -5402,7 +5403,7 @@ void _SetKeyChatterCount( void )
  m_ChatterCount = 1 ;
  m_TimerKey = 0 ;
 }
-# 647 "../Projects/src/key_and_Other.c"
+# 648 "../Projects/src/key_and_Other.c"
 void _ClearSpecialMultiKeyState( void )
 {
  mb_RegSw = 0 ;
@@ -5411,7 +5412,7 @@ void _ClearSpecialMultiKeyState( void )
  mb_RegCloseSw = 0 ;
  mb_RegVentSw = 0 ;
 }
-# 664 "../Projects/src/key_and_Other.c"
+# 665 "../Projects/src/key_and_Other.c"
 void _DupliFuncClear( void )
 {
  m_KeyOptSetMode = 0 ;
@@ -5425,7 +5426,7 @@ void _DupliFuncClear( void )
 
  }
 }
-# 687 "../Projects/src/key_and_Other.c"
+# 688 "../Projects/src/key_and_Other.c"
 unsigned char _GetNoPushState( void )
 {
  if ( !mb_NoPush )
@@ -5529,7 +5530,7 @@ void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
   }
   else RB5=0;
 }
-# 802 "../Projects/src/key_and_Other.c"
+# 803 "../Projects/src/key_and_Other.c"
 void _DupliFuncSetMode( void )
 {
   unsigned char m_KeyOpt;
@@ -5818,7 +5819,7 @@ void _DupliFuncSetMode( void )
 
  }
 }
-# 1099 "../Projects/src/key_and_Other.c"
+# 1100 "../Projects/src/key_and_Other.c"
 void _RegistrationMode( void )
 {
  if ( !_GetRegMode() )
@@ -5841,7 +5842,7 @@ void _RegistrationMode( void )
   RB5=0;
   m_RegMode = 0 ;
  }
-# 1131 "../Projects/src/key_and_Other.c"
+# 1132 "../Projects/src/key_and_Other.c"
  switch ( m_KindOfKey )
  {
   case 1 :
@@ -5922,7 +5923,7 @@ unsigned long atol_de (unsigned char* m_RegID_x)
   }
   return(m_ID);
 }
-# 1222 "../Projects/src/key_and_Other.c"
+# 1223 "../Projects/src/key_and_Other.c"
 void _SetRegistrationMode( unsigned char mode )
 {
  if ( _GetRegMode() )
@@ -5970,7 +5971,7 @@ void _IdClear( void )
  m_RegID[8] = 0 ;
 
 }
-# 1280 "../Projects/src/key_and_Other.c"
+# 1281 "../Projects/src/key_and_Other.c"
 void _SwIn( unsigned char sw )
 {
  m_KeyNew<<= 1 ;
@@ -5990,13 +5991,13 @@ void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned cha
      TIME_BEEP_freq=BEEP_freq_SET;
   }
 }
-# 1328 "../Projects/src/key_and_Other.c"
+# 1329 "../Projects/src/key_and_Other.c"
 void test_mode_control(void)
 {
 
  while(RC3==0){
   ClearWDT();
-# 1376 "../Projects/src/key_and_Other.c"
+# 1377 "../Projects/src/key_and_Other.c"
   if((RB4==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;
     dd_set_ADF7021_Power_on_test();

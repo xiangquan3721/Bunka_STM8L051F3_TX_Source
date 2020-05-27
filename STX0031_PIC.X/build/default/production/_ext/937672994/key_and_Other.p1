@@ -83,12 +83,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7998
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7998: extern volatile __bit RA4 __attribute__((address(0x64)));
 [v _RA4 `Vb ~T0 @X0 0 e@100 ]
-"7995
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7995: extern volatile __bit RA3 __attribute__((address(0x63)));
-[v _RA3 `Vb ~T0 @X0 0 e@99 ]
-"8031
-[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 8031: extern volatile __bit RC5 __attribute__((address(0x75)));
-[v _RC5 `Vb ~T0 @X0 0 e@117 ]
 "272 ../Projects/inc\ram.h
 [; ;../Projects/inc\ram.h: 272: extern unsigned char m_KeyOld;
 [v _m_KeyOld `uc ~T0 @X0 0 e ]
@@ -1022,364 +1016,364 @@ Version 4.0 HI-TECH Software Intermediate Code
 "165
 [; ;../Projects/src/key_and_Other.c: 165:  _SwIn( RA4 ) ;
 [e ( __SwIn (1 -> _RA4 `uc ]
-"167
-[; ;../Projects/src/key_and_Other.c: 167:  _SwIn( RA3 ) ;
-[e ( __SwIn (1 -> _RA3 `uc ]
-"170
-[; ;../Projects/src/key_and_Other.c: 170:  _SwIn( RC5 ) ;
-[e ( __SwIn (1 -> _RC5 `uc ]
-"172
-[; ;../Projects/src/key_and_Other.c: 172:  _SwIn( 1 ) ;
+"168
+[; ;../Projects/src/key_and_Other.c: 168:  _SwIn( 1 ) ;
 [e ( __SwIn (1 -> -> 1 `i `uc ]
-"174
-[; ;../Projects/src/key_and_Other.c: 174:  _SwIn( 1 ) ;
+"171
+[; ;../Projects/src/key_and_Other.c: 171:     _SwIn( 1 ) ;
 [e ( __SwIn (1 -> -> 1 `i `uc ]
-"177
-[; ;../Projects/src/key_and_Other.c: 177:  if ( m_KeyNew != m_KeyOld )
-[e $ ! != -> _m_KeyNew `i -> _m_KeyOld `i 398  ]
+"173
+[; ;../Projects/src/key_and_Other.c: 173:  _SwIn( 1 ) ;
+[e ( __SwIn (1 -> -> 1 `i `uc ]
+"175
+[; ;../Projects/src/key_and_Other.c: 175:  _SwIn( 1 ) ;
+[e ( __SwIn (1 -> -> 1 `i `uc ]
 "178
-[; ;../Projects/src/key_and_Other.c: 178:  {
-{
+[; ;../Projects/src/key_and_Other.c: 178:  if ( m_KeyNew != m_KeyOld )
+[e $ ! != -> _m_KeyNew `i -> _m_KeyOld `i 398  ]
 "179
-[; ;../Projects/src/key_and_Other.c: 179:   m_KeyOld = m_KeyNew ;
-[e = _m_KeyOld _m_KeyNew ]
+[; ;../Projects/src/key_and_Other.c: 179:  {
+{
 "180
-[; ;../Projects/src/key_and_Other.c: 180:   _SetKeyChatterCount() ;
-[e ( __SetKeyChatterCount ..  ]
+[; ;../Projects/src/key_and_Other.c: 180:   m_KeyOld = m_KeyNew ;
+[e = _m_KeyOld _m_KeyNew ]
 "181
-[; ;../Projects/src/key_and_Other.c: 181:   _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
+[; ;../Projects/src/key_and_Other.c: 181:   _SetKeyChatterCount() ;
+[e ( __SetKeyChatterCount ..  ]
 "182
-[; ;../Projects/src/key_and_Other.c: 182:                 TIME_Once_twice_switch=5000;
-[e = _TIME_Once_twice_switch -> -> 5000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 182:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
 "183
-[; ;../Projects/src/key_and_Other.c: 183:                 TIME_10s=10100;
-[e = _TIME_10s -> -> 10100 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 183:                 TIME_Once_twice_switch=5000;
+[e = _TIME_Once_twice_switch -> -> 5000 `i `ui ]
 "184
-[; ;../Projects/src/key_and_Other.c: 184:   return ;
-[e $UE 396  ]
+[; ;../Projects/src/key_and_Other.c: 184:                 TIME_10s=10100;
+[e = _TIME_10s -> -> 10100 `i `ui ]
 "185
-[; ;../Projects/src/key_and_Other.c: 185:  }
+[; ;../Projects/src/key_and_Other.c: 185:   return ;
+[e $UE 396  ]
+"186
+[; ;../Projects/src/key_and_Other.c: 186:  }
 }
 [e :U 398 ]
-"187
-[; ;../Projects/src/key_and_Other.c: 187:  if ( --m_ChatterCount )
-[e $ ! != =- _m_ChatterCount -> -> 1 `i `ui -> -> 0 `i `ui 399  ]
 "188
-[; ;../Projects/src/key_and_Other.c: 188:  {
-{
+[; ;../Projects/src/key_and_Other.c: 188:  if ( --m_ChatterCount )
+[e $ ! != =- _m_ChatterCount -> -> 1 `i `ui -> -> 0 `i `ui 399  ]
 "189
-[; ;../Projects/src/key_and_Other.c: 189:   return ;
-[e $UE 396  ]
+[; ;../Projects/src/key_and_Other.c: 189:  {
+{
 "190
-[; ;../Projects/src/key_and_Other.c: 190:  }
+[; ;../Projects/src/key_and_Other.c: 190:   return ;
+[e $UE 396  ]
+"191
+[; ;../Projects/src/key_and_Other.c: 191:  }
 }
 [e :U 399 ]
-"191
-[; ;../Projects/src/key_and_Other.c: 191:  m_ChatterCount = 1 ;
+"192
+[; ;../Projects/src/key_and_Other.c: 192:  m_ChatterCount = 1 ;
 [e = _m_ChatterCount -> -> 1 `i `ui ]
-"194
-[; ;../Projects/src/key_and_Other.c: 194:  if ( m_KeyNew != 0xFF )
-[e $ ! != -> _m_KeyNew `i -> 255 `i 400  ]
 "195
-[; ;../Projects/src/key_and_Other.c: 195:  {
+[; ;../Projects/src/key_and_Other.c: 195:  if ( m_KeyNew != 0xFF )
+[e $ ! != -> _m_KeyNew `i -> 255 `i 400  ]
+"196
+[; ;../Projects/src/key_and_Other.c: 196:  {
 {
-"201
-[; ;../Projects/src/key_and_Other.c: 201:            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;
+"202
+[; ;../Projects/src/key_and_Other.c: 202:            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;
 [e $ ! != _TIME_Once_twice_switch -> -> 0 `i `ui 401  ]
 [e =- _TIME_Once_twice_switch -> -> 1 `i `ui ]
 [e :U 401 ]
-"202
-[; ;../Projects/src/key_and_Other.c: 202:            if(TIME_10s)--TIME_10s;
+"203
+[; ;../Projects/src/key_and_Other.c: 203:            if(TIME_10s)--TIME_10s;
 [e $ ! != _TIME_10s -> -> 0 `i `ui 402  ]
 [e =- _TIME_10s -> -> 1 `i `ui ]
 [e :U 402 ]
-"203
-[; ;../Projects/src/key_and_Other.c: 203:     dd_set_ADF7021_Power_on_Init();
+"204
+[; ;../Projects/src/key_and_Other.c: 204:     dd_set_ADF7021_Power_on_Init();
 [e ( _dd_set_ADF7021_Power_on_Init ..  ]
-"205
-[; ;../Projects/src/key_and_Other.c: 205:            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){
+"206
+[; ;../Projects/src/key_and_Other.c: 206:            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){
 [e $ ! || || == -> _BAT_out `i -> 1 `i != -> _FG_BAT `i -> 0 `i == _TIME_10s -> -> 0 `i `ui 403  ]
 {
-"206
-[; ;../Projects/src/key_and_Other.c: 206:        if(FG_BAT==0){
+"207
+[; ;../Projects/src/key_and_Other.c: 207:        if(FG_BAT==0){
 [e $ ! == -> _FG_BAT `i -> 0 `i 404  ]
 {
-"207
-[; ;../Projects/src/key_and_Other.c: 207:           FG_BAT=1;
-[e = _FG_BAT -> -> 1 `i `uc ]
 "208
-[; ;../Projects/src/key_and_Other.c: 208:    if(TIME_10s==0){
+[; ;../Projects/src/key_and_Other.c: 208:           FG_BAT=1;
+[e = _FG_BAT -> -> 1 `i `uc ]
+"209
+[; ;../Projects/src/key_and_Other.c: 209:    if(TIME_10s==0){
 [e $ ! == _TIME_10s -> -> 0 `i `ui 405  ]
 {
-"209
-[; ;../Projects/src/key_and_Other.c: 209:                            BASE_TIME_BEEP_on=103;
-[e = _BASE_TIME_BEEP_on -> -> 103 `i `ui ]
 "210
-[; ;../Projects/src/key_and_Other.c: 210:                            BASE_TIME_BEEP_off=103;
-[e = _BASE_TIME_BEEP_off -> -> 103 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 210:                            BASE_TIME_BEEP_on=103;
+[e = _BASE_TIME_BEEP_on -> -> 103 `i `ui ]
 "211
-[; ;../Projects/src/key_and_Other.c: 211:                         }
+[; ;../Projects/src/key_and_Other.c: 211:                            BASE_TIME_BEEP_off=103;
+[e = _BASE_TIME_BEEP_off -> -> 103 `i `uc ]
+"212
+[; ;../Projects/src/key_and_Other.c: 212:                         }
 }
 [e $U 406  ]
-"212
-[; ;../Projects/src/key_and_Other.c: 212:                         else {
+"213
+[; ;../Projects/src/key_and_Other.c: 213:                         else {
 [e :U 405 ]
 {
-"213
-[; ;../Projects/src/key_and_Other.c: 213:                            BASE_TIME_BEEP_on=40;
-[e = _BASE_TIME_BEEP_on -> -> 40 `i `ui ]
 "214
-[; ;../Projects/src/key_and_Other.c: 214:                            BASE_TIME_BEEP_off=60;
-[e = _BASE_TIME_BEEP_off -> -> 60 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 214:                            BASE_TIME_BEEP_on=40;
+[e = _BASE_TIME_BEEP_on -> -> 40 `i `ui ]
 "215
-[; ;../Projects/src/key_and_Other.c: 215:                         }
+[; ;../Projects/src/key_and_Other.c: 215:                            BASE_TIME_BEEP_off=60;
+[e = _BASE_TIME_BEEP_off -> -> 60 `i `uc ]
+"216
+[; ;../Projects/src/key_and_Other.c: 216:                         }
 }
 [e :U 406 ]
-"216
-[; ;../Projects/src/key_and_Other.c: 216:                         TIME_BEEP_on=BASE_TIME_BEEP_on;
-[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
 "217
-[; ;../Projects/src/key_and_Other.c: 217:                         TIME_BEEP_off=BASE_TIME_BEEP_off;
-[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
+[; ;../Projects/src/key_and_Other.c: 217:                         TIME_BEEP_on=BASE_TIME_BEEP_on;
+[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
 "218
-[; ;../Projects/src/key_and_Other.c: 218:                         TIME_BEEP_freq=2;
-[e = _TIME_BEEP_freq -> -> 2 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 218:                         TIME_BEEP_off=BASE_TIME_BEEP_off;
+[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
 "219
-[; ;../Projects/src/key_and_Other.c: 219:        }
+[; ;../Projects/src/key_and_Other.c: 219:                         TIME_BEEP_freq=2;
+[e = _TIME_BEEP_freq -> -> 2 `i `uc ]
+"220
+[; ;../Projects/src/key_and_Other.c: 220:        }
 }
 [e $U 407  ]
-"220
-[; ;../Projects/src/key_and_Other.c: 220:        else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
+"221
+[; ;../Projects/src/key_and_Other.c: 221:        else if(TIME_BEEP_freq<=1)TIME_BEEP_freq=2;
 [e :U 404 ]
 [e $ ! <= -> _TIME_BEEP_freq `i -> 1 `i 408  ]
 [e = _TIME_BEEP_freq -> -> 2 `i `uc ]
 [e :U 408 ]
 [e :U 407 ]
-"221
-[; ;../Projects/src/key_and_Other.c: 221:      }
+"222
+[; ;../Projects/src/key_and_Other.c: 222:      }
 }
 [e :U 403 ]
-"222
-[; ;../Projects/src/key_and_Other.c: 222:  }
+"223
+[; ;../Projects/src/key_and_Other.c: 223:  }
 }
 [e :U 400 ]
-"225
-[; ;../Projects/src/key_and_Other.c: 225:  for ( i=0; i<17;i++)
+"226
+[; ;../Projects/src/key_and_Other.c: 226:  for ( i=0; i<17;i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 17 `i 409  ]
 [e $U 410  ]
 [e :U 409 ]
-"226
-[; ;../Projects/src/key_and_Other.c: 226:  {
-{
 "227
-[; ;../Projects/src/key_and_Other.c: 227:   if ( m_KeyNew == ct_KeyDataTable[i] )
-[e $ ! == -> _m_KeyNew `i -> *U + &U _ct_KeyDataTable * -> _i `ux -> -> # *U &U _ct_KeyDataTable `ui `ux `i 412  ]
-"228
-[; ;../Projects/src/key_and_Other.c: 228:   {
+[; ;../Projects/src/key_and_Other.c: 227:  {
 {
+"228
+[; ;../Projects/src/key_and_Other.c: 228:   if ( m_KeyNew == ct_KeyDataTable[i] )
+[e $ ! == -> _m_KeyNew `i -> *U + &U _ct_KeyDataTable * -> _i `ux -> -> # *U &U _ct_KeyDataTable `ui `ux `i 412  ]
 "229
-[; ;../Projects/src/key_and_Other.c: 229:    m_KeyNo = i ;
-[e = _m_KeyNo _i ]
+[; ;../Projects/src/key_and_Other.c: 229:   {
+{
 "230
-[; ;../Projects/src/key_and_Other.c: 230:    break ;
-[e $U 410  ]
+[; ;../Projects/src/key_and_Other.c: 230:    m_KeyNo = i ;
+[e = _m_KeyNo _i ]
 "231
-[; ;../Projects/src/key_and_Other.c: 231:   }
+[; ;../Projects/src/key_and_Other.c: 231:    break ;
+[e $U 410  ]
+"232
+[; ;../Projects/src/key_and_Other.c: 232:   }
 }
 [e :U 412 ]
-"232
-[; ;../Projects/src/key_and_Other.c: 232:  }
+"233
+[; ;../Projects/src/key_and_Other.c: 233:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 17 `i 409  ]
 [e :U 410 ]
 }
-"233
-[; ;../Projects/src/key_and_Other.c: 233:         key_Value=i;
-[e = _key_Value -> _i `ui ]
 "234
-[; ;../Projects/src/key_and_Other.c: 234:         if(FG_10s==1)return;
+[; ;../Projects/src/key_and_Other.c: 234:         key_Value=i;
+[e = _key_Value -> _i `ui ]
+"235
+[; ;../Projects/src/key_and_Other.c: 235:         if(FG_10s==1)return;
 [e $ ! == -> _FG_10s `i -> 1 `i 413  ]
 [e $UE 396  ]
 [e :U 413 ]
-"236
-[; ;../Projects/src/key_and_Other.c: 236:  if ( i == 17)
-[e $ ! == -> _i `i -> 17 `i 414  ]
 "237
-[; ;../Projects/src/key_and_Other.c: 237:  {
-{
+[; ;../Projects/src/key_and_Other.c: 237:  if ( i == 17)
+[e $ ! == -> _i `i -> 17 `i 414  ]
 "238
-[; ;../Projects/src/key_and_Other.c: 238:   mb_NoPush = 0 ;
-[e = _mb_NoPush -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 238:  {
+{
 "239
-[; ;../Projects/src/key_and_Other.c: 239:   _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
+[; ;../Projects/src/key_and_Other.c: 239:   mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "240
-[; ;../Projects/src/key_and_Other.c: 240:   mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 240:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
 "241
-[; ;../Projects/src/key_and_Other.c: 241:   _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 241:   mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "242
-[; ;../Projects/src/key_and_Other.c: 242:   return ;
-[e $UE 396  ]
+[; ;../Projects/src/key_and_Other.c: 242:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "243
-[; ;../Projects/src/key_and_Other.c: 243:  }
+[; ;../Projects/src/key_and_Other.c: 243:   return ;
+[e $UE 396  ]
+"244
+[; ;../Projects/src/key_and_Other.c: 244:  }
 }
 [e :U 414 ]
-"245
-[; ;../Projects/src/key_and_Other.c: 245:  if ( mb_NoPushWait )
-[e $ ! != -> _mb_NoPushWait `i -> 0 `i 415  ]
 "246
-[; ;../Projects/src/key_and_Other.c: 246:  {
-{
+[; ;../Projects/src/key_and_Other.c: 246:  if ( mb_NoPushWait )
+[e $ ! != -> _mb_NoPushWait `i -> 0 `i 415  ]
 "247
-[; ;../Projects/src/key_and_Other.c: 247:   if ( m_KeyNew != 0xFF )
-[e $ ! != -> _m_KeyNew `i -> 255 `i 416  ]
-"248
-[; ;../Projects/src/key_and_Other.c: 248:   {
+[; ;../Projects/src/key_and_Other.c: 247:  {
 {
+"248
+[; ;../Projects/src/key_and_Other.c: 248:   if ( m_KeyNew != 0xFF )
+[e $ ! != -> _m_KeyNew `i -> 255 `i 416  ]
 "249
-[; ;../Projects/src/key_and_Other.c: 249:                         if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));
+[; ;../Projects/src/key_and_Other.c: 249:   {
+{
+"250
+[; ;../Projects/src/key_and_Other.c: 250:                         if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));
 [e $ ! && || || || || == -> _i `i -> 5 `i == -> _i `i -> 6 `i == -> _i `i -> 7 `i == -> _i `i -> 9 `i == -> _i `i -> 12 `i == -> _FLAG_APP_TX `i -> 0 `i 417  ]
 [e $U 418  ]
-"250
-[; ;../Projects/src/key_and_Other.c: 250:    else return ;
+"251
+[; ;../Projects/src/key_and_Other.c: 251:    else return ;
 [e :U 417 ]
 [e $UE 396  ]
 [e :U 418 ]
-"251
-[; ;../Projects/src/key_and_Other.c: 251:   }
+"252
+[; ;../Projects/src/key_and_Other.c: 252:   }
 }
 [e :U 416 ]
-"252
-[; ;../Projects/src/key_and_Other.c: 252:  }
+"253
+[; ;../Projects/src/key_and_Other.c: 253:  }
 }
 [e :U 415 ]
-"254
-[; ;../Projects/src/key_and_Other.c: 254:  switch ( i )
-[e $U 420  ]
 "255
-[; ;../Projects/src/key_and_Other.c: 255:  {
-{
+[; ;../Projects/src/key_and_Other.c: 255:  switch ( i )
+[e $U 420  ]
 "256
-[; ;../Projects/src/key_and_Other.c: 256:   case 0 :
-[e :U 421 ]
+[; ;../Projects/src/key_and_Other.c: 256:  {
+{
 "257
-[; ;../Projects/src/key_and_Other.c: 257:           _FuncReg();
-[e ( __FuncReg ..  ]
+[; ;../Projects/src/key_and_Other.c: 257:   case 0 :
+[e :U 421 ]
 "258
-[; ;../Projects/src/key_and_Other.c: 258:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 258:           _FuncReg();
+[e ( __FuncReg ..  ]
 "259
-[; ;../Projects/src/key_and_Other.c: 259:   case 1 :
-[e :U 422 ]
+[; ;../Projects/src/key_and_Other.c: 259:    break ;
+[e $U 419  ]
 "260
-[; ;../Projects/src/key_and_Other.c: 260:   case 2 :
-[e :U 423 ]
+[; ;../Projects/src/key_and_Other.c: 260:   case 1 :
+[e :U 422 ]
 "261
-[; ;../Projects/src/key_and_Other.c: 261:   case 3 :
-[e :U 424 ]
+[; ;../Projects/src/key_and_Other.c: 261:   case 2 :
+[e :U 423 ]
 "262
-[; ;../Projects/src/key_and_Other.c: 262:   case 4 :
-[e :U 425 ]
+[; ;../Projects/src/key_and_Other.c: 262:   case 3 :
+[e :U 424 ]
 "263
-[; ;../Projects/src/key_and_Other.c: 263:           if(FLAG_APP_TX==0)_FuncStop();
+[; ;../Projects/src/key_and_Other.c: 263:   case 4 :
+[e :U 425 ]
+"264
+[; ;../Projects/src/key_and_Other.c: 264:           if(FLAG_APP_TX==0)_FuncStop();
 [e $ ! == -> _FLAG_APP_TX `i -> 0 `i 426  ]
 [e ( __FuncStop ..  ]
 [e :U 426 ]
-"264
-[; ;../Projects/src/key_and_Other.c: 264:    break ;
-[e $U 419  ]
 "265
-[; ;../Projects/src/key_and_Other.c: 265:   case 5 :
-[e :U 427 ]
+[; ;../Projects/src/key_and_Other.c: 265:    break ;
+[e $U 419  ]
 "266
-[; ;../Projects/src/key_and_Other.c: 266:   case 6 :
-[e :U 428 ]
+[; ;../Projects/src/key_and_Other.c: 266:   case 5 :
+[e :U 427 ]
 "267
-[; ;../Projects/src/key_and_Other.c: 267:   case 7 :
-[e :U 429 ]
+[; ;../Projects/src/key_and_Other.c: 267:   case 6 :
+[e :U 428 ]
 "268
-[; ;../Projects/src/key_and_Other.c: 268:   case 9 :
-[e :U 430 ]
+[; ;../Projects/src/key_and_Other.c: 268:   case 7 :
+[e :U 429 ]
 "269
-[; ;../Projects/src/key_and_Other.c: 269:   case 12 :
-[e :U 431 ]
+[; ;../Projects/src/key_and_Other.c: 269:   case 9 :
+[e :U 430 ]
 "270
-[; ;../Projects/src/key_and_Other.c: 270:           _FuncOpenStop();
-[e ( __FuncOpenStop ..  ]
+[; ;../Projects/src/key_and_Other.c: 270:   case 12 :
+[e :U 431 ]
 "271
-[; ;../Projects/src/key_and_Other.c: 271:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 271:           _FuncOpenStop();
+[e ( __FuncOpenStop ..  ]
 "272
-[; ;../Projects/src/key_and_Other.c: 272:   case 8 :
-[e :U 432 ]
+[; ;../Projects/src/key_and_Other.c: 272:    break ;
+[e $U 419  ]
 "273
-[; ;../Projects/src/key_and_Other.c: 273:           _FuncOpenReg();
-[e ( __FuncOpenReg ..  ]
+[; ;../Projects/src/key_and_Other.c: 273:   case 8 :
+[e :U 432 ]
 "274
-[; ;../Projects/src/key_and_Other.c: 274:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 274:           _FuncOpenReg();
+[e ( __FuncOpenReg ..  ]
 "275
-[; ;../Projects/src/key_and_Other.c: 275:   case 10 :
-[e :U 433 ]
+[; ;../Projects/src/key_and_Other.c: 275:    break ;
+[e $U 419  ]
 "276
-[; ;../Projects/src/key_and_Other.c: 276:           _FuncStopReg();
-[e ( __FuncStopReg ..  ]
+[; ;../Projects/src/key_and_Other.c: 276:   case 10 :
+[e :U 433 ]
 "277
-[; ;../Projects/src/key_and_Other.c: 277:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 277:           _FuncStopReg();
+[e ( __FuncStopReg ..  ]
 "278
-[; ;../Projects/src/key_and_Other.c: 278:   case 11 :
-[e :U 434 ]
+[; ;../Projects/src/key_and_Other.c: 278:    break ;
+[e $U 419  ]
 "279
-[; ;../Projects/src/key_and_Other.c: 279:           _FuncCloseReg();
-[e ( __FuncCloseReg ..  ]
+[; ;../Projects/src/key_and_Other.c: 279:   case 11 :
+[e :U 434 ]
 "280
-[; ;../Projects/src/key_and_Other.c: 280:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 280:           _FuncCloseReg();
+[e ( __FuncCloseReg ..  ]
 "281
-[; ;../Projects/src/key_and_Other.c: 281:   case 13 :
-[e :U 435 ]
+[; ;../Projects/src/key_and_Other.c: 281:    break ;
+[e $U 419  ]
 "282
-[; ;../Projects/src/key_and_Other.c: 282:           _FuncVentReg();
-[e ( __FuncVentReg ..  ]
+[; ;../Projects/src/key_and_Other.c: 282:   case 13 :
+[e :U 435 ]
 "283
-[; ;../Projects/src/key_and_Other.c: 283:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 283:           _FuncVentReg();
+[e ( __FuncVentReg ..  ]
 "284
-[; ;../Projects/src/key_and_Other.c: 284:   case 14 :
-[e :U 436 ]
+[; ;../Projects/src/key_and_Other.c: 284:    break ;
+[e $U 419  ]
 "285
-[; ;../Projects/src/key_and_Other.c: 285:           _FuncAutoTxStart();
-[e ( __FuncAutoTxStart ..  ]
+[; ;../Projects/src/key_and_Other.c: 285:   case 14 :
+[e :U 436 ]
 "286
-[; ;../Projects/src/key_and_Other.c: 286:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 286:           _FuncAutoTxStart();
+[e ( __FuncAutoTxStart ..  ]
 "287
-[; ;../Projects/src/key_and_Other.c: 287:   case 15 :
-[e :U 437 ]
+[; ;../Projects/src/key_and_Other.c: 287:    break ;
+[e $U 419  ]
 "288
-[; ;../Projects/src/key_and_Other.c: 288:           _FuncAutoTxStop();
-[e ( __FuncAutoTxStop ..  ]
+[; ;../Projects/src/key_and_Other.c: 288:   case 15 :
+[e :U 437 ]
 "289
-[; ;../Projects/src/key_and_Other.c: 289:    break ;
-[e $U 419  ]
+[; ;../Projects/src/key_and_Other.c: 289:           _FuncAutoTxStop();
+[e ( __FuncAutoTxStop ..  ]
 "290
-[; ;../Projects/src/key_and_Other.c: 290:   case 16 :
-[e :U 438 ]
-"291
-[; ;../Projects/src/key_and_Other.c: 291:           _FuncNoPush();
-[e ( __FuncNoPush ..  ]
-"292
-[; ;../Projects/src/key_and_Other.c: 292:    break ;
+[; ;../Projects/src/key_and_Other.c: 290:    break ;
 [e $U 419  ]
+"291
+[; ;../Projects/src/key_and_Other.c: 291:   case 16 :
+[e :U 438 ]
+"292
+[; ;../Projects/src/key_and_Other.c: 292:           _FuncNoPush();
+[e ( __FuncNoPush ..  ]
 "293
-[; ;../Projects/src/key_and_Other.c: 293:  }
+[; ;../Projects/src/key_and_Other.c: 293:    break ;
+[e $U 419  ]
+"294
+[; ;../Projects/src/key_and_Other.c: 294:  }
 }
 [e $U 419  ]
 [e :U 420 ]
@@ -1402,625 +1396,625 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 16 `i 438
  419 ]
 [e :U 419 ]
-"294
-[; ;../Projects/src/key_and_Other.c: 294: }
+"295
+[; ;../Projects/src/key_and_Other.c: 295: }
 [e :UE 396 ]
 }
-"305
-[; ;../Projects/src/key_and_Other.c: 305: void _FuncOpenStop( void )
-[v __FuncOpenStop `(v ~T0 @X0 1 ef ]
 "306
-[; ;../Projects/src/key_and_Other.c: 306: {
+[; ;../Projects/src/key_and_Other.c: 306: void _FuncOpenStop( void )
+[v __FuncOpenStop `(v ~T0 @X0 1 ef ]
+"307
+[; ;../Projects/src/key_and_Other.c: 307: {
 {
 [e :U __FuncOpenStop ]
 [f ]
-"307
-[; ;../Projects/src/key_and_Other.c: 307:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "308
-[; ;../Projects/src/key_and_Other.c: 308:  m_KindOfKey = 0 ;
-[e = _m_KindOfKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 308:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "309
-[; ;../Projects/src/key_and_Other.c: 309:  _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
-[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+[; ;../Projects/src/key_and_Other.c: 309:  m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
 "310
-[; ;../Projects/src/key_and_Other.c: 310:  _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
+[; ;../Projects/src/key_and_Other.c: 310:  _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
 "311
-[; ;../Projects/src/key_and_Other.c: 311:  mb_NoPush = 0 ;
-[e = _mb_NoPush -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 311:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
 "312
-[; ;../Projects/src/key_and_Other.c: 312:  mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 312:  mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "313
-[; ;../Projects/src/key_and_Other.c: 313: }
+[; ;../Projects/src/key_and_Other.c: 313:  mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
+"314
+[; ;../Projects/src/key_and_Other.c: 314: }
 [e :UE 439 ]
 }
-"320
-[; ;../Projects/src/key_and_Other.c: 320: void _FuncOpenReg( void )
-[v __FuncOpenReg `(v ~T0 @X0 1 ef ]
 "321
-[; ;../Projects/src/key_and_Other.c: 321: {
+[; ;../Projects/src/key_and_Other.c: 321: void _FuncOpenReg( void )
+[v __FuncOpenReg `(v ~T0 @X0 1 ef ]
+"322
+[; ;../Projects/src/key_and_Other.c: 322: {
 {
 [e :U __FuncOpenReg ]
 [f ]
-"322
-[; ;../Projects/src/key_and_Other.c: 322:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "323
-[; ;../Projects/src/key_and_Other.c: 323:  mb_NoPush = 0 ;
-[e = _mb_NoPush -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 323:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "324
-[; ;../Projects/src/key_and_Other.c: 324:  if ( !mb_RegOpenSw )
-[e $ ! ! != -> _mb_RegOpenSw `i -> 0 `i 441  ]
+[; ;../Projects/src/key_and_Other.c: 324:  mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "325
-[; ;../Projects/src/key_and_Other.c: 325:  {
-{
+[; ;../Projects/src/key_and_Other.c: 325:  if ( !mb_RegOpenSw )
+[e $ ! ! != -> _mb_RegOpenSw `i -> 0 `i 441  ]
 "326
-[; ;../Projects/src/key_and_Other.c: 326:   mb_RegOpenSw = 1 ;
-[e = _mb_RegOpenSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 326:  {
+{
 "327
-[; ;../Projects/src/key_and_Other.c: 327:   m_TimerKey = 3000 ;
-[e = _m_TimerKey -> -> 3000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 327:   mb_RegOpenSw = 1 ;
+[e = _mb_RegOpenSw -> -> 1 `i `uc ]
 "328
-[; ;../Projects/src/key_and_Other.c: 328:   if(FG_PWRON==0){
+[; ;../Projects/src/key_and_Other.c: 328:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"329
+[; ;../Projects/src/key_and_Other.c: 329:   if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 442  ]
 {
-"329
-[; ;../Projects/src/key_and_Other.c: 329:             FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "330
-[; ;../Projects/src/key_and_Other.c: 330:             RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 330:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "331
-[; ;../Projects/src/key_and_Other.c: 331:             TB_5s=78;
-[e = _TB_5s -> -> 78 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 331:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "332
-[; ;../Projects/src/key_and_Other.c: 332:                 }
+[; ;../Projects/src/key_and_Other.c: 332:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"333
+[; ;../Projects/src/key_and_Other.c: 333:                 }
 }
 [e :U 442 ]
-"333
-[; ;../Projects/src/key_and_Other.c: 333:   return ;
-[e $UE 440  ]
 "334
-[; ;../Projects/src/key_and_Other.c: 334:  }
+[; ;../Projects/src/key_and_Other.c: 334:   return ;
+[e $UE 440  ]
+"335
+[; ;../Projects/src/key_and_Other.c: 335:  }
 }
 [e :U 441 ]
-"336
-[; ;../Projects/src/key_and_Other.c: 336:  _Pass3secKey( 8 ) ;
-[e ( __Pass3secKey (1 -> -> 8 `i `uc ]
 "337
-[; ;../Projects/src/key_and_Other.c: 337: }
+[; ;../Projects/src/key_and_Other.c: 337:  _Pass3secKey( 8 ) ;
+[e ( __Pass3secKey (1 -> -> 8 `i `uc ]
+"338
+[; ;../Projects/src/key_and_Other.c: 338: }
 [e :UE 440 ]
 }
-"344
-[; ;../Projects/src/key_and_Other.c: 344: void _FuncCloseReg( void )
-[v __FuncCloseReg `(v ~T0 @X0 1 ef ]
 "345
-[; ;../Projects/src/key_and_Other.c: 345: {
+[; ;../Projects/src/key_and_Other.c: 345: void _FuncCloseReg( void )
+[v __FuncCloseReg `(v ~T0 @X0 1 ef ]
+"346
+[; ;../Projects/src/key_and_Other.c: 346: {
 {
 [e :U __FuncCloseReg ]
 [f ]
-"346
-[; ;../Projects/src/key_and_Other.c: 346:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "347
-[; ;../Projects/src/key_and_Other.c: 347:  if ( !mb_RegCloseSw )
-[e $ ! ! != -> _mb_RegCloseSw `i -> 0 `i 444  ]
+[; ;../Projects/src/key_and_Other.c: 347:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "348
-[; ;../Projects/src/key_and_Other.c: 348:  {
-{
+[; ;../Projects/src/key_and_Other.c: 348:  if ( !mb_RegCloseSw )
+[e $ ! ! != -> _mb_RegCloseSw `i -> 0 `i 444  ]
 "349
-[; ;../Projects/src/key_and_Other.c: 349:   mb_RegCloseSw = 1 ;
-[e = _mb_RegCloseSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 349:  {
+{
 "350
-[; ;../Projects/src/key_and_Other.c: 350:   m_TimerKey = 3000 ;
-[e = _m_TimerKey -> -> 3000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 350:   mb_RegCloseSw = 1 ;
+[e = _mb_RegCloseSw -> -> 1 `i `uc ]
 "351
-[; ;../Projects/src/key_and_Other.c: 351:   if(FG_PWRON==0){
+[; ;../Projects/src/key_and_Other.c: 351:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"352
+[; ;../Projects/src/key_and_Other.c: 352:   if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 445  ]
 {
-"352
-[; ;../Projects/src/key_and_Other.c: 352:             FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "353
-[; ;../Projects/src/key_and_Other.c: 353:             RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 353:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "354
-[; ;../Projects/src/key_and_Other.c: 354:             TB_5s=78;
-[e = _TB_5s -> -> 78 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 354:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "355
-[; ;../Projects/src/key_and_Other.c: 355:                 }
+[; ;../Projects/src/key_and_Other.c: 355:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"356
+[; ;../Projects/src/key_and_Other.c: 356:                 }
 }
 [e :U 445 ]
-"356
-[; ;../Projects/src/key_and_Other.c: 356:   return ;
-[e $UE 443  ]
 "357
-[; ;../Projects/src/key_and_Other.c: 357:  }
+[; ;../Projects/src/key_and_Other.c: 357:   return ;
+[e $UE 443  ]
+"358
+[; ;../Projects/src/key_and_Other.c: 358:  }
 }
 [e :U 444 ]
-"359
-[; ;../Projects/src/key_and_Other.c: 359:  _Pass3secKey( 11 ) ;
-[e ( __Pass3secKey (1 -> -> 11 `i `uc ]
 "360
-[; ;../Projects/src/key_and_Other.c: 360: }
+[; ;../Projects/src/key_and_Other.c: 360:  _Pass3secKey( 11 ) ;
+[e ( __Pass3secKey (1 -> -> 11 `i `uc ]
+"361
+[; ;../Projects/src/key_and_Other.c: 361: }
 [e :UE 443 ]
 }
-"367
-[; ;../Projects/src/key_and_Other.c: 367: void _FuncVentReg( void )
-[v __FuncVentReg `(v ~T0 @X0 1 ef ]
 "368
-[; ;../Projects/src/key_and_Other.c: 368: {
+[; ;../Projects/src/key_and_Other.c: 368: void _FuncVentReg( void )
+[v __FuncVentReg `(v ~T0 @X0 1 ef ]
+"369
+[; ;../Projects/src/key_and_Other.c: 369: {
 {
 [e :U __FuncVentReg ]
 [f ]
-"369
-[; ;../Projects/src/key_and_Other.c: 369:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "370
-[; ;../Projects/src/key_and_Other.c: 370:  if ( !mb_RegVentSw )
-[e $ ! ! != -> _mb_RegVentSw `i -> 0 `i 447  ]
+[; ;../Projects/src/key_and_Other.c: 370:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "371
-[; ;../Projects/src/key_and_Other.c: 371:  {
-{
+[; ;../Projects/src/key_and_Other.c: 371:  if ( !mb_RegVentSw )
+[e $ ! ! != -> _mb_RegVentSw `i -> 0 `i 447  ]
 "372
-[; ;../Projects/src/key_and_Other.c: 372:   mb_RegVentSw = 1 ;
-[e = _mb_RegVentSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 372:  {
+{
 "373
-[; ;../Projects/src/key_and_Other.c: 373:   m_TimerKey = 3000 ;
-[e = _m_TimerKey -> -> 3000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 373:   mb_RegVentSw = 1 ;
+[e = _mb_RegVentSw -> -> 1 `i `uc ]
 "374
-[; ;../Projects/src/key_and_Other.c: 374:   if(FG_PWRON==0){
+[; ;../Projects/src/key_and_Other.c: 374:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"375
+[; ;../Projects/src/key_and_Other.c: 375:   if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 448  ]
 {
-"375
-[; ;../Projects/src/key_and_Other.c: 375:             FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "376
-[; ;../Projects/src/key_and_Other.c: 376:             RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 376:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "377
-[; ;../Projects/src/key_and_Other.c: 377:             TB_5s=78;
-[e = _TB_5s -> -> 78 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 377:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "378
-[; ;../Projects/src/key_and_Other.c: 378:                 }
+[; ;../Projects/src/key_and_Other.c: 378:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"379
+[; ;../Projects/src/key_and_Other.c: 379:                 }
 }
 [e :U 448 ]
-"379
-[; ;../Projects/src/key_and_Other.c: 379:   return ;
-[e $UE 446  ]
 "380
-[; ;../Projects/src/key_and_Other.c: 380:  }
+[; ;../Projects/src/key_and_Other.c: 380:   return ;
+[e $UE 446  ]
+"381
+[; ;../Projects/src/key_and_Other.c: 381:  }
 }
 [e :U 447 ]
-"382
-[; ;../Projects/src/key_and_Other.c: 382:  _Pass3secKey( 13 ) ;
-[e ( __Pass3secKey (1 -> -> 13 `i `uc ]
 "383
-[; ;../Projects/src/key_and_Other.c: 383: }
+[; ;../Projects/src/key_and_Other.c: 383:  _Pass3secKey( 13 ) ;
+[e ( __Pass3secKey (1 -> -> 13 `i `uc ]
+"384
+[; ;../Projects/src/key_and_Other.c: 384: }
 [e :UE 446 ]
 }
-"390
-[; ;../Projects/src/key_and_Other.c: 390: void _FuncStopReg( void )
-[v __FuncStopReg `(v ~T0 @X0 1 ef ]
 "391
-[; ;../Projects/src/key_and_Other.c: 391: {
+[; ;../Projects/src/key_and_Other.c: 391: void _FuncStopReg( void )
+[v __FuncStopReg `(v ~T0 @X0 1 ef ]
+"392
+[; ;../Projects/src/key_and_Other.c: 392: {
 {
 [e :U __FuncStopReg ]
 [f ]
-"392
-[; ;../Projects/src/key_and_Other.c: 392:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "393
-[; ;../Projects/src/key_and_Other.c: 393:  if ( !mb_RegStopSw )
-[e $ ! ! != -> _mb_RegStopSw `i -> 0 `i 450  ]
+[; ;../Projects/src/key_and_Other.c: 393:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "394
-[; ;../Projects/src/key_and_Other.c: 394:  {
-{
+[; ;../Projects/src/key_and_Other.c: 394:  if ( !mb_RegStopSw )
+[e $ ! ! != -> _mb_RegStopSw `i -> 0 `i 450  ]
 "395
-[; ;../Projects/src/key_and_Other.c: 395:   mb_RegStopSw = 1 ;
-[e = _mb_RegStopSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 395:  {
+{
 "396
-[; ;../Projects/src/key_and_Other.c: 396:   m_TimerKey = 3000 ;
-[e = _m_TimerKey -> -> 3000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 396:   mb_RegStopSw = 1 ;
+[e = _mb_RegStopSw -> -> 1 `i `uc ]
 "397
-[; ;../Projects/src/key_and_Other.c: 397:   if(FG_PWRON==0){
+[; ;../Projects/src/key_and_Other.c: 397:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"398
+[; ;../Projects/src/key_and_Other.c: 398:   if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 451  ]
 {
-"398
-[; ;../Projects/src/key_and_Other.c: 398:             FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "399
-[; ;../Projects/src/key_and_Other.c: 399:             RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 399:             FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "400
-[; ;../Projects/src/key_and_Other.c: 400:             TB_5s=78;
-[e = _TB_5s -> -> 78 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 400:             RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "401
-[; ;../Projects/src/key_and_Other.c: 401:                 }
+[; ;../Projects/src/key_and_Other.c: 401:             TB_5s=78;
+[e = _TB_5s -> -> 78 `i `uc ]
+"402
+[; ;../Projects/src/key_and_Other.c: 402:                 }
 }
 [e :U 451 ]
-"402
-[; ;../Projects/src/key_and_Other.c: 402:   return ;
-[e $UE 449  ]
 "403
-[; ;../Projects/src/key_and_Other.c: 403:  }
+[; ;../Projects/src/key_and_Other.c: 403:   return ;
+[e $UE 449  ]
+"404
+[; ;../Projects/src/key_and_Other.c: 404:  }
 }
 [e :U 450 ]
-"405
-[; ;../Projects/src/key_and_Other.c: 405:  _Pass3secKey( 10 ) ;
-[e ( __Pass3secKey (1 -> -> 10 `i `uc ]
 "406
-[; ;../Projects/src/key_and_Other.c: 406: }
+[; ;../Projects/src/key_and_Other.c: 406:  _Pass3secKey( 10 ) ;
+[e ( __Pass3secKey (1 -> -> 10 `i `uc ]
+"407
+[; ;../Projects/src/key_and_Other.c: 407: }
 [e :UE 449 ]
 }
-"407
-[; ;../Projects/src/key_and_Other.c: 407: void _Pass3secKey( unsigned char req )
-[v __Pass3secKey `(v ~T0 @X0 1 ef1`uc ]
 "408
-[; ;../Projects/src/key_and_Other.c: 408: {
+[; ;../Projects/src/key_and_Other.c: 408: void _Pass3secKey( unsigned char req )
+[v __Pass3secKey `(v ~T0 @X0 1 ef1`uc ]
+"409
+[; ;../Projects/src/key_and_Other.c: 409: {
 {
 [e :U __Pass3secKey ]
-"407
-[; ;../Projects/src/key_and_Other.c: 407: void _Pass3secKey( unsigned char req )
-[v _req `uc ~T0 @X0 1 r1 ]
 "408
-[; ;../Projects/src/key_and_Other.c: 408: {
-[f ]
+[; ;../Projects/src/key_and_Other.c: 408: void _Pass3secKey( unsigned char req )
+[v _req `uc ~T0 @X0 1 r1 ]
 "409
-[; ;../Projects/src/key_and_Other.c: 409:  if ( m_TimerKey )
-[e $ ! != _m_TimerKey -> -> 0 `i `ui 453  ]
+[; ;../Projects/src/key_and_Other.c: 409: {
+[f ]
 "410
-[; ;../Projects/src/key_and_Other.c: 410:  {
-{
+[; ;../Projects/src/key_and_Other.c: 410:  if ( m_TimerKey )
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 453  ]
 "411
-[; ;../Projects/src/key_and_Other.c: 411:   if ( !--m_TimerKey )
-[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 454  ]
-"412
-[; ;../Projects/src/key_and_Other.c: 412:   {
+[; ;../Projects/src/key_and_Other.c: 411:  {
 {
+"412
+[; ;../Projects/src/key_and_Other.c: 412:   if ( !--m_TimerKey )
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 454  ]
 "413
-[; ;../Projects/src/key_and_Other.c: 413:    _ReqTxdEdit( req,0 ) ;
-[e ( __ReqTxdEdit (2 , _req -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 413:   {
+{
 "414
-[; ;../Projects/src/key_and_Other.c: 414:                         FG_Complex_Single_shot=1;
-[e = _FG_Complex_Single_shot -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 414:    _ReqTxdEdit( req,0 ) ;
+[e ( __ReqTxdEdit (2 , _req -> -> 0 `i `uc ]
 "415
-[; ;../Projects/src/key_and_Other.c: 415:    return ;
-[e $UE 452  ]
+[; ;../Projects/src/key_and_Other.c: 415:                         FG_Complex_Single_shot=1;
+[e = _FG_Complex_Single_shot -> -> 1 `i `uc ]
 "416
-[; ;../Projects/src/key_and_Other.c: 416:   }
+[; ;../Projects/src/key_and_Other.c: 416:    return ;
+[e $UE 452  ]
+"417
+[; ;../Projects/src/key_and_Other.c: 417:   }
 }
 [e :U 454 ]
-"417
-[; ;../Projects/src/key_and_Other.c: 417:  }
+"418
+[; ;../Projects/src/key_and_Other.c: 418:  }
 }
 [e :U 453 ]
-"418
-[; ;../Projects/src/key_and_Other.c: 418: }
+"419
+[; ;../Projects/src/key_and_Other.c: 419: }
 [e :UE 452 ]
 }
-"424
-[; ;../Projects/src/key_and_Other.c: 424: void _FuncReg( void )
-[v __FuncReg `(v ~T0 @X0 1 ef ]
 "425
-[; ;../Projects/src/key_and_Other.c: 425: {
+[; ;../Projects/src/key_and_Other.c: 425: void _FuncReg( void )
+[v __FuncReg `(v ~T0 @X0 1 ef ]
+"426
+[; ;../Projects/src/key_and_Other.c: 426: {
 {
 [e :U __FuncReg ]
 [f ]
-"426
-[; ;../Projects/src/key_and_Other.c: 426:  _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "427
-[; ;../Projects/src/key_and_Other.c: 427:  if ( mb_NoPush )
-[e $ ! != -> _mb_NoPush `i -> 0 `i 456  ]
+[; ;../Projects/src/key_and_Other.c: 427:  _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "428
-[; ;../Projects/src/key_and_Other.c: 428:  {
-{
+[; ;../Projects/src/key_and_Other.c: 428:  if ( mb_NoPush )
+[e $ ! != -> _mb_NoPush `i -> 0 `i 456  ]
 "429
-[; ;../Projects/src/key_and_Other.c: 429:   mb_NoPush = 0 ;
-[e = _mb_NoPush -> -> 0 `i `uc ]
-"430
-[; ;../Projects/src/key_and_Other.c: 430:   m_KindOfKey = 5 ;
-[e = _m_KindOfKey -> -> 5 `i `uc ]
-"431
-[; ;../Projects/src/key_and_Other.c: 431:   _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
-"432
-[; ;../Projects/src/key_and_Other.c: 432:   mb_RegSw = 1 ;
-[e = _mb_RegSw -> -> 1 `i `uc ]
-"433
-[; ;../Projects/src/key_and_Other.c: 433:   m_TimerKey = 3000 ;
-[e = _m_TimerKey -> -> 3000 `i `ui ]
-"434
-[; ;../Projects/src/key_and_Other.c: 434:   if ( !m_TimerKeyMonitor )
-[e $ ! ! != _m_TimerKeyMonitor -> -> 0 `i `ui 457  ]
-"435
-[; ;../Projects/src/key_and_Other.c: 435:   {
+[; ;../Projects/src/key_and_Other.c: 429:  {
 {
+"430
+[; ;../Projects/src/key_and_Other.c: 430:   mb_NoPush = 0 ;
+[e = _mb_NoPush -> -> 0 `i `uc ]
+"431
+[; ;../Projects/src/key_and_Other.c: 431:   m_KindOfKey = 5 ;
+[e = _m_KindOfKey -> -> 5 `i `uc ]
+"432
+[; ;../Projects/src/key_and_Other.c: 432:   _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"433
+[; ;../Projects/src/key_and_Other.c: 433:   mb_RegSw = 1 ;
+[e = _mb_RegSw -> -> 1 `i `uc ]
+"434
+[; ;../Projects/src/key_and_Other.c: 434:   m_TimerKey = 3000 ;
+[e = _m_TimerKey -> -> 3000 `i `ui ]
+"435
+[; ;../Projects/src/key_and_Other.c: 435:   if ( !m_TimerKeyMonitor )
+[e $ ! ! != _m_TimerKeyMonitor -> -> 0 `i `ui 457  ]
 "436
-[; ;../Projects/src/key_and_Other.c: 436:             if(FG_PWRON==0){
-[e $ ! == -> _FG_PWRON `i -> 0 `i 458  ]
+[; ;../Projects/src/key_and_Other.c: 436:   {
 {
 "437
-[; ;../Projects/src/key_and_Other.c: 437:                       FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 437:             if(FG_PWRON==0){
+[e $ ! == -> _FG_PWRON `i -> 0 `i 458  ]
+{
 "438
-[; ;../Projects/src/key_and_Other.c: 438:                       RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 438:                       FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "439
-[; ;../Projects/src/key_and_Other.c: 439:         TB_5s=51;
-[e = _TB_5s -> -> 51 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 439:                       RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "440
-[; ;../Projects/src/key_and_Other.c: 440:                           }
+[; ;../Projects/src/key_and_Other.c: 440:         TB_5s=51;
+[e = _TB_5s -> -> 51 `i `uc ]
+"441
+[; ;../Projects/src/key_and_Other.c: 441:                           }
 }
 [e :U 458 ]
-"441
-[; ;../Projects/src/key_and_Other.c: 441:    m_TimerKeyMonitor = 10000 ;
-[e = _m_TimerKeyMonitor -> -> 10000 `i `ui ]
 "442
-[; ;../Projects/src/key_and_Other.c: 442:    m_KeyCount = 2 ;
-[e = _m_KeyCount -> -> 2 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 442:    m_TimerKeyMonitor = 10000 ;
+[e = _m_TimerKeyMonitor -> -> 10000 `i `ui ]
 "443
-[; ;../Projects/src/key_and_Other.c: 443:    return ;
-[e $UE 455  ]
+[; ;../Projects/src/key_and_Other.c: 443:    m_KeyCount = 2 ;
+[e = _m_KeyCount -> -> 2 `i `uc ]
 "444
-[; ;../Projects/src/key_and_Other.c: 444:   }
+[; ;../Projects/src/key_and_Other.c: 444:    return ;
+[e $UE 455  ]
+"445
+[; ;../Projects/src/key_and_Other.c: 445:   }
 }
 [e :U 457 ]
-"445
-[; ;../Projects/src/key_and_Other.c: 445:   if ( !--m_KeyCount )
-[e $ ! ! != -> =- _m_KeyCount -> -> 1 `i `uc `i -> 0 `i 459  ]
 "446
-[; ;../Projects/src/key_and_Other.c: 446:   {
-{
+[; ;../Projects/src/key_and_Other.c: 446:   if ( !--m_KeyCount )
+[e $ ! ! != -> =- _m_KeyCount -> -> 1 `i `uc `i -> 0 `i 459  ]
 "447
-[; ;../Projects/src/key_and_Other.c: 447:    _SetRegistrationMode( 1 ) ;
-[e ( __SetRegistrationMode (1 -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 447:   {
+{
 "448
-[; ;../Projects/src/key_and_Other.c: 448:    m_KindOfKey = 0 ;
-[e = _m_KindOfKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 448:    _SetRegistrationMode( 1 ) ;
+[e ( __SetRegistrationMode (1 -> -> 1 `i `uc ]
 "449
-[; ;../Projects/src/key_and_Other.c: 449:    mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 449:    m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
 "450
-[; ;../Projects/src/key_and_Other.c: 450:   }
+[; ;../Projects/src/key_and_Other.c: 450:    mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
+"451
+[; ;../Projects/src/key_and_Other.c: 451:   }
 }
 [e :U 459 ]
-"451
-[; ;../Projects/src/key_and_Other.c: 451:   return ;
-[e $UE 455  ]
 "452
-[; ;../Projects/src/key_and_Other.c: 452:  }
+[; ;../Projects/src/key_and_Other.c: 452:   return ;
+[e $UE 455  ]
+"453
+[; ;../Projects/src/key_and_Other.c: 453:  }
 }
 [e :U 456 ]
-"455
-[; ;../Projects/src/key_and_Other.c: 455:  if ( mb_RegSw )
-[e $ ! != -> _mb_RegSw `i -> 0 `i 460  ]
 "456
-[; ;../Projects/src/key_and_Other.c: 456:  {
-{
+[; ;../Projects/src/key_and_Other.c: 456:  if ( mb_RegSw )
+[e $ ! != -> _mb_RegSw `i -> 0 `i 460  ]
 "457
-[; ;../Projects/src/key_and_Other.c: 457:   if ( m_TimerKey )
-[e $ ! != _m_TimerKey -> -> 0 `i `ui 461  ]
+[; ;../Projects/src/key_and_Other.c: 457:  {
+{
 "458
-[; ;../Projects/src/key_and_Other.c: 458:   {
-{
+[; ;../Projects/src/key_and_Other.c: 458:   if ( m_TimerKey )
+[e $ ! != _m_TimerKey -> -> 0 `i `ui 461  ]
 "459
-[; ;../Projects/src/key_and_Other.c: 459:    if ( !--m_TimerKey )
-[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 462  ]
-"460
-[; ;../Projects/src/key_and_Other.c: 460:    {
+[; ;../Projects/src/key_and_Other.c: 459:   {
 {
+"460
+[; ;../Projects/src/key_and_Other.c: 460:    if ( !--m_TimerKey )
+[e $ ! ! != =- _m_TimerKey -> -> 1 `i `ui -> -> 0 `i `ui 462  ]
 "461
-[; ;../Projects/src/key_and_Other.c: 461:     _SetRegistrationMode( 2 ) ;
-[e ( __SetRegistrationMode (1 -> -> 2 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 461:    {
+{
 "462
-[; ;../Projects/src/key_and_Other.c: 462:     m_KindOfKey = 0 ;
-[e = _m_KindOfKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 462:     _SetRegistrationMode( 2 ) ;
+[e ( __SetRegistrationMode (1 -> -> 2 `i `uc ]
 "463
-[; ;../Projects/src/key_and_Other.c: 463:     mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 463:     m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
 "464
-[; ;../Projects/src/key_and_Other.c: 464:    }
+[; ;../Projects/src/key_and_Other.c: 464:     mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
+"465
+[; ;../Projects/src/key_and_Other.c: 465:    }
 }
 [e :U 462 ]
-"465
-[; ;../Projects/src/key_and_Other.c: 465:    return ;
-[e $UE 455  ]
 "466
-[; ;../Projects/src/key_and_Other.c: 466:   }
+[; ;../Projects/src/key_and_Other.c: 466:    return ;
+[e $UE 455  ]
+"467
+[; ;../Projects/src/key_and_Other.c: 467:   }
 }
 [e :U 461 ]
-"467
-[; ;../Projects/src/key_and_Other.c: 467:  }
+"468
+[; ;../Projects/src/key_and_Other.c: 468:  }
 }
 [e :U 460 ]
-"468
-[; ;../Projects/src/key_and_Other.c: 468: }
+"469
+[; ;../Projects/src/key_and_Other.c: 469: }
 [e :UE 455 ]
 }
-"469
-[; ;../Projects/src/key_and_Other.c: 469: void _FuncStop( void )
-[v __FuncStop `(v ~T0 @X0 1 ef ]
 "470
-[; ;../Projects/src/key_and_Other.c: 470: {
+[; ;../Projects/src/key_and_Other.c: 470: void _FuncStop( void )
+[v __FuncStop `(v ~T0 @X0 1 ef ]
+"471
+[; ;../Projects/src/key_and_Other.c: 471: {
 {
 [e :U __FuncStop ]
 [f ]
-"471
-[; ;../Projects/src/key_and_Other.c: 471:  if ( _GetNoPushState() )
-[e $ ! != -> ( __GetNoPushState ..  `i -> 0 `i 464  ]
 "472
-[; ;../Projects/src/key_and_Other.c: 472:  {
-{
+[; ;../Projects/src/key_and_Other.c: 472:  if ( _GetNoPushState() )
+[e $ ! != -> ( __GetNoPushState ..  `i -> 0 `i 464  ]
 "473
-[; ;../Projects/src/key_and_Other.c: 473:   if ( mb_OpenSw || mb_StopSw || mb_CloseSw )
-[e $ ! || || != -> _mb_OpenSw `i -> 0 `i != -> _mb_StopSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 465  ]
+[; ;../Projects/src/key_and_Other.c: 473:  {
+{
 "474
-[; ;../Projects/src/key_and_Other.c: 474:   {
-{
+[; ;../Projects/src/key_and_Other.c: 474:   if ( mb_OpenSw || mb_StopSw || mb_CloseSw )
+[e $ ! || || != -> _mb_OpenSw `i -> 0 `i != -> _mb_StopSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 465  ]
 "475
-[; ;../Projects/src/key_and_Other.c: 475:    if (( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))
-[e $ ! && && ! != _m_TimerKey -> -> 0 `i `ui == -> _FG_BAT `i -> 0 `i == _TIME_Once_twice_switch -> -> 0 `i `ui 466  ]
+[; ;../Projects/src/key_and_Other.c: 475:   {
+{
 "476
-[; ;../Projects/src/key_and_Other.c: 476:    {
+[; ;../Projects/src/key_and_Other.c: 476:    if (( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))
+[e $ ! && && ! != _m_TimerKey -> -> 0 `i `ui == -> _FG_BAT `i -> 0 `i == _TIME_Once_twice_switch -> -> 0 `i `ui 466  ]
+"477
+[; ;../Projects/src/key_and_Other.c: 477:    {
 {
-"479
-[; ;../Projects/src/key_and_Other.c: 479:      if ( mb_OpenSw || mb_CloseSw )
-[e $ ! || != -> _mb_OpenSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 467  ]
 "480
-[; ;../Projects/src/key_and_Other.c: 480:      {
-{
+[; ;../Projects/src/key_and_Other.c: 480:      if ( mb_OpenSw || mb_CloseSw )
+[e $ ! || != -> _mb_OpenSw `i -> 0 `i != -> _mb_CloseSw `i -> 0 `i 467  ]
 "481
-[; ;../Projects/src/key_and_Other.c: 481:       m_KeyOptSetMode = 10 ;
+[; ;../Projects/src/key_and_Other.c: 481:      {
+{
+"482
+[; ;../Projects/src/key_and_Other.c: 482:       m_KeyOptSetMode = 10 ;
 [e = _m_KeyOptSetMode -> -> 10 `i `uc ]
-"484
-[; ;../Projects/src/key_and_Other.c: 484:       m_KindOfKey = 0 ;
-[e = _m_KindOfKey -> -> 0 `i `uc ]
 "485
-[; ;../Projects/src/key_and_Other.c: 485:       mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 485:       m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
 "486
-[; ;../Projects/src/key_and_Other.c: 486:       return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 486:       mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "487
-[; ;../Projects/src/key_and_Other.c: 487:      }
+[; ;../Projects/src/key_and_Other.c: 487:       return ;
+[e $UE 463  ]
+"488
+[; ;../Projects/src/key_and_Other.c: 488:      }
 }
 [e :U 467 ]
-"488
-[; ;../Projects/src/key_and_Other.c: 488:      m_KeyOptSetMode = 1 ;
+"489
+[; ;../Projects/src/key_and_Other.c: 489:      m_KeyOptSetMode = 1 ;
 [e = _m_KeyOptSetMode -> -> 1 `i `uc ]
-"490
-[; ;../Projects/src/key_and_Other.c: 490:      _ReqBuzzer(103,103,1);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
 "491
-[; ;../Projects/src/key_and_Other.c: 491:       FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 491:      _ReqBuzzer(103,103,1);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
 "492
-[; ;../Projects/src/key_and_Other.c: 492:       if(FG_PWRON==0){
+[; ;../Projects/src/key_and_Other.c: 492:       FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
+"493
+[; ;../Projects/src/key_and_Other.c: 493:       if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 468  ]
 {
-"493
-[; ;../Projects/src/key_and_Other.c: 493:                                              FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "494
-[; ;../Projects/src/key_and_Other.c: 494:                                              RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 494:                                              FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "495
-[; ;../Projects/src/key_and_Other.c: 495:                                              TB_5s=TB_51s;
-[e = _TB_5s _TB_51s ]
+[; ;../Projects/src/key_and_Other.c: 495:                                              RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "496
-[; ;../Projects/src/key_and_Other.c: 496:                                                 }
+[; ;../Projects/src/key_and_Other.c: 496:                                              TB_5s=TB_51s;
+[e = _TB_5s _TB_51s ]
+"497
+[; ;../Projects/src/key_and_Other.c: 497:                                                 }
 }
 [e :U 468 ]
-"497
-[; ;../Projects/src/key_and_Other.c: 497:      m_KeyDupliSetTimeout = 4000 ;
-[e = _m_KeyDupliSetTimeout -> -> 4000 `i `ui ]
 "498
-[; ;../Projects/src/key_and_Other.c: 498:      m_KindOfKey = 0 ;
-[e = _m_KindOfKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 498:      m_KeyDupliSetTimeout = 4000 ;
+[e = _m_KeyDupliSetTimeout -> -> 4000 `i `ui ]
 "499
-[; ;../Projects/src/key_and_Other.c: 499:      mb_NoPush=0;
-[e = _mb_NoPush -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 499:      m_KindOfKey = 0 ;
+[e = _m_KindOfKey -> -> 0 `i `uc ]
 "500
-[; ;../Projects/src/key_and_Other.c: 500:      mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 500:      mb_NoPush=0;
+[e = _mb_NoPush -> -> 0 `i `uc ]
 "501
-[; ;../Projects/src/key_and_Other.c: 501:      m_KeyOptSetOpenStop = 1 ;
-[e = _m_KeyOptSetOpenStop -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 501:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
 "502
-[; ;../Projects/src/key_and_Other.c: 502:      if ( mb_OpenSw )
-[e $ ! != -> _mb_OpenSw `i -> 0 `i 469  ]
+[; ;../Projects/src/key_and_Other.c: 502:      m_KeyOptSetOpenStop = 1 ;
+[e = _m_KeyOptSetOpenStop -> -> 1 `i `uc ]
 "503
-[; ;../Projects/src/key_and_Other.c: 503:      {
-{
+[; ;../Projects/src/key_and_Other.c: 503:      if ( mb_OpenSw )
+[e $ ! != -> _mb_OpenSw `i -> 0 `i 469  ]
 "504
-[; ;../Projects/src/key_and_Other.c: 504:       m_KeyOptSetOpenStop = 0 ;
-[e = _m_KeyOptSetOpenStop -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 504:      {
+{
 "505
-[; ;../Projects/src/key_and_Other.c: 505:      }
+[; ;../Projects/src/key_and_Other.c: 505:       m_KeyOptSetOpenStop = 0 ;
+[e = _m_KeyOptSetOpenStop -> -> 0 `i `uc ]
+"506
+[; ;../Projects/src/key_and_Other.c: 506:      }
 }
 [e :U 469 ]
-"508
-[; ;../Projects/src/key_and_Other.c: 508:    }
+"509
+[; ;../Projects/src/key_and_Other.c: 509:    }
 }
 [e :U 466 ]
-"509
-[; ;../Projects/src/key_and_Other.c: 509:    return ;
-[e $UE 463  ]
 "510
-[; ;../Projects/src/key_and_Other.c: 510:   }
+[; ;../Projects/src/key_and_Other.c: 510:    return ;
+[e $UE 463  ]
+"511
+[; ;../Projects/src/key_and_Other.c: 511:   }
 }
 [e :U 465 ]
-"511
-[; ;../Projects/src/key_and_Other.c: 511:   return ;
-[e $UE 463  ]
 "512
-[; ;../Projects/src/key_and_Other.c: 512:  }
+[; ;../Projects/src/key_and_Other.c: 512:   return ;
+[e $UE 463  ]
+"513
+[; ;../Projects/src/key_and_Other.c: 513:  }
 }
 [e :U 464 ]
-"514
-[; ;../Projects/src/key_and_Other.c: 514:  m_KindOfKey = m_KeyNo ;
-[e = _m_KindOfKey _m_KeyNo ]
 "515
-[; ;../Projects/src/key_and_Other.c: 515:  if ( m_KeyOptSetMode ||m_RegMode)
-[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 470  ]
+[; ;../Projects/src/key_and_Other.c: 515:  m_KindOfKey = m_KeyNo ;
+[e = _m_KindOfKey _m_KeyNo ]
 "516
-[; ;../Projects/src/key_and_Other.c: 516:  {
-{
+[; ;../Projects/src/key_and_Other.c: 516:  if ( m_KeyOptSetMode ||m_RegMode)
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 470  ]
 "517
-[; ;../Projects/src/key_and_Other.c: 517:   return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 517:  {
+{
 "518
-[; ;../Projects/src/key_and_Other.c: 518:  }
+[; ;../Projects/src/key_and_Other.c: 518:   return ;
+[e $UE 463  ]
+"519
+[; ;../Projects/src/key_and_Other.c: 519:  }
 }
 [e :U 470 ]
-"520
-[; ;../Projects/src/key_and_Other.c: 520:  switch ( m_KindOfKey )
-[e $U 472  ]
 "521
-[; ;../Projects/src/key_and_Other.c: 521:  {
-{
+[; ;../Projects/src/key_and_Other.c: 521:  switch ( m_KindOfKey )
+[e $U 472  ]
 "522
-[; ;../Projects/src/key_and_Other.c: 522:   case 1 :
-[e :U 473 ]
+[; ;../Projects/src/key_and_Other.c: 522:  {
+{
 "523
-[; ;../Projects/src/key_and_Other.c: 523:    mb_OpenSw = 1 ;
-[e = _mb_OpenSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 523:   case 1 :
+[e :U 473 ]
 "524
-[; ;../Projects/src/key_and_Other.c: 524:    m_TimerKey = 5000 ;
-[e = _m_TimerKey -> -> 5000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 524:    mb_OpenSw = 1 ;
+[e = _mb_OpenSw -> -> 1 `i `uc ]
 "525
-[; ;../Projects/src/key_and_Other.c: 525:    break;
+[; ;../Projects/src/key_and_Other.c: 525:    m_TimerKey = 5000 ;
+[e = _m_TimerKey -> -> 5000 `i `ui ]
+"526
+[; ;../Projects/src/key_and_Other.c: 526:    break;
 [e $U 471  ]
-"527
-[; ;../Projects/src/key_and_Other.c: 527:   case 2 :
-[e :U 474 ]
 "528
-[; ;../Projects/src/key_and_Other.c: 528:    mb_StopSw = 1 ;
-[e = _mb_StopSw -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 528:   case 2 :
+[e :U 474 ]
 "529
-[; ;../Projects/src/key_and_Other.c: 529:    m_TimerKey = 5000 ;
-[e = _m_TimerKey -> -> 5000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 529:    mb_StopSw = 1 ;
+[e = _mb_StopSw -> -> 1 `i `uc ]
 "530
-[; ;../Projects/src/key_and_Other.c: 530:    break;
-[e $U 471  ]
-"532
-[; ;../Projects/src/key_and_Other.c: 532:   case 3 :
-[e :U 475 ]
-"533
-[; ;../Projects/src/key_and_Other.c: 533:    mb_CloseSw = 1 ;
-[e = _mb_CloseSw -> -> 1 `i `uc ]
-"534
-[; ;../Projects/src/key_and_Other.c: 534:    m_TimerKey = 5000 ;
+[; ;../Projects/src/key_and_Other.c: 530:    m_TimerKey = 5000 ;
 [e = _m_TimerKey -> -> 5000 `i `ui ]
-"535
-[; ;../Projects/src/key_and_Other.c: 535:    break;
+"531
+[; ;../Projects/src/key_and_Other.c: 531:    break;
 [e $U 471  ]
+"533
+[; ;../Projects/src/key_and_Other.c: 533:   case 3 :
+[e :U 475 ]
+"534
+[; ;../Projects/src/key_and_Other.c: 534:    mb_CloseSw = 1 ;
+[e = _mb_CloseSw -> -> 1 `i `uc ]
+"535
+[; ;../Projects/src/key_and_Other.c: 535:    m_TimerKey = 5000 ;
+[e = _m_TimerKey -> -> 5000 `i `ui ]
 "536
-[; ;../Projects/src/key_and_Other.c: 536:  }
+[; ;../Projects/src/key_and_Other.c: 536:    break;
+[e $U 471  ]
+"537
+[; ;../Projects/src/key_and_Other.c: 537:  }
 }
 [e $U 471  ]
 [e :U 472 ]
@@ -2029,117 +2023,117 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 475
  471 ]
 [e :U 471 ]
-"539
-[; ;../Projects/src/key_and_Other.c: 539:  if ( !rom_KeyOpt || m_KindOfKey == 4 )
+"540
+[; ;../Projects/src/key_and_Other.c: 540:  if ( !rom_KeyOpt || m_KindOfKey == 4 )
 [e $ ! || ! != -> _rom_KeyOpt `i -> 0 `i == -> _m_KindOfKey `i -> 4 `i 476  ]
-"543
-[; ;../Projects/src/key_and_Other.c: 543:  {
-{
 "544
-[; ;../Projects/src/key_and_Other.c: 544:   _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 544:  {
+{
 "545
-[; ;../Projects/src/key_and_Other.c: 545:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
-[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+[; ;../Projects/src/key_and_Other.c: 545:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "546
-[; ;../Projects/src/key_and_Other.c: 546:   m_TimerKeyMonitor = 0 ;
-[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 546:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
 "547
-[; ;../Projects/src/key_and_Other.c: 547:   return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 547:   m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
 "548
-[; ;../Projects/src/key_and_Other.c: 548:  }
+[; ;../Projects/src/key_and_Other.c: 548:   return ;
+[e $UE 463  ]
+"549
+[; ;../Projects/src/key_and_Other.c: 549:  }
 }
 [e :U 476 ]
-"551
-[; ;../Projects/src/key_and_Other.c: 551:  if ( m_KeyOptSetMode || m_RegMode )
-[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 477  ]
 "552
-[; ;../Projects/src/key_and_Other.c: 552:  {
-{
+[; ;../Projects/src/key_and_Other.c: 552:  if ( m_KeyOptSetMode || m_RegMode )
+[e $ ! || != -> _m_KeyOptSetMode `i -> 0 `i != -> _m_RegMode `i -> 0 `i 477  ]
 "553
-[; ;../Projects/src/key_and_Other.c: 553:   return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 553:  {
+{
 "554
-[; ;../Projects/src/key_and_Other.c: 554:  }
+[; ;../Projects/src/key_and_Other.c: 554:   return ;
+[e $UE 463  ]
+"555
+[; ;../Projects/src/key_and_Other.c: 555:  }
 }
 [e :U 477 ]
-"556
-[; ;../Projects/src/key_and_Other.c: 556:  if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 478  ]
 "557
-[; ;../Projects/src/key_and_Other.c: 557:  {
-{
+[; ;../Projects/src/key_and_Other.c: 557:  if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 478  ]
 "558
-[; ;../Projects/src/key_and_Other.c: 558:   _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 558:  {
+{
 "559
-[; ;../Projects/src/key_and_Other.c: 559:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
-[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+[; ;../Projects/src/key_and_Other.c: 559:   _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "560
-[; ;../Projects/src/key_and_Other.c: 560:   m_TimerKeyMonitor = 0 ;
-[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 560:   _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
 "561
-[; ;../Projects/src/key_and_Other.c: 561:   FG_d_StopKey=1;
-[e = _FG_d_StopKey -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 561:   m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
 "562
-[; ;../Projects/src/key_and_Other.c: 562:   m_KeyDupli1stTimer = 3000 ;
-[e = _m_KeyDupli1stTimer -> -> 3000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 562:   FG_d_StopKey=1;
+[e = _FG_d_StopKey -> -> 1 `i `uc ]
 "563
-[; ;../Projects/src/key_and_Other.c: 563:   time_led=0;
-[e = _time_led -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 563:   m_KeyDupli1stTimer = 3000 ;
+[e = _m_KeyDupli1stTimer -> -> 3000 `i `ui ]
 "564
-[; ;../Projects/src/key_and_Other.c: 564:   return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 564:   time_led=0;
+[e = _time_led -> -> 0 `i `ui ]
 "565
-[; ;../Projects/src/key_and_Other.c: 565:  }
+[; ;../Projects/src/key_and_Other.c: 565:   return ;
+[e $UE 463  ]
+"566
+[; ;../Projects/src/key_and_Other.c: 566:  }
 }
 [e :U 478 ]
-"567
-[; ;../Projects/src/key_and_Other.c: 567:  switch ( m_KindOfKey )
-[e $U 480  ]
 "568
-[; ;../Projects/src/key_and_Other.c: 568:  {
+[; ;../Projects/src/key_and_Other.c: 568:  switch ( m_KindOfKey )
+[e $U 480  ]
+"569
+[; ;../Projects/src/key_and_Other.c: 569:  {
 {
-"593
-[; ;../Projects/src/key_and_Other.c: 593:   case 1 :
-[e :U 481 ]
 "594
-[; ;../Projects/src/key_and_Other.c: 594:   case 3 :
-[e :U 482 ]
+[; ;../Projects/src/key_and_Other.c: 594:   case 1 :
+[e :U 481 ]
 "595
-[; ;../Projects/src/key_and_Other.c: 595:    if ( FG_d_StopKey && m_KeyDupli1stTimer)
-[e $ ! && != -> _FG_d_StopKey `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 483  ]
+[; ;../Projects/src/key_and_Other.c: 595:   case 3 :
+[e :U 482 ]
 "596
-[; ;../Projects/src/key_and_Other.c: 596:    {
-{
+[; ;../Projects/src/key_and_Other.c: 596:    if ( FG_d_StopKey && m_KeyDupli1stTimer)
+[e $ ! && != -> _FG_d_StopKey `i -> 0 `i != _m_KeyDupli1stTimer -> -> 0 `i `ui 483  ]
 "597
-[; ;../Projects/src/key_and_Other.c: 597:            FG_d_StopKey=0;
-[e = _FG_d_StopKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 597:    {
+{
 "598
-[; ;../Projects/src/key_and_Other.c: 598:     m_KeyDupli1stTimer=0;
-[e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 598:            FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
 "599
-[; ;../Projects/src/key_and_Other.c: 599:     _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
-[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
+[; ;../Projects/src/key_and_Other.c: 599:     m_KeyDupli1stTimer=0;
+[e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
 "600
-[; ;../Projects/src/key_and_Other.c: 600:     m_TimerKeyMonitor = 0 ;
-[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 600:     _ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
+[e ( __ReqTxdEdit (2 , _m_KeyNo _m_KeyNo ]
 "601
-[; ;../Projects/src/key_and_Other.c: 601:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 601:     m_TimerKeyMonitor = 0 ;
+[e = _m_TimerKeyMonitor -> -> 0 `i `ui ]
 "602
-[; ;../Projects/src/key_and_Other.c: 602:     return ;
-[e $UE 463  ]
+[; ;../Projects/src/key_and_Other.c: 602:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "603
-[; ;../Projects/src/key_and_Other.c: 603:    }
+[; ;../Projects/src/key_and_Other.c: 603:     return ;
+[e $UE 463  ]
+"604
+[; ;../Projects/src/key_and_Other.c: 604:    }
 }
 [e :U 483 ]
-"604
-[; ;../Projects/src/key_and_Other.c: 604:    break;
+"605
+[; ;../Projects/src/key_and_Other.c: 605:    break;
 [e $U 479  ]
-"606
-[; ;../Projects/src/key_and_Other.c: 606:  }
+"607
+[; ;../Projects/src/key_and_Other.c: 607:  }
 }
 [e $U 479  ]
 [e :U 480 ]
@@ -2147,343 +2141,343 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 482
  479 ]
 [e :U 479 ]
-"607
-[; ;../Projects/src/key_and_Other.c: 607: }
+"608
+[; ;../Projects/src/key_and_Other.c: 608: }
 [e :UE 463 ]
 }
-"609
-[; ;../Projects/src/key_and_Other.c: 609: void _FuncAutoTxStart( void )
-[v __FuncAutoTxStart `(v ~T0 @X0 1 ef ]
 "610
-[; ;../Projects/src/key_and_Other.c: 610: {
+[; ;../Projects/src/key_and_Other.c: 610: void _FuncAutoTxStart( void )
+[v __FuncAutoTxStart `(v ~T0 @X0 1 ef ]
+"611
+[; ;../Projects/src/key_and_Other.c: 611: {
 {
 [e :U __FuncAutoTxStart ]
 [f ]
-"612
-[; ;../Projects/src/key_and_Other.c: 612: }
+"613
+[; ;../Projects/src/key_and_Other.c: 613: }
 [e :UE 484 ]
 }
-"613
-[; ;../Projects/src/key_and_Other.c: 613: void _FuncAutoTxStop( void )
-[v __FuncAutoTxStop `(v ~T0 @X0 1 ef ]
 "614
-[; ;../Projects/src/key_and_Other.c: 614: {
+[; ;../Projects/src/key_and_Other.c: 614: void _FuncAutoTxStop( void )
+[v __FuncAutoTxStop `(v ~T0 @X0 1 ef ]
+"615
+[; ;../Projects/src/key_and_Other.c: 615: {
 {
 [e :U __FuncAutoTxStop ]
 [f ]
-"616
-[; ;../Projects/src/key_and_Other.c: 616: }
+"617
+[; ;../Projects/src/key_and_Other.c: 617: }
 [e :UE 485 ]
 }
-"617
-[; ;../Projects/src/key_and_Other.c: 617: void _FuncNoPush( void )
-[v __FuncNoPush `(v ~T0 @X0 1 ef ]
 "618
-[; ;../Projects/src/key_and_Other.c: 618: {
+[; ;../Projects/src/key_and_Other.c: 618: void _FuncNoPush( void )
+[v __FuncNoPush `(v ~T0 @X0 1 ef ]
+"619
+[; ;../Projects/src/key_and_Other.c: 619: {
 {
 [e :U __FuncNoPush ]
 [f ]
-"619
-[; ;../Projects/src/key_and_Other.c: 619:  mb_OpenSw = 0 ;
-[e = _mb_OpenSw -> -> 0 `i `uc ]
 "620
-[; ;../Projects/src/key_and_Other.c: 620:  mb_StopSw = 0 ;
-[e = _mb_StopSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 620:  mb_OpenSw = 0 ;
+[e = _mb_OpenSw -> -> 0 `i `uc ]
 "621
-[; ;../Projects/src/key_and_Other.c: 621:  mb_CloseSw = 0 ;
-[e = _mb_CloseSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 621:  mb_StopSw = 0 ;
+[e = _mb_StopSw -> -> 0 `i `uc ]
 "622
-[; ;../Projects/src/key_and_Other.c: 622:  FG_BAT=0;
+[; ;../Projects/src/key_and_Other.c: 622:  mb_CloseSw = 0 ;
+[e = _mb_CloseSw -> -> 0 `i `uc ]
+"623
+[; ;../Projects/src/key_and_Other.c: 623:  FG_BAT=0;
 [e = _FG_BAT -> -> 0 `i `uc ]
-"624
-[; ;../Projects/src/key_and_Other.c: 624:  _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
 "625
-[; ;../Projects/src/key_and_Other.c: 625:  mb_NoPush = 1 ;
-[e = _mb_NoPush -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 625:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
 "626
-[; ;../Projects/src/key_and_Other.c: 626:  mb_NoPushWait = 0 ;
-[e = _mb_NoPushWait -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 626:  mb_NoPush = 1 ;
+[e = _mb_NoPush -> -> 1 `i `uc ]
 "627
-[; ;../Projects/src/key_and_Other.c: 627:  m_KindOfKey = 0xFF;
+[; ;../Projects/src/key_and_Other.c: 627:  mb_NoPushWait = 0 ;
+[e = _mb_NoPushWait -> -> 0 `i `uc ]
+"628
+[; ;../Projects/src/key_and_Other.c: 628:  m_KindOfKey = 0xFF;
 [e = _m_KindOfKey -> -> 255 `i `uc ]
-"632
-[; ;../Projects/src/key_and_Other.c: 632: }
+"633
+[; ;../Projects/src/key_and_Other.c: 633: }
 [e :UE 486 ]
 }
-"633
-[; ;../Projects/src/key_and_Other.c: 633: void _SetKeyChatterCount( void )
-[v __SetKeyChatterCount `(v ~T0 @X0 1 ef ]
 "634
-[; ;../Projects/src/key_and_Other.c: 634: {
+[; ;../Projects/src/key_and_Other.c: 634: void _SetKeyChatterCount( void )
+[v __SetKeyChatterCount `(v ~T0 @X0 1 ef ]
+"635
+[; ;../Projects/src/key_and_Other.c: 635: {
 {
 [e :U __SetKeyChatterCount ]
 [f ]
-"635
-[; ;../Projects/src/key_and_Other.c: 635:  m_ChatterCount = 1 ;
-[e = _m_ChatterCount -> -> 1 `i `ui ]
 "636
-[; ;../Projects/src/key_and_Other.c: 636:  m_TimerKey = 0 ;
-[e = _m_TimerKey -> -> 0 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 636:  m_ChatterCount = 1 ;
+[e = _m_ChatterCount -> -> 1 `i `ui ]
 "637
-[; ;../Projects/src/key_and_Other.c: 637: }
+[; ;../Projects/src/key_and_Other.c: 637:  m_TimerKey = 0 ;
+[e = _m_TimerKey -> -> 0 `i `ui ]
+"638
+[; ;../Projects/src/key_and_Other.c: 638: }
 [e :UE 487 ]
 }
-"647
-[; ;../Projects/src/key_and_Other.c: 647: void _ClearSpecialMultiKeyState( void )
-[v __ClearSpecialMultiKeyState `(v ~T0 @X0 1 ef ]
 "648
-[; ;../Projects/src/key_and_Other.c: 648: {
+[; ;../Projects/src/key_and_Other.c: 648: void _ClearSpecialMultiKeyState( void )
+[v __ClearSpecialMultiKeyState `(v ~T0 @X0 1 ef ]
+"649
+[; ;../Projects/src/key_and_Other.c: 649: {
 {
 [e :U __ClearSpecialMultiKeyState ]
 [f ]
-"649
-[; ;../Projects/src/key_and_Other.c: 649:  mb_RegSw = 0 ;
-[e = _mb_RegSw -> -> 0 `i `uc ]
 "650
-[; ;../Projects/src/key_and_Other.c: 650:  mb_RegStopSw = 0 ;
-[e = _mb_RegStopSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 650:  mb_RegSw = 0 ;
+[e = _mb_RegSw -> -> 0 `i `uc ]
 "651
-[; ;../Projects/src/key_and_Other.c: 651:  mb_RegOpenSw = 0 ;
-[e = _mb_RegOpenSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 651:  mb_RegStopSw = 0 ;
+[e = _mb_RegStopSw -> -> 0 `i `uc ]
 "652
-[; ;../Projects/src/key_and_Other.c: 652:  mb_RegCloseSw = 0 ;
-[e = _mb_RegCloseSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 652:  mb_RegOpenSw = 0 ;
+[e = _mb_RegOpenSw -> -> 0 `i `uc ]
 "653
-[; ;../Projects/src/key_and_Other.c: 653:  mb_RegVentSw = 0 ;
-[e = _mb_RegVentSw -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 653:  mb_RegCloseSw = 0 ;
+[e = _mb_RegCloseSw -> -> 0 `i `uc ]
 "654
-[; ;../Projects/src/key_and_Other.c: 654: }
+[; ;../Projects/src/key_and_Other.c: 654:  mb_RegVentSw = 0 ;
+[e = _mb_RegVentSw -> -> 0 `i `uc ]
+"655
+[; ;../Projects/src/key_and_Other.c: 655: }
 [e :UE 488 ]
 }
-"664
-[; ;../Projects/src/key_and_Other.c: 664: void _DupliFuncClear( void )
-[v __DupliFuncClear `(v ~T0 @X0 1 ef ]
 "665
-[; ;../Projects/src/key_and_Other.c: 665: {
+[; ;../Projects/src/key_and_Other.c: 665: void _DupliFuncClear( void )
+[v __DupliFuncClear `(v ~T0 @X0 1 ef ]
+"666
+[; ;../Projects/src/key_and_Other.c: 666: {
 {
 [e :U __DupliFuncClear ]
 [f ]
-"666
-[; ;../Projects/src/key_and_Other.c: 666:  m_KeyOptSetMode = 0 ;
-[e = _m_KeyOptSetMode -> -> 0 `i `uc ]
 "667
-[; ;../Projects/src/key_and_Other.c: 667:  m_KeyOpenCount = 2 ;
-[e = _m_KeyOpenCount -> -> 2 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 667:  m_KeyOptSetMode = 0 ;
+[e = _m_KeyOptSetMode -> -> 0 `i `uc ]
 "668
-[; ;../Projects/src/key_and_Other.c: 668:  m_KeyCloseCount = 2 ;
+[; ;../Projects/src/key_and_Other.c: 668:  m_KeyOpenCount = 2 ;
+[e = _m_KeyOpenCount -> -> 2 `i `uc ]
+"669
+[; ;../Projects/src/key_and_Other.c: 669:  m_KeyCloseCount = 2 ;
 [e = _m_KeyCloseCount -> -> 2 `i `uc ]
-"671
-[; ;../Projects/src/key_and_Other.c: 671:  if ( m_KeyDupli1stTimer )
-[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 490  ]
 "672
-[; ;../Projects/src/key_and_Other.c: 672:  {
-{
+[; ;../Projects/src/key_and_Other.c: 672:  if ( m_KeyDupli1stTimer )
+[e $ ! != _m_KeyDupli1stTimer -> -> 0 `i `ui 490  ]
 "673
-[; ;../Projects/src/key_and_Other.c: 673:   m_KeyDupli1stTimer = 0 ;
+[; ;../Projects/src/key_and_Other.c: 673:  {
+{
+"674
+[; ;../Projects/src/key_and_Other.c: 674:   m_KeyDupli1stTimer = 0 ;
 [e = _m_KeyDupli1stTimer -> -> 0 `i `ui ]
-"675
-[; ;../Projects/src/key_and_Other.c: 675:  }
+"676
+[; ;../Projects/src/key_and_Other.c: 676:  }
 }
 [e :U 490 ]
-"676
-[; ;../Projects/src/key_and_Other.c: 676: }
+"677
+[; ;../Projects/src/key_and_Other.c: 677: }
 [e :UE 489 ]
 }
-"687
-[; ;../Projects/src/key_and_Other.c: 687: unsigned char _GetNoPushState( void )
-[v __GetNoPushState `(uc ~T0 @X0 1 ef ]
 "688
-[; ;../Projects/src/key_and_Other.c: 688: {
+[; ;../Projects/src/key_and_Other.c: 688: unsigned char _GetNoPushState( void )
+[v __GetNoPushState `(uc ~T0 @X0 1 ef ]
+"689
+[; ;../Projects/src/key_and_Other.c: 689: {
 {
 [e :U __GetNoPushState ]
 [f ]
-"689
-[; ;../Projects/src/key_and_Other.c: 689:  if ( !mb_NoPush )
-[e $ ! ! != -> _mb_NoPush `i -> 0 `i 492  ]
 "690
-[; ;../Projects/src/key_and_Other.c: 690:  {
-{
+[; ;../Projects/src/key_and_Other.c: 690:  if ( !mb_NoPush )
+[e $ ! ! != -> _mb_NoPush `i -> 0 `i 492  ]
 "691
-[; ;../Projects/src/key_and_Other.c: 691:   return(1) ;
+[; ;../Projects/src/key_and_Other.c: 691:  {
+{
+"692
+[; ;../Projects/src/key_and_Other.c: 692:   return(1) ;
 [e ) -> -> 1 `i `uc ]
 [e $UE 491  ]
-"692
-[; ;../Projects/src/key_and_Other.c: 692:  }
+"693
+[; ;../Projects/src/key_and_Other.c: 693:  }
 }
 [e :U 492 ]
-"694
-[; ;../Projects/src/key_and_Other.c: 694:  mb_NoPush = 0 ;
+"695
+[; ;../Projects/src/key_and_Other.c: 695:  mb_NoPush = 0 ;
 [e = _mb_NoPush -> -> 0 `i `uc ]
-"699
-[; ;../Projects/src/key_and_Other.c: 699:  m_TimerKey = 0 ;
-[e = _m_TimerKey -> -> 0 `i `ui ]
 "700
-[; ;../Projects/src/key_and_Other.c: 700:  _ClearSpecialMultiKeyState() ;
-[e ( __ClearSpecialMultiKeyState ..  ]
+[; ;../Projects/src/key_and_Other.c: 700:  m_TimerKey = 0 ;
+[e = _m_TimerKey -> -> 0 `i `ui ]
 "701
-[; ;../Projects/src/key_and_Other.c: 701:  return(0) ;
+[; ;../Projects/src/key_and_Other.c: 701:  _ClearSpecialMultiKeyState() ;
+[e ( __ClearSpecialMultiKeyState ..  ]
+"702
+[; ;../Projects/src/key_and_Other.c: 702:  return(0) ;
 [e ) -> -> 0 `i `uc ]
 [e $UE 491  ]
-"702
-[; ;../Projects/src/key_and_Other.c: 702: }
+"703
+[; ;../Projects/src/key_and_Other.c: 703: }
 [e :UE 491 ]
 }
-"703
-[; ;../Projects/src/key_and_Other.c: 703: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
-[v __ReqTxdEdit `(v ~T0 @X0 1 ef2`uc`uc ]
 "704
-[; ;../Projects/src/key_and_Other.c: 704: {
+[; ;../Projects/src/key_and_Other.c: 704: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
+[v __ReqTxdEdit `(v ~T0 @X0 1 ef2`uc`uc ]
+"705
+[; ;../Projects/src/key_and_Other.c: 705: {
 {
 [e :U __ReqTxdEdit ]
-"703
-[; ;../Projects/src/key_and_Other.c: 703: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
+"704
+[; ;../Projects/src/key_and_Other.c: 704: void _ReqTxdEdit( unsigned char txreq , unsigned char buzreq )
 [v _txreq `uc ~T0 @X0 1 r1 ]
 [v _buzreq `uc ~T0 @X0 1 r2 ]
-"704
-[; ;../Projects/src/key_and_Other.c: 704: {
-[f ]
 "705
-[; ;../Projects/src/key_and_Other.c: 705:   unsigned char time_key;
-[v _time_key `uc ~T0 @X0 1 a ]
+[; ;../Projects/src/key_and_Other.c: 705: {
+[f ]
 "706
-[; ;../Projects/src/key_and_Other.c: 706:   if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){
+[; ;../Projects/src/key_and_Other.c: 706:   unsigned char time_key;
+[v _time_key `uc ~T0 @X0 1 a ]
+"707
+[; ;../Projects/src/key_and_Other.c: 707:   if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){
 [e $ ! && && < -> _TB_sum_5s `i -> 69 `i == -> _FG_PWRON `i -> 1 `i < -> _TB_5s `i -> 25 `i 494  ]
 {
-"707
-[; ;../Projects/src/key_and_Other.c: 707:     time_key=25-TB_5s;
-[e = _time_key -> - -> 25 `i -> _TB_5s `i `uc ]
 "708
-[; ;../Projects/src/key_and_Other.c: 708:     TB_sum_5s=TB_sum_5s+time_key;
-[e = _TB_sum_5s -> + -> _TB_sum_5s `i -> _time_key `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 708:     time_key=25-TB_5s;
+[e = _time_key -> - -> 25 `i -> _TB_5s `i `uc ]
 "709
-[; ;../Projects/src/key_and_Other.c: 709:     if((69-TB_sum_5s)>=27)TB_5s=25;
+[; ;../Projects/src/key_and_Other.c: 709:     TB_sum_5s=TB_sum_5s+time_key;
+[e = _TB_sum_5s -> + -> _TB_sum_5s `i -> _time_key `i `uc ]
+"710
+[; ;../Projects/src/key_and_Other.c: 710:     if((69-TB_sum_5s)>=27)TB_5s=25;
 [e $ ! >= - -> 69 `i -> _TB_sum_5s `i -> 27 `i 495  ]
 [e = _TB_5s -> -> 25 `i `uc ]
 [e :U 495 ]
-"711
-[; ;../Projects/src/key_and_Other.c: 711:   }
+"712
+[; ;../Projects/src/key_and_Other.c: 712:   }
 }
 [e :U 494 ]
-"712
-[; ;../Projects/src/key_and_Other.c: 712:   if((TB_5s>=25)||(TIME_2s_RestTX==0)){
+"713
+[; ;../Projects/src/key_and_Other.c: 713:   if((TB_5s>=25)||(TIME_2s_RestTX==0)){
 [e $ ! || >= -> _TB_5s `i -> 25 `i == -> _TIME_2s_RestTX `i -> 0 `i 496  ]
 {
-"713
-[; ;../Projects/src/key_and_Other.c: 713:         if(FG_PWRON==0){
+"714
+[; ;../Projects/src/key_and_Other.c: 714:         if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 497  ]
 {
-"714
-[; ;../Projects/src/key_and_Other.c: 714:  FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "715
-[; ;../Projects/src/key_and_Other.c: 715:  RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 715:  FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "716
-[; ;../Projects/src/key_and_Other.c: 716:  TB_5s=TB_51s;
-[e = _TB_5s _TB_51s ]
+[; ;../Projects/src/key_and_Other.c: 716:  RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
 "717
-[; ;../Projects/src/key_and_Other.c: 717:         }
+[; ;../Projects/src/key_and_Other.c: 717:  TB_5s=TB_51s;
+[e = _TB_5s _TB_51s ]
+"718
+[; ;../Projects/src/key_and_Other.c: 718:         }
 }
 [e :U 497 ]
-"718
-[; ;../Projects/src/key_and_Other.c: 718:    switch ( txreq )
-[e $U 499  ]
 "719
-[; ;../Projects/src/key_and_Other.c: 719:  {
-{
+[; ;../Projects/src/key_and_Other.c: 719:    switch ( txreq )
+[e $U 499  ]
 "720
-[; ;../Projects/src/key_and_Other.c: 720:   case 1 :
-[e :U 500 ]
+[; ;../Projects/src/key_and_Other.c: 720:  {
+{
 "721
-[; ;../Projects/src/key_and_Other.c: 721:           Control_code=0x08;
-[e = _Control_code -> -> 8 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 721:   case 1 :
+[e :U 500 ]
 "722
-[; ;../Projects/src/key_and_Other.c: 722:    break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 722:           Control_code=0x08;
+[e = _Control_code -> -> 8 `i `uc ]
 "723
-[; ;../Projects/src/key_and_Other.c: 723:   case 2 :
-[e :U 501 ]
+[; ;../Projects/src/key_and_Other.c: 723:    break ;
+[e $U 498  ]
 "724
-[; ;../Projects/src/key_and_Other.c: 724:           Control_code=0x04;
-[e = _Control_code -> -> 4 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 724:   case 2 :
+[e :U 501 ]
 "725
-[; ;../Projects/src/key_and_Other.c: 725:    break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 725:           Control_code=0x04;
+[e = _Control_code -> -> 4 `i `uc ]
 "726
-[; ;../Projects/src/key_and_Other.c: 726:   case 3 :
-[e :U 502 ]
+[; ;../Projects/src/key_and_Other.c: 726:    break ;
+[e $U 498  ]
 "727
-[; ;../Projects/src/key_and_Other.c: 727:           Control_code=0x02;
-[e = _Control_code -> -> 2 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 727:   case 3 :
+[e :U 502 ]
 "728
-[; ;../Projects/src/key_and_Other.c: 728:    break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 728:           Control_code=0x02;
+[e = _Control_code -> -> 2 `i `uc ]
 "729
-[; ;../Projects/src/key_and_Other.c: 729:   case 4 :
-[e :U 503 ]
+[; ;../Projects/src/key_and_Other.c: 729:    break ;
+[e $U 498  ]
 "730
-[; ;../Projects/src/key_and_Other.c: 730:           Control_code=0x01;
-[e = _Control_code -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 730:   case 4 :
+[e :U 503 ]
 "731
-[; ;../Projects/src/key_and_Other.c: 731:    break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 731:           Control_code=0x01;
+[e = _Control_code -> -> 1 `i `uc ]
 "732
-[; ;../Projects/src/key_and_Other.c: 732:   case 10 :
-[e :U 504 ]
+[; ;../Projects/src/key_and_Other.c: 732:    break ;
+[e $U 498  ]
 "733
-[; ;../Projects/src/key_and_Other.c: 733:           Control_code=0x14;
-[e = _Control_code -> -> 20 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 733:   case 10 :
+[e :U 504 ]
 "734
-[; ;../Projects/src/key_and_Other.c: 734:    break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 734:           Control_code=0x14;
+[e = _Control_code -> -> 20 `i `uc ]
 "735
-[; ;../Projects/src/key_and_Other.c: 735:   case 5 :
-[e :U 505 ]
+[; ;../Projects/src/key_and_Other.c: 735:    break ;
+[e $U 498  ]
 "736
-[; ;../Projects/src/key_and_Other.c: 736:           Control_code=0x0C;
-[e = _Control_code -> -> 12 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 736:   case 5 :
+[e :U 505 ]
 "737
-[; ;../Projects/src/key_and_Other.c: 737:           break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 737:           Control_code=0x0C;
+[e = _Control_code -> -> 12 `i `uc ]
 "738
-[; ;../Projects/src/key_and_Other.c: 738:   case 6 :
-[e :U 506 ]
+[; ;../Projects/src/key_and_Other.c: 738:           break ;
+[e $U 498  ]
 "739
-[; ;../Projects/src/key_and_Other.c: 739:          Control_code=0x0A;
-[e = _Control_code -> -> 10 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 739:   case 6 :
+[e :U 506 ]
 "740
-[; ;../Projects/src/key_and_Other.c: 740:           break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 740:          Control_code=0x0A;
+[e = _Control_code -> -> 10 `i `uc ]
 "741
-[; ;../Projects/src/key_and_Other.c: 741:   case 7 :
-[e :U 507 ]
+[; ;../Projects/src/key_and_Other.c: 741:           break ;
+[e $U 498  ]
 "742
-[; ;../Projects/src/key_and_Other.c: 742:          Control_code=0x09;
-[e = _Control_code -> -> 9 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 742:   case 7 :
+[e :U 507 ]
 "743
-[; ;../Projects/src/key_and_Other.c: 743:           break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 743:          Control_code=0x09;
+[e = _Control_code -> -> 9 `i `uc ]
 "744
-[; ;../Projects/src/key_and_Other.c: 744:   case 9 :
-[e :U 508 ]
+[; ;../Projects/src/key_and_Other.c: 744:           break ;
+[e $U 498  ]
 "745
-[; ;../Projects/src/key_and_Other.c: 745:          Control_code=0x06;
-[e = _Control_code -> -> 6 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 745:   case 9 :
+[e :U 508 ]
 "746
-[; ;../Projects/src/key_and_Other.c: 746:           break ;
-[e $U 498  ]
+[; ;../Projects/src/key_and_Other.c: 746:          Control_code=0x06;
+[e = _Control_code -> -> 6 `i `uc ]
 "747
-[; ;../Projects/src/key_and_Other.c: 747:   case 12 :
-[e :U 509 ]
-"748
-[; ;../Projects/src/key_and_Other.c: 748:          Control_code=0x03;
-[e = _Control_code -> -> 3 `i `uc ]
-"749
-[; ;../Projects/src/key_and_Other.c: 749:           break ;
+[; ;../Projects/src/key_and_Other.c: 747:           break ;
 [e $U 498  ]
+"748
+[; ;../Projects/src/key_and_Other.c: 748:   case 12 :
+[e :U 509 ]
+"749
+[; ;../Projects/src/key_and_Other.c: 749:          Control_code=0x03;
+[e = _Control_code -> -> 3 `i `uc ]
 "750
-[; ;../Projects/src/key_and_Other.c: 750:  }
+[; ;../Projects/src/key_and_Other.c: 750:           break ;
+[e $U 498  ]
+"751
+[; ;../Projects/src/key_and_Other.c: 751:  }
 }
 [e $U 498  ]
 [e :U 499 ]
@@ -2499,59 +2493,59 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 12 `i 509
  498 ]
 [e :U 498 ]
-"751
-[; ;../Projects/src/key_and_Other.c: 751:    switch ( buzreq )
-[e $U 511  ]
 "752
-[; ;../Projects/src/key_and_Other.c: 752:  {
-{
+[; ;../Projects/src/key_and_Other.c: 752:    switch ( buzreq )
+[e $U 511  ]
 "753
-[; ;../Projects/src/key_and_Other.c: 753:   case 1 :
-[e :U 512 ]
+[; ;../Projects/src/key_and_Other.c: 753:  {
+{
 "754
-[; ;../Projects/src/key_and_Other.c: 754:          _ReqBuzzer(103,103,0);
+[; ;../Projects/src/key_and_Other.c: 754:   case 1 :
+[e :U 512 ]
+"755
+[; ;../Projects/src/key_and_Other.c: 755:          _ReqBuzzer(103,103,0);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
-"758
-[; ;../Projects/src/key_and_Other.c: 758:    break ;
-[e $U 510  ]
 "759
-[; ;../Projects/src/key_and_Other.c: 759:   case 2 :
-[e :U 513 ]
+[; ;../Projects/src/key_and_Other.c: 759:    break ;
+[e $U 510  ]
 "760
-[; ;../Projects/src/key_and_Other.c: 760:          _ReqBuzzer(103,103,1);
+[; ;../Projects/src/key_and_Other.c: 760:   case 2 :
+[e :U 513 ]
+"761
+[; ;../Projects/src/key_and_Other.c: 761:          _ReqBuzzer(103,103,1);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
-"764
-[; ;../Projects/src/key_and_Other.c: 764:    break ;
-[e $U 510  ]
 "765
-[; ;../Projects/src/key_and_Other.c: 765:   case 3 :
-[e :U 514 ]
+[; ;../Projects/src/key_and_Other.c: 765:    break ;
+[e $U 510  ]
 "766
-[; ;../Projects/src/key_and_Other.c: 766:         _ReqBuzzer(103,103,2);
+[; ;../Projects/src/key_and_Other.c: 766:   case 3 :
+[e :U 514 ]
+"767
+[; ;../Projects/src/key_and_Other.c: 767:         _ReqBuzzer(103,103,2);
 [e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
-"770
-[; ;../Projects/src/key_and_Other.c: 770:    break ;
-[e $U 510  ]
 "771
-[; ;../Projects/src/key_and_Other.c: 771:   case 4 :
-[e :U 515 ]
+[; ;../Projects/src/key_and_Other.c: 771:    break ;
+[e $U 510  ]
 "772
-[; ;../Projects/src/key_and_Other.c: 772:         _ReqBuzzer(500,1,0);
-[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 772:   case 4 :
+[e :U 515 ]
 "773
-[; ;../Projects/src/key_and_Other.c: 773:         break ;
-[e $U 510  ]
+[; ;../Projects/src/key_and_Other.c: 773:         _ReqBuzzer(500,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "774
-[; ;../Projects/src/key_and_Other.c: 774:   case 20 :
-[e :U 516 ]
-"775
-[; ;../Projects/src/key_and_Other.c: 775:          _ReqBuzzer(1000,1,0);
-[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
-"779
-[; ;../Projects/src/key_and_Other.c: 779:    break ;
+[; ;../Projects/src/key_and_Other.c: 774:         break ;
 [e $U 510  ]
+"775
+[; ;../Projects/src/key_and_Other.c: 775:   case 20 :
+[e :U 516 ]
+"776
+[; ;../Projects/src/key_and_Other.c: 776:          _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "780
-[; ;../Projects/src/key_and_Other.c: 780:  }
+[; ;../Projects/src/key_and_Other.c: 780:    break ;
+[e $U 510  ]
+"781
+[; ;../Projects/src/key_and_Other.c: 781:  }
 }
 [e $U 510  ]
 [e :U 511 ]
@@ -2562,809 +2556,809 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 20 `i 516
  510 ]
 [e :U 510 ]
-"781
-[; ;../Projects/src/key_and_Other.c: 781:         dd_set_ADF7021_Power_on();
-[e ( _dd_set_ADF7021_Power_on ..  ]
 "782
-[; ;../Projects/src/key_and_Other.c: 782:         dd_set_TX_mode();
+[; ;../Projects/src/key_and_Other.c: 782:         dd_set_ADF7021_Power_on();
+[e ( _dd_set_ADF7021_Power_on ..  ]
+"783
+[; ;../Projects/src/key_and_Other.c: 783:         dd_set_TX_mode();
 [e ( _dd_set_TX_mode ..  ]
-"785
-[; ;../Projects/src/key_and_Other.c: 785:         SendTxData();
-[e ( _SendTxData ..  ]
 "786
-[; ;../Projects/src/key_and_Other.c: 786:         TIME_2s_RestTX=25;
-[e = _TIME_2s_RestTX -> -> 25 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 786:         SendTxData();
+[e ( _SendTxData ..  ]
 "787
-[; ;../Projects/src/key_and_Other.c: 787:   }
+[; ;../Projects/src/key_and_Other.c: 787:         TIME_2s_RestTX=25;
+[e = _TIME_2s_RestTX -> -> 25 `i `uc ]
+"788
+[; ;../Projects/src/key_and_Other.c: 788:   }
 }
 [e $U 517  ]
-"788
-[; ;../Projects/src/key_and_Other.c: 788:   else RB5=0;
+"789
+[; ;../Projects/src/key_and_Other.c: 789:   else RB5=0;
 [e :U 496 ]
 [e = _RB5 -> -> 0 `i `b ]
 [e :U 517 ]
-"789
-[; ;../Projects/src/key_and_Other.c: 789: }
+"790
+[; ;../Projects/src/key_and_Other.c: 790: }
 [e :UE 493 ]
 }
-"802
-[; ;../Projects/src/key_and_Other.c: 802: void _DupliFuncSetMode( void )
-[v __DupliFuncSetMode `(v ~T0 @X0 1 ef ]
 "803
-[; ;../Projects/src/key_and_Other.c: 803: {
+[; ;../Projects/src/key_and_Other.c: 803: void _DupliFuncSetMode( void )
+[v __DupliFuncSetMode `(v ~T0 @X0 1 ef ]
+"804
+[; ;../Projects/src/key_and_Other.c: 804: {
 {
 [e :U __DupliFuncSetMode ]
 [f ]
-"804
-[; ;../Projects/src/key_and_Other.c: 804:   unsigned char m_KeyOpt;
-[v _m_KeyOpt `uc ~T0 @X0 1 a ]
 "805
-[; ;../Projects/src/key_and_Other.c: 805:  switch ( m_KeyOptSetMode )
-[e $U 520  ]
+[; ;../Projects/src/key_and_Other.c: 805:   unsigned char m_KeyOpt;
+[v _m_KeyOpt `uc ~T0 @X0 1 a ]
 "806
-[; ;../Projects/src/key_and_Other.c: 806:  {
-{
+[; ;../Projects/src/key_and_Other.c: 806:  switch ( m_KeyOptSetMode )
+[e $U 520  ]
 "807
-[; ;../Projects/src/key_and_Other.c: 807:   case 1 :
-[e :U 521 ]
-"808
-[; ;../Projects/src/key_and_Other.c: 808:    if ( !mb_NoPushWait )
-[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 522  ]
-"809
-[; ;../Projects/src/key_and_Other.c: 809:    {
+[; ;../Projects/src/key_and_Other.c: 807:  {
 {
+"808
+[; ;../Projects/src/key_and_Other.c: 808:   case 1 :
+[e :U 521 ]
+"809
+[; ;../Projects/src/key_and_Other.c: 809:    if ( !mb_NoPushWait )
+[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 522  ]
 "810
-[; ;../Projects/src/key_and_Other.c: 810:     m_KeyDupliSetTimeout = 1000 ;
-[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 810:    {
+{
 "811
-[; ;../Projects/src/key_and_Other.c: 811:     ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 811:     m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
 "812
-[; ;../Projects/src/key_and_Other.c: 812:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 812:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "813
-[; ;../Projects/src/key_and_Other.c: 813:    }
+[; ;../Projects/src/key_and_Other.c: 813:     return ;
+[e $UE 518  ]
+"814
+[; ;../Projects/src/key_and_Other.c: 814:    }
 }
 [e :U 522 ]
-"814
-[; ;../Projects/src/key_and_Other.c: 814:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 523  ]
 "815
-[; ;../Projects/src/key_and_Other.c: 815:    {
-{
+[; ;../Projects/src/key_and_Other.c: 815:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 523  ]
 "816
-[; ;../Projects/src/key_and_Other.c: 816:     m_KeyOptSetMode = 10 ;
+[; ;../Projects/src/key_and_Other.c: 816:    {
+{
+"817
+[; ;../Projects/src/key_and_Other.c: 817:     m_KeyOptSetMode = 10 ;
 [e = _m_KeyOptSetMode -> -> 10 `i `uc ]
-"820
-[; ;../Projects/src/key_and_Other.c: 820:    }
+"821
+[; ;../Projects/src/key_and_Other.c: 821:    }
 }
 [e :U 523 ]
-"821
-[; ;../Projects/src/key_and_Other.c: 821:    break ;
+"822
+[; ;../Projects/src/key_and_Other.c: 822:    break ;
 [e $U 519  ]
-"823
-[; ;../Projects/src/key_and_Other.c: 823:   case 2 :
-[e :U 524 ]
 "824
-[; ;../Projects/src/key_and_Other.c: 824:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 525  ]
+[; ;../Projects/src/key_and_Other.c: 824:   case 2 :
+[e :U 524 ]
 "825
-[; ;../Projects/src/key_and_Other.c: 825:    {
-{
+[; ;../Projects/src/key_and_Other.c: 825:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 525  ]
 "826
-[; ;../Projects/src/key_and_Other.c: 826:     ++m_KeyOptSetMode;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 826:    {
+{
 "827
-[; ;../Projects/src/key_and_Other.c: 827:     m_KeyDupliSetTimeout = 3000 ;
+[; ;../Projects/src/key_and_Other.c: 827:     ++m_KeyOptSetMode;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"828
+[; ;../Projects/src/key_and_Other.c: 828:     m_KeyDupliSetTimeout = 3000 ;
 [e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
-"829
-[; ;../Projects/src/key_and_Other.c: 829:     _ReqBuzzer(103,103,0);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "830
-[; ;../Projects/src/key_and_Other.c: 830:     FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 830:     _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "831
-[; ;../Projects/src/key_and_Other.c: 831:    }
+[; ;../Projects/src/key_and_Other.c: 831:     FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
+"832
+[; ;../Projects/src/key_and_Other.c: 832:    }
 }
 [e :U 525 ]
-"833
-[; ;../Projects/src/key_and_Other.c: 833:    if ( m_KindOfKey != 0 && m_KindOfKey != 0xFF )
-[e $ ! && != -> _m_KindOfKey `i -> 0 `i != -> _m_KindOfKey `i -> 255 `i 526  ]
 "834
-[; ;../Projects/src/key_and_Other.c: 834:    {
-{
+[; ;../Projects/src/key_and_Other.c: 834:    if ( m_KindOfKey != 0 && m_KindOfKey != 0xFF )
+[e $ ! && != -> _m_KindOfKey `i -> 0 `i != -> _m_KindOfKey `i -> 255 `i 526  ]
 "835
-[; ;../Projects/src/key_and_Other.c: 835:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 835:    {
+{
 "836
-[; ;../Projects/src/key_and_Other.c: 836:    }
+[; ;../Projects/src/key_and_Other.c: 836:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
+"837
+[; ;../Projects/src/key_and_Other.c: 837:    }
 }
 [e :U 526 ]
-"837
-[; ;../Projects/src/key_and_Other.c: 837:    break ;
+"838
+[; ;../Projects/src/key_and_Other.c: 838:    break ;
 [e $U 519  ]
-"839
-[; ;../Projects/src/key_and_Other.c: 839:   case 3 :
-[e :U 527 ]
 "840
-[; ;../Projects/src/key_and_Other.c: 840:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 528  ]
+[; ;../Projects/src/key_and_Other.c: 840:   case 3 :
+[e :U 527 ]
 "841
-[; ;../Projects/src/key_and_Other.c: 841:    {
-{
+[; ;../Projects/src/key_and_Other.c: 841:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 528  ]
 "842
-[; ;../Projects/src/key_and_Other.c: 842:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 842:    {
+{
 "843
-[; ;../Projects/src/key_and_Other.c: 843:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 843:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "844
-[; ;../Projects/src/key_and_Other.c: 844:    }
+[; ;../Projects/src/key_and_Other.c: 844:     return ;
+[e $UE 518  ]
+"845
+[; ;../Projects/src/key_and_Other.c: 845:    }
 }
 [e :U 528 ]
-"846
-[; ;../Projects/src/key_and_Other.c: 846:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 529  ]
 "847
-[; ;../Projects/src/key_and_Other.c: 847:    {
-{
+[; ;../Projects/src/key_and_Other.c: 847:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 529  ]
 "848
-[; ;../Projects/src/key_and_Other.c: 848:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 848:    {
+{
 "849
-[; ;../Projects/src/key_and_Other.c: 849:    }
+[; ;../Projects/src/key_and_Other.c: 849:     return ;
+[e $UE 518  ]
+"850
+[; ;../Projects/src/key_and_Other.c: 850:    }
 }
 [e :U 529 ]
-"851
-[; ;../Projects/src/key_and_Other.c: 851:    if ( m_KeyOptSetOpenStop )
-[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 530  ]
 "852
-[; ;../Projects/src/key_and_Other.c: 852:    {
-{
+[; ;../Projects/src/key_and_Other.c: 852:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 530  ]
 "853
-[; ;../Projects/src/key_and_Other.c: 853:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 531  ]
-"854
-[; ;../Projects/src/key_and_Other.c: 854:     {
+[; ;../Projects/src/key_and_Other.c: 853:    {
 {
+"854
+[; ;../Projects/src/key_and_Other.c: 854:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 531  ]
 "855
-[; ;../Projects/src/key_and_Other.c: 855:      m_KeyDupliSetTimeout = 1000 ;
-[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 855:     {
+{
 "856
-[; ;../Projects/src/key_and_Other.c: 856:      ++m_KeyOptSetMode ;
+[; ;../Projects/src/key_and_Other.c: 856:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"857
+[; ;../Projects/src/key_and_Other.c: 857:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
-"858
-[; ;../Projects/src/key_and_Other.c: 858:     }
+"859
+[; ;../Projects/src/key_and_Other.c: 859:     }
 }
 [e $U 532  ]
-"859
-[; ;../Projects/src/key_and_Other.c: 859:     else
-[e :U 531 ]
 "860
-[; ;../Projects/src/key_and_Other.c: 860:     {
-{
+[; ;../Projects/src/key_and_Other.c: 860:     else
+[e :U 531 ]
 "861
-[; ;../Projects/src/key_and_Other.c: 861:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 861:     {
+{
 "862
-[; ;../Projects/src/key_and_Other.c: 862:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 862:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "863
-[; ;../Projects/src/key_and_Other.c: 863:     }
+[; ;../Projects/src/key_and_Other.c: 863:      return ;
+[e $UE 518  ]
+"864
+[; ;../Projects/src/key_and_Other.c: 864:     }
 }
 [e :U 532 ]
-"864
-[; ;../Projects/src/key_and_Other.c: 864:    }
+"865
+[; ;../Projects/src/key_and_Other.c: 865:    }
 }
 [e $U 533  ]
-"865
-[; ;../Projects/src/key_and_Other.c: 865:    else
-[e :U 530 ]
 "866
-[; ;../Projects/src/key_and_Other.c: 866:    {
-{
+[; ;../Projects/src/key_and_Other.c: 866:    else
+[e :U 530 ]
 "867
-[; ;../Projects/src/key_and_Other.c: 867:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 534  ]
-"868
-[; ;../Projects/src/key_and_Other.c: 868:     {
+[; ;../Projects/src/key_and_Other.c: 867:    {
 {
+"868
+[; ;../Projects/src/key_and_Other.c: 868:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 534  ]
 "869
-[; ;../Projects/src/key_and_Other.c: 869:      m_KeyDupliSetTimeout = 1000 ;
-[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 869:     {
+{
 "870
-[; ;../Projects/src/key_and_Other.c: 870:      ++m_KeyOptSetMode ;
+[; ;../Projects/src/key_and_Other.c: 870:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+"871
+[; ;../Projects/src/key_and_Other.c: 871:      ++m_KeyOptSetMode ;
 [e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
-"872
-[; ;../Projects/src/key_and_Other.c: 872:     }
+"873
+[; ;../Projects/src/key_and_Other.c: 873:     }
 }
 [e $U 535  ]
-"873
-[; ;../Projects/src/key_and_Other.c: 873:     else
-[e :U 534 ]
 "874
-[; ;../Projects/src/key_and_Other.c: 874:     {
-{
+[; ;../Projects/src/key_and_Other.c: 874:     else
+[e :U 534 ]
 "875
-[; ;../Projects/src/key_and_Other.c: 875:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 875:     {
+{
 "876
-[; ;../Projects/src/key_and_Other.c: 876:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 876:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "877
-[; ;../Projects/src/key_and_Other.c: 877:     }
+[; ;../Projects/src/key_and_Other.c: 877:      return ;
+[e $UE 518  ]
+"878
+[; ;../Projects/src/key_and_Other.c: 878:     }
 }
 [e :U 535 ]
-"878
-[; ;../Projects/src/key_and_Other.c: 878:    }
+"879
+[; ;../Projects/src/key_and_Other.c: 879:    }
 }
 [e :U 533 ]
-"879
-[; ;../Projects/src/key_and_Other.c: 879:    break ;
+"880
+[; ;../Projects/src/key_and_Other.c: 880:    break ;
 [e $U 519  ]
-"881
-[; ;../Projects/src/key_and_Other.c: 881:   case 4 :
-[e :U 536 ]
 "882
-[; ;../Projects/src/key_and_Other.c: 882:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 537  ]
+[; ;../Projects/src/key_and_Other.c: 882:   case 4 :
+[e :U 536 ]
 "883
-[; ;../Projects/src/key_and_Other.c: 883:    {
-{
+[; ;../Projects/src/key_and_Other.c: 883:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 537  ]
 "884
-[; ;../Projects/src/key_and_Other.c: 884:     ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 884:    {
+{
 "885
-[; ;../Projects/src/key_and_Other.c: 885:     m_KeyDupliSetTimeout = 3000 ;
+[; ;../Projects/src/key_and_Other.c: 885:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"886
+[; ;../Projects/src/key_and_Other.c: 886:     m_KeyDupliSetTimeout = 3000 ;
 [e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
-"887
-[; ;../Projects/src/key_and_Other.c: 887:     _ReqBuzzer(103,103,0);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "888
-[; ;../Projects/src/key_and_Other.c: 888:     FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 888:     _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "889
-[; ;../Projects/src/key_and_Other.c: 889:    }
+[; ;../Projects/src/key_and_Other.c: 889:     FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
+"890
+[; ;../Projects/src/key_and_Other.c: 890:    }
 }
 [e :U 537 ]
-"895
-[; ;../Projects/src/key_and_Other.c: 895:    break ;
+"896
+[; ;../Projects/src/key_and_Other.c: 896:    break ;
 [e $U 519  ]
-"897
-[; ;../Projects/src/key_and_Other.c: 897:   case 5 :
-[e :U 538 ]
 "898
-[; ;../Projects/src/key_and_Other.c: 898:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 539  ]
+[; ;../Projects/src/key_and_Other.c: 898:   case 5 :
+[e :U 538 ]
 "899
-[; ;../Projects/src/key_and_Other.c: 899:    {
-{
+[; ;../Projects/src/key_and_Other.c: 899:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 539  ]
 "900
-[; ;../Projects/src/key_and_Other.c: 900:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 900:    {
+{
 "901
-[; ;../Projects/src/key_and_Other.c: 901:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 901:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "902
-[; ;../Projects/src/key_and_Other.c: 902:    }
+[; ;../Projects/src/key_and_Other.c: 902:     return ;
+[e $UE 518  ]
+"903
+[; ;../Projects/src/key_and_Other.c: 903:    }
 }
 [e :U 539 ]
-"904
-[; ;../Projects/src/key_and_Other.c: 904:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 540  ]
 "905
-[; ;../Projects/src/key_and_Other.c: 905:    {
-{
+[; ;../Projects/src/key_and_Other.c: 905:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 540  ]
 "906
-[; ;../Projects/src/key_and_Other.c: 906:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 906:    {
+{
 "907
-[; ;../Projects/src/key_and_Other.c: 907:    }
+[; ;../Projects/src/key_and_Other.c: 907:     return ;
+[e $UE 518  ]
+"908
+[; ;../Projects/src/key_and_Other.c: 908:    }
 }
 [e :U 540 ]
-"909
-[; ;../Projects/src/key_and_Other.c: 909:    if ( m_KeyOptSetOpenStop )
-[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 541  ]
 "910
-[; ;../Projects/src/key_and_Other.c: 910:    {
-{
+[; ;../Projects/src/key_and_Other.c: 910:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 541  ]
 "911
-[; ;../Projects/src/key_and_Other.c: 911:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 542  ]
-"912
-[; ;../Projects/src/key_and_Other.c: 912:     {
+[; ;../Projects/src/key_and_Other.c: 911:    {
 {
+"912
+[; ;../Projects/src/key_and_Other.c: 912:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 542  ]
 "913
-[; ;../Projects/src/key_and_Other.c: 913:      m_KeyDupliSetTimeout = 1000 ;
-[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 913:     {
+{
 "914
-[; ;../Projects/src/key_and_Other.c: 914:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 914:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
 "915
-[; ;../Projects/src/key_and_Other.c: 915:      mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 915:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "916
-[; ;../Projects/src/key_and_Other.c: 916:     }
+[; ;../Projects/src/key_and_Other.c: 916:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
+"917
+[; ;../Projects/src/key_and_Other.c: 917:     }
 }
 [e $U 543  ]
-"917
-[; ;../Projects/src/key_and_Other.c: 917:     else
-[e :U 542 ]
 "918
-[; ;../Projects/src/key_and_Other.c: 918:     {
-{
+[; ;../Projects/src/key_and_Other.c: 918:     else
+[e :U 542 ]
 "919
-[; ;../Projects/src/key_and_Other.c: 919:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 919:     {
+{
 "920
-[; ;../Projects/src/key_and_Other.c: 920:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 920:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "921
-[; ;../Projects/src/key_and_Other.c: 921:     }
+[; ;../Projects/src/key_and_Other.c: 921:      return ;
+[e $UE 518  ]
+"922
+[; ;../Projects/src/key_and_Other.c: 922:     }
 }
 [e :U 543 ]
-"922
-[; ;../Projects/src/key_and_Other.c: 922:    }
+"923
+[; ;../Projects/src/key_and_Other.c: 923:    }
 }
 [e $U 544  ]
-"923
-[; ;../Projects/src/key_and_Other.c: 923:    else
-[e :U 541 ]
 "924
-[; ;../Projects/src/key_and_Other.c: 924:    {
-{
+[; ;../Projects/src/key_and_Other.c: 924:    else
+[e :U 541 ]
 "925
-[; ;../Projects/src/key_and_Other.c: 925:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 545  ]
-"926
-[; ;../Projects/src/key_and_Other.c: 926:     {
+[; ;../Projects/src/key_and_Other.c: 925:    {
 {
+"926
+[; ;../Projects/src/key_and_Other.c: 926:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 545  ]
 "927
-[; ;../Projects/src/key_and_Other.c: 927:      m_KeyDupliSetTimeout = 1000 ;
-[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 927:     {
+{
 "928
-[; ;../Projects/src/key_and_Other.c: 928:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 928:      m_KeyDupliSetTimeout = 1000 ;
+[e = _m_KeyDupliSetTimeout -> -> 1000 `i `ui ]
 "929
-[; ;../Projects/src/key_and_Other.c: 929:     }
+[; ;../Projects/src/key_and_Other.c: 929:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"930
+[; ;../Projects/src/key_and_Other.c: 930:     }
 }
 [e $U 546  ]
-"930
-[; ;../Projects/src/key_and_Other.c: 930:     else
-[e :U 545 ]
 "931
-[; ;../Projects/src/key_and_Other.c: 931:     {
-{
+[; ;../Projects/src/key_and_Other.c: 931:     else
+[e :U 545 ]
 "932
-[; ;../Projects/src/key_and_Other.c: 932:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 932:     {
+{
 "933
-[; ;../Projects/src/key_and_Other.c: 933:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 933:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "934
-[; ;../Projects/src/key_and_Other.c: 934:     }
+[; ;../Projects/src/key_and_Other.c: 934:      return ;
+[e $UE 518  ]
+"935
+[; ;../Projects/src/key_and_Other.c: 935:     }
 }
 [e :U 546 ]
-"935
-[; ;../Projects/src/key_and_Other.c: 935:    }
+"936
+[; ;../Projects/src/key_and_Other.c: 936:    }
 }
 [e :U 544 ]
-"936
-[; ;../Projects/src/key_and_Other.c: 936:    break ;
+"937
+[; ;../Projects/src/key_and_Other.c: 937:    break ;
 [e $U 519  ]
-"938
-[; ;../Projects/src/key_and_Other.c: 938:   case 6 :
-[e :U 547 ]
 "939
-[; ;../Projects/src/key_and_Other.c: 939:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 548  ]
+[; ;../Projects/src/key_and_Other.c: 939:   case 6 :
+[e :U 547 ]
 "940
-[; ;../Projects/src/key_and_Other.c: 940:    {
-{
+[; ;../Projects/src/key_and_Other.c: 940:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 548  ]
 "941
-[; ;../Projects/src/key_and_Other.c: 941:     ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 941:    {
+{
 "942
-[; ;../Projects/src/key_and_Other.c: 942:     m_KeyDupliSetTimeout = 3000 ;
+[; ;../Projects/src/key_and_Other.c: 942:     ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"943
+[; ;../Projects/src/key_and_Other.c: 943:     m_KeyDupliSetTimeout = 3000 ;
 [e = _m_KeyDupliSetTimeout -> -> 3000 `i `ui ]
-"944
-[; ;../Projects/src/key_and_Other.c: 944:     _ReqBuzzer(103,103,2);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
 "945
-[; ;../Projects/src/key_and_Other.c: 945:                                 FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 945:     _ReqBuzzer(103,103,2);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 2 `i `uc ]
 "946
-[; ;../Projects/src/key_and_Other.c: 946:    }
+[; ;../Projects/src/key_and_Other.c: 946:                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
+"947
+[; ;../Projects/src/key_and_Other.c: 947:    }
 }
 [e :U 548 ]
-"952
-[; ;../Projects/src/key_and_Other.c: 952:    break ;
+"953
+[; ;../Projects/src/key_and_Other.c: 953:    break ;
 [e $U 519  ]
-"954
-[; ;../Projects/src/key_and_Other.c: 954:   case 7 :
-[e :U 549 ]
 "955
-[; ;../Projects/src/key_and_Other.c: 955:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 550  ]
+[; ;../Projects/src/key_and_Other.c: 955:   case 7 :
+[e :U 549 ]
 "956
-[; ;../Projects/src/key_and_Other.c: 956:    {
-{
+[; ;../Projects/src/key_and_Other.c: 956:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 550  ]
 "957
-[; ;../Projects/src/key_and_Other.c: 957:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 957:    {
+{
 "958
-[; ;../Projects/src/key_and_Other.c: 958:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 958:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "959
-[; ;../Projects/src/key_and_Other.c: 959:    }
+[; ;../Projects/src/key_and_Other.c: 959:     return ;
+[e $UE 518  ]
+"960
+[; ;../Projects/src/key_and_Other.c: 960:    }
 }
 [e :U 550 ]
-"961
-[; ;../Projects/src/key_and_Other.c: 961:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 551  ]
 "962
-[; ;../Projects/src/key_and_Other.c: 962:    {
-{
+[; ;../Projects/src/key_and_Other.c: 962:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 551  ]
 "963
-[; ;../Projects/src/key_and_Other.c: 963:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 963:    {
+{
 "964
-[; ;../Projects/src/key_and_Other.c: 964:    }
+[; ;../Projects/src/key_and_Other.c: 964:     return ;
+[e $UE 518  ]
+"965
+[; ;../Projects/src/key_and_Other.c: 965:    }
 }
 [e :U 551 ]
-"966
-[; ;../Projects/src/key_and_Other.c: 966:    if ( m_KeyOptSetOpenStop )
-[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 552  ]
 "967
-[; ;../Projects/src/key_and_Other.c: 967:    {
-{
+[; ;../Projects/src/key_and_Other.c: 967:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 552  ]
 "968
-[; ;../Projects/src/key_and_Other.c: 968:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 553  ]
-"969
-[; ;../Projects/src/key_and_Other.c: 969:     {
+[; ;../Projects/src/key_and_Other.c: 968:    {
 {
+"969
+[; ;../Projects/src/key_and_Other.c: 969:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 553  ]
 "970
-[; ;../Projects/src/key_and_Other.c: 970:      m_KeyDupliSetTimeout = 10000 ;
-[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 970:     {
+{
 "971
-[; ;../Projects/src/key_and_Other.c: 971:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 971:      m_KeyDupliSetTimeout = 10000 ;
+[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
 "972
-[; ;../Projects/src/key_and_Other.c: 972:      mb_NoPushWait = 1 ;
-[e = _mb_NoPushWait -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 972:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "973
-[; ;../Projects/src/key_and_Other.c: 973:     }
+[; ;../Projects/src/key_and_Other.c: 973:      mb_NoPushWait = 1 ;
+[e = _mb_NoPushWait -> -> 1 `i `uc ]
+"974
+[; ;../Projects/src/key_and_Other.c: 974:     }
 }
 [e $U 554  ]
-"974
-[; ;../Projects/src/key_and_Other.c: 974:     else
-[e :U 553 ]
 "975
-[; ;../Projects/src/key_and_Other.c: 975:     {
-{
+[; ;../Projects/src/key_and_Other.c: 975:     else
+[e :U 553 ]
 "976
-[; ;../Projects/src/key_and_Other.c: 976:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 976:     {
+{
 "977
-[; ;../Projects/src/key_and_Other.c: 977:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 977:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "978
-[; ;../Projects/src/key_and_Other.c: 978:     }
+[; ;../Projects/src/key_and_Other.c: 978:      return ;
+[e $UE 518  ]
+"979
+[; ;../Projects/src/key_and_Other.c: 979:     }
 }
 [e :U 554 ]
-"979
-[; ;../Projects/src/key_and_Other.c: 979:    }
+"980
+[; ;../Projects/src/key_and_Other.c: 980:    }
 }
 [e $U 555  ]
-"980
-[; ;../Projects/src/key_and_Other.c: 980:    else
-[e :U 552 ]
 "981
-[; ;../Projects/src/key_and_Other.c: 981:    {
-{
+[; ;../Projects/src/key_and_Other.c: 981:    else
+[e :U 552 ]
 "982
-[; ;../Projects/src/key_and_Other.c: 982:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 556  ]
-"983
-[; ;../Projects/src/key_and_Other.c: 983:     {
+[; ;../Projects/src/key_and_Other.c: 982:    {
 {
+"983
+[; ;../Projects/src/key_and_Other.c: 983:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 556  ]
 "984
-[; ;../Projects/src/key_and_Other.c: 984:      m_KeyDupliSetTimeout = 10000 ;
-[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 984:     {
+{
 "985
-[; ;../Projects/src/key_and_Other.c: 985:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 985:      m_KeyDupliSetTimeout = 10000 ;
+[e = _m_KeyDupliSetTimeout -> -> 10000 `i `ui ]
 "986
-[; ;../Projects/src/key_and_Other.c: 986:     }
+[; ;../Projects/src/key_and_Other.c: 986:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"987
+[; ;../Projects/src/key_and_Other.c: 987:     }
 }
 [e $U 557  ]
-"987
-[; ;../Projects/src/key_and_Other.c: 987:     else
-[e :U 556 ]
 "988
-[; ;../Projects/src/key_and_Other.c: 988:     {
-{
+[; ;../Projects/src/key_and_Other.c: 988:     else
+[e :U 556 ]
 "989
-[; ;../Projects/src/key_and_Other.c: 989:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 989:     {
+{
 "990
-[; ;../Projects/src/key_and_Other.c: 990:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 990:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "991
-[; ;../Projects/src/key_and_Other.c: 991:     }
+[; ;../Projects/src/key_and_Other.c: 991:      return ;
+[e $UE 518  ]
+"992
+[; ;../Projects/src/key_and_Other.c: 992:     }
 }
 [e :U 557 ]
-"992
-[; ;../Projects/src/key_and_Other.c: 992:    }
+"993
+[; ;../Projects/src/key_and_Other.c: 993:    }
 }
 [e :U 555 ]
-"993
-[; ;../Projects/src/key_and_Other.c: 993:    break ;
+"994
+[; ;../Projects/src/key_and_Other.c: 994:    break ;
 [e $U 519  ]
-"995
-[; ;../Projects/src/key_and_Other.c: 995:   case 8 :
-[e :U 558 ]
 "996
-[; ;../Projects/src/key_and_Other.c: 996:   case 9 :
-[e :U 559 ]
+[; ;../Projects/src/key_and_Other.c: 996:   case 8 :
+[e :U 558 ]
 "997
-[; ;../Projects/src/key_and_Other.c: 997:    if ( !m_KeyDupliSetTimeout )
-[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 560  ]
+[; ;../Projects/src/key_and_Other.c: 997:   case 9 :
+[e :U 559 ]
 "998
-[; ;../Projects/src/key_and_Other.c: 998:    {
-{
+[; ;../Projects/src/key_and_Other.c: 998:    if ( !m_KeyDupliSetTimeout )
+[e $ ! ! != _m_KeyDupliSetTimeout -> -> 0 `i `ui 560  ]
 "999
-[; ;../Projects/src/key_and_Other.c: 999:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 999:    {
+{
 "1000
-[; ;../Projects/src/key_and_Other.c: 1000:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1000:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "1001
-[; ;../Projects/src/key_and_Other.c: 1001:    }
+[; ;../Projects/src/key_and_Other.c: 1001:     return ;
+[e $UE 518  ]
+"1002
+[; ;../Projects/src/key_and_Other.c: 1002:    }
 }
 [e :U 560 ]
-"1003
-[; ;../Projects/src/key_and_Other.c: 1003:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
-[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 561  ]
 "1004
-[; ;../Projects/src/key_and_Other.c: 1004:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1004:    if ( m_KindOfKey == 0 || m_KindOfKey == 0xFF )
+[e $ ! || == -> _m_KindOfKey `i -> 0 `i == -> _m_KindOfKey `i -> 255 `i 561  ]
 "1005
-[; ;../Projects/src/key_and_Other.c: 1005:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1005:    {
+{
 "1006
-[; ;../Projects/src/key_and_Other.c: 1006:    }
+[; ;../Projects/src/key_and_Other.c: 1006:     return ;
+[e $UE 518  ]
+"1007
+[; ;../Projects/src/key_and_Other.c: 1007:    }
 }
 [e :U 561 ]
-"1008
-[; ;../Projects/src/key_and_Other.c: 1008:    if ( m_KeyOptSetOpenStop )
-[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 562  ]
 "1009
-[; ;../Projects/src/key_and_Other.c: 1009:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1009:    if ( m_KeyOptSetOpenStop )
+[e $ ! != -> _m_KeyOptSetOpenStop `i -> 0 `i 562  ]
 "1010
-[; ;../Projects/src/key_and_Other.c: 1010:     if ( m_KindOfKey == 2 )
-[e $ ! == -> _m_KindOfKey `i -> 2 `i 563  ]
+[; ;../Projects/src/key_and_Other.c: 1010:    {
+{
 "1011
-[; ;../Projects/src/key_and_Other.c: 1011:     {
-{
+[; ;../Projects/src/key_and_Other.c: 1011:     if ( m_KindOfKey == 2 )
+[e $ ! == -> _m_KindOfKey `i -> 2 `i 563  ]
 "1012
-[; ;../Projects/src/key_and_Other.c: 1012:      if ( m_KeyOptSetMode == 9 )
-[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 564  ]
+[; ;../Projects/src/key_and_Other.c: 1012:     {
+{
 "1013
-[; ;../Projects/src/key_and_Other.c: 1013:      {
-{
+[; ;../Projects/src/key_and_Other.c: 1013:      if ( m_KeyOptSetMode == 9 )
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 564  ]
 "1014
-[; ;../Projects/src/key_and_Other.c: 1014:       m_KeyOpt = rom_KeyOpt ;
-[e = _m_KeyOpt _rom_KeyOpt ]
-"1015
-[; ;../Projects/src/key_and_Other.c: 1015:       if ( m_KeyOpt )
-[e $ ! != -> _m_KeyOpt `i -> 0 `i 565  ]
-"1016
-[; ;../Projects/src/key_and_Other.c: 1016:       {
+[; ;../Projects/src/key_and_Other.c: 1014:      {
 {
+"1015
+[; ;../Projects/src/key_and_Other.c: 1015:       m_KeyOpt = rom_KeyOpt ;
+[e = _m_KeyOpt _rom_KeyOpt ]
+"1016
+[; ;../Projects/src/key_and_Other.c: 1016:       if ( m_KeyOpt )
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 565  ]
 "1017
-[; ;../Projects/src/key_and_Other.c: 1017:        m_KeyOpt = 0 ;
-[e = _m_KeyOpt -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1017:       {
+{
 "1018
-[; ;../Projects/src/key_and_Other.c: 1018:       }
+[; ;../Projects/src/key_and_Other.c: 1018:        m_KeyOpt = 0 ;
+[e = _m_KeyOpt -> -> 0 `i `uc ]
+"1019
+[; ;../Projects/src/key_and_Other.c: 1019:       }
 }
 [e $U 566  ]
-"1019
-[; ;../Projects/src/key_and_Other.c: 1019:       else
-[e :U 565 ]
 "1020
-[; ;../Projects/src/key_and_Other.c: 1020:       {
-{
+[; ;../Projects/src/key_and_Other.c: 1020:       else
+[e :U 565 ]
 "1021
-[; ;../Projects/src/key_and_Other.c: 1021:        m_KeyOpt = 1 ;
-[e = _m_KeyOpt -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1021:       {
+{
 "1022
-[; ;../Projects/src/key_and_Other.c: 1022:       }
+[; ;../Projects/src/key_and_Other.c: 1022:        m_KeyOpt = 1 ;
+[e = _m_KeyOpt -> -> 1 `i `uc ]
+"1023
+[; ;../Projects/src/key_and_Other.c: 1023:       }
 }
 [e :U 566 ]
-"1023
-[; ;../Projects/src/key_and_Other.c: 1023:       rom_KeyOpt=m_KeyOpt;
-[e = _rom_KeyOpt _m_KeyOpt ]
 "1024
-[; ;../Projects/src/key_and_Other.c: 1024:       KeyOpt_EEPROM_write();
+[; ;../Projects/src/key_and_Other.c: 1024:       rom_KeyOpt=m_KeyOpt;
+[e = _rom_KeyOpt _m_KeyOpt ]
+"1025
+[; ;../Projects/src/key_and_Other.c: 1025:       KeyOpt_EEPROM_write();
 [e ( _KeyOpt_EEPROM_write ..  ]
-"1028
-[; ;../Projects/src/key_and_Other.c: 1028:       _ReqBuzzer(103,103,4);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1029
-[; ;../Projects/src/key_and_Other.c: 1029:                                                 FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1029:       _ReqBuzzer(103,103,4);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1030
-[; ;../Projects/src/key_and_Other.c: 1030:       FG_d_StopKey=0;
-[e = _FG_d_StopKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1030:                                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "1031
-[; ;../Projects/src/key_and_Other.c: 1031:       TB_5s=20;
-[e = _TB_5s -> -> 20 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1031:       FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
 "1032
-[; ;../Projects/src/key_and_Other.c: 1032:       _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 1032:       TB_5s=20;
+[e = _TB_5s -> -> 20 `i `uc ]
 "1033
-[; ;../Projects/src/key_and_Other.c: 1033:       return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1033:       _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "1034
-[; ;../Projects/src/key_and_Other.c: 1034:      }
+[; ;../Projects/src/key_and_Other.c: 1034:       return ;
+[e $UE 518  ]
+"1035
+[; ;../Projects/src/key_and_Other.c: 1035:      }
 }
 [e :U 564 ]
-"1035
-[; ;../Projects/src/key_and_Other.c: 1035:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "1036
-[; ;../Projects/src/key_and_Other.c: 1036:     }
+[; ;../Projects/src/key_and_Other.c: 1036:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"1037
+[; ;../Projects/src/key_and_Other.c: 1037:     }
 }
 [e $U 567  ]
-"1037
-[; ;../Projects/src/key_and_Other.c: 1037:     else
-[e :U 563 ]
 "1038
-[; ;../Projects/src/key_and_Other.c: 1038:     {
-{
+[; ;../Projects/src/key_and_Other.c: 1038:     else
+[e :U 563 ]
 "1039
-[; ;../Projects/src/key_and_Other.c: 1039:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 1039:     {
+{
 "1040
-[; ;../Projects/src/key_and_Other.c: 1040:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1040:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "1041
-[; ;../Projects/src/key_and_Other.c: 1041:     }
+[; ;../Projects/src/key_and_Other.c: 1041:      return ;
+[e $UE 518  ]
+"1042
+[; ;../Projects/src/key_and_Other.c: 1042:     }
 }
 [e :U 567 ]
-"1042
-[; ;../Projects/src/key_and_Other.c: 1042:    }
+"1043
+[; ;../Projects/src/key_and_Other.c: 1043:    }
 }
 [e $U 568  ]
-"1043
-[; ;../Projects/src/key_and_Other.c: 1043:    else
-[e :U 562 ]
 "1044
-[; ;../Projects/src/key_and_Other.c: 1044:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1044:    else
+[e :U 562 ]
 "1045
-[; ;../Projects/src/key_and_Other.c: 1045:     if ( m_KindOfKey == 1 )
-[e $ ! == -> _m_KindOfKey `i -> 1 `i 569  ]
+[; ;../Projects/src/key_and_Other.c: 1045:    {
+{
 "1046
-[; ;../Projects/src/key_and_Other.c: 1046:     {
-{
+[; ;../Projects/src/key_and_Other.c: 1046:     if ( m_KindOfKey == 1 )
+[e $ ! == -> _m_KindOfKey `i -> 1 `i 569  ]
 "1047
-[; ;../Projects/src/key_and_Other.c: 1047:      if ( m_KeyOptSetMode == 9 )
-[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 570  ]
+[; ;../Projects/src/key_and_Other.c: 1047:     {
+{
 "1048
-[; ;../Projects/src/key_and_Other.c: 1048:      {
-{
+[; ;../Projects/src/key_and_Other.c: 1048:      if ( m_KeyOptSetMode == 9 )
+[e $ ! == -> _m_KeyOptSetMode `i -> 9 `i 570  ]
 "1049
-[; ;../Projects/src/key_and_Other.c: 1049:       m_KeyOpt = rom_KeyOpt ;
-[e = _m_KeyOpt _rom_KeyOpt ]
-"1050
-[; ;../Projects/src/key_and_Other.c: 1050:       if ( m_KeyOpt )
-[e $ ! != -> _m_KeyOpt `i -> 0 `i 571  ]
-"1051
-[; ;../Projects/src/key_and_Other.c: 1051:       {
+[; ;../Projects/src/key_and_Other.c: 1049:      {
 {
+"1050
+[; ;../Projects/src/key_and_Other.c: 1050:       m_KeyOpt = rom_KeyOpt ;
+[e = _m_KeyOpt _rom_KeyOpt ]
+"1051
+[; ;../Projects/src/key_and_Other.c: 1051:       if ( m_KeyOpt )
+[e $ ! != -> _m_KeyOpt `i -> 0 `i 571  ]
 "1052
-[; ;../Projects/src/key_and_Other.c: 1052:        m_KeyOpt = 0 ;
-[e = _m_KeyOpt -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1052:       {
+{
 "1053
-[; ;../Projects/src/key_and_Other.c: 1053:       }
+[; ;../Projects/src/key_and_Other.c: 1053:        m_KeyOpt = 0 ;
+[e = _m_KeyOpt -> -> 0 `i `uc ]
+"1054
+[; ;../Projects/src/key_and_Other.c: 1054:       }
 }
 [e $U 572  ]
-"1054
-[; ;../Projects/src/key_and_Other.c: 1054:       else
-[e :U 571 ]
 "1055
-[; ;../Projects/src/key_and_Other.c: 1055:       {
-{
+[; ;../Projects/src/key_and_Other.c: 1055:       else
+[e :U 571 ]
 "1056
-[; ;../Projects/src/key_and_Other.c: 1056:        m_KeyOpt = 1 ;
-[e = _m_KeyOpt -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1056:       {
+{
 "1057
-[; ;../Projects/src/key_and_Other.c: 1057:       }
+[; ;../Projects/src/key_and_Other.c: 1057:        m_KeyOpt = 1 ;
+[e = _m_KeyOpt -> -> 1 `i `uc ]
+"1058
+[; ;../Projects/src/key_and_Other.c: 1058:       }
 }
 [e :U 572 ]
-"1058
-[; ;../Projects/src/key_and_Other.c: 1058:       rom_KeyOpt=m_KeyOpt;
-[e = _rom_KeyOpt _m_KeyOpt ]
 "1059
-[; ;../Projects/src/key_and_Other.c: 1059:       KeyOpt_EEPROM_write();
+[; ;../Projects/src/key_and_Other.c: 1059:       rom_KeyOpt=m_KeyOpt;
+[e = _rom_KeyOpt _m_KeyOpt ]
+"1060
+[; ;../Projects/src/key_and_Other.c: 1060:       KeyOpt_EEPROM_write();
 [e ( _KeyOpt_EEPROM_write ..  ]
-"1062
-[; ;../Projects/src/key_and_Other.c: 1062:       _ReqBuzzer(103,103,4);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1063
-[; ;../Projects/src/key_and_Other.c: 1063:                                                 FG_LED_on=1;
-[e = _FG_LED_on -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1063:       _ReqBuzzer(103,103,4);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 4 `i `uc ]
 "1064
-[; ;../Projects/src/key_and_Other.c: 1064:       FG_d_StopKey=0;
-[e = _FG_d_StopKey -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1064:                                                 FG_LED_on=1;
+[e = _FG_LED_on -> -> 1 `i `uc ]
 "1065
-[; ;../Projects/src/key_and_Other.c: 1065:       _DupliFuncClear() ;
+[; ;../Projects/src/key_and_Other.c: 1065:       FG_d_StopKey=0;
+[e = _FG_d_StopKey -> -> 0 `i `uc ]
+"1066
+[; ;../Projects/src/key_and_Other.c: 1066:       _DupliFuncClear() ;
 [e ( __DupliFuncClear ..  ]
-"1067
-[; ;../Projects/src/key_and_Other.c: 1067:       return ;
-[e $UE 518  ]
 "1068
-[; ;../Projects/src/key_and_Other.c: 1068:      }
+[; ;../Projects/src/key_and_Other.c: 1068:       return ;
+[e $UE 518  ]
+"1069
+[; ;../Projects/src/key_and_Other.c: 1069:      }
 }
 [e :U 570 ]
-"1069
-[; ;../Projects/src/key_and_Other.c: 1069:      ++m_KeyOptSetMode ;
-[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
 "1070
-[; ;../Projects/src/key_and_Other.c: 1070:     }
+[; ;../Projects/src/key_and_Other.c: 1070:      ++m_KeyOptSetMode ;
+[e =+ _m_KeyOptSetMode -> -> 1 `i `uc ]
+"1071
+[; ;../Projects/src/key_and_Other.c: 1071:     }
 }
 [e $U 573  ]
-"1071
-[; ;../Projects/src/key_and_Other.c: 1071:     else
-[e :U 569 ]
 "1072
-[; ;../Projects/src/key_and_Other.c: 1072:     {
-{
+[; ;../Projects/src/key_and_Other.c: 1072:     else
+[e :U 569 ]
 "1073
-[; ;../Projects/src/key_and_Other.c: 1073:      _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
+[; ;../Projects/src/key_and_Other.c: 1073:     {
+{
 "1074
-[; ;../Projects/src/key_and_Other.c: 1074:      return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1074:      _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "1075
-[; ;../Projects/src/key_and_Other.c: 1075:     }
+[; ;../Projects/src/key_and_Other.c: 1075:      return ;
+[e $UE 518  ]
+"1076
+[; ;../Projects/src/key_and_Other.c: 1076:     }
 }
 [e :U 573 ]
-"1076
-[; ;../Projects/src/key_and_Other.c: 1076:    }
+"1077
+[; ;../Projects/src/key_and_Other.c: 1077:    }
 }
 [e :U 568 ]
-"1077
-[; ;../Projects/src/key_and_Other.c: 1077:    break ;
+"1078
+[; ;../Projects/src/key_and_Other.c: 1078:    break ;
 [e $U 519  ]
-"1079
-[; ;../Projects/src/key_and_Other.c: 1079:   case 10 :
-[e :U 574 ]
 "1080
-[; ;../Projects/src/key_and_Other.c: 1080:    if ( !mb_NoPushWait )
-[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 575  ]
+[; ;../Projects/src/key_and_Other.c: 1080:   case 10 :
+[e :U 574 ]
 "1081
-[; ;../Projects/src/key_and_Other.c: 1081:    {
+[; ;../Projects/src/key_and_Other.c: 1081:    if ( !mb_NoPushWait )
+[e $ ! ! != -> _mb_NoPushWait `i -> 0 `i 575  ]
+"1082
+[; ;../Projects/src/key_and_Other.c: 1082:    {
 {
-"1083
-[; ;../Projects/src/key_and_Other.c: 1083:     _DupliFuncClear() ;
-[e ( __DupliFuncClear ..  ]
 "1084
-[; ;../Projects/src/key_and_Other.c: 1084:     return ;
-[e $UE 518  ]
+[; ;../Projects/src/key_and_Other.c: 1084:     _DupliFuncClear() ;
+[e ( __DupliFuncClear ..  ]
 "1085
-[; ;../Projects/src/key_and_Other.c: 1085:    }
+[; ;../Projects/src/key_and_Other.c: 1085:     return ;
+[e $UE 518  ]
+"1086
+[; ;../Projects/src/key_and_Other.c: 1086:    }
 }
 [e :U 575 ]
-"1086
-[; ;../Projects/src/key_and_Other.c: 1086:    break ;
+"1087
+[; ;../Projects/src/key_and_Other.c: 1087:    break ;
 [e $U 519  ]
-"1088
-[; ;../Projects/src/key_and_Other.c: 1088:  }
+"1089
+[; ;../Projects/src/key_and_Other.c: 1089:  }
 }
 [e $U 519  ]
 [e :U 520 ]
@@ -3380,218 +3374,218 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 10 `i 574
  519 ]
 [e :U 519 ]
-"1089
-[; ;../Projects/src/key_and_Other.c: 1089: }
+"1090
+[; ;../Projects/src/key_and_Other.c: 1090: }
 [e :UE 518 ]
 }
-"1099
-[; ;../Projects/src/key_and_Other.c: 1099: void _RegistrationMode( void )
-[v __RegistrationMode `(v ~T0 @X0 1 ef ]
 "1100
-[; ;../Projects/src/key_and_Other.c: 1100: {
+[; ;../Projects/src/key_and_Other.c: 1100: void _RegistrationMode( void )
+[v __RegistrationMode `(v ~T0 @X0 1 ef ]
+"1101
+[; ;../Projects/src/key_and_Other.c: 1101: {
 {
 [e :U __RegistrationMode ]
 [f ]
-"1101
-[; ;../Projects/src/key_and_Other.c: 1101:  if ( !_GetRegMode() )
-[e $ ! ! != -> ( __GetRegMode ..  `i -> 0 `i 577  ]
 "1102
-[; ;../Projects/src/key_and_Other.c: 1102:  {
-{
+[; ;../Projects/src/key_and_Other.c: 1102:  if ( !_GetRegMode() )
+[e $ ! ! != -> ( __GetRegMode ..  `i -> 0 `i 577  ]
 "1103
-[; ;../Projects/src/key_and_Other.c: 1103:   return ;
-[e $UE 576  ]
+[; ;../Projects/src/key_and_Other.c: 1103:  {
+{
 "1104
-[; ;../Projects/src/key_and_Other.c: 1104:  }
+[; ;../Projects/src/key_and_Other.c: 1104:   return ;
+[e $UE 576  ]
+"1105
+[; ;../Projects/src/key_and_Other.c: 1105:  }
 }
 [e :U 577 ]
-"1106
-[; ;../Projects/src/key_and_Other.c: 1106:         if(FG_PWRON==0){
+"1107
+[; ;../Projects/src/key_and_Other.c: 1107:         if(FG_PWRON==0){
 [e $ ! == -> _FG_PWRON `i -> 0 `i 578  ]
 {
-"1107
-[; ;../Projects/src/key_and_Other.c: 1107:  FG_PWRON=1;
-[e = _FG_PWRON -> -> 1 `i `uc ]
 "1108
-[; ;../Projects/src/key_and_Other.c: 1108:  RB7=1;
-[e = _RB7 -> -> 1 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1108:  FG_PWRON=1;
+[e = _FG_PWRON -> -> 1 `i `uc ]
 "1109
-[; ;../Projects/src/key_and_Other.c: 1109:         }
+[; ;../Projects/src/key_and_Other.c: 1109:  RB7=1;
+[e = _RB7 -> -> 1 `i `b ]
+"1110
+[; ;../Projects/src/key_and_Other.c: 1110:         }
 }
 [e :U 578 ]
-"1110
-[; ;../Projects/src/key_and_Other.c: 1110:  if(m_TimerRegMode){
+"1111
+[; ;../Projects/src/key_and_Other.c: 1111:  if(m_TimerRegMode){
 [e $ ! != _m_TimerRegMode -> -> 0 `i `ui 579  ]
 {
-"1111
-[; ;../Projects/src/key_and_Other.c: 1111:    TB_5s=51;
-[e = _TB_5s -> -> 51 `i `uc ]
 "1112
-[; ;../Projects/src/key_and_Other.c: 1112:           time_led++;
-[e ++ _time_led -> -> 1 `i `ui ]
+[; ;../Projects/src/key_and_Other.c: 1112:    TB_5s=51;
+[e = _TB_5s -> -> 51 `i `uc ]
 "1113
-[; ;../Projects/src/key_and_Other.c: 1113:           if(time_led>=500){time_led=0;RB5=!RB5;}
+[; ;../Projects/src/key_and_Other.c: 1113:           time_led++;
+[e ++ _time_led -> -> 1 `i `ui ]
+"1114
+[; ;../Projects/src/key_and_Other.c: 1114:           if(time_led>=500){time_led=0;RB5=!RB5;}
 [e $ ! >= _time_led -> -> 500 `i `ui 580  ]
 {
 [e = _time_led -> -> 0 `i `ui ]
 [e = _RB5 ! _RB5 ]
 }
 [e :U 580 ]
-"1114
-[; ;../Projects/src/key_and_Other.c: 1114:  }
+"1115
+[; ;../Projects/src/key_and_Other.c: 1115:  }
 }
 [e $U 581  ]
-"1115
-[; ;../Projects/src/key_and_Other.c: 1115:  else {
+"1116
+[; ;../Projects/src/key_and_Other.c: 1116:  else {
 [e :U 579 ]
 {
-"1117
-[; ;../Projects/src/key_and_Other.c: 1117:          _ReqBuzzer(500,250,2);
-[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 250 `i `uc -> -> 2 `i `uc ]
 "1118
-[; ;../Projects/src/key_and_Other.c: 1118:   RB5=0;
-[e = _RB5 -> -> 0 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1118:          _ReqBuzzer(500,250,2);
+[e ( __ReqBuzzer (3 , , -> -> 500 `i `ui -> -> 250 `i `uc -> -> 2 `i `uc ]
 "1119
-[; ;../Projects/src/key_and_Other.c: 1119:   m_RegMode = 0 ;
-[e = _m_RegMode -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1119:   RB5=0;
+[e = _RB5 -> -> 0 `i `b ]
 "1120
-[; ;../Projects/src/key_and_Other.c: 1120:  }
+[; ;../Projects/src/key_and_Other.c: 1120:   m_RegMode = 0 ;
+[e = _m_RegMode -> -> 0 `i `uc ]
+"1121
+[; ;../Projects/src/key_and_Other.c: 1121:  }
 }
 [e :U 581 ]
-"1131
-[; ;../Projects/src/key_and_Other.c: 1131:  switch ( m_KindOfKey )
-[e $U 583  ]
 "1132
-[; ;../Projects/src/key_and_Other.c: 1132:  {
-{
+[; ;../Projects/src/key_and_Other.c: 1132:  switch ( m_KindOfKey )
+[e $U 583  ]
 "1133
-[; ;../Projects/src/key_and_Other.c: 1133:   case 1 :
-[e :U 584 ]
-"1134
-[; ;../Projects/src/key_and_Other.c: 1134:    if ( ++m_RegID[m_RegDigit] > '9' )
-[e $ ! > -> =+ *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 1 `i `uc `ui -> 57 `ui 585  ]
-"1135
-[; ;../Projects/src/key_and_Other.c: 1135:    {
+[; ;../Projects/src/key_and_Other.c: 1133:  {
 {
+"1134
+[; ;../Projects/src/key_and_Other.c: 1134:   case 1 :
+[e :U 584 ]
+"1135
+[; ;../Projects/src/key_and_Other.c: 1135:    if ( ++m_RegID[m_RegDigit] > '9' )
+[e $ ! > -> =+ *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 1 `i `uc `ui -> 57 `ui 585  ]
 "1136
-[; ;../Projects/src/key_and_Other.c: 1136:     m_RegID[m_RegDigit] = '0' ;
-[e = *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+[; ;../Projects/src/key_and_Other.c: 1136:    {
+{
 "1137
-[; ;../Projects/src/key_and_Other.c: 1137:    }
+[; ;../Projects/src/key_and_Other.c: 1137:     m_RegID[m_RegDigit] = '0' ;
+[e = *U + &U _m_RegID * -> _m_RegDigit `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+"1138
+[; ;../Projects/src/key_and_Other.c: 1138:    }
 }
 [e :U 585 ]
-"1139
-[; ;../Projects/src/key_and_Other.c: 1139:    _ReqBuzzer(103,103,0);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "1140
-[; ;../Projects/src/key_and_Other.c: 1140:    m_TimerRegMode = 60000 ;
-[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+[; ;../Projects/src/key_and_Other.c: 1140:    _ReqBuzzer(103,103,0);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 0 `i `uc ]
 "1141
-[; ;../Projects/src/key_and_Other.c: 1141:    break ;
+[; ;../Projects/src/key_and_Other.c: 1141:    m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1142
+[; ;../Projects/src/key_and_Other.c: 1142:    break ;
 [e $U 582  ]
-"1143
-[; ;../Projects/src/key_and_Other.c: 1143:   case 2 :
-[e :U 586 ]
 "1144
-[; ;../Projects/src/key_and_Other.c: 1144:    if ( ++m_RegDigit > 8 )
-[e $ ! > -> =+ _m_RegDigit -> -> 1 `i `uc `i -> 8 `i 587  ]
+[; ;../Projects/src/key_and_Other.c: 1144:   case 2 :
+[e :U 586 ]
 "1145
-[; ;../Projects/src/key_and_Other.c: 1145:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1145:    if ( ++m_RegDigit > 8 )
+[e $ ! > -> =+ _m_RegDigit -> -> 1 `i `uc `i -> 8 `i 587  ]
 "1146
-[; ;../Projects/src/key_and_Other.c: 1146:     m_RegDigit= 8 ;
-[e = _m_RegDigit -> -> 8 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1146:    {
+{
 "1147
-[; ;../Projects/src/key_and_Other.c: 1147:    }
+[; ;../Projects/src/key_and_Other.c: 1147:     m_RegDigit= 8 ;
+[e = _m_RegDigit -> -> 8 `i `uc ]
+"1148
+[; ;../Projects/src/key_and_Other.c: 1148:    }
 }
 [e $U 588  ]
-"1149
-[; ;../Projects/src/key_and_Other.c: 1149:    else
-[e :U 587 ]
 "1150
-[; ;../Projects/src/key_and_Other.c: 1150:    {
+[; ;../Projects/src/key_and_Other.c: 1150:    else
+[e :U 587 ]
+"1151
+[; ;../Projects/src/key_and_Other.c: 1151:    {
 {
-"1152
-[; ;../Projects/src/key_and_Other.c: 1152:      _ReqBuzzer(103,103,1);
-[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
 "1153
-[; ;../Projects/src/key_and_Other.c: 1153:    }
+[; ;../Projects/src/key_and_Other.c: 1153:      _ReqBuzzer(103,103,1);
+[e ( __ReqBuzzer (3 , , -> -> 103 `i `ui -> -> 103 `i `uc -> -> 1 `i `uc ]
+"1154
+[; ;../Projects/src/key_and_Other.c: 1154:    }
 }
 [e :U 588 ]
-"1158
-[; ;../Projects/src/key_and_Other.c: 1158:    m_TimerRegMode = 60000 ;
-[e = _m_TimerRegMode -> -> 60000 `l `ui ]
 "1159
-[; ;../Projects/src/key_and_Other.c: 1159:    break ;
-[e $U 582  ]
-"1161
-[; ;../Projects/src/key_and_Other.c: 1161:   case 3 :
-[e :U 589 ]
-"1162
-[; ;../Projects/src/key_and_Other.c: 1162:    _IdClear() ;
-[e ( __IdClear ..  ]
-"1164
-[; ;../Projects/src/key_and_Other.c: 1164:    _ReqBuzzer(1000,1,0);
-[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
-"1165
-[; ;../Projects/src/key_and_Other.c: 1165:    m_TimerRegMode = 60000 ;
+[; ;../Projects/src/key_and_Other.c: 1159:    m_TimerRegMode = 60000 ;
 [e = _m_TimerRegMode -> -> 60000 `l `ui ]
-"1166
-[; ;../Projects/src/key_and_Other.c: 1166:    break ;
+"1160
+[; ;../Projects/src/key_and_Other.c: 1160:    break ;
 [e $U 582  ]
-"1168
-[; ;../Projects/src/key_and_Other.c: 1168:   case 5 :
+"1162
+[; ;../Projects/src/key_and_Other.c: 1162:   case 3 :
+[e :U 589 ]
+"1163
+[; ;../Projects/src/key_and_Other.c: 1163:    _IdClear() ;
+[e ( __IdClear ..  ]
+"1165
+[; ;../Projects/src/key_and_Other.c: 1165:    _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
+"1166
+[; ;../Projects/src/key_and_Other.c: 1166:    m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1167
+[; ;../Projects/src/key_and_Other.c: 1167:    break ;
+[e $U 582  ]
+"1169
+[; ;../Projects/src/key_and_Other.c: 1169:   case 5 :
 [e :U 590 ]
-"1170
-[; ;../Projects/src/key_and_Other.c: 1170:    if ( m_RegDigit < 8 )
-[e $ ! < -> _m_RegDigit `i -> 8 `i 591  ]
 "1171
-[; ;../Projects/src/key_and_Other.c: 1171:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1171:    if ( m_RegDigit < 8 )
+[e $ ! < -> _m_RegDigit `i -> 8 `i 591  ]
 "1172
-[; ;../Projects/src/key_and_Other.c: 1172:     return ;
-[e $UE 576  ]
+[; ;../Projects/src/key_and_Other.c: 1172:    {
+{
 "1173
-[; ;../Projects/src/key_and_Other.c: 1173:    }
+[; ;../Projects/src/key_and_Other.c: 1173:     return ;
+[e $UE 576  ]
+"1174
+[; ;../Projects/src/key_and_Other.c: 1174:    }
 }
 [e :U 591 ]
-"1178
-[; ;../Projects/src/key_and_Other.c: 1178:    ID_data_add.IDL = (unsigned long)atol_de(m_RegID) ;
+"1179
+[; ;../Projects/src/key_and_Other.c: 1179:    ID_data_add.IDL = (unsigned long)atol_de(m_RegID) ;
 [e = . _ID_data_add 0 ( _atol_de (1 &U _m_RegID ]
-"1181
-[; ;../Projects/src/key_and_Other.c: 1181:    if ( ID_data_add.IDL > 16777214 )
+"1182
+[; ;../Projects/src/key_and_Other.c: 1182:    if ( ID_data_add.IDL > 16777214 )
 [e $ ! > . _ID_data_add 0 -> -> 16777214 `l `ul 592  ]
-"1183
-[; ;../Projects/src/key_and_Other.c: 1183:    {
+"1184
+[; ;../Projects/src/key_and_Other.c: 1184:    {
 {
-"1185
-[; ;../Projects/src/key_and_Other.c: 1185:            _ReqBuzzer(100,100,3);
-[e ( __ReqBuzzer (3 , , -> -> 100 `i `ui -> -> 100 `i `uc -> -> 3 `i `uc ]
 "1186
-[; ;../Projects/src/key_and_Other.c: 1186:    }
+[; ;../Projects/src/key_and_Other.c: 1186:            _ReqBuzzer(100,100,3);
+[e ( __ReqBuzzer (3 , , -> -> 100 `i `ui -> -> 100 `i `uc -> -> 3 `i `uc ]
+"1187
+[; ;../Projects/src/key_and_Other.c: 1187:    }
 }
 [e $U 593  ]
-"1187
-[; ;../Projects/src/key_and_Other.c: 1187:    else
-[e :U 592 ]
 "1188
-[; ;../Projects/src/key_and_Other.c: 1188:    {
-{
+[; ;../Projects/src/key_and_Other.c: 1188:    else
+[e :U 592 ]
 "1189
-[; ;../Projects/src/key_and_Other.c: 1189:     _ReqTxdEdit(20,20) ;
+[; ;../Projects/src/key_and_Other.c: 1189:    {
+{
+"1190
+[; ;../Projects/src/key_and_Other.c: 1190:     _ReqTxdEdit(20,20) ;
 [e ( __ReqTxdEdit (2 , -> -> 20 `i `uc -> -> 20 `i `uc ]
-"1191
-[; ;../Projects/src/key_and_Other.c: 1191:    }
+"1192
+[; ;../Projects/src/key_and_Other.c: 1192:    }
 }
 [e :U 593 ]
-"1192
-[; ;../Projects/src/key_and_Other.c: 1192:    m_RegMode = 0 ;
-[e = _m_RegMode -> -> 0 `i `uc ]
 "1193
-[; ;../Projects/src/key_and_Other.c: 1193:    break ;
-[e $U 582  ]
+[; ;../Projects/src/key_and_Other.c: 1193:    m_RegMode = 0 ;
+[e = _m_RegMode -> -> 0 `i `uc ]
 "1194
-[; ;../Projects/src/key_and_Other.c: 1194:  }
+[; ;../Projects/src/key_and_Other.c: 1194:    break ;
+[e $U 582  ]
+"1195
+[; ;../Projects/src/key_and_Other.c: 1195:  }
 }
 [e $U 582  ]
 [e :U 583 ]
@@ -3601,380 +3595,380 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 590
  582 ]
 [e :U 582 ]
-"1195
-[; ;../Projects/src/key_and_Other.c: 1195: }
+"1196
+[; ;../Projects/src/key_and_Other.c: 1196: }
 [e :UE 576 ]
 }
-"1200
-[; ;../Projects/src/key_and_Other.c: 1200: unsigned long atol_de (unsigned char* m_RegID_x)
-[v _atol_de `(ul ~T0 @X0 1 ef1`*uc ]
 "1201
-[; ;../Projects/src/key_and_Other.c: 1201: {
+[; ;../Projects/src/key_and_Other.c: 1201: unsigned long atol_de (unsigned char* m_RegID_x)
+[v _atol_de `(ul ~T0 @X0 1 ef1`*uc ]
+"1202
+[; ;../Projects/src/key_and_Other.c: 1202: {
 {
 [e :U _atol_de ]
-"1200
-[; ;../Projects/src/key_and_Other.c: 1200: unsigned long atol_de (unsigned char* m_RegID_x)
-[v _m_RegID_x `*uc ~T0 @X0 1 r1 ]
 "1201
-[; ;../Projects/src/key_and_Other.c: 1201: {
-[f ]
+[; ;../Projects/src/key_and_Other.c: 1201: unsigned long atol_de (unsigned char* m_RegID_x)
+[v _m_RegID_x `*uc ~T0 @X0 1 r1 ]
 "1202
-[; ;../Projects/src/key_and_Other.c: 1202:   unsigned char i,j;
+[; ;../Projects/src/key_and_Other.c: 1202: {
+[f ]
+"1203
+[; ;../Projects/src/key_and_Other.c: 1203:   unsigned char i,j;
 [v _i `uc ~T0 @X0 1 a ]
 [v _j `uc ~T0 @X0 1 a ]
-"1203
-[; ;../Projects/src/key_and_Other.c: 1203:   unsigned long m_ID=0;
+"1204
+[; ;../Projects/src/key_and_Other.c: 1204:   unsigned long m_ID=0;
 [v _m_ID `ul ~T0 @X0 1 a ]
 [e = _m_ID -> -> -> 0 `i `l `ul ]
-"1205
-[; ;../Projects/src/key_and_Other.c: 1205:   for(i=0;i<8;i++){
+"1206
+[; ;../Projects/src/key_and_Other.c: 1206:   for(i=0;i<8;i++){
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 595  ]
 [e $U 596  ]
 [e :U 595 ]
 {
-"1206
-[; ;../Projects/src/key_and_Other.c: 1206:     j=m_RegID_x[i]-'0';
-[e = _j -> - -> *U + _m_RegID_x * -> _i `ux -> -> # *U _m_RegID_x `ui `ux `ui -> 48 `ui `uc ]
 "1207
-[; ;../Projects/src/key_and_Other.c: 1207:     m_ID=m_ID*10+j;
-[e = _m_ID + * _m_ID -> -> -> 10 `i `l `ul -> _j `ul ]
+[; ;../Projects/src/key_and_Other.c: 1207:     j=m_RegID_x[i]-'0';
+[e = _j -> - -> *U + _m_RegID_x * -> _i `ux -> -> # *U _m_RegID_x `ui `ux `ui -> 48 `ui `uc ]
 "1208
-[; ;../Projects/src/key_and_Other.c: 1208:   }
+[; ;../Projects/src/key_and_Other.c: 1208:     m_ID=m_ID*10+j;
+[e = _m_ID + * _m_ID -> -> -> 10 `i `l `ul -> _j `ul ]
+"1209
+[; ;../Projects/src/key_and_Other.c: 1209:   }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 595  ]
 [e :U 596 ]
 }
-"1209
-[; ;../Projects/src/key_and_Other.c: 1209:   return(m_ID);
+"1210
+[; ;../Projects/src/key_and_Other.c: 1210:   return(m_ID);
 [e ) _m_ID ]
 [e $UE 594  ]
-"1210
-[; ;../Projects/src/key_and_Other.c: 1210: }
+"1211
+[; ;../Projects/src/key_and_Other.c: 1211: }
 [e :UE 594 ]
 }
-"1222
-[; ;../Projects/src/key_and_Other.c: 1222: void _SetRegistrationMode( unsigned char mode )
-[v __SetRegistrationMode `(v ~T0 @X0 1 ef1`uc ]
 "1223
-[; ;../Projects/src/key_and_Other.c: 1223: {
+[; ;../Projects/src/key_and_Other.c: 1223: void _SetRegistrationMode( unsigned char mode )
+[v __SetRegistrationMode `(v ~T0 @X0 1 ef1`uc ]
+"1224
+[; ;../Projects/src/key_and_Other.c: 1224: {
 {
 [e :U __SetRegistrationMode ]
-"1222
-[; ;../Projects/src/key_and_Other.c: 1222: void _SetRegistrationMode( unsigned char mode )
-[v _mode `uc ~T0 @X0 1 r1 ]
 "1223
-[; ;../Projects/src/key_and_Other.c: 1223: {
-[f ]
+[; ;../Projects/src/key_and_Other.c: 1223: void _SetRegistrationMode( unsigned char mode )
+[v _mode `uc ~T0 @X0 1 r1 ]
 "1224
-[; ;../Projects/src/key_and_Other.c: 1224:  if ( _GetRegMode() )
-[e $ ! != -> ( __GetRegMode ..  `i -> 0 `i 599  ]
+[; ;../Projects/src/key_and_Other.c: 1224: {
+[f ]
 "1225
-[; ;../Projects/src/key_and_Other.c: 1225:  {
-{
+[; ;../Projects/src/key_and_Other.c: 1225:  if ( _GetRegMode() )
+[e $ ! != -> ( __GetRegMode ..  `i -> 0 `i 599  ]
 "1226
-[; ;../Projects/src/key_and_Other.c: 1226:   return ;
-[e $UE 598  ]
+[; ;../Projects/src/key_and_Other.c: 1226:  {
+{
 "1227
-[; ;../Projects/src/key_and_Other.c: 1227:  }
+[; ;../Projects/src/key_and_Other.c: 1227:   return ;
+[e $UE 598  ]
+"1228
+[; ;../Projects/src/key_and_Other.c: 1228:  }
 }
 [e :U 599 ]
-"1229
-[; ;../Projects/src/key_and_Other.c: 1229:  m_RegMode = mode ;
+"1230
+[; ;../Projects/src/key_and_Other.c: 1230:  m_RegMode = mode ;
 [e = _m_RegMode _mode ]
-"1236
-[; ;../Projects/src/key_and_Other.c: 1236:  _IdClear() ;
+"1237
+[; ;../Projects/src/key_and_Other.c: 1237:  _IdClear() ;
 [e ( __IdClear ..  ]
-"1243
-[; ;../Projects/src/key_and_Other.c: 1243:  _ReqBuzzer(1000,1,0);
-[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "1244
-[; ;../Projects/src/key_and_Other.c: 1244:  m_TimerRegMode = 60000 ;
-[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+[; ;../Projects/src/key_and_Other.c: 1244:  _ReqBuzzer(1000,1,0);
+[e ( __ReqBuzzer (3 , , -> -> 1000 `i `ui -> -> 1 `i `uc -> -> 0 `i `uc ]
 "1245
-[; ;../Projects/src/key_and_Other.c: 1245: }
+[; ;../Projects/src/key_and_Other.c: 1245:  m_TimerRegMode = 60000 ;
+[e = _m_TimerRegMode -> -> 60000 `l `ui ]
+"1246
+[; ;../Projects/src/key_and_Other.c: 1246: }
 [e :UE 598 ]
 }
-"1246
-[; ;../Projects/src/key_and_Other.c: 1246: unsigned char _GetRegMode( void )
-[v __GetRegMode `(uc ~T0 @X0 1 ef ]
 "1247
-[; ;../Projects/src/key_and_Other.c: 1247: {
+[; ;../Projects/src/key_and_Other.c: 1247: unsigned char _GetRegMode( void )
+[v __GetRegMode `(uc ~T0 @X0 1 ef ]
+"1248
+[; ;../Projects/src/key_and_Other.c: 1248: {
 {
 [e :U __GetRegMode ]
 [f ]
-"1248
-[; ;../Projects/src/key_and_Other.c: 1248:  return( m_RegMode ) ;
+"1249
+[; ;../Projects/src/key_and_Other.c: 1249:  return( m_RegMode ) ;
 [e ) _m_RegMode ]
 [e $UE 600  ]
-"1249
-[; ;../Projects/src/key_and_Other.c: 1249: }
+"1250
+[; ;../Projects/src/key_and_Other.c: 1250: }
 [e :UE 600 ]
 }
-"1256
-[; ;../Projects/src/key_and_Other.c: 1256: void _IdClear( void )
-[v __IdClear `(v ~T0 @X0 1 ef ]
 "1257
-[; ;../Projects/src/key_and_Other.c: 1257: {
+[; ;../Projects/src/key_and_Other.c: 1257: void _IdClear( void )
+[v __IdClear `(v ~T0 @X0 1 ef ]
+"1258
+[; ;../Projects/src/key_and_Other.c: 1258: {
 {
 [e :U __IdClear ]
 [f ]
-"1258
-[; ;../Projects/src/key_and_Other.c: 1258:  register unsigned char i ;
+"1259
+[; ;../Projects/src/key_and_Other.c: 1259:  register unsigned char i ;
 [v _i `uc ~T0 @X0 1 A ]
-"1260
-[; ;../Projects/src/key_and_Other.c: 1260:  m_RegDigit = 0 ;
+"1261
+[; ;../Projects/src/key_and_Other.c: 1261:  m_RegDigit = 0 ;
 [e = _m_RegDigit -> -> 0 `i `uc ]
-"1262
-[; ;../Projects/src/key_and_Other.c: 1262:  for ( i=0; i<8; i++ )
+"1263
+[; ;../Projects/src/key_and_Other.c: 1263:  for ( i=0; i<8; i++ )
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 602  ]
 [e $U 603  ]
 [e :U 602 ]
-"1263
-[; ;../Projects/src/key_and_Other.c: 1263:  {
-{
 "1264
-[; ;../Projects/src/key_and_Other.c: 1264:   m_RegID[i] = '0' ;
-[e = *U + &U _m_RegID * -> _i `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+[; ;../Projects/src/key_and_Other.c: 1264:  {
+{
 "1265
-[; ;../Projects/src/key_and_Other.c: 1265:  }
+[; ;../Projects/src/key_and_Other.c: 1265:   m_RegID[i] = '0' ;
+[e = *U + &U _m_RegID * -> _i `ux -> -> # *U &U _m_RegID `ui `ux -> -> 48 `ui `uc ]
+"1266
+[; ;../Projects/src/key_and_Other.c: 1266:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 602  ]
 [e :U 603 ]
 }
-"1266
-[; ;../Projects/src/key_and_Other.c: 1266:  m_RegID[8] = 0 ;
+"1267
+[; ;../Projects/src/key_and_Other.c: 1267:  m_RegID[8] = 0 ;
 [e = *U + &U _m_RegID * -> -> -> 8 `i `ui `ux -> -> # *U &U _m_RegID `ui `ux -> -> 0 `i `uc ]
-"1268
-[; ;../Projects/src/key_and_Other.c: 1268: }
+"1269
+[; ;../Projects/src/key_and_Other.c: 1269: }
 [e :UE 601 ]
 }
-"1280
-[; ;../Projects/src/key_and_Other.c: 1280: void _SwIn( unsigned char sw )
-[v __SwIn `(v ~T0 @X0 1 ef1`uc ]
 "1281
-[; ;../Projects/src/key_and_Other.c: 1281: {
+[; ;../Projects/src/key_and_Other.c: 1281: void _SwIn( unsigned char sw )
+[v __SwIn `(v ~T0 @X0 1 ef1`uc ]
+"1282
+[; ;../Projects/src/key_and_Other.c: 1282: {
 {
 [e :U __SwIn ]
-"1280
-[; ;../Projects/src/key_and_Other.c: 1280: void _SwIn( unsigned char sw )
-[v _sw `uc ~T0 @X0 1 r1 ]
 "1281
-[; ;../Projects/src/key_and_Other.c: 1281: {
-[f ]
+[; ;../Projects/src/key_and_Other.c: 1281: void _SwIn( unsigned char sw )
+[v _sw `uc ~T0 @X0 1 r1 ]
 "1282
-[; ;../Projects/src/key_and_Other.c: 1282:  m_KeyNew<<= 1 ;
-[e =<< _m_KeyNew -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1282: {
+[f ]
 "1283
-[; ;../Projects/src/key_and_Other.c: 1283:  if ( sw )
-[e $ ! != -> _sw `i -> 0 `i 606  ]
+[; ;../Projects/src/key_and_Other.c: 1283:  m_KeyNew<<= 1 ;
+[e =<< _m_KeyNew -> -> 1 `i `uc ]
 "1284
-[; ;../Projects/src/key_and_Other.c: 1284:  {
-{
+[; ;../Projects/src/key_and_Other.c: 1284:  if ( sw )
+[e $ ! != -> _sw `i -> 0 `i 606  ]
 "1285
-[; ;../Projects/src/key_and_Other.c: 1285:   m_KeyNew |= 1 ;
-[e =| _m_KeyNew -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1285:  {
+{
 "1286
-[; ;../Projects/src/key_and_Other.c: 1286:  }
+[; ;../Projects/src/key_and_Other.c: 1286:   m_KeyNew |= 1 ;
+[e =| _m_KeyNew -> -> 1 `i `uc ]
+"1287
+[; ;../Projects/src/key_and_Other.c: 1287:  }
 }
 [e :U 606 ]
-"1287
-[; ;../Projects/src/key_and_Other.c: 1287: }
+"1288
+[; ;../Projects/src/key_and_Other.c: 1288: }
 [e :UE 605 ]
 }
-"1289
-[; ;../Projects/src/key_and_Other.c: 1289: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
-[v __ReqBuzzer `(v ~T0 @X0 1 ef3`ui`uc`uc ]
 "1290
-[; ;../Projects/src/key_and_Other.c: 1290: {
+[; ;../Projects/src/key_and_Other.c: 1290: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
+[v __ReqBuzzer `(v ~T0 @X0 1 ef3`ui`uc`uc ]
+"1291
+[; ;../Projects/src/key_and_Other.c: 1291: {
 {
 [e :U __ReqBuzzer ]
-"1289
-[; ;../Projects/src/key_and_Other.c: 1289: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
+"1290
+[; ;../Projects/src/key_and_Other.c: 1290: void _ReqBuzzer(unsigned int BEEP_on_SET,unsigned char BEEP_off_SET,unsigned char BEEP_freq_SET)
 [v _BEEP_on_SET `ui ~T0 @X0 1 r1 ]
 [v _BEEP_off_SET `uc ~T0 @X0 1 r2 ]
 [v _BEEP_freq_SET `uc ~T0 @X0 1 r3 ]
-"1290
-[; ;../Projects/src/key_and_Other.c: 1290: {
-[f ]
 "1291
-[; ;../Projects/src/key_and_Other.c: 1291:   if(FG_BAT==0){
+[; ;../Projects/src/key_and_Other.c: 1291: {
+[f ]
+"1292
+[; ;../Projects/src/key_and_Other.c: 1292:   if(FG_BAT==0){
 [e $ ! == -> _FG_BAT `i -> 0 `i 608  ]
 {
-"1292
-[; ;../Projects/src/key_and_Other.c: 1292:      BASE_TIME_BEEP_on=BEEP_on_SET;
-[e = _BASE_TIME_BEEP_on _BEEP_on_SET ]
 "1293
-[; ;../Projects/src/key_and_Other.c: 1293:      BASE_TIME_BEEP_off=BEEP_off_SET;
-[e = _BASE_TIME_BEEP_off _BEEP_off_SET ]
+[; ;../Projects/src/key_and_Other.c: 1293:      BASE_TIME_BEEP_on=BEEP_on_SET;
+[e = _BASE_TIME_BEEP_on _BEEP_on_SET ]
 "1294
-[; ;../Projects/src/key_and_Other.c: 1294:      TIME_BEEP_on=BASE_TIME_BEEP_on;
-[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
+[; ;../Projects/src/key_and_Other.c: 1294:      BASE_TIME_BEEP_off=BEEP_off_SET;
+[e = _BASE_TIME_BEEP_off _BEEP_off_SET ]
 "1295
-[; ;../Projects/src/key_and_Other.c: 1295:      TIME_BEEP_off=BASE_TIME_BEEP_off;
-[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
+[; ;../Projects/src/key_and_Other.c: 1295:      TIME_BEEP_on=BASE_TIME_BEEP_on;
+[e = _TIME_BEEP_on _BASE_TIME_BEEP_on ]
 "1296
-[; ;../Projects/src/key_and_Other.c: 1296:      TIME_BEEP_freq=BEEP_freq_SET;
-[e = _TIME_BEEP_freq _BEEP_freq_SET ]
+[; ;../Projects/src/key_and_Other.c: 1296:      TIME_BEEP_off=BASE_TIME_BEEP_off;
+[e = _TIME_BEEP_off _BASE_TIME_BEEP_off ]
 "1297
-[; ;../Projects/src/key_and_Other.c: 1297:   }
+[; ;../Projects/src/key_and_Other.c: 1297:      TIME_BEEP_freq=BEEP_freq_SET;
+[e = _TIME_BEEP_freq _BEEP_freq_SET ]
+"1298
+[; ;../Projects/src/key_and_Other.c: 1298:   }
 }
 [e :U 608 ]
-"1298
-[; ;../Projects/src/key_and_Other.c: 1298: }
+"1299
+[; ;../Projects/src/key_and_Other.c: 1299: }
 [e :UE 607 ]
 }
-"1328
-[; ;../Projects/src/key_and_Other.c: 1328: void test_mode_control(void)
-[v _test_mode_control `(v ~T0 @X0 1 ef ]
 "1329
-[; ;../Projects/src/key_and_Other.c: 1329: {
+[; ;../Projects/src/key_and_Other.c: 1329: void test_mode_control(void)
+[v _test_mode_control `(v ~T0 @X0 1 ef ]
+"1330
+[; ;../Projects/src/key_and_Other.c: 1330: {
 {
 [e :U _test_mode_control ]
 [f ]
-"1331
-[; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
+"1332
+[; ;../Projects/src/key_and_Other.c: 1332:  while(RC3==0){
 [e $U 610  ]
 [e :U 611 ]
 {
-"1332
-[; ;../Projects/src/key_and_Other.c: 1332:   ClearWDT();
+"1333
+[; ;../Projects/src/key_and_Other.c: 1333:   ClearWDT();
 [e ( _ClearWDT ..  ]
-"1376
-[; ;../Projects/src/key_and_Other.c: 1376:   if((RB4==0)&&(FG_KEY_OPEN==0)){
+"1377
+[; ;../Projects/src/key_and_Other.c: 1377:   if((RB4==0)&&(FG_KEY_OPEN==0)){
 [e $ ! && == -> _RB4 `i -> 0 `i == -> _FG_KEY_OPEN `i -> 0 `i 613  ]
 {
-"1377
-[; ;../Projects/src/key_and_Other.c: 1377:     FG_KEY_OPEN=1;
-[e = _FG_KEY_OPEN -> -> 1 `i `uc ]
 "1378
-[; ;../Projects/src/key_and_Other.c: 1378:     dd_set_ADF7021_Power_on_test();
-[e ( _dd_set_ADF7021_Power_on_test ..  ]
+[; ;../Projects/src/key_and_Other.c: 1378:     FG_KEY_OPEN=1;
+[e = _FG_KEY_OPEN -> -> 1 `i `uc ]
 "1379
-[; ;../Projects/src/key_and_Other.c: 1379:     dd_set_TX_mode();
-[e ( _dd_set_TX_mode ..  ]
+[; ;../Projects/src/key_and_Other.c: 1379:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
 "1380
-[; ;../Projects/src/key_and_Other.c: 1380:     FG_test_mode=0;
-[e = _FG_test_mode -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1380:     dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
 "1381
-[; ;../Projects/src/key_and_Other.c: 1381:     FLAG_ADF7021_DATA_tx=0;
-[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1381:     FG_test_mode=0;
+[e = _FG_test_mode -> -> 0 `i `uc ]
 "1382
-[; ;../Projects/src/key_and_Other.c: 1382:     RC0=0;
-[e = _RC0 -> -> 0 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1382:     FLAG_ADF7021_DATA_tx=0;
+[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
 "1383
-[; ;../Projects/src/key_and_Other.c: 1383:   }
+[; ;../Projects/src/key_and_Other.c: 1383:     RC0=0;
+[e = _RC0 -> -> 0 `i `b ]
+"1384
+[; ;../Projects/src/key_and_Other.c: 1384:   }
 }
 [e :U 613 ]
-"1384
-[; ;../Projects/src/key_and_Other.c: 1384:   if(RB4==1)FG_KEY_OPEN=0;
+"1385
+[; ;../Projects/src/key_and_Other.c: 1385:   if(RB4==1)FG_KEY_OPEN=0;
 [e $ ! == -> _RB4 `i -> 1 `i 614  ]
 [e = _FG_KEY_OPEN -> -> 0 `i `uc ]
 [e :U 614 ]
-"1386
-[; ;../Projects/src/key_and_Other.c: 1386:    if((RC4==0)&&(FG_KEY_STOP==0)){
+"1387
+[; ;../Projects/src/key_and_Other.c: 1387:    if((RC4==0)&&(FG_KEY_STOP==0)){
 [e $ ! && == -> _RC4 `i -> 0 `i == -> _FG_KEY_STOP `i -> 0 `i 615  ]
 {
-"1387
-[; ;../Projects/src/key_and_Other.c: 1387:     FG_KEY_STOP=1;
+"1388
+[; ;../Projects/src/key_and_Other.c: 1388:     FG_KEY_STOP=1;
 [e = _FG_KEY_STOP -> -> 1 `i `uc ]
-"1389
-[; ;../Projects/src/key_and_Other.c: 1389:     RC2=0;
-[e = _RC2 -> -> 0 `i `b ]
 "1390
-[; ;../Projects/src/key_and_Other.c: 1390:     FG_test_mode=0;
-[e = _FG_test_mode -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1390:     RC2=0;
+[e = _RC2 -> -> 0 `i `b ]
 "1391
-[; ;../Projects/src/key_and_Other.c: 1391:     FLAG_ADF7021_DATA_tx=0;
-[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1391:     FG_test_mode=0;
+[e = _FG_test_mode -> -> 0 `i `uc ]
 "1392
-[; ;../Projects/src/key_and_Other.c: 1392:     RC0=0;
-[e = _RC0 -> -> 0 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1392:     FLAG_ADF7021_DATA_tx=0;
+[e = _FLAG_ADF7021_DATA_tx -> -> 0 `i `uc ]
 "1393
-[; ;../Projects/src/key_and_Other.c: 1393:   }
+[; ;../Projects/src/key_and_Other.c: 1393:     RC0=0;
+[e = _RC0 -> -> 0 `i `b ]
+"1394
+[; ;../Projects/src/key_and_Other.c: 1394:   }
 }
 [e :U 615 ]
-"1394
-[; ;../Projects/src/key_and_Other.c: 1394:   if(RC4==1)FG_KEY_STOP=0;
+"1395
+[; ;../Projects/src/key_and_Other.c: 1395:   if(RC4==1)FG_KEY_STOP=0;
 [e $ ! == -> _RC4 `i -> 1 `i 616  ]
 [e = _FG_KEY_STOP -> -> 0 `i `uc ]
 [e :U 616 ]
-"1396
-[; ;../Projects/src/key_and_Other.c: 1396:   if((RA4==0)&&(FG_KEY_CLOSE==0)){
+"1397
+[; ;../Projects/src/key_and_Other.c: 1397:   if((RA4==0)&&(FG_KEY_CLOSE==0)){
 [e $ ! && == -> _RA4 `i -> 0 `i == -> _FG_KEY_CLOSE `i -> 0 `i 617  ]
 {
-"1397
-[; ;../Projects/src/key_and_Other.c: 1397:     FG_KEY_CLOSE=1;
-[e = _FG_KEY_CLOSE -> -> 1 `i `uc ]
 "1398
-[; ;../Projects/src/key_and_Other.c: 1398:     dd_set_ADF7021_Power_on_test();
-[e ( _dd_set_ADF7021_Power_on_test ..  ]
+[; ;../Projects/src/key_and_Other.c: 1398:     FG_KEY_CLOSE=1;
+[e = _FG_KEY_CLOSE -> -> 1 `i `uc ]
 "1399
-[; ;../Projects/src/key_and_Other.c: 1399:     dd_set_TX_mode();
-[e ( _dd_set_TX_mode ..  ]
+[; ;../Projects/src/key_and_Other.c: 1399:     dd_set_ADF7021_Power_on_test();
+[e ( _dd_set_ADF7021_Power_on_test ..  ]
 "1400
-[; ;../Projects/src/key_and_Other.c: 1400:     FG_test_mode=1;
-[e = _FG_test_mode -> -> 1 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1400:     dd_set_TX_mode();
+[e ( _dd_set_TX_mode ..  ]
 "1401
-[; ;../Projects/src/key_and_Other.c: 1401:   }
+[; ;../Projects/src/key_and_Other.c: 1401:     FG_test_mode=1;
+[e = _FG_test_mode -> -> 1 `i `uc ]
+"1402
+[; ;../Projects/src/key_and_Other.c: 1402:   }
 }
 [e :U 617 ]
-"1402
-[; ;../Projects/src/key_and_Other.c: 1402:   if(RA4==1)FG_KEY_CLOSE=0;
+"1403
+[; ;../Projects/src/key_and_Other.c: 1403:   if(RA4==1)FG_KEY_CLOSE=0;
 [e $ ! == -> _RA4 `i -> 1 `i 618  ]
 [e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
 [e :U 618 ]
-"1404
-[; ;../Projects/src/key_and_Other.c: 1404:   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
+"1405
+[; ;../Projects/src/key_and_Other.c: 1405:   if((RA2==1)&&(FG_test_mode==1)&&(FG_test1==0)){
 [e $ ! && && == -> _RA2 `i -> 1 `i == -> _FG_test_mode `i -> 1 `i == -> _FG_test1 `i -> 0 `i 619  ]
 {
-"1405
-[; ;../Projects/src/key_and_Other.c: 1405:     FLAG_ADF7021_DATA_tx=!FLAG_ADF7021_DATA_tx;
+"1406
+[; ;../Projects/src/key_and_Other.c: 1406:     FLAG_ADF7021_DATA_tx=!FLAG_ADF7021_DATA_tx;
 [e = _FLAG_ADF7021_DATA_tx -> -> ! != -> _FLAG_ADF7021_DATA_tx `i -> 0 `i `i `uc ]
-"1407
-[; ;../Projects/src/key_and_Other.c: 1407:      FG_test1=1;
-[e = _FG_test1 -> -> 1 `i `uc ]
 "1408
-[; ;../Projects/src/key_and_Other.c: 1408:   }
+[; ;../Projects/src/key_and_Other.c: 1408:      FG_test1=1;
+[e = _FG_test1 -> -> 1 `i `uc ]
+"1409
+[; ;../Projects/src/key_and_Other.c: 1409:   }
 }
 [e :U 619 ]
-"1409
-[; ;../Projects/src/key_and_Other.c: 1409:   if(RA2==0)FG_test1=0;
+"1410
+[; ;../Projects/src/key_and_Other.c: 1410:   if(RA2==0)FG_test1=0;
 [e $ ! == -> _RA2 `i -> 0 `i 620  ]
 [e = _FG_test1 -> -> 0 `i `uc ]
 [e :U 620 ]
-"1413
-[; ;../Projects/src/key_and_Other.c: 1413:  }
+"1414
+[; ;../Projects/src/key_and_Other.c: 1414:  }
 }
 [e :U 610 ]
-"1331
-[; ;../Projects/src/key_and_Other.c: 1331:  while(RC3==0){
+"1332
+[; ;../Projects/src/key_and_Other.c: 1332:  while(RC3==0){
 [e $ == -> _RC3 `i -> 0 `i 611  ]
 [e :U 612 ]
-"1414
-[; ;../Projects/src/key_and_Other.c: 1414:   UART1_end();
-[e ( _UART1_end ..  ]
 "1415
-[; ;../Projects/src/key_and_Other.c: 1415:   RB7=0;
-[e = _RB7 -> -> 0 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1415:   UART1_end();
+[e ( _UART1_end ..  ]
 "1416
-[; ;../Projects/src/key_and_Other.c: 1416:   RB5=0;
-[e = _RB5 -> -> 0 `i `b ]
+[; ;../Projects/src/key_and_Other.c: 1416:   RB7=0;
+[e = _RB7 -> -> 0 `i `b ]
 "1417
-[; ;../Projects/src/key_and_Other.c: 1417:   FG_KEY_OPEN=0;
-[e = _FG_KEY_OPEN -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1417:   RB5=0;
+[e = _RB5 -> -> 0 `i `b ]
 "1418
-[; ;../Projects/src/key_and_Other.c: 1418:   FG_KEY_STOP=0;
-[e = _FG_KEY_STOP -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1418:   FG_KEY_OPEN=0;
+[e = _FG_KEY_OPEN -> -> 0 `i `uc ]
 "1419
-[; ;../Projects/src/key_and_Other.c: 1419:   FG_KEY_CLOSE=0;
-[e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
+[; ;../Projects/src/key_and_Other.c: 1419:   FG_KEY_STOP=0;
+[e = _FG_KEY_STOP -> -> 0 `i `uc ]
 "1420
-[; ;../Projects/src/key_and_Other.c: 1420: }
+[; ;../Projects/src/key_and_Other.c: 1420:   FG_KEY_CLOSE=0;
+[e = _FG_KEY_CLOSE -> -> 0 `i `uc ]
+"1421
+[; ;../Projects/src/key_and_Other.c: 1421: }
 [e :UE 609 ]
 }

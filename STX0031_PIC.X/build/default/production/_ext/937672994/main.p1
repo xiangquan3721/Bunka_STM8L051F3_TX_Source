@@ -603,199 +603,195 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h: 7005: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
 "43 ../Projects/src/main.c
-[; ;../Projects/src/main.c: 43:               key_check();
+[; ;../Projects/src/main.c: 43:               ClearWDT();
 [p x FOSC = INTOSC ]
 "44
-[; ;../Projects/src/main.c: 44:               ClearWDT();
+[; ;../Projects/src/main.c: 44:             }
 [p x WDTE = OFF ]
 "45
-[; ;../Projects/src/main.c: 45:             }
-[p x PWRTE = ON ]
+[; ;../Projects/src/main.c: 45:           }
+[p x PWRTE = OFF ]
 "46
-[; ;../Projects/src/main.c: 46:           }
+[; ;../Projects/src/main.c: 46: 
 [p x MCLRE = OFF ]
 "47
-[; ;../Projects/src/main.c: 47: 
+[; ;../Projects/src/main.c: 47:  }
 [p x CP = OFF ]
 "48
-[; ;../Projects/src/main.c: 48:  }
+[; ;../Projects/src/main.c: 48: 
 [p x CPD = OFF ]
 "49
-[; ;../Projects/src/main.c: 49: 
+[; ;../Projects/src/main.c: 49:  }
 [p x BOREN = OFF ]
 "50
-[; ;../Projects/src/main.c: 50:  }
+[; ;../Projects/src/main.c: 50: 
 [p x CLKOUTEN = OFF ]
 "51
-[; ;../Projects/src/main.c: 51: 
+[; ;../Projects/src/main.c: 51: }
 [p x IESO = OFF ]
 "52
-[; ;../Projects/src/main.c: 52: }
+[; ;../Projects/src/main.c: 52: 
 [p x FCMEN = OFF ]
 "55
-[; ;../Projects/src/main.c: 55: void __attribute__((picinterrupt(("")))) ISR(void)
+[; ;../Projects/src/main.c: 55: {
 [p x WRT = OFF ]
 "56
-[; ;../Projects/src/main.c: 56: {
+[; ;../Projects/src/main.c: 56: 
 [p x PLLEN = OFF ]
 "57
-[; ;../Projects/src/main.c: 57: 
+[; ;../Projects/src/main.c: 57:  if(IOCIF==1)
 [p x STVREN = OFF ]
 "58
-[; ;../Projects/src/main.c: 58:  if(IOCIF==1)
+[; ;../Projects/src/main.c: 58:  {
 [p x BORV = LO ]
 "59
-[; ;../Projects/src/main.c: 59:  {
+[; ;../Projects/src/main.c: 59:    RC0=FLAG_ADF7021_DATA_tx;
 [p x LVP = OFF ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "62
-[; ;../Projects/src/main.c: 62:    IOCAF=0;
+[; ;../Projects/src/main.c: 62:    IOCIF=0;
 [v _main `(v ~T0 @X0 1 ef ]
 "63
-[; ;../Projects/src/main.c: 63:    IOCIF=0;
+[; ;../Projects/src/main.c: 63:  }
 {
 [e :U _main ]
 [f ]
-"64
-[; ;../Projects/src/main.c: 64:  }
-[v _aaa `ui ~T0 @X0 1 a ]
-[e = _aaa -> -> 0 `i `ui ]
-"66
-[; ;../Projects/src/main.c: 66:   if(TMR2IF==1)
+"65
+[; ;../Projects/src/main.c: 65:   if(TMR2IF==1)
 [e ( _VHF_GPIO_INIT ..  ]
-"67
-[; ;../Projects/src/main.c: 67:  {
+"66
+[; ;../Projects/src/main.c: 66:  {
 [e ( _WDT_init ..  ]
-"68
-[; ;../Projects/src/main.c: 68:      FG_1ms = 1;
+"67
+[; ;../Projects/src/main.c: 67:      FG_1ms = 1;
 [e ( _SysClock_Init ..  ]
-"69
-[; ;../Projects/src/main.c: 69:      TMR2IF=0;
+"68
+[; ;../Projects/src/main.c: 68:      TMR2IF=0;
 [e ( _EXIT_init ..  ]
-"70
-[; ;../Projects/src/main.c: 70:  }
+"69
+[; ;../Projects/src/main.c: 69:  }
 [e ( _InitialFlashReg ..  ]
-"71
-[; ;../Projects/src/main.c: 71: 
+"70
+[; ;../Projects/src/main.c: 70: 
 [e ( _eeprom_sys_load ..  ]
-"72
-[; ;../Projects/src/main.c: 72: }
+"71
+[; ;../Projects/src/main.c: 71: }
 [e ( __Init_RAM ..  ]
-"73
+"72
 [e ( _TIM4_Init ..  ]
-"74
+"73
 [e ( _START_AD_SAMPLER ..  ]
-"76
+"75
 [e = _PEIE -> -> 1 `i `b ]
-"77
+"76
 [e = _GIE -> -> 1 `i `b ]
-"78
+"77
 [e $U 378  ]
 [e :U 379 ]
 {
-"79
+"78
 [e = _RB7 -> -> 1 `i `b ]
-"80
+"79
 [e = _RB5 -> -> 1 `i `b ]
-"81
+"80
 [e ( _UART1_INIT ..  ]
-"82
+"81
 [e ( _test_mode_control ..  ]
-"83
+"82
 }
 [e :U 378 ]
-"78
+"77
 [e $ == -> _RC3 `i -> 0 `i 379  ]
 [e :U 380 ]
-"86
+"85
 [e = _TIME_power_on_AD -> -> 0 `i `ui ]
-"88
+"87
 [e :U 382 ]
-"89
+"88
 {
-"91
+"90
 [e ( _key_check ..  ]
-"92
+"91
 [e ( _time_control ..  ]
-"93
+"92
 [e ( _AD_control ..  ]
-"96
+"95
 [e $ ! && && && && == -> _TB_5s `i -> 0 `i == -> _m_KeyOptSetMode `i -> 0 `i == -> _FG_PWRON `i -> 1 `i != _key_Value -> -> 2 `i `ui == -> _FLAG_APP_TX `i -> 0 `i 384  ]
 {
-"97
+"96
 [e = _FG_PWRON -> -> 0 `i `uc ]
-"98
+"97
 [e = _RB7 -> -> 0 `i `b ]
-"99
+"98
 [e = _FG_10s -> -> 1 `i `uc ]
-"101
+"100
 [e :U 386 ]
 {
-"102
+"101
 [e $ ! == -> _FG_Complex_Single_shot `i -> 1 `i 388  ]
 [e ( _ClearWDT ..  ]
 [e $U 389  ]
-"103
+"102
 [e :U 388 ]
 [e $ ! && && == -> _FG_Complex_Single_shot `i -> 0 `i >= -> _m_KeyNo `i -> 1 `i <= -> _m_KeyNo `i -> 4 `i 390  ]
 {
-"104
+"103
 [e ( _key_check ..  ]
-"105
+"104
 [e ( _ClearWDT ..  ]
-"106
+"105
 }
 [e :U 390 ]
 [e :U 389 ]
-"107
+"106
 }
 [e :U 385 ]
 [e $U 386  ]
 [e :U 387 ]
-"109
+"108
 }
 [e :U 384 ]
-"111
+"110
 }
 [e :U 381 ]
 [e $U 382  ]
 [e :U 383 ]
-"113
+"112
 [e :UE 377 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"116
+"115
 [v _ISR `(v ~T1 @X0 1 ef ]
-"117
+"116
 {
 [e :U _ISR ]
 [f ]
-"119
+"118
 [e $ ! == -> _IOCIF `i -> 1 `i 392  ]
-"120
+"119
 {
-"121
+"120
 [e = _RC0 -> _FLAG_ADF7021_DATA_tx `b ]
-"122
+"121
 [e ( _EXTI_PORTA1 ..  ]
-"123
+"122
 [e = _IOCAF -> -> 0 `i `uc ]
-"124
+"123
 [e = _IOCIF -> -> 0 `i `b ]
-"125
+"124
 }
 [e :U 392 ]
-"127
+"126
 [e $ ! == -> _TMR2IF `i -> 1 `i 393  ]
-"128
+"127
 {
-"129
+"128
 [e = _FG_1ms -> -> 1 `i `uc ]
-"130
+"129
 [e = _TMR2IF -> -> 0 `i `b ]
-"131
+"130
 }
 [e :U 393 ]
-"133
+"132
 [e :UE 391 ]
 }
