@@ -1,7 +1,7 @@
 [p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
-[d chip 16F1829 ]
+[d chip 16LF1829 ]
 [d frameptr 6 ]
 "21 F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/ad.c
 [v _START_AD_SAMPLER START_AD_SAMPLER `(v  1 e 1 0 ]
@@ -303,7 +303,7 @@
 [v _FG_BAT FG_BAT `uc  1 e 1 0 ]
 "190
 [v _FG_Complex_Single_shot FG_Complex_Single_shot `uc  1 e 1 0 ]
-"968 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16f1829.h
+"968 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic16lf1829.h
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
 "988
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
@@ -323,61 +323,61 @@
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
 "3033
 [v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
-"3549
+"3601
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
-"3607
+"3659
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
-"3655
+"3707
 [v _WPUC WPUC `VEuc  1 e 1 @526 ]
-"5941
+"5993
 [v _IOCAP IOCAP `VEuc  1 e 1 @913 ]
-"5999
+"6051
 [v _IOCAN IOCAN `VEuc  1 e 1 @914 ]
-"6057
+"6109
 [v _IOCAF IOCAF `VEuc  1 e 1 @915 ]
-"7530
+"7582
 [v _FVRRDY FVRRDY `VEb  1 e 0 @2238 ]
-"7533
+"7585
 [v _GIE GIE `VEb  1 e 0 @95 ]
-"7545
+"7597
 [v _HFIOFR HFIOFR `VEb  1 e 0 @1236 ]
-"7704
+"7756
 [v _IOCIE IOCIE `VEb  1 e 0 @91 ]
-"7707
+"7759
 [v _IOCIF IOCIF `VEb  1 e 0 @88 ]
-"7944
+"7996
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
-"7992
+"8044
 [v _RA2 RA2 `VEb  1 e 0 @98 ]
-"7998
+"8050
 [v _RA4 RA4 `VEb  1 e 0 @100 ]
-"8001
+"8053
 [v _RA5 RA5 `VEb  1 e 0 @101 ]
-"8004
+"8056
 [v _RB4 RB4 `VEb  1 e 0 @108 ]
-"8007
+"8059
 [v _RB5 RB5 `VEb  1 e 0 @109 ]
-"8010
+"8062
 [v _RB6 RB6 `VEb  1 e 0 @110 ]
-"8013
+"8065
 [v _RB7 RB7 `VEb  1 e 0 @111 ]
-"8016
+"8068
 [v _RC0 RC0 `VEb  1 e 0 @112 ]
-"8022
+"8074
 [v _RC2 RC2 `VEb  1 e 0 @114 ]
-"8025
+"8077
 [v _RC3 RC3 `VEb  1 e 0 @115 ]
-"8028
+"8080
 [v _RC4 RC4 `VEb  1 e 0 @116 ]
-"8034
+"8086
 [v _RC6 RC6 `VEb  1 e 0 @118 ]
-"8037
+"8089
 [v _RC7 RC7 `VEb  1 e 0 @119 ]
-"8334
+"8386
 [v _TMR2IE TMR2IE `VEb  1 e 0 @1161 ]
-"8337
+"8389
 [v _TMR2IF TMR2IF `VEb  1 e 0 @137 ]
-"8568
+"8620
 [v _nWPUEN nWPUEN `VEb  1 e 0 @1199 ]
 "62 F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
 [v _main main `(v  1 e 1 0 ]

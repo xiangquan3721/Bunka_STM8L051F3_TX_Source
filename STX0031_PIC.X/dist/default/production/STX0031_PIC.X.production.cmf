@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+$C:\Users\Administrator\AppData\Local\Temp\s920.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 23 23 2 2
 config CONFIG 4 8007 8007 2 2
@@ -177,37 +177,37 @@ STRING 1021-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\STX0031_PIC.X.production.o
-25 cinit CODE >4029:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-25 cinit CODE >4032:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-25 cinit CODE >4326:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-26 cinit CODE >4330:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-27 cinit CODE >4331:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-28 cinit CODE >4332:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-29 cinit CODE >4333:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-2A cinit CODE >4334:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-2B cinit CODE >4335:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-2E cinit CODE >4339:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-2F cinit CODE >4340:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-30 cinit CODE >4341:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-31 cinit CODE >4342:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-32 cinit CODE >4343:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-33 cinit CODE >4344:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-36 cinit CODE >4348:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-37 cinit CODE >4349:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-38 cinit CODE >4350:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-39 cinit CODE >4351:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-3A cinit CODE >4352:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-3B cinit CODE >4353:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-3E cinit CODE >4357:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-3F cinit CODE >4358:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-40 cinit CODE >4359:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-41 cinit CODE >4360:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-42 cinit CODE >4361:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-43 cinit CODE >4362:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-46 cinit CODE >4368:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-46 cinit CODE >4370:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-47 cinit CODE >4371:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-48 cinit CODE >4372:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
+25 cinit CODE >4095:C:\Users\Administrator\AppData\Local\Temp\s920.s
+25 cinit CODE >4098:C:\Users\Administrator\AppData\Local\Temp\s920.s
+25 cinit CODE >4392:C:\Users\Administrator\AppData\Local\Temp\s920.s
+26 cinit CODE >4396:C:\Users\Administrator\AppData\Local\Temp\s920.s
+27 cinit CODE >4397:C:\Users\Administrator\AppData\Local\Temp\s920.s
+28 cinit CODE >4398:C:\Users\Administrator\AppData\Local\Temp\s920.s
+29 cinit CODE >4399:C:\Users\Administrator\AppData\Local\Temp\s920.s
+2A cinit CODE >4400:C:\Users\Administrator\AppData\Local\Temp\s920.s
+2B cinit CODE >4401:C:\Users\Administrator\AppData\Local\Temp\s920.s
+2E cinit CODE >4405:C:\Users\Administrator\AppData\Local\Temp\s920.s
+2F cinit CODE >4406:C:\Users\Administrator\AppData\Local\Temp\s920.s
+30 cinit CODE >4407:C:\Users\Administrator\AppData\Local\Temp\s920.s
+31 cinit CODE >4408:C:\Users\Administrator\AppData\Local\Temp\s920.s
+32 cinit CODE >4409:C:\Users\Administrator\AppData\Local\Temp\s920.s
+33 cinit CODE >4410:C:\Users\Administrator\AppData\Local\Temp\s920.s
+36 cinit CODE >4414:C:\Users\Administrator\AppData\Local\Temp\s920.s
+37 cinit CODE >4415:C:\Users\Administrator\AppData\Local\Temp\s920.s
+38 cinit CODE >4416:C:\Users\Administrator\AppData\Local\Temp\s920.s
+39 cinit CODE >4417:C:\Users\Administrator\AppData\Local\Temp\s920.s
+3A cinit CODE >4418:C:\Users\Administrator\AppData\Local\Temp\s920.s
+3B cinit CODE >4419:C:\Users\Administrator\AppData\Local\Temp\s920.s
+3E cinit CODE >4423:C:\Users\Administrator\AppData\Local\Temp\s920.s
+3F cinit CODE >4424:C:\Users\Administrator\AppData\Local\Temp\s920.s
+40 cinit CODE >4425:C:\Users\Administrator\AppData\Local\Temp\s920.s
+41 cinit CODE >4426:C:\Users\Administrator\AppData\Local\Temp\s920.s
+42 cinit CODE >4427:C:\Users\Administrator\AppData\Local\Temp\s920.s
+43 cinit CODE >4428:C:\Users\Administrator\AppData\Local\Temp\s920.s
+46 cinit CODE >4434:C:\Users\Administrator\AppData\Local\Temp\s920.s
+46 cinit CODE >4436:C:\Users\Administrator\AppData\Local\Temp\s920.s
+47 cinit CODE >4437:C:\Users\Administrator\AppData\Local\Temp\s920.s
+48 cinit CODE >4438:C:\Users\Administrator\AppData\Local\Temp\s920.s
 4 intentry CODE >115:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
 6 intentry CODE >118:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
 A intentry CODE >120:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
@@ -989,14 +989,14 @@ DFB maintext CODE >98:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka ST
 DFD maintext CODE >101:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
 E07 maintext CODE >102:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
 E17 maintext CODE >103:F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka STM8L051F3 TX Source/Projects/src/main.c
-939 clrtext CODE >4315:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-939 clrtext CODE >4316:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93A clrtext CODE >4317:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93A clrtext CODE >4318:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93B clrtext CODE >4319:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93C clrtext CODE >4320:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93D clrtext CODE >4321:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
-93E clrtext CODE >4322:C:\Users\Administrator\AppData\Local\Temp\s7k4.s
+939 clrtext CODE >4381:C:\Users\Administrator\AppData\Local\Temp\s920.s
+939 clrtext CODE >4382:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93A clrtext CODE >4383:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93A clrtext CODE >4384:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93B clrtext CODE >4385:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93C clrtext CODE >4386:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93D clrtext CODE >4387:C:\Users\Administrator\AppData\Local\Temp\s920.s
+93E clrtext CODE >4388:C:\Users\Administrator\AppData\Local\Temp\s920.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1044,12 +1044,12 @@ _TMR2 1A 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 _WPUC 20E 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+___sp 0 0 STACK 2 stack C:\Users\Administrator\AppData\Local\Temp\s920.o
 _main 1B48 0 CODE 0 maintext dist/default/production\STX0031_PIC.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 _SendTxData 1E4C 0 CODE 0 text30 dist/default/production\STX0031_PIC.X.production.o
 _EXIT_init 12CA 0 CODE 0 text54 dist/default/production\STX0031_PIC.X.production.o
-start 46 0 CODE 0 init C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+start 46 0 CODE 0 init C:\Users\Administrator\AppData\Local\Temp\s920.o
 _m_KeyCount 31 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
 _mb_OpenSw 30 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
@@ -1068,12 +1068,12 @@ _mb_RegSw 32 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production
 _m_TimerRegMode BE 0 BANK1 1 bssBANK1 dist/default/production\STX0031_PIC.X.production.o
 _FG_KEY_OPEN 2A 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
 _FG_KEY_STOP 28 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Administrator\AppData\Local\Temp\s920.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __end_of__GetRegMode FFE 0 CODE 0 text19 dist/default/production\STX0031_PIC.X.production.o
 __end_of_dd_write_7021_reg 1838 0 CODE 0 text27 dist/default/production\STX0031_PIC.X.production.o
@@ -1118,8 +1118,8 @@ _HFIOFR 4D4 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 __ReqBuzzer@BEEP_freq_SET 76 0 COMMON 1 cstackCOMMON dist/default/production\STX0031_PIC.X.production.o
 _VHF_GPIO_INIT 154A 0 CODE 0 text48 dist/default/production\STX0031_PIC.X.production.o
 __end_of_UnlockFlash 1272 0 CODE 0 text40 dist/default/production\STX0031_PIC.X.production.o
-___stackhi 23EF 0 ABS 0 - C:\Users\Administrator\AppData\Local\Temp\s7k4.o
-___stacklo 2118 0 ABS 0 - C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+___stackhi 23EF 0 ABS 0 - C:\Users\Administrator\AppData\Local\Temp\s920.o
+___stacklo 2118 0 ABS 0 - C:\Users\Administrator\AppData\Local\Temp\s920.o
 __end_of_InitialFlashReg 1266 0 CODE 0 text53 dist/default/production\STX0031_PIC.X.production.o
 __end_of__Pass3secKey 1458 0 CODE 0 text24 dist/default/production\STX0031_PIC.X.production.o
 __size_of__SwIn 0 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
@@ -1163,7 +1163,7 @@ __end_of__KeyInTx 746 0 CODE 0 text9 dist/default/production\STX0031_PIC.X.produ
 _InitialFlashReg 1264 0 CODE 0 text53 dist/default/production\STX0031_PIC.X.production.o
 SetFixedLengthCode@code 77 0 COMMON 1 cstackCOMMON dist/default/production\STX0031_PIC.X.production.o
 SetFixedLengthCode@data 76 0 COMMON 1 cstackCOMMON dist/default/production\STX0031_PIC.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+___int_sp 0 0 STACK 2 stack C:\Users\Administrator\AppData\Local\Temp\s920.o
 __ReqTxdEdit@buzreq 64 0 BANK0 1 cstackBANK0 dist/default/production\STX0031_PIC.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -1371,7 +1371,7 @@ _m_KeyDupliSetTimeout 22 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.
 _mb_RegStopSw 34 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
 _mb_CloseSw 2E 0 BANK0 1 bssBANK0 dist/default/production\STX0031_PIC.X.production.o
 __FuncAutoTxStart 4 0 CODE 0 text34 dist/default/production\STX0031_PIC.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Administrator\AppData\Local\Temp\s7k4.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Administrator\AppData\Local\Temp\s920.o
 __IdClear@i 74 0 COMMON 1 cstackCOMMON dist/default/production\STX0031_PIC.X.production.o
 __size_of___lmul 0 0 ABS 0 - dist/default/production\STX0031_PIC.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
