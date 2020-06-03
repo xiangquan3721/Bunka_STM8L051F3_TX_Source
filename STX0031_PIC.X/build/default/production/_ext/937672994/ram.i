@@ -4670,7 +4670,7 @@ unsigned char SIO_buff[16];
 unsigned char SIO_DATA[16];
 ADF70XX_REG_T ROM_adf7012_value[4];
 
-  const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x004059a6,0x0021d04f};
+  const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x004041a6,0x0021d04f};
 
 
 

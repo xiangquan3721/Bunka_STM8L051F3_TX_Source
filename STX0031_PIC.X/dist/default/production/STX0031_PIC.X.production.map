@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\STX0031_PIC.X.production.sym \
   --cmf=dist/default/production\STX0031_PIC.X.production.cmf -z -Q16F1829 \
-  -oC:\Users\Administrator\AppData\Local\Temp\s8bk.3 \
+  -oC:\Users\Administrator\AppData\Local\Temp\s7k4.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/STX0031_PIC.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=02118h-023EFh -pstack=STACK \
@@ -33,7 +33,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Administrator\AppData\Local\Temp\s8bk.o \
+  C:\Users\Administrator\AppData\Local\Temp\s7k4.o \
   dist/default/production\STX0031_PIC.X.production.o 
 
 Object code version is 3.11
@@ -43,7 +43,7 @@ Machine type is 16F1829
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Administrator\AppData\Local\Temp\s8bk.o
+C:\Users\Administrator\AppData\Local\Temp\s7k4.o
                 end_init                             23       23        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2        0       4
