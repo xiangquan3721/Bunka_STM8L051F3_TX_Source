@@ -30,10 +30,10 @@ void TIM3_init(void){			// 2015.3.11修正
         TIM3_CCMR2 = TIM3_CCMR2 | 0x70;
         TIM3_CCER1 = TIM3_CCER1 | 0x30;
 	TIM3_ARRH = 0x00;			
-	TIM3_ARRL = 0xC0;		    // 每1us × n产生一次中断
+	TIM3_ARRL = 0xFA;		    // 每1us × n产生一次中断
 	//TIM2_IER = 0x01;						// 允许更新中断
         TIM3_CCR2H= 0x00;
-        TIM3_CCR2L= 0x60;
+        TIM3_CCR2L= 0x7D;
         TIM3_PSCR = 0x02;				// fcpu经预分频f=fck/(2的PSCR次方)，即4MHz/4=1MHz
         //TIM3_EGR_bit.UG=1;
 	//TIM2_CR1 = 0x01;					// 计数器使能，开始计数
