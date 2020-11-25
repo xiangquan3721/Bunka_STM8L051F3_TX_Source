@@ -131,7 +131,7 @@ ADF70XX_REG_T ROM_adf7012_value[4];
 //const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209a6,0x0021d04f};
 //2015 03 05 曾工要求把发射功率默认值改为13 到15
 //const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x011209e6,0x0021d04f};
-const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x00154dc1,0x01120a46,0x0021d04f};    //无线壁挂修改天线，发射功率也对应的修改
+const ADF70XX_REG_T Default_adf7012_value[4]={0x088a000,0x00147c01,0x01911246,0x0021d08f};    //无线壁挂修改天线，发射功率也对应的修改
 //UINT16 BAT_value;
 
 
