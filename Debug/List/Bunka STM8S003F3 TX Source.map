@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR ELF Linker V1.31.1.50058 for STM8                 25/Nov/2020  15:13:24 #
+# IAR ELF Linker V1.31.1.50058 for STM8                 28/Dec/2020  16:26:31 #
 # Copyright 2010-2012 IAR Systems AB.                                         #
 #                                                                             #
 #    Output file  =  F:\Source Code\bunka-s\Bunka STM8L051F3 TX Source\Bunka  #
@@ -66,7 +66,6 @@ __rt_version               = 4
 Ranges reserved by absolute symbols:
    [0x005053-0x005053]
    [0x0050c8-0x0050c8]
-   [0x0050e2-0x0050e2]
    [0x005231-0x005231]
 
 
@@ -515,7 +514,6 @@ ID_data                   0x0000f5    0x4  Data  Gb  ram.o [1]
 ID_data_add               0x0000f9    0x4  Data  Gb  ram.o [1]
 INTVEC$$Base              0x008000          --   Gb  - Linker created -
 INTVEC$$Limit             0x008080          --   Gb  - Linker created -
-IWDG_RLR {Abs}          0x000050e2    0x1  Data  Wk  initial.o [1]
 InitialFlashReg           0x009fb7   0x11  Code  Gb  eeprom.o [1]
 KEY_stop_count            0x00016a    0x1  Data  Gb  ram.o [1]
 LCD_AES_IRQHandler        0x00a07e    0x1  Code  Gb  stm8l15x_it.o [1]

@@ -25,10 +25,15 @@ void RAM_clean(void)      // Çå³ýRAM
 
 void WDT_init(void)
 {
+//  IWDG_KR=0x55;
+//  IWDG_PR=3;
+//  IWDG_RLR=0xFF;
+//  IWDG_KR=0xCC;
+  
+  IWDG_KR=0xCC;
   IWDG_KR=0x55;
   IWDG_PR=3;
-  IWDG_RLR=0xFF;
-  IWDG_KR=0xCC;
+  IWDG_KR=0xAA;
 }
 void ClearWDT(void)
 {
