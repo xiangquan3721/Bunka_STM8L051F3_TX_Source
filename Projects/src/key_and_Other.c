@@ -702,17 +702,16 @@ uchar	_GetNoPushState( void )
 void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 {
   UINT8 time_key;
-  if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){      //计算剩余的时间，总共时间不能超过69，以25为间隔。
+  if((TB_sum_5s<64)&&(FG_PWRON==1)&&(TB_5s<25)){      //计算剩余的时间，总共时间不能超过69，以25为间隔。
     time_key=25-TB_5s;
     TB_sum_5s=TB_sum_5s+time_key;
-    if((69-TB_sum_5s)>=27)TB_5s=25;
+    if((64-TB_sum_5s)>=27)TB_5s=25;
     
   }
   if((TB_5s>=25)||(TIME_2s_RestTX==0)){   //2015.4.13修正
         if(FG_PWRON==0){
 	FG_PWRON=1;
 	PIN_POWER_CONTROL=1;
-	TB_5s=TB_51s;//51;  //5.1秒
         }
   	switch	( txreq )    // Jumo to key function
 	{

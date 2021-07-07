@@ -151,7 +151,7 @@ void _Init_RAM(void)
 {
   TB_100ms = BASE_100ms;
   //TB_5s=TB_50s;//50;
-  TB_51s=26;//69;
+  TB_51s=31;//69;
   TB_5s=TB_51s-1;
   
   	/*		Timer		*/
