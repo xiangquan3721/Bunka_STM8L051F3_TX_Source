@@ -33,6 +33,8 @@
 #include "key_and_Other.h"		// °´¼ü
 #include "uart.h"		// uart
 #include "ad.h"		// uart
+#include "uart_handle.h"
+
 /** @addtogroup STM8L15x_StdPeriph_Template
   * @{
   */
@@ -399,12 +401,20 @@ INTERRUPT_HANDLER(USART1_TX_TIM5_UPD_OVF_TRG_BRK_IRQHandler,27)
   * @param  None
   * @retval None
   */
+extern uint8_t  Flag_uart_handle;
 INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 {
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
+  if(Flag_uart_handle == 0)
+  {
   UART1_RX_RXNE();
+  }
+  else
+  {
+  UART1_RX_RXNE_handle();  
+  }
 }
 
 /**

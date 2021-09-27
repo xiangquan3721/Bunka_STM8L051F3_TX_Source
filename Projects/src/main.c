@@ -32,6 +32,7 @@
 #include "eeprom.h"		// eeprom
 #include "uart.h"		// uart
 #include "ad.h"		        // AD
+#include "uart_handle.h"
 
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
@@ -57,6 +58,8 @@ void main(void)
     _EI();    
     test_mode_control();
     }
+    
+    UART1_INIT_handle();
   _EI();		// 允许中断	
   //beep_init();  //2015.3.11修正
 
@@ -68,6 +71,7 @@ void main(void)
 	key_check();
 	time_control();
 	AD_control();
+        Uart_handle();
         
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
         if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0)){  //2015.4.13修正
