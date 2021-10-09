@@ -108,10 +108,12 @@ void Uart_handle(void)
               case 0x01://open
                PIN_KEY_OPEN_UART = 0;
                time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
                break;
               //case :
               // break;
                default:
+                 COMM_STEP = COMM_FAIL;
               break;
             }
             }
