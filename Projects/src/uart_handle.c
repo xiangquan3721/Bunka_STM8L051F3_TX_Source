@@ -5,9 +5,24 @@
 #include "uart.h"		// uart
 #include "eeprom.h"		// eeprom
 #include "adf7012.h"		// RF IC
+#include "uart_handle.h"
+
+UINT32 get_timego(UINT32 x_data_his);
 
 unsigned char   Flag_uart_handle = 0;
 
+#define RX_BUFF_MAX 32
+#define TX_BUFF_MAX_UART 5
+
+UINT8  UART_RX_BUFF[RX_BUFF_MAX];
+UINT8  UART_TX_BUFF_NEW[TX_BUFF_MAX_UART];
+static UINT8  RX_COUNT_IN = 0;
+static UINT8  RX_COUNT_OUT = 0;
+//static UINT8  TX_COUNT_IN = 0;
+//static UINT8  TX_COUNT_OUT = 0;
+COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
+UINT32 timeuart,time_keylevel;
+extern UINT32  time1ms_count ;
 //9600 e 8 1
 
 void UART1_INIT_handle(void)
@@ -24,16 +39,148 @@ void UART1_INIT_handle(void)
 	//USART1_CR2 = 0x08;	// 允许发送
         USART1_CR2 = 0x24;    // 允许接收及其中断
         Flag_uart_handle = 1;
-
+        
+        RX_COUNT_IN = 0;
+	RX_COUNT_OUT = 0;
+	//TX_COUNT_IN = 0;
+	//TX_COUNT_OUT = 0;
+        COMM_STEP=COMM_IDLE;
 }
  
 void UART1_RX_RXNE_handle(void)
 {
-     ;
+    unsigned char dat;
+	dat = USART1_DR;
+     if(((RX_COUNT_IN+1)%RX_BUFF_MAX)!=RX_COUNT_OUT)//
+     {
+		        timeuart = time1ms_count;
+                        UART_RX_BUFF[RX_COUNT_IN%RX_BUFF_MAX]=dat;
+			RX_COUNT_IN++;
+			if(RX_COUNT_IN >= RX_BUFF_MAX)
+			{
+				RX_COUNT_IN = 0;
+			}
+
+    }
 }
+
+UINT16 GET_READNUM(void)
+{
+	UINT16 Tp_number=0;
+	if(RX_COUNT_OUT > RX_COUNT_IN)     
+        {					
+	     		 Tp_number = RX_COUNT_IN + RX_BUFF_MAX - RX_COUNT_OUT ;
+				}					
+				else
+				{
+					Tp_number = RX_COUNT_IN - RX_COUNT_OUT;
+				}
+	return  Tp_number;
+}
+
+
 
 void Uart_handle(void)
 {
-     ;
+     static unsigned char dat[4]={0};
+     unsigned char  Tp_i;
+    switch(COMM_STEP)
+     {
+     case COMM_IDLE:
+       if(GET_READNUM()==4)
+       {
+        for(Tp_i=0;Tp_i<4;Tp_i++)
+        {
+         dat[Tp_i] = UART_RX_BUFF[RX_COUNT_OUT];
+         RX_COUNT_OUT = (RX_COUNT_OUT+1)%RX_BUFF_MAX;
+        }
+        
+        if((dat[0]==0x3)&&(dat[1]==0x2)&&((dat[0]+dat[1]+dat[2])==dat[3]))
+        {
+            if(FG_10s==1)
+            {
+              COMM_STEP = COMM_NACK;
+            }
+            else
+            {
+            switch(dat[2])
+            {
+              case 0x01://open
+               PIN_KEY_OPEN_UART = 0;
+               time_keylevel = time1ms_count;
+               break;
+              //case :
+              // break;
+               default:
+              break;
+            }
+            }
+        }
+        else
+        {
+          COMM_STEP = COMM_FAIL;
+        }
+        
+       }
+       else if(GET_READNUM()>4)
+       {
+         COMM_STEP = COMM_FAIL;
+       }
+       else if((GET_READNUM()<4)&&(GET_READNUM()!=0))
+       {
+         if(get_timego(timeuart)>1000)
+         {
+            COMM_STEP = COMM_FAIL;
+         }
+       }
+         
+       
+       break;
+     case COMM_FAIL:
+       UART_TX_BUFF_NEW[0]=0x03;
+       UART_TX_BUFF_NEW[1]=0x03;
+       UART_TX_BUFF_NEW[2]=0x01;
+       UART_TX_BUFF_NEW[3]=0x00;
+       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
+       for(Tp_i=0;Tp_i<5;Tp_i++)
+       {
+          Send_char(UART_TX_BUFF_NEW[Tp_i]);
+       }
+       RX_COUNT_OUT = RX_COUNT_IN;
+        COMM_STEP=COMM_IDLE;
+       break;
+     case COMM_ACK:
+       if(get_timego(time_keylevel)>20)
+       {
+       PIN_KEY_OPEN_UART = 1;
+       UART_TX_BUFF_NEW[0]=0x03;
+       UART_TX_BUFF_NEW[1]=0x03;
+       UART_TX_BUFF_NEW[2]=0x00;
+       UART_TX_BUFF_NEW[3]=dat[2];
+       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
+       for(Tp_i=0;Tp_i<5;Tp_i++)
+       {
+          Send_char(UART_TX_BUFF_NEW[Tp_i]);
+       }
+       RX_COUNT_OUT = RX_COUNT_IN;
+        COMM_STEP=COMM_IDLE;
+       }
+       break;
+      case COMM_NACK:
+       UART_TX_BUFF_NEW[0]=0x03;
+       UART_TX_BUFF_NEW[1]=0x03;
+       UART_TX_BUFF_NEW[2]=0x01;
+       UART_TX_BUFF_NEW[3]=dat[2];
+       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
+       for(Tp_i=0;Tp_i<5;Tp_i++)
+       {
+          Send_char(UART_TX_BUFF_NEW[Tp_i]);
+       }
+       RX_COUNT_OUT = RX_COUNT_IN;
+        COMM_STEP=COMM_IDLE;
+       break; 
+     default:
+       break;
+     }
 
 }

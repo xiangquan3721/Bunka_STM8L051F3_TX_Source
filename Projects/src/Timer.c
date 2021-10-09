@@ -24,6 +24,7 @@
 //void TIM1_OVR_UIF(void){        
 //	TIM1_SR1 = 0;						// 清除中断标记
 //}
+UINT32  time1ms_count = 0;
 
 
 void TIM3_init(void){			// 2015.3.11修正
@@ -54,6 +55,7 @@ void TIM4_Init(void){
 }
 
 void TIM4_UPD_OVF(void){
+        time1ms_count++;
         FG_1ms = 1;
 	if (TB_100ms)	--TB_100ms;
         else{                            
@@ -63,7 +65,19 @@ void TIM4_UPD_OVF(void){
 	TIM4_SR1_bit.UIF=0;						// 清除中断标记
 }
 
-
+UINT32 get_timego(UINT32 x_data_his)
+{
+	UINT32 time_pass=0;
+	if(time1ms_count >= x_data_his)
+	{
+		time_pass = time1ms_count - x_data_his;
+	}
+	else
+	{
+		time_pass = time1ms_count + 0xffffffff - x_data_his + 1;
+	}
+	return time_pass;
+}
 ////%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   0.244ms
 //void TIM4_Init(void){				
 //	TIM4_PSCR = 0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方

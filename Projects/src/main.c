@@ -83,6 +83,7 @@ void main(void)
             if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT 
             else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
               key_check();
+              Uart_handle();
               ClearWDT(); // Service the WDT 
             }     
           }
