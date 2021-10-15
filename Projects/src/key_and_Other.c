@@ -18,6 +18,8 @@
 #include "ad.h"		// ad
 #include "Timer.h"		// ¶¨Ê±Æ÷
 
+extern UINT8 Flag_UART_OPEN;
+
 void key_check(void)
 {
 //    if (TB_100ms)--TB_100ms;
@@ -157,7 +159,8 @@ void	_KeyInTx( void )
         if(BAT_out==2)return;
 		
 	/*	Registration sw		*/
-	_SwIn( PIN_KEY_OPEN ) ;
+	//_SwIn( PIN_KEY_OPEN ) ;
+        _SwIn(Flag_UART_OPEN);
 	/*	Auto Tx Start sw		*/
 	_SwIn( PIN_KEY_STOP ) ;
 	/*	Auto Tx Stop sw		*/

@@ -22,7 +22,7 @@
 #define ADF7021_DATA_CLK        PB_IDR_IDR4     // 输入   调制同步时钟线
 
 #define	PIN_KEY_OPEN		PA_IDR_IDR2   	// 输入  OPEN键
-#define PIN_KEY_OPEN_UART       PA_ODR_ODR2
+//#define PIN_KEY_OPEN_UART       PA_ODR_ODR2
 #define	PIN_KEY_STOP		PA_IDR_IDR3     // 输入  STOP键
 #define	PIN_KEY_CLOSE		PA_IDR_IDR0     // 输入  CLOSE键    //2015.3.11修正
 #define PIN_KEY_VENT            PC_IDR_IDR1     // 输入  换气键

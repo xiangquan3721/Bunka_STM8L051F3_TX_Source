@@ -23,17 +23,18 @@ static UINT8  RX_COUNT_OUT = 0;
 COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
 UINT32 timeuart,time_keylevel;
 extern UINT32  time1ms_count ;
+UINT8 Flag_UART_OPEN=1;
 //9600 e 8 1
 
 void UART1_INIT_handle(void)
 {	
   
-        USART1_CR1 = 0x04;							// 1个起始位,8个数据位 
-	USART1_CR3 = 0;							// 1个停止位 
+        USART1_CR1 = 0x04;//0x04;							// 1个起始位,8个数据位 
+	USART1_CR3 = 0x00;							// 1个停止位 
 	USART1_CR4 = 0;
-	USART1_CR5 = 0x00;//0x08;						// 半双工模式
+	USART1_CR5 = 0x00;						// 半双工模式
 	USART1_BRR2 = 0x01;						// 设置波特率9600
-	USART1_BRR1 = 0x1A;						// 3.6864M/9600 = 0x180
+	USART1_BRR1 = 0x1A;//0x1A;						// 3.6864M/9600 = 0x180
 	                                                                //16.00M/9600 = 0x683
 	                                                               //4.00M/9600 = 0x1a1
 	//USART1_CR2 = 0x08;	// 允许发送
@@ -106,7 +107,7 @@ void Uart_handle(void)
             switch(dat[2])
             {
               case 0x01://open
-               PIN_KEY_OPEN_UART = 0;
+               Flag_UART_OPEN = 0;
                time_keylevel = time1ms_count;
                COMM_STEP = COMM_ACK;
                break;
@@ -130,7 +131,7 @@ void Uart_handle(void)
        }
        else if((GET_READNUM()<4)&&(GET_READNUM()!=0))
        {
-         if(get_timego(timeuart)>1000)
+         if(get_timego(timeuart)>200)
          {
             COMM_STEP = COMM_FAIL;
          }
@@ -152,17 +153,22 @@ void Uart_handle(void)
         COMM_STEP=COMM_IDLE;
        break;
      case COMM_ACK:
-       if(get_timego(time_keylevel)>20)
+       if(get_timego(time_keylevel)>150)
        {
-       PIN_KEY_OPEN_UART = 1;
+       Flag_UART_OPEN = 1;
        UART_TX_BUFF_NEW[0]=0x03;
+       
        UART_TX_BUFF_NEW[1]=0x03;
+       
        UART_TX_BUFF_NEW[2]=0x00;
+       
        UART_TX_BUFF_NEW[3]=dat[2];
+       
        UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
-       for(Tp_i=0;Tp_i<5;Tp_i++)
-       {
-          Send_char(UART_TX_BUFF_NEW[Tp_i]);
+       
+      for(Tp_i=0;Tp_i<5;Tp_i++)
+      {
+         Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
        RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP=COMM_IDLE;
