@@ -67,7 +67,19 @@ volatile union{
 	}BIT; 	
 }RAM_SW;
 
-
+volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_UART;
 
 UINT8 TB_51s;
 UINT8 TB_sum_5s;

@@ -23,7 +23,7 @@ static UINT8  RX_COUNT_OUT = 0;
 COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
 UINT32 timeuart,time_keylevel;
 extern UINT32  time1ms_count ;
-UINT8 Flag_UART_OPEN=1;
+//UINT8 Flag_UART_OPEN=1;
 //9600 e 8 1
 
 void UART1_INIT_handle(void)
@@ -83,7 +83,8 @@ UINT16 GET_READNUM(void)
 
 void Uart_handle(void)
 {
-     static unsigned char dat[4]={0};
+#ifdef NEWFUN_ADD
+  static unsigned char dat[4]={0};
      unsigned char  Tp_i;
     switch(COMM_STEP)
      {
@@ -111,6 +112,65 @@ void Uart_handle(void)
                time_keylevel = time1ms_count;
                COMM_STEP = COMM_ACK;
                break;
+              case 0x02:
+                Flag_UART_STOP = 0;
+                time_keylevel = time1ms_count;
+                COMM_STEP = COMM_ACK;
+               break;
+             case 0x03:
+               Flag_UART_CLOSE = 0;
+               time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+              break;
+             case 0x04:
+                Flag_UART_OPEN = 0;
+                 Flag_UART_STOP = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+              break; 
+              case 0x05:
+                 Flag_UART_CLOSE = 0;
+                 Flag_UART_STOP = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x06:
+                 Flag_UART_CLOSE = 0;
+                 Flag_UART_OPEN = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x07:
+                 Flag_UART_REG = 0;
+                 Flag_UART_OPEN = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x08:
+                 Flag_UART_REG = 0;
+                 Flag_UART_STOP = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x09:
+                 Flag_UART_REG = 0;
+                 Flag_UART_CLOSE = 0;
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x0A:
+                 Flag_UART_ONEPOINT = 0;
+                 
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               case 0x0B:
+                 Flag_UART_STARTUP = 0;
+                 
+                 time_keylevel = time1ms_count;
+               COMM_STEP = COMM_ACK;
+               break;
+               
               //case :
               // break;
                default:
@@ -155,7 +215,13 @@ void Uart_handle(void)
      case COMM_ACK:
        if(get_timego(time_keylevel)>150)
        {
-       Flag_UART_OPEN = 1;
+       Flag_UART_OPEN =1;
+        Flag_UART_STOP =1;
+        Flag_UART_CLOSE = 1;
+        Flag_UART_REG =1;
+        Flag_UART_ONEPOINT = 1;
+        Flag_UART_STARTUP = 1;
+       
        UART_TX_BUFF_NEW[0]=0x03;
        
        UART_TX_BUFF_NEW[1]=0x03;
@@ -190,5 +256,5 @@ void Uart_handle(void)
      default:
        break;
      }
-
+#endif
 }

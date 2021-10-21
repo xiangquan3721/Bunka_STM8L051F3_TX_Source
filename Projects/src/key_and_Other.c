@@ -18,7 +18,7 @@
 #include "ad.h"		// ad
 #include "Timer.h"		// ¶¨Ê±Æ÷
 
-extern UINT8 Flag_UART_OPEN;
+
 
 void key_check(void)
 {
@@ -157,23 +157,28 @@ void	_KeyInTx( void )
         
 	m_KeyNew = 0xFF ;
         if(BAT_out==2)return;
+        
+        
+        _SwIn( Flag_UART_STARTUP ) ;
 		
 	/*	Registration sw		*/
 	//_SwIn( PIN_KEY_OPEN ) ;
         _SwIn(Flag_UART_OPEN);
 	/*	Auto Tx Start sw		*/
-	_SwIn( PIN_KEY_STOP ) ;
+	_SwIn( Flag_UART_STOP ) ;
 	/*	Auto Tx Stop sw		*/
-	_SwIn( PIN_KEY_CLOSE ) ;
+	_SwIn( Flag_UART_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
-	_SwIn( PIN_KEY_VENT ) ;	
+	_SwIn( Flag_UART_ONEPOINT ) ;	
 	//_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
-	_SwIn( PIN_KEY_LOGIN ) ;	
+	_SwIn( Flag_UART_REG ) ;	
 	/*	Auto Tx Auto Tx Start sw		*/
 	_SwIn( 1 ) ;	
 	/*	Auto TxAuto Tx Stop sw		*/
-	_SwIn( 1 ) ;	
+	_SwIn( 1 ) ;
+
+        	
 	
         
 	if	( m_KeyNew != m_KeyOld )				// Key in
@@ -1326,7 +1331,7 @@ void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
 
 
 
-
+#ifndef TESTMODE_DEL
 void test_mode_control(void)
 {
 
@@ -1375,3 +1380,4 @@ void test_mode_control(void)
   FG_KEY_STOP=0;
   FG_KEY_CLOSE=0;  
 }
+#endif

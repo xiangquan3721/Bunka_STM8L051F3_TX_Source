@@ -112,6 +112,30 @@ extern volatile union{
 	#define 	FG_Complex_Single_shot	RAM_SW.BIT.Bit7	//2015.1.31ÐÞÕý2
 	//************************************************
 
+extern volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_UART;
+         #define Flag_UART_OPEN RAM_UART.BIT.Bit0
+         #define Flag_UART_STOP RAM_UART.BIT.Bit1
+         #define Flag_UART_CLOSE RAM_UART.BIT.Bit2
+         #define Flag_UART_REG   RAM_UART.BIT.Bit3
+         #define Flag_UART_ONEPOINT   RAM_UART.BIT.Bit4
+         #define Flag_UART_STARTUP   RAM_UART.BIT.Bit5
+         
+         
+         
+         
+
 
 #define BASE_100ms	 100
 #define BASE_976us	 3

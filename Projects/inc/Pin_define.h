@@ -95,7 +95,7 @@
 #define PIN_KEY_VENT_CR1        PC_CR1_C11     // 输入  换气键
 //#define	PIN_KEY_CLOSE_CR1	PD_CR1_C14     // 输入  CLOSE键
 //#define	PIN_KEY_LOGIN_CR1	PB_CR1_C17     // 输入  LOGIN键
-#define	PIN_KEY_LOGIN_CR1	PC_CR1_C16     // 输入  LOGIN键
+#define	PIN_KEY_LOGIN_CR1	PB_CR1_C17     // 输入  LOGIN键
 #define	PIN_UART_TX_CR1		PC_CR1_C15     // Output  uart TX
 
 //#define PIN_LED_CR1           PD_CR1_C10     // Output   LED灯

@@ -69,7 +69,7 @@
                 </option>
                 <option>
                     <name>GenLibInFormatterDescription</name>
-                    <state>No specifier n, no float, no scan set, no assignment suppressing.</state>
+                    <state>Full formatting, without multibytes.</state>
                 </option>
                 <option>
                     <name>GenLibOutFormatter</name>
@@ -78,7 +78,7 @@
                 </option>
                 <option>
                     <name>GenLibOutFormatterDescription</name>
-                    <state>No specifier a or A, no specifier n, no float.</state>
+                    <state>Full formatting, without multibytes.</state>
                 </option>
                 <option>
                     <name>GenStackSize</name>
@@ -117,7 +117,7 @@
                 </option>
                 <option>
                     <name>GenMathFunctionDescription</name>
-                    <state></state>
+                    <state>Default variants of cos, sin, tan, log, log10, pow, and exp.</state>
                 </option>
             </data>
         </settings>
@@ -189,6 +189,8 @@
                 <option>
                     <name>CCDefines</name>
                     <state>STM8L051</state>
+                    <state>TESTMODE_DEL</state>
+                    <state>NEWFUN_ADD</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -818,7 +820,7 @@
                 <debug>0</debug>
                 <option>
                     <name>GenDeviceSelectMenu</name>
-                    <state></state>
+                    <state>UnspecifiedSTM8	STM8 - Unspecified</state>
                 </option>
                 <option>
                     <name>GenCodeModel</name>
@@ -858,11 +860,11 @@
                 </option>
                 <option>
                     <name>GenRTDescription</name>
-                    <state></state>
+                    <state>Use the normal configuration of the C/EC++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
                 </option>
                 <option>
                     <name>GenRTConfigPath</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$\LIB\dlstm8smn.h</state>
                 </option>
                 <option>
                     <name>GenLibInFormatter</name>
@@ -871,7 +873,7 @@
                 </option>
                 <option>
                     <name>GenLibInFormatterDescription</name>
-                    <state></state>
+                    <state>Full formatting, without multibytes.</state>
                 </option>
                 <option>
                     <name>GenLibOutFormatter</name>
@@ -880,15 +882,15 @@
                 </option>
                 <option>
                     <name>GenLibOutFormatterDescription</name>
-                    <state></state>
+                    <state>Full formatting, without multibytes.</state>
                 </option>
                 <option>
                     <name>GenStackSize</name>
-                    <state>###Uninitialized###</state>
+                    <state>0x100</state>
                 </option>
                 <option>
                     <name>GenHeapSize</name>
-                    <state>###Uninitialized###</state>
+                    <state>0x100</state>
                 </option>
                 <option>
                     <name>GeneralEnableMisra</name>
@@ -919,7 +921,7 @@
                 </option>
                 <option>
                     <name>GenMathFunctionDescription</name>
-                    <state></state>
+                    <state>Default variants of cos, sin, tan, log, log10, pow, and exp.</state>
                 </option>
             </data>
         </settings>
@@ -957,7 +959,7 @@
                 </option>
                 <option>
                     <name>IccOptLevelSlave</name>
-                    <state>1</state>
+                    <state>3</state>
                 </option>
                 <option>
                     <name>IccOptAllowList</name>
@@ -970,7 +972,7 @@
                 </option>
                 <option>
                     <name>IccOutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>IccCodeModel</name>
@@ -991,6 +993,8 @@
                 <option>
                     <name>CCDefines</name>
                     <state>NDEBUG</state>
+                    <state>NEWFUN_ADD</state>
+                    <state>TESTMODE_DEL</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -1058,7 +1062,8 @@
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\Projects\inc</state>
+                    <state>$PROJ_DIR$\Libraries\inc</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1344,7 +1349,7 @@
                 </option>
                 <option>
                     <name>IlinkOutputFile</name>
-                    <state>###Unitialized###</state>
+                    <state>Bunka STM8S003F3 TX Source.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>

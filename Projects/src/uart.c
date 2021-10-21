@@ -14,9 +14,26 @@
 #include "eeprom.h"		// eeprom
 #include "adf7012.h"		// RF IC
 
+#ifdef NEWFUN_ADD
+void Send_char(unsigned char ch);
+
 
 #define	TXD1_enable	(USART1_CR2 = 0x08)		// 允许发送	
 #define RXD1_enable	(USART1_CR2 = 0x24)		// 允许接收及其中断	
+
+
+void Send_char(unsigned char ch){			// 发送字符
+	TXD1_enable;							// 允许发送	
+	while(!USART1_SR_TXE);
+	USART1_DR = ch;							// 发送
+	while(!USART1_SR_TC);					// 等待完成发送
+	RXD1_enable;							// 允许接收及其中断	
+}
+#endif
+
+
+#ifndef TESTMODE_DEL
+
 //********************************************
 void UART1_INIT(void){	// 
 //        PIN_UART_TX_direc = Output;
@@ -64,13 +81,7 @@ void UART1_RX_RXNE(void){		// RXD中断服务程序
 	
 } 
 //--------------------------------------------
-void Send_char(unsigned char ch){			// 发送字符
-	TXD1_enable;							// 允许发送	
-	while(!USART1_SR_TXE);
-	USART1_DR = ch;							// 发送
-	while(!USART1_SR_TC);					// 等待完成发送
-	RXD1_enable;							// 允许接收及其中断	
-}
+
 unsigned char hex_asc(unsigned char hex)
 {
 	unsigned char i;
@@ -93,6 +104,7 @@ unsigned char asc_hex(unsigned char asc)	// HEX
 	return i;
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 void PC_PRG(void)								// 串口命令
 {
         uni_rom_id UART_ID_data;
@@ -224,3 +236,4 @@ void PC_PRG(void)								// 串口命令
 		}
 	}
 }
+#endif

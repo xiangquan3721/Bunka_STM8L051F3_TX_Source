@@ -409,7 +409,9 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
     */
   if(Flag_uart_handle == 0)
   {
+    #ifndef TESTMODE_DEL
   UART1_RX_RXNE();
+#endif
   }
   else
   {

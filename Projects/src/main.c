@@ -51,6 +51,7 @@ void main(void)
   _Init_RAM();
   TIM4_Init();
   START_AD_SAMPLER();
+#ifndef TESTMODE_DEL
     while(PIN_test_mode==0){
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
@@ -58,12 +59,18 @@ void main(void)
     _EI();    
     test_mode_control();
     }
+#endif
+    
     
     UART1_INIT_handle();
+    
+    
   _EI();		// ÔÊÐíÖÐ¶Ï	
   //beep_init();  //2015.3.11ÐÞÕý
 
    TIME_power_on_AD=30;
+   
+   //PIN_POWER_CONTROL=1;//led on
   /* Infinite loop */
   while (1)
   {     
