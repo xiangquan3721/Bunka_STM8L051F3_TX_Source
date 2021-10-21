@@ -24,6 +24,7 @@ void	_FuncVentReg( void );
 void	_FuncAutoTxStart( void );
 void	_FuncAutoTxStop( void );
 void	_FuncNoPush( void );
+void    _FuncStartUp( void );
 void	_SetKeyChatterCount( void );
 void	_KeyInTx( void );
 void	_ClearSpecialMultiKeyState( void );

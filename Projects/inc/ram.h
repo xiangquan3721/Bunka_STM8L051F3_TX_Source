@@ -102,7 +102,7 @@ extern volatile union{
 	//************************************************
 	#define 	FLAG_BYTE_SW		RAM_SW.BYTE	 
 	//------------------------------------------------
-	#define		mb_OpenSw		RAM_SW.BIT.Bit0	// 
+	#define	mb_OpenSw		RAM_SW.BIT.Bit0	// 
 	#define 	mb_StopSw		RAM_SW.BIT.Bit1	//
 	#define 	mb_CloseSw		RAM_SW.BIT.Bit2	//
 	#define 	FG_d_StopKey		RAM_SW.BIT.Bit3	//
@@ -131,6 +131,7 @@ extern volatile union{
          #define Flag_UART_REG   RAM_UART.BIT.Bit3
          #define Flag_UART_ONEPOINT   RAM_UART.BIT.Bit4
          #define Flag_UART_STARTUP   RAM_UART.BIT.Bit5
+         #define mb_RegStartUpSw    RAM_UART.BIT.Bit6
          
          
          
@@ -224,6 +225,7 @@ extern const ADF70XX_REG_T Default_adf7012_value[4];
 #define		d_ReqVentReg    13
 #define		d_ReqAutoTxStart 14
 #define		d_ReqAutoTxStop	15
+#define         d_ReqStartUp     16
 
 
 

@@ -144,8 +144,11 @@ const	uchar	ct_KeyDataTable[]
 0xFD,//	0b11111101,
 //	/*	Auto Tx stop (15)	*/
 0xFE,//	0b11111110,
-//	/*	No push (16)	*/
+//    STARUP (16)
+0x7F,// 0b01111111,
+//	/*	No push (17)	*/
 0xFF,//	0b11111111,
+
 } ;
 
 //
@@ -229,7 +232,7 @@ void	_KeyInTx( void )
 	}
 	        
 	/*		Search of valid key		*/
-	for	( i=0; i<17;i++)
+	for	( i=0; i<18;i++)
 	{
 		if	( m_KeyNew == ct_KeyDataTable[i] )	// Match ?
 		{
@@ -240,7 +243,7 @@ void	_KeyInTx( void )
         key_Value=i;   // 2015.1.31修正3
         if(FG_10s==1)return;   // 2015.1.31修正3
         
-	if	( i == 17)			// Found ?
+	if	( i == 18)			// Found ?
 	{												// No
 		mb_NoPush = d_Clear ;						// No push clear(Push on)
 		_ClearSpecialMultiKeyState() ;				// Special multi key status clear
@@ -266,7 +269,8 @@ void	_KeyInTx( void )
 		case 1 :
 		case 2 :  
 		case 3 : 
-		case 4 :   
+		case 4 :
+                case 16 :  
 		        if(FLAG_APP_TX==0)_FuncStop();   //2015.1.31修正4
 			break ;	
 		case 5 :  
@@ -294,9 +298,12 @@ void	_KeyInTx( void )
 		case 15 :  
 		        _FuncAutoTxStop();
 			break ;
-		case 16 :  
+		case 17 :  
 		        _FuncNoPush();
 			break ;
+                default:
+                        //_FuncStartUp();
+                        break;
 	}
 }
 /*----------------------------------*/
@@ -371,6 +378,25 @@ void	_FuncCloseReg( void )
 /*									*/
 /*----------------------------------*/
 //
+//void _FuncStartUp(void)
+//{
+//    _DupliFuncClear() ;
+//    if(!mb_RegStartUpSw)
+//    {
+//    mb_RegStartUpSw = d_On ;
+//    m_TimerKey = d_Time3s ;						// Set 3sec key timer
+//		if(FG_PWRON==0){
+//	           FG_PWRON=1;
+//	           PIN_POWER_CONTROL=1;
+//	           TB_5s=TB_60s;//60;  //5.1秒
+//                }
+//		return ;
+//    
+//    }
+//    _Pass3secKey(d_ReqStarUp);
+//    
+//}
+
 void	_FuncVentReg( void )
 {
 	_DupliFuncClear() ;								// Duplicate key function clear
@@ -543,7 +569,7 @@ void	_FuncStop( void )
 	}
         
           /********2015.1.31追加  按一次模式********/
-	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
+	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey || m_KindOfKey==d_ReqStartUp)// Single push option or Vent. key ?
         
 //          /********2015.1.31追加  按2次模式********/
 //	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
@@ -626,7 +652,8 @@ void	_FuncNoPush( void )
 	mb_OpenSw = d_Off ;							// For duplicate keyvfunction
 	mb_StopSw = d_Off ;
 	mb_CloseSw = d_Off ;
-	FG_BAT=0;
+	
+        FG_BAT=0;
 	
 	_ClearSpecialMultiKeyState() ;				// Special multi key status clear
 	mb_NoPush     = d_On ;						// No push on
@@ -658,6 +685,7 @@ void	_ClearSpecialMultiKeyState( void )
 	mb_RegOpenSw  = d_Clear ;
 	mb_RegCloseSw = d_Clear ;
 	mb_RegVentSw  = d_Clear ;
+        mb_RegStartUpSw  = d_Clear ;
 }
 /****************************************/
 /*										*/
@@ -753,6 +781,9 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		        break ;	
 		case 12 :              //Close + Vent.
 		       Control_code=0x03;
+		        break ;	
+                 case 16 :
+                        Control_code=0x20;//startup
 		        break ;	
 	}
   	switch	( buzreq )    // Jumo to key function
