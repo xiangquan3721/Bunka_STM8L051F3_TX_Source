@@ -215,12 +215,7 @@ void Uart_handle(void)
      case COMM_ACK:
        if(get_timego(time_keylevel)>150)
        {
-       Flag_UART_OPEN =1;
-        Flag_UART_STOP =1;
-        Flag_UART_CLOSE = 1;
-        Flag_UART_REG =1;
-        Flag_UART_ONEPOINT = 1;
-        Flag_UART_STARTUP = 1;
+       
        
        UART_TX_BUFF_NEW[0]=0x03;
        
@@ -237,7 +232,7 @@ void Uart_handle(void)
          Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
        RX_COUNT_OUT = RX_COUNT_IN;
-        COMM_STEP=COMM_IDLE;
+        COMM_STEP=COMM_RELEASE;
        }
        break;
       case COMM_NACK:
@@ -253,6 +248,34 @@ void Uart_handle(void)
        RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP=COMM_IDLE;
        break; 
+     case COMM_RELEASE:
+       if(Flag_UART_REG==1)
+       {
+         Flag_UART_OPEN =1;
+        Flag_UART_STOP =1;
+        Flag_UART_CLOSE = 1;
+        Flag_UART_ONEPOINT = 1;
+        Flag_UART_STARTUP = 1;
+        COMM_STEP = COMM_IDLE;
+       }
+       else
+       {
+         time_keylevel = time1ms_count;
+         COMM_STEP =COMM_3SPRESS;
+       }
+       break;
+     case COMM_3SPRESS:
+       if(get_timego(time_keylevel)>2850)
+       {
+         Flag_UART_OPEN =1;
+        Flag_UART_STOP =1;
+        Flag_UART_CLOSE = 1;
+        Flag_UART_ONEPOINT = 1;
+        Flag_UART_STARTUP = 1;
+        Flag_UART_REG=1;
+        COMM_STEP = COMM_IDLE;
+       }
+       break;
      default:
        break;
      }

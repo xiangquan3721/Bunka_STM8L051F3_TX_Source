@@ -11,6 +11,8 @@ typedef enum COMM_HANDLE_STATUS
 	COMM_NACK,
         COMM_ACK,
         COMM_FAIL,
+        COMM_RELEASE,
+        COMM_3SPRESS,
 	
 }COMM_HANDLE_TYPE;
 
