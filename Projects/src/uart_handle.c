@@ -84,20 +84,20 @@ UINT16 GET_READNUM(void)
 void Uart_handle(void)
 {
 #ifdef NEWFUN_ADD
-  static unsigned char dat[4]={0};
+  static unsigned char dat[5]={0};
      unsigned char  Tp_i;
     switch(COMM_STEP)
      {
      case COMM_IDLE:
-       if(GET_READNUM()==4)
+       if(GET_READNUM()==5)
        {
-        for(Tp_i=0;Tp_i<4;Tp_i++)
+        for(Tp_i=0;Tp_i<5;Tp_i++)
         {
          dat[Tp_i] = UART_RX_BUFF[RX_COUNT_OUT];
          RX_COUNT_OUT = (RX_COUNT_OUT+1)%RX_BUFF_MAX;
         }
         
-        if((dat[0]==0x3)&&(dat[1]==0x2)&&((dat[0]+dat[1]+dat[2])==dat[3]))
+        if((dat[0]==0x3)&&(dat[1]==0x3)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3])==dat[4]))
         {
             if(FG_10s==1)
             {
@@ -107,175 +107,128 @@ void Uart_handle(void)
             {
             switch(dat[2])
             {
-              case 0x01://open
-               Flag_UART_OPEN = 0;
-               time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-              case 0x02:
-                Flag_UART_STOP = 0;
-                time_keylevel = time1ms_count;
+              case 0x01://key and sensor
+                if(dat[3]&0x80)
+                {
+                  Flag_UART_STARTUP = 1;
+                }
+                else
+                {
+                  Flag_UART_STARTUP = 0;
+                }
+                if(dat[3]&0x40)
+                {
+                  Flag_UART_OPEN = 1;
+                }
+                else
+                {
+                  Flag_UART_OPEN = 0;
+                }
+                if(dat[3]&0x20)
+                {
+                  Flag_UART_STOP = 1;
+                }
+                else
+                {
+                  Flag_UART_STOP = 0;
+                }
+                if(dat[3]&0x10)
+                {
+                  Flag_UART_CLOSE = 1;
+                }
+                else
+                {
+                  Flag_UART_CLOSE = 0;
+                }
+                if(dat[3]&0x08)
+                {
+                  Flag_UART_ONEPOINT = 1;
+                }
+                else
+                {
+                  Flag_UART_ONEPOINT = 0;
+                }
+                if(dat[3]&0x04)
+                {
+                  Flag_UART_REG = 1;
+                }
+                else
+                {
+                  Flag_UART_REG = 0;
+                }
+                 time_keylevel = time1ms_count;
                 COMM_STEP = COMM_ACK;
-               break;
-             case 0x03:
-               Flag_UART_CLOSE = 0;
-               time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
               break;
-             case 0x04:
-                Flag_UART_OPEN = 0;
-                 Flag_UART_STOP = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-              break; 
-              case 0x05:
-                 Flag_UART_CLOSE = 0;
-                 Flag_UART_STOP = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x06:
-                 Flag_UART_CLOSE = 0;
-                 Flag_UART_OPEN = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x07:
-                 Flag_UART_REG = 0;
-                 Flag_UART_OPEN = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x08:
-                 Flag_UART_REG = 0;
-                 Flag_UART_STOP = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x09:
-                 Flag_UART_REG = 0;
-                 Flag_UART_CLOSE = 0;
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x0A:
-                 Flag_UART_ONEPOINT = 0;
-                 
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
-               case 0x0B:
-                 Flag_UART_STARTUP = 0;
-                 
-                 time_keylevel = time1ms_count;
-               COMM_STEP = COMM_ACK;
-               break;
+              
+              
+              
                
               //case :
               // break;
                default:
-                 COMM_STEP = COMM_FAIL;
+                 COMM_STEP = COMM_NACK;
               break;
             }
             }
         }
         else
         {
-          COMM_STEP = COMM_FAIL;
+          COMM_STEP = COMM_NACK;
         }
         
        }
-       else if(GET_READNUM()>4)
+       else if(GET_READNUM()>5)
        {
-         COMM_STEP = COMM_FAIL;
+         COMM_STEP = COMM_NACK;
        }
-       else if((GET_READNUM()<4)&&(GET_READNUM()!=0))
+       else if((GET_READNUM()<5)&&(GET_READNUM()!=0))
        {
          if(get_timego(timeuart)>200)
          {
-            COMM_STEP = COMM_FAIL;
+            COMM_STEP = COMM_NACK;
          }
        }
          
        
        break;
-     case COMM_FAIL:
-       UART_TX_BUFF_NEW[0]=0x03;
-       UART_TX_BUFF_NEW[1]=0x03;
-       UART_TX_BUFF_NEW[2]=0x01;
-       UART_TX_BUFF_NEW[3]=0x00;
-       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
-       for(Tp_i=0;Tp_i<5;Tp_i++)
-       {
-          Send_char(UART_TX_BUFF_NEW[Tp_i]);
-       }
-       RX_COUNT_OUT = RX_COUNT_IN;
-        COMM_STEP=COMM_IDLE;
-       break;
+    
      case COMM_ACK:
-       if(get_timego(time_keylevel)>150)
+       if(get_timego(time_keylevel)>50)
        {
        
        
        UART_TX_BUFF_NEW[0]=0x03;
        
-       UART_TX_BUFF_NEW[1]=0x03;
+       UART_TX_BUFF_NEW[1]=0x02;
        
        UART_TX_BUFF_NEW[2]=0x00;
        
-       UART_TX_BUFF_NEW[3]=dat[2];
+       UART_TX_BUFF_NEW[3] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2];
        
-       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
-       
-      for(Tp_i=0;Tp_i<5;Tp_i++)
+      for(Tp_i=0;Tp_i<4;Tp_i++)
       {
          Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
        RX_COUNT_OUT = RX_COUNT_IN;
-        COMM_STEP=COMM_RELEASE;
+        COMM_STEP = COMM_IDLE;
        }
        break;
       case COMM_NACK:
+        if(get_timego(time_keylevel)>50)
+        {
        UART_TX_BUFF_NEW[0]=0x03;
-       UART_TX_BUFF_NEW[1]=0x03;
+       UART_TX_BUFF_NEW[1]=0x02;
        UART_TX_BUFF_NEW[2]=0x01;
-       UART_TX_BUFF_NEW[3]=dat[2];
-       UART_TX_BUFF_NEW[4] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2]+UART_TX_BUFF_NEW[3];
-       for(Tp_i=0;Tp_i<5;Tp_i++)
+       UART_TX_BUFF_NEW[3] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2];
+       for(Tp_i=0;Tp_i<4;Tp_i++)
        {
           Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
        RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP=COMM_IDLE;
+        }
        break; 
-     case COMM_RELEASE:
-       if(Flag_UART_REG==1)
-       {
-         Flag_UART_OPEN =1;
-        Flag_UART_STOP =1;
-        Flag_UART_CLOSE = 1;
-        Flag_UART_ONEPOINT = 1;
-        Flag_UART_STARTUP = 1;
-        COMM_STEP = COMM_IDLE;
-       }
-       else
-       {
-         time_keylevel = time1ms_count;
-         COMM_STEP =COMM_3SPRESS;
-       }
-       break;
-     case COMM_3SPRESS:
-       if(get_timego(time_keylevel)>2850)
-       {
-         Flag_UART_OPEN =1;
-        Flag_UART_STOP =1;
-        Flag_UART_CLOSE = 1;
-        Flag_UART_ONEPOINT = 1;
-        Flag_UART_STARTUP = 1;
-        Flag_UART_REG=1;
-        COMM_STEP = COMM_IDLE;
-       }
-       break;
+     
      default:
        break;
      }

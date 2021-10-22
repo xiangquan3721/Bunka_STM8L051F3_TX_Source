@@ -180,8 +180,9 @@ void	_KeyInTx( void )
 	_SwIn( 1 ) ;	
 	/*	Auto TxAuto Tx Stop sw		*/
 	_SwIn( 1 ) ;
-
-        	
+         
+        
+         
 	
         
 	if	( m_KeyNew != m_KeyOld )				// Key in

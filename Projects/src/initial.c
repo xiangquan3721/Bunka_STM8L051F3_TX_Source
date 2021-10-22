@@ -168,12 +168,13 @@ void _Init_RAM(void)
 	m_TimerKey = d_Clear ;
 	m_TimerKeyMonitor = d_Clear ;
         
-        Flag_UART_OPEN =1;
+       Flag_UART_OPEN =1;
         Flag_UART_STOP =1;
         Flag_UART_CLOSE = 1;
         Flag_UART_REG =1;
         Flag_UART_ONEPOINT = 1;
         Flag_UART_STARTUP = 1;
+       
 }
 //===================Delayus()—” ±===============//
 void Delayus(unsigned char timer)
