@@ -116,7 +116,8 @@ void Uart_handle(void)
         
         if((dat[0]==0x3)&&(dat[1]==0x3)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3])==dat[4]))
         {
-            if(FG_10s==1)
+            //if(FG_10s==1)
+            if(0)
             {
               COMM_STEP = COMM_NACK;
             }
@@ -185,9 +186,23 @@ void Uart_handle(void)
               time_keylevel = time1ms_count;
                 COMM_STEP = COMM_ACK;
               break;
+            case 0x03://system busy or idel
+              if(dat[3]==0x00)
+              {
+                if(Flag_System_Busy == 1)
+                {
+                   time_keylevel = time1ms_count;
+                COMM_STEP = COMM_NACK;
+                }
+                else
+                {
+                   time_keylevel = time1ms_count;
+                COMM_STEP = COMM_ACK;
+                }
+              }
+               break;
               
               
-               
               //case :
               // break;
                default:

@@ -174,6 +174,7 @@ void _Init_RAM(void)
         Flag_UART_REG =1;
         Flag_UART_ONEPOINT = 1;
         Flag_UART_STARTUP = 1;
+        Flag_System_Busy = 1;
        
 }
 //===================Delayus()—” ±===============//

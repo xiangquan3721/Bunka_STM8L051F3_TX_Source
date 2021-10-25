@@ -133,6 +133,7 @@ extern volatile union{
          #define Flag_UART_STARTUP   RAM_UART.BIT.Bit5
          //#define mb_RegStartUpSw    RAM_UART.BIT.Bit6
          #define Flag_BEEP_begin     RAM_UART.BIT.Bit6
+         #define Flag_System_Busy    RAM_UART.BIT.Bit7
          
          
          

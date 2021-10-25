@@ -1294,7 +1294,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>Bunka STM8S003F3 TX Source.hex</state>
+                    <state>guesturered.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
