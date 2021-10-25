@@ -686,7 +686,7 @@ void	_ClearSpecialMultiKeyState( void )
 	mb_RegOpenSw  = d_Clear ;
 	mb_RegCloseSw = d_Clear ;
 	mb_RegVentSw  = d_Clear ;
-        mb_RegStartUpSw  = d_Clear ;
+        //mb_RegStartUpSw  = d_Clear ;
 }
 /****************************************/
 /*										*/

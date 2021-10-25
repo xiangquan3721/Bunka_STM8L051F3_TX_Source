@@ -131,7 +131,8 @@ extern volatile union{
          #define Flag_UART_REG   RAM_UART.BIT.Bit3
          #define Flag_UART_ONEPOINT   RAM_UART.BIT.Bit4
          #define Flag_UART_STARTUP   RAM_UART.BIT.Bit5
-         #define mb_RegStartUpSw    RAM_UART.BIT.Bit6
+         //#define mb_RegStartUpSw    RAM_UART.BIT.Bit6
+         #define Flag_BEEP_begin     RAM_UART.BIT.Bit6
          
          
          

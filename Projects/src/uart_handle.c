@@ -6,6 +6,7 @@
 #include "eeprom.h"		// eeprom
 #include "adf7012.h"		// RF IC
 #include "uart_handle.h"
+#include "Timer.h"
 
 UINT32 get_timego(UINT32 x_data_his);
 
@@ -21,8 +22,9 @@ static UINT8  RX_COUNT_OUT = 0;
 //static UINT8  TX_COUNT_IN = 0;
 //static UINT8  TX_COUNT_OUT = 0;
 COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
-UINT32 timeuart,time_keylevel;
+UINT32 timeuart,time_keylevel,time_beep;
 extern UINT32  time1ms_count ;
+UINT8  PAR_BEEP;
 //UINT8 Flag_UART_OPEN=1;
 //9600 e 8 1
 
@@ -80,13 +82,28 @@ UINT16 GET_READNUM(void)
 }
 
 
+void BEEP_Uart_Handle(void)
+{
+  if(Flag_BEEP_begin==1)
+  {
+    if(get_timego(time_beep)>(PAR_BEEP*100))
+    {
+      Flag_BEEP_begin = 0;
+      Tone_OFF();
+    }
+  }
+}
+
 
 void Uart_handle(void)
 {
 #ifdef NEWFUN_ADD
   static unsigned char dat[5]={0};
      unsigned char  Tp_i;
-    switch(COMM_STEP)
+   
+     BEEP_Uart_Handle();
+     
+     switch(COMM_STEP)
      {
      case COMM_IDLE:
        if(GET_READNUM()==5)
@@ -159,7 +176,15 @@ void Uart_handle(void)
                  time_keylevel = time1ms_count;
                 COMM_STEP = COMM_ACK;
               break;
+            case 0x02://beep
+              Flag_BEEP_begin = 1;
+              TIM3_init();
+              PAR_BEEP = dat[3];
+              time_beep = time1ms_count;
               
+              time_keylevel = time1ms_count;
+                COMM_STEP = COMM_ACK;
+              break;
               
               
                
