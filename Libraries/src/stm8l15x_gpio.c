@@ -4,34 +4,34 @@
   * @author  MCD Application Team
   * @version V1.5.0
   * @date    13-May-2011
-  * @brief   This file provides firmware functions to manage the following 
+  * @brief   This file provides firmware functions to manage the following
   *          functionalities of the GPIO peripheral:
   *           - Initialization and Configuration
   *           - GPIO Read and Write
   *
   *          ===================================================================
   *                                 How to use this driver
-  *          ===================================================================       
+  *          ===================================================================
   *           1. Configure the GPIO pin(s) using GPIO_Init()
   *              Two main configuration are available for each pin:
-  *                - Input: Floating 
+  *                - Input: Floating
   *                         Pull-up.
   *                  In Input mode, external interrupt can be enabled or disabled
   *                - Output: Push-Pull
   *                          Open Drain.
-  *                  In output mode, the GPIO pin speed is configurable: 
+  *                  In output mode, the GPIO pin speed is configurable:
   *                  Slow (2 MHz) or Fast (10MHz).
-  *  
+  *
   *           2. To get the level of a pin configured in input mode use GPIO_ReadInputDataBit()
-  * 
+  *
   *           3. To set/reset GPIO pins sharing the same GPIO port use
   *              GPIO_SetBits() / GPIO_ResetBits()
   *
   *           4. To enable external interrupt, the GPIO pin must be configured
   *              in input mode with interrupt enabled. Interrupt sensitivity
-  *              (rising, falling...) is configurable using 
+  *              (rising, falling...) is configurable using
   *              EXTI_SetPinSensitivity() in the EXTI peripheral driver "stm8l15x_exti.c"
-  *  
+  *
   ******************************************************************************
   * @attention
   *
@@ -43,7 +43,7 @@
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
-  ******************************************************************************  
+  ******************************************************************************
   */
 
 /* Includes ------------------------------------------------------------------*/
@@ -53,11 +53,11 @@
   * @{
   */
 
-/** @defgroup CLK 
+/** @defgroup CLK
   * @brief CLK driver modules
   * @{
-  */ 
-  
+  */
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -67,16 +67,16 @@
 
 /** @defgroup GPIO_Private_Functions
   * @{
-  */ 
+  */
 
 
 /** @defgroup GPIO_Group1 Initialization and Configuration
  *  @brief   Initialization and Configuration
  *
-@verbatim   
+@verbatim
  ===============================================================================
                         Initialization and Configuration
- ===============================================================================  
+ ===============================================================================
 
 @endverbatim
   * @{
@@ -107,7 +107,7 @@ void GPIO_DeInit(GPIO_TypeDef* GPIOx)
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7              
+  *            @arg GPIO_Pin_7: Pin 7
   * @param  GPIO_Mode : This parameter can be a value of the
   *           This parameter can be one of the following values:
   *            @arg GPIO_Mode_In_FL_No_IT: Input floating, no external interrupt
@@ -195,9 +195,9 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mod
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7     
+  *            @arg GPIO_Pin_7: Pin 7
   * @param  NewState : The new state of the pull up pin.
-  *           Can be ENABLE or DISABLE  
+  *           Can be ENABLE or DISABLE
   * @retval None
   */
 void GPIO_ExternalPullUpConfig(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin, FunctionalState NewState)
@@ -222,10 +222,10 @@ void GPIO_ExternalPullUpConfig(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin, Functional
 /** @defgroup GPIO_Group2 GPIO Read and Write
  *  @brief   GPIO Read and Write
  *
-@verbatim   
+@verbatim
  ===============================================================================
                               GPIO Read and Write
- ===============================================================================  
+ ===============================================================================
 
 @endverbatim
   * @{
@@ -256,7 +256,7 @@ void GPIO_Write(GPIO_TypeDef* GPIOx, uint8_t GPIO_PortVal)
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7   
+  *            @arg GPIO_Pin_7: Pin 7
   * @param  GPIO_BitVal: specifies the desired status to be written.
   *         This parameter can be SET or RESET
   * @retval None
@@ -291,7 +291,7 @@ void GPIO_WriteBit(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, BitAction GPI
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7   
+  *            @arg GPIO_Pin_7: Pin 7
   * @retval None
   */
 void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin)
@@ -312,7 +312,7 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin)
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7 
+  *            @arg GPIO_Pin_7: Pin 7
   * @retval None
   */
 void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint8_t GPIO_Pin)
@@ -366,7 +366,7 @@ uint8_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx)
   *            @arg GPIO_Pin_4: Pin 4
   *            @arg GPIO_Pin_5: Pin 5
   *            @arg GPIO_Pin_6: Pin 6
-  *            @arg GPIO_Pin_7: Pin 7 
+  *            @arg GPIO_Pin_7: Pin 7
   * @retval BitStatus : GPIO input pin status.
   */
 BitStatus GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin)
@@ -387,12 +387,12 @@ BitStatus GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin)
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
-  
+  */
+
 /**
   * @}
   */
