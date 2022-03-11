@@ -52,7 +52,9 @@ void main(void)
   TIM4_Init();
   START_AD_SAMPLER();
 #ifndef TESTMODE_DEL
-    while(PIN_test_mode==0){
+   // while(PIN_test_mode==0)
+  while(1)
+    {
     PIN_POWER_CONTROL=1;
     PIN_TX_LED=1;
     UART1_INIT();
@@ -87,13 +89,19 @@ void main(void)
           Flag_System_Busy = 0;
           FG_10s=1;    // 2015.1.31ÐÞÕý3
           /********************2015.1.31ÐÞÕý2************************/
-	  while(1){   
+	  while(1){ 
+            Uart_handle();
             if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT 
             else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
               key_check();
-              Uart_handle();
+              
               ClearWDT(); // Service the WDT 
-            }     
+            }
+            else
+            {
+              //ClearWDT();
+            }
+            
           }
           /*********************************************************/
 	}

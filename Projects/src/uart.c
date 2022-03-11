@@ -14,7 +14,7 @@
 #include "eeprom.h"		// eeprom
 #include "adf7012.h"		// RF IC
 
-#ifdef NEWFUN_ADD
+//#ifdef NEWFUN_ADD
 void Send_char(unsigned char ch);
 
 
@@ -29,7 +29,7 @@ void Send_char(unsigned char ch){			// 发送字符
 	while(!USART1_SR_TC);					// 等待完成发送
 	RXD1_enable;							// 允许接收及其中断	
 }
-#endif
+//#endif
 
 
 #ifndef TESTMODE_DEL

@@ -1367,7 +1367,9 @@ void _ReqBuzzer(UINT16 BEEP_on_SET,UINT8 BEEP_off_SET,UINT8 BEEP_freq_SET)
 void test_mode_control(void)
 {
 
- while(PIN_test_mode==0){  
+ //while(PIN_test_mode==0){ 
+  while(1)
+  {
   ClearWDT(); // Service the WDT 
   if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0)){
     FG_KEY_OPEN=1;

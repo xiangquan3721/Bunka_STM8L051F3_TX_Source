@@ -139,7 +139,7 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   
   PIN_POWER_CONTROL_direc = Output;    // Output   电源控制
   PIN_POWER_CONTROL_CR1 = 1;
-  PIN_POWER_CONTROL=0;
+  //PIN_POWER_CONTROL=0;
   
   PIN_test_mode_direc=Input;    // 输入     test脚
   PIN_test_mode_CR1=1;

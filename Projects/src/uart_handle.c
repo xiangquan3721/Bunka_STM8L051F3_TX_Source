@@ -31,7 +31,7 @@ UINT8  PAR_BEEP;
 void UART1_INIT_handle(void)
 {	
   
-        USART1_CR1 = 0x04;//0x04;							// 1个起始位,8个数据位 
+        USART1_CR1 = 0x14;//0x04;							// 1个起始位,8个数据位 
 	USART1_CR3 = 0x00;							// 1个停止位 
 	USART1_CR4 = 0;
 	USART1_CR5 = 0x00;						// 半双工模式
