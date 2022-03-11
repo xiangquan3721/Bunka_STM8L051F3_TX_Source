@@ -69,7 +69,6 @@ void RF_StartTx(u8 buf[], u16 len, u32 timeout);
 EnumRFResult RF_Process(void);
 
 void RF_Init_TestMode(void);
-void CMT2300A_Set_DataRate(u8 rate);
 
 #ifdef __cplusplus
 }

@@ -3,8 +3,6 @@
 
 #include "radio.h"
 #include "cmt2300a.h"
-//#include "cmt2300a_params.h"
-
 
 
 #define RF_PACKET_SIZE 32               /* Define the payload size here */
@@ -21,7 +19,7 @@ void SCAN_RECEIVE_PACKET(void);
 void CMT2300A_Set_Freq(u8 freq);
 
 
-void cmt2300a_tx_test(u8 mode,u8 del);
+void cmt2300a_tx_test(u8 mode);
 void RF_Test_Mode(void);
 u8 cmt2300a_rx_test(void);
 

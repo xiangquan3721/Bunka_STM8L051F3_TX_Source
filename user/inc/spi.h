@@ -4,7 +4,7 @@
 #include "iostm8l151g4.h"
 #include "gpio_defs.h"
 
-#define SPI_AnalogOrHardware    1   /* 0:使用模拟SPI;1:使用硬件SPI */
+#define SPI_AnalogOrHardware    0   /* 0:使用模拟SPI;1:使用硬件SPI */
 
 #define TxEnable  0
 #define TxDisbale 1

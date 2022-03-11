@@ -17,7 +17,11 @@ void cmt_spi3_delay(void)
 }
 
 
-/* SPI相关IO口初始化,MISO->PB7;MOSI->PB6;SCK->PB5;CS->PB4 */
+
+
+#if SPI_AnalogOrHardware == 1
+
+/* SPI相关IO口初始化,MISO->PB7;MOSI->PB6;SCK->PB5;CS->PB4;FCSB->PD0 */
 void SPI1_Gpio_Config(void)
 {
     SPI_CS_DDR = 1;     /* CS 设置数据方向寄存器 1为输出，0为输入--查看STM8寄存器.pdf P87 */
@@ -36,7 +40,16 @@ void SPI1_Gpio_Config(void)
     SPI1_MISO_CR1 = 1;  /* in put with pull-up */
     SPI1_MISO_CR2 = 0;
 
+    CMT_FCSB_DDR = 1;   /* FCSB output*/
+    CMT_FCSB_CR1 = 1;
+    CMT_FCSB_CR2 = 1;
+
+    SPI_TX_EN_DDR = 1;  /* output */
+    SPI_TX_EN_CR1 = 1;
+    SPI_TX_EN_CR2 = 1;
+
     SPI1_CS_H;
+    SPI_TX_EN = TxDisbale;
 }
 
 /* 初始化SPI1 */
@@ -76,7 +89,31 @@ void SPI_Config_Init(void)
 */
 void Cmt_Spi_Read(u8 addr, u8* p_dat)
 {
+    u8 read = 0;
+    CMT_FCSB_H;                 /* CS与FCSB不能同时为低 */
+    SPI_TX_EN = TxEnable;       /* 打开发送开关 */
 
+    SPI1_CS_L;
+    cmt_delay(4);               /* > 0.5 SCL cycle */
+
+    while (!(SPI1_SR & 0x02));  /* 等待发送空闲 */
+    /* r/w = 1 */
+    SPI1_DR = (addr | 0x80);      /* read command */
+
+    cmt_delay(16);              /* SPI时钟16分频延时发送一个字节的时间,SPI时钟256分频延时参数为256，128分频为延时参数为128 */
+
+    SPI_TX_EN = TxDisbale;      /* 关闭发送开关,防止接收数据时电气冲突 */
+
+    while (!(SPI1_SR & 0x02));  /* 等待发送空闲 */
+    SPI1_DR = 0xff;             /* 发送无关数据,为了产生时钟信号 */
+
+    read = SPI1_DR;                    /* 先清空，防止接收数据错误 */
+
+    while ((SPI1_SR & 0x80));   /* 等待总线空闲 */
+    *p_dat = SPI1_DR;           /* 读取接收数据 */
+
+    cmt_delay(4);               /* > 0.5 SCL cycle */
+    SPI1_CS_H;
 }
 
 /*
@@ -85,7 +122,29 @@ void Cmt_Spi_Read(u8 addr, u8* p_dat)
 */
 void Cmt_Spi_Write(u8 addr, u8 dat)
 {
+    u8 read = 0;
+    CMT_FCSB_H;                 /* CS与FCSB不能同时为低 */
+    SPI_TX_EN = TxEnable;       /* 打开发送开关 */
 
+    SPI1_CS_L;
+    cmt_delay(4);               /* > 0.5 SCL cycle */
+
+    while (!(SPI1_SR & 0x02));  /* 等待发送空闲 */
+    /* r/w = 0 */
+    SPI1_DR = (addr&0x7F);      /* write command */
+
+    read = SPI1_DR;                    /* 清空 */
+
+    while (!(SPI1_SR & 0x02));  /* 等待发送空闲 */
+    SPI1_DR = dat;              /* 写入数据 */
+    while ((SPI1_SR & 0x80));   /* 等待总线空闲 */
+
+    read = SPI1_DR;                    /* 清空 */
+
+    cmt_delay(4);               /* > 0.5 SCL cycle */
+    SPI1_CS_H;
+
+    SPI_TX_EN = TxDisbale;      /* 关闭发送开关 */
 }
 
 /*
@@ -94,7 +153,32 @@ void Cmt_Spi_Write(u8 addr, u8 dat)
 */
 void Cmt_Spi_Read_Fifo(u8* p_buf, u16 len)
 {
+    u16 i = 0;
+    CMT_FCSB_H;
+    SPI1_CS_H;
+    SPI_TX_EN = TxDisbale;          /* 关闭发送开关 */
 
+    for(i = 0;i < len; i++)
+    {
+        CMT_FCSB_L;
+        /* > 1 SCL cycle */
+        cmt_delay(8);
+
+        while (!(SPI1_SR & 0x02));  /* 等待发送空闲 */
+        SPI1_DR = 0xff;             /* 发送无关数据,为了产生时钟信号 */
+
+        while (!(SPI1_SR & 0x01));  /* 接收非空 */
+        p_buf[i] = SPI1_DR;
+
+        /* > 2 us */
+        cmt_delay(16);
+
+        CMT_FCSB_H;
+
+        /* > 4 us */
+        cmt_delay(40);
+    }
+    CMT_FCSB_H;
 }
 
 /*
@@ -103,7 +187,300 @@ void Cmt_Spi_Read_Fifo(u8* p_buf, u16 len)
 */
 void Cmt_Spi_Write_Fifo(const u8* p_buf, u16 len)
 {
+    u16 i = 0;
+    u8 read = 0;
+    SPI1_CS_H;
+    CMT_FCSB_H;
+    SPI_TX_EN = TxEnable;         /* 打开发送开关 */
 
+    for(i = 0; i < len; i++)
+    {
+        CMT_FCSB_L;
+
+        /* > 1 SCL cycle */
+        cmt_delay(8);
+
+        while (!(SPI1_SR & 0x02));/* 等待发送空闲 */
+        SPI1_DR = p_buf[i];
+
+        read = SPI1_DR;                  /* 清空 */
+        /* > 2 us */
+        cmt_delay(16);
+
+        CMT_FCSB_H;
+
+        /* > 4 us */
+        cmt_delay(32);
+    }
+    CMT_FCSB_H;
+    SPI_TX_EN = TxDisbale;        /* 关闭发送开关 */
 }
 
+#endif
+
+
+/* ************************************************************************ */
+#if SPI_AnalogOrHardware == 0
+void SPI_Config_Init(void)
+{
+    cmt_spi3_csb_1();
+    cmt_spi3_csb_out();
+    cmt_spi3_csb_1();   /* CSB has an internal pull-up resistor */
+
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();   /* SCL has an internal pull-down resistor */
+
+    cmt_spi3_sda_1();
+    cmt_spi3_sda_out();
+    cmt_spi3_sda_1();
+
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();  /* FCSB has an internal pull-up resistor */
+
+    cmt_spi3_delay();
+    SPI_TX_EN_DDR = 1;
+    SPI_TX_EN_CR1 = 1;
+    SPI_TX_EN_CR2 = 1;
+    SPI_TX_EN = 0;
+}
+
+void cmt_spi3_send(u8 data8)
+{
+    u8 i;
+
+    for(i=0; i<8; i++)
+    {
+        cmt_spi3_scl_0();
+
+        /* Send byte on the rising edge of SCL */
+        if(data8 & 0x80)
+        {
+            cmt_spi3_sda_1();
+        }
+        else
+        {
+            cmt_spi3_sda_0();
+        }
+
+        cmt_spi3_delay();
+
+        data8 <<= 1;
+        cmt_spi3_scl_1();
+        cmt_spi3_delay();
+    }
+}
+
+u8 cmt_spi3_recv(void)
+{
+    u8 i;
+    u8 data8 = 0xFF;
+
+    for(i=0; i<8; i++)
+    {
+        cmt_spi3_scl_0();
+        cmt_spi3_delay();
+        data8 <<= 1;
+
+        cmt_spi3_scl_1();
+
+        /* Read byte on the rising edge of SCL */
+        if(cmt_spi3_sda_read())
+        {
+            data8 |= 0x01;
+        }
+        else
+        {
+            data8 &= ~0x01;
+        }
+
+        cmt_spi3_delay();
+    }
+
+    return data8;
+}
+
+void Cmt_Spi_Write(u8 addr, u8 dat)
+{
+    cmt_spi3_sda_1();
+    cmt_spi3_sda_out();
+
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();
+
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();
+
+    cmt_spi3_csb_0();
+
+    /* > 0.5 SCL cycle */
+    cmt_spi3_delay();
+    cmt_spi3_delay();
+
+    /* r/w = 0 */
+    cmt_spi3_send(addr&0x7F);
+
+    cmt_spi3_send(dat);
+
+    cmt_spi3_scl_0();
+
+    /* > 0.5 SCL cycle */
+    cmt_spi3_delay();
+    cmt_spi3_delay();
+
+    cmt_spi3_csb_1();
+
+    cmt_spi3_sda_1();
+    cmt_spi3_sda_in();
+
+    cmt_spi3_fcsb_1();
+}
+
+void Cmt_Spi_Read(u8 addr, u8* p_dat)
+{
+    cmt_spi3_sda_1();
+    cmt_spi3_sda_out();
+
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();
+
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();
+
+    cmt_spi3_csb_0();
+
+    /* > 0.5 SCL cycle */
+    cmt_spi3_delay();
+    cmt_spi3_delay();
+
+    /* r/w = 1 */
+    cmt_spi3_send(addr|0x80);
+
+    /* Must set SDA to input before the falling edge of SCL */
+    cmt_spi3_sda_in();
+
+    *p_dat = cmt_spi3_recv();
+
+    cmt_spi3_scl_0();
+
+    /* > 0.5 SCL cycle */
+    cmt_spi3_delay();
+    cmt_spi3_delay();
+
+    cmt_spi3_csb_1();
+
+    cmt_spi3_sda_1();
+    cmt_spi3_sda_in();
+
+    cmt_spi3_fcsb_1();
+}
+
+void Cmt_Spi_Write_Fifo(const u8* p_buf, u16 len)
+{
+    u16 i;
+
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();
+
+    cmt_spi3_csb_1();
+    cmt_spi3_csb_out();
+    cmt_spi3_csb_1();
+
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();
+
+    cmt_spi3_sda_out();
+
+    for(i=0; i<len; i++)
+    {
+        cmt_spi3_fcsb_0();
+
+        /* > 1 SCL cycle */
+        cmt_spi3_delay();
+        cmt_spi3_delay();
+
+        cmt_spi3_send(p_buf[i]);
+
+        cmt_spi3_scl_0();
+
+        /* > 2 us */
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+
+        cmt_spi3_fcsb_1();
+
+        /* > 4 us */
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+    }
+
+    cmt_spi3_sda_in();
+
+    cmt_spi3_fcsb_1();
+}
+
+void Cmt_Spi_Read_Fifo(u8* p_buf, u16 len)
+{
+    u16 i;
+
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();
+
+    cmt_spi3_csb_1();
+    cmt_spi3_csb_out();
+    cmt_spi3_csb_1();
+
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();
+
+    cmt_spi3_sda_in();
+
+    for(i=0; i<len; i++)
+    {
+        cmt_spi3_fcsb_0();
+
+        /* > 1 SCL cycle */
+        cmt_spi3_delay();
+        cmt_spi3_delay();
+
+        p_buf[i] = cmt_spi3_recv();
+
+        cmt_spi3_scl_0();
+
+        /* > 2 us */
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+
+        cmt_spi3_fcsb_1();
+
+        /* > 4 us */
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+        cmt_spi3_delay_us();
+    }
+
+    cmt_spi3_sda_in();
+
+    cmt_spi3_fcsb_1();
+}
+
+#endif
 

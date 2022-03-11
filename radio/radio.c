@@ -357,7 +357,7 @@ void RF_Init_TestMode(void)
             CMT2300A_GPIO3_SEL_DIN
             );
 
-    //CMT2300A_SetFrequencyStep(1);   //定义频率通道步长:2.5K*1
+    CMT2300A_SetFrequencyStep(1);   //定义频率通道步长:2.5K*1
     /* Disable low frequency OSC calibration */
     CMT2300A_EnableLfosc(FALSE);
 
@@ -370,28 +370,4 @@ void RF_Init_TestMode(void)
     CMT2300A_Gpio2_DDR = 0;
     CMT2300A_Gpio2_CR1 = 0;
     CMT2300A_Gpio2_CR2 = 0;
-}
-
-void CMT2300A_Set_DataRate(u8 rate)
-{
-    CMT2300A_GoStby();
-    switch(rate)
-    {
-        case 1:
-            CMT2300A_ConfigRegBank(CMT2300A_DATA_RATE_BANK_ADDR , g_cmt2300aDataRateBank  , CMT2300A_DATA_RATE_BANK_SIZE );
-            //CMT2300A_ConfigRegBank(CMT2300A_TX_BANK_ADDR        , g_cmt2300aTxBank        , CMT2300A_TX_BANK_SIZE        );
-        break;
-        case 2:
-            CMT2300A_ConfigRegBank(CMT2300A_DATA_RATE_BANK_ADDR , g_cmt2300aDataRateBank_2_4K  , CMT2300A_DATA_RATE_BANK_SIZE );
-           // CMT2300A_ConfigRegBank(CMT2300A_TX_BANK_ADDR        , g_cmt2300aTxBank_2_4K        , CMT2300A_TX_BANK_SIZE        );
-        break;
-        case 3:
-            CMT2300A_ConfigRegBank(CMT2300A_DATA_RATE_BANK_ADDR , g_cmt2300aDataRateBank_4_8K  , CMT2300A_DATA_RATE_BANK_SIZE );
-            //CMT2300A_ConfigRegBank(CMT2300A_TX_BANK_ADDR        , g_cmt2300aTxBank_4_8K        , CMT2300A_TX_BANK_SIZE        );
-        break;
-        default:
-            break;
-    }
-    system_delay_ms(10);
-    CMT2300A_GoSleep();
 }

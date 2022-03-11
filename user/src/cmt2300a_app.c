@@ -39,25 +39,23 @@ void CMT2300A_RX_ENABLE(void)
 
 }
 
-void CMT2300A_Set_Freq(u8 freq)  /* 基础频率426.075 */
+void CMT2300A_Set_Freq(u8 freq)
 {
-    //CMT2300A_GoStby();
-    if(freq) //429.175MHz
+    CMT2300A_GoStby();
+    if(freq)
     {
-        CMT2300A_SetFrequencyStep(20);  /* FREQ = 426.075MHz + 2.5KHz * 20 * 62 = 429.175MHz*/
+        CMT2300A_SetFrequencyStep(20);
         system_delay_ms(10);
         CMT2300A_SetFrequencyChannel(62);
     }
-    else    //426.075MHz
+    else
     {
         //CMT2300A_SetFrequencyStep(1);
         system_delay_ms(10);
         CMT2300A_SetFrequencyChannel(0);
     }
-    //CMT2300A_GoSleep();
+    CMT2300A_GoSleep();
 }
-
-
 
 void SCAN_RECEIVE_PACKET(void)
 {
@@ -134,15 +132,14 @@ void set_rx(void)
     CMT2300A_GoRx();
 }
 
-void cmt2300a_tx_test(u8 mode,u8 del)
+void cmt2300a_tx_test(u8 mode)
 {
-    static u8 in = 0;
     if(mode)
     {
         if(pin_clk_in == 1)
         {
             pin_sda_out = !pin_sda_out;
-            delay(del);
+            delay(100);
         }
     }
 }
@@ -176,11 +173,8 @@ void RF_Test_Mode(void)
 {
     u8 Tx_Rx_mode = 0;
     u8 at = 0;
-    u8 sw_s = 0;
-    u8 cnt = 0;
-    u8 rate = 1;
 
-    if(TP7_TEST_MODE == 0)
+    if(TP7_TEST_MODE == 1)
     {
         RF_Init_TestMode(); /* RF测试模式初始化 */
         if(FALSE==CMT2300A_IsExist()) {
@@ -188,42 +182,19 @@ void RF_Test_Mode(void)
         }
     }
 
-    while(TP7_TEST_MODE == 0)
+    while(TP7_TEST_MODE == 1)
     {
         if(Key_Tx_Carrier == 0)  /* 发载波 (需频偏2.5k)*/
         {
             set_tx();
-           // CMT2300A_GoStby();
-            if(cnt == 1)
-            {
-                CMT2300A_Set_Freq(1);
-            }
-            else
-            {
-                CMT2300A_SetFrequencyStep(1);
-                system_delay_ms(10);
-                CMT2300A_SetFrequencyChannel(1);
-            }
-            //CMT2300A_GoSleep();
+            CMT2300A_SetFrequencyChannel(1); //Freq = 426.075MHz+2.5KHz*1*1
             Tx_Rx_mode = 1;
             pin_sda_out = 0;
-            at = 0;
         }
         if(Key_Tx_Data == 0)    /* 发数据 */
         {
             set_tx();
-          //  CMT2300A_GoStby();
-            if(cnt == 1)
-            {
-                CMT2300A_Set_Freq(1);
-            }
-            else
-            {
-                CMT2300A_SetFrequencyStep(1);
-                system_delay_ms(10);
-                CMT2300A_SetFrequencyChannel(0);
-            }
-            //CMT2300A_GoSleep();
+            CMT2300A_SetFrequencyChannel(0);
             Tx_Rx_mode = 2;
             at = 0;
         }
@@ -233,7 +204,7 @@ void RF_Test_Mode(void)
         }
         if(Tx_Rx_mode == 1)     /* 发载波 */
         {
-            cmt2300a_tx_test(0,100);
+            cmt2300a_tx_test(0);
             if(at == 0)
             {
                 at = 1;
@@ -242,18 +213,8 @@ void RF_Test_Mode(void)
         }
         if(Tx_Rx_mode == 2)     /* 发数据 */
         {
-            if(rate == 1)
-            {
-               cmt2300a_tx_test(1,100);
-            }
-            else if(rate == 2)
-            {
-                cmt2300a_tx_test(1,50);
-            }
-            else if(rate == 0)
-            {
-                cmt2300a_tx_test(1,25);
-            }
+            cmt2300a_tx_test(1);
+
             if(at == 0)
             {
                 at = 1;
@@ -264,33 +225,6 @@ void RF_Test_Mode(void)
         {
             at = 0;
             CMT2300A_GoSleep();
-        }
-        if(Key_Login_Val == 0 && sw_s == 0)
-        {
-            sw_s = 1;
-            if(cnt == 0)
-            {
-                cnt = 1;
-                CMT2300A_Set_Freq(1);
-            }
-            else
-            {
-                cnt = 0;
-                CMT2300A_Set_Freq(0);
-            }
-            at = 0;
-        }
-        if(TP8_TXRX_MODE == 0 && sw_s == 0)
-        {
-            rate++;
-            at = 0;
-            sw_s = 1;
-            CMT2300A_Set_DataRate(rate);
-            if(rate == 3)   rate = 0;
-        }
-        if(Key_Login_Val == 1 && TP8_TXRX_MODE == 1)
-        {
-            sw_s = 0;
         }
     }
 }
