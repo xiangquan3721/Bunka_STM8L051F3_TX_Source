@@ -115,31 +115,31 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
   ADF7021_DATA_CLK_direc= Input;
   ADF7021_DATA_CLK_CR1= 1;
 
-  PIN_KEY_OPEN_direc = Input; 	// 输入  OPEN键
-  PIN_KEY_OPEN_CR1 = 1;
-  
-  PIN_KEY_STOP_direc = Input;    // 输入  STOP键
-  PIN_KEY_STOP_CR1 = 1;
-  
-  PIN_KEY_CLOSE_direc = Input;   // 输入  CLOSE键
-  PIN_KEY_CLOSE_CR1 = 1; 
-  
-  PIN_KEY_VENT_direc = Input;   // 输入  换气键
-  PIN_KEY_VENT_CR1 = 1;
-  
-  PIN_KEY_LOGIN_direc = Input;   // 输入  LOGIN键
-  PIN_KEY_LOGIN_CR1 = 1;
-
+//  PIN_KEY_OPEN_direc = Input; 	// 输入  OPEN键
+//  PIN_KEY_OPEN_CR1 = 1;
+//  
+//  PIN_KEY_STOP_direc = Input;    // 输入  STOP键
+//  PIN_KEY_STOP_CR1 = 1;
+//  
+//  PIN_KEY_CLOSE_direc = Input;   // 输入  CLOSE键
+//  PIN_KEY_CLOSE_CR1 = 1; 
+//  
+//  PIN_KEY_VENT_direc = Input;   // 输入  换气键
+//  PIN_KEY_VENT_CR1 = 1;
+//  
+//  PIN_KEY_LOGIN_direc = Input;   // 输入  LOGIN键
+//  PIN_KEY_LOGIN_CR1 = 1;
+//
   PIN_LED_direc = Output;     // Output   LED灯
   PIN_LED_CR1 = 1;
-
-  PIN_BEEP_direc = Output;    // Output   蜂鸣器
-  PIN_BEEP_CR1 = 1;
-  PIN_BEEP=0;
-  
-  PIN_POWER_CONTROL_direc = Output;    // Output   电源控制
-  PIN_POWER_CONTROL_CR1 = 1;
-  //PIN_POWER_CONTROL=0;
+//
+//  PIN_BEEP_direc = Output;    // Output   蜂鸣器
+//  PIN_BEEP_CR1 = 1;
+//  PIN_BEEP=0;
+//  
+//  PIN_POWER_CONTROL_direc = Output;    // Output   电源控制
+//  PIN_POWER_CONTROL_CR1 = 1;
+//  //PIN_POWER_CONTROL=0;
   
   PIN_test_mode_direc=Input;    // 输入     test脚
   PIN_test_mode_CR1=1;
@@ -158,24 +158,24 @@ void _Init_RAM(void)
 								// General 1s timer
 	
 	/*		Key		*/
-	_SetKeyChatterCount() ;									// Chatter counter set
+//	_SetKeyChatterCount() ;									// Chatter counter set
 	m_KeyNew = m_KeyOld = d_KeyNoPush ;
 	m_KindOfKey          = d_IdleKey ;
 	//mb_Keycheck          = d_Clear ;
 	mb_NoPush            = d_On ;
 	mb_NoPushWait        = d_Clear ;
-	_ClearSpecialMultiKeyState() ;
+//	_ClearSpecialMultiKeyState() ;
 	m_TimerKey = d_Clear ;
 	m_TimerKeyMonitor = d_Clear ;
         
-       Flag_UART_OPEN =1;
-        Flag_UART_STOP =1;
-        Flag_UART_CLOSE = 1;
-        Flag_UART_REG =1;
-        Flag_UART_ONEPOINT = 1;
-        Flag_UART_STARTUP = 1;
-        Flag_System_Busy = 1;
-       
+//       Flag_UART_OPEN =1;
+//        Flag_UART_STOP =1;
+//        Flag_UART_CLOSE = 1;
+//        Flag_UART_REG =1;
+//        Flag_UART_ONEPOINT = 1;
+//        Flag_UART_STARTUP = 1;
+//        Flag_System_Busy = 1;
+//       
 }
 //===================Delayus()延时===============//
 void Delayus(unsigned char timer)

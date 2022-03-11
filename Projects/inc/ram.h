@@ -6,6 +6,8 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
+#ifndef RAM_H
+#define RAM_H
 
 extern volatile union{
 	unsigned char BYTE;	
@@ -150,12 +152,15 @@ extern UINT8 TB_sum_5s;
 #define TB_60s	 78//60
 #define TB_20s	 20
 
+#define Control_code_Max 10
 
 //extern UINT8  m_RFNormalBuf[35];
 extern UINT8  m_RFNormalBuf[40];
 extern uni_rom_id ID_data;
 extern uni_rom_id ID_data_add;
-extern UINT8 Control_code;
+extern UINT8 Control_code[Control_code_Max][5];
+extern UINT8 Control_code_in;
+extern UINT8 Control_code_out;
 extern UINT16 txphase;
 extern UINT8 txphase_Repeat;
 extern UINT8 ID_INT_CODE;
@@ -267,4 +272,17 @@ extern UINT16 key_Value;   //2015.1.31ÐÞÕý3
 extern UINT8 TIME_2s_RestTX;  //2015.4.13ÐÞÕý
 extern UINT16 TIME_power_on_AD;
 
+extern UINT8 Command_S,Command_FM,Command_END;
 
+typedef enum RF_HANDLE_STATUS
+{
+	RF_IDLE,
+        RF_1,
+        RF_2
+        //COMM_FAIL,
+        //COMM_RELEASE,
+        //COMM_3SPRESS,
+	
+}RF_HANDLE_TYPE;
+extern UINT32  time1ms_count;
+#endif

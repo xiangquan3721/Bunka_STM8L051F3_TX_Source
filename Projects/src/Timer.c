@@ -24,7 +24,7 @@
 //void TIM1_OVR_UIF(void){        
 //	TIM1_SR1 = 0;						// 清除中断标记
 //}
-UINT32  time1ms_count = 0;
+
 
 
 void TIM3_init(void){			// 2015.3.11修正

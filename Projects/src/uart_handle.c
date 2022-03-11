@@ -22,7 +22,7 @@ static UINT8  RX_COUNT_OUT = 0;
 //static UINT8  TX_COUNT_IN = 0;
 //static UINT8  TX_COUNT_OUT = 0;
 COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
-UINT32 timeuart,time_keylevel,time_beep;
+UINT32 timeuart,time_next,time_beep;
 extern UINT32  time1ms_count ;
 UINT8  PAR_BEEP;
 //UINT8 Flag_UART_OPEN=1;
@@ -82,133 +82,61 @@ UINT16 GET_READNUM(void)
 }
 
 
-void BEEP_Uart_Handle(void)
-{
-  if(Flag_BEEP_begin==1)
-  {
-    if(get_timego(time_beep)>(PAR_BEEP*100))
-    {
-      Flag_BEEP_begin = 0;
-      Tone_OFF();
-    }
-  }
-}
+//void BEEP_Uart_Handle(void)
+//{
+//  if(Flag_BEEP_begin==1)
+//  {
+//    if(get_timego(time_beep)>(PAR_BEEP*100))
+//    {
+//      Flag_BEEP_begin = 0;
+//      Tone_OFF();
+//    }
+//  }
+//}
 
 
 void Uart_handle(void)
 {
 #ifdef NEWFUN_ADD
-  static unsigned char dat[5]={0};
+  static unsigned char dat[7]={0};
      unsigned char  Tp_i;
    
-     BEEP_Uart_Handle();
+     //BEEP_Uart_Handle();
      
      switch(COMM_STEP)
      {
      case COMM_IDLE:
-       if(GET_READNUM()==5)
+       if(GET_READNUM()==4)
        {
-        for(Tp_i=0;Tp_i<5;Tp_i++)
+        for(Tp_i=0;Tp_i<4;Tp_i++)
         {
          dat[Tp_i] = UART_RX_BUFF[RX_COUNT_OUT];
          RX_COUNT_OUT = (RX_COUNT_OUT+1)%RX_BUFF_MAX;
         }
         
-        if((dat[0]==0x3)&&(dat[1]==0x3)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3])==dat[4]))
+        if((dat[0]==0x3)&&(dat[1]==0x2)&&((unsigned char)(dat[0]+dat[1]+dat[2])==dat[3])&&(ID_data.IDL!=0))
         {
-            //if(FG_10s==1)
-            if(0)
+            
+            if((Control_code_in+1)%Control_code_Max == Control_code_out)
             {
               COMM_STEP = COMM_NACK;
             }
             else
             {
-            switch(dat[2])
-            {
-              case 0x01://key and sensor
-                if(dat[3]&0x80)
-                {
-                  Flag_UART_STARTUP = 1;
-                }
-                else
-                {
-                  Flag_UART_STARTUP = 0;
-                }
-                if(dat[3]&0x40)
-                {
-                  Flag_UART_OPEN = 1;
-                }
-                else
-                {
-                  Flag_UART_OPEN = 0;
-                }
-                if(dat[3]&0x20)
-                {
-                  Flag_UART_STOP = 1;
-                }
-                else
-                {
-                  Flag_UART_STOP = 0;
-                }
-                if(dat[3]&0x10)
-                {
-                  Flag_UART_CLOSE = 1;
-                }
-                else
-                {
-                  Flag_UART_CLOSE = 0;
-                }
-                if(dat[3]&0x08)
-                {
-                  Flag_UART_ONEPOINT = 1;
-                }
-                else
-                {
-                  Flag_UART_ONEPOINT = 0;
-                }
-                if(dat[3]&0x04)
-                {
-                  Flag_UART_REG = 1;
-                }
-                else
-                {
-                  Flag_UART_REG = 0;
-                }
-                 time_keylevel = time1ms_count;
-                COMM_STEP = COMM_ACK;
-              break;
-            case 0x02://beep
-              Flag_BEEP_begin = 1;
-              TIM3_init();
-              PAR_BEEP = dat[3];
-              time_beep = time1ms_count;
+              Control_code[Control_code_in][0] = dat[2];
               
-              time_keylevel = time1ms_count;
-                COMM_STEP = COMM_ACK;
-              break;
-            case 0x03://system busy or idel
-              if(dat[3]==0x00)
+              if(Control_code[Control_code_in][0]&0x80)
               {
-                if(Flag_System_Busy == 1)
-                {
-                   time_keylevel = time1ms_count;
-                COMM_STEP = COMM_NACK;
-                }
-                else
-                {
-                   time_keylevel = time1ms_count;
-                COMM_STEP = COMM_ACK;
-                }
+                COMM_STEP = COMM_NEXT;
+                time_next = time1ms_count;
+                
               }
-               break;
+              else
+              {
+                Control_code_in = (Control_code_in +1)%Control_code_Max;
+                COMM_STEP = COMM_ACK;
+              }
               
-              
-              //case :
-              // break;
-               default:
-                 COMM_STEP = COMM_NACK;
-              break;
-            }
             }
         }
         else
@@ -217,11 +145,11 @@ void Uart_handle(void)
         }
         
        }
-       else if(GET_READNUM()>5)
+       else if(GET_READNUM()>4)
        {
          COMM_STEP = COMM_NACK;
        }
-       else if((GET_READNUM()<5)&&(GET_READNUM()!=0))
+       else if((GET_READNUM()<4)&&(GET_READNUM()!=0))
        {
          if(get_timego(timeuart)>200)
          {
@@ -231,10 +159,61 @@ void Uart_handle(void)
          
        
        break;
-    
-     case COMM_ACK:
-       if(get_timego(time_keylevel)>50)
+    case COMM_NEXT:
+       if(GET_READNUM()==7)
        {
+        for(Tp_i=0;Tp_i<7;Tp_i++)
+        {
+         dat[Tp_i] = UART_RX_BUFF[RX_COUNT_OUT];
+         RX_COUNT_OUT = (RX_COUNT_OUT+1)%RX_BUFF_MAX;
+        }
+        
+        if((dat[0]==0x4)&&(dat[1]==0x5)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3]+dat[4]+dat[5])==dat[6]))
+        {
+            
+            if((Control_code_in+1)%Control_code_Max == Control_code_out)
+            {
+              COMM_STEP = COMM_NACK;
+            }
+            else
+            {
+              Control_code[Control_code_in][1] = dat[2];
+              Control_code[Control_code_in][2] = dat[3];
+              Control_code[Control_code_in][3] = dat[4];
+              Control_code[Control_code_in][4] = dat[5];
+              Control_code_in = (Control_code_in +1)%Control_code_Max;
+               COMM_STEP = COMM_ACK;
+             }
+              
+            
+        }
+        else
+        {
+          COMM_STEP = COMM_NACK;
+        }
+        
+       }
+       else if(GET_READNUM()>7)
+       {
+         COMM_STEP = COMM_NACK;
+       }
+       else if((GET_READNUM()<7)&&(GET_READNUM()!=0))
+       {
+         if(get_timego(timeuart)>200)
+         {
+            COMM_STEP = COMM_NACK;
+         }
+       }
+        
+      if(get_timego(time_next)>200)
+      {
+        COMM_STEP = COMM_NACK;
+      }
+       
+       break;
+     case COMM_ACK:
+       //if(get_timego(time_keylevel)>50)
+      // {
        
        
        UART_TX_BUFF_NEW[0]=0x03;
@@ -251,14 +230,14 @@ void Uart_handle(void)
        }
        RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP = COMM_IDLE;
-       }
+       //}
        break;
       case COMM_NACK:
-        if(get_timego(time_keylevel)>50)
-        {
+        //if(get_timego(time_keylevel)>50)
+        //{
        UART_TX_BUFF_NEW[0]=0x03;
        UART_TX_BUFF_NEW[1]=0x02;
-       UART_TX_BUFF_NEW[2]=0x01;
+       UART_TX_BUFF_NEW[2]=0xff;
        UART_TX_BUFF_NEW[3] = UART_TX_BUFF_NEW[0]+UART_TX_BUFF_NEW[1]+UART_TX_BUFF_NEW[2];
        for(Tp_i=0;Tp_i<4;Tp_i++)
        {
@@ -266,7 +245,7 @@ void Uart_handle(void)
        }
        RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP=COMM_IDLE;
-        }
+       // }
        break; 
      
      default:

@@ -287,7 +287,7 @@ INTERRUPT_HANDLER(ADC1_COMP_IRQHandler,18)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
-  ADC2_EOC_INT();
+  //ADC2_EOC_INT();
 }
 
 /**
@@ -409,9 +409,9 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
     */
   if(Flag_uart_handle == 0)
   {
-    #ifndef TESTMODE_DEL
+    //#ifndef TESTMODE_DEL
   UART1_RX_RXNE();
-#endif
+//#endif
   }
   else
   {

@@ -32,7 +32,7 @@ void Send_char(unsigned char ch){			// ·¢ËÍ×Ö·û
 //#endif
 
 
-#ifndef TESTMODE_DEL
+//#ifndef TESTMODE_DEL
 
 //********************************************
 void UART1_INIT(void){	// 
@@ -229,11 +229,50 @@ void PC_PRG(void)								// ´®¿ÚÃüÁî
 				   Send_char(d2);					   
 				}
                         }			  
-		        break;	
+		        break;
+                case 'F':
+			if(SIO_DATA[2]=='M')
+			{
+			 Command_FM = 1;
+			  d1 = '(';
+				d2 = 'O';
+				Send_char(d1);
+				Send_char(d2);		
+				d1 = 'K';
+				d2 = ')';
+				Send_char(d1);
+				Send_char(d2);
+			}
+                        break;
+                case 'S':
+			 Command_S = 1;
+			  d1 = '(';
+				d2 = 'O';
+				Send_char(d1);
+				Send_char(d2);		
+				d1 = 'K';
+				d2 = ')';
+				Send_char(d1);
+				Send_char(d2);
+			break;
+		case 'E':
+			if((SIO_DATA[2]=='N')&&(SIO_DATA[3]=='D'))
+			{
+			 Command_END = 1;
+			  d1 = '(';
+				d2 = 'O';
+				Send_char(d1);
+				Send_char(d2);		
+				d1 = 'K';
+				d2 = ')';
+				Send_char(d1);
+				Send_char(d2);
+			}
+			break;
 		default:
 			break;
                         
 		}
 	}
 }
-#endif
+//#endif

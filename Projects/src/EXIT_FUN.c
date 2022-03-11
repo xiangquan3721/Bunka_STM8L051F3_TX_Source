@@ -6,22 +6,24 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include  <iostm8l051f3.h>				// CPUÐÍºÅ 
-#include "Pin_define.h"		// ¹Ü½Å¶¨Òå
-#include "initial.h"		// ³õÊ¼»¯  Ô¤¶¨Òå
-#include "ram.h"		// RAM¶¨Òå
-
-
+#include  <iostm8l051f3.h>				// CPUï¿½Íºï¿½ 
+#include "Pin_define.h"		// ï¿½Ü½Å¶ï¿½ï¿½ï¿½
+#include "initial.h"		// ï¿½ï¿½Ê¼ï¿½ï¿½  Ô¤ï¿½ï¿½ï¿½ï¿½
+#include "ram.h"		// RAMï¿½ï¿½ï¿½ï¿½
+#include "adf7012.h"
+#include "uart_handle.h"
 
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set);
 UINT16 SetFixedLengthCode(UINT8 data );
-
-
+RF_HANDLE_TYPE RF_STEP;
+UINT32 timeRF;
+UINT32 get_timego(UINT32 x_data_his);
+extern COMM_HANDLE_TYPE COMM_STEP;
 
 void EXIT_init(void){
-   //EXTI_CR1=0X02;             //PORT A µÄÖÐ¶Ï´¥·¢Î»
-   EXTI_CR2=0x02;             //PORT B4 µÄÖÐ¶Ï´¥·¢Î»
-   ADF7021_DATA_CLK_CR2=1;     //Ê¹ÄÜ¸ÃI/O¿ÚÖÐ¶Ï  PA1
+   //EXTI_CR1=0X02;             //PORT A ï¿½ï¿½ï¿½Ð¶Ï´ï¿½ï¿½ï¿½Î»
+   EXTI_CR2=0x02;             //PORT B4 ï¿½ï¿½ï¿½Ð¶Ï´ï¿½ï¿½ï¿½Î»
+   ADF7021_DATA_CLK_CR2=1;     //Ê¹ï¿½Ü¸ï¿½I/Oï¿½ï¿½ï¿½Ð¶ï¿½  PA1
 //   EXTI_CR2=0X00;   
 //   PIN_PD7_CR2=1;      
 }
@@ -110,8 +112,8 @@ void EXTI_PORTA1(void){
 //       else {
 //	 txphase_end=320;
 //	 SetTxData(16,ID_data,0x80);
-//	 if(m_RegMode==1)SetTxData(28,ID_data_add,0xFF);    //"1"ÊÇ×·¼Ó
-//	 else SetTxData(28,ID_data_add,0);    //"2"ÊÇÄ¨Ïû
+//	 if(m_RegMode==1)SetTxData(28,ID_data_add,0xFF);    //"1"ï¿½ï¿½×·ï¿½ï¿½
+//	 else SetTxData(28,ID_data_add,0);    //"2"ï¿½ï¿½Ä¨ï¿½ï¿½
 //       }
 //       txphase=0;
 //       txphase_Repeat=0;
@@ -127,22 +129,24 @@ void SendTxData(void)
        for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[14]=0x15;
        PIN_TX_LED=1;
-       if(m_RegMode==0){
+       if((Control_code[Control_code_out][0]&0x80)==0){
 	 txphase_end=224;
-	 SetTxData(15,ID_data,Control_code);
+	 SetTxData(15,ID_data,Control_code[Control_code_out][0]);
          m_RFNormalBuf[27]=0xFF;
        }
        else {
+         ID_data_add.IDL =0;
+         ID_data_add.IDL = ((UINT32)Control_code[Control_code_out][1]<<16)+((UINT32)Control_code[Control_code_out][2]<<8)+((UINT32)Control_code[Control_code_out][3]);
 	 txphase_end=320;
 	 SetTxData(15,ID_data,0x80);
-	 if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"ÊÇ×·¼Ó
-	 else SetTxData(27,ID_data_add,0);    //"2"ÊÇÄ¨Ïû
+	 if(Control_code[Control_code_out][4]==0xff) SetTxData(27,ID_data_add,0xFF);    //"1"ï¿½ï¿½×·ï¿½ï¿½
+	 else if(Control_code[Control_code_out][4]==0x0) SetTxData(27,ID_data_add,0);    //"2"ï¿½ï¿½Ä¨ï¿½ï¿½
          m_RFNormalBuf[39]=0xFF;
        }
        txphase=0;
        txphase_Repeat=0;
        ID_INT_CODE=0;
-       FLAG_APP_TX=1;
+       //FLAG_APP_TX=1;
 }
 
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)
@@ -196,4 +200,44 @@ UINT16 SetFixedLengthCode(UINT8 data )
 		data >>= 1 ;
 	}
 	return(code) ;
+}
+
+void RF_handle(void)
+{
+   switch(RF_STEP)
+   {
+   case RF_IDLE:
+        if(Control_code_in!=Control_code_out)
+        {
+          RF_STEP = RF_1;
+        }
+         break;
+   case RF_1:
+        if(FLAG_APP_TX == 0)
+        {
+         FLAG_APP_TX = 1;
+          dd_set_ADF7021_Power_on();
+         dd_set_TX_mode();
+         SendTxData();
+         RF_STEP = RF_2;
+         timeRF = time1ms_count;
+        }
+        break;
+   case RF_2:
+        if(FLAG_APP_TX==0)
+        {
+          Control_code_out = (Control_code_out+1)%Control_code_Max;
+          RF_STEP = RF_IDLE;
+        }
+        if(get_timego(timeRF)>1000)
+        {
+           if(COMM_STEP== COMM_IDLE)
+           {
+             COMM_STEP = COMM_NACK;
+             RF_STEP = RF_IDLE;
+           }
+        }
+          break;
+   default:break;
+   }
 }

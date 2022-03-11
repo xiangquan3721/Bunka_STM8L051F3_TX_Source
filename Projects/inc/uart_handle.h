@@ -8,6 +8,7 @@ void Uart_handle(void);
 typedef enum COMM_HANDLE_STATUS
 {
 	COMM_IDLE,
+        COMM_NEXT,
 	COMM_NACK,
         COMM_ACK,
         //COMM_FAIL,

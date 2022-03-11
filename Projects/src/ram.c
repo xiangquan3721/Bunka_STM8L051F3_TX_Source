@@ -10,7 +10,7 @@
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 
-
+#define Control_code_Max 10
 
 volatile union{
 	unsigned char BYTE;	
@@ -81,6 +81,10 @@ volatile union{
 	}BIT; 	
 }RAM_UART;
 
+
+
+
+
 UINT8 TB_51s;
 UINT8 TB_sum_5s;
 
@@ -89,7 +93,9 @@ UINT8 TB_sum_5s;
 UINT8  m_RFNormalBuf[40];
 uni_rom_id ID_data;
 uni_rom_id ID_data_add;
-UINT8 Control_code;
+UINT8 Control_code[Control_code_Max][5];
+UINT8 Control_code_in=0;
+UINT8 Control_code_out=0;
 UINT16 txphase;
 UINT8 txphase_Repeat;
 UINT8 ID_INT_CODE;
@@ -148,4 +154,5 @@ UINT16 key_Value=0;   //2015.1.31修正3
 UINT8 TIME_2s_RestTX=0;  //2015.4.13修正
 UINT16 TIME_power_on_AD=0;
 
-
+UINT8 Command_S=0,Command_FM=0,Command_END=0;
+UINT32  time1ms_count = 0;
