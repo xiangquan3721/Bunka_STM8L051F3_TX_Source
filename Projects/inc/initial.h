@@ -24,13 +24,7 @@
 // 方向控制寄存器1（1=输出／0=输入）
 #define Input				0
 #define Output				1
-
-#define FG_allow_out			1
-#define FG_NOT_allow_out		0
 /*******************系统预定义  end**********************/
-//说明  byte【0】----->高字节
-//      。。。。。。。。。
-//      byte【3】----->低字节
 
   typedef union{
         UINT32  whole_reg;
@@ -52,8 +46,4 @@
 void RAM_clean(void);		// 清除RAM 
 void VHF_GPIO_INIT(void);	// CPU端口设置
 void SysClock_Init( void ); 	// 系统时钟（外部时钟）
-void beep_init( void );
 void Delayus(unsigned char timer);
-void _Init_RAM(void);
-void WDT_init(void);
-void ClearWDT(void);
