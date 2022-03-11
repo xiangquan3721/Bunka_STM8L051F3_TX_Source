@@ -61,7 +61,12 @@ void dd_set_ADF7021_Power_on(void)
 	if (ADF7021_CE == 0)
 	{
 		ADF7021_CE = 1;
-                Delayus(65);             //delay 100us
+		//Delayus(65);             //delay 100us
+                Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
+		Delayus(130);             //delay 200us
 	}
 }
 

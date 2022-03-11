@@ -40,6 +40,7 @@ void main(void)
   _DI();		// 关全局中断
   RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
+  //CPU_CFG_GCR_SWO =1;
   SysClock_Init();
   EXIT_init();
   TB_100ms = BASE_100ms;
@@ -47,6 +48,15 @@ void main(void)
   TIM4_Init();
   _EI();		// 允许中断	
   ID_data.IDL=13227479;
+  beep_init();
+  while(PIN_test_mode==0){
+    test_mode_control();
+    PIN_TX_LED=1;
+  }
+  PIN_TX_LED=0;
+  FG_KEY_OPEN=0;
+  FG_KEY_STOP=0;
+  FG_KEY_CLOSE=0;
   /* Infinite loop */
   while (1)
   {
@@ -61,13 +71,6 @@ void main(void)
 //	  WWDG_CR_WDGA=1;
 //	  WWDG_CR_T6=0;   
 	}
-	
-//	  if((ADF7021_DATA_CLK==1)&&(PIN_KEY_LOGIN==0)&&(FG_test1==0))
-//	  {
-//	    ADF7021_DATA_tx=!ADF7021_DATA_tx;
-//	    FG_test1=1;
-//	  }
-//	  if(ADF7021_DATA_CLK==0)FG_test1=0;	
 		
  }
   

@@ -45,3 +45,23 @@ void TIM4_UPD_OVF(void){
 	}
 	TIM4_SR_bit.UIF=0;						// 清除中断标记
 }
+
+
+////%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   0.244ms
+//void TIM4_Init(void){				
+//	TIM4_PSCR = 0x04;	// Timer 4 prescaler  计数器时钟频率  f CK_CNT  =f CK_PSC  / 2的N次方
+//	TIM4_ARR  = 0x3C;						// Timer 4 period
+//	TIM4_CR1 |= 0x01;						// Timer 4 Enable
+//	TIM4_IER |= 0x01;						// Timer 4 OVR interrupt
+//}
+//
+//void TIM4_UPD_OVF(void){
+//        if (TB_976us)--TB_976us;
+//        else{                            
+//	  TB_976us = BASE_976us;
+//	  FG_976us = 1;	      // 976us FLAG
+//	}
+//        if(FLAG_beep==1)PIN_BEEP=!PIN_BEEP;
+//	
+//	TIM4_SR_bit.UIF=0;						// 清除中断标记
+//}

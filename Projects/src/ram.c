@@ -27,6 +27,20 @@ volatile union{
 	}BIT; 	
 }RAM_OP1;
 
+volatile union{
+	unsigned char BYTE;	
+	struct { 
+		unsigned char	Bit0:	1;
+		unsigned char	Bit1:	1;
+		unsigned char	Bit2:	1;
+		unsigned char	Bit3:	1;
+		unsigned char	Bit4:	1;
+		unsigned char	Bit5:	1;
+		unsigned char	Bit6:	1;
+		unsigned char	Bit7:	1;
+	}BIT; 	
+}RAM_OP2;
+
 
 
 //UINT8  m_RFNormalBuf[35];
@@ -37,9 +51,16 @@ UINT16 txphase;
 UINT8 txphase_Repeat;
 UINT8 ID_INT_CODE;
 
+UINT8 TIME_BEEP_on;
+UINT8 TIME_BEEP_off;
+UINT8 BASE_TIME_BEEP_on;
+UINT8 BASE_TIME_BEEP_off;
+UINT8 TIME_BEEP_freq;
+
+UINT8 TB_976us;
 UINT8 TB_100ms;
 UINT8 TB_5s;
 UINT8 TIME_KEY_OPEN;
-UINT8 TIME_KEY_STOP;
+UINT16 TIME_KEY_STOP;
 UINT8 TIME_KEY_CLOSE;
-UINT8 TIME_KEY_LOGIN;
+UINT16 TIME_KEY_LOGIN;

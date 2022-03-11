@@ -10,3 +10,4 @@
 
 void key_check(void);
 void time_control(void);
+void test_mode_control(void);

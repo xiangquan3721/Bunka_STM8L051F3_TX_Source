@@ -45,10 +45,20 @@ void SysClock_Init( void )
 	CLK_CKDIVR = 0x10;		// 设置时钟分频  f HSI= f HSI RC输出/4    f CPU= f MASTER
 	//---------------------------------------- 外设  
 	//CLK_PCKENR1 = 0x84;						// T1,UART1
-	CLK_PCKENR1 = 0x14;						// T4,UART1
-	CLK_PCKENR2 = 0x08;						// ADC	
+//	CLK_PCKENR1 = 0x14;						// T4,UART1
+//	CLK_PCKENR2 = 0x08;						// ADC	
+	
+	CLK_ICKR_LSIEN = 1;				// 使能内部LSI OSC（128KHz）
+	while(CLK_ICKR_LSIRDY == 0 );		// 检查内部LSI OSC 
 }
 
+void beep_init( void )
+{ 	
+     //BEEP_CSR=0x4E; 
+  BEEP_CSR=0;
+  BEEP_CSR_BEEPDIV=14;
+  BEEP_CSR_BEEPSEL=1; 
+}
 /****************端口设置说明***************************
 CR1寄存器  输出 Output（1=推挽、0=OC）
            输入 Input（1=上拉、0=浮动）
@@ -100,10 +110,14 @@ void VHF_GPIO_INIT(void)   // CPU端口设置
 
   PIN_BEEP_direc = Output;    // Output   蜂鸣器
   PIN_BEEP_CR1 = 1;
+  PIN_BEEP=0;
   
   PIN_POWER_CONTROL_direc = Output;    // Output   电源控制
   PIN_POWER_CONTROL_CR1 = 1;
   PIN_POWER_CONTROL=0;
+  
+  PIN_test_mode_direc=Input;    // 输入     test脚
+  PIN_test_mode_CR1=1;
   
   PIN_POWER_AD_direc = Input;     // 输入     电源监测AD脚 
 
