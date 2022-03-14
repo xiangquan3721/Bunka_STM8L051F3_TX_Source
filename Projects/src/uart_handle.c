@@ -57,7 +57,7 @@ void UART1_RX_RXNE_handle(void)
      if(((RX_COUNT_IN+1)%RX_BUFF_MAX)!=RX_COUNT_OUT)//
      {
 		        timeuart = time1ms_count;
-                        UART_RX_BUFF[RX_COUNT_IN%RX_BUFF_MAX]=dat;
+                        UART_RX_BUFF[RX_COUNT_IN]=dat;
 			RX_COUNT_IN++;
 			if(RX_COUNT_IN >= RX_BUFF_MAX)
 			{
@@ -106,7 +106,7 @@ void Uart_handle(void)
      switch(COMM_STEP)
      {
      case COMM_IDLE:
-       if(GET_READNUM()==4)
+       if(GET_READNUM()>=4)
        {
         for(Tp_i=0;Tp_i<4;Tp_i++)
         {
@@ -135,6 +135,7 @@ void Uart_handle(void)
               {
                 Control_code_in = (Control_code_in +1)%Control_code_Max;
                 COMM_STEP = COMM_ACK;
+                //RX_COUNT_OUT = (RX_COUNT_OUT+4)%;
               }
               
             }
@@ -145,22 +146,23 @@ void Uart_handle(void)
         }
         
        }
-       else if(GET_READNUM()>4)
-       {
-         COMM_STEP = COMM_NACK;
-       }
+       //else if(GET_READNUM()>4)
+      // {
+      //   COMM_STEP = COMM_NACK;
+     //  }
        else if((GET_READNUM()<4)&&(GET_READNUM()!=0))
        {
          if(get_timego(timeuart)>200)
          {
             COMM_STEP = COMM_NACK;
+            RX_COUNT_OUT = (RX_COUNT_OUT+GET_READNUM())%RX_BUFF_MAX;
          }
        }
          
        
        break;
     case COMM_NEXT:
-       if(GET_READNUM()==7)
+       if(GET_READNUM()>=7)
        {
         for(Tp_i=0;Tp_i<7;Tp_i++)
         {
@@ -194,21 +196,23 @@ void Uart_handle(void)
         }
         
        }
-       else if(GET_READNUM()>7)
-       {
-         COMM_STEP = COMM_NACK;
-       }
+      // else if(GET_READNUM()>7)
+      // {
+     //    COMM_STEP = COMM_NACK;
+     //  }
        else if((GET_READNUM()<7)&&(GET_READNUM()!=0))
        {
          if(get_timego(timeuart)>200)
          {
             COMM_STEP = COMM_NACK;
+            RX_COUNT_OUT = (RX_COUNT_OUT+GET_READNUM())%RX_BUFF_MAX;
          }
        }
         
       if(get_timego(time_next)>200)
       {
         COMM_STEP = COMM_NACK;
+        RX_COUNT_OUT = RX_COUNT_IN;
       }
        
        break;
@@ -229,7 +233,7 @@ void Uart_handle(void)
       {
          Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
-       RX_COUNT_OUT = RX_COUNT_IN;
+       //RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP = COMM_IDLE;
        //}
        break;
@@ -244,7 +248,7 @@ void Uart_handle(void)
        {
           Send_char(UART_TX_BUFF_NEW[Tp_i]);
        }
-       RX_COUNT_OUT = RX_COUNT_IN;
+      // RX_COUNT_OUT = RX_COUNT_IN;
         COMM_STEP=COMM_IDLE;
        // }
        break; 
