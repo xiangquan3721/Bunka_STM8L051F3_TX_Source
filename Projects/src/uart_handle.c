@@ -117,7 +117,7 @@ void Uart_handle(void)
         if((dat[0]==0x3)&&(dat[1]==0x2)&&((unsigned char)(dat[0]+dat[1]+dat[2])==dat[3])&&(ID_data.IDL!=0))
         {
             
-            if((Control_code_in+1)%Control_code_Max == Control_code_out)
+            if(((Control_code_in+1)%Control_code_Max) == Control_code_out)
             {
               COMM_STEP = COMM_NACK;
             }
@@ -168,10 +168,11 @@ void Uart_handle(void)
          RX_COUNT_OUT = (RX_COUNT_OUT+1)%RX_BUFF_MAX;
         }
         
-        if((dat[0]==0x4)&&(dat[1]==0x5)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3]+dat[4]+dat[5])==dat[6]))
+        if((dat[0]==0x4)&&(dat[1]==0x5)&&((unsigned char)(dat[0]+dat[1]+dat[2]+dat[3]+dat[4]+dat[5])==dat[6])&&
+           ((dat[5]==0x00)||(dat[5]==0xff)))
         {
             
-            if((Control_code_in+1)%Control_code_Max == Control_code_out)
+            if(((Control_code_in+1)%Control_code_Max )== Control_code_out)
             {
               COMM_STEP = COMM_NACK;
             }

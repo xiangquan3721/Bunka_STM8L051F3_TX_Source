@@ -18,6 +18,15 @@
 void Send_char(unsigned char ch);
 
 
+//UINT16 FRE_NOW_bit;
+//INT16  FRE_NOW_int;
+//#define MAX_LEVEL 21
+const UINT32  FRE_move[21] = {0x0088a000,0X0088A004,0X0088A008,0X0088A00C,0X0088A010,
+                              0X0088A014,0X0088A018,0X0088A01C,0X0088A020,0X0088A024,
+                              0X0088A028,0X0088BFFC,0X0088BFF8,0X0088BFF4,0X0088BFF0,
+                              0X0088BFEC,0X0088BFE8,0X0088BFE4,0X0088BFE0,0X0088BFDC,
+                              0X0088BFD8};
+
 #define	TXD1_enable	(USART1_CR2 = 0x08)		// 允许发送	
 #define RXD1_enable	(USART1_CR2 = 0x24)		// 允许接收及其中断	
 
@@ -242,6 +251,59 @@ void PC_PRG(void)								// 串口命令
 				d2 = ')';
 				Send_char(d1);
 				Send_char(d2);
+			}
+                        if((SIO_DATA[2]=='C')&&(SIO_buff[3]=='?'))
+			{
+				
+					
+				
+		                for(i= 0;i<21;i++)
+				{
+					if(FRE_move[i] == ROM_adf7012_value[0].whole_reg)
+					{
+						break;
+					}
+				}
+				
+				d1 = '(';
+				d2 = 'F';
+				Send_char(d1);
+				Send_char(d2);		
+				d1 = 'C';
+				d2 = ')';
+				Send_char(d1);
+				Send_char(d2);
+				d1 = hex_asc(i / 16);
+				d2 = hex_asc(i % 16);
+				Send_char(d1);
+				Send_char(d2);
+				
+			}
+			if((SIO_DATA[2]=='C')&&(SIO_buff[3]!='?'))
+			{
+				i = asc_hex_2(SIO_buff[3],SIO_buff[4]);
+				if(i >= 21) break;
+				
+				ROM_adf7012_value[0].whole_reg=FRE_move[i];
+				
+				dd_write_7021_reg(&ROM_adf7012_value[0].byte[0]);
+				
+				UnlockFlash( UNLOCK_EEPROM_TYPE );
+				WriteByteToFLASH(addr_eeprom_sys+0x20,ROM_adf7012_value[0].byte[0]);
+				WriteByteToFLASH(addr_eeprom_sys+0x20+1,ROM_adf7012_value[0].byte[1]);
+				WriteByteToFLASH(addr_eeprom_sys+0x20+2,ROM_adf7012_value[0].byte[2]);
+				WriteByteToFLASH(addr_eeprom_sys+0x20+3,ROM_adf7012_value[0].byte[3]);
+				LockFlash( UNLOCK_EEPROM_TYPE ); 
+				
+				d1 = '(';
+				d2 = 'O';
+				Send_char(d1);
+				Send_char(d2);		
+				d1 = 'K';
+				d2 = ')';
+				Send_char(d1);
+				Send_char(d2);
+				
 			}
                         break;
                 case 'S':

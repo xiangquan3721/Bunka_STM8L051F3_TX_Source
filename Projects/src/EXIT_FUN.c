@@ -229,7 +229,7 @@ void RF_handle(void)
           Control_code_out = (Control_code_out+1)%Control_code_Max;
           RF_STEP = RF_IDLE;
         }
-        if(get_timego(timeRF)>1000)
+        if(get_timego(timeRF)>1000)//800ms max
         {
            if(COMM_STEP== COMM_IDLE)
            {
