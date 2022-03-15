@@ -77,17 +77,17 @@
 //}
 
 
-void time_control(void)
-{
-  if(FG_100ms){
-    FG_100ms=0; 
-    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý    
-    if(FG_PWRON==1){
-    if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
-    }    
-  }
-  
-}
+//void time_control(void)
+//{
+//  if(FG_100ms){
+//    FG_100ms=0; 
+//    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý    
+//    if(FG_PWRON==1){
+//    if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
+//    }    
+//  }
+//  
+//}
 
 //
 /****************************************/

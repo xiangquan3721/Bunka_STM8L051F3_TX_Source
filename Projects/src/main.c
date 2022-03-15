@@ -43,7 +43,7 @@ void main(void)
   _DI();		// 关全局中断 
   RAM_clean(); 		// 清除RAM  
   VHF_GPIO_INIT();
-  //////////////////WDT_init();
+  WDT_init();
   SysClock_Init();
   EXIT_init();
   InitialFlashReg();
@@ -78,7 +78,7 @@ void main(void)
   {     
         ClearWDT(); // Service the WDT
 	//key_check();
-	time_control();
+	//time_control();
 	//AD_control();
         Uart_handle();
         RF_handle();

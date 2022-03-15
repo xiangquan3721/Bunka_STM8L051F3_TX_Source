@@ -60,12 +60,12 @@ void TIM4_Init(void){
 
 void TIM4_UPD_OVF(void){
         time1ms_count++;
-        FG_1ms = 1;
-	if (TB_100ms)	--TB_100ms;
-        else{                            
-	  TB_100ms = BASE_100ms;
-	  FG_100ms = 1;	      // 100mS FLAG
-	}
+//        FG_1ms = 1;
+//	if (TB_100ms)	--TB_100ms;
+//        else{                            
+//	  TB_100ms = BASE_100ms;
+//	  FG_100ms = 1;	      // 100mS FLAG
+//	}
 	TIM4_SR1_bit.UIF=0;						// 清除中断标记
 }
 
