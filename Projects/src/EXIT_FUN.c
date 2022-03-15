@@ -146,7 +146,7 @@ void SendTxData(void)
        txphase=0;
        txphase_Repeat=0;
        ID_INT_CODE=0;
-       //FLAG_APP_TX=1;
+       FLAG_APP_TX=1;
 }
 
 void SetTxData(UINT8 count_set ,uni_rom_id ID_data_set,UINT8 Control_code_set)
@@ -215,7 +215,7 @@ void RF_handle(void)
    case RF_1:
         if(FLAG_APP_TX == 0)
         {
-         FLAG_APP_TX = 1;
+         
           dd_set_ADF7021_Power_on();
          dd_set_TX_mode();
          SendTxData();
@@ -229,14 +229,14 @@ void RF_handle(void)
           Control_code_out = (Control_code_out+1)%Control_code_Max;
           RF_STEP = RF_IDLE;
         }
-        if(get_timego(timeRF)>1000)//800ms max
-        {
-           if(COMM_STEP== COMM_IDLE)
-           {
-             COMM_STEP = COMM_NACK;
-             RF_STEP = RF_IDLE;
-           }
-        }
+//        if(get_timego(timeRF)>1000)//800ms max
+//        {
+//           if(COMM_STEP== COMM_IDLE)
+//           {
+//             COMM_STEP = COMM_NACK;
+//             RF_STEP = RF_IDLE;
+//           }
+//        }
           break;
    default:break;
    }
