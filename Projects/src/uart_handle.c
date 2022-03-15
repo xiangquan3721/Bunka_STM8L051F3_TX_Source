@@ -40,7 +40,7 @@ void UART1_INIT_handle(void)
 	                                                                //16.00M/9600 = 0x683
 	                                                               //4.00M/9600 = 0x1a1
 	//USART1_CR2 = 0x08;	// 允许发送
-        USART1_CR2 = 0x24;    // 允许接收及其中断
+        USART1_CR2 = 0x24|0x08;    // 允许接收及其中断
         Flag_uart_handle = 1;
         
         RX_COUNT_IN = 0;

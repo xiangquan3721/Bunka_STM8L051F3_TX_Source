@@ -32,11 +32,11 @@ const UINT32  FRE_move[21] = {0x0088a000,0X0088A004,0X0088A008,0X0088A00C,0X0088
 
 
 void Send_char(unsigned char ch){			// 发送字符
-	TXD1_enable;							// 允许发送	
+	//TXD1_enable;							// 允许发送	
 	while(!USART1_SR_TXE);
 	USART1_DR = ch;							// 发送
 	while(!USART1_SR_TC);					// 等待完成发送
-	RXD1_enable;							// 允许接收及其中断	
+	//RXD1_enable;							// 允许接收及其中断	
 }
 //#endif
 
@@ -57,7 +57,7 @@ void UART1_INIT(void){	//
 	                                                                //16.00M/9600 = 0x683
 	                                                               //4.00M/9600 = 0x1a1
 	//USART1_CR2 = 0x08;	// 允许发送
-        USART1_CR2 = 0x24;    // 允许接收及其中断
+        USART1_CR2 = 0x24|0x08;    // 允许接收及其中断
 	
         //USART1_CR2 = 0x2C;    //允许发送 .   允许接收及其中断
 } 
