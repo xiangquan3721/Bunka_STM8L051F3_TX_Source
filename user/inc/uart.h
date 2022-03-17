@@ -86,5 +86,7 @@ void TranmissionACK(void);
 void ReceiveFrame(u8 Cache);
 void OprationFrame(void);
 void PC_PRG(void);
+void Init_Uart0_T1(void);
+void UART1_end(void);
 
 #endif

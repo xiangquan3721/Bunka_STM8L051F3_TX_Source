@@ -133,37 +133,37 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ACKBack</ItemText>
+          <ItemText>i</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rx_ccnt</ItemText>
+          <ItemText>RAM_BAT_AVG</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ID_SCX1801_DATA</ItemText>
+          <ItemText>BAT_Voltage_value</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ID_Receiver_DATA</ItemText>
+          <ItemText>TIME_BEEP_on</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>DATA_Packet_ID</ItemText>
+          <ItemText>txphase_Repeat</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>PROFILE_CH_FREQ_32bit_200002EC</ItemText>
+          <ItemText>asd.BUF</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>FLAG_testBEEP</ItemText>
+          <ItemText>asd.W</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
@@ -180,7 +180,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -198,7 +198,7 @@
         <aPa1>0</aPa1>
         <AscS4>0</AscS4>
         <aSer4>0</aSer4>
-        <StkLoc>1</StkLoc>
+        <StkLoc>0</StkLoc>
         <TrcWin>0</TrcWin>
         <newCpu>0</newCpu>
         <uProt>0</uProt>
@@ -328,8 +328,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\user\src\ID_Decode.c</PathWithFileName>
-      <FilenameWithoutPath>ID_Decode.c</FilenameWithoutPath>
+      <PathWithFileName>.\user\src\ML7345.c</PathWithFileName>
+      <FilenameWithoutPath>ML7345.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -340,8 +340,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\user\src\ML7345.c</PathWithFileName>
-      <FilenameWithoutPath>ML7345.c</FilenameWithoutPath>
+      <PathWithFileName>.\user\src\ML7345_HAL.c</PathWithFileName>
+      <FilenameWithoutPath>ML7345_HAL.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -352,8 +352,32 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\user\src\ML7345_HAL.c</PathWithFileName>
-      <FilenameWithoutPath>ML7345_HAL.c</FilenameWithoutPath>
+      <PathWithFileName>.\user\src\adc.c</PathWithFileName>
+      <FilenameWithoutPath>adc.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>12</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\user\src\key_and_Other.c</PathWithFileName>
+      <FilenameWithoutPath>key_and_Other.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>13</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\user\src\EXIT_FUN.c</PathWithFileName>
+      <FilenameWithoutPath>EXIT_FUN.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

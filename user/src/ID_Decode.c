@@ -287,7 +287,7 @@ void eeprom_IDcheck(void)
 
 void BEEP_Module(u16 time_beepON, u16 time_beepOFF)
 {
-	idata u16 i;
+	xdata u16 i;
     
 	for (i = 0; i < time_beepON; i++)
 	{
@@ -329,7 +329,7 @@ void BEEP_and_LED(void)
 
 void Receiver_BEEP(void)
 {
-    idata u16 j;
+    xdata u16 j;
     if (FLAG_Receiver_BEEP == 0)
     {
         FLAG_Receiver_BEEP = 1;

@@ -1,6 +1,11 @@
 #include "timer.h"
 
 /* PCA定时器为16位,最大计数65536,*/
+#if (MCU_SYSCLK == 4000000)
+#define PCA_RELOAD		(2000)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.0K,PCA时钟为SysClk 4MHz
+#define Duty_Cycle      1000       //50%
+#endif
+
 #if (MCU_SYSCLK == 16000000)
 #define PCA_RELOAD		(5926)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.7K,PCA时钟为SysClk 16MHz
 #define Duty_Cycle      2963       //50%
@@ -30,14 +35,15 @@ void Init_Timer0(void)
 {
 	TM_SetT0Mode_1_16BIT_TIMER();			// 设置T0模式为16位模式
     
-    TM_SetT0Clock_SYSCLKDiv12();            // 设置T0时钟源为 SYSCLK/12.
+    TM_SetT0Clock_SYSCLK();            // 设置T0时钟源为 SYSCLK.
 
 	TM_SetT0Gate_Disable();	
 		
-    TM_SetT0LowByte(TIMER_12T_1ms_TL);		// 设置T0低8位
-	TM_SetT0HighByte(TIMER_12T_1ms_TH);		// 设置T0高8位
+    TM_SetT0LowByte(TIMER_1T_1ms_TH);		// 设置T0低8位
+	TM_SetT0HighByte(TIMER_1T_1ms_TH);		// 设置T0高8位
 
 	TM_EnableT0();							// 使能T0
+    INT_EnTIMER0();			//	使能T0中断
 }
 
 
@@ -50,43 +56,18 @@ void Init_Timer0(void)
 *************************************************************************************/
 void INT_T0(void) interrupt INT_VECTOR_T0
 {
-	TH0=TIMER_12T_1ms_TH;
-	TL0=TIMER_12T_1ms_TL;
+	TH0 = TIMER_1T_1ms_TH;
+	TL0 = TIMER_1T_1ms_TH;
     
-    if (TIMER1s)
-        --TIMER1s;
-	if(TIME_power_led)
-		--TIME_power_led;
-    if (TIMER300ms)
-        --TIMER300ms;
-    if (TIMER18ms)
-        --TIMER18ms;
-    if (TIMER250ms_STOP)
-        --TIMER250ms_STOP;
-    if (TIME_10ms)
-        --TIME_10ms;
-    else
-    { // 10mS FLAG
-        TIME_10ms = 10;
-        FG_10ms = 1;
-    }
-    if (U1AckTimer)
-        U1AckTimer--;
-    if (Time_APP_RXstart)
-      --Time_APP_RXstart;
-    if(Time_APP_blank_TX)
-       --Time_APP_blank_TX;
-    if (X_ERRTimer)
-        X_ERRTimer--;
-	if (TIME_ID_SCX1801_Login)
-		--TIME_ID_SCX1801_Login;
-
-    if(Time_Tx_Out)  --Time_Tx_Out;
-    if(Time_rf_init) --Time_rf_init;
+    FG_1ms = 1;
+    if (TB_100ms)	--TB_100ms;
+    else{                            
+        TB_100ms = BASE_100ms;
+        FG_100ms = 1;	      // 100mS FLAG
+	}
 }
 
 
-//38K/14 = 2.7kHz;
 void Init_PCA_PWM(void)
 {
     PCA_SetCLOCK_SYSCLK();          // PCA时钟为SysClk
@@ -132,12 +113,6 @@ void DelayXus(u8 xUs)
 	{
 		_nop_();
 		_nop_();
-		_nop_();
-		_nop_();
-		_nop_();
-		_nop_();
-        _nop_();
-		_nop_();
 		xUs--;
 	}
 }
@@ -150,13 +125,11 @@ void DelayXus(u8 xUs)
 输出参数:     
 *************************************************/
 
-void delay_ms(u8 ms) //1约1.2ms
+void delay_ms(u8 ms) //
 {
     while(ms--)
     {
-        DelayXus(200);
-        DelayXus(200);
-        DelayXus(200);
-        DelayXus(200);
+        DelayXus(100);
+        DelayXus(100);
     }
 }

@@ -27,7 +27,8 @@ ID_DATA_PCS -> 0x7FFE ~ 0X7FFF. ID数量
 #define ERR_CNT_MAX     3 		 // 错误重试计数最大值
 
 #define addr_eeprom_sys IAP_ADDRESS
-#define Addr_rf_offset 0x3FA
+#define Addr_rf_offset  0x3FA
+#define Addr_rom_KeyOpt 0x3F9
 
 // 可以使用MOVC的方式读取IAP的数据
 #define	IAP_ReadByteByMOVC(x)	CBYTE[x]

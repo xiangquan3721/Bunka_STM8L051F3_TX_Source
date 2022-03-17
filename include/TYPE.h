@@ -65,6 +65,8 @@ typedef unsigned long * pu32;
 typedef unsigned short int * pu16;
 typedef unsigned char * pu8;
 
+#define ulong       unsigned long
+
 #endif
 
 #ifndef uint8_t
@@ -159,6 +161,9 @@ typedef struct body    //?????
 	
     uni_i Data[4];  //?§±data      
 }Wireless_Body;
+
+#define FG_allow_out			0
+#define FG_NOT_allow_out		1
 
 #define BITALL		0xFF
 #define	BIT0		0x01

@@ -283,7 +283,7 @@ Return: Null
 void ML7345_RESETN_SET(void)
 {
     ML7345_RESETN = 0;
-    delay_ms(2); //约2.8ms
+    delay_ms(2); //约2.2ms
     ML7345_RESETN = 1;
 }
 
@@ -323,7 +323,6 @@ Function: Frequency Set
 Parameter: Frequency
 Return: Null
 */
-xdata u16 timeout_cnt = 0;
 void ML7345_Frequency_Set(u8 *freq,u8 radio_type)
 {
     Flag_set_freq = 1;
@@ -353,12 +352,11 @@ void ML7345_Frequency_Set(u8 *freq,u8 radio_type)
 
     ML7345_Write_Reg(0x6f, 0x01);     /* VCO_CAL_START(CAL start) */
     while(1){
-        if(timeout_cnt++ >= 5000) break;
         if(ML7345_Read_Reg(0x0Du)&0x02u){   /* Wait VCO calibration completion */
             break;
         }
     }
-    timeout_cnt = 0;
+
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL); /* Bank0 Set */
     Flag_set_freq = 0;
 }
@@ -555,7 +553,7 @@ Return: Null
 void ML7345_AutoTx_Data(u8 *pbuf,u8 len)
 {
     if(len > 64)    len = 64;
-    CG2214M6_USE_T;
+    //CG2214M6_USE_T;
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);  //set bank0
     ML7345_Write_Reg(ADDR_TX_PKT_LEN_L,len);    //发送包长度低八位
     ML7345_AutoStateTransition_Set(AUTO_TX_EN);  //设置为自动发送模式

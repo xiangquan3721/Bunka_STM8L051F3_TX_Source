@@ -1,70 +1,61 @@
-/*********************************************************************
-    项目名称:MA82G5Bxx-DEMO
-			测试板使用 MA82G5B32	LQFP32_V10 EV Board (TH156A)
-			CpuCLK=12MHz, SysCLK=12MHz
-	功能描述：
-
-	注意事项：
-
-    建立时间:
-    修改日志:
-    
-*********************************************************************/
 #include "gpio.h" 
 #include "timer.h"
 #include "uart.h"
 #include "IAP_flash.h"
 #include "spi.h"  
 #include "ML7345.h"
-#include "ID_Decode.h"
-
+#include "adc.h"
+#include "key_and_Other.h"
+#include <Stdio.h>  // for printf
+//ID 00000001
+//xdata u8 g_txBuffer1[12] = {0x95,0x55,0x55,0x55,0x55,0x55,0x56,0x55,0x95,0x55,0x56,0x55};//open
+//xdata u8 g_txBuffer2[12] = {0x95,0x55,0x55,0x55,0x55,0x55,0x59,0x55,0x95,0x55,0x59,0x55};//stop   /* RF Tx buffer */
+//xdata u8 g_txBuffer3[12] = {0x95,0x55,0x55,0x55,0x55,0x55,0x65,0x55,0x95,0x55,0x65,0x55}; //close
+//xdata u8 sw = 0;
 
 void main()
 {
-    Init_WDT();    
+    Init_WDT();
     Init_Clock();
-    ClearWDT();
     Init_IAP_flash();
+    Init_Timer0();
     eeprom_sys_load();
     Init_Port();
-	Init_Timer0(); 
-    Init_Uart0_T1_ODD();       
+    gpio_dc_test();
+    Init_Spi();
+    Init_Adc();
+    _Init_RAM();
     Init_Beep();
-    Init_Spi();  
-    ClearWDT();
-    PROFILE_CH_FREQ_32bit_200002EC = 426075000;
-    RF_ML7345_Init(Fre_426_075,0x15,12);    //约11ms
-    TIME_power_led = 500;
-    ClearWDT();
+    test_mode_control();
+    //RF_ML7345_Init(Fre_426_075,0x15,12);
     Init_Interrupt();
-    INT_EnAll();  // 使能全局中断
-    ML7345D_RF_test_mode();
-    FLAG_APP_RX = 1;
-    FG_Receiver_LED_RX = 0;
-    FLAG_testNo91=0;
-	FLAG_testBEEP=0;  
-    ML7345_SetAndGet_State(RX_ON);
-    CG2214M6_USE_R;
-    
+    INT_EnAll();
+    Adc_Start();
+    TIME_power_on_AD = 30;
+    //PIN_POWER_CONTROL = 1;
+    //ML7345D_POWER = 0;
+    //ID_data.IDC = 12345678;
     while(1) 
     {
-        ClearWDT(); // Service the WDT
-        if(FLAG_testBEEP != 0)    TEST_beep();
-        
-        if (time_Login_exit_256 == 0)
-            ID_Decode_OUT();
-        ID_learn();
-        if(ID_SCX1801_DATA != 0)  APP_TX_PACKET();
-        if(FLAG_APP_RX == 1)
-        {
-    		  ML7345D_Freq_Scanning();
-			  SCAN_RECEIVE_PACKET(); 
+        ClearWDT();
+        key_check();
+        time_control();
+        AD_control();
+	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
+        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0))//2015.4.13修正
+        {  
+            FG_PWRON=0;
+            PIN_POWER_CONTROL=0;
+            FG_10s=1;    // 2015.1.31修正3
+          /*******************2015.1.31修正2************************/
+            while(1){
+               if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT
+                else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
+                    key_check();
+                    ClearWDT(); // Service the WDT
+                }
+            }
         }
-        TranmissionACK();
-        if (FG_Receiver_LED_RX == 1)
-            Receiver_LED_RX = 1;
-        else if (FG_Receiver_LED_RX == 0)
-            Receiver_LED_RX = 0;
     }
 }
 

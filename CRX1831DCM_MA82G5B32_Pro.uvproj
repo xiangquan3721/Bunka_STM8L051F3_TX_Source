@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>CRX1831DCM_MA82G5B32_Pro</OutputName>
+          <OutputName>STX0031_MA82G5B32_Pro</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\user\inc;.\include</IncludePath>
+              <IncludePath>.\include;.\user\inc</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -417,11 +417,6 @@
               <FilePath>.\user\src\ram.c</FilePath>
             </File>
             <File>
-              <FileName>ID_Decode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\ID_Decode.c</FilePath>
-            </File>
-            <File>
               <FileName>ML7345.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\src\ML7345.c</FilePath>
@@ -430,6 +425,21 @@
               <FileName>ML7345_HAL.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\src\ML7345_HAL.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>key_and_Other.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\key_and_Other.c</FilePath>
+            </File>
+            <File>
+              <FileName>EXIT_FUN.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\EXIT_FUN.c</FilePath>
             </File>
           </Files>
         </Group>

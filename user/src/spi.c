@@ -1,6 +1,6 @@
 #include "spi.h"
 
-void spi_delay(u16 n) //1: 1.69us; 2: 2.24us; 4: 3.19us; 10: 6.2us
+void spi_delay(u8 n) //11us
 {
      while(n--);
 }
@@ -11,8 +11,8 @@ void Init_Spi(void)
     SPI_Enable();
 	// 设置MASTER
 	SPI_SelectMASTERByMSTRbit();
-	// 设置SPI时钟 SYSCLK/8
-	SPI_SetClock(SPI_CLK_SYSCLK_8);
+	// 设置SPI时钟
+	SPI_SetClock(SPI_CLK_SYSCLK_4);
 	// 设置SPICLK初始电平 CPOL=0 低电平
 	SPI_SetCPOL_0();	
 	// 设置数据传送位序 MSB 高位在前
@@ -36,7 +36,7 @@ u8 SPI1_SendRecv_Data(u8 SPI_DATA)
 {
     while(SPSTAT & THRF);
 	SPI_SendData(SPI_DATA);							// SPI 发送数据
-	while(SPI_ChkCompleteFlag() == 0);				// 等待SPI传送完成
+	while(SPI_ChkCompleteFlag()==0);				// 等待SPI传送完成
 	SPI_ClearCompleteFlag();						// SPI 清完成标志
 	return SPI_GetData();							// 返回接收到的数据
 }

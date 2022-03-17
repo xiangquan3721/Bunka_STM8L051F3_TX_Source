@@ -31,6 +31,8 @@ void ML7345D_RF_test_mode(void);
 void TX_DataLoad_HighSpeed(u32 IDCache, Wireless_Body CtrCmd, u8 *Packet);
 void ML7345D_Error_Detect(void);
 void Ber_PinExit_Init(void);
+void dd_set_ML7345D_Power_on(void);
+void dd_set_ML7345D_Power_on_Init(void);
 
 extern xdata u8 Fre_426_075[8];
 extern xdata u8 Fre_426_750[8];
@@ -48,6 +50,7 @@ extern xdata u32 SPI_Receive_DataForC[7];
 
 extern xdata u8 Radio_Date_Type;
 extern xdata u8 Radio_Date_Type_bak;
+extern xdata u8 *txbuf;
 
 #endif
 
