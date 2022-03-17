@@ -1,0 +1,256 @@
+C51 COMPILER V9.60.0.0   CMT2300A_APP                                                      03/16/2022 17:38:04 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CMT2300A_APP
+OBJECT MODULE PLACED IN .\STX0031_KeilC51\cmt2300a_app.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE radio\cmt2300a_app.c OPTIMIZE(0,SPEED) BROWSE INCDIR(.\user\inc;.\includ
+                    -e;.\radio) DEBUG OBJECTEXTEND PRINT(.\STX0031_KeilC51\cmt2300a_app.lst) TABS(2) OBJECT(.\STX0031_KeilC51\cmt2300a_app.ob
+                    -j)
+
+line level    source
+
+   1          #include "cmt2300a_app.h"
+   2          
+   3          
+   4          xdata u32 SPI_Receive_DataForC[7];
+   5          xdata u32 DATA_Packet_ID = 0;
+   6          xdata u8 DATA_Packet_Contro_buf = 0;
+   7          
+   8          xdata u8 g_rxBuffer[RF_PACKET_SIZE] = {0};   /* RF Rx buffer */
+   9          xdata u8 g_txBuffer[RF_PACKET_SIZE] = {0};
+  10          
+  11          void delay(u32 n)
+  12          {
+  13   1          while(n--);
+  14   1      }
+  15          
+  16          void CMT2300A_TX_PACKET(u8 *pBuf,u8 len)
+  17          {
+  18   1          CG2214M6_USE_T;
+*** WARNING C275 IN LINE 18 OF radio\cmt2300a_app.c: expression with possibly no effect
+  19   1          CMT2300A_GoStby();
+  20   1        CMT2300A_ClearInterruptFlags();
+  21   1        CMT2300A_ClearTxFifo();
+  22   1        CMT2300A_EnableWriteFifo();
+  23   1      
+  24   1        CMT2300A_WriteFifo(pBuf, len); // 写 TX_FIFO
+  25   1        CMT2300A_GoTx(); // 启动发送
+  26   1      }
+  27          
+  28          
+  29          
+  30          void CMT2300A_RX_ENABLE(void)
+  31          {
+  32   1          CG2214M6_USE_R;
+*** WARNING C275 IN LINE 32 OF radio\cmt2300a_app.c: expression with possibly no effect
+  33   1          CMT2300A_GoStby();
+  34   1        /* Must clear FIFO after enable SPI to read or write the FIFO */
+  35   1          CMT2300A_EnableReadFifo();
+  36   1        CMT2300A_ClearInterruptFlags();
+  37   1        CMT2300A_ClearRxFifo();
+  38   1          CMT2300A_GoRx();
+  39   1      
+  40   1      }
+  41          
+  42          void CMT2300A_Set_Freq(u8 freq)
+  43          {
+  44   1          CMT2300A_GoStby();
+  45   1          if(freq)
+  46   1          {
+  47   2              CMT2300A_SetFrequencyStep(20);
+  48   2              system_delay_ms(10);
+  49   2              CMT2300A_SetFrequencyChannel(62);
+  50   2          }
+  51   1          else
+C51 COMPILER V9.60.0.0   CMT2300A_APP                                                      03/16/2022 17:38:04 PAGE 2   
+
+  52   1          {
+  53   2              //CMT2300A_SetFrequencyStep(1);
+  54   2              system_delay_ms(10);
+  55   2              CMT2300A_SetFrequencyChannel(0);
+  56   2          }
+  57   1          CMT2300A_GoSleep();
+  58   1      }
+  59          
+  60          void SCAN_RECEIVE_PACKET(void)
+  61          {
+  62   1          if(CMT2300A_ReadGpio2())
+  63   1          {
+  64   2              CMT2300A_GoStby();
+  65   2          /* The length need be smaller than 32 */
+  66   2          CMT2300A_ReadFifo(g_rxBuffer, RF_PACKET_SIZE);
+  67   2          }
+  68   1      
+  69   1      
+  70   1      }
+  71          
+  72          
+  73          void Signal_DATA_Decode(u8 NUM_Type,u8 pbuf[])
+  74          {
+  75   1          xdata u32 data_in;
+  76   1          xdata u16 data_out;
+  77   1          xdata u16 data_NRZ[7];
+  78   1          xdata u8 i, j,i_value;
+  79   1          for (i = 0; i < 7; i++)
+  80   1          {
+  81   2              SPI_Receive_DataForC[i] = (u32)pbuf[i * 4 + 3] |
+  82   2                                        (u32)pbuf[i * 4 + 4] << 8 |
+  83   2                                        (u32)pbuf[i * 4 + 5] << 16 |
+  84   2                                        (u32)pbuf[i * 4 + 6] << 24;
+  85   2          }
+  86   1        if((NUM_Type==0)||(NUM_Type==1))i_value=3;
+  87   1        else if(NUM_Type==2)i_value=7;
+  88   1          for (i = 0; i < i_value; i++)
+  89   1          {
+  90   2              if ((NUM_Type == 0)||(NUM_Type == 2))
+  91   2                  data_in = SPI_Receive_DataForC[i];
+  92   2              else
+  93   2                  data_in = SPI_Receive_DataForC[i + 3];
+  94   2              data_out = 0;
+  95   2              data_in = data_in >> 1;
+  96   2              for (j = 0; j < 16; j++)
+  97   2              {
+  98   3                  data_out = data_out << 1;
+  99   3                  if (data_in & 0x00000001)
+ 100   3                      data_out += 1;
+ 101   3                  data_in = data_in >> 2;
+ 102   3              }
+ 103   2              data_NRZ[i] = data_out;
+ 104   2          }
+ 105   1        if((NUM_Type==0)||(NUM_Type==1))
+ 106   1        {
+ 107   2            //if (data_NRZ[2] == ((data_NRZ[0] + data_NRZ[1]) & 0xFFFF))
+ 108   2            {
+ 109   3                DATA_Packet_ID = (data_NRZ[1] & 0x00FF) * 65536 + data_NRZ[0];
+ 110   3                DATA_Packet_Contro_buf = (data_NRZ[1] & 0xFF00) >> 8;
+ 111   3            }
+ 112   2        }
+ 113   1      }
+C51 COMPILER V9.60.0.0   CMT2300A_APP                                                      03/16/2022 17:38:04 PAGE 3   
+
+ 114          
+ 115          
+ 116          void set_tx(void)
+ 117          {
+ 118   1      
+ 119   1      }
+ 120          void set_rx(void)
+ 121          {
+ 122   1      
+ 123   1      }
+ 124          
+ 125          void cmt2300a_tx_test(u8 mode)
+ 126          {
+ 127   1          if(mode)
+ 128   1          {
+ 129   2              if(pin_clk_in == 1)
+ 130   2              {
+ 131   3                  pin_sda_out = !pin_sda_out;
+ 132   3                  delay(100);
+ 133   3              }
+ 134   2          }
+ 135   1      }
+ 136          
+ 137          u8 cmt2300a_rx_test(void)
+ 138          {
+ 139   1          xdata u8 i;
+ 140   1          xdata u8 data8 = 0xFF;
+ 141   1          set_rx();
+ 142   1          for(i=0; i<8; i++)
+ 143   1          {
+ 144   2              delay(3);
+ 145   2              data8 <<= 1;
+ 146   2              if(pin_sda_in)
+ 147   2              {
+ 148   3                  data8 |= 0x01;
+ 149   3              }
+ 150   2              else
+ 151   2              {
+ 152   3                  data8 &= ~0x01;
+ 153   3              }
+ 154   2      
+ 155   2              delay(3);
+ 156   2          }
+ 157   1      
+ 158   1          return data8;
+ 159   1      }
+ 160          
+ 161          
+ 162          void RF_Test_Mode(void)
+ 163          {
+ 164   1          xdata u8 Tx_Rx_mode = 0;
+ 165   1          xdata u8 at = 0;
+ 166   1      
+ 167   1          if(TP7_TEST_MODE == 1)
+ 168   1          {
+ 169   2              RF_Init_TestMode(); /* RF测试模式初始化 */
+ 170   2              if(FALSE==CMT2300A_IsExist()) {
+ 171   3                  while(1);  //初始化失败
+ 172   3              }
+ 173   2          }
+ 174   1      
+ 175   1          while(TP7_TEST_MODE == 1)
+C51 COMPILER V9.60.0.0   CMT2300A_APP                                                      03/16/2022 17:38:04 PAGE 4   
+
+ 176   1          {
+ 177   2              if(Key_Tx_Carrier == 0)  /* 发载波 (需频偏2.5k)*/
+ 178   2              {
+ 179   3                  set_tx();
+ 180   3                  CMT2300A_SetFrequencyChannel(1); //Freq = 426.075MHz+2.5KHz*1*1
+ 181   3                  Tx_Rx_mode = 1;
+ 182   3                  pin_sda_out = 0;
+ 183   3              }
+ 184   2              if(Key_Tx_Data == 0)    /* 发数据 */
+ 185   2              {
+ 186   3                  set_tx();
+ 187   3                  CMT2300A_SetFrequencyChannel(0);
+ 188   3                  Tx_Rx_mode = 2;
+ 189   3                  at = 0;
+ 190   3              }
+ 191   2              if(Key_Rx_Data == 0)    /* 停止 */
+ 192   2              {
+ 193   3                  Tx_Rx_mode = 3;
+ 194   3              }
+ 195   2              if(Tx_Rx_mode == 1)     /* 发载波 */
+ 196   2              {
+ 197   3                  cmt2300a_tx_test(0);
+ 198   3                  if(at == 0)
+ 199   3                  {
+ 200   4                      at = 1;
+ 201   4                      CMT2300A_GoTx();
+ 202   4                  }
+ 203   3              }
+ 204   2              if(Tx_Rx_mode == 2)     /* 发数据 */
+ 205   2              {
+ 206   3                  cmt2300a_tx_test(1);
+ 207   3      
+ 208   3                  if(at == 0)
+ 209   3                  {
+ 210   4                      at = 1;
+ 211   4                      CMT2300A_GoTx();
+ 212   4                  }
+ 213   3              }
+ 214   2              if(Tx_Rx_mode == 3)
+ 215   2              {
+ 216   3                  at = 0;
+ 217   3                  CMT2300A_GoSleep();
+ 218   3              }
+ 219   2          }
+ 220   1      }
+ 221          
+ 222          
+ 223          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1251    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    124    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

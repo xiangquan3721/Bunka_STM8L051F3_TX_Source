@@ -1,0 +1,426 @@
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE RADIO
+OBJECT MODULE PLACED IN .\STX0031_KeilC51\radio.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE radio\radio.c OPTIMIZE(0,SPEED) BROWSE INCDIR(.\user\inc;.\include;.\rad
+                    -io) DEBUG OBJECTEXTEND PRINT(.\STX0031_KeilC51\radio.lst) TABS(2) OBJECT(.\STX0031_KeilC51\radio.obj)
+
+line level    source
+
+   1          /*
+   2           * THE FOLLOWING FIRMWARE IS PROVIDED: (1) "AS IS" WITH NO WARRANTY; AND
+   3           * (2)TO ENABLE ACCESS TO CODING INFORMATION TO GUIDE AND FACILITATE CUSTOMER.
+   4           * CONSEQUENTLY, CMOSTEK SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT OR
+   5           * CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE CONTENT
+   6           * OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING INFORMATION
+   7           * CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+   8           *
+   9           * Copyright (C) CMOSTEK SZ.
+  10           */
+  11          
+  12          /*!
+  13           * @file    radio.c
+  14           * @brief   Generic radio handlers
+  15           *
+  16           * @version 1.2
+  17           * @date    Jul 17 2017
+  18           * @author  CMOSTEK R@D
+  19           */
+  20          /*芯片处理层源代码*/
+  21          #include "radio.h"
+  22          #include "cmt2300a_params.h"
+  23          #include "cmt2300a_defs.h"
+  24          #include <string.h>
+  25          
+  26          
+  27          #define INFINITE 0xFFFFFFFF
+  28          xdata EnumRFStatus g_nNextRFState = RF_STATE_IDLE;
+  29          xdata u8* g_pRxBuffer = NULL;
+  30          xdata u8* g_pTxBuffer = NULL;
+  31          xdata u16 g_nRxLength = 0;
+  32          xdata u16 g_nTxLength = 0;
+  33          
+  34          xdata u32 g_nRxTimeout = INFINITE;
+  35          xdata u32 g_nTxTimeout = INFINITE;
+  36          xdata u32 g_nRxTimeCount = 0;
+  37          xdata u32 g_nTxTimeCount = 0;
+  38          
+  39          xdata u8 g_nInterrutFlags = 0;
+  40          
+  41          void RF_Init(void)
+  42          {
+  43   1          xdata u8 tmp;
+  44   1          CMT2300A_InitGpio();
+  45   1        CMT2300A_Init();
+  46   1      
+  47   1          /* Config registers */
+  48   1          CMT2300A_ConfigRegBank(CMT2300A_CMT_BANK_ADDR       , g_cmt2300aCmtBank       , CMT2300A_CMT_BANK_SIZE
+             -       );
+  49   1          CMT2300A_ConfigRegBank(CMT2300A_SYSTEM_BANK_ADDR    , g_cmt2300aSystemBank    , CMT2300A_SYSTEM_BANK_S
+             -IZE    );
+  50   1          CMT2300A_ConfigRegBank(CMT2300A_FREQUENCY_BANK_ADDR , g_cmt2300aFrequencyBank , CMT2300A_FREQUENCY_BAN
+             -K_SIZE );
+  51   1          CMT2300A_ConfigRegBank(CMT2300A_DATA_RATE_BANK_ADDR , g_cmt2300aDataRateBank  , CMT2300A_DATA_RATE_BAN
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 2   
+
+             -K_SIZE );
+  52   1          CMT2300A_ConfigRegBank(CMT2300A_BASEBAND_BANK_ADDR  , g_cmt2300aBasebandBank  , CMT2300A_BASEBAND_BANK
+             -_SIZE  );
+  53   1          CMT2300A_ConfigRegBank(CMT2300A_TX_BANK_ADDR        , g_cmt2300aTxBank        , CMT2300A_TX_BANK_SIZE 
+             -       );
+  54   1      
+  55   1          // xosc_aac_xdata[2:0] = 2
+  56   1          tmp = (~0x07) & CMT2300A_ReadReg(CMT2300A_CUS_CMT10);
+  57   1          CMT2300A_WriteReg(CMT2300A_CUS_CMT10, tmp|0x02);    /*这个为内部优化配置项*/
+  58   1      
+  59   1        RF_Config();
+  60   1      
+  61   1          if(FALSE==CMT2300A_IsExist()) {
+  62   2              while(1);  //初始化失败
+  63   2          }
+  64   1      }
+  65          
+  66          void RF_Config(void)
+  67          {
+  68   1      #ifdef ENABLE_ANTENNA_SWITCH
+                  /* If you enable antenna switch, GPIO1/GPIO2 will output RX_ACTIVE/TX_ACTIVE,
+                     and it can't output INT1/INT2 via GPIO1/GPIO2 */
+                  CMT2300A_EnableAntennaSwitch(0);
+              
+              #else
+  74   1          /* Config GPIOs */
+  75   1          CMT2300A_ConfigGpio(
+  76   1              CMT2300A_GPIO1_SEL_INT1 | /* INT1 > GPIO1 */
+  77   1              CMT2300A_GPIO2_SEL_INT2 | /* INT2 > GPIO2 */
+  78   1              CMT2300A_GPIO3_SEL_DOUT
+  79   1              );
+  80   1      
+  81   1          /* Config interrupt */
+  82   1          CMT2300A_ConfigInterrupt(
+  83   1              CMT2300A_INT_SEL_TX_DONE, /* Config INT1 */
+  84   1              CMT2300A_INT_SEL_PKT_OK   /* Config INT2 */
+  85   1              );
+  86   1      #endif
+  87   1      
+  88   1          /* Enable interrupt */
+  89   1          CMT2300A_EnableInterrupt(
+  90   1              CMT2300A_MASK_TX_DONE_EN  |
+  91   1              CMT2300A_MASK_PREAM_OK_EN |
+  92   1              CMT2300A_MASK_SYNC_OK_EN  |
+  93   1              CMT2300A_MASK_NODE_OK_EN  |
+  94   1              CMT2300A_MASK_CRC_OK_EN   |
+  95   1              CMT2300A_MASK_PKT_DONE_EN
+  96   1              );
+  97   1      
+  98   1          /* Disable low frequency OSC calibration */
+  99   1          CMT2300A_EnableLfosc(FALSE);
+ 100   1      
+ 101   1          /* Check the ERROR state when GoTFS/GoTx/GoFS/GoRx */
+ 102   1          CMT2300A_EnableErrorStop(TRUE); /*将 CUS_EN_CTL（0x62） 寄存器的第 5 个比特 ERROR_STOP_EN 配置成为 1，
+             -这个比特会让芯片在
+ 103   1          遇到异常干扰情况下停留在 Error 状态，让 MCU 能通过状态读取来判断（即异常诊断机制）*/
+ 104   1      
+ 105   1          /* Use a single 64-byte FIFO for either Tx or Rx */
+ 106   1          //CMT2300A_EnableFifoMerge(TRUE);
+ 107   1      
+ 108   1          //CMT2300A_SetFifoThreshold(16);
+ 109   1      
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 3   
+
+ 110   1          /* Go to sleep for configuration to take effect */
+ 111   1          CMT2300A_GoSleep(); /*发送 go_sleep 命令，这个动作让寄存器配置生效*/
+ 112   1      }
+ 113          
+ 114          void RF_SetStatus(EnumRFStatus nStatus)
+ 115          {
+ 116   1          g_nNextRFState = nStatus;
+ 117   1      }
+ 118          
+ 119          EnumRFStatus RF_GetStatus(void)
+ 120          {
+ 121   1          return g_nNextRFState;
+ 122   1      }
+ 123          
+ 124          u8 RF_GetInterruptFlags(void)
+ 125          {
+ 126   1          return g_nInterrutFlags;
+ 127   1      }
+ 128          
+ 129          void RF_StartRx(u8 buf[], u16 len, u32 timeout)
+ 130          {
+ 131   1          g_pRxBuffer = buf;
+ 132   1          g_nRxLength = len;
+ 133   1          g_nRxTimeout = timeout;
+ 134   1      
+ 135   1          memset(g_pRxBuffer, 0, g_nRxLength);
+ 136   1      
+ 137   1          g_nNextRFState = RF_STATE_RX_START;
+ 138   1      }
+ 139          
+ 140          void RF_StartTx(u8 buf[], u16 len, u32 timeout)
+ 141          {
+ 142   1          g_pTxBuffer = buf;
+ 143   1          g_nTxLength = len;
+ 144   1          g_nTxTimeout = timeout;
+ 145   1      
+ 146   1          g_nNextRFState = RF_STATE_TX_START;
+ 147   1      }
+ 148          xdata u8 read_reg;
+ 149          EnumRFResult RF_Process(void)
+ 150          {
+ 151   1          xdata EnumRFResult nRes = RF_BUSY;
+ 152   1      
+ 153   1          switch(g_nNextRFState)
+ 154   1          {
+ 155   2          case RF_STATE_IDLE:
+ 156   2          {
+ 157   3            nRes = RF_IDLE;
+ 158   3            break;
+ 159   3          }
+ 160   2      
+ 161   2          case RF_STATE_RX_START:
+ 162   2          {
+ 163   3            CMT2300A_GoStby();
+ 164   3            CMT2300A_ClearInterruptFlags();
+ 165   3      
+ 166   3            /* Must clear FIFO after enable SPI to read or write the FIFO */
+ 167   3            CMT2300A_EnableReadFifo();
+ 168   3            CMT2300A_ClearRxFifo();
+ 169   3      
+ 170   3            if(FALSE==CMT2300A_GoRx())
+ 171   3              g_nNextRFState = RF_STATE_ERROR;
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 4   
+
+ 172   3            else
+ 173   3              g_nNextRFState = RF_STATE_RX_WAIT;
+ 174   3      
+ 175   3            g_nRxTimeCount = CMT2300A_GetTickCount();
+ 176   3      
+ 177   3            break;
+ 178   3          }
+ 179   2      
+ 180   2          case RF_STATE_RX_WAIT:
+ 181   2          {
+ 182   3      #ifdef ENABLE_ANTENNA_SWITCH
+                    if(CMT2300A_MASK_PKT_OK_FLG & CMT2300A_ReadReg(CMT2300A_CUS_INT_FLAG))  /* Read PKT_OK flag */
+              #else
+ 185   3            if(CMT2300A_ReadGpio2())  /* Read INT2, PKT_OK */
+ 186   3      #endif
+ 187   3            {
+ 188   4              g_nNextRFState = RF_STATE_RX_DONE;
+ 189   4            }
+ 190   3      
+ 191   3            if( (INFINITE != g_nRxTimeout) && ((g_nSysTickCount-g_nRxTimeCount) > g_nRxTimeout) )
+ 192   3              g_nNextRFState = RF_STATE_RX_TIMEOUT;
+ 193   3      
+ 194   3            break;
+ 195   3          }
+ 196   2      
+ 197   2          case RF_STATE_RX_DONE:
+ 198   2          {
+ 199   3            CMT2300A_GoStby();
+ 200   3      
+ 201   3            /* The length need be smaller than 32 */
+ 202   3            CMT2300A_ReadFifo(g_pRxBuffer, g_nRxLength);
+ 203   3      
+ 204   3            g_nInterrutFlags = CMT2300A_ClearInterruptFlags();
+ 205   3      
+ 206   3            CMT2300A_GoSleep();
+ 207   3      
+ 208   3            g_nNextRFState = RF_STATE_IDLE;
+ 209   3            nRes = RF_RX_DONE;
+ 210   3            break;
+ 211   3          }
+ 212   2      
+ 213   2          case RF_STATE_RX_TIMEOUT:
+ 214   2          {
+ 215   3            CMT2300A_GoSleep();
+ 216   3      
+ 217   3            g_nNextRFState = RF_STATE_IDLE;
+ 218   3            nRes = RF_RX_TIMEOUT;
+ 219   3            break;
+ 220   3          }
+ 221   2      
+ 222   2          case RF_STATE_TX_START:
+ 223   2          {
+ 224   3            CMT2300A_GoStby();
+ 225   3            CMT2300A_ClearInterruptFlags();
+ 226   3      
+ 227   3            /* Must clear FIFO after enable SPI to read or write the FIFO */
+ 228   3            CMT2300A_EnableWriteFifo();
+ 229   3            CMT2300A_ClearTxFifo();
+ 230   3      
+ 231   3            /* The length need be smaller than 32 */
+ 232   3            CMT2300A_WriteFifo(g_pTxBuffer, g_nTxLength);
+ 233   3      
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 5   
+
+ 234   3            if( 0==(CMT2300A_MASK_TX_FIFO_NMTY_FLG & CMT2300A_ReadReg(CMT2300A_CUS_FIFO_FLAG)) )
+ 235   3              g_nNextRFState = RF_STATE_ERROR;
+ 236   3      
+ 237   3            if(FALSE==CMT2300A_GoTx())
+ 238   3              g_nNextRFState = RF_STATE_ERROR;
+ 239   3            else
+ 240   3              g_nNextRFState = RF_STATE_TX_WAIT;
+ 241   3      
+ 242   3            g_nTxTimeCount = CMT2300A_GetTickCount();
+ 243   3      
+ 244   3            break;
+ 245   3          }
+ 246   2      
+ 247   2          case RF_STATE_TX_WAIT:
+ 248   2          {
+ 249   3      #ifdef ENABLE_ANTENNA_SWITCH
+                    if(CMT2300A_MASK_TX_DONE_FLG & CMT2300A_ReadReg(CMT2300A_CUS_INT_CLR1))  /* Read TX_DONE flag */
+              #else
+ 252   3            if(CMT2300A_ReadGpio1())  /* Read INT1, TX_DONE */
+ 253   3      #endif
+ 254   3            {
+ 255   4              g_nNextRFState = RF_STATE_TX_DONE;
+ 256   4            }
+ 257   3      
+ 258   3            if( (INFINITE != g_nTxTimeout) && ((g_nSysTickCount-g_nTxTimeCount) > g_nTxTimeout) )
+ 259   3              g_nNextRFState = RF_STATE_TX_TIMEOUT;
+ 260   3      
+ 261   3            break;
+ 262   3          }
+ 263   2      
+ 264   2          case RF_STATE_TX_DONE:
+ 265   2          {
+ 266   3            CMT2300A_ClearInterruptFlags();
+ 267   3            CMT2300A_GoSleep();
+ 268   3      
+ 269   3            g_nNextRFState = RF_STATE_IDLE;
+ 270   3            nRes = RF_TX_DONE;
+ 271   3            break;
+ 272   3          }
+ 273   2      
+ 274   2          case RF_STATE_TX_TIMEOUT:
+ 275   2          {
+ 276   3            CMT2300A_GoSleep();
+ 277   3      
+ 278   3            g_nNextRFState = RF_STATE_IDLE;
+ 279   3            nRes = RF_TX_TIMEOUT;
+ 280   3            break;
+ 281   3          }
+ 282   2      
+ 283   2          case RF_STATE_ERROR:
+ 284   2          {
+ 285   3            CMT2300A_SoftReset();
+ 286   3            CMT2300A_DelayMs(20);
+ 287   3      
+ 288   3            CMT2300A_GoStby();
+ 289   3            RF_Config();
+ 290   3      
+ 291   3            g_nNextRFState = RF_STATE_IDLE;
+ 292   3            nRes = RF_ERROR;
+ 293   3            break;
+ 294   3          }
+ 295   2      
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 6   
+
+ 296   2          default:
+ 297   2            break;
+ 298   2          }
+ 299   1      
+ 300   1          return nRes;
+ 301   1      }
+ 302          
+ 303          
+ 304          
+ 305          void RF_Config_TestMode(u8 mode)
+ 306          {
+ 307   1          CMT2300A_SoftReset();
+ 308   1          CMT2300A_DelayMs(20);
+ 309   1      
+ 310   1          CMT2300A_GoStby();
+ 311   1          if(mode)
+ 312   1          {
+ 313   2              CMT2300A_ConfigGpio(
+ 314   2                  CMT2300A_GPIO1_SEL_INT1 |
+ 315   2                  CMT2300A_GPIO2_SEL_DCLK |
+ 316   2                  CMT2300A_GPIO3_SEL_DIN    //RF调制输入
+ 317   2                  );
+ 318   2          }
+ 319   1          else
+ 320   1          {
+ 321   2              CMT2300A_ConfigGpio(
+ 322   2                  CMT2300A_GPIO1_SEL_INT1 |
+ 323   2                  CMT2300A_GPIO2_SEL_DCLK |
+ 324   2                  CMT2300A_GPIO3_SEL_DOUT   //RF解调输出
+ 325   2                  );
+ 326   2          }
+ 327   1      
+ 328   1          CMT2300A_ClearInterruptFlags();
+ 329   1          /* Disable low frequency OSC calibration */
+ 330   1          CMT2300A_EnableLfosc(FALSE);
+ 331   1      
+ 332   1          /* Check the ERROR state when GoTFS/GoTx/GoFS/GoRx */
+ 333   1          CMT2300A_EnableErrorStop(TRUE); /*将 CUS_EN_CTL（0x62） 寄存器的第 5 个比特 ERROR_STOP_EN 配置成为 1，
+             -这个比特会让芯片在
+ 334   1          遇到异常干扰情况下停留在 Error 状态，让 MCU 能通过状态读取来判断（即异常诊断机制）*/
+ 335   1      
+ 336   1          CMT2300A_GoSleep(); /*发送 go_sleep 命令，这个动作让寄存器配置生效*/
+ 337   1      }
+ 338          
+ 339          void RF_Init_TestMode(void)
+ 340          {
+ 341   1        xdata  u8 tmp;
+ 342   1        CMT2300A_Init();
+ 343   1      
+ 344   1          /* Config registers */
+ 345   1          CMT2300A_ConfigRegBank(CMT2300A_CMT_BANK_ADDR       , cmt_back                 , CMT2300A_CMT_BANK_SIZ
+             -E       );
+ 346   1          CMT2300A_ConfigRegBank(CMT2300A_SYSTEM_BANK_ADDR    , system_back              , CMT2300A_SYSTEM_BANK_
+             -SIZE    );
+ 347   1          CMT2300A_ConfigRegBank(CMT2300A_FREQUENCY_BANK_ADDR , freq_back                , CMT2300A_FREQUENCY_BA
+             -NK_SIZE );
+ 348   1          CMT2300A_ConfigRegBank(CMT2300A_DATA_RATE_BANK_ADDR , data_rate_back           , CMT2300A_DATA_RATE_BA
+             -NK_SIZE );
+ 349   1          CMT2300A_ConfigRegBank(CMT2300A_BASEBAND_BANK_ADDR  , baseband_back            , CMT2300A_BASEBAND_BAN
+             -K_SIZE  );
+ 350   1          CMT2300A_ConfigRegBank(CMT2300A_TX_BANK_ADDR        , tx_back                  , CMT2300A_TX_BANK_SIZE
+             -        );
+C51 COMPILER V9.60.0.0   RADIO                                                             03/16/2022 17:38:03 PAGE 7   
+
+ 351   1      
+ 352   1          // xosc_aac_xdata[2:0] = 2
+ 353   1          tmp = (~0x07) & CMT2300A_ReadReg(CMT2300A_CUS_CMT10);
+ 354   1          CMT2300A_WriteReg(CMT2300A_CUS_CMT10, tmp|0x02);    /*这个为内部优化配置项*/
+ 355   1      
+ 356   1          CMT2300A_ConfigGpio(
+ 357   1                  CMT2300A_GPIO1_SEL_INT1 |
+ 358   1                  CMT2300A_GPIO2_SEL_DCLK |
+ 359   1                  CMT2300A_GPIO3_SEL_DIN
+ 360   1                  );
+ 361   1      
+ 362   1          CMT2300A_SetFrequencyStep(1);   //定义频率通道步长:2.5K*1
+ 363   1          /* Disable low frequency OSC calibration */
+ 364   1          CMT2300A_EnableLfosc(FALSE);
+ 365   1      
+ 366   1          /* Check the ERROR state when GoTFS/GoTx/GoFS/GoRx */
+ 367   1          CMT2300A_EnableErrorStop(TRUE); /*将 CUS_EN_CTL（0x62） 寄存器的第 5 个比特 ERROR_STOP_EN 配置成为 1，
+             -这个比特会让芯片在
+ 368   1          遇到异常干扰情况下停留在 Error 状态，让 MCU 能通过状态读取来判断（即异常诊断机制）*/
+ 369   1      
+ 370   1          CMT2300A_GoSleep(); /*发送 go_sleep 命令，这个动作让寄存器配置生效*/
+ 371   1      
+ 372   1          CMT2300A_SetGpio2In();
+ 373   1      }
+ 374          
+ 375          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1077    ----
+   CONSTANT SIZE    =    192    ----
+   XDATA SIZE       =     32    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     20    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

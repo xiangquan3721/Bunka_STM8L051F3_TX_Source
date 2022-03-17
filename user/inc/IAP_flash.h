@@ -7,10 +7,7 @@
 #include "API_Uart_BRGRL_MA82G5Bxx.H"
 #include <Intrins.h> 
 #include <Absacc.h>
-#include "ID_Decode.h"
-#include "ram.h"
-#include "uart.h"
-#include "Type.h"
+
 
 /* 
 

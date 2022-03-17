@@ -1,0 +1,61 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              03/16/2022 17:38:02 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\STX0031_KeilC51\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE user\src\main.c OPTIMIZE(0,SPEED) BROWSE INCDIR(.\user\inc;.\include;.\r
+                    -adio) DEBUG OBJECTEXTEND PRINT(.\STX0031_KeilC51\main.lst) TABS(2) OBJECT(.\STX0031_KeilC51\main.obj)
+
+line level    source
+
+   1          /*********************************************************************
+   2              项目名称:MA82G5Bxx-DEMO
+   3                测试板使用 MA82G5B32  LQFP32_V10 EV Board (TH156A)
+   4                CpuCLK=12MHz, SysCLK=12MHz
+   5            功能描述：
+   6          
+   7            注意事项：
+   8          
+   9              建立时间:
+  10              修改日志:
+  11              
+  12          *********************************************************************/
+  13          #include "timer.h"
+  14          
+  15          void main()
+  16          {
+  17   1          Init_WDT();    
+  18   1          Init_Clock();
+  19   1          ClearWDT();
+  20   1          //Init_Port();
+  21   1        Init_Timer0();       
+  22   1          Init_Beep();
+  23   1          ClearWDT();
+  24   1          Init_Interrupt();
+*** WARNING C206 IN LINE 24 OF user\src\main.c: 'Init_Interrupt': missing function-prototype
+  25   1          INT_EnAll();  // 使能全局中断
+  26   1      
+  27   1          RF_Test_Mode();
+*** WARNING C206 IN LINE 27 OF user\src\main.c: 'RF_Test_Mode': missing function-prototype
+  28   1        
+  29   1          while(1) 
+  30   1          {
+  31   2              ClearWDT(); // Service the WDT
+  32   2          }
+  33   1      }
+  34          
+  35          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

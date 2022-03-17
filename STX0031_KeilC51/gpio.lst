@@ -1,0 +1,176 @@
+C51 COMPILER V9.60.0.0   GPIO                                                              03/16/2022 17:17:20 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GPIO
+OBJECT MODULE PLACED IN .\STX0031_KeilC51\gpio.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE user\src\gpio.c OPTIMIZE(0,SPEED) BROWSE INCDIR(.\user\inc;.\include;.\r
+                    -adio) DEBUG OBJECTEXTEND PRINT(.\STX0031_KeilC51\gpio.lst) TABS(2) OBJECT(.\STX0031_KeilC51\gpio.obj)
+
+line level    source
+
+   1          #include "gpio.h"
+   2          
+   3          
+   4          /***********************************************************************************
+   5          函数名称:   void InitPort(void)
+   6          功能描述:   IO配置
+   7          输入参数:   
+   8          返回参数:     
+   9          *************************************************************************************/
+  10          void Init_Port(void)
+  11          { 
+  12   1          /* CLOSE/STOP/OPEN: P10/P11/P12; TP7: P13 TestMode */
+  13   1          PORT_SetP1OpenDrain(BIT0|BIT1|BIT2|BIT3);           // 设置P13 为开漏输出
+  14   1          PORT_SetP1PushPull(BIT0|BIT1|BIT2);                 // 设置P10,P11,P12 为推挽输出
+  15   1          P13 = 1;                                            // P13设为输入模式
+  16   1          PORT_EnP10P11P12P13PullHigh();                      // 使能 P10,P11,P12,P13 上拉
+  17   1          
+  18   1          /* SPI */
+  19   1          PORT_SetP1PushPull(BIT4|BIT5|BIT7);         // 设置P15(MOSI),P17(SPICLK)为准双向口
+  20   1        PORT_SetP1OpenDrain(BIT6);              // 设置P16(MISO)为准双向口
+  21   1          P16 = 1;                                            // 输入
+  22   1        PORT_EnP14P15P16P17PullHigh();            // 使能 P14,P15,P16,P17 上拉
+  23   1          
+  24   1          /*BEEP:P20; 登录:P21; 无线开关:T->P22,R->P23; 受信/动作/送信LED:P24/P25/P26; ML7345_RESETN:P27 */
+  25   1        PORT_SetP2OpenDrain(BIT1);                          // 设置P21 为开漏输出
+  26   1          P21 = 1;                                            // P21设为输入模式
+  27   1          
+  28   1      #if (NEW_PCB==0)   
+  29   1          PORT_SetP2PushPull(BIT0|BIT2|BIT3|BIT4|BIT5|BIT6|BIT7); // 设置P20,P22,P23,P24,P25,P26,P27 为推挽输出
+  30   1      #else
+                  PORT_SetP2PushPull(BIT0|BIT2|BIT3|BIT5|BIT7);       // 设置P20,P22,P23,P25,P27 为推挽输出
+                  PORT_SetP2OpenDrain(BIT4);
+                  P24 = 1;
+              #endif
+  35   1          
+  36   1          PORT_EnP20P21P22P23PullHigh();                      // 使能 P20,P21,P22,P23 上拉
+  37   1        PORT_EnP24P25P26P27PullHigh();                  // 使能 P24,P25,P26,P27 上拉
+  38   1          P20 = 0;
+  39   1          
+  40   1      #if (NEW_PCB==0)  
+  41   1          PORT_SetP3InputOnly(BIT5);
+  42   1      #else
+                  //PORT_SetP3PushPull(BIT4|BIT5);
+                  PORT_SetP3QuasiBi(0xFF);                            //设置P3位准双向口模式
+              #endif
+  46   1       
+  47   1          /* TP3/TP4: P40/P41 */
+  48   1          PORT_SetP4OpenDrain(BIT0|BIT1);                     // 设置P40,P41 为开漏输出
+  49   1          P40 = 1; P41 = 1;                                   // P40/p41 设为输入模式
+  50   1          PORT_EnP40P41PullHigh();                            // 使能 P40,P41 上拉
+  51   1          
+  52   1          //////////////////////test/////////////////////////
+  53   1          //PORT_SetP6PushPull(BIT0);   //CLK OUT
+  54   1          //AUXR0 &= ~(P60OC0|P60OC1);
+C51 COMPILER V9.60.0.0   GPIO                                                              03/16/2022 17:17:20 PAGE 2   
+
+  55   1          //AUXR0 |= (0x80|P60FD);
+  56   1          //////////////////////test/////////////////////////
+  57   1          
+  58   1      }
+  59          
+  60           
+  61          
+  62          
+  63          
+  64          /***********************************************************************************
+  65          函数名称:   void InitINT0(void)
+  66          功能描述:   INT0初始化
+  67          输入参数:   
+  68          返回参数:  
+  69          用于ML7345D 发送接收完成中断。
+  70          *************************************************************************************/
+  71          void Init_INT0(void)
+  72          {
+  73   1        INT_SetINT0P32();           //设置INT0引脚P32
+  74   1        INT_SetINT0_DetectFallingEdge();    //设置INT0外部中断检测方式为下降沿检测
+  75   1        //INT_SetINT0_DetectRisingEdge();
+  76   1          INT_SetINT0Filter_Sysclk_x3();      //设置INT0滤波为（sysclk）*3
+  77   1      }
+  78          
+  79          
+  80          /***********************************************************************************
+  81          函数名称:   void InitINT1(void)
+  82          功能描述:   INT1初始化
+  83          输入参数:   
+  84          返回参数:   
+  85          ML7345D BER测试。
+  86          *************************************************************************************/
+  87          #if (NEW_PCB==1)
+              void Init_INT1(void)
+              {
+                INT_SetINT1P33();           //设置INT1引脚P33
+                //INT_SetINT1_DetectRisingEdge();   
+                  INT_SetINT1_DetectFallingEdge();        //设置INT1外部中断检测方式为下降沿检测
+                INT_SetINT1Filter_Sysclk_x3();      //设置INT1滤波为（sysclk）*3
+              }
+              #endif
+  96          
+  97          /***********************************************************************************
+  98          函数名称:   void INT_INT0(void) 
+  99          功能描述:INT0中断服务程序
+ 100          输入参数:   
+ 101          返回参数: 
+ 102          
+ 103          用于ML7345D发送接收完成中断。
+ 104          
+ 105          *************************************************************************************/
+ 106          void INT_INT0(void)   interrupt INT_VECTOR_INT0
+ 107          {
+ 108   1      
+ 109   1      }
+ 110          
+ 111          
+ 112          /***********************************************************************************
+ 113          函数名称:   void INT_INT1(void) 
+ 114          功能描述:INT1中断服务程序
+ 115          输入参数:   
+ 116          返回参数:    
+C51 COMPILER V9.60.0.0   GPIO                                                              03/16/2022 17:17:20 PAGE 3   
+
+ 117          
+ 118          ML7345D BER测试。
+ 119          
+ 120          *************************************************************************************/
+ 121          void INT_INT1(void)   interrupt INT_VECTOR_INT1
+ 122          {
+ 123   1      
+ 124   1      }
+ 125          
+ 126          
+ 127          /***********************************************************************************
+ 128          函数名称:   void InitInterrupt(void)
+ 129          功能描述:   中断初始化
+ 130          输入参数:    
+ 131          返回参数:     
+ 132          *************************************************************************************/
+ 133          void Init_Interrupt(void)
+ 134          {
+ 135   1      #if (NEW_PCB==0)
+ 136   1          Init_INT0();
+ 137   1          INT_EnINT0();     //  使能INT0中断
+ 138   1      #else
+                  Init_INT1();
+                INT_EnINT1();     //  使能INT1中断
+              #endif
+ 142   1          INT_EnTIMER0();     //  使能T0中断
+ 143   1        INT_EnUART0();      //  使能串口中断
+ 144   1      }
+ 145          
+ 146          
+ 147          
+ 148          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     79    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

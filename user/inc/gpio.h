@@ -6,8 +6,7 @@
 #include "API_Macro_MA82G5Bxx.H"
 #include "API_Uart_BRGRL_MA82G5Bxx.H"
 #include "timer.h"
-#include "ram.h"
-#include "ML7345.h"
+//#include "ram.h"
 
 #define LED_G_0		P25
 #define LED_R		P26

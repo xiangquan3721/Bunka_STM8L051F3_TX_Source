@@ -6,8 +6,8 @@
 #include "Type.h"
 #include "ram.h"
 
-idata Mark_Un mark0_stu = {0};
-idata Mark_Un mark1_stu = {0};
+xdata Mark_Un mark0_stu = {0};
+xdata Mark_Un mark1_stu = {0};
 
 xdata u8 DEF_APP_TX_freq = 3;
 
@@ -18,7 +18,7 @@ xdata volatile uFLAG FLAG_test = {0};
 xdata volatile uFLAG FLAG2 = {0};
 xdata volatile uFLAG FLAG3 = {0};
 
-idata u8 CONST_TXPACKET_DATA_20000AF0[28] = {
+xdata u8 CONST_TXPACKET_DATA_20000AF0[28] = {
 	0X95, 0X55, 0X55, 0X55,
 	0X55, 0X55, 0X56, 0X55,
 	0X95, 0X55, 0X56, 0X55,
@@ -39,19 +39,19 @@ xdata u8 SIO_DATA[16] = {0};
 xdata u8 Tx_Rx_mode = 0;
 xdata u16 Time_rf_init = 0;
 
-idata u8 TIME_10ms = 0;
+xdata u8 TIME_10ms = 0;
 xdata u16 TIMER1s = 0;
 xdata u16 TIMER300ms = 0;
-idata u16 TIMER18ms = 0;
+xdata u16 TIMER18ms = 0;
 xdata u16 TIMER250ms_STOP = 0;
 xdata u16 TIME_auto_out = 0;
 xdata u16 TIME_auto_close = 0;
 
-#if RAM_LARGE == 1
-xdata u8 ID_Receiver_DATA[768] = {0};
-#else
-xdata u32 ID_Receiver_DATA[100] = {0};
-#endif
+//#if RAM_LARGE == 1
+//xdata u8 ID_Receiver_DATA[768] = {0};
+//#else
+//xdata u32 ID_Receiver_DATA[100] = {0};
+//#endif
 
 xdata u32 ID_SCX1801_DATA = 0;
 xdata u16 ID_DATA_PCS = 0;
@@ -87,7 +87,7 @@ xdata u8 RSSI_Read_Counter = 0;
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;
 //xdata const u32 PROFILE_CH1_FREQ_32bit_429HighSpeed=429350000;//429350000;//429225000;
 //xdata const u32 PROFILE_CH2_FREQ_32bit_429HighSpeed=429550000;//429550000;//429237500;
-idata u8 Channels = 1;
+xdata u8 Channels = 1;
 
 
 xdata Wireless_Body Struct_DATA_Packet_Contro,Struct_DATA_Packet_Contro_buf;

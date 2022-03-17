@@ -6,7 +6,6 @@
 #include "Type.h"
 #include "API_Macro_MA82G5Bxx.H"
 #include "API_Uart_BRGRL_MA82G5Bxx.H"
-#include "gpio.h"
 #include "timer.h"
 
 

@@ -1,5 +1,5 @@
 #include "timer.h"
-
+//#include "cmt2300a_params.h"
 /* PCA定时器为16位,最大计数65536,*/
 #if (MCU_SYSCLK == 16000000)
 #define PCA_RELOAD		(5926)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.7K,PCA时钟为SysClk 16MHz
@@ -18,7 +18,7 @@
       
 //xdata u16 time_ms = 0;
 idata u16 Time_Tx_Out = 0;
-
+volatile u32 g_nSysTickCount = 0;
 /***********************************************************************************
 函数名称:   void InitTimer0(void)
 功能描述:Timer0初始化设置
@@ -52,37 +52,7 @@ void INT_T0(void) interrupt INT_VECTOR_T0
 {
 	TH0=TIMER_12T_1ms_TH;
 	TL0=TIMER_12T_1ms_TL;
-    
-    if (TIMER1s)
-        --TIMER1s;
-	if(TIME_power_led)
-		--TIME_power_led;
-    if (TIMER300ms)
-        --TIMER300ms;
-    if (TIMER18ms)
-        --TIMER18ms;
-    if (TIMER250ms_STOP)
-        --TIMER250ms_STOP;
-    if (TIME_10ms)
-        --TIME_10ms;
-    else
-    { // 10mS FLAG
-        TIME_10ms = 10;
-        FG_10ms = 1;
-    }
-    if (U1AckTimer)
-        U1AckTimer--;
-    if (Time_APP_RXstart)
-      --Time_APP_RXstart;
-    if(Time_APP_blank_TX)
-       --Time_APP_blank_TX;
-    if (X_ERRTimer)
-        X_ERRTimer--;
-	if (TIME_ID_SCX1801_Login)
-		--TIME_ID_SCX1801_Login;
-
-    if(Time_Tx_Out)  --Time_Tx_Out;
-    if(Time_rf_init) --Time_rf_init;
+  g_nSysTickCount++;  
 }
 
 
@@ -107,16 +77,16 @@ void Init_Beep(void)
     Init_PCA_PWM();
 }
 
-void Beep_On(void)
-{
-    PCA_EnPCACounter();
-}
+//void Beep_On(void)
+//{
+//    PCA_EnPCACounter();
+//}
 
-void Beep_Off(void)
-{
-    PCA_DisPCACounter();
-    P20 = 0;
-}
+//void Beep_Off(void)
+//{
+//    PCA_DisPCACounter();
+//    P20 = 0;
+//}
 
 
 /*************************************************
@@ -150,13 +120,33 @@ void DelayXus(u8 xUs)
 输出参数:     
 *************************************************/
 
-void delay_ms(u8 ms) //1约1.2ms
+//void delay_ms(u8 ms) //1约1.2ms
+//{
+//    while(ms--)
+//    {
+//        DelayXus(200);
+//        DelayXus(200);
+//        DelayXus(200);
+//        DelayXus(200);
+//    }
+//}
+
+void system_delay_100us(u32 n)
 {
-    while(ms--)
-    {
-        DelayXus(200);
-        DelayXus(200);
-        DelayXus(200);
-        DelayXus(200);
+    xdata u32 nDelayUsCnt = n*100;
+
+    while(nDelayUsCnt--) {
+        _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_();_nop_();
+        _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+        _nop_(); _nop_(); _nop_(); _nop_();_nop_();
     }
+}
+
+void system_delay_ms(u32 nms)
+{
+    xdata u32 nDelayUsCnt = nms*10;
+
+    while(nDelayUsCnt--)
+        system_delay_100us(1);
 }

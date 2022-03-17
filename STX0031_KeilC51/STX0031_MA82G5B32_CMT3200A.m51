@@ -1,0 +1,2271 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/16/2022  17:38:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\STX0031_KeilC51\main.obj, .\STX0031_KeilC51\sys.obj, .\STX0031_KeilC51\timer.obj, .\STX003
+>> 1_KeilC51\cmt2300a.obj, .\STX0031_KeilC51\cmt2300a_hal.obj, .\STX0031_KeilC51\cmt2300a_spi.obj, .\STX0031_KeilC51\rad
+>> io.obj, .\STX0031_KeilC51\cmt2300a_app.obj TO .\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A PRINT (.\STX0031_KeilC51\S
+>> TX0031_MA82G5B32_CMT3200A.m51) RAMSIZE (256) CODE (0X0000-0X7FFF) XDATA (0X0000-0X06FF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\STX0031_KeilC51\main.obj (MAIN)
+  .\STX0031_KeilC51\sys.obj (SYS)
+  .\STX0031_KeilC51\timer.obj (TIMER)
+  .\STX0031_KeilC51\cmt2300a.obj (CMT2300A)
+  .\STX0031_KeilC51\cmt2300a_hal.obj (CMT2300A_HAL)
+  .\STX0031_KeilC51\cmt2300a_spi.obj (CMT2300A_SPI)
+  .\STX0031_KeilC51\radio.obj (RADIO)
+  .\STX0031_KeilC51\cmt2300a_app.obj (CMT2300A_APP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ILDIX)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LMUL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULSHR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSHL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIXDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTXDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?MEMSET)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?_RF_STARTRX?RADIO
+            DATA    0011H     0009H     UNIT         ?DT?_RF_STARTTX?RADIO
+            DATA    001AH     0006H     UNIT         ?DT?_CMT2300A_SWITCHSTATUSANDWAIT?CMT2300A
+            DATA    0020H     0005H     UNIT         ?DT?_CMT2300A_CONFIGREGBANK?CMT2300A
+            DATA    0025H     0005H     UNIT         ?DT?_CMT2300A_READFIFO?CMT2300A_HAL
+            DATA    002AH     0005H     UNIT         ?DT?_CMT2300A_WRITEFIFO?CMT2300A_HAL
+            DATA    002FH     0005H     UNIT         ?DT?_CMT_SPI_WRITE_FIFO?CMT2300A_SPI
+            DATA    0034H     0005H     UNIT         ?DT?_CMT_SPI_READ_FIFO?CMT2300A_SPI
+            DATA    0039H     0004H     UNIT         ?DT?_SYSTEM_DELAY_100US?TIMER
+            DATA    003DH     0004H     UNIT         ?DT?_SYSTEM_DELAY_MS?TIMER
+            DATA    0041H     0004H     UNIT         ?DT?TIMER
+            DATA    0045H     0004H     UNIT         ?DT?_CMT_SPI_READ?CMT2300A_SPI
+            DATA    0049H     0004H     UNIT         ?DT?_DELAY?CMT2300A_APP
+            DATA    004DH     0004H     UNIT         ?DT?_CMT2300A_TX_PACKET?CMT2300A_APP
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 2
+
+
+            DATA    0051H     0004H     UNIT         ?DT?_SIGNAL_DATA_DECODE?CMT2300A_APP
+            DATA    0055H     0002H     UNIT         ?DT?_CMT2300A_CONFIGINTERRUPT?CMT2300A
+            DATA    0057H     0002H     UNIT         ?DT?_CMT2300A_SETPAYLOADLENGTH?CMT2300A
+            DATA    0059H     0002H     UNIT         ?DT?_CMT2300A_WRITEREG?CMT2300A_HAL
+            DATA    005BH     0002H     UNIT         ?DT?_CMT_DELAY?CMT2300A_SPI
+            DATA    005DH     0002H     UNIT         ?DT?_CMT_SPI_WRITE?CMT2300A_SPI
+            DATA    005FH     0001H     UNIT         ?DT?_DELAYXUS?TIMER
+            DATA    0060H     0001H     UNIT         ?DT?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+            DATA    0061H     0001H     UNIT         ?DT?_CMT2300A_CONFIGGPIO?CMT2300A
+            DATA    0062H     0001H     UNIT         ?DT?_CMT2300A_SETINTERRUPTPOLAR?CMT2300A
+            DATA    0063H     0001H     UNIT         ?DT?_CMT2300A_SETFIFOTHRESHOLD?CMT2300A
+            DATA    0064H     0001H     UNIT         ?DT?_CMT2300A_ENABLEANTENNASWITCH?CMT2300A
+            DATA    0065H     0001H     UNIT         ?DT?_CMT2300A_ENABLEINTERRUPT?CMT2300A
+            DATA    0066H     0001H     UNIT         ?DT?_CMT2300A_ENABLERXFIFOAUTOCLEAR?CMT2300A
+            DATA    0067H     0001H     UNIT         ?DT?_CMT2300A_ENABLEFIFOMERGE?CMT2300A
+            DATA    0068H     0001H     UNIT         ?DT?_CMT2300A_CONFIGTXDIN?CMT2300A
+            DATA    0069H     0001H     UNIT         ?DT?_CMT2300A_ENABLETXDIN?CMT2300A
+            DATA    006AH     0001H     UNIT         ?DT?_CMT2300A_ENABLETXDININVERT?CMT2300A
+            DATA    006BH     0001H     UNIT         ?DT?_CMT2300A_SETFREQUENCYCHANNEL?CMT2300A
+            DATA    006CH     0001H     UNIT         ?DT?_CMT2300A_SETFREQUENCYSTEP?CMT2300A
+            DATA    006DH     0001H     UNIT         ?DT?_CMT2300A_ENABLELFOSC?CMT2300A
+            DATA    006EH     0001H     UNIT         ?DT?_CMT2300A_ENABLELFOSCOUTPUT?CMT2300A
+            DATA    006FH     0001H     UNIT         ?DT?_CMT2300A_ENABLEERRORSTOP?CMT2300A
+            DATA    0070H     0001H     UNIT         ?DT?_CMT2300A_READREG?CMT2300A_HAL
+            DATA    0071H     0001H     UNIT         ?DT?_CMT_SPI3_SEND?CMT2300A_SPI
+            DATA    0072H     0001H     UNIT         ?DT?_RF_SETSTATUS?RADIO
+            DATA    0073H     0001H     UNIT         ?DT?_RF_CONFIG_TESTMODE?RADIO
+            DATA    0074H     0001H     UNIT         ?DT?_CMT2300A_SET_FREQ?CMT2300A_APP
+            DATA    0075H     0001H     UNIT         ?DT?_CMT2300A_TX_TEST?CMT2300A_APP
+            IDATA   0076H     0002H     UNIT         ?ID?TIMER
+            IDATA   0078H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     007CH     UNIT         ?XD?CMT2300A_APP
+            XDATA   007CH     0021H     UNIT         ?XD?CMT2300A
+            XDATA   009DH     0020H     UNIT         ?XD?RADIO
+            XDATA   00BDH     000BH     UNIT         ?XD?CMT2300A_SPI
+            XDATA   00C8H     0008H     UNIT         ?XD?TIMER
+            XDATA   00D0H     0001H     UNIT         ?XD?CMT2300A_HAL
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?CMT2300A_SOFTRESET?CMT2300A
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0307H     UNIT         ?PR?_SIGNAL_DATA_DECODE?CMT2300A_APP
+            CODE    0315H     021DH     UNIT         ?PR?RF_PROCESS?RADIO
+            CODE    0532H     01FFH     UNIT         ?PR?CMT2300A_CLEARINTERRUPTFLAGS?CMT2300A
+            CODE    0731H     01B0H     UNIT         ?C?LIB_CODE
+            CODE    08E1H     018AH     UNIT         ?PR?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+            CODE    0A6BH     00C0H     UNIT         ?CO?RADIO
+            CODE    0B2BH     00BBH     UNIT         ?PR?RF_TEST_MODE?CMT2300A_APP
+            CODE    0BE6H     009FH     UNIT         ?PR?RF_INIT_TESTMODE?RADIO
+            CODE    0C85H     009BH     UNIT         ?PR?_CMT_SPI_READ_FIFO?CMT2300A_SPI
+            CODE    0D20H     0098H     UNIT         ?C_INITSEG
+            CODE    0DB8H     0096H     UNIT         ?PR?_CMT_SPI_WRITE_FIFO?CMT2300A_SPI
+            CODE    0E4EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0EDAH     0085H     UNIT         ?PR?RF_INIT?RADIO
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 3
+
+
+            CODE    0F5FH     0073H     UNIT         ?PR?CMT2300A_RX_TEST?CMT2300A_APP
+            CODE    0FD2H     0071H     UNIT         ?PR?_CMT2300A_ENABLELFOSC?CMT2300A
+            CODE    1043H     0064H     UNIT         ?PR?CMT_SPI3_RECV?CMT2300A_SPI
+            CODE    10A7H     0063H     UNIT         ?PR?_CMT2300A_ENABLEANTENNASWITCH?CMT2300A
+            CODE    110AH     005DH     UNIT         ?PR?_CMT2300A_SETPAYLOADLENGTH?CMT2300A
+            CODE    1167H     0057H     UNIT         ?PR?_CMT_SPI_READ?CMT2300A_SPI
+            CODE    11BEH     0052H     UNIT         ?PR?INT_T0?TIMER
+            CODE    1210H     0052H     UNIT         ?PR?_RF_STARTRX?RADIO
+            CODE    1262H     0050H     UNIT         ?PR?_SYSTEM_DELAY_100US?TIMER
+            CODE    12B2H     004AH     UNIT         ?PR?_CMT2300A_SWITCHSTATUSANDWAIT?CMT2300A
+            CODE    12FCH     004AH     UNIT         ?PR?CMT2300A_INIT?CMT2300A
+            CODE    1346H     0046H     UNIT         ?PR?INIT_CLOCK?SYS
+            CODE    138CH     0045H     UNIT         ?PR?INIT_PCA_PWM?TIMER
+            CODE    13D1H     0043H     UNIT         ?PR?_CMT2300A_CONFIGREGBANK?CMT2300A
+            CODE    1414H     0043H     UNIT         ?PR?_CMT_SPI_WRITE?CMT2300A_SPI
+            CODE    1457H     0040H     UNIT         ?PR?CMT2300A_INITGPIO?CMT2300A_HAL
+            CODE    1497H     003DH     UNIT         ?PR?_SYSTEM_DELAY_MS?TIMER
+            CODE    14D4H     003DH     UNIT         ?PR?_CMT_SPI3_SEND?CMT2300A_SPI
+            CODE    1511H     003AH     UNIT         ?PR?_RF_STARTTX?RADIO
+            CODE    154BH     0039H     UNIT         ?PR?_CMT2300A_SETINTERRUPTPOLAR?CMT2300A
+            CODE    1584H     0039H     UNIT         ?PR?_CMT2300A_ENABLERXFIFOAUTOCLEAR?CMT2300A
+            CODE    15BDH     0039H     UNIT         ?PR?_CMT2300A_ENABLEFIFOMERGE?CMT2300A
+            CODE    15F6H     0039H     UNIT         ?PR?_CMT2300A_ENABLETXDIN?CMT2300A
+            CODE    162FH     0039H     UNIT         ?PR?_CMT2300A_ENABLETXDININVERT?CMT2300A
+            CODE    1668H     0039H     UNIT         ?PR?_CMT2300A_ENABLELFOSCOUTPUT?CMT2300A
+            CODE    16A1H     0039H     UNIT         ?PR?_CMT2300A_ENABLEERRORSTOP?CMT2300A
+            CODE    16DAH     0038H     UNIT         ?PR?CMT2300A_ISEXIST?CMT2300A
+            CODE    1712H     0037H     UNIT         ?PR?_CMT2300A_SETFIFOTHRESHOLD?CMT2300A
+            CODE    1749H     0034H     UNIT         ?PR?_RF_CONFIG_TESTMODE?RADIO
+            CODE    177DH     0034H     UNIT         ?PR?_CMT2300A_SET_FREQ?CMT2300A_APP
+            CODE    17B1H     0033H     UNIT         ?PR?_CMT2300A_CONFIGTXDIN?CMT2300A
+            CODE    17E4H     0031H     UNIT         ?PR?_CMT2300A_CONFIGINTERRUPT?CMT2300A
+            CODE    1815H     0031H     UNIT         ?PR?CMT2300A_ENABLEREADFIFO?CMT2300A
+            CODE    1846H     0031H     UNIT         ?PR?CMT2300A_ENABLEWRITEFIFO?CMT2300A
+            CODE    1877H     0027H     UNIT         ?PR?_CMT2300A_TX_PACKET?CMT2300A_APP
+            CODE    189EH     0020H     UNIT         ?PR?MAIN?MAIN
+            CODE    18BEH     0020H     UNIT         ?PR?CMT_SPI3_INIT?CMT2300A_SPI
+            CODE    18DEH     001FH     UNIT         ?PR?INIT_TIMER0?TIMER
+            CODE    18FDH     001FH     UNIT         ?PR?RF_CONFIG?RADIO
+            CODE    191CH     001CH     UNIT         ?PR?CMT_SPI3_DELAY_US?CMT2300A_SPI
+            CODE    1938H     001CH     UNIT         ?PR?CMT_SPI3_DELAY?CMT2300A_SPI
+            CODE    1954H     0019H     UNIT         ?PR?_CMT2300A_READREG?CMT2300A_HAL
+            CODE    196DH     0018H     UNIT         ?PR?_CMT2300A_READFIFO?CMT2300A_HAL
+            CODE    1985H     0018H     UNIT         ?PR?_CMT2300A_WRITEFIFO?CMT2300A_HAL
+            CODE    199DH     0017H     UNIT         ?PR?_DELAYXUS?TIMER
+            CODE    19B4H     0017H     UNIT         ?PR?CMT2300A_CLEARTXFIFO?CMT2300A
+            CODE    19CBH     0017H     UNIT         ?PR?CMT2300A_CLEARRXFIFO?CMT2300A
+            CODE    19E2H     0017H     UNIT         ?PR?_CMT2300A_TX_TEST?CMT2300A_APP
+            CODE    19F9H     0016H     UNIT         ?PR?_DELAY?CMT2300A_APP
+            CODE    1A0FH     0014H     UNIT         ?PR?INIT_WDT?SYS
+            CODE    1A23H     0014H     UNIT         ?PR?_CMT_DELAY?CMT2300A_SPI
+            CODE    1A37H     0014H     UNIT         ?PR?SCAN_RECEIVE_PACKET?CMT2300A_APP
+            CODE    1A4BH     0010H     UNIT         ?PR?CMT2300A_GETRSSIDBM?CMT2300A
+            CODE    1A5BH     0010H     UNIT         ?PR?CMT2300A_RX_ENABLE?CMT2300A_APP
+            CODE    1A6BH     000CH     UNIT         ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+            CODE    1A77H     000AH     UNIT         ?PR?CMT2300A_GETCHIPSTATUS?CMT2300A
+            CODE    1A81H     000AH     UNIT         ?PR?_CMT2300A_CONFIGGPIO?CMT2300A
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 4
+
+
+            CODE    1A8BH     000AH     UNIT         ?PR?_CMT2300A_ENABLEINTERRUPT?CMT2300A
+            CODE    1A95H     000AH     UNIT         ?PR?_CMT2300A_SETFREQUENCYCHANNEL?CMT2300A
+            CODE    1A9FH     000AH     UNIT         ?PR?_CMT2300A_SETFREQUENCYSTEP?CMT2300A
+            CODE    1AA9H     0009H     UNIT         ?PR?_RF_SETSTATUS?RADIO
+            CODE    1AB2H     0008H     UNIT         ?PR?CMT2300A_RESTOREFIFO?CMT2300A
+            CODE    1ABAH     0006H     UNIT         ?PR?CMT2300A_GOSLEEP?CMT2300A
+            CODE    1AC0H     0006H     UNIT         ?PR?CMT2300A_GOSTBY?CMT2300A
+            CODE    1AC6H     0006H     UNIT         ?PR?CMT2300A_GOTFS?CMT2300A
+            CODE    1ACCH     0006H     UNIT         ?PR?CMT2300A_GORFS?CMT2300A
+            CODE    1AD2H     0006H     UNIT         ?PR?CMT2300A_GOTX?CMT2300A
+            CODE    1AD8H     0006H     UNIT         ?PR?CMT2300A_GORX?CMT2300A
+            CODE    1ADEH     0006H     UNIT         ?PR?CMT2300A_GETRSSICODE?CMT2300A
+            CODE    1AE4H     0006H     UNIT         ?PR?RF_GETSTATUS?RADIO
+            CODE    1AEAH     0006H     UNIT         ?PR?RF_GETINTERRUPTFLAGS?RADIO
+            CODE    1AF0H     0004H     UNIT         ?PR?CLEARWDT?SYS
+            CODE    1AF4H     0004H     UNIT         ?PR?INIT_BEEP?TIMER
+            CODE    1AF8H     0001H     UNIT         ?PR?SET_TX?CMT2300A_APP
+            CODE    1AF9H     0001H     UNIT         ?PR?SET_RX?CMT2300A_APP
+
+
+
+OVERLAY MAP OF MODULE:   .\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?INIT_WDT?SYS
+  +--> ?PR?INIT_CLOCK?SYS
+  +--> ?PR?CLEARWDT?SYS
+  +--> ?PR?INIT_TIMER0?TIMER
+  +--> ?PR?INIT_BEEP?TIMER
+  +--> ?PR?RF_TEST_MODE?CMT2300A_APP
+
+?PR?INIT_CLOCK?SYS
+  +--> ?PR?_DELAYXUS?TIMER
+
+?PR?INIT_BEEP?TIMER
+  +--> ?PR?INIT_PCA_PWM?TIMER
+
+?PR?RF_TEST_MODE?CMT2300A_APP
+  +--> ?PR?RF_INIT_TESTMODE?RADIO
+  +--> ?PR?CMT2300A_ISEXIST?CMT2300A
+  +--> ?PR?SET_TX?CMT2300A_APP
+  +--> ?PR?_CMT2300A_SETFREQUENCYCHANNEL?CMT...
+  +--> ?PR?_CMT2300A_TX_TEST?CMT2300A_APP
+  +--> ?PR?CMT2300A_GOTX?CMT2300A
+  +--> ?PR?CMT2300A_GOSLEEP?CMT2300A
+
+?PR?RF_INIT_TESTMODE?RADIO
+  +--> ?PR?CMT2300A_INIT?CMT2300A
+  +--> ?CO?RADIO
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 5
+
+
+  +--> ?PR?_CMT2300A_CONFIGREGBANK?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_CONFIGGPIO?CMT2300A
+  +--> ?PR?_CMT2300A_SETFREQUENCYSTEP?CMT2300A
+  +--> ?PR?_CMT2300A_ENABLELFOSC?CMT2300A
+  +--> ?PR?_CMT2300A_ENABLEERRORSTOP?CMT2300A
+  +--> ?PR?CMT2300A_GOSLEEP?CMT2300A
+
+?PR?CMT2300A_INIT?CMT2300A
+  +--> ?PR?CMT2300A_SOFTRESET?CMT2300A
+  +--> ?PR?_SYSTEM_DELAY_MS?TIMER
+  +--> ?PR?CMT2300A_GOSTBY?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_ENABLELFOSC?CMT2300A
+  +--> ?PR?CMT2300A_CLEARINTERRUPTFLAGS?CMT2...
+
+?PR?CMT2300A_SOFTRESET?CMT2300A
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+  +--> ?PR?_CMT_SPI_WRITE?CMT2300A_SPI
+
+?PR?_CMT_SPI_WRITE?CMT2300A_SPI
+  +--> ?PR?CMT_SPI3_DELAY?CMT2300A_SPI
+  +--> ?PR?_CMT_SPI3_SEND?CMT2300A_SPI
+
+?PR?_CMT_SPI3_SEND?CMT2300A_SPI
+  +--> ?PR?CMT_SPI3_DELAY?CMT2300A_SPI
+
+?PR?_SYSTEM_DELAY_MS?TIMER
+  +--> ?PR?_SYSTEM_DELAY_100US?TIMER
+
+?PR?CMT2300A_GOSTBY?CMT2300A
+  +--> ?PR?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+
+?PR?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+  +--> ?PR?CMT2300A_GETCHIPSTATUS?CMT2300A
+  +--> ?PR?_CMT2300A_SWITCHSTATUSANDWAIT?CMT...
+
+?PR?CMT2300A_GETCHIPSTATUS?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+
+?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT_SPI_READ?CMT2300A_SPI
+
+?PR?_CMT_SPI_READ?CMT2300A_SPI
+  +--> ?PR?CMT_SPI3_DELAY?CMT2300A_SPI
+  +--> ?PR?_CMT_SPI3_SEND?CMT2300A_SPI
+  +--> ?PR?CMT_SPI3_RECV?CMT2300A_SPI
+
+?PR?CMT_SPI3_RECV?CMT2300A_SPI
+  +--> ?PR?CMT_SPI3_DELAY?CMT2300A_SPI
+
+?PR?_CMT2300A_SWITCHSTATUSANDWAIT?CMT...
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 6
+
+
+  +--> ?PR?CMT2300A_GETCHIPSTATUS?CMT2300A
+
+?PR?_CMT2300A_ENABLELFOSC?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?CMT2300A_CLEARINTERRUPTFLAGS?CMT2...
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_CONFIGREGBANK?CMT2300A
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_CONFIGGPIO?CMT2300A
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_SETFREQUENCYSTEP?CMT2300A
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_ENABLEERRORSTOP?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?CMT2300A_GOSLEEP?CMT2300A
+  +--> ?PR?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+
+?PR?CMT2300A_ISEXIST?CMT2300A
+  +--> ?PR?_CMT2300A_READREG?CMT2300A_HAL
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_SETFREQUENCYCHANNEL?CMT...
+  +--> ?PR?_CMT2300A_WRITEREG?CMT2300A_HAL
+
+?PR?_CMT2300A_TX_TEST?CMT2300A_APP
+  +--> ?PR?_DELAY?CMT2300A_APP
+
+?PR?CMT2300A_GOTX?CMT2300A
+  +--> ?PR?_CMT2300A_AUTOSWITCHSTATUS?CMT2300A
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   INIT_INTERRUPT
+
+
+
+SYMBOL TABLE OF MODULE:  .\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 7
+
+
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP0L
+  D:00D8H         PUBLIC        CCON
+  C:189EH         PUBLIC        main
+  D:0088H         PUBLIC        TCON
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:189EH         LINE#         15
+  C:189EH         LINE#         16
+  C:189EH         LINE#         17
+  C:18A1H         LINE#         18
+  C:18A4H         LINE#         19
+  C:18A7H         LINE#         21
+  C:18AAH         LINE#         22
+  C:18ADH         LINE#         23
+  C:18B0H         LINE#         24
+  C:18B3H         LINE#         25
+  C:18B5H         LINE#         27
+  C:18B8H         LINE#         29
+  C:18B8H         LINE#         30
+  C:18B8H         LINE#         31
+  C:18BBH         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        SYS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00E7H         PUBLIC        ISPCR
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  D:00E1H         PUBLIC        WDTCR
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP0L
+  D:00C7H         PUBLIC        CKCON0
+  D:00D8H         PUBLIC        CCON
+  D:00E6H         PUBLIC        SCMD
+  D:00E3H         PUBLIC        IFADRH
+  D:00E5H         PUBLIC        IFMT
+  D:00E4H         PUBLIC        IFADRL
+  D:0088H         PUBLIC        TCON
+  D:00E2H         PUBLIC        IFD
+  C:1AF0H         PUBLIC        ClearWDT
+  D:0097H         PUBLIC        PCON1
+  D:0098H         PUBLIC        S0CON
+  C:1346H         PUBLIC        Init_Clock
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 8
+
+
+  D:0098H         PUBLIC        S1CON
+  C:1A0FH         PUBLIC        Init_WDT
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          INIT_CLOCK
+  C:1346H         LINE#         3
+  C:1346H         LINE#         4
+  C:1346H         LINE#         11
+  C:1349H         LINE#         12
+  C:134EH         LINE#         13
+  C:136AH         LINE#         14
+  C:136FH         LINE#         15
+  C:138BH         LINE#         25
+  -------         ENDPROC       INIT_CLOCK
+  -------         PROC          INIT_WDT
+  C:1A0FH         LINE#         28
+  C:1A0FH         LINE#         29
+  C:1A0FH         LINE#         30
+  C:1A12H         LINE#         31
+  C:1A1CH         LINE#         32
+  C:1A1FH         LINE#         33
+  C:1A22H         LINE#         34
+  -------         ENDPROC       INIT_WDT
+  -------         PROC          CLEARWDT
+  C:1AF0H         LINE#         36
+  C:1AF0H         LINE#         37
+  C:1AF0H         LINE#         38
+  C:1AF3H         LINE#         39
+  -------         ENDPROC       CLEARWDT
+  -------         ENDMOD        SYS
+
+  -------         MODULE        TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00F2H         PUBLIC        PCAPWM6
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  D:00ACH         PUBLIC        SFRPI
+  D:00F9H         PUBLIC        CH
+  D:00BCH         PUBLIC        PWMCR
+  D:00A8H         PUBLIC        IE
+  D:00E9H         PUBLIC        CL
+  D:0041H         PUBLIC        g_nSysTickCount
+  D:00B8H         PUBLIC        IP0L
+  D:00FAH         PUBLIC        CCAP6H
+  D:00EAH         PUBLIC        CCAP6L
+  D:00DAH         PUBLIC        CCAPM6
+  C:138CH         PUBLIC        Init_PCA_PWM
+  D:00D9H         PUBLIC        CMOD
+  D:00D8H         PUBLIC        CCON
+  D:00CFH         PUBLIC        CHRL
+  C:18DEH         PUBLIC        Init_Timer0
+  D:00CEH         PUBLIC        CLRL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 9
+
+
+  C:199DH         PUBLIC        _DelayXus
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008CH         PUBLIC        TH0
+  C:11BEH         PUBLIC        INT_T0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  I:0076H         PUBLIC        Time_Tx_Out
+  C:1497H         PUBLIC        _system_delay_ms
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  D:00A1H         PUBLIC        AUXR0
+  D:00A3H         PUBLIC        AUXR2
+  C:1AF4H         PUBLIC        Init_Beep
+  C:1262H         PUBLIC        _system_delay_100us
+  D:00F2H         PUBLIC        PCAPWM0
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          INIT_TIMER0
+  C:18DEH         LINE#         29
+  C:18DEH         LINE#         30
+  C:18DEH         LINE#         31
+  C:18E8H         LINE#         33
+  C:18F1H         LINE#         35
+  C:18F4H         LINE#         37
+  C:18F7H         LINE#         38
+  C:18FAH         LINE#         40
+  C:18FCH         LINE#         41
+  -------         ENDPROC       INIT_TIMER0
+  -------         PROC          INT_T0
+  C:11BEH         LINE#         51
+  C:11D5H         LINE#         53
+  C:11D8H         LINE#         54
+  C:11DBH         LINE#         55
+  C:11FBH         LINE#         56
+  -------         ENDPROC       INT_T0
+  -------         PROC          INIT_PCA_PWM
+  C:138CH         LINE#         60
+  C:138CH         LINE#         61
+  C:138CH         LINE#         62
+  C:1396H         LINE#         63
+  C:139FH         LINE#         64
+  C:13ABH         LINE#         65
+  C:13AEH         LINE#         68
+  C:13C4H         LINE#         71
+  C:13CAH         LINE#         72
+  C:13D0H         LINE#         73
+  -------         ENDPROC       INIT_PCA_PWM
+  -------         PROC          INIT_BEEP
+  C:1AF4H         LINE#         75
+  C:1AF4H         LINE#         76
+  C:1AF4H         LINE#         77
+  C:1AF7H         LINE#         78
+  -------         ENDPROC       INIT_BEEP
+  -------         PROC          _DELAYXUS
+  D:005FH         SYMBOL        xUs
+  C:199DH         LINE#         99
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 10
+
+
+  C:199FH         LINE#         100
+  C:199FH         LINE#         101
+  C:19A7H         LINE#         102
+  C:19A7H         LINE#         103
+  C:19A8H         LINE#         104
+  C:19A9H         LINE#         105
+  C:19AAH         LINE#         106
+  C:19ABH         LINE#         107
+  C:19ACH         LINE#         108
+  C:19ADH         LINE#         109
+  C:19AEH         LINE#         110
+  C:19AFH         LINE#         111
+  C:19B1H         LINE#         112
+  C:19B3H         LINE#         113
+  -------         ENDPROC       _DELAYXUS
+  -------         PROC          _SYSTEM_DELAY_100US
+  D:0039H         SYMBOL        n
+  -------         DO            
+  X:00C8H         SYMBOL        nDelayUsCnt
+  -------         ENDDO         
+  C:1262H         LINE#         134
+  C:126AH         LINE#         135
+  C:126AH         LINE#         136
+  C:1283H         LINE#         138
+  C:1291H         LINE#         139
+  C:129BH         LINE#         140
+  C:12A0H         LINE#         141
+  C:12AAH         LINE#         142
+  C:12AFH         LINE#         143
+  C:12B1H         LINE#         144
+  -------         ENDPROC       _SYSTEM_DELAY_100US
+  -------         PROC          _SYSTEM_DELAY_MS
+  D:003DH         SYMBOL        nms
+  -------         DO            
+  X:00CCH         SYMBOL        nDelayUsCnt
+  -------         ENDDO         
+  C:1497H         LINE#         146
+  C:149FH         LINE#         147
+  C:149FH         LINE#         148
+  C:14B8H         LINE#         150
+  C:14C6H         LINE#         151
+  C:14D3H         LINE#         152
+  -------         ENDPROC       _SYSTEM_DELAY_MS
+  -------         ENDMOD        TIMER
+
+  -------         MODULE        CMT2300A
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:1A77H         PUBLIC        CMT2300A_GetChipStatus
+  C:162FH         PUBLIC        _CMT2300A_EnableTxDinInvert
+  C:1ABAH         PUBLIC        CMT2300A_GoSleep
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:15F6H         PUBLIC        _CMT2300A_EnableTxDin
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 11
+
+
+  D:00F8H         PUBLIC        P6
+  C:1A4BH         PUBLIC        CMT2300A_GetRssiDBm
+  C:19CBH         PUBLIC        CMT2300A_ClearRxFifo
+  C:19B4H         PUBLIC        CMT2300A_ClearTxFifo
+  D:00A8H         PUBLIC        IE
+  C:1ADEH         PUBLIC        CMT2300A_GetRssiCode
+  C:17B1H         PUBLIC        _CMT2300A_ConfigTxDin
+  C:0FD2H         PUBLIC        _CMT2300A_EnableLfosc
+  C:15BDH         PUBLIC        _CMT2300A_EnableFifoMerge
+  D:00B8H         PUBLIC        IP0L
+  C:16DAH         PUBLIC        CMT2300A_IsExist
+  C:1815H         PUBLIC        CMT2300A_EnableReadFifo
+  D:00D8H         PUBLIC        CCON
+  C:1668H         PUBLIC        _CMT2300A_EnableLfoscOutput
+  C:1AC0H         PUBLIC        CMT2300A_GoStby
+  C:1846H         PUBLIC        CMT2300A_EnableWriteFifo
+  C:110AH         PUBLIC        _CMT2300A_SetPayloadLength
+  D:0088H         PUBLIC        TCON
+  C:1712H         PUBLIC        _CMT2300A_SetFifoThreshold
+  C:1A81H         PUBLIC        _CMT2300A_ConfigGpio
+  C:1AB2H         PUBLIC        CMT2300A_RestoreFifo
+  C:13D1H         PUBLIC        _CMT2300A_ConfigRegBank
+  C:16A1H         PUBLIC        _CMT2300A_EnableErrorStop
+  C:1AD8H         PUBLIC        CMT2300A_GoRx
+  C:154BH         PUBLIC        _CMT2300A_SetInterruptPolar
+  C:1AD2H         PUBLIC        CMT2300A_GoTx
+  C:1A9FH         PUBLIC        _CMT2300A_SetFrequencyStep
+  C:10A7H         PUBLIC        _CMT2300A_EnableAntennaSwitch
+  C:12FCH         PUBLIC        CMT2300A_Init
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  C:08E1H         PUBLIC        _CMT2300A_AutoSwitchStatus
+  C:1A8BH         PUBLIC        _CMT2300A_EnableInterrupt
+  C:1ACCH         PUBLIC        CMT2300A_GoRFS
+  C:1584H         PUBLIC        _CMT2300A_EnableRxFifoAutoClear
+  C:1A95H         PUBLIC        _CMT2300A_SetFrequencyChannel
+  C:1AC6H         PUBLIC        CMT2300A_GoTFS
+  C:0003H         PUBLIC        CMT2300A_SoftReset
+  C:12B2H         PUBLIC        _CMT2300A_SwitchStatusAndWait
+  D:00D0H         PUBLIC        PSW
+  C:17E4H         PUBLIC        _CMT2300A_ConfigInterrupt
+  C:0532H         PUBLIC        CMT2300A_ClearInterruptFlags
+  -------         PROC          CMT2300A_SOFTRESET
+  C:0003H         LINE#         30
+  C:0003H         LINE#         31
+  C:0003H         LINE#         32
+  C:000AH         LINE#         33
+  -------         ENDPROC       CMT2300A_SOFTRESET
+  -------         PROC          CMT2300A_GETCHIPSTATUS
+  C:1A77H         LINE#         50
+  C:1A77H         LINE#         51
+  C:1A77H         LINE#         52
+  C:1A80H         LINE#         53
+  -------         ENDPROC       CMT2300A_GETCHIPSTATUS
+  -------         PROC          _CMT2300A_SWITCHSTATUSANDWAIT
+  D:001AH         SYMBOL        nGoCmd
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 12
+
+
+  D:001BH         SYMBOL        nWaitStatus
+  D:001CH         SYMBOL        nEndTick
+  -------         DO            
+  X:007CH         SYMBOL        nCurStatus
+  -------         ENDDO         
+  C:12B2H         LINE#         55
+  C:12B6H         LINE#         56
+  C:12B6H         LINE#         59
+  C:12BDH         LINE#         61
+  C:12D3H         LINE#         62
+  C:12D3H         LINE#         63
+  C:12DBH         LINE#         65
+  C:12F2H         LINE#         66
+  C:12F4H         LINE#         67
+  C:12F6H         LINE#         69
+  C:12FBH         LINE#         70
+  -------         ENDPROC       _CMT2300A_SWITCHSTATUSANDWAIT
+  -------         PROC          _CMT2300A_AUTOSWITCHSTATUS
+  D:0060H         SYMBOL        nGoCmd
+  -------         DO            
+  X:007DH         SYMBOL        nEndTick
+  X:0081H         SYMBOL        nWaitStatus
+  X:0082H         SYMBOL        nCurStatus
+  -------         ENDDO         
+  C:08E1H         LINE#         78
+  C:08E3H         LINE#         79
+  C:08E3H         LINE#         81
+  C:08FDH         LINE#         85
+  C:0918H         LINE#         86
+  C:0918H         LINE#         87
+  C:0920H         LINE#         88
+  C:0928H         LINE#         89
+  C:0930H         LINE#         90
+  C:0938H         LINE#         91
+  C:0940H         LINE#         92
+  C:0946H         LINE#         93
+  C:0946H         LINE#         95
+  C:0965H         LINE#         96
+  C:0965H         LINE#         97
+  C:096DH         LINE#         99
+  C:09C9H         LINE#         101
+  C:09C9H         LINE#         102
+  C:09EBH         LINE#         103
+  C:09EBH         LINE#         105
+  C:09F9H         LINE#         106
+  C:0A22H         LINE#         108
+  C:0A2FH         LINE#         109
+  C:0A51H         LINE#         111
+  C:0A62H         LINE#         112
+  C:0A65H         LINE#         113
+  C:0A68H         LINE#         115
+  C:0A6AH         LINE#         121
+  -------         ENDPROC       _CMT2300A_AUTOSWITCHSTATUS
+  -------         PROC          CMT2300A_GOSLEEP
+  C:1ABAH         LINE#         128
+  C:1ABAH         LINE#         129
+  C:1ABAH         LINE#         130
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 13
+
+
+  C:1ABFH         LINE#         131
+  -------         ENDPROC       CMT2300A_GOSLEEP
+  -------         PROC          CMT2300A_GOSTBY
+  C:1AC0H         LINE#         138
+  C:1AC0H         LINE#         139
+  C:1AC0H         LINE#         140
+  C:1AC5H         LINE#         141
+  -------         ENDPROC       CMT2300A_GOSTBY
+  -------         PROC          CMT2300A_GOTFS
+  C:1AC6H         LINE#         148
+  C:1AC6H         LINE#         149
+  C:1AC6H         LINE#         150
+  C:1ACBH         LINE#         151
+  -------         ENDPROC       CMT2300A_GOTFS
+  -------         PROC          CMT2300A_GORFS
+  C:1ACCH         LINE#         158
+  C:1ACCH         LINE#         159
+  C:1ACCH         LINE#         160
+  C:1AD1H         LINE#         161
+  -------         ENDPROC       CMT2300A_GORFS
+  -------         PROC          CMT2300A_GOTX
+  C:1AD2H         LINE#         168
+  C:1AD2H         LINE#         169
+  C:1AD2H         LINE#         170
+  C:1AD7H         LINE#         171
+  -------         ENDPROC       CMT2300A_GOTX
+  -------         PROC          CMT2300A_GORX
+  C:1AD8H         LINE#         178
+  C:1AD8H         LINE#         179
+  C:1AD8H         LINE#         180
+  C:1ADDH         LINE#         181
+  -------         ENDPROC       CMT2300A_GORX
+  -------         PROC          _CMT2300A_CONFIGGPIO
+  D:0061H         SYMBOL        nGpioSel
+  C:1A81H         LINE#         211
+  C:1A83H         LINE#         212
+  C:1A83H         LINE#         213
+  C:1A8AH         LINE#         214
+  -------         ENDPROC       _CMT2300A_CONFIGGPIO
+  -------         PROC          _CMT2300A_CONFIGINTERRUPT
+  D:0055H         SYMBOL        nInt1Sel
+  D:0056H         SYMBOL        nInt2Sel
+  C:17E4H         LINE#         247
+  C:17E8H         LINE#         248
+  C:17E8H         LINE#         249
+  C:17EBH         LINE#         250
+  C:17F7H         LINE#         251
+  C:17FEH         LINE#         253
+  C:1801H         LINE#         254
+  C:180DH         LINE#         255
+  C:1814H         LINE#         256
+  -------         ENDPROC       _CMT2300A_CONFIGINTERRUPT
+  -------         PROC          _CMT2300A_SETINTERRUPTPOLAR
+  D:0062H         SYMBOL        bActiveHigh
+  -------         DO            
+  X:0083H         SYMBOL        tmp
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 14
+
+
+  C:154BH         LINE#         264
+  C:154DH         LINE#         265
+  C:154DH         LINE#         266
+  C:1557H         LINE#         268
+  C:155BH         LINE#         269
+  C:156BH         LINE#         271
+  C:1579H         LINE#         273
+  C:1583H         LINE#         274
+  -------         ENDPROC       _CMT2300A_SETINTERRUPTPOLAR
+  -------         PROC          _CMT2300A_SETFIFOTHRESHOLD
+  D:0063H         SYMBOL        nFifoThreshold
+  -------         DO            
+  X:0084H         SYMBOL        tmp
+  -------         ENDDO         
+  C:1712H         LINE#         281
+  C:1714H         LINE#         282
+  C:1714H         LINE#         283
+  C:171EH         LINE#         285
+  C:172CH         LINE#         286
+  C:173EH         LINE#         288
+  C:1748H         LINE#         289
+  -------         ENDPROC       _CMT2300A_SETFIFOTHRESHOLD
+  -------         PROC          _CMT2300A_ENABLEANTENNASWITCH
+  D:0064H         SYMBOL        nMode
+  -------         DO            
+  X:0085H         SYMBOL        tmp
+  -------         ENDDO         
+  C:10A7H         LINE#         301
+  C:10A9H         LINE#         302
+  C:10A9H         LINE#         303
+  C:10B3H         LINE#         305
+  C:10BBH         LINE#         306
+  C:10C9H         LINE#         307
+  C:10D7H         LINE#         308
+  C:10D9H         LINE#         309
+  C:10E3H         LINE#         310
+  C:10F1H         LINE#         311
+  C:10FFH         LINE#         312
+  C:10FFH         LINE#         314
+  C:1109H         LINE#         315
+  -------         ENDPROC       _CMT2300A_ENABLEANTENNASWITCH
+  -------         PROC          _CMT2300A_ENABLEINTERRUPT
+  D:0065H         SYMBOL        nEnable
+  C:1A8BH         LINE#         330
+  C:1A8DH         LINE#         331
+  C:1A8DH         LINE#         332
+  C:1A94H         LINE#         333
+  -------         ENDPROC       _CMT2300A_ENABLEINTERRUPT
+  -------         PROC          _CMT2300A_ENABLERXFIFOAUTOCLEAR
+  D:0066H         SYMBOL        bEnable
+  -------         DO            
+  X:0086H         SYMBOL        tmp
+  -------         ENDDO         
+  C:1584H         LINE#         341
+  C:1586H         LINE#         342
+  C:1586H         LINE#         343
+  C:1590H         LINE#         345
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 15
+
+
+  C:1594H         LINE#         346
+  C:15A4H         LINE#         348
+  C:15B2H         LINE#         350
+  C:15BCH         LINE#         351
+  -------         ENDPROC       _CMT2300A_ENABLERXFIFOAUTOCLEAR
+  -------         PROC          _CMT2300A_ENABLEFIFOMERGE
+  D:0067H         SYMBOL        bEnable
+  -------         DO            
+  X:0087H         SYMBOL        tmp
+  -------         ENDDO         
+  C:15BDH         LINE#         359
+  C:15BFH         LINE#         360
+  C:15BFH         LINE#         361
+  C:15C9H         LINE#         363
+  C:15CDH         LINE#         364
+  C:15DDH         LINE#         366
+  C:15EBH         LINE#         368
+  C:15F5H         LINE#         369
+  -------         ENDPROC       _CMT2300A_ENABLEFIFOMERGE
+  -------         PROC          CMT2300A_ENABLEREADFIFO
+  -------         DO            
+  X:0088H         SYMBOL        tmp
+  -------         ENDDO         
+  C:1815H         LINE#         375
+  C:1815H         LINE#         376
+  C:1815H         LINE#         377
+  C:181FH         LINE#         378
+  C:182DH         LINE#         379
+  C:183BH         LINE#         380
+  C:1845H         LINE#         381
+  -------         ENDPROC       CMT2300A_ENABLEREADFIFO
+  -------         PROC          CMT2300A_ENABLEWRITEFIFO
+  -------         DO            
+  X:0089H         SYMBOL        tmp
+  -------         ENDDO         
+  C:1846H         LINE#         387
+  C:1846H         LINE#         388
+  C:1846H         LINE#         389
+  C:1850H         LINE#         390
+  C:185EH         LINE#         391
+  C:186CH         LINE#         392
+  C:1876H         LINE#         393
+  -------         ENDPROC       CMT2300A_ENABLEWRITEFIFO
+  -------         PROC          CMT2300A_RESTOREFIFO
+  C:1AB2H         LINE#         399
+  C:1AB2H         LINE#         400
+  C:1AB2H         LINE#         401
+  C:1AB9H         LINE#         402
+  -------         ENDPROC       CMT2300A_RESTOREFIFO
+  -------         PROC          CMT2300A_CLEARTXFIFO
+  -------         DO            
+  X:008AH         SYMBOL        tmp
+  -------         ENDDO         
+  C:19B4H         LINE#         416
+  C:19B4H         LINE#         417
+  C:19B4H         LINE#         418
+  C:19BEH         LINE#         419
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 16
+
+
+  C:19C5H         LINE#         420
+  C:19CAH         LINE#         421
+  -------         ENDPROC       CMT2300A_CLEARTXFIFO
+  -------         PROC          CMT2300A_CLEARRXFIFO
+  -------         DO            
+  X:008BH         SYMBOL        tmp
+  -------         ENDDO         
+  C:19CBH         LINE#         435
+  C:19CBH         LINE#         436
+  C:19CBH         LINE#         437
+  C:19D5H         LINE#         438
+  C:19DCH         LINE#         439
+  C:19E1H         LINE#         440
+  -------         ENDPROC       CMT2300A_CLEARRXFIFO
+  -------         PROC          CMT2300A_CLEARINTERRUPTFLAGS
+  -------         DO            
+  X:008CH         SYMBOL        nFlag1
+  X:008DH         SYMBOL        nFlag2
+  X:008EH         SYMBOL        nClr1
+  X:008FH         SYMBOL        nClr2
+  X:0090H         SYMBOL        nRet
+  X:0091H         SYMBOL        nIntPolar
+  -------         ENDDO         
+  C:0532H         LINE#         455
+  C:0532H         LINE#         456
+  C:0532H         LINE#         458
+  C:0537H         LINE#         459
+  C:053CH         LINE#         460
+  C:0541H         LINE#         463
+  C:054BH         LINE#         464
+  C:055FH         LINE#         466
+  C:0569H         LINE#         467
+  C:0573H         LINE#         469
+  C:057BH         LINE#         471
+  C:0588H         LINE#         472
+  C:0595H         LINE#         473
+  C:0595H         LINE#         475
+  C:059EH         LINE#         476
+  C:05ACH         LINE#         477
+  C:05ACH         LINE#         479
+  C:05B5H         LINE#         480
+  C:05C3H         LINE#         481
+  C:05C3H         LINE#         483
+  C:05CCH         LINE#         484
+  C:05DAH         LINE#         485
+  C:05DAH         LINE#         487
+  C:05E3H         LINE#         488
+  C:05F1H         LINE#         489
+  C:05FFH         LINE#         490
+  C:05FFH         LINE#         492
+  C:0608H         LINE#         493
+  C:0616H         LINE#         494
+  C:0624H         LINE#         495
+  C:0624H         LINE#         497
+  C:062DH         LINE#         498
+  C:063BH         LINE#         499
+  C:0649H         LINE#         500
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 17
+
+
+  C:0649H         LINE#         502
+  C:0652H         LINE#         503
+  C:0660H         LINE#         504
+  C:066EH         LINE#         505
+  C:066EH         LINE#         507
+  C:0677H         LINE#         508
+  C:0685H         LINE#         509
+  C:0693H         LINE#         510
+  C:0693H         LINE#         512
+  C:069CH         LINE#         513
+  C:06AAH         LINE#         514
+  C:06B8H         LINE#         515
+  C:06B8H         LINE#         517
+  C:06C1H         LINE#         518
+  C:06CFH         LINE#         519
+  C:06DDH         LINE#         520
+  C:06DDH         LINE#         522
+  C:06E6H         LINE#         523
+  C:06F4H         LINE#         524
+  C:0702H         LINE#         525
+  C:0702H         LINE#         527
+  C:070CH         LINE#         528
+  C:0716H         LINE#         530
+  C:071EH         LINE#         532
+  C:072BH         LINE#         533
+  C:072BH         LINE#         535
+  C:0730H         LINE#         536
+  -------         ENDPROC       CMT2300A_CLEARINTERRUPTFLAGS
+  -------         PROC          _CMT2300A_CONFIGTXDIN
+  D:0068H         SYMBOL        nDinSel
+  -------         DO            
+  X:0092H         SYMBOL        tmp
+  -------         ENDDO         
+  C:17B1H         LINE#         548
+  C:17B3H         LINE#         549
+  C:17B3H         LINE#         550
+  C:17BDH         LINE#         551
+  C:17CBH         LINE#         552
+  C:17D9H         LINE#         553
+  C:17E3H         LINE#         554
+  -------         ENDPROC       _CMT2300A_CONFIGTXDIN
+  -------         PROC          _CMT2300A_ENABLETXDIN
+  D:0069H         SYMBOL        bEnable
+  -------         DO            
+  X:0093H         SYMBOL        tmp
+  -------         ENDDO         
+  C:15F6H         LINE#         562
+  C:15F8H         LINE#         563
+  C:15F8H         LINE#         564
+  C:1602H         LINE#         566
+  C:1606H         LINE#         567
+  C:1616H         LINE#         569
+  C:1624H         LINE#         571
+  C:162EH         LINE#         572
+  -------         ENDPROC       _CMT2300A_ENABLETXDIN
+  -------         PROC          _CMT2300A_ENABLETXDININVERT
+  D:006AH         SYMBOL        bEnable
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 18
+
+
+  -------         DO            
+  X:0094H         SYMBOL        tmp
+  -------         ENDDO         
+  C:162FH         LINE#         580
+  C:1631H         LINE#         581
+  C:1631H         LINE#         582
+  C:163BH         LINE#         584
+  C:163FH         LINE#         585
+  C:164FH         LINE#         587
+  C:165DH         LINE#         589
+  C:1667H         LINE#         590
+  -------         ENDPROC       _CMT2300A_ENABLETXDININVERT
+  -------         PROC          CMT2300A_ISEXIST
+  -------         DO            
+  X:0095H         SYMBOL        back
+  X:0096H         SYMBOL        dat
+  -------         ENDDO         
+  C:16DAH         LINE#         598
+  C:16DAH         LINE#         599
+  C:16DAH         LINE#         602
+  C:16E4H         LINE#         603
+  C:16EBH         LINE#         605
+  C:16F5H         LINE#         606
+  C:16FFH         LINE#         608
+  C:170CH         LINE#         609
+  C:170FH         LINE#         611
+  C:1711H         LINE#         612
+  -------         ENDPROC       CMT2300A_ISEXIST
+  -------         PROC          CMT2300A_GETRSSICODE
+  C:1ADEH         LINE#         619
+  C:1ADEH         LINE#         620
+  C:1ADEH         LINE#         621
+  C:1AE3H         LINE#         622
+  -------         ENDPROC       CMT2300A_GETRSSICODE
+  -------         PROC          CMT2300A_GETRSSIDBM
+  C:1A4BH         LINE#         629
+  C:1A4BH         LINE#         630
+  C:1A4BH         LINE#         631
+  C:1A5AH         LINE#         632
+  -------         ENDPROC       CMT2300A_GETRSSIDBM
+  -------         PROC          _CMT2300A_SETFREQUENCYCHANNEL
+  D:006BH         SYMBOL        nChann
+  C:1A95H         LINE#         640
+  C:1A97H         LINE#         641
+  C:1A97H         LINE#         642
+  C:1A9EH         LINE#         643
+  -------         ENDPROC       _CMT2300A_SETFREQUENCYCHANNEL
+  -------         PROC          _CMT2300A_SETFREQUENCYSTEP
+  D:006CH         SYMBOL        nOffset
+  C:1A9FH         LINE#         652
+  C:1AA1H         LINE#         653
+  C:1AA1H         LINE#         654
+  C:1AA8H         LINE#         655
+  -------         ENDPROC       _CMT2300A_SETFREQUENCYSTEP
+  -------         PROC          _CMT2300A_SETPAYLOADLENGTH
+  D:0057H         SYMBOL        nLength
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 19
+
+
+  X:0097H         SYMBOL        tmp
+  -------         ENDDO         
+  C:110AH         LINE#         662
+  C:110EH         LINE#         663
+  C:110EH         LINE#         664
+  C:1118H         LINE#         666
+  C:1126H         LINE#         667
+  C:1147H         LINE#         668
+  C:1151H         LINE#         670
+  C:115CH         LINE#         671
+  C:1166H         LINE#         672
+  -------         ENDPROC       _CMT2300A_SETPAYLOADLENGTH
+  -------         PROC          _CMT2300A_ENABLELFOSC
+  D:006DH         SYMBOL        bEnable
+  -------         DO            
+  X:0098H         SYMBOL        tmp
+  -------         ENDDO         
+  C:0FD2H         LINE#         680
+  C:0FD4H         LINE#         681
+  C:0FD4H         LINE#         682
+  C:0FDEH         LINE#         684
+  C:0FE2H         LINE#         685
+  C:0FF0H         LINE#         686
+  C:0FFEH         LINE#         687
+  C:100CH         LINE#         688
+  C:100EH         LINE#         689
+  C:100EH         LINE#         690
+  C:101CH         LINE#         691
+  C:102AH         LINE#         692
+  C:1038H         LINE#         693
+  C:1038H         LINE#         695
+  C:1042H         LINE#         696
+  -------         ENDPROC       _CMT2300A_ENABLELFOSC
+  -------         PROC          _CMT2300A_ENABLELFOSCOUTPUT
+  D:006EH         SYMBOL        bEnable
+  -------         DO            
+  X:0099H         SYMBOL        tmp
+  -------         ENDDO         
+  C:1668H         LINE#         704
+  C:166AH         LINE#         705
+  C:166AH         LINE#         706
+  C:1674H         LINE#         708
+  C:1678H         LINE#         709
+  C:1688H         LINE#         711
+  C:1696H         LINE#         713
+  C:16A0H         LINE#         714
+  -------         ENDPROC       _CMT2300A_ENABLELFOSCOUTPUT
+  -------         PROC          _CMT2300A_ENABLEERRORSTOP
+  D:006FH         SYMBOL        bEnable
+  -------         DO            
+  X:009AH         SYMBOL        tmp
+  -------         ENDDO         
+  C:16A1H         LINE#         722
+  C:16A3H         LINE#         723
+  C:16A3H         LINE#         724
+  C:16ADH         LINE#         726
+  C:16B1H         LINE#         727
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 20
+
+
+  C:16C1H         LINE#         729
+  C:16CFH         LINE#         731
+  C:16D9H         LINE#         732
+  -------         ENDPROC       _CMT2300A_ENABLEERRORSTOP
+  -------         PROC          CMT2300A_INIT
+  -------         DO            
+  X:009BH         SYMBOL        tmp
+  -------         ENDDO         
+  C:12FCH         LINE#         739
+  C:12FCH         LINE#         740
+  C:12FCH         LINE#         743
+  C:12FFH         LINE#         744
+  C:130AH         LINE#         746
+  C:130DH         LINE#         748
+  C:1317H         LINE#         749
+  C:1325H         LINE#         751
+  C:1333H         LINE#         752
+  C:133DH         LINE#         754
+  C:1342H         LINE#         756
+  C:1345H         LINE#         757
+  -------         ENDPROC       CMT2300A_INIT
+  -------         PROC          _CMT2300A_CONFIGREGBANK
+  D:0020H         SYMBOL        base_addr
+  D:0021H         SYMBOL        bank
+  D:0024H         SYMBOL        len
+  -------         DO            
+  X:009CH         SYMBOL        i
+  -------         ENDDO         
+  C:13D1H         LINE#         763
+  C:13D9H         LINE#         764
+  C:13D9H         LINE#         766
+  C:13E9H         LINE#         767
+  C:1411H         LINE#         769
+  C:1413H         LINE#         770
+  -------         ENDPROC       _CMT2300A_CONFIGREGBANK
+  -------         ENDMOD        CMT2300A
+
+  -------         MODULE        CMT2300A_HAL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B1H         PUBLIC        P3M0
+  D:0090H         PUBLIC        P1
+  D:00B2H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP0L
+  D:00D8H         PUBLIC        CCON
+  B:00B0H.2       PUBLIC        P32
+  D:0088H         PUBLIC        TCON
+  B:00B0H.3       PUBLIC        P33
+  B:00B0H.4       PUBLIC        P34
+  C:196DH         PUBLIC        _CMT2300A_ReadFifo
+  C:1985H         PUBLIC        _CMT2300A_WriteFifo
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 21
+
+
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  C:1954H         PUBLIC        _CMT2300A_ReadReg
+  C:1457H         PUBLIC        CMT2300A_InitGpio
+  D:00D0H         PUBLIC        PSW
+  C:1A6BH         PUBLIC        _CMT2300A_WriteReg
+  -------         PROC          CMT2300A_INITGPIO
+  C:1457H         LINE#         31
+  C:1457H         LINE#         32
+  C:1457H         LINE#         34
+  C:146BH         LINE#         35
+  C:147FH         LINE#         36
+  C:1493H         LINE#         38
+  C:1496H         LINE#         39
+  -------         ENDPROC       CMT2300A_INITGPIO
+  -------         PROC          _CMT2300A_READREG
+  D:0070H         SYMBOL        addr
+  -------         DO            
+  X:00D0H         SYMBOL        dat
+  -------         ENDDO         
+  C:1954H         LINE#         47
+  C:1956H         LINE#         48
+  C:1956H         LINE#         49
+  C:195CH         LINE#         50
+  C:1967H         LINE#         52
+  C:196CH         LINE#         53
+  -------         ENDPROC       _CMT2300A_READREG
+  -------         PROC          _CMT2300A_WRITEREG
+  D:0059H         SYMBOL        addr
+  D:005AH         SYMBOL        dat
+  C:1A6BH         LINE#         61
+  C:1A6FH         LINE#         62
+  C:1A6FH         LINE#         63
+  C:1A76H         LINE#         64
+  -------         ENDPROC       _CMT2300A_WRITEREG
+  -------         PROC          _CMT2300A_READFIFO
+  D:0025H         SYMBOL        buf
+  D:0028H         SYMBOL        len
+  C:196DH         LINE#         72
+  C:1977H         LINE#         73
+  C:1977H         LINE#         74
+  C:1984H         LINE#         75
+  -------         ENDPROC       _CMT2300A_READFIFO
+  -------         PROC          _CMT2300A_WRITEFIFO
+  D:002AH         SYMBOL        buf
+  D:002DH         SYMBOL        len
+  C:1985H         LINE#         83
+  C:198FH         LINE#         84
+  C:198FH         LINE#         85
+  C:199CH         LINE#         86
+  -------         ENDPROC       _CMT2300A_WRITEFIFO
+  -------         ENDMOD        CMT2300A_HAL
+
+  -------         MODULE        CMT2300A_SPI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0091H         PUBLIC        P1M0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 22
+
+
+  D:0095H         PUBLIC        P2M0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  C:0DB8H         PUBLIC        _Cmt_Spi_Write_Fifo
+  D:00A8H         PUBLIC        IE
+  C:1167H         PUBLIC        _Cmt_Spi_Read
+  D:00B8H         PUBLIC        IP0L
+  C:1938H         PUBLIC        cmt_spi3_delay
+  C:1414H         PUBLIC        _Cmt_Spi_Write
+  D:00D8H         PUBLIC        CCON
+  C:14D4H         PUBLIC        _cmt_spi3_send
+  B:00A0H.2       PUBLIC        P22
+  B:0090H.4       PUBLIC        P14
+  D:0088H         PUBLIC        TCON
+  B:0090H.5       PUBLIC        P15
+  D:00B4H         PUBLIC        PUCON0
+  C:1A23H         PUBLIC        _cmt_delay
+  B:0090H.7       PUBLIC        P17
+  C:1043H         PUBLIC        cmt_spi3_recv
+  C:18BEH         PUBLIC        cmt_spi3_init
+  C:191CH         PUBLIC        cmt_spi3_delay_us
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  C:0C85H         PUBLIC        _Cmt_Spi_Read_Fifo
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _CMT_DELAY
+  D:005BH         SYMBOL        n
+  C:1A23H         LINE#         3
+  C:1A27H         LINE#         4
+  C:1A27H         LINE#         5
+  C:1A36H         LINE#         6
+  -------         ENDPROC       _CMT_DELAY
+  -------         PROC          CMT_SPI3_DELAY_US
+  -------         DO            
+  X:00BDH         SYMBOL        n
+  -------         ENDDO         
+  C:191CH         LINE#         8
+  C:191CH         LINE#         9
+  C:191CH         LINE#         10
+  C:1925H         LINE#         11
+  C:1937H         LINE#         12
+  -------         ENDPROC       CMT_SPI3_DELAY_US
+  -------         PROC          CMT_SPI3_DELAY
+  -------         DO            
+  X:00BFH         SYMBOL        n
+  -------         ENDDO         
+  C:1938H         LINE#         13
+  C:1938H         LINE#         14
+  C:1938H         LINE#         15
+  C:1941H         LINE#         16
+  C:1953H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 23
+
+
+  -------         ENDPROC       CMT_SPI3_DELAY
+  -------         PROC          CMT_SPI3_INIT
+  C:18BEH         LINE#         20
+  C:18BEH         LINE#         21
+  C:18BEH         LINE#         22
+  C:18C0H         LINE#         23
+  C:18C3H         LINE#         24
+  C:18C5H         LINE#         26
+  C:18C7H         LINE#         27
+  C:18CAH         LINE#         28
+  C:18CCH         LINE#         30
+  C:18CEH         LINE#         31
+  C:18D1H         LINE#         32
+  C:18D3H         LINE#         34
+  C:18D5H         LINE#         35
+  C:18D8H         LINE#         36
+  C:18DAH         LINE#         38
+  C:18DDH         LINE#         39
+  -------         ENDPROC       CMT_SPI3_INIT
+  -------         PROC          _CMT_SPI3_SEND
+  D:0071H         SYMBOL        data8
+  -------         DO            
+  X:00C1H         SYMBOL        i
+  -------         ENDDO         
+  C:14D4H         LINE#         41
+  C:14D6H         LINE#         42
+  C:14D6H         LINE#         45
+  C:14EDH         LINE#         46
+  C:14EDH         LINE#         47
+  C:14EFH         LINE#         50
+  C:14F4H         LINE#         51
+  C:14F4H         LINE#         52
+  C:14F6H         LINE#         53
+  C:14F8H         LINE#         55
+  C:14F8H         LINE#         56
+  C:14FAH         LINE#         57
+  C:14FAH         LINE#         59
+  C:14FDH         LINE#         61
+  C:1503H         LINE#         62
+  C:1505H         LINE#         63
+  C:1508H         LINE#         64
+  C:1510H         LINE#         65
+  -------         ENDPROC       _CMT_SPI3_SEND
+  -------         PROC          CMT_SPI3_RECV
+  -------         DO            
+  X:00C2H         SYMBOL        i
+  X:00C3H         SYMBOL        data8
+  -------         ENDDO         
+  C:1043H         LINE#         67
+  C:1043H         LINE#         68
+  C:1043H         LINE#         70
+  C:1049H         LINE#         72
+  C:1060H         LINE#         73
+  C:1060H         LINE#         74
+  C:1062H         LINE#         75
+  C:1065H         LINE#         76
+  C:1073H         LINE#         78
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 24
+
+
+  C:1075H         LINE#         81
+  C:1078H         LINE#         82
+  C:1078H         LINE#         83
+  C:1086H         LINE#         84
+  C:1088H         LINE#         86
+  C:1088H         LINE#         87
+  C:1096H         LINE#         88
+  C:1096H         LINE#         90
+  C:1099H         LINE#         91
+  C:10A1H         LINE#         93
+  C:10A6H         LINE#         94
+  -------         ENDPROC       CMT_SPI3_RECV
+  -------         PROC          _CMT_SPI_WRITE
+  D:005DH         SYMBOL        addr
+  D:005EH         SYMBOL        dat
+  C:1414H         LINE#         96
+  C:1418H         LINE#         97
+  C:1418H         LINE#         98
+  C:141AH         LINE#         99
+  C:141DH         LINE#         101
+  C:141FH         LINE#         102
+  C:1422H         LINE#         103
+  C:1424H         LINE#         105
+  C:1426H         LINE#         106
+  C:1429H         LINE#         107
+  C:142BH         LINE#         109
+  C:142DH         LINE#         112
+  C:1430H         LINE#         113
+  C:1433H         LINE#         116
+  C:143BH         LINE#         118
+  C:1440H         LINE#         120
+  C:1442H         LINE#         123
+  C:1445H         LINE#         124
+  C:1448H         LINE#         126
+  C:144AH         LINE#         128
+  C:144CH         LINE#         129
+  C:1454H         LINE#         131
+  C:1456H         LINE#         132
+  -------         ENDPROC       _CMT_SPI_WRITE
+  -------         PROC          _CMT_SPI_READ
+  D:0045H         SYMBOL        addr
+  D:0046H         SYMBOL        p_dat
+  C:1167H         LINE#         134
+  C:116FH         LINE#         135
+  C:116FH         LINE#         136
+  C:1171H         LINE#         137
+  C:1174H         LINE#         139
+  C:1176H         LINE#         140
+  C:1179H         LINE#         141
+  C:117BH         LINE#         143
+  C:117DH         LINE#         144
+  C:1180H         LINE#         145
+  C:1182H         LINE#         147
+  C:1184H         LINE#         150
+  C:1187H         LINE#         151
+  C:118AH         LINE#         154
+  C:1192H         LINE#         157
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 25
+
+
+  C:119AH         LINE#         159
+  C:11A7H         LINE#         161
+  C:11A9H         LINE#         164
+  C:11ACH         LINE#         165
+  C:11AFH         LINE#         167
+  C:11B1H         LINE#         169
+  C:11B3H         LINE#         170
+  C:11BBH         LINE#         172
+  C:11BDH         LINE#         173
+  -------         ENDPROC       _CMT_SPI_READ
+  -------         PROC          _CMT_SPI_WRITE_FIFO
+  D:002FH         SYMBOL        p_buf
+  D:0032H         SYMBOL        len
+  -------         DO            
+  X:00C4H         SYMBOL        i
+  -------         ENDDO         
+  C:0DB8H         LINE#         175
+  C:0DC2H         LINE#         176
+  C:0DC2H         LINE#         177
+  C:0DC2H         LINE#         179
+  C:0DC4H         LINE#         180
+  C:0DC7H         LINE#         181
+  C:0DC9H         LINE#         183
+  C:0DCBH         LINE#         184
+  C:0DCEH         LINE#         185
+  C:0DD0H         LINE#         187
+  C:0DD2H         LINE#         188
+  C:0DD5H         LINE#         189
+  C:0DD7H         LINE#         191
+  C:0DDAH         LINE#         193
+  C:0DF3H         LINE#         194
+  C:0DF3H         LINE#         195
+  C:0DF5H         LINE#         198
+  C:0DF8H         LINE#         199
+  C:0DFBH         LINE#         201
+  C:0E14H         LINE#         203
+  C:0E16H         LINE#         206
+  C:0E19H         LINE#         207
+  C:0E1CH         LINE#         208
+  C:0E1FH         LINE#         210
+  C:0E21H         LINE#         213
+  C:0E24H         LINE#         214
+  C:0E27H         LINE#         215
+  C:0E2AH         LINE#         216
+  C:0E2DH         LINE#         217
+  C:0E30H         LINE#         218
+  C:0E33H         LINE#         219
+  C:0E43H         LINE#         221
+  C:0E4BH         LINE#         223
+  C:0E4DH         LINE#         224
+  -------         ENDPROC       _CMT_SPI_WRITE_FIFO
+  -------         PROC          _CMT_SPI_READ_FIFO
+  D:0034H         SYMBOL        p_buf
+  D:0037H         SYMBOL        len
+  -------         DO            
+  X:00C6H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 26
+
+
+  C:0C85H         LINE#         226
+  C:0C8FH         LINE#         227
+  C:0C8FH         LINE#         228
+  C:0C8FH         LINE#         230
+  C:0C91H         LINE#         231
+  C:0C94H         LINE#         232
+  C:0C96H         LINE#         234
+  C:0C98H         LINE#         235
+  C:0C9BH         LINE#         236
+  C:0C9DH         LINE#         238
+  C:0C9FH         LINE#         239
+  C:0CA2H         LINE#         240
+  C:0CA4H         LINE#         242
+  C:0CACH         LINE#         244
+  C:0CC5H         LINE#         245
+  C:0CC5H         LINE#         246
+  C:0CC7H         LINE#         249
+  C:0CCAH         LINE#         250
+  C:0CCDH         LINE#         252
+  C:0CE6H         LINE#         254
+  C:0CE8H         LINE#         257
+  C:0CEBH         LINE#         258
+  C:0CEEH         LINE#         259
+  C:0CF1H         LINE#         261
+  C:0CF3H         LINE#         264
+  C:0CF6H         LINE#         265
+  C:0CF9H         LINE#         266
+  C:0CFCH         LINE#         267
+  C:0CFFH         LINE#         268
+  C:0D02H         LINE#         269
+  C:0D05H         LINE#         270
+  C:0D15H         LINE#         272
+  C:0D1DH         LINE#         274
+  C:0D1FH         LINE#         275
+  -------         ENDPROC       _CMT_SPI_READ_FIFO
+  -------         ENDMOD        CMT2300A_SPI
+
+  -------         MODULE        RADIO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B1H         PUBLIC        P3M0
+  D:0090H         PUBLIC        P1
+  C:0AC0H         PUBLIC        g_cmt2300aTxBank
+  D:00B2H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  D:00F8H         PUBLIC        P6
+  X:00A0H         PUBLIC        g_nInterrutFlags
+  D:00A8H         PUBLIC        IE
+  C:0EDAH         PUBLIC        RF_Init
+  D:00B8H         PUBLIC        IP0L
+  C:0BE6H         PUBLIC        RF_Init_TestMode
+  C:0AD7H         PUBLIC        system_back
+  C:0AEBH         PUBLIC        data_rate_back
+  X:00A1H         PUBLIC        g_nRxTimeCount
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 27
+
+
+  X:00A5H         PUBLIC        g_nTxTimeCount
+  C:1AE4H         PUBLIC        RF_GetStatus
+  C:0AE3H         PUBLIC        freq_back
+  D:00D8H         PUBLIC        CCON
+  C:0B03H         PUBLIC        baseband_back
+  C:1AA9H         PUBLIC        _RF_SetStatus
+  B:00B0H.2       PUBLIC        P32
+  D:0088H         PUBLIC        TCON
+  B:00B0H.3       PUBLIC        P33
+  C:0ACBH         PUBLIC        cmt_back
+  X:00A9H         PUBLIC        read_reg
+  C:0A77H         PUBLIC        g_cmt2300aSystemBank
+  C:0A8BH         PUBLIC        g_cmt2300aDataRateBank
+  C:0AA3H         PUBLIC        g_cmt2300aBasebandBank
+  C:18FDH         PUBLIC        RF_Config
+  C:1210H         PUBLIC        _RF_StartRx
+  C:1511H         PUBLIC        _RF_StartTx
+  C:0A6BH         PUBLIC        g_cmt2300aCmtBank
+  C:0315H         PUBLIC        RF_Process
+  C:1749H         PUBLIC        _RF_Config_TestMode
+  C:1AEAH         PUBLIC        RF_GetInterruptFlags
+  C:0B20H         PUBLIC        tx_back
+  X:00AAH         PUBLIC        g_pRxBuffer
+  X:00ADH         PUBLIC        g_pTxBuffer
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  X:00B0H         PUBLIC        g_nRxLength
+  D:00C8H         PUBLIC        T2CON
+  X:00B2H         PUBLIC        g_nTxLength
+  X:00B4H         PUBLIC        g_nRxTimeout
+  C:0A83H         PUBLIC        g_cmt2300aFrequencyBank
+  X:00B8H         PUBLIC        g_nTxTimeout
+  X:00BCH         PUBLIC        g_nNextRFState
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          RF_INIT
+  -------         DO            
+  X:009DH         SYMBOL        tmp
+  -------         ENDDO         
+  C:0EDAH         LINE#         41
+  C:0EDAH         LINE#         42
+  C:0EDAH         LINE#         44
+  C:0EDDH         LINE#         45
+  C:0EE0H         LINE#         48
+  C:0EEEH         LINE#         49
+  C:0EFCH         LINE#         50
+  C:0F0AH         LINE#         51
+  C:0F18H         LINE#         52
+  C:0F26H         LINE#         53
+  C:0F34H         LINE#         56
+  C:0F42H         LINE#         57
+  C:0F50H         LINE#         59
+  C:0F53H         LINE#         61
+  C:0F5CH         LINE#         62
+  C:0F5EH         LINE#         63
+  C:0F5EH         LINE#         64
+  -------         ENDPROC       RF_INIT
+  -------         PROC          RF_CONFIG
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 28
+
+
+  C:18FDH         LINE#         66
+  C:18FDH         LINE#         67
+  C:18FDH         LINE#         75
+  C:1902H         LINE#         82
+  C:1909H         LINE#         89
+  C:190EH         LINE#         99
+  C:1913H         LINE#         102
+  C:1918H         LINE#         111
+  C:191BH         LINE#         112
+  -------         ENDPROC       RF_CONFIG
+  -------         PROC          _RF_SETSTATUS
+  D:0072H         SYMBOL        nStatus
+  C:1AA9H         LINE#         114
+  C:1AABH         LINE#         115
+  C:1AABH         LINE#         116
+  C:1AB1H         LINE#         117
+  -------         ENDPROC       _RF_SETSTATUS
+  -------         PROC          RF_GETSTATUS
+  C:1AE4H         LINE#         119
+  C:1AE4H         LINE#         120
+  C:1AE4H         LINE#         121
+  C:1AE9H         LINE#         122
+  -------         ENDPROC       RF_GETSTATUS
+  -------         PROC          RF_GETINTERRUPTFLAGS
+  C:1AEAH         LINE#         124
+  C:1AEAH         LINE#         125
+  C:1AEAH         LINE#         126
+  C:1AEFH         LINE#         127
+  -------         ENDPROC       RF_GETINTERRUPTFLAGS
+  -------         PROC          _RF_STARTRX
+  D:0008H         SYMBOL        buf
+  D:000BH         SYMBOL        len
+  D:000DH         SYMBOL        timeout
+  C:1210H         LINE#         129
+  C:121AH         LINE#         130
+  C:121AH         LINE#         131
+  C:122BH         LINE#         132
+  C:1235H         LINE#         133
+  C:1243H         LINE#         135
+  C:125BH         LINE#         137
+  C:1261H         LINE#         138
+  -------         ENDPROC       _RF_STARTRX
+  -------         PROC          _RF_STARTTX
+  D:0011H         SYMBOL        buf
+  D:0014H         SYMBOL        len
+  D:0016H         SYMBOL        timeout
+  C:1511H         LINE#         140
+  C:151BH         LINE#         141
+  C:151BH         LINE#         142
+  C:152CH         LINE#         143
+  C:1536H         LINE#         144
+  C:1544H         LINE#         146
+  C:154AH         LINE#         147
+  -------         ENDPROC       _RF_STARTTX
+  -------         PROC          RF_PROCESS
+  -------         DO            
+  X:009EH         SYMBOL        nRes
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 29
+
+
+  -------         ENDDO         
+  C:0315H         LINE#         149
+  C:0315H         LINE#         150
+  C:0315H         LINE#         151
+  C:031BH         LINE#         153
+  C:0346H         LINE#         154
+  C:0346H         LINE#         155
+  C:0346H         LINE#         156
+  C:0346H         LINE#         157
+  C:034BH         LINE#         158
+  C:034EH         LINE#         159
+  C:034EH         LINE#         161
+  C:034EH         LINE#         162
+  C:034EH         LINE#         163
+  C:0351H         LINE#         164
+  C:0354H         LINE#         167
+  C:0357H         LINE#         168
+  C:035AH         LINE#         170
+  C:0363H         LINE#         171
+  C:036BH         LINE#         173
+  C:0371H         LINE#         175
+  C:037FH         LINE#         177
+  C:0382H         LINE#         178
+  C:0382H         LINE#         180
+  C:0382H         LINE#         181
+  C:0382H         LINE#         185
+  C:0385H         LINE#         187
+  C:0385H         LINE#         188
+  C:038BH         LINE#         189
+  C:038BH         LINE#         191
+  C:03E0H         LINE#         192
+  C:03E6H         LINE#         194
+  C:03E9H         LINE#         195
+  C:03E9H         LINE#         197
+  C:03E9H         LINE#         198
+  C:03E9H         LINE#         199
+  C:03ECH         LINE#         202
+  C:0402H         LINE#         204
+  C:040AH         LINE#         206
+  C:040DH         LINE#         208
+  C:0412H         LINE#         209
+  C:0418H         LINE#         210
+  C:041BH         LINE#         211
+  C:041BH         LINE#         213
+  C:041BH         LINE#         214
+  C:041BH         LINE#         215
+  C:041EH         LINE#         217
+  C:0423H         LINE#         218
+  C:0429H         LINE#         219
+  C:042CH         LINE#         220
+  C:042CH         LINE#         222
+  C:042CH         LINE#         223
+  C:042CH         LINE#         224
+  C:042FH         LINE#         225
+  C:0432H         LINE#         228
+  C:0435H         LINE#         229
+  C:0438H         LINE#         232
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 30
+
+
+  C:044EH         LINE#         234
+  C:0459H         LINE#         235
+  C:045FH         LINE#         237
+  C:0468H         LINE#         238
+  C:0470H         LINE#         240
+  C:0476H         LINE#         242
+  C:0484H         LINE#         244
+  C:0487H         LINE#         245
+  C:0487H         LINE#         247
+  C:0487H         LINE#         248
+  C:0487H         LINE#         252
+  C:048AH         LINE#         254
+  C:048AH         LINE#         255
+  C:0490H         LINE#         256
+  C:0490H         LINE#         258
+  C:04E2H         LINE#         259
+  C:04E8H         LINE#         261
+  C:04EAH         LINE#         262
+  C:04EAH         LINE#         264
+  C:04EAH         LINE#         265
+  C:04EAH         LINE#         266
+  C:04EDH         LINE#         267
+  C:04F0H         LINE#         269
+  C:04F5H         LINE#         270
+  C:04FBH         LINE#         271
+  C:04FDH         LINE#         272
+  C:04FDH         LINE#         274
+  C:04FDH         LINE#         275
+  C:04FDH         LINE#         276
+  C:0500H         LINE#         278
+  C:0505H         LINE#         279
+  C:050BH         LINE#         280
+  C:050DH         LINE#         281
+  C:050DH         LINE#         283
+  C:050DH         LINE#         284
+  C:050DH         LINE#         285
+  C:0510H         LINE#         286
+  C:051BH         LINE#         288
+  C:051EH         LINE#         289
+  C:0521H         LINE#         291
+  C:0526H         LINE#         292
+  C:052CH         LINE#         293
+  C:052CH         LINE#         294
+  C:052CH         LINE#         296
+  C:052CH         LINE#         297
+  C:052CH         LINE#         298
+  C:052CH         LINE#         300
+  C:0531H         LINE#         301
+  -------         ENDPROC       RF_PROCESS
+  -------         PROC          _RF_CONFIG_TESTMODE
+  D:0073H         SYMBOL        mode
+  C:1749H         LINE#         305
+  C:174BH         LINE#         306
+  C:174BH         LINE#         307
+  C:174EH         LINE#         308
+  C:1759H         LINE#         310
+  C:175CH         LINE#         311
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 31
+
+
+  C:1760H         LINE#         312
+  C:1760H         LINE#         313
+  C:1765H         LINE#         318
+  C:1767H         LINE#         320
+  C:1767H         LINE#         321
+  C:176CH         LINE#         326
+  C:176CH         LINE#         328
+  C:176FH         LINE#         330
+  C:1774H         LINE#         333
+  C:1779H         LINE#         336
+  C:177CH         LINE#         337
+  -------         ENDPROC       _RF_CONFIG_TESTMODE
+  -------         PROC          RF_INIT_TESTMODE
+  -------         DO            
+  X:009FH         SYMBOL        tmp
+  -------         ENDDO         
+  C:0BE6H         LINE#         339
+  C:0BE6H         LINE#         340
+  C:0BE6H         LINE#         342
+  C:0BE9H         LINE#         345
+  C:0BF7H         LINE#         346
+  C:0C05H         LINE#         347
+  C:0C13H         LINE#         348
+  C:0C21H         LINE#         349
+  C:0C2FH         LINE#         350
+  C:0C3DH         LINE#         353
+  C:0C4BH         LINE#         354
+  C:0C59H         LINE#         356
+  C:0C5EH         LINE#         362
+  C:0C63H         LINE#         364
+  C:0C68H         LINE#         367
+  C:0C6DH         LINE#         370
+  C:0C70H         LINE#         372
+  C:0C84H         LINE#         373
+  -------         ENDPROC       RF_INIT_TESTMODE
+  -------         ENDMOD        RADIO
+
+  -------         MODULE        CMT2300A_APP
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:1A5BH         PUBLIC        CMT2300A_RX_ENABLE
+  D:00A0H         PUBLIC        P2
+  C:0B2BH         PUBLIC        RF_Test_Mode
+  D:00C0H         PUBLIC        XICON
+  D:00B0H         PUBLIC        P3
+  D:00E8H         PUBLIC        P4
+  D:00F8H         PUBLIC        P5
+  C:000EH         PUBLIC        _Signal_DATA_Decode
+  D:00F8H         PUBLIC        P6
+  D:00A8H         PUBLIC        IE
+  X:001BH         PUBLIC        g_rxBuffer
+  C:19F9H         PUBLIC        _delay
+  X:003BH         PUBLIC        g_txBuffer
+  C:1877H         PUBLIC        _CMT2300A_TX_PACKET
+  D:00B8H         PUBLIC        IP0L
+  C:1AF9H         PUBLIC        set_rx
+  C:1AF8H         PUBLIC        set_tx
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 32
+
+
+  D:00D8H         PUBLIC        CCON
+  C:1A37H         PUBLIC        SCAN_RECEIVE_PACKET
+  B:00B0H.2       PUBLIC        P32
+  B:00A0H.3       PUBLIC        P23
+  D:0088H         PUBLIC        TCON
+  X:005BH         PUBLIC        DATA_Packet_ID
+  X:005FH         PUBLIC        DATA_Packet_Contro_buf
+  C:0F5FH         PUBLIC        cmt2300a_rx_test
+  X:0060H         PUBLIC        SPI_Receive_DataForC
+  C:19E2H         PUBLIC        _cmt2300a_tx_test
+  D:0098H         PUBLIC        S0CON
+  D:0098H         PUBLIC        S1CON
+  D:00C8H         PUBLIC        T2CON
+  C:177DH         PUBLIC        _CMT2300A_Set_Freq
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0049H         SYMBOL        n
+  C:19F9H         LINE#         11
+  C:1A01H         LINE#         12
+  C:1A01H         LINE#         13
+  C:1A0EH         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          _CMT2300A_TX_PACKET
+  D:004DH         SYMBOL        pBuf
+  D:0050H         SYMBOL        len
+  C:1877H         LINE#         16
+  C:187FH         LINE#         17
+  C:187FH         LINE#         18
+  C:187FH         LINE#         19
+  C:1882H         LINE#         20
+  C:1885H         LINE#         21
+  C:1888H         LINE#         22
+  C:188BH         LINE#         24
+  C:189AH         LINE#         25
+  C:189DH         LINE#         26
+  -------         ENDPROC       _CMT2300A_TX_PACKET
+  -------         PROC          CMT2300A_RX_ENABLE
+  C:1A5BH         LINE#         30
+  C:1A5BH         LINE#         31
+  C:1A5BH         LINE#         32
+  C:1A5BH         LINE#         33
+  C:1A5EH         LINE#         35
+  C:1A61H         LINE#         36
+  C:1A64H         LINE#         37
+  C:1A67H         LINE#         38
+  C:1A6AH         LINE#         40
+  -------         ENDPROC       CMT2300A_RX_ENABLE
+  -------         PROC          _CMT2300A_SET_FREQ
+  D:0074H         SYMBOL        freq
+  C:177DH         LINE#         42
+  C:177FH         LINE#         43
+  C:177FH         LINE#         44
+  C:1782H         LINE#         45
+  C:1786H         LINE#         46
+  C:1786H         LINE#         47
+  C:178BH         LINE#         48
+  C:1796H         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 33
+
+
+  C:179BH         LINE#         50
+  C:179DH         LINE#         52
+  C:179DH         LINE#         54
+  C:17A8H         LINE#         55
+  C:17ADH         LINE#         56
+  C:17ADH         LINE#         57
+  C:17B0H         LINE#         58
+  -------         ENDPROC       _CMT2300A_SET_FREQ
+  -------         PROC          SCAN_RECEIVE_PACKET
+  C:1A37H         LINE#         60
+  C:1A37H         LINE#         61
+  C:1A37H         LINE#         62
+  C:1A3AH         LINE#         63
+  C:1A3AH         LINE#         64
+  C:1A3DH         LINE#         66
+  C:1A4AH         LINE#         67
+  C:1A4AH         LINE#         70
+  -------         ENDPROC       SCAN_RECEIVE_PACKET
+  -------         PROC          _SIGNAL_DATA_DECODE
+  D:0051H         SYMBOL        NUM_Type
+  D:0052H         SYMBOL        pbuf
+  -------         DO            
+  X:0000H         SYMBOL        data_in
+  X:0004H         SYMBOL        data_out
+  X:0006H         SYMBOL        data_NRZ
+  X:0014H         SYMBOL        i
+  X:0015H         SYMBOL        j
+  X:0016H         SYMBOL        i_value
+  -------         ENDDO         
+  C:000EH         LINE#         73
+  C:0016H         LINE#         74
+  C:0016H         LINE#         79
+  C:0030H         LINE#         80
+  C:0030H         LINE#         84
+  C:0143H         LINE#         85
+  C:014CH         LINE#         86
+  C:0166H         LINE#         87
+  C:0176H         LINE#         88
+  C:018DH         LINE#         89
+  C:018DH         LINE#         90
+  C:019FH         LINE#         91
+  C:01C5H         LINE#         93
+  C:01E9H         LINE#         94
+  C:01F1H         LINE#         95
+  C:020AH         LINE#         96
+  C:0221H         LINE#         97
+  C:0221H         LINE#         98
+  C:0238H         LINE#         99
+  C:025CH         LINE#         100
+  C:026AH         LINE#         101
+  C:0283H         LINE#         102
+  C:028BH         LINE#         103
+  C:02A9H         LINE#         104
+  C:02B2H         LINE#         105
+  C:02C4H         LINE#         106
+  C:02C4H         LINE#         108
+  C:02C4H         LINE#         109
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 34
+
+
+  C:0301H         LINE#         110
+  C:0314H         LINE#         111
+  C:0314H         LINE#         112
+  C:0314H         LINE#         113
+  -------         ENDPROC       _SIGNAL_DATA_DECODE
+  -------         PROC          SET_TX
+  C:1AF8H         LINE#         116
+  C:1AF8H         LINE#         117
+  C:1AF8H         LINE#         119
+  -------         ENDPROC       SET_TX
+  -------         PROC          SET_RX
+  C:1AF9H         LINE#         120
+  C:1AF9H         LINE#         121
+  C:1AF9H         LINE#         123
+  -------         ENDPROC       SET_RX
+  -------         PROC          _CMT2300A_TX_TEST
+  D:0075H         SYMBOL        mode
+  C:19E2H         LINE#         125
+  C:19E4H         LINE#         126
+  C:19E4H         LINE#         127
+  C:19E8H         LINE#         128
+  C:19E8H         LINE#         129
+  C:19EBH         LINE#         130
+  C:19EBH         LINE#         131
+  C:19EDH         LINE#         132
+  C:19F8H         LINE#         133
+  C:19F8H         LINE#         134
+  C:19F8H         LINE#         135
+  -------         ENDPROC       _CMT2300A_TX_TEST
+  -------         PROC          CMT2300A_RX_TEST
+  -------         DO            
+  X:0017H         SYMBOL        i
+  X:0018H         SYMBOL        data8
+  -------         ENDDO         
+  C:0F5FH         LINE#         137
+  C:0F5FH         LINE#         138
+  C:0F5FH         LINE#         140
+  C:0F65H         LINE#         141
+  C:0F68H         LINE#         142
+  C:0F7FH         LINE#         143
+  C:0F7FH         LINE#         144
+  C:0F8AH         LINE#         145
+  C:0F98H         LINE#         146
+  C:0F9BH         LINE#         147
+  C:0F9BH         LINE#         148
+  C:0FA9H         LINE#         149
+  C:0FABH         LINE#         151
+  C:0FABH         LINE#         152
+  C:0FB9H         LINE#         153
+  C:0FB9H         LINE#         155
+  C:0FC4H         LINE#         156
+  C:0FCCH         LINE#         158
+  C:0FD1H         LINE#         159
+  -------         ENDPROC       CMT2300A_RX_TEST
+  -------         PROC          RF_TEST_MODE
+  -------         DO            
+  X:0019H         SYMBOL        Tx_Rx_mode
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 35
+
+
+  X:001AH         SYMBOL        at
+  -------         ENDDO         
+  C:0B2BH         LINE#         162
+  C:0B2BH         LINE#         163
+  C:0B2BH         LINE#         164
+  C:0B30H         LINE#         165
+  C:0B35H         LINE#         167
+  C:0B38H         LINE#         168
+  C:0B38H         LINE#         169
+  C:0B3BH         LINE#         170
+  C:0B44H         LINE#         171
+  C:0B46H         LINE#         172
+  C:0B46H         LINE#         173
+  C:0B46H         LINE#         175
+  C:0B4CH         LINE#         176
+  C:0B4CH         LINE#         177
+  C:0B4FH         LINE#         178
+  C:0B4FH         LINE#         179
+  C:0B52H         LINE#         180
+  C:0B57H         LINE#         181
+  C:0B5DH         LINE#         182
+  C:0B5FH         LINE#         183
+  C:0B5FH         LINE#         184
+  C:0B62H         LINE#         185
+  C:0B62H         LINE#         186
+  C:0B65H         LINE#         187
+  C:0B6AH         LINE#         188
+  C:0B70H         LINE#         189
+  C:0B75H         LINE#         190
+  C:0B75H         LINE#         191
+  C:0B78H         LINE#         192
+  C:0B78H         LINE#         193
+  C:0B7EH         LINE#         194
+  C:0B7EH         LINE#         195
+  C:0B8BH         LINE#         196
+  C:0B8BH         LINE#         197
+  C:0B90H         LINE#         198
+  C:0B9BH         LINE#         199
+  C:0B9BH         LINE#         200
+  C:0BA1H         LINE#         201
+  C:0BA4H         LINE#         202
+  C:0BA4H         LINE#         203
+  C:0BA4H         LINE#         204
+  C:0BB1H         LINE#         205
+  C:0BB1H         LINE#         206
+  C:0BB6H         LINE#         208
+  C:0BC1H         LINE#         209
+  C:0BC1H         LINE#         210
+  C:0BC7H         LINE#         211
+  C:0BCAH         LINE#         212
+  C:0BCAH         LINE#         213
+  C:0BCAH         LINE#         214
+  C:0BDAH         LINE#         215
+  C:0BDAH         LINE#         216
+  C:0BDFH         LINE#         217
+  C:0BE2H         LINE#         218
+  C:0BE2H         LINE#         219
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 36
+
+
+  C:0BE5H         LINE#         220
+  -------         ENDPROC       RF_TEST_MODE
+  -------         ENDMOD        CMT2300A_APP
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0731H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:075EH         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:0770H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+  -------         MODULE        ?C?ILDIX
+  C:0792H         PUBLIC        ?C?ILDIX
+  -------         ENDMOD        ?C?ILDIX
+
+  -------         MODULE        ?C?LMUL
+  C:07A8H         PUBLIC        ?C?LMUL
+  -------         ENDMOD        ?C?LMUL
+
+  -------         MODULE        ?C?ULCMP
+  C:07F7H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        ?C?ULSHR
+  C:0808H         PUBLIC        ?C?ULSHR
+  -------         ENDMOD        ?C?ULSHR
+
+  -------         MODULE        ?C?LSHL
+  C:081BH         PUBLIC        ?C?LSHL
+  -------         ENDMOD        ?C?LSHL
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0837H         PUBLIC        ?C?LLDIIDATA
+  C:082EH         PUBLIC        ?C?LLDIIDATA1
+  C:0830H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        ?C?LLDIXDATA
+  C:0857H         PUBLIC        ?C?LLDIXDATA
+  C:084EH         PUBLIC        ?C?LLDIXDATA1
+  C:0850H         PUBLIC        ?C?LLDIXDATA8
+  -------         ENDMOD        ?C?LLDIXDATA
+
+  -------         MODULE        ?C?LSTXDATA
+  C:0883H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?CCASE
+  C:088FH         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        ?C?MEMSET
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 37
+
+
+  C:08B5H         PUBLIC        ?C?MEMSET
+  -------         ENDMOD        ?C?MEMSET
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_GOTFS?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_GORFS?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_SETINTERRUPTPOLAR?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_SETFIFOTHRESHOLD?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLEANTENNASWITCH?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLERXFIFOAUTOCLEAR?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLEFIFOMERGE?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_RESTOREFIFO?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_CONFIGTXDIN?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLETXDIN?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLETXDININVERT?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_GETRSSICODE?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_GETRSSIDBM?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_SETPAYLOADLENGTH?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_ENABLELFOSCOUTPUT?CMT2300A
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT_DELAY?CMT2300A_SPI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RF_INIT?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_SETSTATUS?RADIO
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/16/2022  17:38:04  PAGE 38
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RF_GETSTATUS?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RF_GETINTERRUPTFLAGS?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_STARTRX?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_STARTTX?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RF_PROCESS?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_RF_CONFIG_TESTMODE?RADIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_TX_PACKET?CMT2300A_APP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_RX_ENABLE?CMT2300A_APP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CMT2300A_SET_FREQ?CMT2300A_APP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCAN_RECEIVE_PACKET?CMT2300A_APP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SIGNAL_DATA_DECODE?CMT2300A_APP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CMT2300A_RX_TEST?CMT2300A_APP
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  INIT_INTERRUPT
+    MODULE:  .\STX0031_KeilC51\main.obj (MAIN)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  INIT_INTERRUPT
+    MODULE:  .\STX0031_KeilC51\main.obj (MAIN)
+    ADDRESS: 18B1H
+
+Program Size: data=121.0 xdata=209 code=6906
+LINK/LOCATE RUN COMPLETE.  32 WARNING(S),  0 ERROR(S)

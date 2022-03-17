@@ -11,7 +11,7 @@
 #include "API_Macro_MA82G5Bxx.H"
 #include "API_Uart_BRGRL_MA82G5Bxx.H"
 #include "sys.h"
-#include "ram.h"
+//#include "ram.h"
 #include "IAP_flash.h"
 
 #define UART0_TX_BUFF_SIZE 8
@@ -71,7 +71,7 @@ extern xdata __U1Statues U1Statues;
 
 extern bit rx_done;
 extern xdata u8 uart0_rx_len;
-extern idata u8 ACKBack[3];
+extern xdata u8 ACKBack[3];
 extern xdata u8 FLAG_testNo91;
 extern xdata u8 FLAG_testBEEP;
 extern xdata u8 FLAG_testNo91_step;

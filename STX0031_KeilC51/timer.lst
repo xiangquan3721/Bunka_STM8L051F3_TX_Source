@@ -1,0 +1,180 @@
+C51 COMPILER V9.60.0.0   TIMER                                                             03/16/2022 17:38:03 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\STX0031_KeilC51\timer.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE user\src\timer.c OPTIMIZE(0,SPEED) BROWSE INCDIR(.\user\inc;.\include;.\
+                    -radio) DEBUG OBJECTEXTEND PRINT(.\STX0031_KeilC51\timer.lst) TABS(2) OBJECT(.\STX0031_KeilC51\timer.obj)
+
+line level    source
+
+   1          #include "timer.h"
+   2          //#include "cmt2300a_params.h"
+   3          /* PCA定时器为16位,最大计数65536,*/
+   4          #if (MCU_SYSCLK == 16000000)
+   5          #define PCA_RELOAD    (5926)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.7K,PCA时钟为SysClk 16MHz
+   6          #define Duty_Cycle      2963       //50%
+   7          #endif
+   8          
+   9          #if (MCU_SYSCLK == 24000000)
+              #define PCA_RELOAD    (8888)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.7K,PCA时钟为SysClk 24MHz
+              #define Duty_Cycle      4444       //50%
+              #endif
+  13          
+  14          #define PCA_C           (65536)
+  15          #define PCA_CL(x)   (u8)((PCA_C-(x))%256) 
+  16          #define PCA_CH(x)       (u8)((PCA_C-(x))/256)
+  17          
+  18                
+  19          //xdata u16 time_ms = 0;
+  20          idata u16 Time_Tx_Out = 0;
+  21          volatile u32 g_nSysTickCount = 0;
+  22          /***********************************************************************************
+  23          函数名称:   void InitTimer0(void)
+  24          功能描述:Timer0初始化设置
+  25               定义T0为16位定时器,时钟为Sysclk/12 
+  26          输入参数:   
+  27          返回参数:     
+  28          *************************************************************************************/
+  29          void Init_Timer0(void)
+  30          {
+  31   1        TM_SetT0Mode_1_16BIT_TIMER();     // 设置T0模式为16位模式
+  32   1          
+  33   1          TM_SetT0Clock_SYSCLKDiv12();            // 设置T0时钟源为 SYSCLK/12.
+  34   1      
+  35   1        TM_SetT0Gate_Disable(); 
+  36   1          
+  37   1          TM_SetT0LowByte(TIMER_12T_1ms_TL);    // 设置T0低8位
+  38   1        TM_SetT0HighByte(TIMER_12T_1ms_TH);   // 设置T0高8位
+  39   1      
+  40   1        TM_EnableT0();              // 使能T0
+  41   1      }
+  42          
+  43          
+  44          /***********************************************************************************
+  45          函数名称:   void INT_T0(void)
+  46          功能描述:T0 中断服务程序
+  47               间隔1ms
+  48          输入参数:   
+  49          返回参数:     
+  50          *************************************************************************************/
+  51          void INT_T0(void) interrupt INT_VECTOR_T0
+  52          {
+  53   1        TH0=TIMER_12T_1ms_TH;
+  54   1        TL0=TIMER_12T_1ms_TL;
+C51 COMPILER V9.60.0.0   TIMER                                                             03/16/2022 17:38:03 PAGE 2   
+
+  55   1        g_nSysTickCount++;  
+  56   1      }
+  57          
+  58          
+  59          //38K/14 = 2.7kHz;
+  60          void Init_PCA_PWM(void)
+  61          {
+  62   1          PCA_SetCLOCK_SYSCLK();          // PCA时钟为SysClk
+  63   1          PCA_CH6_SetMode_PWM();          // PWM模式
+  64   1          PCA_CH6_SetPWM_16Bit();         //
+  65   1          PCA_SetPWM_EdgeAligned();     // 边沿对齐
+  66   1          
+  67   1          // 设置PWM占空比比较值
+  68   1        PCA_CH6_SetValue(PCA_CH(Duty_Cycle),PCA_CL(Duty_Cycle));
+  69   1          
+  70   1          // 设置定时器计数值 PWM频率
+  71   1        PCA_SetCounter(PCA_C-PCA_RELOAD);
+  72   1        PCA_SetCounterReload(PCA_C-PCA_RELOAD);
+  73   1      }
+  74          
+  75          void Init_Beep(void)
+  76          {
+  77   1          Init_PCA_PWM();
+  78   1      }
+  79          
+  80          //void Beep_On(void)
+  81          //{
+  82          //    PCA_EnPCACounter();
+  83          //}
+  84          
+  85          //void Beep_Off(void)
+  86          //{
+  87          //    PCA_DisPCACounter();
+  88          //    P20 = 0;
+  89          //}
+  90          
+  91          
+  92          /*************************************************
+  93          函数名称:     void DelayXus(u16 xUs)
+  94          功能描述:     延时程序，单位为us
+  95          调用函数:        
+  96          输入参数:     u8 Us -> *1us  (1~255)
+  97          输出参数:     
+  98          *************************************************/
+  99          void DelayXus(u8 xUs)
+ 100          {
+ 101   1        while(xUs!=0)
+ 102   1        {
+ 103   2          _nop_();
+ 104   2          _nop_();
+ 105   2          _nop_();
+ 106   2          _nop_();
+ 107   2          _nop_();
+ 108   2          _nop_();
+ 109   2              _nop_();
+ 110   2          _nop_();
+ 111   2          xUs--;
+ 112   2        }
+ 113   1      }
+ 114          
+ 115          
+ 116          /*************************************************
+C51 COMPILER V9.60.0.0   TIMER                                                             03/16/2022 17:38:03 PAGE 3   
+
+ 117          函数名称:     void DelayXms(u16 xMs)
+ 118          功能描述:     延时程序，单位为ms
+ 119          输入参数:     u16 xMs -> *1ms  (1~65535)
+ 120          输出参数:     
+ 121          *************************************************/
+ 122          
+ 123          //void delay_ms(u8 ms) //1约1.2ms
+ 124          //{
+ 125          //    while(ms--)
+ 126          //    {
+ 127          //        DelayXus(200);
+ 128          //        DelayXus(200);
+ 129          //        DelayXus(200);
+ 130          //        DelayXus(200);
+ 131          //    }
+ 132          //}
+ 133          
+ 134          void system_delay_100us(u32 n)
+ 135          {
+ 136   1          xdata u32 nDelayUsCnt = n*100;
+ 137   1      
+ 138   1          while(nDelayUsCnt--) {
+ 139   2              _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+ 140   2              _nop_(); _nop_(); _nop_(); _nop_();_nop_();
+ 141   2              _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+ 142   2              _nop_(); _nop_(); _nop_(); _nop_();_nop_();
+ 143   2          }
+ 144   1      }
+ 145          
+ 146          void system_delay_ms(u32 nms)
+ 147          {
+ 148   1          xdata u32 nDelayUsCnt = nms*10;
+ 149   1      
+ 150   1          while(nDelayUsCnt--)
+ 151   1              system_delay_100us(1);
+ 152   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    350    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      8    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13    ----
+   IDATA SIZE       =      2    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

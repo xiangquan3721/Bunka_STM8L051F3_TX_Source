@@ -55,15 +55,6 @@ void Init_Port(void)
     //AUXR0 |= (0x80|P60FD);
     //////////////////////test/////////////////////////
     
-    FG_allow_out = 1;
-	FG_NOT_allow_out = 0;
-    Receiver_LED_TX = 0;  
-    Receiver_LED_RX = 0;  
-    Receiver_LED_OUT = 0; 
-    Receiver_OUT_OPEN = 0;
-    Receiver_OUT_STOP = 0;
-    Receiver_OUT_CLOSE = 0;
-    ML7345_RESETN = 0;
 }
 
  
@@ -114,8 +105,7 @@ void Init_INT1(void)
 *************************************************************************************/
 void INT_INT0(void)		interrupt INT_VECTOR_INT0
 {
-	if(Flag_test_mode == 0) ML7345_TRX_Del();
-    else DataReceive();
+
 }
 
 
@@ -130,8 +120,7 @@ ML7345D BER≤‚ ‘°£
 *************************************************************************************/
 void INT_INT1(void)		interrupt INT_VECTOR_INT1
 {
-	if(Flag_test_mode == 0) ML7345_TRX_Del();
-    else DataReceive();
+
 }
 
 
@@ -155,28 +144,5 @@ void Init_Interrupt(void)
 }
 
 
-/*
-u8 key_scan(void)
-{
-    if((Receiver_Login==0 | TP3==0 | TP4==0 | Receiver_test==0))
-    {
-        delay_ms(50);
-        if((Receiver_Login==0 | TP3==0 | TP4==0 | Receiver_test==0) && key_flag == 0)
-        {
-            key_flag = 1;
-            if(Receiver_Login==0) return 2;
-            else if (Receiver_test==0) return 3;
-            else return 1;
-        }
-        else return 0;
-            
-    }
-    else if(Receiver_Login==1 && TP3==1 && TP4==1 && Receiver_test==1)
-    {
-        key_flag = 0;
-        return 0;
-    }
-    return 0;    
-}*/
 
 

@@ -1,0 +1,12 @@
+".\STX0031_KeilC51\main.obj",
+".\STX0031_KeilC51\sys.obj",
+".\STX0031_KeilC51\timer.obj",
+".\STX0031_KeilC51\cmt2300a.obj",
+".\STX0031_KeilC51\cmt2300a_hal.obj",
+".\STX0031_KeilC51\cmt2300a_spi.obj",
+".\STX0031_KeilC51\radio.obj",
+".\STX0031_KeilC51\cmt2300a_app.obj" 
+TO ".\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A" 
+PRINT(".\STX0031_KeilC51\STX0031_MA82G5B32_CMT3200A.m51") RAMSIZE(256) 
+CODE( 0X0000-0X7FFF )
+XDATA( 0X0000-0X06FF )
