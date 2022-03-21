@@ -24,7 +24,10 @@ extern xdata u8 write_flash_buffer[8];
 extern xdata u32 PROFILE_CH_FREQ_32bit_200002EC;
 //extern xdata const u32 PROFILE_CH1_FREQ_32bit_429HighSpeed;
 //extern xdata const u32 PROFILE_CH2_FREQ_32bit_429HighSpeed;
+<<<<<<< HEAD
 extern xdata u8 Channels;
+=======
+>>>>>>> STX0031_MA82G_ML7345
 
 typedef union
 {

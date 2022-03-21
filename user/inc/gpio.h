@@ -26,6 +26,8 @@ extern void Init_Port(void);
 extern void Init_Interrupt(void); 
 extern u8 key_scan(void);
 void gpio_dc_test(void);
+void SpiGpio_Init(void);
+void SpiGpio_UnInit(void);
 
 
 #endif

@@ -8,7 +8,7 @@
 /***********************************************************************/ 
 #include "EXIT_FUN.h"
 
-
+/*
 void EXTI_PORTA1(void)
 {
     if(FLAG_APP_TX == 1)
@@ -33,7 +33,7 @@ void EXTI_PORTA1(void)
 //            ML7345D_POWER = FG_NOT_allow_out;
         }
     }
-}
+}*/
 
 void SendTxData(void)
 {
@@ -51,7 +51,12 @@ void SendTxData(void)
         txphase_end = 24;
     }
     FLAG_APP_TX = 1;
+<<<<<<< HEAD
 //    ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+=======
+    ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+    Time_Tx_Out = 550;
+>>>>>>> STX0031_MA82G_ML7345
     txphase_Repeat = 1;
 }
 

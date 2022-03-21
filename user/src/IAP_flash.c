@@ -89,6 +89,7 @@ u8 IAP_ReadPPage(u8 PsfrAddr)
 输入参数:   8
 		 u8 ByteAddr: 指定的页面地址高8位 IAP_ErasePage((IAP_ADDRESS)/256);擦除后值为0xFF
 *************************************************************************************/
+/*
 void IAP_ErasePage(u8 ByteAddr)
 {
 		bit bEA=EA; 
@@ -105,7 +106,7 @@ void IAP_ErasePage(u8 ByteAddr)
 		IFMT=0;
 		ISPCR = 0;					//清ISP/IAP特殊寄存器，防止误操作
 		EA = bEA; 					//恢复中断
-}
+}*/
 
 
 
@@ -222,7 +223,7 @@ u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u8 Cnt)
 		return ErrCnt;		
 }
 
-//
+/*
 void IAP_Write_Byte(u16 Addr, u8 wdata)
 {
     bit bEA = EA;
@@ -238,7 +239,7 @@ void IAP_Write_Byte(u16 Addr, u8 wdata)
     IFMT = 0;
     ISPCR = 0;	
     EA = bEA;    
-}
+}*/
 
 
 void eeprom_sys_load(void)

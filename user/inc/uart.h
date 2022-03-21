@@ -69,7 +69,6 @@ typedef enum {
 } __U1Statues;
 extern xdata __U1Statues U1Statues;
 
-extern bit rx_done;
 extern xdata u8 uart0_rx_len;
 extern xdata u8 ACKBack[3];
 extern xdata u8 FLAG_testNo91;

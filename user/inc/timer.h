@@ -20,8 +20,11 @@
 
 //extern xdata u16 time_ms;
 extern xdata u16 Time_Tx_Out;
+<<<<<<< HEAD
 extern volatile u16 g_nSysTickCount;
 void system_delay_ms(u8 nms);
+=======
+>>>>>>> STX0031_MA82G_ML7345
 
 void Init_Timer0(void);
 void DelayXus(u8 xUs);
