@@ -38,50 +38,50 @@ xdata u8 FLAG_testNo91SendUart=0;
 
 
 /***********************************************************************************
-º¯ÊýÃû³Æ:   void InitUart0_S1BRG(void)
-¹¦ÄÜÃèÊö:   Uart0³õÊ¼»¯
-		 Ê¹ÓÃS1BRG×÷Îª²¨ÌØÂÊÀ´Ô´
-ÊäÈë²ÎÊý:   
-·µ»Ø²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   void InitUart0_S1BRG(void)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   Uart0ï¿½ï¿½Ê¼ï¿½ï¿½
+		 Ê¹ï¿½ï¿½S1BRGï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   
+ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½:     
 *************************************************************************************/
 /*
 void Init_Uart0_S1BRG(void)
 {
-	//PORT_SetP3QuasiBi(BIT0|BIT1|BIT3|BIT4|BIT5);		// ÉèÖÃ P30,P31×÷Îª×¼Ë«Ïò¿Ú
+	//PORT_SetP3QuasiBi(BIT0|BIT1|BIT3|BIT4|BIT5);		// ï¿½ï¿½ï¿½ï¿½ P30,P31ï¿½ï¿½Îª×¼Ë«ï¿½ï¿½ï¿½
     
-	UART0_SetMode8bitUARTVar();			// 8Î» ¿É±ä²¨ÌØÂÊ
-	UART0_EnReception();				// Ê¹ÄÜUART1½ÓÊÕÊý¾Ý
+	UART0_SetMode8bitUARTVar();			// 8Î» ï¿½É±ä²¨ï¿½ï¿½ï¿½ï¿½
+	UART0_EnReception();				// Ê¹ï¿½ï¿½UART1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	UART0_SetBRGFromS1BRG();			// ÉèÖÃ²¨ÌØÂÊÀ´Ô´Îª S1BRG
-	UART0_SetS1BRGBaudRateX2();			// ÉèÖÃ2x²¨ÌØÂÊ
-	UART1_SetS1BRGSelSYSCLK();			// ÉèÖÃS1BRGÊ±ÖÓÊäÈëÎªSysclk
+	UART0_SetBRGFromS1BRG();			// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Îª S1BRG
+	UART0_SetS1BRGBaudRateX2();			// ï¿½ï¿½ï¿½ï¿½2xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	UART1_SetS1BRGSelSYSCLK();			// ï¿½ï¿½ï¿½ï¿½S1BRGÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªSysclk
 
-    // ÉèÖÃ²¨ÌØÂÊ
+    // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
 	UART1_SetS1BRGValue(S1BRG_BRGRL_9600_2X_24000000_1T); 
 	
-	UART1_EnS1BRG();					// ¿ªÆôS1BRGÊ±ÖÓ
+	UART1_EnS1BRG();					// ï¿½ï¿½ï¿½ï¿½S1BRGÊ±ï¿½ï¿½
 }
 */
 
-//P119; ²¨ÌØÂÊbaud: TH1 = 256 - (SYSCLK / (baud / ((2^SMOD1 * 2^(SMOD2*2))/32)))
+//P119; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½baud: TH1 = 256 - (SYSCLK / (baud / ((2^SMOD1 * 2^(SMOD2*2))/32)))
 void Init_Uart0_T1(void)
 {
-    UART0_SetMode8bitUARTVar();			// 8Î» ¿É±ä²¨ÌØÂÊ
-	UART0_EnReception();				// Ê¹ÄÜUART0½ÓÊÕÊý¾Ý
+    UART0_SetMode8bitUARTVar();			// 8Î» ï¿½É±ä²¨ï¿½ï¿½ï¿½ï¿½
+	UART0_EnReception();				// Ê¹ï¿½ï¿½UART0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	UART0_SetBRGFromT1();				// ÉèÖÃ²¨ÌØÂÊÀ´Ô´Îª T1
-	UART0_SetT1BaudRateX2();			// ÉèÖÃ2x²¨ÌØÂÊ,SMOD1=1,SMOD2=0
+	UART0_SetBRGFromT1();				// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Îª T1
+	UART0_SetT1BaudRateX2();			// ï¿½ï¿½ï¿½ï¿½2xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,SMOD1=1,SMOD2=0
 
 	TM_SetT1Mode_2_8BIT_AUTORELOAD();
 	TM_SetT1Clock_SYSCLK();
 	TM_SetT1Gate_Disable(); 
 
-    // ÉèÖÃ²¨ÌØÂÊ
+    // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
 	TM_SetT1HighByte(BAUD_RATE);
 	TM_SetT1LowByte(BAUD_RATE);
 
 	TM_EnableT1();
-    INT_EnUART0();			//	Ê¹ÄÜ´®¿ÚÖÐ¶Ï
+    INT_EnUART0();			//	Ê¹ï¿½Ü´ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 }
 
 void UART1_end(void)
@@ -90,20 +90,20 @@ void UART1_end(void)
     INT_DisUART0();
 }
 /*
-//P119; ²¨ÌØÂÊbaud: TH1 = 256 - (SYSCLK / (baud / ((2^SMOD1 * 2^(SMOD2*2))/32)))
+//P119; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½baud: TH1 = 256 - (SYSCLK / (baud / ((2^SMOD1 * 2^(SMOD2*2))/32)))
 void Init_Uart0_T1_ODD(void)
 {
-    UART0_SetMode9bitUARTVar();			// 9Î» ¿É±ä²¨ÌØÂÊ
-	UART0_EnReception();				// Ê¹ÄÜUART0½ÓÊÕÊý¾Ý
+    UART0_SetMode9bitUARTVar();			// 9Î» ï¿½É±ä²¨ï¿½ï¿½ï¿½ï¿½
+	UART0_EnReception();				// Ê¹ï¿½ï¿½UART0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 
-	UART0_SetBRGFromT1();				// ÉèÖÃ²¨ÌØÂÊÀ´Ô´Îª T1
-	UART0_SetT1BaudRateX2();			// ÉèÖÃ2x²¨ÌØÂÊ,SMOD1=1,SMOD2=0
+	UART0_SetBRGFromT1();				// ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Îª T1
+	UART0_SetT1BaudRateX2();			// ï¿½ï¿½ï¿½ï¿½2xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,SMOD1=1,SMOD2=0
 
-	TM_SetT1Mode_2_8BIT_AUTORELOAD();   // ¶¨Ê±Æ÷1¹¤×÷ÔÚ8Î»×Ô¶¯ÖØÔØ¶¨Ê±Æ÷/¼ÆÊýÄ£Ê½
+	TM_SetT1Mode_2_8BIT_AUTORELOAD();   // ï¿½ï¿½Ê±ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8Î»ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½Ê±ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 	TM_SetT1Clock_SYSCLK();             // T1X12=1,
 	TM_SetT1Gate_Disable(); 
 
-    // ÉèÖÃ²¨ÌØÂÊ
+    // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
 #if (MCU_SYSCLK == 16000000)
     TM_SetT1HighByte(T1_BRGRL_9600_2X_16000000_1T);
 	TM_SetT1LowByte(T1_BRGRL_9600_2X_16000000_1T);
@@ -115,31 +115,31 @@ void Init_Uart0_T1_ODD(void)
 #endif
 
 	TM_EnableT1();
-    INT_EnUART0();			//	Ê¹ÄÜ´®¿ÚÖÐ¶Ï
+    INT_EnUART0();			//	Ê¹ï¿½Ü´ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 }
 */
 
 
 /***********************************************************************************
-º¯ÊýÃû³Æ:   void INT_UART0(void)
-¹¦ÄÜÃèÊö:UART0 ÖÐ¶Ï·þÎñ³ÌÐò
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   void INT_UART0(void)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:UART0 ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 
-ÊäÈë²ÎÊý:   
-·µ»Ø²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   
+ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½:     
 *************************************************************************************/
 void INT_UART0(void) interrupt INT_VECTOR_UART0
 {
     xdata u8 dat = 0;
-	_push_(SFRPI);		   //±£»¤SFRPI¼Ä´æÆ÷Öµ
+	_push_(SFRPI);		   //ï¿½ï¿½ï¿½ï¿½SFRPIï¿½Ä´ï¿½ï¿½ï¿½Öµ
 
-	SFR_SetPage(0);		   /*ÉèÖÃ0Ò³¼Ä´æÆ÷*/  //S0CON½ö0Ò³²Ù×÷
-	if(TI0)					//·¢ËÍÖÐ¶ÏÄÚÈÝ
+	SFR_SetPage(0);		   /*ï¿½ï¿½ï¿½ï¿½0Ò³ï¿½Ä´ï¿½ï¿½ï¿½*/  //S0CONï¿½ï¿½0Ò³ï¿½ï¿½ï¿½ï¿½
+	if(TI0)					//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	{ 
 	   TI0 = 0;	   
 	}
-	if(RI0)					//½ÓÊÕÖÐ¶ÏÄÚÈÝ
+	if(RI0)					//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		RI0 = 0;				//Çå³ýÖÐ¶Ï±êÖ¾
+		RI0 = 0;				//ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾
         dat = S0BUF;
         if(dat == '(') SIO_cnt = 0;
         SIO_buff[SIO_cnt] = dat;
@@ -150,18 +150,18 @@ void INT_UART0(void) interrupt INT_VECTOR_UART0
             {
                 SIO_DATA[dat] = SIO_buff[dat];
             }
-            BIT_SIO = 1; // ±êÖ¾
+            BIT_SIO = 1; // ï¿½ï¿½Ö¾
             //SIO_TOT = 20;
         }
 	}
-	_pop_(SFRPI);		   //»Ö¸´SFRPI¼Ä´æÆ÷Öµ
+	_pop_(SFRPI);		   //ï¿½Ö¸ï¿½SFRPIï¿½Ä´ï¿½ï¿½ï¿½Öµ
 }
 
 /***********************************************************************************
-º¯ÊýÃû³Æ:void Uart0SendByte(u8 tByte)
-¹¦ÄÜÃèÊö:Uart0·¢ËÍÊý¾Ý
-ÊäÈë²ÎÊý:u8 tByte: ´ý·¢ËÍµÄÊý¾Ý
-·µ»Ø²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:void Uart0SendByte(u8 tByte)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:Uart0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:u8 tByte: ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½:     
 *************************************************************************************/
 void Uart0SendByte(u8 tByte)
 {
@@ -169,13 +169,13 @@ void Uart0SendByte(u8 tByte)
 	bES = ES0;
 	ES0 = 0;
 	S0BUF = tByte;
-    //TB80 = P;   //Ð£ÑéÎ»
+    //TB80 = P;   //Ð£ï¿½ï¿½Î»
 	while(TI0 == 0);
 	TI0 = 0;
 	ES0 = bES;
 }
 
-/* ·¢ËÍÊý¾Ý */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 void Send_Data(u8 *buff,u8 len)
 {
     xdata u8 i = 0;
@@ -215,10 +215,10 @@ unsigned char asc_hex_2(unsigned char asc1, unsigned char asc0)
 
 
 /*************************************************
-º¯ÊýÃû³Æ: char putchar (char c)   
-¹¦ÄÜÃèÊö: ÓÃÓÚprintf µÄ´®¿ÚÊä³ö³ÌÐò
-ÊäÈë²ÎÊý:     char c
-Êä³ö²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: char putchar (char c)   
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½printf ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     char c
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     
 *************************************************/
 /*
 char putchar (char c)   
@@ -291,11 +291,11 @@ void PC_PRG(void)								// ???????
 		case 'E':
 			if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
 			{
-                ML7345_SetAndGet_State(Force_TRX_OFF);
-                SpiGpio_UnInit();
-				ML7345D_POWER = FG_NOT_allow_out;
+//                ML7345_SetAndGet_State(Force_TRX_OFF);
+//                SpiGpio_UnInit();
+//				ML7345D_POWER = FG_NOT_allow_out;
 				FG_test_mode = 0; 
-				Send_Data(send_ok,4);
+//				Send_Data(send_ok,4);
 			}
 			break;
 //		case 'F':

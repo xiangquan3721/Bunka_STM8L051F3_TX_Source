@@ -30,14 +30,10 @@
 #define PCA_CL(x)		(u8)((PCA_C-(x))%256) 
 #define PCA_CH(x)     	(u8)((PCA_C-(x))/256)
 
-<<<<<<< HEAD
-      
-//xdata u16 time_ms = 0;
+
 xdata u16 Time_Tx_Out = 0;
 volatile u16 g_nSysTickCount = 0;
-=======
-xdata u16 Time_Tx_Out = 0;      
->>>>>>> STX0031_MA82G_ML7345
+
 /***********************************************************************************
 函数名称:   void InitTimer0(void)
 功能描述:Timer0初始化设置

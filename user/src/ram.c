@@ -8,10 +8,7 @@ xdata u8 write_flash_buffer[8] = {0};
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;
 //xdata const u32 PROFILE_CH1_FREQ_32bit_429HighSpeed=429350000;//429350000;//429225000;
 //xdata const u32 PROFILE_CH2_FREQ_32bit_429HighSpeed=429550000;//429550000;//429237500;
-<<<<<<< HEAD
-xdata u8 Channels = 1;
-=======
->>>>>>> STX0031_MA82G_ML7345
+
 
 xdata RAM_OP1 RAM_OP1_type = {0};
 xdata RAM_OP2 RAM_OP2_type = {0};

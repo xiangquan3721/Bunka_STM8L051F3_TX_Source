@@ -15,23 +15,13 @@
 
 void main()
 {
-<<<<<<< HEAD
     //Init_WDT();
-    Init_Clock();
-=======
-    Init_WDT();
     Init_Clock(); 
->>>>>>> STX0031_MA82G_ML7345
     Init_IAP_flash();
     Init_Timer0();
     eeprom_sys_load();
     Init_Port();
-<<<<<<< HEAD
-    gpio_dc_test();
     //Init_Spi();
-=======
-    Init_Spi();
->>>>>>> STX0031_MA82G_ML7345
     Init_Adc();
     _Init_RAM();
     Init_Beep();
