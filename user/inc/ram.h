@@ -24,7 +24,7 @@ extern xdata u8 write_flash_buffer[8];
 extern xdata u32 PROFILE_CH_FREQ_32bit_200002EC;
 //extern xdata const u32 PROFILE_CH1_FREQ_32bit_429HighSpeed;
 //extern xdata const u32 PROFILE_CH2_FREQ_32bit_429HighSpeed;
-extern idata u8 Channels;
+extern xdata u8 Channels;
 
 typedef union
 {
@@ -42,7 +42,7 @@ typedef union
     }Flag;
 }Mark_Un;
 
-extern idata Mark_Un mark0_stu;
+extern xdata Mark_Un mark0_stu;
 
 #define key_sta     mark0_stu.Flag.un_var_bit0
 #define Key1_press  1
@@ -56,7 +56,7 @@ extern idata Mark_Un mark0_stu;
 #define Flag_TxDone      mark0_stu.Flag.un_var_bit6
 #define Flag_RxDone      mark0_stu.Flag.un_var_bit7
 
-extern idata Mark_Un mark1_stu;
+extern xdata Mark_Un mark1_stu;
 #define Flag_test_mode   mark1_stu.Flag.un_var_bit0
 #define Flag_test_fm     mark1_stu.Flag.un_var_bit1
 #define Flag_test_rssi   mark1_stu.Flag.un_var_bit2
@@ -120,7 +120,7 @@ typedef union{
 	}BIT;	
 }RAM_SW;
 	//************************************************
-extern idata RAM_OP1 RAM_OP1_type;
+extern xdata RAM_OP1 RAM_OP1_type;
 	#define 	FLAG_BYTE0		RAM_OP1_type.BYTE	 
 	//------------------------------------------------
 	#define		FLAG_APP_TX		RAM_OP1_type.BIT.Bit0	// 
@@ -136,7 +136,7 @@ extern idata RAM_OP1 RAM_OP1_type;
 
 
 	//************************************************
-extern idata RAM_OP2 RAM_OP2_type;
+extern xdata RAM_OP2 RAM_OP2_type;
 	#define 	FLAG_BYTE1		RAM_OP2_type.BYTE	 
 	//------------------------------------------------
 #define FLAG_beep   RAM_OP2_type.BIT.Bit0	// 
@@ -151,7 +151,7 @@ extern idata RAM_OP2 RAM_OP2_type;
 
 
 	//************************************************
-extern idata RAM_RegSW RAM_RegSW_type;
+extern xdata RAM_RegSW RAM_RegSW_type;
 	#define 	FLAG_BYTE_RegSW		RAM_RegSW_type.BYTE	 
 	//------------------------------------------------
 	#define		mb_RegSw		RAM_RegSW_type.BIT.Bit0	// 
@@ -166,7 +166,7 @@ extern idata RAM_RegSW RAM_RegSW_type;
 
 
 	//************************************************
-extern idata RAM_SW RAM_SW_type;
+extern xdata RAM_SW RAM_SW_type;
 	#define 	FLAG_BYTE_SW		RAM_SW_type.BYTE	 
 	//------------------------------------------------
 	#define		mb_OpenSw		RAM_SW_type.BIT.Bit0	// 

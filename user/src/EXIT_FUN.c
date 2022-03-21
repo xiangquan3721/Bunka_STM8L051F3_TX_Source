@@ -15,14 +15,14 @@ void EXTI_PORTA1(void)
     {
         if(txphase_Repeat == 0) 
         {
-            ML7345_SetAndGet_State(Force_TRX_OFF);
-            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+//            ML7345_SetAndGet_State(Force_TRX_OFF);
+//            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
             txphase_Repeat++;
         }
         else if(txphase_Repeat < 3 && Flag_TxDone == 1)
         {
             Flag_TxDone = 0;
-            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+//            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
             txphase_Repeat++;
         }
         else if(txphase_Repeat == 3 && Flag_TxDone == 1)
@@ -30,7 +30,7 @@ void EXTI_PORTA1(void)
             Flag_TxDone = 0;
             FLAG_APP_TX = 0;
             PIN_TX_LED = 0;
-            ML7345D_POWER = FG_NOT_allow_out;
+//            ML7345D_POWER = FG_NOT_allow_out;
         }
     }
 }
@@ -51,13 +51,13 @@ void SendTxData(void)
         txphase_end = 24;
     }
     FLAG_APP_TX = 1;
-    ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+//    ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
     txphase_Repeat = 1;
 }
 
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set)
 {
-    idata uni_i unii,unij,unik;
+    xdata uni_i unii,unij,unik;
   	/*	ID set	*/
 	unii.ui = SetFixedLengthCode(ID_data_set.IDB[3]) ;
 	m_RFNormalBuf[count_set++] = unii.uc[0] ;
@@ -88,8 +88,8 @@ void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set)
 
 u16 SetFixedLengthCode(u8 Data)
 {
-	idata u16 Code;
-	idata u8 i;
+	xdata u16 Code;
+	xdata u8 i;
 
 	for	(i=0; i<8; i++)
 	{

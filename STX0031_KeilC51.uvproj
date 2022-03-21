@@ -45,14 +45,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>STX0031_MA82G5B32_Pro</OutputName>
+          <OutputDirectory>.\STX0031_KeilC51\</OutputDirectory>
+          <OutputName>STX0031_MA82G5B32_CMT300A</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Listings\</ListingPath>
+          <ListingPath>.\STX0031_KeilC51\</ListingPath>
           <HexFormatSelection>0</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\include;.\user\inc</IncludePath>
+              <IncludePath>.\include;.\user\inc;.\radio</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -397,39 +397,9 @@
               <FilePath>.\user\src\timer.c</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>IAP_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\IAP_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\spi.c</FilePath>
-            </File>
-            <File>
               <FileName>ram.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\src\ram.c</FilePath>
-            </File>
-            <File>
-              <FileName>ML7345.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\ML7345.c</FilePath>
-            </File>
-            <File>
-              <FileName>ML7345_HAL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\ML7345_HAL.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user\src\adc.c</FilePath>
             </File>
             <File>
               <FileName>key_and_Other.c</FileName>
@@ -440,6 +410,46 @@
               <FileName>EXIT_FUN.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\src\EXIT_FUN.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>IAP_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\IAP_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>radio</GroupName>
+          <Files>
+            <File>
+              <FileName>cmt2300a_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\radio\cmt2300a_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmt2300a_hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\radio\cmt2300a_hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>radio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\radio\radio.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmt2300a.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\radio\cmt2300a.c</FilePath>
             </File>
           </Files>
         </Group>

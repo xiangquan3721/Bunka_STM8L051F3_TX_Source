@@ -6,17 +6,19 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include "gpio.h"		// ¹Ü½Å¶¨Òå
-#include "Type.h"		// ³õÊ¼»¯  Ô¤¶¨Òå
-#include "ram.h"		// RAM¶¨Òå
+#include "gpio.h"		// ï¿½Ü½Å¶ï¿½ï¿½ï¿½
+#include "Type.h"		// ï¿½ï¿½Ê¼ï¿½ï¿½  Ô¤ï¿½ï¿½ï¿½ï¿½
+#include "ram.h"		// RAMï¿½ï¿½ï¿½ï¿½
 
 #include "IAP_flash.h"		// eeprom
 #include "uart.h"		// uart
 #include "adc.h"		// ad
-#include "Timer.h"		// ¶¨Ê±Æ÷
+#include "Timer.h"		// ï¿½ï¿½Ê±ï¿½ï¿½
 #include "gpio.h"
 #include "EXIT_FUN.h"
-#include "ML7345.h"
+//#include "ML7345.h"
+#include "radio.h"
+#include "cmt2300a.h"
 
 void key_check(void);
 void time_control(void);
@@ -45,7 +47,7 @@ void	_SetRegistrationMode( uchar mode );
 uchar	_GetRegMode( void );
 void	_IdClear( void );
 void	_RegistrationMode( void );
-u32 atol(unsigned char* m_RegID_x);
+void atol(unsigned char* m_RegID_x);
 void	_FuncStopReg( void );
 void	_Pass3secKey( uchar req );
 

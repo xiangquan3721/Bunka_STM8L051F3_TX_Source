@@ -1,19 +1,19 @@
 #include "Type.h"
 #include "ram.h"
 
-idata Mark_Un mark0_stu = {0};
-idata Mark_Un mark1_stu = {0};
+xdata Mark_Un mark0_stu = {0};
+xdata Mark_Un mark1_stu = {0};
 
 xdata u8 write_flash_buffer[8] = {0};
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;
 //xdata const u32 PROFILE_CH1_FREQ_32bit_429HighSpeed=429350000;//429350000;//429225000;
 //xdata const u32 PROFILE_CH2_FREQ_32bit_429HighSpeed=429550000;//429550000;//429237500;
-idata u8 Channels = 1;
+xdata u8 Channels = 1;
 
-idata RAM_OP1 RAM_OP1_type = {0};
-idata RAM_OP2 RAM_OP2_type = {0};
-idata RAM_RegSW RAM_RegSW_type = {0};
-idata RAM_SW RAM_SW_type = {0};
+xdata RAM_OP1 RAM_OP1_type = {0};
+xdata RAM_OP2 RAM_OP2_type = {0};
+xdata RAM_RegSW RAM_RegSW_type = {0};
+xdata RAM_SW RAM_SW_type = {0};
 
 xdata u8 TB_51s = 0;
 xdata u8 TB_sum_5s = 0;

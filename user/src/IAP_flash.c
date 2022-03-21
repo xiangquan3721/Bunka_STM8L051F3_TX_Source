@@ -10,7 +10,7 @@ ID_DATA_PCS -> 0x79FE ~ 0X79FF. ID数量
 
 */
 
-
+xdata u8 rf_offset = 0;
 
 
 void Init_IAP_flash(void)
@@ -111,7 +111,7 @@ void IAP_ErasePage(u8 ByteAddr)
 
 
 /***********************************************************************************
-函数名称:		u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u16 Cnt)
+函数名称:		u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u8 Cnt)
 功能描述:		写一串数据到IAP指定地址
 		 	会使用到512字节XDATA保存扇区原有数据
 		 	写入一个字节数据大约需要80us
@@ -120,7 +120,7 @@ void IAP_ErasePage(u8 ByteAddr)
 返回参数:     
 		 	u8 0：成功,	other:失败
 *************************************************************************************/
-u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u16 Cnt)
+u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u8 Cnt)
 {
 		xdata u8 TempBuf[512]; 
 		xdata u16 i;
@@ -244,7 +244,7 @@ void IAP_Write_Byte(u16 Addr, u8 wdata)
 void eeprom_sys_load(void)
 {
     xdata uni_rom_id Init_ID_data;
-    idata u8 offset = 0;
+    xdata u8 offset = 0;
     
     rom_KeyOpt = IAP_ReadByteByMOVC(addr_eeprom_sys + Addr_rom_KeyOpt);
     if(rom_KeyOpt > 1)  rom_KeyOpt = 0;
@@ -256,44 +256,44 @@ void eeprom_sys_load(void)
 	if ((Init_ID_data.IDC == 0) || (Init_ID_data.IDC == 0xFFFFFF))  Init_ID_data.IDC = 0;
 	ID_data.IDC = Init_ID_data.IDC;
     
-    offset = IAP_ReadByteByMOVC(addr_eeprom_sys + Addr_rf_offset);
-    if(0 < offset && offset <= 10)
-    {
-        rf_offset = offset;
-        PROFILE_CH_FREQ_32bit_200002EC = 426075000 + 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_075);
+//    offset = IAP_ReadByteByMOVC(addr_eeprom_sys + Addr_rf_offset);
+//    if(0 < offset && offset <= 10)
+//    {
+//        rf_offset = offset;
+//        PROFILE_CH_FREQ_32bit_200002EC = 426075000 + 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_075);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 426750000 + 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_750);
+//        PROFILE_CH_FREQ_32bit_200002EC = 426750000 + 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_750);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429175000 + 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_175);
+//        PROFILE_CH_FREQ_32bit_200002EC = 429175000 + 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_175);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429350000 + 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_350);
+//        PROFILE_CH_FREQ_32bit_200002EC = 429350000 + 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_350);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429550000 + 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_550);
-    }
-    else if(10 < offset && offset <= 20)
-    {
-        rf_offset = offset;
-        offset = offset - 10;
-        PROFILE_CH_FREQ_32bit_200002EC = 426075000 - 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_075);
+//        PROFILE_CH_FREQ_32bit_200002EC = 429550000 + 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_550);
+//    }
+//    else if(10 < offset && offset <= 20)
+//    {
+//        rf_offset = offset;
+//        offset = offset - 10;
+//        PROFILE_CH_FREQ_32bit_200002EC = 426075000 - 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_075);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 426750000 - 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_750);
+//        PROFILE_CH_FREQ_32bit_200002EC = 426750000 - 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_426_750);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429175000 - 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_175);
+//        PROFILE_CH_FREQ_32bit_200002EC = 429175000 - 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_175);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429350000 - 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_350);
+//        PROFILE_CH_FREQ_32bit_200002EC = 429350000 - 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_350);
 
-        PROFILE_CH_FREQ_32bit_200002EC = 429550000 - 150 * offset;
-        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_550);
-    }
-    else {}
+//        PROFILE_CH_FREQ_32bit_200002EC = 429550000 - 150 * offset;
+//        ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC,Fre_429_550);
+//    }
+//    else {}
     
 }

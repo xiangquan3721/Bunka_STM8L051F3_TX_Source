@@ -2,8 +2,8 @@
 #include "timer.h"
 #include "uart.h"
 #include "IAP_flash.h"
-#include "spi.h"  
-#include "ML7345.h"
+//#include "spi.h"  
+//#include "ML7345.h"
 #include "adc.h"
 #include "key_and_Other.h"
 #include <Stdio.h>  // for printf
@@ -15,14 +15,14 @@
 
 void main()
 {
-    Init_WDT();
+    //Init_WDT();
     Init_Clock();
     Init_IAP_flash();
     Init_Timer0();
     eeprom_sys_load();
     Init_Port();
     gpio_dc_test();
-    Init_Spi();
+    //Init_Spi();
     Init_Adc();
     _Init_RAM();
     Init_Beep();

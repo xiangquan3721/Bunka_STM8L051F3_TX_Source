@@ -32,13 +32,13 @@ ID_DATA_PCS -> 0x7FFE ~ 0X7FFF. ID数量
 
 // 可以使用MOVC的方式读取IAP的数据
 #define	IAP_ReadByteByMOVC(x)	CBYTE[x]
-
+extern xdata u8 rf_offset;
 
 void Init_IAP_flash(void);
 u8 IAP_ReadPPage(u8 PsfrAddr);
 void IAP_WritePPage(u8 PsfrAddr,u8 PsfrData);
 void IAP_ErasePage(u8 ByteAddr);
-u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u16 Cnt);
+u8 IAP_WriteBuf_With_Protect_Verify(u16 ByteAddr,u8 *pBuf,u8 Cnt);
 void ID_EEPROM_write(void);
 void ID_learn(void);
 void eeprom_sys_load(void);

@@ -13,7 +13,7 @@
 #include "Type.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
 #include "EXIT_FUN.h"
-#include "ML7345.h"
+//#include "ML7345.h"
 
 void SendTxData(void);
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set);

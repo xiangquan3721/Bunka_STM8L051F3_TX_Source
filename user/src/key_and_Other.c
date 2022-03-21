@@ -8,6 +8,7 @@
 /***********************************************************************/ 
 #include "key_and_Other.h"		// 按键
 
+xdata u32 m_ID;
 void key_check(void)
 {
 //    if (TB_100ms)--TB_100ms;
@@ -107,7 +108,7 @@ void time_control(void)
 //		|+++++++ Open
 //		++++++++ 1
 //
-const	uchar	ct_KeyDataTable[]
+code	uchar	ct_KeyDataTable[]
 ={ 
 	/*	Reg. (0)	*/
 0xFB,//	0b11111011,
@@ -148,7 +149,7 @@ const	uchar	ct_KeyDataTable[]
 //
 void	_KeyInTx( void )
 {
-	idata uchar	i ;
+	xdata uchar	i ;
 	
 	m_KindOfKey = d_Idle ;
         
@@ -199,7 +200,7 @@ void	_KeyInTx( void )
            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31修正4
            if(TIME_10s)--TIME_10s;    //2015.1.31修正3
 	   //dd_set_ADF7021_Power_on_Init();
-            dd_set_ML7345D_Power_on_Init();
+//            dd_set_ML7345D_Power_on_Init();
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31修正3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
@@ -701,7 +702,7 @@ u8 _GetNoPushState(void)
 
 void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
 {
-    u8 time_key;
+    xdata u8 time_key;
     if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25))
     {      //计算剩余的时间，总共时间不能超过69，以25为间隔。
         time_key=25-TB_5s;
@@ -779,9 +780,9 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
     //			TIME_BEEP_freq=0;
                 break ;
         }	
-        dd_set_ML7345D_Power_on();
-        PROFILE_CH_FREQ_32bit_200002EC = 426075000;
-        RF_ML7345_Init(Fre_426_075,0x15,12);	
+//        dd_set_ML7345D_Power_on();
+//        PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+//        RF_ML7345_Init(Fre_426_075,0x15,12);	
         SendTxData();
         TIME_2s_RestTX = 25;       //2015.4.13修正        
   }
@@ -801,7 +802,7 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
 //
 void	_DupliFuncSetMode( void )
 {
-  u8 m_KeyOpt;
+  xdata u8 m_KeyOpt;
 	switch	( m_KeyOptSetMode )
 	{
 		case 1 :
@@ -1177,7 +1178,8 @@ void	_RegistrationMode( void )
 
 			//_SetRegModeIdle() ;
 			//m_RegMode = d_Idle ;
-			ID_data_add.IDC = (ulong)atol(m_RegID) ;
+			atol(m_RegID);
+			ID_data_add.IDC = m_ID ;
 /*		Modified on 2007/5/28		*/
 //			if	( m_RFID.ID > 16777215 )			// Over ?
 			if	( ID_data_add.IDC > 16777214 )			// Over ?
@@ -1199,16 +1201,15 @@ void	_RegistrationMode( void )
 
 
 
-u32 atol (unsigned char* m_RegID_x)
+void atol (unsigned char* m_RegID_x)
 {
-  u8 i,j;
-  u32 m_ID=0;
-    
+  xdata u8 i,j;
+	
+  m_ID=0;    
   for(i=0;i<8;i++){
     j=m_RegID_x[i]-'0';
     m_ID=m_ID*10+j;
   }
-  return(m_ID);
 }
 
 
@@ -1309,44 +1310,54 @@ void test_mode_control(void)
 		{
 			Flag_test_mode = 1;
 			PIN_POWER_CONTROL = 1;
-			PIN_TX_LED = 1;
+			PIN_TX_LED = 0;
 			Init_Uart0_T1(); 
-            INT_EnAll();            
+      INT_EnAll();
+			
+			dd_set_CMT2300A_Power_on();
+			RF_Init_TestMode(); /* RF??????? */
+			PIN_TX_LED = 1;
+      if(FALSE==CMT2300A_IsExist()) {
+            while(1);  //?????
+      }
 		}
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
             FG_KEY_OPEN = 1;
-            dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-            RF_ML7345_Init(Fre_429_175,0x15,12);
-            FG_test_mode = 0;
-            ML7345_SetAndGet_State(Force_TRX_OFF);
-            Tx_Data_Test(0);
+						CMT2300A_SetFrequencyChannel(1); //Freq = 426.075MHz+2.5KHz*1*1
+					  CMT2300A_GoTx();
+						CMT2300A_Gpio1=0;
+					  FG_test_mode=0;					
         }
         if(PIN_KEY_OPEN == 1) FG_KEY_OPEN = 0;
 
         if((PIN_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
         {
             FG_KEY_STOP = 1;
-            ML7345_SetAndGet_State(Force_TRX_OFF);
-            ML7345_RESETN = 0;
-            ML7345D_POWER = FG_NOT_allow_out;
-            FG_test_mode = 0;
+						CMT2300A_GoSleep();
+						CMT2300A_Gpio1=0;
+					  FG_test_mode=0;						
         }
         if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0; 
 
         if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
             FG_KEY_CLOSE = 1;
-            dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-            RF_ML7345_Init(Fre_429_175,0x15,12);
-            Tx_Data_Test(1);
-            FG_test_mode = 1;
+						CMT2300A_SetFrequencyChannel(0);
+						CMT2300A_GoTx();
+						CMT2300A_Gpio1=0;
+					  FG_test_mode=1;						
         }
         if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
+				if((CMT2300A_ReadGpio2())&&(FG_test_mode==1)&&(FG_test1==0)){
+					 CMT2300A_Gpio1=!CMT2300A_Gpio1;
+					 FG_test1=1;
+				}
+				if(CMT2300A_ReadGpio2()==0)
+					FG_test1=0;				
+				
         PC_PRG();	       // PC控制  
     }  
     if(Flag_test_mode == 1)

@@ -15,7 +15,7 @@ xdata u8 UART_DATA_ID98[41] = {0};
 
 xdata __Databits_t Databits_t = {0};
 xdata __U1Statues U1Statues = {0};
-idata u8 ACKBack[3] = {0x02, 0x03, 0x00};
+xdata u8 ACKBack[3] = {0x02, 0x03, 0x00};
 xdata u8 U1AckTimer = 0;
 
 xdata u8 FLAG_testNo91=0;
@@ -116,7 +116,7 @@ void Init_Uart0_T1_ODD(void)
 *************************************************************************************/
 void INT_UART0(void) interrupt INT_VECTOR_UART0
 {
-    idata u8 dat = 0;
+    xdata u8 dat = 0;
 	_push_(SFRPI);		   //±£»¤SFRPI¼Ä´æÆ÷Öµ
 
 	SFR_SetPage(0);		   /*ÉèÖÃ0Ò³¼Ä´æÆ÷*/  //S0CON½ö0Ò³²Ù×÷
@@ -268,10 +268,10 @@ void PC_PRG(void)								// ???????
 		    break;
 		case 'S':
 			FG_test_mode = 0;
-			dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-			RF_ML7345_Init(Fre_429_175,0x15,12);
-            Tx_Data_Test(0);
+			//dd_set_ML7345D_Power_on();
+      //      PROFILE_CH_FREQ_32bit_200002EC = 429175000;
+			//RF_ML7345_Init(Fre_429_175,0x15,12);
+      //      Tx_Data_Test(0);
 			Send_Data(send_ok,4);
 			break;
 		case 'E':
@@ -282,52 +282,52 @@ void PC_PRG(void)								// ???????
 				Send_Data(send_ok,4);
 			}
 			break;
-		case 'F':
-			if(SIO_DATA[2]=='M')
-			{
-				FG_test_mode = 1;
-                dd_set_ML7345D_Power_on();
-                PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-                RF_ML7345_Init(Fre_429_175,0x15,12);
-                Tx_Data_Test(1);
-				Send_Data(send_ok,4);
-			}
-			else if (SIO_DATA[2]=='C' && SIO_DATA[3]=='?')
-			{
-				send_ack[0] = '(';
-				send_ack[1] = 'F';
-				send_ack[2] = 'C';
-				send_ack[3] = ')';
-				send_ack[4] = hex_asc(rf_offset / 16);
-				send_ack[5] = hex_asc(rf_offset % 16);
-				Send_Data(send_ack,6);
-			}
-			else if (SIO_DATA[2]=='C' && FG_test_mode == 1)
-			{
-				re_byte = asc_hex_2(SIO_buff[3],SIO_buff[4]);	
-                ML7345_SetAndGet_State(Force_TRX_OFF);				
-				if(re_byte <= 10) //frequency +
-                {
-                    rf_offset = re_byte;
-                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 + 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
-                    ML7345_Frequency_Set(Fre_429_175,1);
-                    Send_Data(send_ok,4);
-                }
-                else if(10 < re_byte && re_byte <= 20) //frequency -
-                {
-                    rf_offset = re_byte;
-                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
-                    re_byte = re_byte - 10;
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 - 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
-                    ML7345_Frequency_Set(Fre_429_175,1);
-                    Send_Data(send_ok,4);
-                }
-                Tx_Data_Test(1);
-			}
-			break;
+//		case 'F':
+//			if(SIO_DATA[2]=='M')
+//			{
+//				FG_test_mode = 1;
+////                dd_set_ML7345D_Power_on();
+////                PROFILE_CH_FREQ_32bit_200002EC = 429175000;
+////                RF_ML7345_Init(Fre_429_175,0x15,12);
+////                Tx_Data_Test(1);
+//				Send_Data(send_ok,4);
+//			}
+//			else if (SIO_DATA[2]=='C' && SIO_DATA[3]=='?')
+//			{
+//				send_ack[0] = '(';
+//				send_ack[1] = 'F';
+//				send_ack[2] = 'C';
+//				send_ack[3] = ')';
+//				send_ack[4] = hex_asc(rf_offset / 16);
+//				send_ack[5] = hex_asc(rf_offset % 16);
+//				Send_Data(send_ack,6);
+//			}
+//			else if (SIO_DATA[2]=='C' && FG_test_mode == 1)
+//			{
+//				re_byte = asc_hex_2(SIO_buff[3],SIO_buff[4]);	
+////                ML7345_SetAndGet_State(Force_TRX_OFF);				
+//				if(re_byte <= 10) //frequency +
+//                {
+//                    rf_offset = re_byte;
+//                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
+//                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 + 150 * re_byte;
+//                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
+//                    ML7345_Frequency_Set(Fre_429_175,1);
+//                    Send_Data(send_ok,4);
+//                }
+//                else if(10 < re_byte && re_byte <= 20) //frequency -
+//                {
+//                    rf_offset = re_byte;
+//                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
+//                    re_byte = re_byte - 10;
+//                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 - 150 * re_byte;
+//                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
+//                    ML7345_Frequency_Set(Fre_429_175,1);
+//                    Send_Data(send_ok,4);
+//                }
+//                Tx_Data_Test(1);
+//			}
+//			break;
 		default:
 			break;          
 		}

@@ -22,8 +22,8 @@
 
       
 //xdata u16 time_ms = 0;
-idata u16 Time_Tx_Out = 0;
-
+xdata u16 Time_Tx_Out = 0;
+volatile u16 g_nSysTickCount = 0;
 /***********************************************************************************
 函数名称:   void InitTimer0(void)
 功能描述:Timer0初始化设置
@@ -60,6 +60,7 @@ void INT_T0(void) interrupt INT_VECTOR_T0
 	TL0 = TIMER_1T_1ms_TH;
     
     FG_1ms = 1;
+	  g_nSysTickCount++; 
     if (TB_100ms)	--TB_100ms;
     else{                            
         TB_100ms = BASE_100ms;
@@ -132,4 +133,25 @@ void delay_ms(u8 ms) //
         DelayXus(100);
         DelayXus(100);
     }
+}
+
+void system_delay_100us(u8 n)
+{
+    xdata u32 nDelayUsCnt = n*100;
+
+    while(nDelayUsCnt--) {
+			_nop_();
+//        _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+//        _nop_(); _nop_(); _nop_(); _nop_();_nop_();
+//        _nop_(); _nop_(); _nop_(); _nop_();_nop_(); _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+//        _nop_(); _nop_(); _nop_(); _nop_();_nop_();
+    }
+}
+
+void system_delay_ms(u8 nms)
+{
+    xdata u32 nDelayUsCnt = nms*10;
+
+    while(nDelayUsCnt--)
+        system_delay_100us(1);
 }

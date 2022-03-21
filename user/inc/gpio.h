@@ -7,7 +7,7 @@
 #include "API_Uart_BRGRL_MA82G5Bxx.H"
 #include "timer.h"
 #include "ram.h"
-#include "ML7345.h"
+//#include "ML7345.h"
 
 
 #define ML7345_RESETN       P34

@@ -19,7 +19,9 @@
 #define TIMER_12T_1ms_TL	((65536-(u16)(float)(1000*((float)(MCU_SYSCLK)/(float)(12000000)))) %256)  
 
 //extern xdata u16 time_ms;
-extern idata u16 Time_Tx_Out;
+extern xdata u16 Time_Tx_Out;
+extern volatile u16 g_nSysTickCount;
+void system_delay_ms(u8 nms);
 
 void Init_Timer0(void);
 void DelayXus(u8 xUs);
