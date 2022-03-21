@@ -95,7 +95,7 @@ void ML7345_Write_Fifo(u8 addr,u8 *pbuf,u8 len)
     SPI1_CS_H;
     spi_delay(1);
 }
-
+/*
 void ML7345_Read_Fifo(u8 addr,u8 *pbuf,u8 len)
 {
     xdata u8 i = 0;
@@ -114,6 +114,6 @@ void ML7345_Read_Fifo(u8 addr,u8 *pbuf,u8 len)
     spi_delay(1);
     SPI1_CS_H;
     spi_delay(1);
-}
+}*/
 //////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -24,9 +24,20 @@ void Init_Clock(void)
     DelayXus(100);
     CLK_SetCKCON3(0x0E);                                    //12MHz/2*5.33/8 = 4MHz 
 #endif
-    
-    
 
+#if (MCU_SYSCLK == 6000000)
+    CLK_SetCKCON2(ENABLE_IHRCO);
+    DelayXus(100);
+    CLK_SetCKCON3(0x06);                                    //12MHz/2
+    DelayXus(100);
+#endif
+
+#if (MCU_SYSCLK == 3000000)
+    CLK_SetCKCON2(ENABLE_IHRCO);
+    DelayXus(100);
+    CLK_SetCKCON3(0x0A);                                    //12MHz/4
+    DelayXus(100);
+#endif
 }
 
 

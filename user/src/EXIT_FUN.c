@@ -8,7 +8,7 @@
 /***********************************************************************/ 
 #include "EXIT_FUN.h"
 
-
+/*
 void EXTI_PORTA1(void)
 {
     if(FLAG_APP_TX == 1)
@@ -33,7 +33,7 @@ void EXTI_PORTA1(void)
             ML7345D_POWER = FG_NOT_allow_out;
         }
     }
-}
+}*/
 
 void SendTxData(void)
 {
@@ -52,6 +52,7 @@ void SendTxData(void)
     }
     FLAG_APP_TX = 1;
     ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
+    Time_Tx_Out = 550;
     txphase_Repeat = 1;
 }
 

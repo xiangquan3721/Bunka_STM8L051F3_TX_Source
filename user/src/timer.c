@@ -1,9 +1,19 @@
 #include "timer.h"
 
 /* PCA定时器为16位,最大计数65536,*/
+#if (MCU_SYSCLK == 3000000)
+#define PCA_RELOAD		(1500)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.0K,PCA时钟为SysClk 3MHz
+#define Duty_Cycle      750       //50%
+#endif
+
 #if (MCU_SYSCLK == 4000000)
 #define PCA_RELOAD		(2000)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.0K,PCA时钟为SysClk 4MHz
 #define Duty_Cycle      1000       //50%
+#endif
+
+#if (MCU_SYSCLK == 6000000)
+#define PCA_RELOAD		(3000)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.0K,PCA时钟为SysClk 6MHz
+#define Duty_Cycle      1500       //50%
 #endif
 
 #if (MCU_SYSCLK == 16000000)
@@ -20,10 +30,7 @@
 #define PCA_CL(x)		(u8)((PCA_C-(x))%256) 
 #define PCA_CH(x)     	(u8)((PCA_C-(x))/256)
 
-      
-//xdata u16 time_ms = 0;
-idata u16 Time_Tx_Out = 0;
-
+xdata u16 Time_Tx_Out = 0;      
 /***********************************************************************************
 函数名称:   void InitTimer0(void)
 功能描述:Timer0初始化设置
@@ -65,6 +72,7 @@ void INT_T0(void) interrupt INT_VECTOR_T0
         TB_100ms = BASE_100ms;
         FG_100ms = 1;	      // 100mS FLAG
 	}
+    if(Time_Tx_Out) --Time_Tx_Out;
 }
 
 

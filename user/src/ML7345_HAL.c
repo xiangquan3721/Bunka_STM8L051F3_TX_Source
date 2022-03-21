@@ -395,14 +395,14 @@ void ML7345_GPIO0TxDoneInt_Enable(void)
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);
     ML7345_Write_Reg(ADDR_GPIO0_CTRL,GPIO_INTOUTPUT_ENABLE);
     ML7345_Write_Reg(ADDR_INT_EN_GRP3,0x01);    /* 使能中断事件16,发送完成中断 */
-}
+}/*
 void ML7345_GPIO0RxDoneInt_Enable(void)
 {
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);
     //ML7345_TRX_Int_Config(ADDR_GPIO0_CTRL,RF_RxDone_Int,1);
     ML7345_Write_Reg(ADDR_GPIO0_CTRL,GPIO_INTOUTPUT_ENABLE);
-    ML7345_Write_Reg(ADDR_INT_EN_GRP2,0x21);    /* 0x21:使能中断事件8/13,接收完成中断/同步字检测中断 */
-}
+    ML7345_Write_Reg(ADDR_INT_EN_GRP2,0x21);    // 0x21:使能中断事件8/13,接收完成中断/同步字检测中断
+}*/
 /*
 void ML7345_GPIO1TxDoneInt_Enable(void)
 {
@@ -537,13 +537,13 @@ void ML7345_TransmitPower_Set(TransmitPower_ENUM Power)
 Function: Read receive packet
 Parameter: pbuf: RX buffer; len: Read length,No more than 64 bytes
 Return: Null
-*/
+*//*
 void ML7345_ReadRx_Pack(u8 *pbuf,u8 len)
 {
     if(len > 64)    len = 64;
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);
     ML7345_Read_Fifo(ADDR_RD_FIFO,pbuf,len);
-}
+}*/
 
 /*
 Function: send data
@@ -559,14 +559,14 @@ void ML7345_AutoTx_Data(u8 *pbuf,u8 len)
     ML7345_AutoStateTransition_Set(AUTO_TX_EN);  //设置为自动发送模式
     ML7345_Write_Fifo(ADDR_WR_TX_FIFO,pbuf,len);
 }
-
+/*
 u8 RF_SyncWord_DONE(void)
 {
     idata u8 sync = 0;
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);  //set bank0
     sync = ML7345_Read_Reg(ADDR_INT_SOURCE_GRP2);
     return sync;
-}
+}*/
 
 void ML7345_Frequency_Calcul(u32 Freq,u8 *pbuf)  //将频率计算为ML7345寄存器设定值,存入pbuf中
 {

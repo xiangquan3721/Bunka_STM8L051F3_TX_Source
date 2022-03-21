@@ -76,14 +76,22 @@ void key_check(void)
 
 void time_control(void)
 {
-  if(FG_100ms){
-    FG_100ms=0; 
-    if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý    
-    if(FG_PWRON==1){
-    if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
-    }    
-  }
-  
+    if(FG_100ms){
+        FG_100ms=0; 
+        if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÐÞÕý    
+        if(FG_PWRON==1){
+            if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
+        }    
+    }
+    if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
+    {
+        FLAG_APP_TX = 0;
+        PIN_TX_LED = 0;
+        ML7345_SetAndGet_State(Force_TRX_OFF);
+        ML7345_RESETN = 0;
+        SpiGpio_UnInit();
+        ML7345D_POWER = FG_NOT_allow_out;
+    }
 }
 
 //
@@ -1303,7 +1311,7 @@ void _ReqBuzzer(u16 BEEP_on_SET,u8 BEEP_off_SET,u8 BEEP_freq_SET)
 void test_mode_control(void)
 {
 
-    while(PIN_test_mode == 1)
+    while(PIN_test_mode == 0)
     { 
         if(Flag_test_mode == 0)
 		{
@@ -1329,8 +1337,8 @@ void test_mode_control(void)
         if((PIN_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
         {
             FG_KEY_STOP = 1;
-            ML7345_SetAndGet_State(Force_TRX_OFF);
             ML7345_RESETN = 0;
+            SpiGpio_UnInit(); 
             ML7345D_POWER = FG_NOT_allow_out;
             FG_test_mode = 0;
         }

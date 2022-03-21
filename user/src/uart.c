@@ -1,11 +1,24 @@
 #include "uart.h"
 
-#define T1_BRGRL_9600_2X_16000000_1T    0x98
-#define T1_BRGRL_9600_2X_4000000_1T     0xE6
+#if (MCU_SYSCLK == 16000000)
+#define BAUD_RATE    0x98
+#endif
+
+#if (MCU_SYSCLK == 6000000)
+#define BAUD_RATE     0xD9
+#endif
+
+#if (MCU_SYSCLK == 4000000)
+#define BAUD_RATE     0xE6
+#endif
+
+#if (MCU_SYSCLK == 3000000)
+#define BAUD_RATE     0xED
+#endif
+
 
 xdata u8 uart0_rx_len = 0;
 xdata u8 uart0_tx_len = 0;
-bit rx_done = 0;
 
 xdata u8 UartStatus = FrameHeadSataus;
 xdata u8 UartLen = 0;
@@ -15,7 +28,7 @@ xdata u8 UART_DATA_ID98[41] = {0};
 
 xdata __Databits_t Databits_t = {0};
 xdata __U1Statues U1Statues = {0};
-idata u8 ACKBack[3] = {0x02, 0x03, 0x00};
+xdata u8 ACKBack[3] = {0x02, 0x03, 0x00};
 xdata u8 U1AckTimer = 0;
 
 xdata u8 FLAG_testNo91=0;
@@ -64,8 +77,8 @@ void Init_Uart0_T1(void)
 	TM_SetT1Gate_Disable(); 
 
     // 设置波特率
-	TM_SetT1HighByte(T1_BRGRL_9600_2X_4000000_1T);
-	TM_SetT1LowByte(T1_BRGRL_9600_2X_4000000_1T);
+	TM_SetT1HighByte(BAUD_RATE);
+	TM_SetT1LowByte(BAUD_RATE);
 
 	TM_EnableT1();
     INT_EnUART0();			//	使能串口中断
@@ -207,6 +220,7 @@ unsigned char asc_hex_2(unsigned char asc1, unsigned char asc0)
 输入参数:     char c
 输出参数:     
 *************************************************/
+/*
 char putchar (char c)   
 {      
 	bit bES;
@@ -217,7 +231,7 @@ char putchar (char c)
     TI0=0;        
     ES0=bES;        
     return 0;
-}
+}*/
 
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC_uart = 0;
 void PC_PRG(void)								// ???????
@@ -277,6 +291,8 @@ void PC_PRG(void)								// ???????
 		case 'E':
 			if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
 			{
+                ML7345_SetAndGet_State(Force_TRX_OFF);
+                SpiGpio_UnInit();
 				ML7345D_POWER = FG_NOT_allow_out;
 				FG_test_mode = 0; 
 				Send_Data(send_ok,4);

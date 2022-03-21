@@ -4,7 +4,7 @@
 //#include <stdbool.h> /* For true/false definition                      */
 //#include <stdio.h>
 #include "spi.h"
-#include "gpio.h" // 芯片引脚定于
+#include "gpio.h"
 #include "ram.h"
 #include "ID_Decode.h"
 #include "Type.h"
@@ -43,6 +43,7 @@ Return: Null
    发射功率0dBm */
 void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
 {
+    SpiGpio_Init();
     ML7345_RESETN_SET();    /* Hardware Reset */
     while(1){
         if(ML7345_Read_Reg(0x0Du)&0x01u){   /* Wait Clock stabilization completion */
@@ -189,16 +190,14 @@ void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
     ML7345_Write_Reg(0x00, 0x11);     /* BANK_SEL(BANK0) */
     ML7345_Write_Reg(0x6f, 0x01);     /* VCO_CAL_START(CAL start) */
     while(1){
-        Freq_SetBuff[0] = ML7345_Read_Reg(0x0Du);
         if(ML7345_Read_Reg(0x0Du)&0x02u){   /* Wait VCO calibration completion */
             break;
         }
     }
-    Freq_SetBuff[0] = ML7345_Read_Reg(0x6e);
     ML7345_AllStateFlag_Clear(); //清除所有标志
     ML7345_GPIO0TxDoneInt_Enable();
 }
-
+/*
 void ML7345_MeasurBER_Init(void)
 {
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK1_SEL);
@@ -208,12 +207,12 @@ void ML7345_MeasurBER_Init(void)
     ML7345_Write_Reg(0x0d,0x33);
 
     ML7345_Write_Reg(ADDR_BANK_SEL,BANK0_SEL);
-    ML7345_Write_Reg(0x0c,0x40); //50   /* DIO_SET, continuous output mode,DCLK is constantly output,no OUTPUT (NOT stop output)*/
+    ML7345_Write_Reg(0x0c,0x40); //50   // DIO_SET, continuous output mode,DCLK is constantly output,no OUTPUT (NOT stop output)
     ML7345_Write_Reg(0x4d,0x80); //80
 
     ML7345_Write_Reg(0x4E,0x05);    //ML7345D GPIO0 DCLK
     ML7345_Write_Reg(0x51,0x04);    //ML7345D GPIO3 DIO
-}
+}*/
 
 
 void Tx_Data_Test(u8 mode)
@@ -264,9 +263,9 @@ void ML7345_TRX_Del(void)
                 Flag_TxDone = 0;
                 FLAG_APP_TX = 0;
                 PIN_TX_LED = 0;
-                //Beep_Off();
                 ML7345_SetAndGet_State(Force_TRX_OFF);
                 ML7345_RESETN = 0;
+                SpiGpio_UnInit();
                 ML7345D_POWER = FG_NOT_allow_out;
             }
         }
