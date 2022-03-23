@@ -84,15 +84,15 @@ void time_control(void)
             if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
         }    
     }
-    if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
-    {
-        FLAG_APP_TX = 0;
-        PIN_TX_LED = 0;
+//    if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
+//    {
+//        FLAG_APP_TX = 0;
+//        PIN_TX_LED = 0;
 //        ML7345_SetAndGet_State(Force_TRX_OFF);
 //        ML7345_RESETN = 0;
 //        SpiGpio_UnInit();
 //        ML7345D_POWER = FG_NOT_allow_out;
-    }
+//    }
 }
 
 //
@@ -209,6 +209,7 @@ void	_KeyInTx( void )
            if(TIME_10s)--TIME_10s;    //2015.1.31修正3
 	   //dd_set_ADF7021_Power_on_Init();
 //            dd_set_ML7345D_Power_on_Init();
+		dd_set_CMT2300A_Power_on_Init();
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31修正3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
@@ -790,7 +791,9 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
         }	
 //        dd_set_ML7345D_Power_on();
 //        PROFILE_CH_FREQ_32bit_200002EC = 426075000;
-//        RF_ML7345_Init(Fre_426_075,0x15,12);	
+//        RF_ML7345_Init(Fre_426_075,0x15,12);
+				dd_set_CMT2300A_Power_on();
+				RF_Init_TestMode();				
         SendTxData();
         TIME_2s_RestTX = 25;       //2015.4.13修正        
   }
@@ -1312,7 +1315,7 @@ void _ReqBuzzer(u16 BEEP_on_SET,u8 BEEP_off_SET,u8 BEEP_freq_SET)
 void test_mode_control(void)
 {
 
-    while(PIN_test_mode == 1)
+    while(PIN_test_mode == 0)
     { 
         if(Flag_test_mode == 0)
 		{
@@ -1359,12 +1362,12 @@ void test_mode_control(void)
         }
         if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
-				if((CMT2300A_ReadGpio2())&&(FG_test_mode==1)&&(FG_test1==0)){
-					 CMT2300A_Gpio1=!CMT2300A_Gpio1;
-					 FG_test1=1;
-				}
-				if(CMT2300A_ReadGpio2()==0)
-					FG_test1=0;				
+//				if((CMT2300A_ReadGpio2())&&(FG_test_mode==1)&&(FG_test1==0)){
+//					 CMT2300A_Gpio1=!CMT2300A_Gpio1;
+//					 FG_test1=1;
+//				}
+//				if(CMT2300A_ReadGpio2()==0)
+//					FG_test1=0;				
 				
         PC_PRG();	       // PC控制  
     }  

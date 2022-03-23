@@ -8,52 +8,51 @@
 /***********************************************************************/ 
 #include "EXIT_FUN.h"
 
-/*
+
 void EXTI_PORTA1(void)
 {
-    if(FLAG_APP_TX == 1)
-    {
-        if(txphase_Repeat == 0) 
-        {
-//            ML7345_SetAndGet_State(Force_TRX_OFF);
-//            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
-            txphase_Repeat++;
-        }
-        else if(txphase_Repeat < 3 && Flag_TxDone == 1)
-        {
-            Flag_TxDone = 0;
-//            ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
-            txphase_Repeat++;
-        }
-        else if(txphase_Repeat == 3 && Flag_TxDone == 1)
-        {
-            Flag_TxDone = 0;
-            FLAG_APP_TX = 0;
-            PIN_TX_LED = 0;
-//            ML7345D_POWER = FG_NOT_allow_out;
-        }
-    }
-}*/
+  if(FLAG_APP_TX==1){
+    if(txphase%8==0)ID_INT_CODE=m_RFNormalBuf[txphase/8];
+    if	(ID_INT_CODE & 0x80)CMT2300A_Gpio1=1;
+    else CMT2300A_Gpio1=0;
+    ID_INT_CODE<<=1;
+    txphase++;
+     //if(txphase>=224){
+        if(txphase>=txphase_end){
+        txphase=0;
+        txphase_Repeat++;
+        //if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_CE=0;ADF7021_POWER=1;}
+	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;CMT2300A_POWER=FG_NOT_allow_out;CMT2300A_Gpio1=0;CMT2300A_GoSleep();}
+    }    
+  }
+	else if(FG_test_mode==1)
+		 CMT2300A_Gpio1=!CMT2300A_Gpio1;
+}
 
 void SendTxData(void)
 {
-    PIN_TX_LED = 1;
-    if(m_RegMode==0)
-    {
-        SetTxData(0,ID_data,Control_code);
-        txphase_end = 12;
-    }
-    else 
-    {
-        SetTxData(0,ID_data,0x80);
-        if(m_RegMode==1)    SetTxData(12,ID_data_add,0xFF);    //"1"是追加
-        else SetTxData(12,ID_data_add,0);    //"2"是抹消
-        txphase_end = 24;
-    }
-    FLAG_APP_TX = 1;
-//    ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
-    Time_Tx_Out = 550;
-    txphase_Repeat = 1;
+  xdata u8 i;
+       m_RFNormalBuf[0]=0xFF;
+       for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
+       m_RFNormalBuf[14]=0x15;
+       PIN_TX_LED=1;
+       if(m_RegMode==0){
+	 txphase_end=224;
+	 SetTxData(15,ID_data,Control_code);
+         m_RFNormalBuf[27]=0xFF;
+       }
+       else {
+	 txphase_end=320;
+	 SetTxData(15,ID_data,0x80);
+	 if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"?????
+	 else SetTxData(27,ID_data_add,0);    //"2"??I??
+         m_RFNormalBuf[39]=0xFF;
+       }
+       txphase=0;
+       txphase_Repeat=0;
+       ID_INT_CODE=0;
+			 CMT2300A_GoTx();
+       FLAG_APP_TX=1;
 }
 
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set)

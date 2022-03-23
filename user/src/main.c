@@ -25,8 +25,8 @@ void main()
     Init_Adc();
     _Init_RAM();
     Init_Beep();
+    Init_Interrupt();	
     test_mode_control();
-    Init_Interrupt();
     INT_EnAll();
     Adc_Start();
     TIME_power_on_AD = 30;

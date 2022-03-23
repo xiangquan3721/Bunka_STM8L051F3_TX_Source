@@ -81,7 +81,7 @@ void SpiGpio_UnInit(void)
 返回参数:  
 用于ML7345D 发送接收完成中断。
 *************************************************************************************/
-/*
+
 void Init_INT0(void)
 {
 	INT_SetINT0P32();						//设置INT0引脚P32
@@ -89,7 +89,7 @@ void Init_INT0(void)
 	//INT_SetINT0_DetectRisingEdge();
     INT_SetINT0Filter_Sysclk_x3();			//设置INT0滤波为（sysclk）*3
 }
-*/
+
 
 /***********************************************************************************
 函数名称:   void InitINT1(void)
@@ -119,6 +119,7 @@ void Init_INT1(void)
 void INT_INT0(void)		interrupt INT_VECTOR_INT0
 {
     //ML7345_TRX_Del();
+		EXTI_PORTA1();
 }
 
 
@@ -145,8 +146,8 @@ void INT_INT1(void)		interrupt INT_VECTOR_INT1
 *************************************************************************************/
 void Init_Interrupt(void)
 {
-    Init_INT1();
-	INT_EnINT1();			//	使能INT1中断
+    Init_INT0();
+	INT_EnINT0();			//	使能INT1中断
 }
 
 
