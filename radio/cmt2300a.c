@@ -18,8 +18,8 @@
  * @author  CMOSTEK R@D
  */
 
-/*Ð¾Æ¬Çý¶¯²ãÔ´´úÂë£¬Ìá¹©Ð¾Æ¬×´Ì¬ÇÐ»»²Ù×÷£¬ ÖÐ¶Ï£¬ GPIO£¬ FIFO ²Ù×÷£¬ Í¨ÓÃ¼Ä´æÆ÷ÅäÖÃºÍ
-·ÃÎÊµÈ¡£ ´Ë²¿·ÖÊôÓÚ¹Ì»¯µÄ³ÌÐò£¬ºÍ MCU Æ½Ì¨ÎÞ¹Ø£¬ÓÃ»§¿É²»ÓÃ¶ÔÆäÐÞ¸Ä*/
+/*Ð¾Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ë£¬ï¿½á¹©Ð¾Æ¬×´Ì¬ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¶Ï£ï¿½ GPIOï¿½ï¿½ FIFO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Í¨ï¿½Ã¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½
+ï¿½ï¿½ï¿½ÊµÈ¡ï¿½ ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹Ì»ï¿½ï¿½Ä³ï¿½ï¿½ò£¬ºï¿½ MCU Æ½Ì¨ï¿½Þ¹Ø£ï¿½ï¿½Ã»ï¿½ï¿½É²ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½*/
 
 #include "cmt2300a.h"
 
@@ -78,7 +78,7 @@ u8 CMT2300A_SwitchStatusAndWait(u8 nGoCmd, u8 nWaitStatus, u16 nEndTick)
 u8 CMT2300A_AutoSwitchStatus(u8 nGoCmd)
 {
 #ifdef ENABLE_AUTO_SWITCH_CHIP_STATUS
-    xdata u16 nEndTick = CMT2300A_GetTickCount() + 10;
+    xdata u16 nEndTick = CMT2300A_GetTickCount() + 1;
     xdata u8  nWaitStatus;
     xdata u8  nCurStatus;
 
@@ -635,7 +635,7 @@ int CMT2300A_GetRssiDBm(void)
 * @name    CMT2300A_SetFrequencyChannel
 * @desc    This defines up to 255 frequency channel
 *          for fast frequency hopping operation.
-* @param   nChann: the frequency channel    (FREQ = »ù´¡Æµµã + 2.5KHz * nOffset *  nChann)
+* @param   nChann: the frequency channel    (FREQ = ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ + 2.5KHz * nOffset *  nChann)
 * *********************************************************/
 void CMT2300A_SetFrequencyChannel(u8 nChann)
 {
@@ -647,7 +647,7 @@ void CMT2300A_SetFrequencyChannel(u8 nChann)
 * @desc    This defines the frequency channel step size
 *          for fast frequency hopping operation.
 *          One step size is 2.5 kHz.
-* @param   nOffset: the frequency step  (FREQ = »ù´¡Æµµã + 2.5KHz * nOffset *  nChann)
+* @param   nOffset: the frequency step  (FREQ = ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ + 2.5KHz * nOffset *  nChann)
 * *********************************************************/
 void CMT2300A_SetFrequencyStep(u8 nOffset)
 {
@@ -740,18 +740,18 @@ void CMT2300A_Init(void)
 {
     xdata u8 tmp;
 
-    CMT2300A_SoftReset();
-    CMT2300A_DelayMs(1);
+//    CMT2300A_SoftReset();
+//    CMT2300A_DelayMs(1);
 
     CMT2300A_GoStby();
 
     tmp  = CMT2300A_ReadReg(CMT2300A_CUS_MODE_STA);
-    tmp |= CMT2300A_MASK_CFG_RETAIN;         /* Enable CFG_RETAIN *//*½«CUS_MODE_STA£¨0x61£©¼Ä´æÆ÷µÄµÚ 4 ¸ö±ÈÌØ CFG_RETAIN ÅäÖÃ³É 1£¬
-    Õâ¸ö±ÈÌØ»áÈÃ 0x00 ¨C 0x5FÕû¸öÅäÖÃÇøµÄÖµ²»»á±»Èí¸´Î»²Á³ýµô*/
+    tmp |= CMT2300A_MASK_CFG_RETAIN;         /* Enable CFG_RETAIN *//*ï¿½ï¿½CUS_MODE_STAï¿½ï¿½0x61ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½Äµï¿½ 4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CFG_RETAIN ï¿½ï¿½ï¿½Ã³ï¿½ 1ï¿½ï¿½
+    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½ï¿½ï¿½ 0x00 ï¿½C 0x5Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     tmp &= ~CMT2300A_MASK_RSTN_IN_EN;        /* Disable RSTN_IN */
     Cmt_Spi_Write(CMT2300A_CUS_MODE_STA, tmp);
 
-    CMT2300A_EnableLfosc(FALSE);             /* Diable LFOSC *///0²»ÐèÒªÊ¹ÓÃSLEEP TIMER
+    CMT2300A_EnableLfosc(FALSE);             /* Diable LFOSC *///0ï¿½ï¿½ï¿½ï¿½ÒªÊ¹ï¿½ï¿½SLEEP TIMER
 
     CMT2300A_ClearInterruptFlags();
 }

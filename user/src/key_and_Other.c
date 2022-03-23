@@ -1321,13 +1321,12 @@ void test_mode_control(void)
 		{
 			Flag_test_mode = 1;
 			PIN_POWER_CONTROL = 1;
-			PIN_TX_LED = 0;
+			PIN_TX_LED = 1;
 			Init_Uart0_T1(); 
       INT_EnAll();
 			
 			dd_set_CMT2300A_Power_on();
 			RF_Init_TestMode(); /* RF??????? */
-			PIN_TX_LED = 1;
       if(FALSE==CMT2300A_IsExist()) {
             while(1);  //?????
       }
