@@ -455,7 +455,7 @@
 
 /* ********** CMT2300A_CUS_EN_CTL registers ********** */
 #define CMT2300A_MASK_ERROR_STOP_EN      0x20
-
+#define CMT2300A_MASK_LBD_STOP_EN      0x10
 /* ********** CMT2300A_CUS_FREQ_CHNL registers ********** */
 #define CMT2300A_MASK_FH_CHANNEL         0xFF
 

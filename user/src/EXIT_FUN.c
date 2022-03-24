@@ -22,7 +22,7 @@ void EXTI_PORTA1(void)
         txphase=0;
         txphase_Repeat++;
         //if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;ADF7021_CE=0;ADF7021_POWER=1;}
-	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;CMT2300A_POWER=FG_NOT_allow_out;CMT2300A_Gpio1=0;CMT2300A_GoSleep();}
+	if(txphase_Repeat>=3){FLAG_APP_TX=0;PIN_TX_LED=0;CMT2300A_POWER=FG_NOT_allow_out;CMT2300A_Gpio1=0;}
     }    
   }
 	else if(FG_test_mode==1)
@@ -53,6 +53,7 @@ void SendTxData(void)
        ID_INT_CODE=0;
 			 CMT2300A_GoTx();
        FLAG_APP_TX=1;
+			 Time_Tx_Out = 550;
 }
 
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set)

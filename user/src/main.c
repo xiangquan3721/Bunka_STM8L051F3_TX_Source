@@ -15,7 +15,7 @@
 
 void main()
 {
-    //Init_WDT();
+    Init_WDT();
     Init_Clock(); 
     Init_IAP_flash();
     Init_Timer0();

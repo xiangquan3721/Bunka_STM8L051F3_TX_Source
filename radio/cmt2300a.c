@@ -723,6 +723,7 @@ void CMT2300A_EnableErrorStop(u8 bEnable)
 {
     xdata u8 tmp = CMT2300A_ReadReg(CMT2300A_CUS_EN_CTL);
 
+		tmp &= ~CMT2300A_MASK_LBD_STOP_EN;
     if(bEnable)
         tmp |= CMT2300A_MASK_ERROR_STOP_EN;
     else

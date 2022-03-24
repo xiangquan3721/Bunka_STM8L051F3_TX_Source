@@ -232,7 +232,7 @@ code u8 tx_back[11] = {
   0x0B,
   0x01,
   0x3F,
-  0x7F
+  0x5F
 };
 
 #endif

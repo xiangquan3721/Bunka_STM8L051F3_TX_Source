@@ -34,7 +34,7 @@ void key_check(void)
     
     if(TIME_BEEP_on)
     {
-        --TIME_BEEP_on;
+        //--TIME_BEEP_on;
         if(FG_beep_on==0)
         {
             FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1; //2015.3.11ÐÞÕý
@@ -43,7 +43,7 @@ void key_check(void)
     }
     else if(TIME_BEEP_off)
     {
-        --TIME_BEEP_off;
+        //--TIME_BEEP_off;
         if(FG_beep_off==0)
         {
             FG_beep_off=1;FG_beep_on=0;Beep_Off();//BEEP_CSR2_BEEPEN=0;  //2015.3.11ÐÞÕý
@@ -84,15 +84,13 @@ void time_control(void)
             if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
         }    
     }
-//    if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
-//    {
-//        FLAG_APP_TX = 0;
-//        PIN_TX_LED = 0;
-//        ML7345_SetAndGet_State(Force_TRX_OFF);
-//        ML7345_RESETN = 0;
-//        SpiGpio_UnInit();
-//        ML7345D_POWER = FG_NOT_allow_out;
-//    }
+    if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
+    {
+        FLAG_APP_TX = 0;
+        PIN_TX_LED = 0;
+        CMT2300A_POWER=FG_NOT_allow_out;
+				CMT2300A_Gpio1=0;		
+    }
 }
 
 //
@@ -780,10 +778,10 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
     //			TIME_BEEP_freq=2;
                 break ;
             case 4 :	
-                  _ReqBuzzer(500,1,0);
+                  _ReqBuzzer(500,10,0);
                   break ;
             case 20 :	
-                   _ReqBuzzer(1000,1,0);
+                   _ReqBuzzer(1000,10,0);
     //			BASE_TIME_BEEP_on=1000;
     //                        BASE_TIME_BEEP_off=1;
     //			TIME_BEEP_freq=0;
@@ -1175,7 +1173,7 @@ void	_RegistrationMode( void )
 		case	d_CloseKey :
 			_IdClear() ;							// ID clear
 			//_ReqBuzzer(d_BuzReg) ;
-			_ReqBuzzer(1000,1,0);
+			_ReqBuzzer(1000,10,0);
 			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
 			break ;
 			
@@ -1254,7 +1252,7 @@ void	_SetRegistrationMode( uchar mode )
 //	mb_LedOnOff = d_On ;
 //	
 //	_ReqBuzzer(d_BuzReg) ;
-	_ReqBuzzer(1000,1,0);
+	_ReqBuzzer(1000,10,0);
 	m_TimerRegMode = d_Time1min ;				// 1min. set (1s base)
 }
 u8 _GetRegMode(void)
