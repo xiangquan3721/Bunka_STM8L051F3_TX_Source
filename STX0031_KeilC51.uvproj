@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\STX0031_KeilC51\</OutputDirectory>
-          <OutputName>STX0031_MA82G5B32_CMT300A</OutputName>
+          <OutputName>STX0031-SSH (MA82G5B32_CMT2119B) Verx.xx</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>

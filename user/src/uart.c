@@ -280,34 +280,36 @@ void PC_PRG(void)								// ???????
 				Send_Data(send_ack,10);
 			}		  		  
 		    break;
-		case 'S':
+		case 'S':   //==open key is test mode
+			dd_set_CMT2300A_Power_on();
+			RF_Init_TestMode();
+			CMT2300A_SetFrequencyChannel(1); //Freq = 426.075MHz+2.5KHz*1*1
+			CMT2300A_GoTx();
+			CMT2300A_Gpio1=0;
 			FG_test_mode = 0;
-			//dd_set_ML7345D_Power_on();
-      //      PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-			//RF_ML7345_Init(Fre_429_175,0x15,12);
-      //      Tx_Data_Test(0);
 			Send_Data(send_ok,4);
 			break;
-		case 'E':
+		case 'E':  //==stop key is test mode
 			if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
 			{
-//                ML7345_SetAndGet_State(Force_TRX_OFF);
-//                SpiGpio_UnInit();
-//				ML7345D_POWER = FG_NOT_allow_out;
+				CMT2300A_GoSleep();
+				CMT2300A_POWER=FG_NOT_allow_out;
+				CMT2300A_Gpio1=0;
 				FG_test_mode = 0; 
-//				Send_Data(send_ok,4);
+				Send_Data(send_ok,4);
 			}
 			break;
-//		case 'F':
-//			if(SIO_DATA[2]=='M')
-//			{
-//				FG_test_mode = 1;
-////                dd_set_ML7345D_Power_on();
-////                PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-////                RF_ML7345_Init(Fre_429_175,0x15,12);
-////                Tx_Data_Test(1);
-//				Send_Data(send_ok,4);
-//			}
+		case 'F':  //==close key is test mode
+			if(SIO_DATA[2]=='M')
+			{
+				dd_set_CMT2300A_Power_on();
+				RF_Init_TestMode();
+				CMT2300A_SetFrequencyChannel(0);
+				CMT2300A_GoTx();
+				CMT2300A_Gpio1=0;
+				FG_test_mode = 1;
+				Send_Data(send_ok,4);
+			}
 //			else if (SIO_DATA[2]=='C' && SIO_DATA[3]=='?')
 //			{
 //				send_ack[0] = '(';
@@ -343,7 +345,24 @@ void PC_PRG(void)								// ???????
 //                }
 //                Tx_Data_Test(1);
 //			}
-//			break;
+			break;
+		case 'K':
+					if(SIO_DATA[2]=='Y' && SIO_DATA[3]==')')
+					{
+							send_ack[0] = '(';
+							send_ack[1] = 'K';
+							send_ack[2] = 'Y';
+							Key_Sta.un_var = 0;
+							Key_Sta.Flag.un_var_bit0 = PIN_KEY_OPEN;
+							Key_Sta.Flag.un_var_bit1 = PIN_KEY_STOP;
+							Key_Sta.Flag.un_var_bit2 = PIN_KEY_CLOSE;
+							Key_Sta.Flag.un_var_bit3 = PIN_KEY_LOGIN;
+							send_ack[3] = hex_asc((Key_Sta.un_var & 0xff) / 16);
+							send_ack[4] = hex_asc((Key_Sta.un_var & 0xff) % 16);
+							send_ack[5] = ')';
+							Send_Data(send_ack,6);
+					}
+					break;			
 		default:
 			break;          
 		}

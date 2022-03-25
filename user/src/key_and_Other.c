@@ -1323,16 +1323,23 @@ void test_mode_control(void)
 			Init_Uart0_T1(); 
       INT_EnAll();
 			
-			dd_set_CMT2300A_Power_on();
-			RF_Init_TestMode(); /* RF??????? */
-      if(FALSE==CMT2300A_IsExist()) {
-            while(1);  //?????
-      }
+			TIME_BEEP_off = 200;
+			Beep_On();            
+			while(TIME_BEEP_off);
+			Beep_Off();
+			
+//			dd_set_CMT2300A_Power_on();
+//			RF_Init_TestMode(); /* RF??????? */
+//      if(FALSE==CMT2300A_IsExist()) {
+//            while(1);  //?????
+//      }
 		}
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
             FG_KEY_OPEN = 1;
+					  dd_set_CMT2300A_Power_on();
+						RF_Init_TestMode();
 						CMT2300A_SetFrequencyChannel(1); //Freq = 426.075MHz+2.5KHz*1*1
 					  CMT2300A_GoTx();
 						CMT2300A_Gpio1=0;
@@ -1344,6 +1351,7 @@ void test_mode_control(void)
         {
             FG_KEY_STOP = 1;
 						CMT2300A_GoSleep();
+						CMT2300A_POWER=FG_NOT_allow_out;
 						CMT2300A_Gpio1=0;
 					  FG_test_mode=0;						
         }
@@ -1352,6 +1360,8 @@ void test_mode_control(void)
         if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
             FG_KEY_CLOSE = 1;
+					  dd_set_CMT2300A_Power_on();
+						RF_Init_TestMode();
 						CMT2300A_SetFrequencyChannel(0);
 						CMT2300A_GoTx();
 						CMT2300A_Gpio1=0;

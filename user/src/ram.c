@@ -79,6 +79,7 @@ xdata u16 key_Value = 0;   //2015.1.31??3
 
 xdata u8 TIME_2s_RestTX = 0;  //2015.4.13??
 xdata u16 TIME_power_on_AD = 0;
+xdata Mark_Un Key_Sta = {0};
 
 void _Init_RAM(void)
 {
