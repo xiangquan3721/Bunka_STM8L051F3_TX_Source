@@ -28,7 +28,7 @@ void key_check(void)
     else FG_d_StopKey=0;
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
-      if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+      if(time_led>=90){time_led=0;PIN_LED=!PIN_LED;}
     }
     if(m_TimerKey)--m_TimerKey;
     
@@ -87,7 +87,7 @@ void time_control(void)
     if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
     {
         FLAG_APP_TX = 0;
-        PIN_TX_LED = 0;
+        if(FG_d_StopKey==0)PIN_TX_LED=0;
         CMT2300A_POWER=FG_NOT_allow_out;
 				CMT2300A_Gpio1=0;		
     }
@@ -207,7 +207,7 @@ void	_KeyInTx( void )
            if(TIME_10s)--TIME_10s;    //2015.1.31ÐÞÕý3
 	   //dd_set_ADF7021_Power_on_Init();
 //            dd_set_ML7345D_Power_on_Init();
-		dd_set_CMT2300A_Power_on_Init();
+//		dd_set_CMT2300A_Power_on_Init();
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31ÐÞÕý3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
@@ -1325,8 +1325,6 @@ void test_mode_control(void)
 			
 			TIME_BEEP_off = 200;
 			Beep_On();            
-			while(TIME_BEEP_off);
-			Beep_Off();
 			
 //			dd_set_CMT2300A_Power_on();
 //			RF_Init_TestMode(); /* RF??????? */
@@ -1334,6 +1332,7 @@ void test_mode_control(void)
 //            while(1);  //?????
 //      }
 		}
+				if(TIME_BEEP_off==0)Beep_Off();
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
