@@ -2,11 +2,11 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Bunka Ver2.0 （ID ranges：1～16777213）"
-   ClientHeight    =   7725
+   Caption         =   "Bunka Ver2.7 （ID ranges：1～16777213）"
+   ClientHeight    =   7695
    ClientLeft      =   45
    ClientTop       =   435
-   ClientWidth     =   19155
+   ClientWidth     =   19950
    BeginProperty Font 
       Name            =   "宋体"
       Size            =   21.75
@@ -21,14 +21,33 @@ Begin VB.Form Form1
    MaxButton       =   0   'False
    MinButton       =   0   'False
    Picture         =   "Form1.frx":08CA
-   ScaleHeight     =   7725
-   ScaleWidth      =   19155
+   ScaleHeight     =   7695
+   ScaleWidth      =   19950
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  '屏幕中心
+   Begin VB.ComboBox Combo5 
+      BeginProperty Font 
+         Name            =   "宋体"
+         Size            =   15.75
+         Charset         =   134
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      ItemData        =   "Form1.frx":0910
+      Left            =   240
+      List            =   "Form1.frx":0929
+      TabIndex        =   109
+      Text            =   $"Form1.frx":09AF
+      Top             =   960
+      Width           =   3975
+   End
    Begin VB.Frame Frame5 
       Caption         =   "Receiver ADF7021"
       Height          =   7455
-      Left            =   13440
+      Left            =   14280
       TabIndex        =   44
       Top             =   0
       Width           =   5535
@@ -991,9 +1010,9 @@ Begin VB.Form Form1
          EndProperty
          Height          =   330
          Index           =   3
-         ItemData        =   "Form1.frx":0910
+         ItemData        =   "Form1.frx":09BB
          Left            =   240
-         List            =   "Form1.frx":0920
+         List            =   "Form1.frx":09CB
          TabIndex        =   51
          Text            =   "Icp = 0.3mA"
          Top             =   1560
@@ -1127,9 +1146,9 @@ Begin VB.Form Form1
    Begin VB.Frame Frame3 
       Caption         =   "Transmitter ADF7012"
       Height          =   6495
-      Left            =   6720
+      Left            =   7560
       TabIndex        =   14
-      Top             =   960
+      Top             =   1080
       Width           =   6495
       Begin VB.CommandButton Command8 
          Caption         =   "reset"
@@ -1176,9 +1195,9 @@ Begin VB.Form Form1
          EndProperty
          Height          =   330
          Index           =   2
-         ItemData        =   "Form1.frx":0958
+         ItemData        =   "Form1.frx":0A03
          Left            =   4320
-         List            =   "Form1.frx":0968
+         List            =   "Form1.frx":0A13
          TabIndex        =   39
          Text            =   "1.221kHz"
          Top             =   3120
@@ -1196,9 +1215,9 @@ Begin VB.Form Form1
          EndProperty
          Height          =   330
          Index           =   1
-         ItemData        =   "Form1.frx":0994
+         ItemData        =   "Form1.frx":0A3F
          Left            =   2400
-         List            =   "Form1.frx":09A4
+         List            =   "Form1.frx":0A4F
          TabIndex        =   37
          Text            =   "< 2.35V"
          Top             =   3120
@@ -1216,9 +1235,9 @@ Begin VB.Form Form1
          EndProperty
          Height          =   330
          Index           =   0
-         ItemData        =   "Form1.frx":09CC
+         ItemData        =   "Form1.frx":0A77
          Left            =   360
-         List            =   "Form1.frx":09DC
+         List            =   "Form1.frx":0A87
          TabIndex        =   35
          Text            =   "Icp = 0.3mA"
          Top             =   3120
@@ -1777,9 +1796,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      ItemData        =   "Form1.frx":0A14
+      ItemData        =   "Form1.frx":0ABF
       Left            =   120
-      List            =   "Form1.frx":0A21
+      List            =   "Form1.frx":0ACC
       TabIndex        =   8
       Text            =   "Trigger mode"
       Top             =   7920
@@ -1810,9 +1829,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      ItemData        =   "Form1.frx":0A58
+      ItemData        =   "Form1.frx":0B03
       Left            =   4800
-      List            =   "Form1.frx":0A83
+      List            =   "Form1.frx":0B8A
       TabIndex        =   4
       Text            =   "COM Port"
       Top             =   360
@@ -1823,7 +1842,7 @@ Begin VB.Form Form1
       Height          =   6015
       Left            =   120
       TabIndex        =   0
-      Top             =   1440
+      Top             =   1560
       Width           =   6375
       Begin VB.CommandButton Command2 
          Caption         =   "write"
@@ -1878,16 +1897,16 @@ Begin VB.Form Form1
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   1200
+         Left            =   840
          MaxLength       =   8
          TabIndex        =   2
          Text            =   "00000000"
          Top             =   1440
-         Width           =   3495
+         Width           =   4335
       End
       Begin VB.Image Image1 
          Height          =   735
-         Left            =   4800
+         Left            =   5400
          Top             =   1560
          Width           =   735
       End
@@ -1903,7 +1922,7 @@ Begin VB.Form Form1
             Strikethrough   =   0   'False
          EndProperty
          Height          =   855
-         Left            =   360
+         Left            =   120
          TabIndex        =   1
          Top             =   1440
          Width           =   1335
@@ -1942,6 +1961,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Dim timer_delay_rx_1 As Byte
+Dim id_seclect As Byte
+
 Public ComStatus As Boolean
 Dim InputSignal As String                                                           ' 接收缓冲暂存
 Private Sub Check2_Click()
@@ -2035,6 +2056,37 @@ Dim str0 As String
         TextR(1).Text = Mid(str0, 1, 3) + Right$("00" + Hex(d1), 2) + Mid(str0, 6, 3)
         TextR(1).BackColor = &H80FF80
                 
+    End If
+End Sub
+
+Private Sub Combo5_Click()
+    id_seclect = Combo5.ListIndex
+    If id_seclect = 0 Then
+       Text1.Text = "02000000"
+    End If
+    
+    If id_seclect = 1 Then
+       Text1.Text = "03000000"
+    End If
+    
+    If id_seclect = 2 Then
+       Text1.Text = "11000000"
+    End If
+    
+    If id_seclect = 3 Then
+       Text1.Text = "13000000"
+    End If
+    
+    If id_seclect = 4 Then
+       Text1.Text = "04000000"
+    End If
+    
+    If id_seclect = 5 Then
+       Text1.Text = "15100030"
+    End If
+    
+    If id_seclect = 6 Then
+       Text1.Text = "00000000"
     End If
 End Sub
 
@@ -2186,6 +2238,7 @@ Private Sub Command2_Click()
 
 Dim str As String
 Dim str0 As String
+Dim str_id As String
 Dim a As Long
 Dim d1  As Long
 Dim Send_Str As String
@@ -2223,8 +2276,41 @@ Command2.Enabled = True
 Exit Sub
 End If
 
+
+
+    str_id = Mid(Text1.Text, 1, 2)
+    If id_seclect = 0 Then
+       If str_id <> "02" Then
+          MsgBox "ID out of range,ID ranges:02000000～", vbInformation, "Error"
+          Command2.Enabled = True
+       End If
+    End If
+    
+    If id_seclect = 1 Then
+       If str_id <> "03" Then
+          MsgBox "ID out of range,ID ranges:03000000～", vbInformation, "Error"
+          Command2.Enabled = True
+       End If
+    End If
+    
+    If id_seclect = 2 Then
+       If str_id <> "11" Then
+          MsgBox "ID out of range,ID ranges:11000000～", vbInformation, "Error"
+          Command2.Enabled = True
+       End If
+    End If
+    
+    If id_seclect = 3 Then
+       If str_id <> "13" Then
+          MsgBox "ID out of range,ID ranges:13000000～", vbInformation, "Error"
+          Command2.Enabled = True
+       End If
+    End If
+    
+
 a = Val(Text1.Text)
 Text2.Text = "(WG" + Right$("000000" + Hex(a), 6) + ")"
+
 
 MSComm1.OutBufferCount = 0                   '清发送缓存区
 MSComm1.Output = Text2.Text
@@ -2236,16 +2322,48 @@ Text3.Text = ""
 Call timer_delay(200)
 
 'str = MSComm1.Input
+'If str = "" Then
 str = InputSignal
+'End If
+
 Text3.Text = str
 str0 = Mid(str, 1, 5)
-If str0 = "(WG)" Then
+If str0 = "(W" Or str0 = "(WG)" Then
 
     Image1.Picture = LoadPicture(App.Path & "\navigate_check.bmp")
 
 Else
 
-   Image1.Picture = LoadPicture(App.Path & "\navigate_cross.bmp")
+            Text2.Text = "(RG)"
+            
+            MSComm1.OutBufferCount = 0                   '清发送缓存区
+            MSComm1.Output = Text2.Text
+            MSComm1.InBufferCount = 0                    '清接收缓存区
+            InputSignal = ""
+            MSComm1.RThreshold = 10
+            
+            Text3.Text = ""
+            Call timer_delay(200)
+            
+            'str = MSComm1.Input
+            str = InputSignal
+            Text3.Text = str
+            str0 = Mid(str, 1, 4)
+            If str0 = "(RG)" Then
+                d1 = hex2dec(Mid(str, 5, 1)) * 16 + hex2dec(Mid(str, 6, 1))
+                d1 = d1 * 256
+                d1 = d1 + hex2dec(Mid(str, 7, 1)) * 16 + hex2dec(Mid(str, 8, 1))
+                d1 = d1 * 256
+                d1 = d1 + hex2dec(Mid(str, 9, 1)) * 16 + hex2dec(Mid(str, 10, 1))
+            End If
+            
+            If a = d1 Then
+               Image1.Picture = LoadPicture(App.Path & "\navigate_check.bmp")
+            Else
+
+              Image1.Picture = LoadPicture(App.Path & "\navigate_cross.bmp")
+            End If
+              
 End If
 
 
@@ -2640,6 +2758,12 @@ Case 8 '退格
 Case Else
 KeyAscii = 0
 End Select
+
+
+       If id_seclect = 255 Then
+          MsgBox "Please select  製品名", vbInformation, "Error"
+          Command2.Enabled = True
+       End If
 End Sub
 
 Private Sub Command3_Click()
@@ -2717,6 +2841,8 @@ Frame6.Enabled = False
    TextR(i0).Enabled = False
    CommandR(i0).Enabled = False
  Next
+ 
+ id_seclect = 255
 
 End Sub
 
