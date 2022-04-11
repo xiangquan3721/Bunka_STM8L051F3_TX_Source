@@ -1361,16 +1361,42 @@
 
 
 
-
+static UINT8 KEY_Status=0;
+static UINT8 KEY_Count = 0;
 
 //#ifndef TESTMODE_DEL
 void test_mode_control(void)
 {
 
+
+ PIN_KEY_VENT_direc = Input;   // ÊäÈë  »»Æø¼ü
+ PIN_KEY_VENT_CR1 = 1;
+
  while(PIN_test_mode==0)
  // while(1)
   {
   ClearWDT(); // Service the WDT 
+  
+  if((PIN_KEY_VENT==0)&&(FG_KEY_OPEN==0))
+  {
+    KEY_Count++;
+    if(KEY_Count>200)
+    {
+    FG_KEY_OPEN = 1;
+    KEY_Status = (KEY_Status+1)%3;
+    if(KEY_Status == 0) Command_S =1;
+    if(KEY_Status == 1) Command_END = 1;
+    if(KEY_Status == 2) Command_FM = 1;
+    }
+    
+  }
+  else if(PIN_KEY_VENT==1)  
+  {
+    KEY_Count--;
+    if(KEY_Count==0)
+        FG_KEY_OPEN = 0;
+  }
+  
   if(Command_S){
     Command_S = 0;
     //FG_KEY_OPEN=1;
