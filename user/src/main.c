@@ -30,7 +30,7 @@ void main()
     INT_EnAll();
     Adc_Start();
     TIME_power_on_AD = 30;
-
+    
     while(1) 
     {
         ClearWDT();

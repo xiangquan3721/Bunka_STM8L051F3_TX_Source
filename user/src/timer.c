@@ -30,7 +30,7 @@
 #define PCA_CL(x)		(u8)((PCA_C-(x))%256) 
 #define PCA_CH(x)     	(u8)((PCA_C-(x))/256)
 
-xdata u16 Time_Tx_Out = 0;      
+xdata u16 Time_Tx_Out = 0;
 /***********************************************************************************
 函数名称:   void InitTimer0(void)
 功能描述:Timer0初始化设置
@@ -46,7 +46,7 @@ void Init_Timer0(void)
 
 	TM_SetT0Gate_Disable();	
 		
-    TM_SetT0LowByte(TIMER_1T_1ms_TH);		// 设置T0低8位
+    TM_SetT0LowByte(TIMER_1T_1ms_TL);		// 设置T0低8位
 	TM_SetT0HighByte(TIMER_1T_1ms_TH);		// 设置T0高8位
 
 	TM_EnableT0();							// 使能T0
@@ -64,7 +64,7 @@ void Init_Timer0(void)
 void INT_T0(void) interrupt INT_VECTOR_T0
 {
 	TH0 = TIMER_1T_1ms_TH;
-	TL0 = TIMER_1T_1ms_TH;
+	TL0 = TIMER_1T_1ms_TL;
     
     FG_1ms = 1;
     if (TB_100ms)	--TB_100ms;
