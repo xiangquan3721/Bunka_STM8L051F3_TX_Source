@@ -3,6 +3,7 @@
 
 idata Mark_Un mark0_stu = {0};
 idata Mark_Un mark1_stu = {0};
+xdata Mark_Un Key_Sta = {0};
 
 xdata u8 write_flash_buffer[8] = {0};
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;

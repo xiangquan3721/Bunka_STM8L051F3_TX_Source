@@ -344,6 +344,24 @@ void PC_PRG(void)								// ???????
                 Tx_Data_Test(1);
 			}
 			break;
+        case 'K':
+            if(SIO_DATA[2]=='Y' && SIO_DATA[3]==')')
+            {
+                send_ack[0] = '(';
+                send_ack[1] = 'K';
+                send_ack[2] = 'Y';
+                Key_Sta.un_var = 0;
+                Key_Sta.Flag.un_var_bit0 = PIN_KEY_OPEN;
+                Key_Sta.Flag.un_var_bit1 = PIN_KEY_STOP;
+                Key_Sta.Flag.un_var_bit2 = PIN_KEY_CLOSE;
+                Key_Sta.Flag.un_var_bit3 = PIN_KEY_LOGIN;
+                send_ack[3] = hex_asc((Key_Sta.un_var & 0xff) / 16);
+                send_ack[4] = hex_asc((Key_Sta.un_var & 0xff) % 16);
+                send_ack[5] = ')';
+                Send_Data(send_ack,6);
+            }
+            break;
+            
 		default:
 			break;          
 		}

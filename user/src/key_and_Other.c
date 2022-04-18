@@ -1317,9 +1317,13 @@ void test_mode_control(void)
 		{
 			Flag_test_mode = 1;
 			PIN_POWER_CONTROL = 1;
-			PIN_TX_LED = 1;
+            PIN_TX_LED = 1;
 			Init_Uart0_T1(); 
-            INT_EnAll();            
+            INT_EnAll(); 
+            Beep_On();
+            TIME_BEEP_off = 200;            
+            while(TIME_BEEP_off);
+            Beep_Off();
 		}
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))

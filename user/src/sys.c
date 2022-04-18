@@ -42,7 +42,7 @@ void Init_Clock(void)
 void Init_WDT(void)
 {
     PCON1 |= WDTF;
-    WDT_SetClock_32K_DIV_16_256ms();
+    WDT_SetClock_32K_DIV_16_256ms();    //复位时间248ms
     WDT_EnReset();
 	WDT_Enable();		// 使能看门狗
 }

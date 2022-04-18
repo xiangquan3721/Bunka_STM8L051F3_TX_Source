@@ -33,7 +33,7 @@ void main()
     
     while(1) 
     {
-        ClearWDT();
+        ClearWDT(); 
         key_check();
         time_control();
         AD_control();

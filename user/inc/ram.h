@@ -237,7 +237,7 @@ extern xdata u8 SIO_DATA[16];
 #define d_D1stTime3s 3000
 #define d_Time3s  3000
 #define d_Time10s 10000
-#define d_Time1min 60000
+#define d_Time1min 50000
 /*		kind of key		*/
 #define		d_IdleKey		0					// Idle(N/A)
 #define		d_OpenKey		1
@@ -301,6 +301,7 @@ extern xdata u16 key_Value;   //2015.1.31??3
 
 extern xdata u8 TIME_2s_RestTX;  //2015.4.13??
 extern xdata u16 TIME_power_on_AD;
+extern xdata Mark_Un Key_Sta;
 
 void _Init_RAM(void);
 
