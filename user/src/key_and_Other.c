@@ -207,6 +207,7 @@ void	_KeyInTx( void )
            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31ÐÞÕý4
            if(TIME_10s)--TIME_10s;    //2015.1.31ÐÞÕý3
 	   //dd_set_ADF7021_Power_on_Init();
+        //dd_set_ML7345D_Power_on_Init();
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31ÐÞÕý3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
@@ -1320,10 +1321,9 @@ void test_mode_control(void)
 			Init_Uart0_T1(); 
             INT_EnAll(); 
             Beep_On();
-            TIME_BEEP_off = 200;            
-            while(TIME_BEEP_off);
-            Beep_Off();
+            TIME_BEEP_off = 200;             
 		}
+        if(TIME_BEEP_off == 0)  Beep_Off();
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {

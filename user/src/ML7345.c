@@ -100,8 +100,8 @@ void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
 
     ML7345_Write_Reg(0x63,0x88);    /* Fine adjustment of load capacitance for oscillation circuits */
 
-    ML7345_Write_Reg(0x67,0x02);    /* 功率设置0dbm */
-    ML7345_Write_Reg(0x68,0x10);    /* PA regulator fine adjustment */
+    ML7345_Write_Reg(0x67,0x00);    /* 功率设置0dbm */
+    ML7345_Write_Reg(0x68,0x00);    /* PA regulator fine adjustment */
     ML7345_Write_Reg(0x69,0x00);    /* PA gain adjustment */
 
     ML7345_Write_Reg(0x6e,0x5b);    /*5b VCO calibration setting or status indication */
