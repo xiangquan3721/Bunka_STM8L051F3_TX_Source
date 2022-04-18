@@ -32,7 +32,7 @@ void Init_Port(void)
     PORT_EnP20P21P22P23PullHigh();                      // 使能 P20,P21,P22,P23 上拉
 	PORT_EnP24P25P26P27PullHigh();			            // 使能 P24,P25,P26,P27 上拉
     P20 = 0;
-
+    
     /* ML7345_RESETN:P34; ML7345D_POWER:P35; */
     PORT_SetP3PushPull(BIT5);                      // 设置P34/P35 为推挽输出
     
@@ -51,10 +51,10 @@ void Init_Port(void)
     ML7345D_POWER = FG_NOT_allow_out;
     
     PORT_SetP2OpenDrain(BIT2|BIT3|BIT4|BIT6);           //未用IO口全部设为输入
-    P22=1;P23=1;P24=1;P26=1;
+    P22=0;P23=0;P24=0;P26=0;
     PORT_SetP3InputOnly(BIT2);
     PORT_SetP4OpenDrain(BIT1);
-    P41=1;
+    P41=0;
 }
 
 void SpiGpio_Init(void)
@@ -69,7 +69,7 @@ void SpiGpio_Init(void)
 void SpiGpio_UnInit(void)
 {
     PORT_SetP1OpenDrain(BIT4|BIT5|BIT6|BIT7);
-    P16 = 0;                                            // 输入
+    P16 = 0;                                           
     P14 = 0;P15 = 0;P17 = 0;
     
     PORT_SetP3InputOnly(BIT4);

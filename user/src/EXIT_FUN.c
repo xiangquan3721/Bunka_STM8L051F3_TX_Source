@@ -41,14 +41,16 @@ void SendTxData(void)
     if(m_RegMode==0)
     {
         SetTxData(0,ID_data,Control_code);
-        txphase_end = 12;
+        m_RFNormalBuf[12] = 0xFF;
+        txphase_end = 13;
     }
     else 
     {
         SetTxData(0,ID_data,0x80);
         if(m_RegMode==1)    SetTxData(12,ID_data_add,0xFF);    //"1"是追加
         else SetTxData(12,ID_data_add,0);    //"2"是抹消
-        txphase_end = 24;
+        m_RFNormalBuf[24] = 0xFF;
+        txphase_end = 25;
     }
     FLAG_APP_TX = 1;
     ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);

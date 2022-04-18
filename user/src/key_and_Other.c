@@ -33,7 +33,7 @@ void key_check(void)
     
     if(TIME_BEEP_on)
     {
-        --TIME_BEEP_on;
+        //--TIME_BEEP_on;
         if(FG_beep_on==0)
         {
             FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1; //2015.3.11ÐÞÕý
@@ -42,7 +42,7 @@ void key_check(void)
     }
     else if(TIME_BEEP_off)
     {
-        --TIME_BEEP_off;
+        //--TIME_BEEP_off;
         if(FG_beep_off==0)
         {
             FG_beep_off=1;FG_beep_on=0;Beep_Off();//BEEP_CSR2_BEEPEN=0;  //2015.3.11ÐÞÕý
@@ -778,10 +778,10 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
     //			TIME_BEEP_freq=2;
                 break ;
             case 4 :	
-                  _ReqBuzzer(500,1,0);
+                  _ReqBuzzer(500,10,0);
                   break ;
             case 20 :	
-                   _ReqBuzzer(1000,1,0);
+                   _ReqBuzzer(1000,10,0);
     //			BASE_TIME_BEEP_on=1000;
     //                        BASE_TIME_BEEP_off=1;
     //			TIME_BEEP_freq=0;
@@ -1171,7 +1171,7 @@ void	_RegistrationMode( void )
 		case	d_CloseKey :
 			_IdClear() ;							// ID clear
 			//_ReqBuzzer(d_BuzReg) ;
-			_ReqBuzzer(1000,1,0);
+			_ReqBuzzer(1000,10,0);
 			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
 			break ;
 			
@@ -1250,7 +1250,7 @@ void	_SetRegistrationMode( uchar mode )
 //	mb_LedOnOff = d_On ;
 //	
 //	_ReqBuzzer(d_BuzReg) ;
-	_ReqBuzzer(1000,1,0);
+	_ReqBuzzer(1000,10,0);
 	m_TimerRegMode = d_Time1min ;				// 1min. set (1s base)
 }
 u8 _GetRegMode(void)

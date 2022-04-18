@@ -36,7 +36,7 @@ void INT_ADC(void) interrupt INT_VECTOR_ADC
         ADC_Disable();                              //关闭ADC
 		RAM_BAT_CNT = 0;
 		RAM_BAT_AVG = RAM_BAT_SUM / 20;
-        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //采集电压0.9V.
+        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //采集电压0.9V.//0.9 * 1024 = 921.6
 		RAM_BAT_SUM = 0;
     }
 }

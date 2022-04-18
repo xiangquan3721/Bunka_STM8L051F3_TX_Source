@@ -73,6 +73,14 @@ void INT_T0(void) interrupt INT_VECTOR_T0
         FG_100ms = 1;	      // 100mS FLAG
 	}
     if(Time_Tx_Out) --Time_Tx_Out;
+    
+    if(TIME_BEEP_on) 
+    {
+        if(FG_beep_on == 1)
+            --TIME_BEEP_on;
+    }
+    else if(TIME_BEEP_off)      
+        --TIME_BEEP_off;
 }
 
 
