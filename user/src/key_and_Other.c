@@ -6,7 +6,7 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/ 
-#include "key_and_Other.h"		// ∞¥º¸
+#include "key_and_Other.h"		// ÔøΩÔøΩÔøΩÔøΩ
 
 xdata u32 m_ID;
 void key_check(void)
@@ -37,7 +37,7 @@ void key_check(void)
         //--TIME_BEEP_on;
         if(FG_beep_on==0)
         {
-            FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1; //2015.3.11–ﬁ’˝
+            FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1; //2015.3.11ÔøΩÔøΩÔøΩÔøΩ
             if(FG_LED_on)   PIN_LED=1;
         }
     }
@@ -46,7 +46,7 @@ void key_check(void)
         //--TIME_BEEP_off;
         if(FG_beep_off==0)
         {
-            FG_beep_off=1;FG_beep_on=0;Beep_Off();//BEEP_CSR2_BEEPEN=0;  //2015.3.11–ﬁ’˝
+            FG_beep_off=1;FG_beep_on=0;Beep_Off();//BEEP_CSR2_BEEPEN=0;  //2015.3.11ÔøΩÔøΩÔøΩÔøΩ
             if(FG_LED_on)   PIN_LED=0;
         }
     }
@@ -57,7 +57,7 @@ void key_check(void)
         TIME_BEEP_off=BASE_TIME_BEEP_off;
         if(FG_beep_on==0)
         {
-            FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1;  //2015.3.11–ﬁ’˝
+            FG_beep_on=1;FG_beep_off=0;Beep_On();//BEEP_CSR2_BEEPEN=1;  //2015.3.11ÔøΩÔøΩÔøΩÔøΩ
             if(FG_LED_on)PIN_LED=1;
         }      
     }
@@ -66,7 +66,7 @@ void key_check(void)
 //    if(FG_BAT_value==0){START_AD_SAMPLER();FG_BAT_value=1;}
 //    else {ADC_read();FG_BAT_value=0;}
     _KeyInTx();
-    if(FG_10s==1) return;   // 2015.1.31–ﬁ’˝3
+    if(FG_10s==1) return;   // 2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
     _RegistrationMode();
     _DupliFuncSetMode();
     //ADC2_EOC_INT();
@@ -79,7 +79,7 @@ void time_control(void)
 {
     if(FG_100ms){
         FG_100ms=0; 
-        if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13–ﬁ’˝    
+        if(TIME_2s_RestTX)--TIME_2s_RestTX;    //2015.4.13ÔøΩÔøΩÔøΩÔøΩ    
         if(FG_PWRON==1){
             if ((TB_5s)&&(m_KeyOptSetMode==0))	--TB_5s;
         }    
@@ -184,8 +184,8 @@ void	_KeyInTx( void )
 		m_KeyOld = m_KeyNew ;
 		_SetKeyChatterCount() ;						// Chatter counter set
 		_ClearSpecialMultiKeyState() ;				// Clear key continue state
-                TIME_Once_twice_switch=5000;   //2015.1.31–ﬁ’˝4
-                TIME_10s=10100;  //2015.1.31–ﬁ’˝3
+                TIME_Once_twice_switch=5000;   //2015.1.31ÔøΩÔøΩÔøΩÔøΩ4
+                TIME_10s=10100;  //2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
 		return ;
 	}
 	
@@ -203,15 +203,15 @@ void	_KeyInTx( void )
 //			_ReqBuzzer(d_BuzBattLow) ;				// Request
 //		}
 	    //if(BAT_value>1000){
-           if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31–ﬁ’˝4
-           if(TIME_10s)--TIME_10s;    //2015.1.31–ﬁ’˝3
+           if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31ÔøΩÔøΩÔøΩÔøΩ4
+           if(TIME_10s)--TIME_10s;    //2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
 	   //dd_set_ADF7021_Power_on_Init();
 //            dd_set_ML7345D_Power_on_Init();
 //		dd_set_CMT2300A_Power_on_Init();
-           if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31–ﬁ’˝3
+           if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
-			if(TIME_10s==0){      //2015.1.31–ﬁ’˝3
+			if(TIME_10s==0){      //2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
                            BASE_TIME_BEEP_on=103;
                            BASE_TIME_BEEP_off=103;
                         }
@@ -236,8 +236,8 @@ void	_KeyInTx( void )
 			break ;									// Yes
 		}
 	}
-        key_Value=i;   // 2015.1.31–ﬁ’˝3
-        if(FG_10s==1)return;   // 2015.1.31–ﬁ’˝3
+        key_Value=i;   // 2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
+        if(FG_10s==1)return;   // 2015.1.31ÔøΩÔøΩÔøΩÔøΩ3
         
 	if	( i == 17)			// Found ?
 	{												// No
@@ -252,7 +252,7 @@ void	_KeyInTx( void )
 	{												// Yes
 		if	( m_KeyNew != d_KeyNoPush )		// Is key data no push ?
 		{
-                        if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));    //Ω‚æˆ∏¥ ˝ ‰≥ˆ£¨∞¥º¸Œ¥À…“ª÷±∑¢ÀÕ 
+                        if(((i==5)||(i==6)||(i==7)||(i==9)||(i==12))&&(FLAG_APP_TX==0));    //ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩŒ¥ÔøΩÔøΩ“ª÷±ÔøΩÔøΩÔøΩÔøΩ 
 			else return ;								// No
 		}
 	}
@@ -266,7 +266,7 @@ void	_KeyInTx( void )
 		case 2 :  
 		case 3 : 
 		case 4 :   
-		        if(FLAG_APP_TX==0)_FuncStop();   //2015.1.31–ﬁ’˝4
+		        if(FLAG_APP_TX==0)_FuncStop();   //2015.1.31ÔøΩÔøΩÔøΩÔøΩ4
 			break ;	
 		case 5 :  
 		case 6 :  
@@ -334,7 +334,7 @@ void	_FuncOpenReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=TB_60s;//60;  //5.1√Î
+	           TB_5s=TB_60s;//60;  //5.1ÔøΩÔøΩ
                 }
 		return ;
 	}
@@ -357,7 +357,7 @@ void	_FuncCloseReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=TB_60s;//60;  //5.1√Î
+	           TB_5s=TB_60s;//60;  //5.1ÔøΩÔøΩ
                 }
 		return ;
 	}
@@ -380,7 +380,7 @@ void	_FuncVentReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=TB_60s;//60;  //5.1√Î
+	           TB_5s=TB_60s;//60;  //5.1ÔøΩÔøΩ
                 }
 		return ;
 	}
@@ -403,7 +403,7 @@ void	_FuncStopReg( void )
 		if(FG_PWRON==0){
 	           FG_PWRON=1;
 	           PIN_POWER_CONTROL=1;
-	           TB_5s=TB_60s;//60;  //5.1√Î
+	           TB_5s=TB_60s;//60;  //5.1ÔøΩÔøΩ
                 }
 		return ;
 	}
@@ -417,7 +417,7 @@ void	_Pass3secKey( uchar req )
 		if	( !--m_TimerKey )
 		{											// Yes
 			_ReqTxdEdit( req,0 ) ;
-                        FG_Complex_Single_shot=1;   //2015.1.31–ﬁ’˝2
+                        FG_Complex_Single_shot=1;   //2015.1.31ÔøΩÔøΩÔøΩÔøΩ2
 			return ;
 		}
 	}
@@ -442,7 +442,7 @@ void	_FuncReg( void )
 		          if(FG_PWRON==0){
 	                     FG_PWRON=1;
 	                     PIN_POWER_CONTROL=1;
-			     TB_5s=51;//TB_51s;//51;  //5.1√Î
+			     TB_5s=51;//TB_51s;//51;  //5.1ÔøΩÔøΩ
                           }	
 			m_TimerKeyMonitor = d_Time10s ;			// Set 10sec key timer
 			m_KeyCount = 2 ;
@@ -478,7 +478,7 @@ void	_FuncStop( void )
 	{												// No
 		if	( mb_OpenSw || mb_StopSw || mb_CloseSw )// Continue push ?
 		{											// Yes
-			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31–ﬁ’˝4	  // 5sec passed ?
+			if	(( !m_TimerKey )&&(FG_BAT==0)&&(TIME_Once_twice_switch==0))  //2015.1.31ÔøΩÔøΩÔøΩÔøΩ4	  // 5sec passed ?
 			{
 //				if	( !--m_TimerKey )
 //				{									// Yes
@@ -498,7 +498,7 @@ void	_FuncStop( void )
 						if(FG_PWRON==0){
 	                                            FG_PWRON=1;
 	                                            PIN_POWER_CONTROL=1;
-	                                            TB_5s=TB_51s;//51;  //5.1√Î
+	                                            TB_5s=TB_51s;//51;  //5.1ÔøΩÔøΩ
                                                 }
 					m_KeyDupliSetTimeout = d_DupliTime4s ;
 					m_KindOfKey = d_Idle ;
@@ -541,11 +541,11 @@ void	_FuncStop( void )
 			break;
 	}
         
-          /********2015.1.31◊∑º”  ∞¥“ª¥Œƒ£ Ω********/
+          /********2015.1.31‰∏ÄÊ¨°Ê®°Âºè********/
 	if	( !rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?
         
-//          /********2015.1.31◊∑º”  ∞¥2¥Œƒ£ Ω********/
-//	if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
+    //      /********2015.1.31‰∫åÊ¨°Ê®°Âºè********/
+	// if	( rom_KeyOpt || m_KindOfKey == d_VentKey  )// Single push option or Vent. key ?        
 	{												// Yes
 		_DupliFuncClear() ;							// Duplicate key function clear
 		_ReqTxdEdit( m_KeyNo,m_KeyNo ) ;
@@ -711,18 +711,18 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
 {
     xdata u8 time_key;
     if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25))
-    {      //º∆À„ £”‡µƒ ±º‰£¨◊‹π≤ ±º‰≤ªƒ‹≥¨π˝69£¨“‘25Œ™º‰∏Ù°£
+    {      //ÔøΩÔøΩÔøΩÔøΩ £ÔøΩÔøΩÔøΩ ±ÔøΩ‰£¨ÔøΩ‹πÔøΩ ±ÔøΩ‰≤ªÔøΩ‹≥ÔøΩÔøΩÔøΩ69ÔøΩÔøΩÔøΩÔøΩ25Œ™ÔøΩÔøΩÔøΩÔøΩÔøΩ
         time_key=25-TB_5s;
         TB_sum_5s=TB_sum_5s+time_key;
         if((69-TB_sum_5s)>=27)  TB_5s=25;
     }
     if((TB_5s>=25)||(TIME_2s_RestTX==0))
-    {   //2015.4.13–ﬁ’˝
+    {   //2015.4.13ÔøΩÔøΩÔøΩÔøΩ
         if(FG_PWRON==0)
         {
             FG_PWRON=1;
             PIN_POWER_CONTROL=1;
-            TB_5s=TB_51s;//51;  //5.1√Î
+            TB_5s=TB_51s;//51;  //5.1ÔøΩÔøΩ
         }
         switch	( txreq )    // Jumo to key function
         {
@@ -736,7 +736,7 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
                     Control_code=0x02;    //close
                 break ;
             case 4 :	
-                    Control_code=0x01;    //vnet ªª∆¯
+                    Control_code=0x01;    //vnet ÔøΩÔøΩÔøΩÔøΩ
                 break ;
             case 10 :	              //Stop + Reg
                     Control_code=0x14;
@@ -793,7 +793,7 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
 				dd_set_CMT2300A_Power_on();
 				RF_Init_TestMode();				
         SendTxData();
-        TIME_2s_RestTX = 25;       //2015.4.13–ﬁ’˝        
+        TIME_2s_RestTX = 25;       //2015.4.13ÔøΩÔøΩÔøΩÔøΩ        
   }
   else PIN_LED=0;
 }
@@ -1120,7 +1120,7 @@ void	_RegistrationMode( void )
 	PIN_POWER_CONTROL=1;
         }	
 	if(m_TimerRegMode){
-	  TB_5s=51;//TB_51s;//51;  //5.1√Î
+	  TB_5s=51;//TB_51s;//51;  //5.1ÔøΩÔøΩ
           time_led++;
           if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
 	}
@@ -1324,7 +1324,8 @@ void test_mode_control(void)
       INT_EnAll();
 			
 			TIME_BEEP_off = 200;
-			Beep_On();            
+			Beep_On();
+			Flag_beep = 0;            
 			
 //			dd_set_CMT2300A_Power_on();
 //			RF_Init_TestMode(); /* RF??????? */
@@ -1332,7 +1333,11 @@ void test_mode_control(void)
 //            while(1);  //?????
 //      }
 		}
-				if(TIME_BEEP_off==0)Beep_Off();
+        if(TIME_BEEP_off == 0 && Flag_beep == 0) 
+        { 
+            Flag_beep = 1;           
+            Beep_Off();
+        }
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
@@ -1375,7 +1380,7 @@ void test_mode_control(void)
 //				if(CMT2300A_ReadGpio2()==0)
 //					FG_test1=0;				
 				
-        PC_PRG();	       // PCøÿ÷∆  
+        PC_PRG();	       // PCÔøΩÔøΩÔøΩÔøΩ  
     }  
     if(Flag_test_mode == 1)
     {

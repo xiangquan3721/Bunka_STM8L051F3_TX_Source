@@ -9,11 +9,13 @@
 #ifndef __EXIT_FUN_H__
 #define __EXIT_FUN_H__
 
-#include "gpio.h"		// №ЬЅЕ¶ЁТе
-#include "Type.h"		// іхКј»Ї  Ф¤¶ЁТе
-#include "ram.h"		// RAM¶ЁТе
+#include "gpio.h"		// пїЅЬЅЕ¶пїЅпїЅпїЅ
+#include "Type.h"		// пїЅпїЅКјпїЅпїЅ  Ф¤пїЅпїЅпїЅпїЅ
+#include "ram.h"		// RAMпїЅпїЅпїЅпїЅ
 #include "EXIT_FUN.h"
 //#include "ML7345.h"
+
+#define BUNKA_STX    1  //0з”ЁдєЋж–°з”џзІѕ; 1з”ЁдєЋж–‡еЊ–(Bunka)йЂЃдїЎжњєSTX0031
 
 void SendTxData(void);
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set);

@@ -38,8 +38,14 @@ void SendTxData(void)
 {
   xdata u8 i;
        m_RFNormalBuf[0]=0xFF;
+#if (BUNKA_STX == 1)	   
        for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[14]=0x15;
+#else	
+       for(i=1;i<=12;i++)m_RFNormalBuf[i]=0x55;
+       m_RFNormalBuf[13]=0x54;
+       m_RFNormalBuf[14]=0x56;
+#endif 
        PIN_TX_LED=1;
        if(m_RegMode==0){
 	 txphase_end=224;

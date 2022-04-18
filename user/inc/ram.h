@@ -7,7 +7,7 @@
 #include "key_and_Other.h"
 
 extern xdata u16 X_COUNT;
-extern xdata u16 X_ERR; //记录错误的个�?
+extern xdata u16 X_ERR; //记录错误的个�?
 extern xdata u8  X_ERR_CNT;
 extern xdata u16 X_ERRTimer;
 
@@ -63,6 +63,7 @@ extern xdata Mark_Un mark1_stu;
 #define Flag_test_rssi   mark1_stu.Flag.un_var_bit2
 #define Flag_test_pc     mark1_stu.Flag.un_var_bit3
 #define key_flag         mark1_stu.Flag.un_var_bit4  
+#define Flag_beep        mark1_stu.Flag.un_var_bit5
 
 //-----------------------------------------------------------------------------------------------
 typedef union{

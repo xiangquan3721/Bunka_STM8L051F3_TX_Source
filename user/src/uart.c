@@ -280,6 +280,20 @@ void PC_PRG(void)								// ???????
 				Send_Data(send_ack,10);
 			}		  		  
 		    break;
+		}
+
+        if(SIO_DATA[1] == 'T' && SIO_DATA[2] == 'E' && SIO_DATA[3] == 'S' && SIO_DATA[4] == 'T' && SIO_DATA[5]==')')
+        {
+            Flag_test_pc = 1;
+            FG_test_mode = 0;
+            PIN_TX_LED = 0;
+            P20 = 0;
+            Send_Data(send_ok,4);
+        }
+        if(Flag_test_pc == 1)
+        {
+		switch(SIO_DATA[1])
+		{
 		case 'S':   //==open key is test mode
 			dd_set_CMT2300A_Power_on();
 			RF_Init_TestMode();
@@ -292,6 +306,7 @@ void PC_PRG(void)								// ???????
 		case 'E':  //==stop key is test mode
 			if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
 			{
+				Flag_test_pc = 0;
 				CMT2300A_GoSleep();
 				CMT2300A_POWER=FG_NOT_allow_out;
 				CMT2300A_Gpio1=0;
@@ -362,9 +377,22 @@ void PC_PRG(void)								// ???????
 							send_ack[5] = ')';
 							Send_Data(send_ack,6);
 					}
-					break;			
+					break;
+		case 'P':
+					if(SIO_DATA[2]=='H' && SIO_DATA[5]==')')
+					{
+						if(SIO_DATA[3]=='2' && SIO_DATA[4]=='7')         {PIN_TX_LED = 1;   Send_Data(send_ok,4);}
+						else if(SIO_DATA[3]=='2' && SIO_DATA[4]=='0')    {P20 = 1;          Send_Data(send_ok,4);}
+					}
+					else if(SIO_DATA[2]=='L' && SIO_DATA[5]==')')
+					{
+						if(SIO_DATA[3]=='2' && SIO_DATA[4]=='7')         {PIN_TX_LED = 0;   Send_Data(send_ok,4);}
+						else if(SIO_DATA[3]=='2' && SIO_DATA[4]=='0')    {P20 = 0;          Send_Data(send_ok,4);}
+					}
+					break;								
 		default:
 			break;          
+		}
 		}
 	}
 }
