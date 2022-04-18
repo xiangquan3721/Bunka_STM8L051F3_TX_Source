@@ -227,7 +227,7 @@ extern xdata u8 SIO_DATA[16];
 #define d_RegAppend	 1
 #define d_RegDelete	 2
 #define d_KeyNoPush  0xFF
-#define d_Time50ms  50
+#define d_Time50ms  10
 #define d_DupliTime4s  4000
 #define d_DupliTime1s  1000
 #define d_DupliTime3s  3000

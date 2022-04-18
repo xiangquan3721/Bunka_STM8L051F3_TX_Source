@@ -283,8 +283,8 @@ void PC_PRG(void)								// ???????
 		case 'S':
 			FG_test_mode = 0;
 			dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-			RF_ML7345_Init(Fre_429_175,0x15,12);
+            PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+			RF_ML7345_Init(Fre_426_075,0x15,12);
             Tx_Data_Test(0);
 			Send_Data(send_ok,4);
 			break;
@@ -303,8 +303,8 @@ void PC_PRG(void)								// ???????
 			{
 				FG_test_mode = 1;
                 dd_set_ML7345D_Power_on();
-                PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-                RF_ML7345_Init(Fre_429_175,0x15,12);
+                PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+                RF_ML7345_Init(Fre_426_075,0x15,12);
                 Tx_Data_Test(1);
 				Send_Data(send_ok,4);
 			}
@@ -326,9 +326,9 @@ void PC_PRG(void)								// ???????
                 {
                     rf_offset = re_byte;
                     IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 + 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
-                    ML7345_Frequency_Set(Fre_429_175,1);
+                    PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 + 150 * re_byte;
+                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
+                    ML7345_Frequency_Set(Fre_426_075,1);
                     Send_Data(send_ok,4);
                 }
                 else if(10 < re_byte && re_byte <= 20) //frequency -
@@ -336,9 +336,9 @@ void PC_PRG(void)								// ???????
                     rf_offset = re_byte;
                     IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
                     re_byte = re_byte - 10;
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 429175000 - 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_429_175);
-                    ML7345_Frequency_Set(Fre_429_175,1);
+                    PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 - 150 * re_byte;
+                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
+                    ML7345_Frequency_Set(Fre_426_075,1);
                     Send_Data(send_ok,4);
                 }
                 Tx_Data_Test(1);

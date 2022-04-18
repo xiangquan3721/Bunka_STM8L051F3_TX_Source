@@ -34,7 +34,7 @@ void Init_Port(void)
     P20 = 0;
 
     /* ML7345_RESETN:P34; ML7345D_POWER:P35; */
-    PORT_SetP3PushPull(BIT4|BIT5);                      // 设置P34/P35 为推挽输出
+    PORT_SetP3PushPull(BIT5);                      // 设置P34/P35 为推挽输出
     
     /* PIN_POWER_CONTROL:P40 */
     PORT_SetP4PushPull(BIT0);                           // 设置P40为推挽输出
@@ -63,14 +63,16 @@ void SpiGpio_Init(void)
 	PORT_SetP1OpenDrain(BIT6);							// 设置P16(MISO)为准双向口
     P16 = 1;                                            // 输入
 	PORT_EnP14P15P16P17PullHigh();
+    PORT_SetP3PushPull(BIT4);
 }
 
 void SpiGpio_UnInit(void)
 {
     PORT_SetP1OpenDrain(BIT4|BIT5|BIT6|BIT7);
-    P16 = 1;                                            // 输入
-    P14 = 1;P15 = 1;P17 = 1;
-	//PORT_EnP14P15P16P17PullHigh();
+    P16 = 0;                                            // 输入
+    P14 = 0;P15 = 0;P17 = 0;
+    
+    PORT_SetP3InputOnly(BIT4);
 }
 
 

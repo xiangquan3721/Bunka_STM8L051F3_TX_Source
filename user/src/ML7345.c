@@ -147,7 +147,9 @@ void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
 
     ML7345_Write_Reg(0x2f,0x08);    /* GFSK clock setting x8 clock,GFSK/FSK modulation timing resolution setting */
     ML7345_Write_Reg(0x30,0x00);    /* GFSK frequency deviation setting (high 6bits) */
-    ML7345_Write_Reg(0x31,0xAE);    /* P71  GFSK frequency deviation:2.0KHz,GFSK frequency deviation setting (low byte) */
+    
+    //GFSK frequency deviation: 0xAE=2.0kHz; 0xC0=2.2kHz
+    ML7345_Write_Reg(0x31,0xC0);    /* P71  GFSK frequency deviation:2.2KHz,GFSK frequency deviation setting (low byte) */
 
     /*(Channel#0 frequency-400khz)426.075:0x23 0x07 0x91 0x11;
     426.25:0x23 0x07 0xcc 0xcc */

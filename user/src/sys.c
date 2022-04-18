@@ -34,9 +34,7 @@ void Init_Clock(void)
 
 #if (MCU_SYSCLK == 3000000)
     CLK_SetCKCON2(ENABLE_IHRCO);
-    DelayXus(100);
     CLK_SetCKCON3(0x0A);                                    //12MHz/4
-    DelayXus(100);
 #endif
 }
 

@@ -1326,10 +1326,9 @@ void test_mode_control(void)
         {
             FG_KEY_OPEN = 1;
             dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-            RF_ML7345_Init(Fre_429_175,0x15,12);
+            PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+            RF_ML7345_Init(Fre_426_075,0x15,12);
             FG_test_mode = 0;
-            ML7345_SetAndGet_State(Force_TRX_OFF);
             Tx_Data_Test(0);
         }
         if(PIN_KEY_OPEN == 1) FG_KEY_OPEN = 0;
@@ -1348,8 +1347,8 @@ void test_mode_control(void)
         {
             FG_KEY_CLOSE = 1;
             dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 429175000;
-            RF_ML7345_Init(Fre_429_175,0x15,12);
+            PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+            RF_ML7345_Init(Fre_426_075,0x15,12);
             Tx_Data_Test(1);
             FG_test_mode = 1;
         }
