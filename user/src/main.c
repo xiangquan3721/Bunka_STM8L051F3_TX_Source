@@ -24,7 +24,7 @@ void main()
     Init_Spi();
     Init_Adc(); 
     _Init_RAM();
-    Init_Beep();
+    Init_Beep(); 
     test_mode_control();
     Init_Interrupt();
     INT_EnAll();

@@ -280,90 +280,117 @@ void PC_PRG(void)								// ???????
 				Send_Data(send_ack,10);
 			}		  		  
 		    break;
-		case 'S':
-			FG_test_mode = 0;
-			dd_set_ML7345D_Power_on();
-            PROFILE_CH_FREQ_32bit_200002EC = 426075000;
-			RF_ML7345_Init(Fre_426_075,0x15,12);
-            Tx_Data_Test(0);
-			Send_Data(send_ok,4);
-			break;
-		case 'E':
-			if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
-			{
-                ML7345_SetAndGet_State(Force_TRX_OFF);
-                SpiGpio_UnInit();
-				ML7345D_POWER = FG_NOT_allow_out;
-				FG_test_mode = 0; 
-				Send_Data(send_ok,4);
-			}
-			break;
-		case 'F':
-			if(SIO_DATA[2]=='M')
-			{
-				FG_test_mode = 1;
-                dd_set_ML7345D_Power_on();
-                PROFILE_CH_FREQ_32bit_200002EC = 426075000;
-                RF_ML7345_Init(Fre_426_075,0x15,12);
-                Tx_Data_Test(1);
-				Send_Data(send_ok,4);
-			}
-			else if (SIO_DATA[2]=='C' && SIO_DATA[3]=='?')
-			{
-				send_ack[0] = '(';
-				send_ack[1] = 'F';
-				send_ack[2] = 'C';
-				send_ack[3] = ')';
-				send_ack[4] = hex_asc(rf_offset / 16);
-				send_ack[5] = hex_asc(rf_offset % 16);
-				Send_Data(send_ack,6);
-			}
-			else if (SIO_DATA[2]=='C' && FG_test_mode == 1)
-			{
-				re_byte = asc_hex_2(SIO_buff[3],SIO_buff[4]);	
-                ML7345_SetAndGet_State(Force_TRX_OFF);				
-				if(re_byte <= 10) //frequency +
-                {
-                    rf_offset = re_byte;
-                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 + 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
-                    ML7345_Frequency_Set(Fre_426_075,1);
-                    Send_Data(send_ok,4);
-                }
-                else if(10 < re_byte && re_byte <= 20) //frequency -
-                {
-                    rf_offset = re_byte;
-                    IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
-                    re_byte = re_byte - 10;
-                    PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 - 150 * re_byte;
-                    ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
-                    ML7345_Frequency_Set(Fre_426_075,1);
-                    Send_Data(send_ok,4);
-                }
-                Tx_Data_Test(1);
-			}
-			break;
-        case 'K':
-            if(SIO_DATA[2]=='Y' && SIO_DATA[3]==')')
-            {
-                send_ack[0] = '(';
-                send_ack[1] = 'K';
-                send_ack[2] = 'Y';
-                Key_Sta.un_var = 0;
-                Key_Sta.Flag.un_var_bit0 = PIN_KEY_OPEN;
-                Key_Sta.Flag.un_var_bit1 = PIN_KEY_STOP;
-                Key_Sta.Flag.un_var_bit2 = PIN_KEY_CLOSE;
-                Key_Sta.Flag.un_var_bit3 = PIN_KEY_LOGIN;
-                send_ack[3] = hex_asc((Key_Sta.un_var & 0xff) / 16);
-                send_ack[4] = hex_asc((Key_Sta.un_var & 0xff) % 16);
-                send_ack[5] = ')';
-                Send_Data(send_ack,6);
-            }
-            break;
+        }
             
-		default:
-			break;          
-		}
+        if(SIO_DATA[1] == 'T' && SIO_DATA[2] == 'E' && SIO_DATA[3] == 'S' && SIO_DATA[4] == 'T' && SIO_DATA[5]==')')
+        {
+            Flag_test_pc = 1;
+            FG_test_mode = 0;
+            PIN_TX_LED = 0;
+            P20 = 0;
+            Send_Data(send_ok,4);
+        }
+        if(Flag_test_pc == 1)
+        {
+            switch(SIO_DATA[1])
+            {
+                case 'S':
+                    FG_test_mode = 0;
+                    dd_set_ML7345D_Power_on();
+                    PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+                    RF_ML7345_Init(Fre_426_075,0x15,12);
+                    Tx_Data_Test(0);
+                    Send_Data(send_ok,4);
+                    break;
+                case 'E':
+                    if(SIO_DATA[2] == 'N' && SIO_DATA[3] == 'D')
+                    {
+                        Flag_test_pc = 0;
+                        ML7345_SetAndGet_State(Force_TRX_OFF);
+                        SpiGpio_UnInit();
+                        ML7345D_POWER = FG_NOT_allow_out;
+                        FG_test_mode = 0; 
+                        Send_Data(send_ok,4);
+                    }
+                    break;
+                case 'F':
+                    if(SIO_DATA[2]=='M')
+                    {
+                        FG_test_mode = 1;
+                        dd_set_ML7345D_Power_on();
+                        PROFILE_CH_FREQ_32bit_200002EC = 426075000;
+                        RF_ML7345_Init(Fre_426_075,0x15,12);
+                        Tx_Data_Test(1);
+                        Send_Data(send_ok,4);
+                    }
+                    else if (SIO_DATA[2]=='C' && SIO_DATA[3]=='?')
+                    {
+                        send_ack[0] = '(';
+                        send_ack[1] = 'F';
+                        send_ack[2] = 'C';
+                        send_ack[3] = ')';
+                        send_ack[4] = hex_asc(rf_offset / 16);
+                        send_ack[5] = hex_asc(rf_offset % 16);
+                        Send_Data(send_ack,6);
+                    }
+                    else if (SIO_DATA[2]=='C' && FG_test_mode == 1)
+                    {
+                        re_byte = asc_hex_2(SIO_buff[3],SIO_buff[4]);	
+                        ML7345_SetAndGet_State(Force_TRX_OFF);				
+                        if(re_byte <= 10) //frequency +
+                        {
+                            rf_offset = re_byte;
+                            IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
+                            PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 + 150 * re_byte;
+                            ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
+                            ML7345_Frequency_Set(Fre_426_075,1);
+                            Send_Data(send_ok,4);
+                        }
+                        else if(10 < re_byte && re_byte <= 20) //frequency -
+                        {
+                            rf_offset = re_byte;
+                            IAP_WriteBuf_With_Protect_Verify(addr_eeprom_sys+Addr_rf_offset,&rf_offset,1);
+                            re_byte = re_byte - 10;
+                            PROFILE_CH_FREQ_32bit_200002EC_uart = 426075000 - 150 * re_byte;
+                            ML7345_Frequency_Calcul(PROFILE_CH_FREQ_32bit_200002EC_uart,Fre_426_075);
+                            ML7345_Frequency_Set(Fre_426_075,1);
+                            Send_Data(send_ok,4);
+                        }
+                        Tx_Data_Test(1);
+                    }
+                    break;
+                case 'K':
+                    if(SIO_DATA[2]=='Y' && SIO_DATA[3]==')')
+                    {
+                        send_ack[0] = '(';
+                        send_ack[1] = 'K';
+                        send_ack[2] = 'Y';
+                        Key_Sta.un_var = 0;
+                        Key_Sta.Flag.un_var_bit0 = PIN_KEY_OPEN;
+                        Key_Sta.Flag.un_var_bit1 = PIN_KEY_STOP;
+                        Key_Sta.Flag.un_var_bit2 = PIN_KEY_CLOSE;
+                        Key_Sta.Flag.un_var_bit3 = PIN_KEY_LOGIN;
+                        send_ack[3] = hex_asc((Key_Sta.un_var & 0xff) / 16);
+                        send_ack[4] = hex_asc((Key_Sta.un_var & 0xff) % 16);
+                        send_ack[5] = ')';
+                        Send_Data(send_ack,6);
+                    }
+                    break;
+                case 'P':
+                    if(SIO_DATA[2]=='H' && SIO_DATA[5]==')')
+                    {
+                        if(SIO_DATA[3]=='2' && SIO_DATA[4]=='7')         {PIN_TX_LED = 1;   Send_Data(send_ok,4);}
+                        else if(SIO_DATA[3]=='2' && SIO_DATA[4]=='0')    {P20 = 1;          Send_Data(send_ok,4);}
+                    }
+                    else if(SIO_DATA[2]=='L' && SIO_DATA[5]==')')
+                    {
+                        if(SIO_DATA[3]=='2' && SIO_DATA[4]=='7')         {PIN_TX_LED = 0;   Send_Data(send_ok,4);}
+                        else if(SIO_DATA[3]=='2' && SIO_DATA[4]=='0')    {P20 = 0;          Send_Data(send_ok,4);}
+                    }
+                    break;
+                default:
+                    break;          
+            }
+        }
 	}
 }

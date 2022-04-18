@@ -60,7 +60,8 @@ extern idata Mark_Un mark1_stu;
 #define Flag_test_fm     mark1_stu.Flag.un_var_bit1
 #define Flag_test_rssi   mark1_stu.Flag.un_var_bit2
 #define Flag_test_pc     mark1_stu.Flag.un_var_bit3
-#define key_flag         mark1_stu.Flag.un_var_bit4  
+#define key_flag         mark1_stu.Flag.un_var_bit4
+#define Flag_beep        mark1_stu.Flag.un_var_bit5
 
 //-----------------------------------------------------------------------------------------------
 typedef union{

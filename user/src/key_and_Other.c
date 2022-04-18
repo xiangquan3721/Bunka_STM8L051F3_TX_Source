@@ -1321,9 +1321,14 @@ void test_mode_control(void)
 			Init_Uart0_T1(); 
             INT_EnAll(); 
             Beep_On();
-            TIME_BEEP_off = 200;             
+            TIME_BEEP_off = 200; 
+            Flag_beep = 0;
 		}
-        if(TIME_BEEP_off == 0)  Beep_Off();
+        if(TIME_BEEP_off == 0 && Flag_beep == 0) 
+        { 
+            Flag_beep = 1;           
+            Beep_Off();
+        }
         ClearWDT(); // Service the WDT 
         if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
