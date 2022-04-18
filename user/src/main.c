@@ -22,7 +22,7 @@ void main()
     eeprom_sys_load();
     Init_Port();
     Init_Spi();
-    Init_Adc();
+    Init_Adc(); 
     _Init_RAM();
     Init_Beep();
     test_mode_control();

@@ -43,6 +43,7 @@ void SendTxData(void)
         SetTxData(0,ID_data,Control_code);
         m_RFNormalBuf[12] = 0xFF;
         txphase_end = 13;
+        Time_Tx_Out = 550;
     }
     else 
     {
@@ -51,10 +52,10 @@ void SendTxData(void)
         else SetTxData(12,ID_data_add,0);    //"2"ÊÇÄ¨Ïû
         m_RFNormalBuf[24] = 0xFF;
         txphase_end = 25;
+        Time_Tx_Out = 800;
     }
     FLAG_APP_TX = 1;
     ML7345_AutoTx_Data(m_RFNormalBuf,txphase_end);
-    Time_Tx_Out = 550;
     txphase_Repeat = 1;
 }
 

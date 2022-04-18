@@ -264,7 +264,7 @@ void ML7345_TRX_Del(void)
             {
                 Flag_TxDone = 0;
                 FLAG_APP_TX = 0;
-                PIN_TX_LED = 0;
+                if(FG_d_StopKey == 0)   PIN_TX_LED = 0;
                 ML7345_SetAndGet_State(Force_TRX_OFF);
                 ML7345_RESETN = 0;
                 SpiGpio_UnInit();
@@ -283,7 +283,7 @@ void dd_set_ML7345D_Power_on(void)
         //RF_ML7345_Init(Fre_426_075,0x15,12);
 	}
 }
-
+/*
 void dd_set_ML7345D_Power_on_Init(void)
 {
     if(ML7345D_POWER == FG_NOT_allow_out)
@@ -292,5 +292,5 @@ void dd_set_ML7345D_Power_on_Init(void)
         delay_ms(2);
         RF_ML7345_Init(Fre_426_075,0x15,12);
 	}
-}
+}*/
 

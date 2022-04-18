@@ -27,7 +27,7 @@ void key_check(void)
     else FG_d_StopKey=0;
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
-      if(time_led>=100){time_led=0;PIN_LED=!PIN_LED;}
+      if(time_led>=90){time_led=0;PIN_LED=!PIN_LED;}
     }
     if(m_TimerKey)--m_TimerKey;
     
@@ -86,7 +86,7 @@ void time_control(void)
     if(Time_Tx_Out == 0 && FLAG_APP_TX == 1)
     {
         FLAG_APP_TX = 0;
-        PIN_TX_LED = 0;
+        if(FG_d_StopKey == 0)   PIN_TX_LED = 0;
         ML7345_SetAndGet_State(Force_TRX_OFF);
         ML7345_RESETN = 0;
         SpiGpio_UnInit();
@@ -207,7 +207,6 @@ void	_KeyInTx( void )
            if(TIME_Once_twice_switch)--TIME_Once_twice_switch;    //2015.1.31ÐÞÕý4
            if(TIME_10s)--TIME_10s;    //2015.1.31ÐÞÕý3
 	   //dd_set_ADF7021_Power_on_Init();
-            dd_set_ML7345D_Power_on_Init();
            if((BAT_out==1)||(FG_BAT)||(TIME_10s==0)){   //2015.1.31ÐÞÕý3
 	      if(FG_BAT==0){
 		        FG_BAT=1;
