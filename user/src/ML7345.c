@@ -85,7 +85,7 @@ void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
     ML7345_Write_Reg(0x41,0x8B);    /* Enable ED value calculation,bit3=0 ED value constantly updated,bit3=1 ED value acquired at SyncWord detection timing*/
 
     ML7345_Write_Reg(0x42,0x00);    //TX前导码长度高八位
-    ML7345_Write_Reg(0x43,0x34);    //TX前导码长度低八位,不等少于16个位,TX preamble length = (specified value x2) bits
+    ML7345_Write_Reg(0x43,0x30);    //TX前导码长度低八位,不等少于16个位,TX preamble length = (specified value x2) bits
     //-----------------------------------------------------------------------------------------------------
     ML7345_Write_Reg(0x45,0x08);    //接收前导码长度(bit) RX preamble setting and ED threshold check setting
     //-----------------------------------------------------------------------------------------------------
@@ -138,13 +138,17 @@ void RF_ML7345_Init(u8* freq,u8 sync,u8 rx_len)
     ML7345_Write_Reg(0x23,0x08);    /* 25KHz,Channel space setting (high byte) */
     ML7345_Write_Reg(0x24,0x88);    /* Channel space setting (low byte) */
     /* SyncWord 0x00005515 */
-    ML7345_Write_Reg(0x25,0x08);    /* SyncWord length setting */
+    ML7345_Write_Reg(0x25,0x10);    /* SyncWord length setting */
     ML7345_Write_Reg(0x26,0x0f);    /* SyncWord enable setting */
     ML7345_Write_Reg(0x27,0x00);    /* SyncWord #1 setting (bit24 to 31) */
     ML7345_Write_Reg(0x28,0x00);    /* SyncWord #1 setting (bit16 to 23) */
-    ML7345_Write_Reg(0x29,0x00);    /* SyncWord #1 setting (bit8 to 15) */
+#if (BUNKA_STX == 1)
+    ML7345_Write_Reg(0x29,0x55);    /* SyncWord #1 setting (bit8 to 15) */
     ML7345_Write_Reg(0x2a,sync);    /* SyncWord #1 setting (bit0 to 7) */
-
+#else
+    ML7345_Write_Reg(0x29,0x54);    /* SyncWord #1 setting (bit8 to 15) */
+    ML7345_Write_Reg(0x2a,0x56);    /* SyncWord #1 setting (bit0 to 7) */
+#endif
     ML7345_Write_Reg(0x2f,0x08);    /* GFSK clock setting x8 clock,GFSK/FSK modulation timing resolution setting */
     ML7345_Write_Reg(0x30,0x00);    /* GFSK frequency deviation setting (high 6bits) */
     

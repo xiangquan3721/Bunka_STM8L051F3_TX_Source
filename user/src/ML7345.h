@@ -6,6 +6,8 @@
 #include "ML7345_HAL.h"
 #include "uart.h"
 
+#define BUNKA_STX    0  //0用于新生精; 1用于文化(Bunka)送信机STX0031
+
 #define RF_RX_DONE() (ML7345_Read_Reg(ADDR_INT_SOURCE_GRP2) & 0x01)
 #define RF_TX_DONE() (ML7345_Read_Reg(ADDR_INT_SOURCE_GRP3) & 0x01)
 
