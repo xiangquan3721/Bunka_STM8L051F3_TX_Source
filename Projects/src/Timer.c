@@ -59,7 +59,8 @@ void TIM4_Init(void){
 }
 
 void TIM4_UPD_OVF(void){
-        time1ms_count++;
+        ClearWDT(); 
+         time1ms_count++;
 //        FG_1ms = 1;
 //	if (TB_100ms)	--TB_100ms;
 //        else{                            

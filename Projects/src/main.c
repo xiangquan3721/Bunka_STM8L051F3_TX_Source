@@ -82,6 +82,7 @@ void main(void)
 	//AD_control();
         Uart_handle();
         RF_handle();
+        sleep_sleep();
         
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
 //        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0)){  //2015.4.13ÐÞÕý

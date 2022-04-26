@@ -24,6 +24,7 @@ static UINT8  RX_COUNT_OUT = 0;
 COMM_HANDLE_TYPE COMM_STEP=COMM_IDLE;
 UINT32 timeuart,time_next,time_beep;
 extern UINT32  time1ms_count ;
+extern RF_HANDLE_TYPE RF_STEP;
 UINT8  PAR_BEEP;
 //UINT8 Flag_UART_OPEN=1;
 //9600 e 8 1
@@ -93,6 +94,18 @@ UINT16 GET_READNUM(void)
 //    }
 //  }
 //}
+
+void sleep_sleep(void)
+{
+  if((RX_COUNT_OUT==RX_COUNT_IN)&&
+     (COMM_STEP==COMM_IDLE)&&
+       (RF_STEP==RF_IDLE)&&
+         (Control_code_in==Control_code_out))
+  {
+     CPU_CFG_GCR_AL = 1;
+  }
+  
+}
 
 
 void Uart_handle(void)

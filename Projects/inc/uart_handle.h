@@ -4,7 +4,7 @@
 void UART1_INIT_handle(void);
 void UART1_RX_RXNE_handle(void);
 void Uart_handle(void);
-
+void sleep_sleep(void);
 typedef enum COMM_HANDLE_STATUS
 {
 	COMM_IDLE,
