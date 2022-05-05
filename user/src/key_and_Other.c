@@ -1308,6 +1308,9 @@ void _ReqBuzzer(u16 BEEP_on_SET,u8 BEEP_off_SET,u8 BEEP_freq_SET)
     }
 }
 
+#if (STX0011 == 1)
+xdata u8 key_cnt = 0;
+#endif
 void test_mode_control(void)
 {
 
@@ -1350,7 +1353,17 @@ void test_mode_control(void)
             FG_test_mode = 0;
         }
         if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0; 
-
+#if (STX0011 == 1)
+        if(key_cnt >= 2)
+        {
+            key_cnt = 0;
+            FG_KEY_STOP = 1;
+            ML7345_RESETN = 0;
+            SpiGpio_UnInit(); 
+            ML7345D_POWER = FG_NOT_allow_out;
+            FG_test_mode = 0;
+        }
+#endif
         if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
             FG_KEY_CLOSE = 1;
@@ -1359,6 +1372,9 @@ void test_mode_control(void)
             RF_ML7345_Init(Fre_426_075,0x15,12);
             Tx_Data_Test(1);
             FG_test_mode = 1;
+#if (STX0011 == 1)
+            key_cnt++;
+#endif
         }
         if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
