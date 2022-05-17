@@ -15,7 +15,7 @@
 #include "EXIT_FUN.h"
 //#include "ML7345.h"
 
-#define BUNKA_STX    1  //0用于新生精; 1用于文化(Bunka)送信机STX0031
+
 
 void SendTxData(void);
 void SetTxData(u8 count_set ,uni_rom_id ID_data_set,u8 Control_code_set);

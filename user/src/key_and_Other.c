@@ -1309,7 +1309,9 @@ void _ReqBuzzer(u16 BEEP_on_SET,u8 BEEP_off_SET,u8 BEEP_freq_SET)
         TIME_BEEP_freq=BEEP_freq_SET;
     }
 }
-
+#if (STX0011 == 1)
+xdata u8 key_cnt = 0;
+#endif
 void test_mode_control(void)
 {
 
@@ -1359,7 +1361,19 @@ void test_mode_control(void)
 						CMT2300A_Gpio1=0;
 					  FG_test_mode=0;						
         }
-        if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0; 
+        if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0;
+
+#if (STX0011 == 1)
+        if(key_cnt >= 2)
+        {
+            key_cnt = 0;
+            FG_KEY_STOP = 1;
+						CMT2300A_GoSleep();
+						CMT2300A_POWER=FG_NOT_allow_out;
+						CMT2300A_Gpio1=0;
+					  FG_test_mode=0;
+        }
+#endif
 
         if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
@@ -1369,7 +1383,10 @@ void test_mode_control(void)
 						CMT2300A_SetFrequencyChannel(0);
 						CMT2300A_GoTx();
 						CMT2300A_Gpio1=0;
-					  FG_test_mode=1;						
+					  FG_test_mode=1;
+#if (STX0011 == 1)
+            key_cnt++;
+#endif					  						
         }
         if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
