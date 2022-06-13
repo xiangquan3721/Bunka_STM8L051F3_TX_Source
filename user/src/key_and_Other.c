@@ -1322,7 +1322,8 @@ void test_mode_control(void)
 {
 
     while(PIN_test_mode == 0)
-    { 
+    {
+		ADC_Inquire(); 
         if(Flag_test_mode == 0)
 		{
 			Flag_test_mode = 1;
@@ -1330,7 +1331,7 @@ void test_mode_control(void)
 			PIN_TX_LED = 1;
 			Init_Uart0_T1(); 
       INT_EnAll();
-			
+			Adc_Start();
 			TIME_BEEP_off = 200;
 			Beep_On();
 			Flag_beep = 0;            

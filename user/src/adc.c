@@ -1,22 +1,22 @@
 #include "adc.h"
-
+xdata u8 ADC_AIN_ch=0;
 
 void Init_Adc(void)
 {
-    PORT_SetP1AInputOnly(BIT0);  		//ÉèÖÃP10½öÊäÈë£¬×öADCÊäÈëÍ¨µÀ
+    PORT_SetP1AInputOnly(BIT0|BIT1|BIT2|BIT3|BIT5);  		//ï¿½ï¿½ï¿½ï¿½P10ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ADCï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
     
-	ADC_Enable();						// Ê¹ÄÜADC
-	ADC_SetClock_SYSCLKDiv2();			// ADC×ª»»Ê±ÖÓÎª SYSCLK       ×ª»»ÂÊ= ADC_CLK/30
+	ADC_Enable();						// Ê¹ï¿½ï¿½ADC
+	ADC_SetClock_SYSCLKDiv2();			// ADC×ªï¿½ï¿½Ê±ï¿½ï¿½Îª SYSCLK       ×ªï¿½ï¿½ï¿½ï¿½= ADC_CLK/30
     //ADC_SetClock_SYSCLKDiv4();
-	ADC_SetMode_SetADCS();				// ADCÆô¶¯Ä£Ê½, ÖÃADCS
-	ADC_SetRightJustified();			// ADC×ª»»Êý¾ÝÓÒ¶ÔÆë
+	ADC_SetMode_SetADCS();				// ADCï¿½ï¿½ï¿½ï¿½Ä£Ê½, ï¿½ï¿½ADCS
+	ADC_SetRightJustified();			// ADC×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½
 
-	//ADC_SetVREF_IVR24();				// ÉèÖÃVREF+ ÎªÄÚ²¿2.4V
+	//ADC_SetVREF_IVR24();				// ï¿½ï¿½ï¿½ï¿½VREF+ Îªï¿½Ú²ï¿½2.4V
     ADC_SetVREF_VDDA();
 
-	ADC_SetChannel_AIN0();				// Ñ¡ÔñÍ¨µÀÎªAIN0(P10)
+	ADC_SetChannel_AIN0();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN0(P10)
 
-    INT_EnADC();                        // ¿ªÆôÖÐ¶Ï
+    //INT_EnADC();                        // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 }
 
 
@@ -28,16 +28,89 @@ void INT_ADC(void) interrupt INT_VECTOR_ADC
     wAdcValue.B.BLow = ADCDL;
     RAM_BAT_SUM += (wAdcValue.W & 0x0FFF);
     RAM_BAT_CNT++;
-    ADCON0 = ADCON0 & (~ADCI);		           		// Çå±êÖ¾Î»
+    ADCON0 = ADCON0 & (~ADCI);		           		// ï¿½ï¿½ï¿½Ö¾Î»
     ADC_SoftStart();
     if(RAM_BAT_CNT >= 20)
     {
-        INT_DisADC();                               //¹Ø±ÕADCÖÐ¶Ï
-        ADC_Disable();                              //¹Ø±ÕADC
+        INT_DisADC();                               //ï¿½Ø±ï¿½ADCï¿½Ð¶ï¿½
+        ADC_Disable();                              //ï¿½Ø±ï¿½ADC
 		RAM_BAT_CNT = 0;
 		RAM_BAT_AVG = RAM_BAT_SUM / 20;
-        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //²É¼¯µçÑ¹0.9V.
+        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //ï¿½É¼ï¿½ï¿½ï¿½Ñ¹0.9V.
 		RAM_BAT_SUM = 0;
+    }
+}
+
+void ADC_Inquire(void)
+{
+    xdata WordTypeDef wAdcValue;
+
+    if((ADCON0&ADCI)==0);           				// ç­‰å¾…ADCè½¬æ¢å®Œæˆ
+    else 
+    {
+        wAdcValue.B.BHigh = ADCDH;
+        wAdcValue.B.BLow = ADCDL;
+        ADCON0 = ADCON0&(~ADCI);		           		// æ¸…æ ‡å¿—ä½
+        switch(ADC_AIN_ch)
+        {
+            case 0:
+                RAM_BAT_SUM += (wAdcValue.W & 0x0FFF);
+                RAM_BAT_CNT++;
+                if(RAM_BAT_CNT >= 20)
+                {
+                    RAM_BAT_CNT = 0;
+                    RAM_BAT_AVG = RAM_BAT_SUM / 20;
+                    BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //ï¿½É¼ï¿½ï¿½ï¿½Ñ¹0.9V.
+                    RAM_BAT_SUM = 0;
+                    Falg_ADC_Battery=1;
+                }                
+                break;
+            
+            case 1:
+                if(wAdcValue.W< 0x200)PIN_KEY_STOP=0;
+                else PIN_KEY_STOP=1;
+                break;
+            
+            case 2:
+                if(wAdcValue.W< 0x200)PIN_KEY_OPEN=0;
+                else PIN_KEY_OPEN=1;                
+                break;
+            case 3:
+                if(wAdcValue.W< 0x200)PIN_KEY_CLOSE=0;
+                else PIN_KEY_CLOSE=1;                 
+                break; 
+            case 4:
+                if(wAdcValue.W< 0x200)PIN_KEY_LOGIN=0;
+                else PIN_KEY_LOGIN=1;                
+                break;                    
+            default:
+                break;
+        }
+        if(Falg_ADC_Battery==1)ADC_AIN_ch++;
+        if(ADC_AIN_ch>4)ADC_AIN_ch=0;
+        switch(ADC_AIN_ch)
+        {
+            case 0:
+                ADC_SetChannel_AIN0();				//AIN0(P10)               
+                break;
+            
+            case 1:
+                ADC_SetChannel_AIN1();				//AIN1(P11)
+                break;
+            
+            case 2:
+                ADC_SetChannel_AIN2();				//AIN2(P12)              
+                break;
+            case 3:
+                ADC_SetChannel_AIN3();				//AIN2(P13)                
+                break; 
+            case 4:
+                ADC_SetChannel_AIN5();				//AIN2(P15)               
+                break;                    
+            default:
+                break;
+        }        
+        ADC_SoftStart();        
     }
 }
 
@@ -60,10 +133,10 @@ void AD_control(void)
 u16 Get_Adc_Value(void)
 {
 	xdata WordTypeDef wAdcValue;
-	ADCON0 = ADCON0|ADCS;							// ÖÃÎ»ADCS,Æô¶¯ADC
-    while((ADCON0&ADCI)==0);           				// µÈ´ýADC×ª»»Íê³É
+	ADCON0 = ADCON0|ADCS;							// ï¿½ï¿½Î»ADCS,ï¿½ï¿½ï¿½ï¿½ADC
+    while((ADCON0&ADCI)==0);           				// ï¿½È´ï¿½ADC×ªï¿½ï¿½ï¿½ï¿½ï¿½
     wAdcValue.B.BHigh=ADCDH;
     wAdcValue.B.BLow=ADCDL;
- 	ADCON0 = ADCON0&(~ADCI);		           		// Çå±êÖ¾Î»
+ 	ADCON0 = ADCON0&(~ADCI);		           		// ï¿½ï¿½ï¿½Ö¾Î»
  	return wAdcValue.W&0x0FFF;
 }*/

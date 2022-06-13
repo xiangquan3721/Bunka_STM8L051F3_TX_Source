@@ -68,6 +68,12 @@ extern xdata Mark_Un mark1_stu;
 #define key_flag         mark1_stu.Flag.un_var_bit4  
 #define Flag_beep        mark1_stu.Flag.un_var_bit5
 
+extern idata Mark_Un mark2_stu;
+#define PIN_KEY_OPEN    mark2_stu.Flag.un_var_bit0
+#define PIN_KEY_STOP    mark2_stu.Flag.un_var_bit1
+#define PIN_KEY_CLOSE   mark2_stu.Flag.un_var_bit2
+#define PIN_KEY_LOGIN   mark2_stu.Flag.un_var_bit3
+#define Falg_ADC_Battery   mark2_stu.Flag.un_var_bit4
 //-----------------------------------------------------------------------------------------------
 typedef union{
 	unsigned char BYTE;	

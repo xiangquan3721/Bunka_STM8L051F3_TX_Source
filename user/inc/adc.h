@@ -14,7 +14,7 @@ void Init_Adc(void);
 u16 Get_Adc_Value(void);
 void AD_control(void);
 void Adc_Start(void);
-
+void ADC_Inquire(void);
 
 
 #endif

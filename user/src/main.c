@@ -34,17 +34,18 @@ void main()
     while(1) 
     {
         ClearWDT();
+        ADC_Inquire();
         key_check();
         time_control();
         AD_control();
         
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
-        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0))//2015.4.13ÐÞÕý
+        if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0))//2015.4.13ï¿½ï¿½ï¿½ï¿½
         {  
             FG_PWRON=0;
             PIN_POWER_CONTROL=0;
-            FG_10s=1;    // 2015.1.31ÐÞÕý3
-          /*******************2015.1.31ÐÞÕý2************************/
+            FG_10s=1;    // 2015.1.31ï¿½ï¿½ï¿½ï¿½3
+          /*******************2015.1.31ï¿½ï¿½ï¿½ï¿½2************************/
             while(1){
                if(FG_Complex_Single_shot==1)ClearWDT(); // Service the WDT
                 else if((FG_Complex_Single_shot==0)&&(m_KeyNo>=1)&&(m_KeyNo<=4)){
