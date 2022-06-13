@@ -3,23 +3,47 @@
 
 void Init_Adc(void)
 {
-    PORT_SetP1AInputOnly(BIT0);  		//ÉèÖÃP10½öÊäÈë£¬×öADCÊäÈëÍ¨µÀ
+    PORT_SetP1AInputOnly(BIT0|BIT1|BIT2|BIT3|BIT5);  		//ï¿½ï¿½ï¿½ï¿½P10ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ADCï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
     
-	ADC_Enable();						// Ê¹ÄÜADC
-	ADC_SetClock_SYSCLKDiv2();			// ADC×ª»»Ê±ÖÓÎª SYSCLK       ×ª»»ÂÊ= ADC_CLK/30
+	ADC_Enable();						// Ê¹ï¿½ï¿½ADC
+	ADC_SetClock_SYSCLKDiv2();			// ADC×ªï¿½ï¿½Ê±ï¿½ï¿½Îª SYSCLK       ×ªï¿½ï¿½ï¿½ï¿½= ADC_CLK/30
     //ADC_SetClock_SYSCLKDiv4();
-	ADC_SetMode_SetADCS();				// ADCÆô¶¯Ä£Ê½, ÖÃADCS
-	ADC_SetRightJustified();			// ADC×ª»»Êý¾ÝÓÒ¶ÔÆë
+	ADC_SetMode_SetADCS();				// ADCï¿½ï¿½ï¿½ï¿½Ä£Ê½, ï¿½ï¿½ADCS
+	ADC_SetRightJustified();			// ADC×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½
 
-	//ADC_SetVREF_IVR24();				// ÉèÖÃVREF+ ÎªÄÚ²¿2.4V
+	//ADC_SetVREF_IVR24();				// ï¿½ï¿½ï¿½ï¿½VREF+ Îªï¿½Ú²ï¿½2.4V
     ADC_SetVREF_VDDA();
 
-	ADC_SetChannel_AIN0();				// Ñ¡ÔñÍ¨µÀÎªAIN0(P10)
+	ADC_SetChannel_AIN0();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN0(P10)
 
-    INT_EnADC();                        // ¿ªÆôÖÐ¶Ï
+    INT_EnADC();                        // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 }
 
-
+void Adc_Channel_Scan(u8 ch)
+{
+    switch(ch)
+    {
+        case 0:
+            ADC_SetChannel_AIN0();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN0(P10)
+            break;
+        
+        case 1:
+            ADC_SetChannel_AIN1();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN1(P11)
+            break;
+        
+        case 2:
+            ADC_SetChannel_AIN2();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN2(P12)
+            break;
+        case 3:
+            ADC_SetChannel_AIN3();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN2(P13)
+            break; 
+        case 5:
+            ADC_SetChannel_AIN5();				// Ñ¡ï¿½ï¿½Í¨ï¿½ï¿½ÎªAIN2(P15)
+            break;                    
+        default:
+            break;
+    }
+}
 
 void INT_ADC(void) interrupt INT_VECTOR_ADC
 {
@@ -28,19 +52,70 @@ void INT_ADC(void) interrupt INT_VECTOR_ADC
     wAdcValue.B.BLow = ADCDL;
     RAM_BAT_SUM += (wAdcValue.W & 0x0FFF);
     RAM_BAT_CNT++;
-    ADCON0 = ADCON0 & (~ADCI);		           		// Çå±êÖ¾Î»
+    ADCON0 = ADCON0 & (~ADCI);		           		// ï¿½ï¿½ï¿½Ö¾Î»
     ADC_SoftStart();
-    if(RAM_BAT_CNT >= 20)
+    if(RAM_BAT_CNT >= 5)
     {
-        INT_DisADC();                               //¹Ø±ÕADCÖÐ¶Ï
-        ADC_Disable();                              //¹Ø±ÕADC
+        Flag_adc_over = 1;
+        INT_DisADC();                               //ï¿½Ø±ï¿½ADCï¿½Ð¶ï¿½
+        ADC_Disable();                              //ï¿½Ø±ï¿½ADC
 		RAM_BAT_CNT = 0;
-		RAM_BAT_AVG = RAM_BAT_SUM / 20;
-        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //²É¼¯µçÑ¹0.9V.
-		RAM_BAT_SUM = 0;
+        RAM_BAT_AVG = RAM_BAT_SUM / 5;
+        if(channel == 0)
+        {
+            BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //ï¿½É¼ï¿½ï¿½ï¿½Ñ¹0.9V.//0.9 * 1024 = 921.6
+            RAM_BAT_SUM = 0;
+            channel = 1;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 1)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 5;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)   Flag_KEY_STOP = 0;
+            else                   Flag_KEY_STOP = 1;
+            RAM_BAT_SUM = 0;
+            channel = 2;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 2)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 5;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_OPEN = 0;
+            else                    Flag_KEY_OPEN = 1;
+            RAM_BAT_SUM = 0;
+            channel = 3;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 3)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 5;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_CLOSE = 0;
+            else                    Flag_KEY_CLOSE = 1;
+            RAM_BAT_SUM = 0;
+            channel = 5;
+            Adc_Channel_Scan(channel);
+        } 
+        else if(channel == 5)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 5;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_LOGIN = 0;
+            else                    Flag_KEY_LOGIN = 1;
+            RAM_BAT_SUM = 0;
+            channel = 1;
+            Adc_Channel_Scan(channel);
+        }               
     }
 }
-
+void Adc_Open(void)
+{
+    ADC_Enable();
+    INT_EnADC();
+    Adc_Start(); 
+}
 
 void Adc_Start(void)
 {
@@ -60,10 +135,10 @@ void AD_control(void)
 u16 Get_Adc_Value(void)
 {
 	xdata WordTypeDef wAdcValue;
-	ADCON0 = ADCON0|ADCS;							// ÖÃÎ»ADCS,Æô¶¯ADC
-    while((ADCON0&ADCI)==0);           				// µÈ´ýADC×ª»»Íê³É
+	ADCON0 = ADCON0|ADCS;							// ï¿½ï¿½Î»ADCS,ï¿½ï¿½ï¿½ï¿½ADC
+    while((ADCON0&ADCI)==0);           				// ï¿½È´ï¿½ADC×ªï¿½ï¿½ï¿½ï¿½ï¿½
     wAdcValue.B.BHigh=ADCDH;
     wAdcValue.B.BLow=ADCDL;
- 	ADCON0 = ADCON0&(~ADCI);		           		// Çå±êÖ¾Î»
+ 	ADCON0 = ADCON0&(~ADCI);		           		// ï¿½ï¿½ï¿½Ö¾Î»
  	return wAdcValue.W&0x0FFF;
 }*/

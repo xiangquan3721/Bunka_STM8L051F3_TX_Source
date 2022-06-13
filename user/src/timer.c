@@ -1,28 +1,28 @@
 #include "timer.h"
 
-/* PCA¶¨Ê±Æ÷Îª16Î»,×î´ó¼ÆÊý65536,*/
+/* PCAï¿½ï¿½Ê±ï¿½ï¿½Îª16Î»,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½65536,*/
 #if (MCU_SYSCLK == 3000000)
-#define PCA_RELOAD		(1500)  //f = PCA_CLK/PCA_RELOAD,PWMÊä³öÆµÂÊ2.0K,PCAÊ±ÖÓÎªSysClk 3MHz
+#define PCA_RELOAD		(1500)  //f = PCA_CLK/PCA_RELOAD,PWMï¿½ï¿½ï¿½Æµï¿½ï¿½2.0K,PCAÊ±ï¿½ï¿½ÎªSysClk 3MHz
 #define Duty_Cycle      750       //50%
 #endif
 
 #if (MCU_SYSCLK == 4000000)
-#define PCA_RELOAD		(2000)  //f = PCA_CLK/PCA_RELOAD,PWMÊä³öÆµÂÊ2.0K,PCAÊ±ÖÓÎªSysClk 4MHz
+#define PCA_RELOAD		(2000)  //f = PCA_CLK/PCA_RELOAD,PWMï¿½ï¿½ï¿½Æµï¿½ï¿½2.0K,PCAÊ±ï¿½ï¿½ÎªSysClk 4MHz
 #define Duty_Cycle      1000       //50%
 #endif
 
 #if (MCU_SYSCLK == 6000000)
-#define PCA_RELOAD		(3000)  //f = PCA_CLK/PCA_RELOAD,PWMÊä³öÆµÂÊ2.0K,PCAÊ±ÖÓÎªSysClk 6MHz
+#define PCA_RELOAD		(3000)  //f = PCA_CLK/PCA_RELOAD,PWMï¿½ï¿½ï¿½Æµï¿½ï¿½2.0K,PCAÊ±ï¿½ï¿½ÎªSysClk 6MHz
 #define Duty_Cycle      1500       //50%
 #endif
 
 #if (MCU_SYSCLK == 16000000)
-#define PCA_RELOAD		(5926)  //f = PCA_CLK/PCA_RELOAD,PWMÊä³öÆµÂÊ2.7K,PCAÊ±ÖÓÎªSysClk 16MHz
+#define PCA_RELOAD		(5926)  //f = PCA_CLK/PCA_RELOAD,PWMï¿½ï¿½ï¿½Æµï¿½ï¿½2.7K,PCAÊ±ï¿½ï¿½ÎªSysClk 16MHz
 #define Duty_Cycle      2963       //50%
 #endif
 
 #if (MCU_SYSCLK == 24000000)
-#define PCA_RELOAD		(8888)  //f = PCA_CLK/PCA_RELOAD,PWMÊä³öÆµÂÊ2.7K,PCAÊ±ÖÓÎªSysClk 24MHz
+#define PCA_RELOAD		(8888)  //f = PCA_CLK/PCA_RELOAD,PWMï¿½ï¿½ï¿½Æµï¿½ï¿½2.7K,PCAÊ±ï¿½ï¿½ÎªSysClk 24MHz
 #define Duty_Cycle      4444       //50%
 #endif
 
@@ -35,34 +35,34 @@ xdata u16 Time_Tx_Out = 0;
 volatile u16 g_nSysTickCount = 0;
 
 /***********************************************************************************
-º¯ÊýÃû³Æ:   void InitTimer0(void)
-¹¦ÄÜÃèÊö:Timer0³õÊ¼»¯ÉèÖÃ
-		 ¶¨ÒåT0Îª16Î»¶¨Ê±Æ÷,Ê±ÖÓÎªSysclk/12 
-ÊäÈë²ÎÊý:   
-·µ»Ø²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   void InitTimer0(void)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:Timer0ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 ï¿½ï¿½ï¿½ï¿½T0Îª16Î»ï¿½ï¿½Ê±ï¿½ï¿½,Ê±ï¿½ï¿½ÎªSysclk/12 
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   
+ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½:     
 *************************************************************************************/
 void Init_Timer0(void)
 {
-	TM_SetT0Mode_1_16BIT_TIMER();			// ÉèÖÃT0Ä£Ê½Îª16Î»Ä£Ê½
+	TM_SetT0Mode_1_16BIT_TIMER();			// ï¿½ï¿½ï¿½ï¿½T0Ä£Ê½Îª16Î»Ä£Ê½
     
-    TM_SetT0Clock_SYSCLK();            // ÉèÖÃT0Ê±ÖÓÔ´Îª SYSCLK.
+    TM_SetT0Clock_SYSCLK();            // ï¿½ï¿½ï¿½ï¿½T0Ê±ï¿½ï¿½Ô´Îª SYSCLK.
 
 	TM_SetT0Gate_Disable();	
 		
-    TM_SetT0LowByte(TIMER_1T_1ms_TL);		// ÉèÖÃT0µÍ8Î»
-	TM_SetT0HighByte(TIMER_1T_1ms_TH);		// ÉèÖÃT0¸ß8Î»
+    TM_SetT0LowByte(TIMER_1T_1ms_TL);		// ï¿½ï¿½ï¿½ï¿½T0ï¿½ï¿½8Î»
+	TM_SetT0HighByte(TIMER_1T_1ms_TH);		// ï¿½ï¿½ï¿½ï¿½T0ï¿½ï¿½8Î»
 
-	TM_EnableT0();							// Ê¹ÄÜT0
-    INT_EnTIMER0();			//	Ê¹ÄÜT0ÖÐ¶Ï
+	TM_EnableT0();							// Ê¹ï¿½ï¿½T0
+    INT_EnTIMER0();			//	Ê¹ï¿½ï¿½T0ï¿½Ð¶ï¿½
 }
 
 
 /***********************************************************************************
-º¯ÊýÃû³Æ:   void INT_T0(void)
-¹¦ÄÜÃèÊö:T0 ÖÐ¶Ï·þÎñ³ÌÐò
-		 ¼ä¸ô1ms
-ÊäÈë²ÎÊý:   
-·µ»Ø²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   void INT_T0(void)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:T0 ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		 ï¿½ï¿½ï¿½1ms
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   
+ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½:     
 *************************************************************************************/
 void INT_T0(void) interrupt INT_VECTOR_T0
 {
@@ -83,20 +83,30 @@ void INT_T0(void) interrupt INT_VECTOR_T0
     }
     else if(TIME_BEEP_off)
         --TIME_BEEP_off;	
+    if(time_adc)    --time_adc;	
+        else
+        {
+            if((Flag_adc_over == 1)&&(FLAG_APP_TX==0)&&(CMT2300A_POWER == FG_NOT_allow_out))
+            {
+                Flag_adc_over = 0;
+                time_adc = 3;
+                Adc_Open();
+            }
+        }    	
 }
 
 
 void Init_PCA_PWM(void)
 {
-    PCA_SetCLOCK_SYSCLK();          // PCAÊ±ÖÓÎªSysClk
+    PCA_SetCLOCK_SYSCLK();          // PCAÊ±ï¿½ï¿½ÎªSysClk
     PCA_CH6_SetMode_PWM();          // PWMÄ£Ê½
     PCA_CH6_SetPWM_16Bit();         //
-    PCA_SetPWM_EdgeAligned();	    // ±ßÑØ¶ÔÆë
+    PCA_SetPWM_EdgeAligned();	    // ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
     
-    // ÉèÖÃPWMÕ¼¿Õ±È±È½ÏÖµ
+    // ï¿½ï¿½ï¿½ï¿½PWMÕ¼ï¿½Õ±È±È½ï¿½Öµ
 	PCA_CH6_SetValue(PCA_CH(Duty_Cycle),PCA_CL(Duty_Cycle));
     
-    // ÉèÖÃ¶¨Ê±Æ÷¼ÆÊýÖµ PWMÆµÂÊ
+    // ï¿½ï¿½ï¿½Ã¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ PWMÆµï¿½ï¿½
 	PCA_SetCounter(PCA_C-PCA_RELOAD);
 	PCA_SetCounterReload(PCA_C-PCA_RELOAD);
 }
@@ -119,11 +129,11 @@ void Beep_Off(void)
 
 
 /*************************************************
-º¯ÊýÃû³Æ:     void DelayXus(u16 xUs)
-¹¦ÄÜÃèÊö:   	ÑÓÊ±³ÌÐò£¬µ¥Î»Îªus
-µ÷ÓÃº¯Êý:        
-ÊäÈë²ÎÊý:     u8 Us -> *1us  (1~255)
-Êä³ö²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     void DelayXus(u16 xUs)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:   	ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ò£¬µï¿½Î»Îªus
+ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½:        
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     u8 Us -> *1us  (1~255)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     
 *************************************************/
 void DelayXus(u8 xUs)
 {
@@ -137,10 +147,10 @@ void DelayXus(u8 xUs)
 
 
 /*************************************************
-º¯ÊýÃû³Æ:     void DelayXms(u16 xMs)
-¹¦ÄÜÃèÊö:     ÑÓÊ±³ÌÐò£¬µ¥Î»Îªms
-ÊäÈë²ÎÊý:     u16 xMs -> *1ms  (1~65535)
-Êä³ö²ÎÊý:     
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     void DelayXms(u16 xMs)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ò£¬µï¿½Î»Îªms
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     u16 xMs -> *1ms  (1~65535)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:     
 *************************************************/
 
 void delay_ms(u8 ms) //

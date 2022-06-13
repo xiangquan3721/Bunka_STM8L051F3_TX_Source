@@ -3,6 +3,10 @@
 
 xdata Mark_Un mark0_stu = {0};
 xdata Mark_Un mark1_stu = {0};
+idata Mark_Un mark2_stu = {0};
+xdata u8 channel = 0;
+xdata u16  time_adc = 0;
+xdata u32 Adc_Value = 0;
 
 xdata u8 write_flash_buffer[8] = {0};
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;
@@ -101,4 +105,9 @@ void _Init_RAM(void)
 	_ClearSpecialMultiKeyState() ;
 	m_TimerKey = d_Clear ;
 	m_TimerKeyMonitor = d_Clear ;
+
+	Flag_KEY_OPEN = 1;
+    Flag_KEY_STOP = 1;
+    Flag_KEY_CLOSE = 1;
+    Flag_KEY_LOGIN = 1;	
 }

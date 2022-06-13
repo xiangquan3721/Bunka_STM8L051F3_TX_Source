@@ -163,16 +163,16 @@ void	_KeyInTx( void )
         if(BAT_out==2)return;
 		
 	/*	Registration sw		*/
-	_SwIn( PIN_KEY_OPEN ) ;
+	_SwIn( Flag_KEY_OPEN ) ;
 	/*	Auto Tx Start sw		*/
-	_SwIn( PIN_KEY_STOP ) ;
+	_SwIn( Flag_KEY_STOP ) ;
 	/*	Auto Tx Stop sw		*/
-	_SwIn( PIN_KEY_CLOSE ) ;
+	_SwIn( Flag_KEY_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
 	_SwIn( PIN_KEY_VENT ) ;	
 	//_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
-	_SwIn( PIN_KEY_LOGIN ) ;	
+	_SwIn( Flag_KEY_LOGIN ) ;	
 	/*	Auto Tx Auto Tx Start sw		*/
 	_SwIn( 1 ) ;	
 	/*	Auto TxAuto Tx Stop sw		*/
@@ -797,6 +797,8 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
 //        PROFILE_CH_FREQ_32bit_200002EC = 426075000;
 //        RF_ML7345_Init(Fre_426_075,0x15,12);
 				dd_set_CMT2300A_Power_on();
+	      INT_DisADC();                               //�ر�ADC�ж�
+        ADC_Disable();                              //�ر�ADC				
 				RF_Init_TestMode();				
         SendTxData();
         TIME_2s_RestTX = 25;       //2015.4.13����        
@@ -1330,7 +1332,7 @@ void test_mode_control(void)
 			PIN_TX_LED = 1;
 			Init_Uart0_T1(); 
       INT_EnAll();
-			
+			Adc_Start();
 			TIME_BEEP_off = 200;
 			Beep_On();
 			Flag_beep = 0;            
@@ -1347,7 +1349,7 @@ void test_mode_control(void)
             Beep_Off();
         }
         ClearWDT(); // Service the WDT 
-        if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
+        if((Flag_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
             FG_KEY_OPEN = 1;
 					  dd_set_CMT2300A_Power_on();
@@ -1357,9 +1359,9 @@ void test_mode_control(void)
 						CMT2300A_Gpio1=0;
 					  FG_test_mode=0;					
         }
-        if(PIN_KEY_OPEN == 1) FG_KEY_OPEN = 0;
+        if(Flag_KEY_OPEN == 1) FG_KEY_OPEN = 0;
 
-        if((PIN_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
+        if((Flag_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
         {
             FG_KEY_STOP = 1;
 						CMT2300A_GoSleep();
@@ -1367,7 +1369,7 @@ void test_mode_control(void)
 						CMT2300A_Gpio1=0;
 					  FG_test_mode=0;						
         }
-        if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0;
+        if(Flag_KEY_STOP == 1)   FG_KEY_STOP = 0;
 
 #if (STX0011 == 1)
         if(key_cnt >= 2)
@@ -1381,7 +1383,7 @@ void test_mode_control(void)
         }
 #endif
 
-        if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
+        if((Flag_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
             FG_KEY_CLOSE = 1;
 					  dd_set_CMT2300A_Power_on();
@@ -1394,7 +1396,7 @@ void test_mode_control(void)
             key_cnt++;
 #endif					  						
         }
-        if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
+        if(Flag_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
 //				if((CMT2300A_ReadGpio2())&&(FG_test_mode==1)&&(FG_test1==0)){
 //					 CMT2300A_Gpio1=!CMT2300A_Gpio1;
