@@ -28,7 +28,7 @@ void key_check(void)
     else FG_d_StopKey=0;
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
-      if(time_led>=90){time_led=0;PIN_LED=!PIN_LED;}
+      if(time_led>=80){time_led=0;PIN_LED=!PIN_LED;}
     }
     if(m_TimerKey)--m_TimerKey;
     
@@ -1128,7 +1128,7 @@ void	_RegistrationMode( void )
 	if(m_TimerRegMode){
 	  TB_5s=51;//TB_51s;//51;  //5.1��
           time_led++;
-          if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
+          if(time_led>=400){time_led=0;PIN_LED=!PIN_LED;}	  
 	}
 	else {
 	        //_ReqBuzzer(500,250,3);
