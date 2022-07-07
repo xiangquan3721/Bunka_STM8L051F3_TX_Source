@@ -146,6 +146,11 @@ void Uart_handle(void)
               }
               else
               {
+                if(RF_STEP!=RF_IDLE)
+                {
+                Control_code_out = Control_code_in;
+                RF_STEP = RF_RESET;
+                }
                 Control_code_in = (Control_code_in +1)%Control_code_Max;
                 COMM_STEP = COMM_ACK;
                 //RX_COUNT_OUT = (RX_COUNT_OUT+4)%;
@@ -197,6 +202,11 @@ void Uart_handle(void)
               Control_code[Control_code_in][2] = dat[3];
               Control_code[Control_code_in][3] = dat[4];
               Control_code[Control_code_in][4] = dat[5];
+               if(RF_STEP!=RF_IDLE)
+                {
+                  Control_code_out = Control_code_in;
+                  RF_STEP = RF_RESET;
+                }
               Control_code_in = (Control_code_in +1)%Control_code_Max;
                COMM_STEP = COMM_ACK;
              }

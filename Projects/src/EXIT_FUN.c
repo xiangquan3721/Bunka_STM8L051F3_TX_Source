@@ -238,6 +238,10 @@ void RF_handle(void)
 //           }
 //        }
           break;
+   case RF_RESET:
+         FLAG_APP_TX=0;
+         RF_STEP = RF_IDLE;
+          break;
    default:break;
    }
 }

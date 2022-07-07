@@ -278,7 +278,8 @@ typedef enum RF_HANDLE_STATUS
 {
 	RF_IDLE,
         RF_1,
-        RF_2
+        RF_2,
+        RF_RESET,
         //COMM_FAIL,
         //COMM_RELEASE,
         //COMM_3SPRESS,
