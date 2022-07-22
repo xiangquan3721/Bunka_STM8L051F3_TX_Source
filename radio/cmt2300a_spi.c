@@ -12,7 +12,7 @@ void cmt_spi3_delay_us(void)
 }
 void cmt_spi3_delay(void)
 {
-    xdata u16 n = 2;
+    xdata u8 n = 1;
     while(n--);
 }
 
@@ -98,8 +98,8 @@ void Cmt_Spi_Write(u8 addr, u8 dat)
     cmt_spi3_sda_1();
     cmt_spi3_sda_out();
 
-//    cmt_spi3_scl_0();
-//    cmt_spi3_scl_out();
+    cmt_spi3_scl_0();
+    cmt_spi3_scl_out();
     cmt_spi3_scl_0();
 
 //    cmt_spi3_fcsb_1();
@@ -109,7 +109,7 @@ void Cmt_Spi_Write(u8 addr, u8 dat)
     cmt_spi3_csb_0();
 
     /* > 0.5 SCL cycle */
-//    cmt_spi3_delay();
+    cmt_spi3_delay();
 //    cmt_spi3_delay();
 
     /* r/w = 0 */
@@ -120,7 +120,7 @@ void Cmt_Spi_Write(u8 addr, u8 dat)
     cmt_spi3_scl_0();
 
     /* > 0.5 SCL cycle */
-//    cmt_spi3_delay();
+    cmt_spi3_delay();
 //    cmt_spi3_delay();
 
     cmt_spi3_csb_1();
@@ -147,7 +147,7 @@ void Cmt_Spi_Read(u8 addr, u8* p_dat)
     cmt_spi3_csb_0();
 
     /* > 0.5 SCL cycle */
-    //cmt_spi3_delay();
+    cmt_spi3_delay();
     //cmt_spi3_delay();
 
     /* r/w = 1 */
@@ -161,7 +161,7 @@ void Cmt_Spi_Read(u8 addr, u8* p_dat)
     cmt_spi3_scl_0();
 
     /* > 0.5 SCL cycle */
-    //cmt_spi3_delay();
+    cmt_spi3_delay();
     //cmt_spi3_delay();
 
     cmt_spi3_csb_1();

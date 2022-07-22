@@ -78,7 +78,7 @@ u8 CMT2300A_SwitchStatusAndWait(u8 nGoCmd, u8 nWaitStatus, u16 nEndTick)
 u8 CMT2300A_AutoSwitchStatus(u8 nGoCmd)
 {
 #ifdef ENABLE_AUTO_SWITCH_CHIP_STATUS
-    xdata u16 nEndTick = CMT2300A_GetTickCount() + 1;
+    xdata u16 nEndTick = CMT2300A_GetTickCount() + 10;
     xdata u8  nWaitStatus;
     xdata u8  nCurStatus;
 
@@ -740,9 +740,8 @@ void CMT2300A_EnableErrorStop(u8 bEnable)
 void CMT2300A_Init(void)
 {
     xdata u8 tmp;
-
-//    CMT2300A_SoftReset();
-//    CMT2300A_DelayMs(1);
+    CMT2300A_SoftReset();
+    CMT2300A_DelayMs(20);
 
     CMT2300A_GoStby();
 

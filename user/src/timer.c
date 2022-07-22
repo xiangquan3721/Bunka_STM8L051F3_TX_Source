@@ -154,7 +154,7 @@ void delay_ms(u8 ms) //
 
 void system_delay_100us(u8 n)
 {
-    xdata u32 nDelayUsCnt = n*100;
+    xdata u32 nDelayUsCnt = n*8;
 
     while(nDelayUsCnt--) {
 			_nop_();
@@ -167,7 +167,7 @@ void system_delay_100us(u8 n)
 
 void system_delay_ms(u8 nms)
 {
-    xdata u32 nDelayUsCnt = nms*10;
+    xdata u32 nDelayUsCnt = nms*2;
 
     while(nDelayUsCnt--)
         system_delay_100us(1);
