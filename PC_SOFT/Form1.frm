@@ -2,11 +2,11 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Bunka Ver2.7 £¨ID ranges£º1¡«16777213£©"
+   Caption         =   "Bunka Ver2.8 £¨ID ranges£º1¡«16777213£©"
    ClientHeight    =   7695
    ClientLeft      =   45
    ClientTop       =   435
-   ClientWidth     =   19950
+   ClientWidth     =   7170
    BeginProperty Font 
       Name            =   "ËÎÌå"
       Size            =   21.75
@@ -22,7 +22,7 @@ Begin VB.Form Form1
    MinButton       =   0   'False
    Picture         =   "Form1.frx":08CA
    ScaleHeight     =   7695
-   ScaleWidth      =   19950
+   ScaleWidth      =   7170
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
    Begin VB.ComboBox Combo5 
@@ -2074,7 +2074,7 @@ Private Sub Combo5_Click()
     End If
     
     If id_seclect = 3 Then
-       Text1.Text = "13000000"
+       Text1.Text = "14000000"
     End If
     
     If id_seclect = 4 Then
@@ -2301,8 +2301,10 @@ End If
     End If
     
     If id_seclect = 3 Then
-       If str_id <> "13" Then
-          MsgBox "ID out of range,ID ranges:13000000¡«", vbInformation, "Error"
+       If str_id = "13" Or str_id = "14" Then
+       
+       Else
+          MsgBox "ID out of range,ID ranges:13000000¡«,14000000¡«", vbInformation, "Error"
           Command2.Enabled = True
        End If
     End If
