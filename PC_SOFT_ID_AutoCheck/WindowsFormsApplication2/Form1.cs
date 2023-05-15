@@ -15,14 +15,14 @@ using System.IO;
 using System.Threading;
 
 using System.Management;
-using BarTender;
+//using BarTender;
 
 namespace WindowsFormsApplication2
 {
     public partial class Form1 : Form
     {
-        private static BarTender.Application btApp = new BarTender.Application();
-        private static BarTender.Format btFormat = new BarTender.Format();
+        //private static BarTender.Application btApp = new BarTender.Application();
+        //private static BarTender.Format btFormat = new BarTender.Format();
 
         public int R_cnt = 0;//接收计数
         public int S_cnt = 0;//发送计数
@@ -1018,31 +1018,31 @@ namespace WindowsFormsApplication2
             {
                 try
                 {
-                    btFormat = btApp.Formats.Open(AppDomain.CurrentDomain.BaseDirectory + "SCX1801.btw", false, "");
+                    //btFormat = btApp.Formats.Open(AppDomain.CurrentDomain.BaseDirectory + "SCX1801.btw", false, "");
 
-                    //向bartender模板传递变量,LOT为条形码数据的一个共享名称
-                    btFormat.SetNamedSubStringValue("LOT", LOT_string);
-                    //向bartender模板传递变量,PCBMAC为条形码数据的一个共享名称
-                    btFormat.SetNamedSubStringValue("PCBMAC", PCBMAC_string);
-                    //向bartender模板传递变量,DEVICE为条形码数据的一个共享名称
-                    btFormat.SetNamedSubStringValue("DEVICE", DEVICE_string);
-                    //向bartender模板传递变量,SSID为条形码数据的一个共享名称
-                    btFormat.SetNamedSubStringValue("SSID", SSID_string);
-                    //向bartender模板传递变量,KEY为条形码数据的一个共享名称
-                    btFormat.SetNamedSubStringValue("KEY", KEY_string);
+                    ////向bartender模板传递变量,LOT为条形码数据的一个共享名称
+                    //btFormat.SetNamedSubStringValue("LOT", LOT_string);
+                    ////向bartender模板传递变量,PCBMAC为条形码数据的一个共享名称
+                    //btFormat.SetNamedSubStringValue("PCBMAC", PCBMAC_string);
+                    ////向bartender模板传递变量,DEVICE为条形码数据的一个共享名称
+                    //btFormat.SetNamedSubStringValue("DEVICE", DEVICE_string);
+                    ////向bartender模板传递变量,SSID为条形码数据的一个共享名称
+                    //btFormat.SetNamedSubStringValue("SSID", SSID_string);
+                    ////向bartender模板传递变量,KEY为条形码数据的一个共享名称
+                    //btFormat.SetNamedSubStringValue("KEY", KEY_string);
 
-                    //选择打印机
-                    btFormat.Printer = InitprinterComboBox.Text;
+                    ////选择打印机
+                    //btFormat.Printer = InitprinterComboBox.Text;
 
-                    //设置打印份数
-                    int CopiesOfLabel = Int32.Parse(this.PrintLabNum.Text.ToString());
-                    btFormat.IdenticalCopiesOfLabel = CopiesOfLabel;
+                    ////设置打印份数
+                    //int CopiesOfLabel = Int32.Parse(this.PrintLabNum.Text.ToString());
+                    //btFormat.IdenticalCopiesOfLabel = CopiesOfLabel;
 
-                    //设置打印时是否跳出打印属性
-                    btFormat.PrintOut(false, false);
+                    ////设置打印时是否跳出打印属性
+                    //btFormat.PrintOut(false, false);
 
-                    //退出时是否保存标签
-                    btFormat.Close(BarTender.BtSaveOptions.btDoNotSaveChanges);
+                    ////退出时是否保存标签
+                    //btFormat.Close(BarTender.BtSaveOptions.btDoNotSaveChanges);
 
                 }
                 catch (Exception ex)
@@ -1060,7 +1060,7 @@ namespace WindowsFormsApplication2
         //界面退出时同步退出bartender进程
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
+            //btApp.Quit(BarTender.BtSaveOptions.btDoNotSaveChanges);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
