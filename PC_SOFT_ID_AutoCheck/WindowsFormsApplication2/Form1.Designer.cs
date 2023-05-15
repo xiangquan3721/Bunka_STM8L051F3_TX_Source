@@ -119,6 +119,7 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.ID_Box = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.Display_Results = new System.Windows.Forms.Label();
             this.receivingarea.SuspendLayout();
             this.sendingarea.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1140,12 +1141,24 @@
             this.label12.TabIndex = 45;
             this.label12.Text = "ID";
             // 
+            // Display_Results
+            // 
+            this.Display_Results.AutoSize = true;
+            this.Display_Results.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Display_Results.ForeColor = System.Drawing.Color.Red;
+            this.Display_Results.Location = new System.Drawing.Point(258, 92);
+            this.Display_Results.Name = "Display_Results";
+            this.Display_Results.Size = new System.Drawing.Size(70, 48);
+            this.Display_Results.TabIndex = 46;
+            this.Display_Results.Text = "OK";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(823, 596);
+            this.Controls.Add(this.Display_Results);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.ID_Box);
             this.Controls.Add(this.button1);
@@ -1276,6 +1289,7 @@
         private System.Windows.Forms.ComboBox Label_select;
         private System.Windows.Forms.TextBox ID_Box;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label Display_Results;
     }
 }
 

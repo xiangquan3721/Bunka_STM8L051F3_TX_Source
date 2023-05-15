@@ -126,6 +126,7 @@ namespace WindowsFormsApplication2
                         timer3.Enabled = true;
                         timer3.Start();   //定时器开始工作
                         No_step = 50;
+                        Display_Results.Text = "OK";
                     }
                 }
                 else
@@ -133,6 +134,7 @@ namespace WindowsFormsApplication2
                     MessageBox.Show("ID 错误", "错误");
                     ID_Box.Text = "";
                     receivebuf.Text = receivebuf.Text + "ID NG\r\n";
+                    Display_Results.Text = "NG";
                     No_step = 0;
                 }
             }
@@ -154,6 +156,7 @@ namespace WindowsFormsApplication2
                     }
                     else
                         No_step = 1;
+                    Display_Results.Text = "";
                     UART2textBox.Text = "";
                 }
 
@@ -618,6 +621,8 @@ namespace WindowsFormsApplication2
                 lblRCount.Text = "0";
                 lblSCount.Text = "0";
                 comstats.Text = "Close";
+
+                Display_Results.Text = "";
                 ////因为存储在comboBox2中的数值都为字符串，所以需要将端口号转换为10进制数值
                 /////////////波特率
                 //serialPort1.BaudRate = Convert.ToInt32(baudrate.Text, 10);
@@ -922,11 +927,13 @@ namespace WindowsFormsApplication2
                     /////////////
                     serialPort1.Open();//打开串口
                     open_close_UART1.Text = "关闭";
+                    //open_close_UART1.BackColor = System.Drawing.Color.Red;
                 }
                 else
                 {
                     serialPort1.Close();//关闭串口
                     open_close_UART1.Text = "打开";
+                    //open_close_UART1.BackColor = System.Drawing.Color.White;
                 }
 
             }
@@ -981,11 +988,13 @@ namespace WindowsFormsApplication2
                     serialPort2.Open();//打开串口
                     open_close_UART2.Text = "关闭";
                     Label_select_SelectedIndexChanged(null, null);
+                    //open_close_UART2.BackColor = System.Drawing.Color.Red;
                 }
                 else
                 {
                     serialPort2.Close();//关闭串口
                     open_close_UART2.Text = "打开";
+                    //open_close_UART2.BackColor = System.Drawing.Color.White;
                 }
 
             }
