@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Globalization;
+using System.Management;
 
 namespace OK06_Wireless_Test
 {
@@ -16,10 +17,8 @@ namespace OK06_Wireless_Test
     {
         int AutoTest_Step = 0;
         int flag_auto_start = 0;
-        int flag_Time_Done = 0;
         int flag_rx_done = 0;
         int rx_offset = 0;
-        int data_len = 0;
         int tx_cmd = 0;
         int flag_err = 0;
         int rx_ack_num = 0;
@@ -38,27 +37,6 @@ namespace OK06_Wireless_Test
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            string[] serPort = SerialPort.GetPortNames();   //获取可用端口号
-            if (serPort.Length > 0)  //至少有一个端口
-            {
-                DP_Uart1_comboBox1.Items.Clear();    //清空comboBox1中的内容
-                DP_Uart2_comboBox2.Items.Clear();    //清空comboBox2中的内容
-                for (int i = 0; i < serPort.Length; i++)
-                {
-                    DP_Uart1_comboBox1.Items.Add(serPort[i]);
-                    DP_Uart2_comboBox2.Items.Add(serPort[i]);
-                }
-                DP_Uart1_comboBox1.Text = serPort[0];
-                DP_Uart2_comboBox2.Text = serPort[0];
-            }
-            else
-            {
-                /*DialogResult result = MessageBox.Show("出错：没有找到端口!\r\n确认打开吗？","警告",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if (result == DialogResult.No)
-                {
-                    System.Environment.Exit(0);
-                }*/
-            }
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);//必须手动添加事件处理程序
             serialPort2.DataReceived += new SerialDataReceivedEventHandler(port2_DataReceived);
 
@@ -167,7 +145,7 @@ namespace OK06_Wireless_Test
             }
             this.BeginInvoke(new Action(() =>
             {
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口1接收数据：");
+                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 继电器串口接收数据：");
                 DP_DataRecord.AppendText(strdata + "\r\n");
             }));
 
@@ -265,7 +243,7 @@ namespace OK06_Wireless_Test
                             DP_ScanCode.Text = strdata;
                         }
                         flag_one = 1;
-                        DP_DataRecord.BackColor = Color.White;
+                        DP_DataRecord.BackColor = Color.Black;
                         flag_auto_start = 1;
                         AutoTest_Step = 1;
                         timer2.Enabled = true;
@@ -274,7 +252,7 @@ namespace OK06_Wireless_Test
                 }
                 else if (flag_err == 3 || flag_err == 4 || flag_err == 5)
                 {
-                    DP_DataRecord.BackColor = Color.White;
+                    //DP_DataRecord.BackColor = Color.White;
                     flag_auto_start = 0;
                     AutoTest_Step = 0;
                     timer2.Enabled = false;
@@ -285,12 +263,12 @@ namespace OK06_Wireless_Test
                 }
                 else
                 {
-                    DP_DataRecord.BackColor = Color.White;
+                    //DP_DataRecord.BackColor = Color.White;
                     flag_auto_start = 0;
                     AutoTest_Step = 0;
                     timer2.Enabled = false;
                     flag_err = 0;
-                    MessageBox.Show("出错，串口1 未打开！");
+                    MessageBox.Show("出错，继电器串口 未打开！");
                 }
             }));
         }
@@ -306,22 +284,21 @@ namespace OK06_Wireless_Test
                 catch
                 {
                     flag_err = 1;
-                    MessageBox.Show("串口1 数据发送出错，请检查.", "错误");//错误处理
+                    MessageBox.Show("继电器串口 数据发送出错，请检查.", "错误");//错误处理
                 }
             }
             else
             {
-                DP_Uart_OpenClose.Text = "串口1已关闭";
+                DP_Uart_OpenClose.Text = "已关";
                 //DP_Uart_OpenClose.BackColor = BackClolor_OFF;
                 EnDis_Button(false);
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 出错：串口1已断开\r\n");
-                MessageBox.Show("出错：串口1已断开！");
+                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 出错：继电器串口已断开\r\n");
+                MessageBox.Show("出错：继电器串口已断开！");
                 flag_err = 1;
             }
         }
         private void TEST_Mode_Click(object sender, EventArgs e)
         {
-            UInt16 crc = 0;
             EnDis_Button(true);
             EnDis_TestMode(false);
             DP_DataRecord.AppendText(DateTime.Now.ToString() + " 进入测试模式\r\n");
@@ -408,11 +385,14 @@ namespace OK06_Wireless_Test
             //应答口1输入0：01 04 02 00 00 B9 30
             //应答口1输入1：01 04 02 00 01 78 F0
         }
-        private void Check_Com_Click(object sender, EventArgs e)
+
+        private void DP_Uart1_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] myselPort = SerialPort.GetPortNames();   //获取可用端口号
-            string uart1_com = DP_Uart1_comboBox1.Text;
-            string uart2_com = DP_Uart2_comboBox2.Text;
+
+        }
+        private void DP_Uart1_comboBox1_Click(object sender, EventArgs e)
+        {
+            DP_Uart1_comboBox1.Items.Clear();
             if (serialPort1.IsOpen)
             {
                 try
@@ -421,46 +401,57 @@ namespace OK06_Wireless_Test
                 }
                 catch { }
             }
-            DP_Uart_OpenClose.BackColor = Color.LightSteelBlue;
-            DP_Uart_OpenClose.Text = "串口1已关闭";
-            DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口1 已关闭\r\n");
-            EnDis_TestMode(false);
-            EnDis_Button(false);
+            //DP_Uart_OpenClose.BackColor = Color.LightSteelBlue;
+            //DP_Uart_OpenClose.Text = "已关";
+            DP_DataRecord.AppendText(DateTime.Now.ToString() + " 继电器串口端口选择\r\n");
             DP_Uart1_comboBox1.Enabled = true;
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PnPEntity"))
+            {
+                var hardInfos = searcher.Get();
+                int index = 1;
+                foreach (var hardInfo in hardInfos)
+                {
+                    if (hardInfo.Properties["Name"].Value != null && hardInfo.Properties["Name"].Value.ToString().Contains("(COM"))
+                    {
+                        String strComName = hardInfo.Properties["Name"].Value.ToString();
+                        DP_Uart1_comboBox1.Items.Add(strComName); ;//给comboBox1添加选项,串口设备名称及串口号
+                        index += 1;
+                    }
+                }
+            }
+        }
+        private void DP_Uart2_comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void DP_Uart2_comboBox2_Click(object sender, EventArgs e)
+        {
+            DP_Uart2_comboBox2.Items.Clear();
             if (serialPort2.IsOpen)
             {
                 try
                 {
                     serialPort2.Close();
                 }
-                catch { } 
+                catch { }
             }
-            DP_Uart_ScanCode.BackColor = Color.LightSteelBlue;
-            DP_Uart_ScanCode.Text = "串口2已关闭";
-            DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口2 已关闭\r\n");
+            //DP_Uart_ScanCode.BackColor = Color.LightSteelBlue;
+            //DP_Uart_ScanCode.Text = "已关";
+            DP_DataRecord.AppendText(DateTime.Now.ToString() + " 扫描枪串口端口选择\r\n");
             DP_Uart2_comboBox2.Enabled = true;
-            if (myselPort.Length > 0)  //至少有一个端口
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PnPEntity"))
             {
-                DP_Uart1_comboBox1.Items.Clear();    //清空comboBox1中的内容
-                DP_Uart2_comboBox2.Items.Clear();    //清空comboBox2中的内容
-                for (int i = 0; i < myselPort.Length; i++)
+                var hardInfos = searcher.Get();
+                int index = 1;
+                foreach (var hardInfo in hardInfos)
                 {
-                    DP_Uart1_comboBox1.Items.Add(myselPort[i]);
-                    DP_Uart2_comboBox2.Items.Add(myselPort[i]);
+                    if (hardInfo.Properties["Name"].Value != null && hardInfo.Properties["Name"].Value.ToString().Contains("(COM"))
+                    {
+                        String strComName = hardInfo.Properties["Name"].Value.ToString();
+                        DP_Uart2_comboBox2.Items.Add(strComName); ;//给comboBox1添加选项,串口设备名称及串口号
+                        index += 1;
+                    }
                 }
-                DP_Uart1_comboBox1.Text = myselPort[0];
-                DP_Uart2_comboBox2.Text = myselPort[0];
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 检查端口完成\r\n");
-                MessageBox.Show("检查端口完成！");
-            }
-            else
-            {
-                DP_Uart1_comboBox1.Text = "";
-                DP_Uart1_comboBox1.Items.Clear();    //清空comboBox1中的内容
-                DP_Uart2_comboBox2.Text = "";
-                DP_Uart2_comboBox2.Items.Clear();    //清空comboBox2中的内容
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 没有找到端口\r\n");
-                MessageBox.Show("没有找到端口！");
             }
         }
 
@@ -474,8 +465,8 @@ namespace OK06_Wireless_Test
                 }
                 catch { }
                 DP_Uart_OpenClose.BackColor = Color.LightSteelBlue;
-                DP_Uart_OpenClose.Text = "串口1已关闭";
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口1 已关闭\r\n");
+                DP_Uart_OpenClose.Text = "已关";
+                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 继电器串口 已关闭\r\n");
                 EnDis_TestMode(false);
                 EnDis_Button(false);
                 DP_Uart1_comboBox1.Enabled = true;
@@ -484,11 +475,13 @@ namespace OK06_Wireless_Test
             {
                 try
                 {
-                    serialPort1.PortName = DP_Uart1_comboBox1.Text;
+                    String strComName = DP_Uart1_comboBox1.Text;//更改端口名称
+                    int p = strComName.IndexOf('(');
+                    serialPort1.PortName = strComName.Substring(p + 1, strComName.Length - p - 2); //截取串口号 
                     serialPort1.Open();
                     DP_Uart_OpenClose.BackColor = Color.LightGreen;
-                    DP_Uart_OpenClose.Text = "串口1已打开";
-                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口1 " + DP_Uart1_comboBox1.Text + " 已打开\r\n");
+                    DP_Uart_OpenClose.Text = "已开";
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 继电器串口 " + DP_Uart1_comboBox1.Text + " 已打开\r\n");
                     EnDis_TestMode(true);
                     DP_Uart1_comboBox1.Enabled = false;
                     //AutoTest_Step = 1;
@@ -498,22 +491,12 @@ namespace OK06_Wireless_Test
                 {
                     EnDis_TestMode(false);
                     DP_Uart1_comboBox1.Enabled = true;
-                    DP_Uart_OpenClose.Text = "串口1已关闭";
+                    DP_Uart_OpenClose.Text = "已关";
                     DP_Uart_OpenClose.BackColor = Color.LightSteelBlue;
-                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口1 " + DP_Uart1_comboBox1.Text + " 打开失败\r\n");
-                    MessageBox.Show("出错，串口1 打开失败,请重新选择端口！");
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 继电器串口 " + DP_Uart1_comboBox1.Text + " 打开失败\r\n");
+                    MessageBox.Show("出错，继电器串口 打开失败,请重新选择端口！");
                     DP_Uart1_comboBox1.Items.Clear();
                     DP_Uart1_comboBox1.Text = "";
-                    string[] myselPort = SerialPort.GetPortNames();   //获取可用端口号
-                    if (myselPort.Length > 0)  //至少有一个端口
-                    {
-                        DP_Uart1_comboBox1.Items.Clear();    //清空comboBox1中的内容
-                        for (int i = 0; i < myselPort.Length; i++)
-                        {
-                            DP_Uart1_comboBox1.Items.Add(myselPort[i]);
-                        }
-                        DP_Uart1_comboBox1.Text = myselPort[0];
-                    }
                 }
             }
         }
@@ -720,8 +703,8 @@ namespace OK06_Wireless_Test
                 }
                 catch { }
                 DP_Uart_ScanCode.BackColor = Color.LightSteelBlue;
-                DP_Uart_ScanCode.Text = "串口2已关闭";
-                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口2 已关闭\r\n");
+                DP_Uart_ScanCode.Text = "已关";
+                DP_DataRecord.AppendText(DateTime.Now.ToString() + " 扫描枪串口 已关闭\r\n");
                 DP_Uart2_comboBox2.Enabled = true;
                 //EnDis_TestMode(false);
                 //EnDis_Button(false);
@@ -730,11 +713,13 @@ namespace OK06_Wireless_Test
             {
                 try
                 {
-                    serialPort2.PortName = DP_Uart2_comboBox2.Text;
+                    String strComName = DP_Uart2_comboBox2.Text;//更改端口名称
+                    int p = strComName.IndexOf('(');
+                    serialPort2.PortName = strComName.Substring(p + 1, strComName.Length - p - 2); //截取串口号
                     serialPort2.Open();
                     DP_Uart_ScanCode.BackColor = Color.LightGreen;
-                    DP_Uart_ScanCode.Text = "串口2已打开";
-                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口2 " + DP_Uart2_comboBox2.Text + " 已打开\r\n");
+                    DP_Uart_ScanCode.Text = "已开";
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 扫描枪串口 " + DP_Uart2_comboBox2.Text + " 已打开\r\n");
                     DP_Uart2_comboBox2.Enabled = false;
                     //EnDis_TestMode(true);
                 }
@@ -742,26 +727,15 @@ namespace OK06_Wireless_Test
                 {
                     //EnDis_TestMode(false);
                     DP_Uart2_comboBox2.Enabled = true;
-                    DP_Uart_ScanCode.Text = "串口2已关闭";
+                    DP_Uart_ScanCode.Text = "已关";
                     DP_Uart_ScanCode.BackColor = Color.LightSteelBlue;
-                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 串口2 " + DP_Uart2_comboBox2.Text + " 打开失败\r\n");
-                    MessageBox.Show("出错，串口2 打开失败,请重新选择端口！");
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 扫描枪串口 " + DP_Uart2_comboBox2.Text + " 打开失败\r\n");
+                    MessageBox.Show("出错，扫描枪串口 打开失败,请重新选择端口！");
                     DP_Uart2_comboBox2.Items.Clear();
                     DP_Uart2_comboBox2.Text = "";
-                    string[] myselPort = SerialPort.GetPortNames();   //获取可用端口号
-                    if (myselPort.Length > 0)  //至少有一个端口
-                    {
-                        DP_Uart2_comboBox2.Items.Clear();    //清空comboBox2中的内容
-                        for (int i = 0; i < myselPort.Length; i++)
-                        {
-                            DP_Uart2_comboBox2.Items.Add(myselPort[i]);
-                        }
-                        DP_Uart2_comboBox2.Text = myselPort[0];
-                    }
                 }
             }
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e){}
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -867,5 +841,6 @@ namespace OK06_Wireless_Test
             }
         }
         private void DP_DMMON_CheckedChanged(object sender, EventArgs e){ }
+
     }
 }

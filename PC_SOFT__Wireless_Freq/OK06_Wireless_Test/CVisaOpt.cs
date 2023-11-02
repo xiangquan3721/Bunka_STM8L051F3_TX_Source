@@ -84,11 +84,11 @@ namespace OK06_Wireless_Test
                     //setOutTime(5000);
                     mbSession.Timeout = 15000;
                 }
-                catch (NationalInstruments.VisaNS.VisaException e)
+                catch (NationalInstruments.VisaNS.VisaException )
                 {
                     // Global.LogAdd(e.Message);
                 }
-                catch (Exception exp)
+                catch (Exception )
                 {
                     //Global.LogAdd(exp.Message);
                     //throw new Exception("VisaCtrl-VisaOpen\n" + exp.Message);
@@ -110,7 +110,7 @@ namespace OK06_Wireless_Test
                     mbSession.Write(strCommand);
                 }
             }
-            catch (NationalInstruments.VisaNS.VisaException e)
+            catch (NationalInstruments.VisaNS.VisaException )
             {
                 //Global.LogAdd(e.Message);
             }
