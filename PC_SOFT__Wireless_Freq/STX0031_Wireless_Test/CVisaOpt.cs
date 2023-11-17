@@ -266,7 +266,7 @@ namespace OK06_Wireless_Test
             {
                 if (onoff == "I")
                 {
-                    m_VisaOpt_DM3.Write(":MEASure:CURRent:DC 3"); //电流最大测量200mA
+                    m_VisaOpt_DM3.Write("CONFigure:CURRent:DC 2mA"); //电流最大测量2mA
                     //m_VisaOpt_DM3.Write(":MEASure:CURRent:DC?");
                     //string strback_RIGOL_DM305_Vdc = m_VisaOpt_DSG3.Read();
                 }
@@ -292,13 +292,13 @@ namespace OK06_Wireless_Test
             }
             return freq_stu;
         }
-        public string Opt_GetIVdc(string name,string iv)
+        public string Opt_GetIVdc(string name,string iv, string CMD)
         {
             if (name == "DM3")
             {
                 if (iv == "I")
                 {
-                    m_VisaOpt_DM3.Write(":MEASure:CURRent:DC?");
+                    m_VisaOpt_DM3.Write(CMD);
                     string strback_Idc = m_VisaOpt_DM3.Read();
                     return strback_Idc;
                 }
@@ -310,6 +310,14 @@ namespace OK06_Wireless_Test
                 }
             }
             return "0";
+        }
+
+        public void Opt_CONFigureIVdc(string name, string CONFigure)
+        {
+            if (name == "DM3")
+            {
+                m_VisaOpt_DM3.Write(CONFigure);
+            }
         }
     }
 }

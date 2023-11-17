@@ -1068,6 +1068,7 @@ namespace OK06_Wireless_Test
                 case 1:
                     DP_DataRecord.AppendText(DateTime.Now.ToString() + " 无线发射自动测试开始！\r\n");
                     timer2.Interval = 50;
+                    cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
                     RY_count = 0;
                     AutoTest_Step = 2;
                     break;
@@ -1080,8 +1081,13 @@ namespace OK06_Wireless_Test
                 case 3:
                     if (flag_err == 0)
                     {
-                        timer2.Interval = 300;
-                        AutoTest_Step = 4;
+                        if (RY_count == 0)
+                            AutoTest_Step = 6;
+                        else
+                        {
+                            timer2.Interval = 100;
+                            AutoTest_Step = 4;
+                        }
                     }
                     else
                     {
@@ -1090,9 +1096,13 @@ namespace OK06_Wireless_Test
                     }
                     break;
                 case 4:
-                    Tx_Read_IV("I");
-                    if (RY_count==1) Tx_Read_Freq();
-                    timer2.Interval = 100;
+                    if (RY_count == RY_count_DEF - 1)  //写ID之前把Uart的数据通信线的继电器Y7,Y8 ON；为什么在Uart数据通信线加继电器，防止在测试待机漏电流时UART漏电过去。
+                    {
+                        RY_reset1[6] = 7;
+                        RY_reset1[7] = 8;
+                    }
+                    RY_Uart1(RY_count, 1); //继电器reset1
+                    timer2.Interval = 300;
                     AutoTest_Step = 5;
                     break;
                 case 5:
@@ -1107,83 +1117,23 @@ namespace OK06_Wireless_Test
                         AutoTest_Step = 220; //exit
                     }
                     break;
-
                 case 6:
-                    if (RY_count == RY_count_DEF - 1)  //写ID之前把Uart的数据通信线的继电器Y7,Y8 ON；为什么在Uart数据通信线加继电器，防止在测试待机漏电流时UART漏电过去。
-                    {
-                        RY_reset1[6] = 7;
-                        RY_reset1[7] = 8;
-                    }
-                    RY_Uart1(RY_count,1); //继电器reset1
+                    Tx_Read_IV("I");
+                    if (RY_count==1) Tx_Read_Freq();
                     timer2.Interval = 100;
                     AutoTest_Step = 7;
                     break;
                 case 7:
                     if (flag_err == 0)
                     {
-                        timer2.Interval = 200;
+                        timer2.Interval = 100;
                         RY_count++;
-                        if (RY_count == 1) AutoTest_Step = 20;  //去把STOP按键执行一次，通个电，把电流档位搞为mA档
-                        else if (RY_count >= RY_count_DEF)
+                        if(RY_count==1)
+                            cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 20mA");
+                        if (RY_count >= RY_count_DEF)
                             AutoTest_Step = 50;//写ID
                         else
                             AutoTest_Step = 2;
-                    }
-                    else
-                    {
-                        timer2.Interval = 50;
-                        AutoTest_Step = 220; //exit
-                    }
-                    break;
-
-                case 20:
-                    RY_Uart1(1, 0); //继电器OPEN按键
-                    timer2.Interval = 100;
-                    AutoTest_Step = 21;
-                    break;
-                case 21:
-                    if (flag_err == 0)
-                    {
-                        timer2.Interval = 50;
-                        if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
-                            AutoTest_Step = 22;
-                        else
-                            AutoTest_Step = 24;
-                    }
-                    else
-                    {
-                        timer2.Interval = 50;
-                        AutoTest_Step = 220; //exit
-                    }
-                    break;
-                case 22:
-                    RY_Uart1(1, 0); //继电器OPEN按键
-                    timer2.Interval = 100;
-                    AutoTest_Step = 23;
-                    break;
-                case 23:
-                    if (flag_err == 0)
-                    {
-                        timer2.Interval = 50;
-                        AutoTest_Step = 24;
-                    }
-                    else
-                    {
-                        timer2.Interval = 50;
-                        AutoTest_Step = 220; //exit
-                    }
-                    break;
-                case 24:
-                    RY_Uart1(2, 0); //继电器STOP按键
-                    timer2.Interval = 100;
-                    AutoTest_Step = 25;
-                    break;
-                case 25:
-                    if (flag_err == 0)
-                    {
-                        timer2.Interval = 50;
-                        cvisa_opt.Opt_GetIVdc("DM3", "I");
-                        AutoTest_Step = 2;
                     }
                     else
                     {
@@ -1240,7 +1190,7 @@ namespace OK06_Wireless_Test
 
                 case 220:
                     RY_Uart1(RY_count, 2);  //继电器reset2
-                    timer2.Interval = 1000;
+                    timer2.Interval = 500;
                     AutoTest_Step = 221;
                     break;
                 case 221:
@@ -1258,7 +1208,7 @@ namespace OK06_Wireless_Test
                     break;
                 case 250:
                     RY_Uart1(RY_count, 2);  //继电器reset2
-                    timer2.Interval = 1000;
+                    timer2.Interval = 500;
                     AutoTest_Step = 251;
                     break;
                 case 251:
@@ -1337,10 +1287,12 @@ namespace OK06_Wireless_Test
         }
         private void Tx_Read_IV(string iv)
         {
+            int RY_n = 0;
+
             if (iv == "V")
             {
                 string read_v = "", read_v1 = "";
-                read_v1 = cvisa_opt.Opt_GetIVdc("DM3", "V"); //read_v = #9000000015-4.59713983e-04
+                read_v1 = cvisa_opt.Opt_GetIVdc("DM3", "V",""); //read_v = #9000000015-4.59713983e-04
                 DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读取电压原始值：" + read_v1 + "\r\n");
                 if (read_v1.IndexOf("#") != -1)
                     read_v = read_v1.Remove(read_v1.IndexOf("#"), 12); //从第0个开始，删除12个，留下后面的。//单位V
@@ -1374,7 +1326,19 @@ namespace OK06_Wireless_Test
             else if (iv == "I")
             {
                 string read_i = "", read_i1 = "";
-                read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I"); //read_v = #9000000015-4.59713983e-04
+
+                RY_n = RY_count;
+                if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+                {
+                    if (RY_count == 2)
+                        RY_n = 3;
+                    else if (RY_count == 3)
+                        RY_n = 2;
+                } 
+                if (RY_count == 0)
+                    read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 2mA");
+                else
+                    read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 20mA"); //read_v = #9000000015-4.59713983e-04
                 DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读取电流原始值：" + read_i1 + "\r\n");
                 if (read_i1.IndexOf("#") != -1)
                     read_i = read_i1.Remove(read_i1.IndexOf("#"), 12); //从第0个开始，删除12个，留下后面的。//单位A
@@ -1384,16 +1348,16 @@ namespace OK06_Wireless_Test
                 ivnum = ivnum * 1000; //转换为mA
                 if (read_i.Substring(0,1)== "-")
                     ivnum = -ivnum;
-                DP_DataRecord.AppendText(DateTime.Now.ToString() +  " 电流要求最大值：" + I_MAX_DEF[RY_count].ToString() + "mA 最小值：" + I_MIN_DEF[RY_count].ToString() + "mA\r\n");
+                DP_DataRecord.AppendText(DateTime.Now.ToString() +  " 电流要求最大值：" + I_MAX_DEF[RY_n].ToString() + "mA 最小值：" + I_MIN_DEF[RY_n].ToString() + "mA\r\n");
                 DP_I.Text = ivnum.ToString();
                 DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读取电流值：" + DP_I.Text.ToString() + "mA\r\n");
-                if (ivnum > I_MAX_DEF[RY_count])
+                if (ivnum > I_MAX_DEF[RY_n])
                 {
                     flag_err = 1;
                     DP_I_OKNG.Text = "NG";
                     DP_DataRecord.AppendText(DateTime.Now.ToString() + ";电流检查: NG, 超出最大值\r\n");
                 }
-                else if (ivnum < I_MIN_DEF[RY_count])
+                else if (ivnum < I_MIN_DEF[RY_n])
                 {
                     flag_err = 1;
                     DP_I_OKNG.Text = "NG";
