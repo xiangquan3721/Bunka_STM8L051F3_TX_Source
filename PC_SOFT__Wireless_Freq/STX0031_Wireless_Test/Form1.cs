@@ -37,7 +37,7 @@ namespace OK06_Wireless_Test
         double[] PA_MAX_DEF = new double[RY_count_DEF] { 0.0, 5.0, 0.0, 0.0 };
         double[] PA_MIN_DEF = new double[RY_count_DEF] { 0.0, -5.0,0.0, 0.0 };
         double freqnum_bak;
-        int RY_count = 0;
+        int RY_count = 0, RY_repeat = 0;
         int OK_count = 0, NG_count = 0;
         string ID_HEX;
         int ID_DEC;
@@ -1070,6 +1070,7 @@ namespace OK06_Wireless_Test
                     timer2.Interval = 50;
                     cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
                     RY_count = 0;
+                    RY_repeat = 0;
                     AutoTest_Step = 2;
                     break;
 
@@ -1102,13 +1103,13 @@ namespace OK06_Wireless_Test
                         RY_reset1[7] = 8;
                     }
                     RY_Uart1(RY_count, 1); //继电器reset1
-                    timer2.Interval = 300;
+                    timer2.Interval = 100;
                     AutoTest_Step = 5;
                     break;
                 case 5:
                     if (flag_err == 0)
                     {
-                        timer2.Interval = 50;
+                        timer2.Interval = 300;
                         AutoTest_Step = 6;
                     }
                     else
@@ -1191,7 +1192,17 @@ namespace OK06_Wireless_Test
                 case 220:
                     RY_Uart1(RY_count, 2);  //继电器reset2
                     timer2.Interval = 500;
-                    AutoTest_Step = 221;
+                    RY_repeat++;
+                    if (RY_repeat <= 1)
+                    {
+                        AutoTest_Step = 2;
+                        RY_count = 0;
+                        flag_err = 0;
+                        cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
+                        DP_DataRecord.AppendText(DateTime.Now.ToString() + " 测试结果NG，重测一次！\r\n");
+                    }
+                    else
+                        AutoTest_Step = 221;
                     break;
                 case 221:
                     timer2.Enabled = false;
