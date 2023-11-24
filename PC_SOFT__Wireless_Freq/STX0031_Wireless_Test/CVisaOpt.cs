@@ -266,6 +266,7 @@ namespace OK06_Wireless_Test
             {
                 if (onoff == "I")
                 {
+                    m_VisaOpt_DM3.Write("CMDSET AGILENT"); //AGILENT命令集
                     m_VisaOpt_DM3.Write("CONFigure:CURRent:DC 2mA"); //电流最大测量2mA
                     //m_VisaOpt_DM3.Write(":MEASure:CURRent:DC?");
                     //string strback_RIGOL_DM305_Vdc = m_VisaOpt_DSG3.Read();

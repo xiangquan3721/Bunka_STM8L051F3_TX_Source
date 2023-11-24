@@ -100,6 +100,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.ID_Selcet_comboBox = new System.Windows.Forms.ComboBox();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.Read_ID_Button = new System.Windows.Forms.Button();
             this.SignlSource_GroupBox.SuspendLayout();
             this.Freq_groupBox1.SuspendLayout();
             this.Signal_groupBox1.SuspendLayout();
@@ -907,12 +908,23 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // Read_ID_Button
+            // 
+            this.Read_ID_Button.Location = new System.Drawing.Point(737, 259);
+            this.Read_ID_Button.Name = "Read_ID_Button";
+            this.Read_ID_Button.Size = new System.Drawing.Size(63, 35);
+            this.Read_ID_Button.TabIndex = 77;
+            this.Read_ID_Button.Text = "读ID";
+            this.Read_ID_Button.UseVisualStyleBackColor = true;
+            this.Read_ID_Button.Click += new System.EventHandler(this.Read_ID_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(809, 680);
+            this.Controls.Add(this.Read_ID_Button);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.UART3_WriteID_Received_textBox);
             this.Controls.Add(this.groupBox5);
@@ -951,7 +963,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "文化送信机无线测试 Ver0.01";
+            this.Text = "文化送信机无线测试 Ver1.00";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SignlSource_GroupBox.ResumeLayout(false);
             this.SignlSource_GroupBox.PerformLayout();
@@ -1049,6 +1061,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ComboBox ID_Selcet_comboBox;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Button Read_ID_Button;
     }
 }
 

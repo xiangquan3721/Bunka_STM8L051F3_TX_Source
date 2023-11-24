@@ -1170,6 +1170,7 @@ namespace OK06_Wireless_Test
                     break;
                 case 52:
                     UART3_WriteID_Received_textBox.Text = "";
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读ID比对！\r\n");
                     WriteID_Uart3("(RG)");
                     timer2.Interval = 200;
                     AutoTest_Step = 53;
@@ -1187,6 +1188,50 @@ namespace OK06_Wireless_Test
                         DP_DataRecord.AppendText(DateTime.Now.ToString() + " 写ID错误！\r\n");
                         flag_err = 1;
                     }
+                    break;
+
+                case 60:
+                    RY_reset1[1] = 2;
+                        RY_reset1[6] = 7;
+                        RY_reset1[7] = 8;
+                    RY_Uart1(RY_count, 1); //继电器reset1
+                    timer2.Interval = 100;
+                    AutoTest_Step = 61;
+                    break;
+                case 61:
+                    if (flag_err == 0)
+                    {
+                        timer2.Interval = 300;
+                        AutoTest_Step = 62;
+                    }
+                    else
+                    {
+                        timer2.Interval = 50;
+                        AutoTest_Step = 220; //exit
+                    }
+                    break;
+                case 62:
+                    UART3_WriteID_Received_textBox.Text = "";
+                    DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读ID！\r\n");
+                    WriteID_Uart3("(RG)");
+                    timer2.Interval = 200;
+                    AutoTest_Step = 63;
+                    break;
+                case 63:
+                    str_res = UART3_WriteID_Received_textBox.Text.ToString();
+                    try
+                    {
+                        str_res1 = str_res.Substring(4, 6);
+                        ID_DEC = Convert.ToInt32(str_res1, 16);
+                        DP_ScanCode.Text = ID_DEC.ToString();
+                    }
+                    catch
+                    { }
+
+                    RY_Uart1(RY_count, 2);  //继电器reset2
+                    timer2.Enabled = false;
+                    AutoTest_Step = 0;
+                    flag_auto_start = 0;
                     break;
 
                 case 220:
@@ -1239,6 +1284,13 @@ namespace OK06_Wireless_Test
                 default: break;
             }
         }
+
+        private void Read_ID_Button_Click(object sender, EventArgs e)
+        {
+            AutoTest_Step = 60;
+            timer2.Enabled = true;
+        }
+
         private void Tx_Read_ReceSensit_Click(object sender, EventArgs e)
         {
             Tx_Read_Rece_Sensit();
@@ -1407,6 +1459,7 @@ namespace OK06_Wireless_Test
         {
             DP_DataRecord.AppendText(DateTime.Now.ToString() + "  " +ID_Selcet_comboBox.Text.ToString() + "\r\n");
         }
+
 
         private void ID_Selcet_comboBox_Click(object sender, EventArgs e)
         {
