@@ -895,7 +895,15 @@
             "STX1531K-SSR",
             "STX0011-SSH",
             "STX0031-SSH",
-            "STX0531K-SSH",
+            "STX1531K-SSH",
+            "PK7-T1",
+            "AF7-T3",
+            "PK7-T1-SR",
+            "AF7-T3-SR",
+            "PK7-T1-SSR",
+            "AF7-T3-SSR",
+            "PK7-T1-SSH",
+            "AF7-T3-SSH",
             "其它"});
             this.ID_Selcet_comboBox.Location = new System.Drawing.Point(9, 30);
             this.ID_Selcet_comboBox.Name = "ID_Selcet_comboBox";
@@ -963,7 +971,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "文化送信机无线测试 Ver1.00";
+            this.Text = "文化送信机无线测试 Ver1.01";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SignlSource_GroupBox.ResumeLayout(false);
             this.SignlSource_GroupBox.PerformLayout();

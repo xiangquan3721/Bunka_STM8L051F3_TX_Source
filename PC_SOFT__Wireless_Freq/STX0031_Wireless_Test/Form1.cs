@@ -864,7 +864,9 @@ namespace OK06_Wireless_Test
             if(RY_count==1)
             {
                 if ((ID_Selcet_comboBox.Text.ToString() == "STX0011-SSR") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSR") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSR") ||
-                  (ID_Selcet_comboBox.Text.ToString() == "STX0011-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSH"))
+                  (ID_Selcet_comboBox.Text.ToString() == "STX0011-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSH")||
+                  (ID_Selcet_comboBox.Text.ToString() == "PK7-T1-SSR") || (ID_Selcet_comboBox.Text.ToString() == "AF7-T3-SSR") ||
+                  (ID_Selcet_comboBox.Text.ToString() == "PK7-T1-SSH") || (ID_Selcet_comboBox.Text.ToString() == "AF7-T3-SSH"))
                     heart = 426.075;
                 else
                     heart = 426.0726;
