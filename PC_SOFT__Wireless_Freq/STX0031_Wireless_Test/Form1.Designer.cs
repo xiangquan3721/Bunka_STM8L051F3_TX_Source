@@ -914,6 +914,7 @@
             // 
             // timer3
             // 
+            this.timer3.Interval = 300;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // Read_ID_Button
@@ -971,7 +972,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "文化送信机无线测试 Ver1.01";
+            this.Text = "文化送信机无线测试 Ver1.02";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SignlSource_GroupBox.ResumeLayout(false);
             this.SignlSource_GroupBox.PerformLayout();
