@@ -776,7 +776,7 @@ namespace OK06_Wireless_Test
             saveFile1.RestoreDirectory = true; //保存对话框是否记忆上次打开的目录
             //saveFile1.Title = "保存为csv文件";
             //DP_ScanCode.Text = "C2023007";
-            saveFile1.FileName = "文化送信机无线测试 " + DP_ScanCode.Text + "  " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss"); //年月日时分秒
+            saveFile1.FileName = "文化送信机无线测试 " + DP_ScanCode.Text.ToString() + "  " + DateTime.Now.ToString("yyyy-MM-dd HH.mm.ss"); //年月日时分秒
             saveFile1.InitialDirectory = Application.StartupPath + "\\STX0031\\"+ OK_NG;//"D:\\CY2201_CY2202"; //保存至目录文件夹(D:\\MyWork)
 
             timer3.Enabled = true;
@@ -1061,6 +1061,31 @@ namespace OK06_Wireless_Test
             //Rx_AutoTest_Start();
             STX0031_Wireless();
         }
+        void Wireless_Test_SETmode()
+        {
+            if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+            {
+                I_MAX_DEF[0] = 25.0;
+                I_MIN_DEF[0] = 15.0;
+                I_MAX_DEF[1] = 36.0;
+                I_MIN_DEF[1] = 28.0;
+                I_MAX_DEF[2] = 36.0;
+                I_MIN_DEF[2] = 28.0;
+                I_MAX_DEF[3] = 25.0;
+                I_MIN_DEF[3] = 15.0;
+            }
+            else
+            {
+                I_MAX_DEF[0] = 0.002;
+                I_MIN_DEF[0] = 0.0;
+                I_MAX_DEF[1] = 17.0;
+                I_MIN_DEF[1] = 12.0;
+                I_MAX_DEF[2] = 6.0;
+                I_MIN_DEF[2] = 2.5;
+                I_MAX_DEF[3] = 17.0;
+                I_MIN_DEF[3] = 12.0;
+            }
+        }
         private void STX0031_Wireless()
         {
             string str_res, str_res1="", str_res2;
@@ -1070,7 +1095,10 @@ namespace OK06_Wireless_Test
                 case 1:
                     DP_DataRecord.AppendText(DateTime.Now.ToString() + " 无线发射自动测试开始！\r\n");
                     timer2.Interval = 50;
-                    cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
+                    if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+                        cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 200mA");
+                    else 
+                        cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
                     RY_count = 0;
                     RY_repeat = 0;
                     AutoTest_Step = 2;
@@ -1245,7 +1273,10 @@ namespace OK06_Wireless_Test
                         AutoTest_Step = 2;
                         RY_count = 0;
                         flag_err = 0;
-                        cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
+                        if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+                            cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 200mA");
+                        else
+                            cvisa_opt.Opt_CONFigureIVdc("DM3", "CONFigure:CURRent:DC 2mA");
                         DP_DataRecord.AppendText(DateTime.Now.ToString() + " 测试结果NG，重测一次！\r\n");
                     }
                     else
@@ -1393,17 +1424,20 @@ namespace OK06_Wireless_Test
                 string read_i = "", read_i1 = "";
 
                 RY_n = RY_count;
-                if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
-                {
-                    if (RY_count == 2)
-                        RY_n = 3;
-                    else if (RY_count == 3)
-                        RY_n = 2;
-                } 
                 if (RY_count == 0)
-                    read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 2mA");
+                {
+                    if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+                        read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 200mA");
+                    else
+                        read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 2mA");
+                }
                 else
-                    read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 20mA"); //read_v = #9000000015-4.59713983e-04
+                {
+                    if (ID_Selcet_comboBox.Text.ToString() == "STX1731(A)")
+                        read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 200mA");
+                    else 
+                        read_i1 = cvisa_opt.Opt_GetIVdc("DM3", "I", "MEASure:CURRent:DC? 20mA"); //read_v = #9000000015-4.59713983e-04
+                }
                 DP_DataRecord.AppendText(DateTime.Now.ToString() + " 读取电流原始值：" + read_i1 + "\r\n");
                 if (read_i1.IndexOf("#") != -1)
                     read_i = read_i1.Remove(read_i1.IndexOf("#"), 12); //从第0个开始，删除12个，留下后面的。//单位A
@@ -1460,6 +1494,7 @@ namespace OK06_Wireless_Test
         private void ID_Selcet_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DP_DataRecord.AppendText(DateTime.Now.ToString() + "  " +ID_Selcet_comboBox.Text.ToString() + "\r\n");
+            Wireless_Test_SETmode();
         }
 
 

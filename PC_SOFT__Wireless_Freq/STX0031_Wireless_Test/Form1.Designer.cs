@@ -972,7 +972,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "文化送信机无线测试 Ver1.02";
+            this.Text = "文化送信机无线测试 Ver1.03";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SignlSource_GroupBox.ResumeLayout(false);
             this.SignlSource_GroupBox.PerformLayout();
