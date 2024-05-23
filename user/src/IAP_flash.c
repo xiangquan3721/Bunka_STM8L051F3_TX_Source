@@ -247,8 +247,9 @@ void eeprom_sys_load(void)
     xdata uni_rom_id Init_ID_data;
     xdata u8 offset = 0;
     
-    rom_KeyOpt = IAP_ReadByteByMOVC(addr_eeprom_sys + Addr_rom_KeyOpt);
-    if(rom_KeyOpt > 1)  rom_KeyOpt = 0;
+    //rom_KeyOpt = IAP_ReadByteByMOVC(addr_eeprom_sys + Addr_rom_KeyOpt);
+    //if(rom_KeyOpt > 1)  
+		rom_KeyOpt = 0;
     
 	Init_ID_data.IDB[0] = 0;
 	Init_ID_data.IDB[1] = IAP_ReadByteByMOVC(addr_eeprom_sys + 0x3FB);

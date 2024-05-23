@@ -491,9 +491,9 @@ void	_FuncStop( void )
 						mb_NoPushWait = d_On ;			// Set no push wait
 						return ;
 					}
-					m_KeyOptSetMode = 1 ;			// Opetion setting mode
+					//m_KeyOptSetMode = 1 ;			// Opetion setting mode
 					//_ReqBuzzer( d_BuzOpt1 ) ;
-					_ReqBuzzer(103,103,1);
+					//_ReqBuzzer(103,103,1);
 						FG_LED_on=1;
 						if(FG_PWRON==0){
 	                                            FG_PWRON=1;
