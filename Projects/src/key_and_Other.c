@@ -484,9 +484,9 @@ void	_FuncStop( void )
 						mb_NoPushWait = d_On ;			// Set no push wait
 						return ;
 					}
-					m_KeyOptSetMode = 1 ;			// Opetion setting mode
+					//m_KeyOptSetMode = 1 ;			// Opetion setting mode
 					//_ReqBuzzer( d_BuzOpt1 ) ;
-					_ReqBuzzer(103,103,1);
+					//_ReqBuzzer(103,103,1);
 						FG_LED_on=1;
 						if(FG_PWRON==0){
 	                                            FG_PWRON=1;
@@ -740,9 +740,15 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		case 7 :                   //Open + Vent
 		       Control_code=0x09;
 		        break ;	
+		case 8 :	              //open + Reg
+				Control_code=0x18;
+				break ;
 		case 9 :                //Stop + Close
 		       Control_code=0x06;
 		        break ;	
+		case 11 :	              //close + Reg
+				Control_code=0x12;
+				break ;
 		case 12 :              //Close + Vent.
 		       Control_code=0x03;
 		        break ;	
