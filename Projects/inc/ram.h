@@ -125,7 +125,7 @@ extern UINT8 TB_sum_5s;
 
 
 //extern UINT8  m_RFNormalBuf[35];
-extern UINT8  m_RFNormalBuf[40];
+extern UINT8  m_RFNormalBuf[45];
 extern uni_rom_id ID_data;
 extern uni_rom_id ID_data_add;
 extern UINT8 Control_code;

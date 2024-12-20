@@ -119,26 +119,116 @@ void EXTI_PORTA1(void){
 //       FLAG_APP_TX=1;
 //}
 
+/**
+****************************************************************************
+* @Function : void TX_DataLoad(u32 IDCache,u8 CtrCmd,u8 *Packet)
+* @File     : ADF7030_1.c
+* @Program  : IDCache:ID CtrCmd:命令 *Packet：发送包
+* @Created  : 2017/4/18 by Xiaowine
+* @Brief    :
+* @Version  : V1.0
+**/
+void TX_DataLoad(UINT32 IDCache, UINT8 CtrCmd, UINT8 *Packet)
+{
+    UINT8 i;
+    UINT16 CRCTemp = 0;
+    CRCTemp = (IDCache & 0xffff) + (((IDCache >> 16) & 0xff) + ((UINT16)CtrCmd << 8));
+    for (i = 0; i < 24; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((IDCache & ((UINT32)1 << i)) ? 2 : 1);
+    }
+    for (i = 24; i < 32; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd & ((UINT8)1 << (i - 24))) ? 2 : 1);
+    }
+    for (i = 32; i < 48; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CRCTemp & ((UINT16)1 << (i - 32))) ? 2 : 1);
+    }
+    ClearWDT();
+}
+void TX_DataLoad_HighSpeed(UINT32 IDCache, Wireless_Body CtrCmd, UINT8 *Packet)
+{
+    UINT8 i;
+    UINT16 CRCTemp = 0;
+    
+    CRCTemp = (IDCache & 0xffff) + (((IDCache >> 16) & 0xff) + ((UINT16)CtrCmd.Fno_Type.byte << 8));
+	for(i=0;i<4;i++)
+		CRCTemp+=CtrCmd.data[i].ui;
+	
+    for (i = 0; i < 24; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((IDCache & ((UINT32)1 << i)) ? 2 : 1);
+    }
+    for (i = 24; i < 32; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd.Fno_Type.byte & ((UINT8)1 << (i - 24))) ? 2 : 1);
+    }	
+	ClearWDT();	
+    for (i = 32; i < 48; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd.data[0].ui & ((UINT16)1 << (i - 32))) ? 2 : 1);
+    }
+    for (i = 48; i < 64; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd.data[1].ui & ((UINT16)1 << (i - 48))) ? 2 : 1);
+    }	
+	ClearWDT();	
+    for (i = 64; i < 80; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd.data[2].ui & ((UINT16)1 << (i - 64))) ? 2 : 1);
+    }	
+    for (i = 80; i < 96; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CtrCmd.data[3].ui & ((UINT16)1 << (i - 80))) ? 2 : 1);
+    }	
+    ClearWDT();
+    for (i = 96; i < 112; i++)
+    {
+        *(Packet + (i / 4)) <<= 2;
+        *(Packet + (i / 4)) |= ((CRCTemp & ((UINT16)1 << (i - 96))) ? 2 : 1);
+    }	
+}
 
+Wireless_Body Uart_Struct_DATA_Packet_Contro;
 void SendTxData(void)
 {
   UINT8 i;
+
+		Uart_Struct_DATA_Packet_Contro.Fno_Type.UN.type=1;
+		Uart_Struct_DATA_Packet_Contro.Fno_Type.UN.fno=0;
+		Uart_Struct_DATA_Packet_Contro.data[0].uc[0]=Control_code;
+
        m_RFNormalBuf[0]=0xFF;
        for(i=1;i<=13;i++)m_RFNormalBuf[i]=0x55;
        m_RFNormalBuf[14]=0x15;
        PIN_TX_LED=1;
-       if(m_RegMode==0){
-	 txphase_end=224;
-	 SetTxData(15,ID_data,Control_code);
-         m_RFNormalBuf[27]=0xFF;
-       }
-       else {
-	 txphase_end=320;
-	 SetTxData(15,ID_data,0x80);
-	 if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"是追加
-	 else SetTxData(27,ID_data_add,0);    //"2"是抹消
-         m_RFNormalBuf[39]=0xFF;
-       }
+    //    if(m_RegMode==0){
+	//  txphase_end=224;
+	//  SetTxData(15,ID_data,Control_code);
+    //      m_RFNormalBuf[27]=0xFF;
+    //    }
+    //    else {
+	//  txphase_end=320;
+	//  SetTxData(15,ID_data,0x80);
+	//  if(m_RegMode==1)SetTxData(27,ID_data_add,0xFF);    //"1"是追加
+	//  else SetTxData(27,ID_data_add,0);    //"2"是抹消
+    //      m_RFNormalBuf[39]=0xFF;
+    //    }
+
+		txphase_end=352;
+		TX_DataLoad_HighSpeed(ID_data.IDL,Uart_Struct_DATA_Packet_Contro, &m_RFNormalBuf[15]);
+		m_RFNormalBuf[43]=0xFF;
+
        txphase=0;
        txphase_Repeat=0;
        ID_INT_CODE=0;

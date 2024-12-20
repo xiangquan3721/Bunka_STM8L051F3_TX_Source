@@ -74,7 +74,7 @@ UINT8 TB_sum_5s;
 
 
 //UINT8  m_RFNormalBuf[35];
-UINT8  m_RFNormalBuf[40];
+UINT8  m_RFNormalBuf[45];
 uni_rom_id ID_data;
 uni_rom_id ID_data_add;
 UINT8 Control_code;
@@ -97,7 +97,7 @@ UINT8 SIO_cnt;
 UINT8 SIO_buff[16];
 UINT8 SIO_DATA[16];
 ADF70XX_REG_T ROM_adf7012_value[4];
-const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x001575c5,0x011209a6,0x0021d04f};
+const ADF70XX_REG_T Default_adf7012_value[4]={0x0884000,0x001577b1,0x001209a6,0x0021d04f};
 //UINT16 BAT_value;
 
 
