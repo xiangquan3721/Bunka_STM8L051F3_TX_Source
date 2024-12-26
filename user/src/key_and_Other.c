@@ -1126,7 +1126,7 @@ void	_RegistrationMode( void )
 	if(m_TimerRegMode){
 	  TB_5s=51;//TB_51s;//51;  //5.1Ãë
           time_led++;
-          if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
+          if(time_led>=400){time_led=0;PIN_LED=!PIN_LED;}	  
 	}
 	else {
 	        //_ReqBuzzer(500,250,3);
