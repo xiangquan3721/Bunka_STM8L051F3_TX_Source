@@ -6,11 +6,11 @@
 #include "Type.h" //
 #include "key_and_Other.h"
 
-#define BUNKA_STX    1  //0ç”¨äºæ–°ç”Ÿç²¾; 1ç”¨äºæ–‡åŒ–(Bunka)é€ä¿¡æœºSTX0031
-#define STX0011      0  //0ç”¨äºä¸‰ç‚¹å¼é€ä¿¡æœº(STX0031), 1ç”¨äºä¸€ç‚¹å¼é€ä¿¡æœº(STX0011)
+#define BUNKA_STX    1  //0ÓÃÓÚĞÂÉú¾«; 1ÓÃÓÚÎÄ»¯(Bunka)ËÍĞÅ»úSTX0031
+#define STX0011      0  //0ÓÃÓÚÈıµãÊ½ËÍĞÅ»ú(STX0031), 1ÓÃÓÚÒ»µãÊ½ËÍĞÅ»ú(STX0011)
 
 extern xdata u16 X_COUNT;
-extern xdata u16 X_ERR; //è®°å½•é”™è¯¯çš„ä¸ªï¿½?
+extern xdata u16 X_ERR; //è®°å½•é”™è¯¯çš„ä¸ªæ•? 
 extern xdata u8  X_ERR_CNT;
 extern xdata u16 X_ERRTimer;
  

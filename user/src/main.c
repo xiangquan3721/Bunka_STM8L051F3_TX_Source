@@ -16,15 +16,15 @@
 void main()
 {
     Init_WDT();
-    Init_Clock(); 
+    Init_Clock();
     Init_IAP_flash();
     Init_Timer0();
     eeprom_sys_load();
     Init_Port();
     Init_Spi();
-    Init_Adc(); 
+    Init_Adc();
     _Init_RAM();
-    Init_Beep(); 
+    Init_Beep();
     test_mode_control();
     Init_Interrupt();
     INT_EnAll();

@@ -738,9 +738,6 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
             case 4 :	
                     Control_code=0x01;    //vnet »»Æø
                 break ;
-            case 10 :	              //Stop + Reg
-                    Control_code=0x14;
-                break ;	
             case 5 :                      //Open + Stop    
                     Control_code=0x0C;
                     break ;	
@@ -750,9 +747,18 @@ void _ReqTxdEdit(u8 txreq ,u8 buzreq )  // Tx data edit request
             case 7 :                   //Open + Vent
                    Control_code=0x09;
                     break ;	
+            case 8:                     //Open + Reg
+                    Control_code=0x18;
+                    break;
             case 9 :                //Stop + Close
                    Control_code=0x06;
                     break ;	
+            case 10 :	              //Stop + Reg
+                    Control_code=0x14;
+                    break ;
+            case 11 :	              //Close + Reg
+                    Control_code=0x12;
+                    break ;
             case 12 :              //Close + Vent.
                    Control_code=0x03;
                     break ;	
