@@ -27,7 +27,7 @@ void key_check(void)
     else FG_d_StopKey=0;
     if	( FG_d_StopKey &&m_KeyDupli1stTimer){
       time_led++;
-      if(time_led>=90){time_led=0;PIN_LED=!PIN_LED;}
+      if(time_led>=80){time_led=0;PIN_LED=!PIN_LED;}
     }
     if(m_TimerKey)--m_TimerKey;
      
