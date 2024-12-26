@@ -14,10 +14,10 @@
 #define PIN_test_mode       P25
 #define PIN_LED             P27
 #define PIN_TX_LED          P27
-#define PIN_KEY_OPEN        P12
-#define PIN_KEY_STOP        P11
-#define PIN_KEY_CLOSE       P25
-#define PIN_KEY_LOGIN       P21
+//#define PIN_KEY_OPEN        P12
+//#define PIN_KEY_STOP        P11
+//#define PIN_KEY_CLOSE       P25
+//#define PIN_KEY_LOGIN       P21
 #define PIN_POWER_CONTROL   P40
 #define ML7345D_POWER       P35
 #define PIN_KEY_VENT        1

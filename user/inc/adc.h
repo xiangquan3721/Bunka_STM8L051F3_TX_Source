@@ -16,5 +16,9 @@ void AD_control(void);
 void Adc_Start(void);
 void Adc_Channel_Scan(u8 ch);
 void Adc_Open(void);
+void Adc_Close(void);
+void ADC_Inquire(void);
+
+extern xdata u8 ADC_AIN_ch;
 
 #endif

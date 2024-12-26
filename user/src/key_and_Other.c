@@ -164,16 +164,16 @@ void	_KeyInTx( void )
         if(BAT_out==2)return;
 		
 	/*	Registration sw		*/
-	_SwIn( Flag_KEY_OPEN ) ;//Flag_KEY_OPEN flag_ad
+	_SwIn( PIN_KEY_OPEN ) ;//Flag_KEY_OPEN flag_ad
 	/*	Auto Tx Start sw		*/
-	_SwIn( Flag_KEY_STOP ) ;
+	_SwIn( PIN_KEY_STOP ) ;
 	/*	Auto Tx Stop sw		*/
-	_SwIn( Flag_KEY_CLOSE ) ;
+	_SwIn( PIN_KEY_CLOSE ) ;
 	/*	Auto Tx Vent. sw		*/
 	_SwIn( PIN_KEY_VENT ) ;	
 	//_SwIn( 1 ) ;
 	/*	Auto Tx Reg. sw		*/
-	_SwIn( Flag_KEY_LOGIN ) ;	
+	_SwIn( PIN_KEY_LOGIN ) ;	
 	/*	Auto Tx Auto Tx Start sw		*/
 	_SwIn( 1 ) ;	
 	/*	Auto TxAuto Tx Stop sw		*/
@@ -1321,7 +1321,8 @@ void test_mode_control(void)
 {
 
     while(PIN_test_mode == 0)
-    { 
+    {
+        ADC_Inquire();        
         if(Flag_test_mode == 0)
 		{
 			Flag_test_mode = 1;
@@ -1340,7 +1341,7 @@ void test_mode_control(void)
             Beep_Off();
         }
         ClearWDT(); // Service the WDT 
-        if((Flag_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
+        if((PIN_KEY_OPEN==0)&&(FG_KEY_OPEN==0))
         {
             FG_KEY_OPEN = 1;
             dd_set_ML7345D_Power_on();
@@ -1349,9 +1350,9 @@ void test_mode_control(void)
             FG_test_mode = 0;
             Tx_Data_Test(0);
         }
-        if(Flag_KEY_OPEN == 1) FG_KEY_OPEN = 0;
+        if(PIN_KEY_OPEN == 1) FG_KEY_OPEN = 0;
 
-        if((Flag_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
+        if((PIN_KEY_STOP == 0)&&(FG_KEY_STOP == 0))
         {
             FG_KEY_STOP = 1;
             ML7345_RESETN = 0;
@@ -1359,7 +1360,7 @@ void test_mode_control(void)
             ML7345D_POWER = FG_NOT_allow_out;
             FG_test_mode = 0;
         }
-        if(Flag_KEY_STOP == 1)   FG_KEY_STOP = 0; 
+        if(PIN_KEY_STOP == 1)   FG_KEY_STOP = 0; 
 #if (STX0011 == 1)
         if(key_cnt >= 2)
         {
@@ -1371,7 +1372,7 @@ void test_mode_control(void)
             FG_test_mode = 0;
         }
 #endif
-        if((Flag_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
+        if((PIN_KEY_CLOSE == 0) && (FG_KEY_CLOSE == 0))
         {
             FG_KEY_CLOSE = 1;
             dd_set_ML7345D_Power_on();
@@ -1383,7 +1384,7 @@ void test_mode_control(void)
             key_cnt++;
 #endif
         }
-        if(Flag_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
+        if(PIN_KEY_CLOSE == 1)    FG_KEY_CLOSE=0;  
 
         PC_PRG();	       // PC¿ØÖÆ  
     }  

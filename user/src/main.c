@@ -27,15 +27,16 @@ void main()
     Init_Beep();
     test_mode_control();
     Init_Interrupt();
-    INT_EnAll();
+    INT_EnAll(); 
     Adc_Start();
     TIME_power_on_AD = 30;
         
     while(1) 
     {
-        ClearWDT(); 
+        ClearWDT();
+        ADC_Inquire();        
         key_check();
-        time_control();
+        time_control(); 
         AD_control();
 
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){

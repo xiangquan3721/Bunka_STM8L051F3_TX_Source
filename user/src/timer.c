@@ -81,17 +81,17 @@ void INT_T0(void) interrupt INT_VECTOR_T0
     }
     else if(TIME_BEEP_off)      
         --TIME_BEEP_off;
-    
+    /*
     if(time_adc)    --time_adc;
     else
     {
-        if(Flag_adc_over == 1)
+        if(Flag_adc_over == 1)// && FLAG_APP_TX == 0)
         {
             Flag_adc_over = 0;
-            time_adc = 6;
+            time_adc = 2;
             Adc_Open();
         }
-    }
+    }*/
 }
 
 

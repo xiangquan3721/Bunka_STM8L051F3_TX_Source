@@ -107,8 +107,8 @@ void _Init_RAM(void)
 	m_TimerKey = d_Clear ;
 	m_TimerKeyMonitor = d_Clear ;
     
-    Flag_KEY_OPEN = 1;
-    Flag_KEY_STOP = 1;
-    Flag_KEY_CLOSE = 1;
-    Flag_KEY_LOGIN = 1;
+    PIN_KEY_OPEN = 1;
+    PIN_KEY_STOP = 1;
+    PIN_KEY_CLOSE = 1;
+    PIN_KEY_LOGIN = 1;
 }

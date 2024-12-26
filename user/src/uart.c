@@ -366,10 +366,10 @@ void PC_PRG(void)								// ???????
                         send_ack[1] = 'K';
                         send_ack[2] = 'Y';
                         Key_Sta.un_var = 0;
-                        Key_Sta.Flag.un_var_bit0 = Flag_KEY_OPEN;
-                        Key_Sta.Flag.un_var_bit1 = Flag_KEY_STOP;
-                        Key_Sta.Flag.un_var_bit2 = Flag_KEY_CLOSE;
-                        Key_Sta.Flag.un_var_bit3 = Flag_KEY_LOGIN;
+                        Key_Sta.Flag.un_var_bit0 = PIN_KEY_OPEN;
+                        Key_Sta.Flag.un_var_bit1 = PIN_KEY_STOP;
+                        Key_Sta.Flag.un_var_bit2 = PIN_KEY_CLOSE;
+                        Key_Sta.Flag.un_var_bit3 = PIN_KEY_LOGIN;
                         send_ack[3] = hex_asc((Key_Sta.un_var & 0xff) / 16);
                         send_ack[4] = hex_asc((Key_Sta.un_var & 0xff) % 16);
                         send_ack[5] = ')';
