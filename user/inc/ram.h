@@ -66,6 +66,16 @@ extern idata Mark_Un mark1_stu;
 #define key_flag         mark1_stu.Flag.un_var_bit4
 #define Flag_beep        mark1_stu.Flag.un_var_bit5
 
+
+extern idata Mark_Un mark2_stu;
+#define Flag_KEY_OPEN    mark2_stu.Flag.un_var_bit0
+#define Flag_KEY_STOP    mark2_stu.Flag.un_var_bit1
+#define Flag_KEY_CLOSE   mark2_stu.Flag.un_var_bit2
+#define Flag_KEY_LOGIN   mark2_stu.Flag.un_var_bit3
+#define Flag_scan_stop   mark2_stu.Flag.un_var_bit4
+#define Flag_adc_over    mark2_stu.Flag.un_var_bit5
+
+
 //-----------------------------------------------------------------------------------------------
 typedef union{
 	unsigned char BYTE;	
@@ -216,6 +226,9 @@ extern xdata u8 TB_5s;
 extern xdata u8 SIO_cnt;
 extern xdata u8 SIO_buff[16];
 extern xdata u8 SIO_DATA[16];
+extern xdata u8 channel;
+extern xdata u32 Adc_Value;
+extern xdata u16 time_adc;
 
 //extern xdata u16 BAT_value;
 

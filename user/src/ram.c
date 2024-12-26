@@ -3,7 +3,10 @@
 
 idata Mark_Un mark0_stu = {0};
 idata Mark_Un mark1_stu = {0};
+idata Mark_Un mark2_stu = {0};
 xdata Mark_Un Key_Sta = {0};
+xdata u8 channel = 0;
+xdata u16 time_adc = 0;
 
 xdata u8 write_flash_buffer[8] = {0};
 xdata u32 PROFILE_CH_FREQ_32bit_200002EC = 426075000ul;
@@ -72,6 +75,7 @@ xdata u16 RAM_BAT_AVG = 0;
 xdata u8 RAM_BAT_CNT = 0;
 xdata u8 BAT_out = 0;
 xdata u32 BAT_Voltage_value = 0;
+xdata u32 Adc_Value = 0;
 
 xdata u16 TIME_Once_twice_switch = 0;   //2015.1.31??4
 xdata u16 TIME_10s = 0;   //2015.1.31??3
@@ -79,6 +83,8 @@ xdata u16 key_Value = 0;   //2015.1.31??3
 
 xdata u8 TIME_2s_RestTX = 0;  //2015.4.13??
 xdata u16 TIME_power_on_AD = 0;
+
+
 
 void _Init_RAM(void)
 {
@@ -100,4 +106,9 @@ void _Init_RAM(void)
 	_ClearSpecialMultiKeyState() ;
 	m_TimerKey = d_Clear ;
 	m_TimerKeyMonitor = d_Clear ;
+    
+    Flag_KEY_OPEN = 1;
+    Flag_KEY_STOP = 1;
+    Flag_KEY_CLOSE = 1;
+    Flag_KEY_LOGIN = 1;
 }

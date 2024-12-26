@@ -11,7 +11,7 @@
 
 
 #define ML7345_RESETN       P34
-#define PIN_test_mode       P13
+#define PIN_test_mode       P25
 #define PIN_LED             P27
 #define PIN_TX_LED          P27
 #define PIN_KEY_OPEN        P12

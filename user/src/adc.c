@@ -3,7 +3,7 @@
 
 void Init_Adc(void)
 {
-    PORT_SetP1AInputOnly(BIT0);  		//设置P10仅输入，做ADC输入通道
+    PORT_SetP1AInputOnly(BIT0|BIT1|BIT2|BIT3|BIT4);  		//设置P10仅输入，做ADC输入通道
     
 	ADC_Enable();						// 使能ADC
 	ADC_SetClock_SYSCLKDiv2();			// ADC转换时钟为 SYSCLK       转换率= ADC_CLK/30
@@ -19,7 +19,34 @@ void Init_Adc(void)
     INT_EnADC();                        // 开启中断
 }
 
-
+void Adc_Channel_Scan(u8 ch)
+{
+    switch(ch)
+    {
+        case 0:
+            ADC_SetChannel_AIN0();				// 选择通道为AIN0(P10)
+            break;
+        
+        case 1:
+            ADC_SetChannel_AIN1();				// 选择通道为AIN1(P11)
+            break;
+        
+        case 2:
+            ADC_SetChannel_AIN2();				// 选择通道为AIN2(P12)
+            break;
+        
+        case 3:
+            ADC_SetChannel_AIN3();				// 选择通道为AIN2(P13)
+            break;
+        
+        case 4:
+            ADC_SetChannel_AIN4();				// 选择通道为AIN2(P14)
+            break;
+        
+        default:
+            break;
+    }
+}
 
 void INT_ADC(void) interrupt INT_VECTOR_ADC
 {
@@ -32,15 +59,66 @@ void INT_ADC(void) interrupt INT_VECTOR_ADC
     ADC_SoftStart();
     if(RAM_BAT_CNT >= 20)
     {
+        Flag_adc_over = 1;
         INT_DisADC();                               //关闭ADC中断
         ADC_Disable();                              //关闭ADC
 		RAM_BAT_CNT = 0;
-		RAM_BAT_AVG = RAM_BAT_SUM / 20;
-        BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //采集电压0.9V.//0.9 * 1024 = 921.6
-		RAM_BAT_SUM = 0;
+        RAM_BAT_AVG = RAM_BAT_SUM / 20;
+        if(channel == 0)
+        {
+            BAT_Voltage_value = 921600 / RAM_BAT_AVG;   //采集电压0.9V.//0.9 * 1024 = 921.6
+            RAM_BAT_SUM = 0;
+            channel = 1;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 1)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 20;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)   Flag_KEY_STOP = 0;
+            else                   Flag_KEY_STOP = 1;
+            RAM_BAT_SUM = 0;
+            channel = 2;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 2)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 20;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_OPEN = 0;
+            else                    Flag_KEY_OPEN = 1;
+            RAM_BAT_SUM = 0;
+            channel = 3;
+            Adc_Channel_Scan(channel);
+        }
+        else if(channel == 3)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 20;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_CLOSE = 0;
+            else                    Flag_KEY_CLOSE = 1;
+            RAM_BAT_SUM = 0;
+            channel = 4;
+            Adc_Channel_Scan(channel); 
+        } 
+        else if(channel == 4)
+        {
+            RAM_BAT_AVG = RAM_BAT_SUM / 20;
+            Adc_Value = (RAM_BAT_AVG * BAT_Voltage_value) / 1024;
+            if(Adc_Value < 1200)    Flag_KEY_LOGIN = 0;
+            else                    Flag_KEY_LOGIN = 1;
+            RAM_BAT_SUM = 0;
+            channel = 1;
+            Adc_Channel_Scan(channel);
+        }
     }
 }
-
+void Adc_Open(void)
+{
+    ADC_Enable();
+    INT_EnADC();
+    Adc_Start(); 
+}
 
 void Adc_Start(void)
 {

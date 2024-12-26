@@ -18,7 +18,7 @@ void main()
     Init_WDT();
     Init_Clock();
     Init_IAP_flash();
-    Init_Timer0();
+    Init_Timer0(); 
     eeprom_sys_load();
     Init_Port();
     Init_Spi();
@@ -30,14 +30,14 @@ void main()
     INT_EnAll();
     Adc_Start();
     TIME_power_on_AD = 30;
-    
+        
     while(1) 
     {
         ClearWDT(); 
         key_check();
         time_control();
         AD_control();
-        
+
 	//if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(m_KeyDupli1stTimer==0)&&(FG_PWRON==1)){
         if((TB_5s==0)&&(m_KeyOptSetMode==0)&&(FG_PWRON==1)&&(key_Value!=2)&&(FLAG_APP_TX==0))//2015.4.13ÐÞÕý
         {  

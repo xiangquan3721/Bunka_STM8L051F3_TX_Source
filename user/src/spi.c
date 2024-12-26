@@ -21,8 +21,6 @@ void Init_Spi(void)
 	SPI_SetCPHA_0();
 	// …Ë÷√IO nSS/P14,MOSI/P15,MISO/P16,SPICLK/P17
 	SPI_SetUseP14P15P16P17();
-    
-    SPI1_CS_H;
 }
 
 

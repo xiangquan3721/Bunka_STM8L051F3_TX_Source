@@ -14,7 +14,7 @@ void Init_Adc(void);
 u16 Get_Adc_Value(void);
 void AD_control(void);
 void Adc_Start(void);
-
-
+void Adc_Channel_Scan(u8 ch);
+void Adc_Open(void);
 
 #endif

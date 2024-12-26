@@ -10,7 +10,7 @@
 #include "timer.h"
 
 
-#define SPI_CS    P14
+#define SPI_CS    P22
 #define SPI1_CS_L (SPI_CS = 0)
 #define SPI1_CS_H (SPI_CS = 1)
 
