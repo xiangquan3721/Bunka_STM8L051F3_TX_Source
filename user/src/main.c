@@ -21,7 +21,9 @@ void main()
     Init_Timer0();
     eeprom_sys_load();
     Init_Port();
-    //Init_Spi();
+    #ifdef DEF_Hardware_SPI
+	Init_Spi3();
+    #endif
     Init_Adc();
     _Init_RAM();
     Init_Beep();

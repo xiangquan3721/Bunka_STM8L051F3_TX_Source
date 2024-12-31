@@ -4,10 +4,12 @@
 #include "REG_MA82G5Bxx.H"
 #include "Type.h"
 #include "API_Macro_MA82G5Bxx.H"
+#include "ram.h"
 
 #define TxEnable  0
 #define TxDisbale 1
 
+#ifndef DEF_Hardware_SPI
 #define cmt_spi3_csb_out()      {PORT_SetP1PushPull(BIT4);}
 #define cmt_spi3_fcsb_out()     {PORT_SetP2PushPull(BIT2);}
 #define cmt_spi3_scl_out()      {PORT_SetP1PushPull(BIT7);}
@@ -26,6 +28,17 @@
 #define cmt_spi3_sda_1()        {P16 = 1;}
 #define cmt_spi3_sda_0()        {P16 = 0;}
 #define cmt_spi3_sda_read()     P16
+#else
+#define cmt_spi3_csb_out()      {PORT_SetP2PushPull(BIT6);}
+#define cmt_spi3_fcsb_out()     {PORT_SetP2PushPull(BIT2);}
+
+#define cmt_spi3_csb_1()        {P26 = 1;}
+#define cmt_spi3_csb_0()        {P26 = 0;}
+
+#define cmt_spi3_fcsb_1()       {P22 = 1;}
+#define cmt_spi3_fcsb_0()       {P22 = 0;}
+
+#endif
 void cmt_spi3_init(void);
 void Cmt_Spi_Read(u8 addr, u8* p_dat);
 void Cmt_Spi_Write(u8 addr, u8 dat);

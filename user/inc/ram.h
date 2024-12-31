@@ -8,6 +8,7 @@
 
 #define BUNKA_STX    1  //0用于新生精; 1用于文化(Bunka)送信机STX0031
 #define STX0011      0  //0用于三点式送信机(STX0031), 1用于一点式送信机(STX0011)
+#define DEF_Hardware_SPI    //硬件SPI
 
 extern xdata u16 X_COUNT;
 extern xdata u16 X_ERR; //记录错误的个�?

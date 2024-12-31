@@ -16,7 +16,7 @@ void cmt_spi3_delay(void)
     while(n--);
 }
 
-
+#ifndef DEF_Hardware_SPI
 void cmt_spi3_init(void)
 {
     cmt_spi3_csb_1();
@@ -171,6 +171,72 @@ void Cmt_Spi_Read(u8 addr, u8* p_dat)
 
     //cmt_spi3_fcsb_1();
 }
+#else
+void Spi3Gpio_Init(void)
+{
+    PORT_SetP1PushPull(BIT5|BIT7);					// 设置P15(MOSI),P17(SPICLK)为准双向口
+	PORT_SetP1OpenDrain(BIT6);							// 设置P16(MISO)为准双向口
+    P16 = 1;                                            // 输入
+	PORT_EnP14P15P16P17PullHigh();
+}
+void Init_Spi3(void)
+{
+    // 使能SPI
+    SPI_Enable();
+	// 设置MASTER
+	SPI_SelectMASTERByMSTRbit();
+	// 设置SPI时钟
+	SPI_SetClock(SPI_CLK_SYSCLK_4);
+	// 设置SPICLK初始电平 CPOL=0 低电平
+	SPI_SetCPOL_0();	
+	// 设置数据传送位序 MSB 高位在前
+	SPI_SetDataMSB();
+	// 设置采样和改变数据模式 CPHA=0 前沿采样,后沿改变数据
+	SPI_SetCPHA_0();
+	// 设置IO nSS/P14,MOSI/P15,MISO/P16,SPICLK/P17
+	SPI_SetUseP14P15P16P17();
+
+    Spi3Gpio_Init();
+}
+void cmt_spi3_init(void)
+{
+    cmt_spi3_csb_1();
+    cmt_spi3_csb_out();
+    cmt_spi3_csb_1();   /* CSB has an internal pull-up resistor */
+
+    //Spi3Gpio_Init();
+    cmt_spi3_fcsb_1();
+    cmt_spi3_fcsb_out();
+    cmt_spi3_fcsb_1();  /* FCSB has an internal pull-up resistor */
+
+    cmt_spi3_delay();
+}
+
+u8 SPIx_ReadWriteByte(u8 TxData)
+{ 
+    while(SPSTAT & THRF);
+	SPI_SendData(TxData);							// SPI 发送数据
+	while(SPI_ChkCompleteFlag()==0);				// 等待SPI传送完成
+	SPI_ClearCompleteFlag();						// SPI 清完成标志
+	return SPI_GetData();							// 返回接收到的数据
+}
+
+void Cmt_Spi_Write(u8 addr, u8 dat)
+{
+	cmt_spi3_csb_0();
+	SPIx_ReadWriteByte(addr&0x7F);
+	SPIx_ReadWriteByte(dat);
+	cmt_spi3_csb_1();
+}
+
+void Cmt_Spi_Read(u8 addr, u8* p_dat)	
+{
+	cmt_spi3_csb_0();
+	SPIx_ReadWriteByte(addr|0x80);
+	*p_dat=SPIx_ReadWriteByte(0XFF);
+	cmt_spi3_csb_1();
+}
+#endif
 
 //void Cmt_Spi_Write_Fifo(const u8* p_buf, u16 len)
 //{

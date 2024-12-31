@@ -741,7 +741,7 @@ void CMT2300A_Init(void)
 {
     xdata u8 tmp;
     CMT2300A_SoftReset();
-    CMT2300A_DelayMs(20);
+    CMT2300A_DelayMs(10);
 
     CMT2300A_GoStby();
 

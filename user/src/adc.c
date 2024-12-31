@@ -3,7 +3,11 @@ xdata u8 ADC_AIN_ch=0;
 
 void Init_Adc(void)
 {
+    #ifndef DEF_Hardware_SPI
     PORT_SetP1AInputOnly(BIT0|BIT1|BIT2|BIT3|BIT5);  		//����P10�����룬��ADC����ͨ��
+    #else
+    PORT_SetP1AInputOnly(BIT0|BIT1|BIT2|BIT3|BIT4);
+    #endif
     
 	ADC_Enable();						// ʹ��ADC
 	ADC_SetClock_SYSCLKDiv2();			// ADCת��ʱ��Ϊ SYSCLK       ת����= ADC_CLK/30
@@ -105,7 +109,11 @@ void ADC_Inquire(void)
                 ADC_SetChannel_AIN3();				//AIN2(P13)                
                 break; 
             case 4:
+            #ifndef DEF_Hardware_SPI
                 ADC_SetChannel_AIN5();				//AIN2(P15)               
+            #else
+                ADC_SetChannel_AIN4();
+            #endif               
                 break;                    
             default:
                 break;
