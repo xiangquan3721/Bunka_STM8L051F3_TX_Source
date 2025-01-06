@@ -291,9 +291,11 @@ namespace OK06_Wireless_Test
                          ((ID_Selcet_comboBox.Text.ToString() == "STX0031-SSH") && ((ID_DEC < 13000000) || (ID_DEC > 14999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1231(A)") && ((ID_DEC < 15000000) || (ID_DEC > 15999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1531K") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
+                         ((ID_Selcet_comboBox.Text.ToString() == "STX2331K") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1531K-SR") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSR") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSH") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
+                         ((ID_Selcet_comboBox.Text.ToString() == "STX2331K-SSH") && ((ID_DEC < 2000000) || (ID_DEC > 2999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "CTX1531TN") && ((ID_DEC < 3000000) || (ID_DEC > 3999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1631PB") && ((ID_DEC < 4000000) || (ID_DEC > 4999999))) ||
                          ((ID_Selcet_comboBox.Text.ToString() == "STX1731(A)") && ((ID_DEC < 15100000) || (ID_DEC > 15199999))) )
@@ -864,7 +866,7 @@ namespace OK06_Wireless_Test
             if(RY_count==1)
             {
                 if ((ID_Selcet_comboBox.Text.ToString() == "STX0011-SSR") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSR") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSR") ||
-                  (ID_Selcet_comboBox.Text.ToString() == "STX0011-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSH")||
+                  (ID_Selcet_comboBox.Text.ToString() == "STX0011-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX0031-SSH") || (ID_Selcet_comboBox.Text.ToString() == "STX1531K-SSH")||(ID_Selcet_comboBox.Text.ToString() == "STX2331K-SSH") ||
                   (ID_Selcet_comboBox.Text.ToString() == "PK7-T1-SSR") || (ID_Selcet_comboBox.Text.ToString() == "AF7-T3-SSR") ||
                   (ID_Selcet_comboBox.Text.ToString() == "PK7-T1-SSH") || (ID_Selcet_comboBox.Text.ToString() == "AF7-T3-SSH"))
                     heart = 426.075;

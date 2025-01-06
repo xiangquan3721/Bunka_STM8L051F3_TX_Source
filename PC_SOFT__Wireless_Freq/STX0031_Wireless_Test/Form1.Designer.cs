@@ -904,6 +904,8 @@
             "AF7-T3-SSR",
             "PK7-T1-SSH",
             "AF7-T3-SSH",
+            "STX2331K-SSH",
+            "STX2331K",
             "其它"});
             this.ID_Selcet_comboBox.Location = new System.Drawing.Point(9, 30);
             this.ID_Selcet_comboBox.Name = "ID_Selcet_comboBox";
@@ -972,7 +974,7 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "文化送信机无线测试 Ver1.03";
+            this.Text = "文化送信机无线测试 Ver1.04";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SignlSource_GroupBox.ResumeLayout(false);
             this.SignlSource_GroupBox.PerformLayout();
