@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Bunka Ver2.8 £¨ID ranges£º1¡«16777213£©"
+   Caption         =   "Bunka Ver2.9 £¨ID ranges£º1¡«16777213£©"
    ClientHeight    =   7695
    ClientLeft      =   45
    ClientTop       =   435
@@ -2361,21 +2361,20 @@ Else
             
             If a = d1 Then
                Image1.Picture = LoadPicture(App.Path & "\navigate_check.bmp")
+               
+                If Check1.Value = 1 Then
+                If Val(Text1.Text) < 16777214 Then
+                d1 = Val(Text1.Text) + 1
+                Text1.Text = Right$("00000000" + Trim(d1), 8)
+                Else
+                Text1.Text = "00000001"
+                End If
+                End If
             Else
 
               Image1.Picture = LoadPicture(App.Path & "\navigate_cross.bmp")
             End If
               
-End If
-
-
-If Check1.Value = 1 Then
-If Val(Text1.Text) < 16777214 Then
-d1 = Val(Text1.Text) + 1
-Text1.Text = Right$("00000000" + Trim(d1), 8)
-Else
-Text1.Text = "00000001"
-End If
 End If
 
 
