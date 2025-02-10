@@ -2,8 +2,8 @@
 
 /* PCA定时器为16位,最大计数65536,*/
 #if (MCU_SYSCLK == 3000000)
-#define PCA_RELOAD		(1500)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率2.0K,PCA时钟为SysClk 3MHz
-#define Duty_Cycle      750       //50%
+#define PCA_RELOAD		(730)  //f = PCA_CLK/PCA_RELOAD,PWM输出频率4.0K,PCA时钟为SysClk 3MHz
+#define Duty_Cycle      365       //50%
 #endif
 
 #if (MCU_SYSCLK == 4000000)
