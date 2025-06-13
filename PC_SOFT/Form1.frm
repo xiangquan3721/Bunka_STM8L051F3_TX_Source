@@ -2333,6 +2333,15 @@ str0 = Mid(str, 1, 5)
 If str0 = "(W" Or str0 = "(WG)" Then
 
     Image1.Picture = LoadPicture(App.Path & "\navigate_check.bmp")
+    
+        If Check1.Value = 1 Then
+        If Val(Text1.Text) < 16777214 Then
+        d1 = Val(Text1.Text) + 1
+        Text1.Text = Right$("00000000" + Trim(d1), 8)
+        Else
+        Text1.Text = "00000001"
+        End If
+        End If
 
 Else
 
