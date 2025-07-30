@@ -12,6 +12,9 @@
 #include "Pin_define.h"		// 管脚定义
 #include "initial.h"		// 初始化  预定义
 #include "ram.h"		// RAM定义
+#include "ram_cyw.h"
+#include "lcd_cyw.h"
+#include "key_and_Other_cyw.h"
 
 void dd_write_7021_reg(unsigned char* reg_bytes)
 {
@@ -83,8 +86,15 @@ void dd_set_ADF7021_Power_on(void)
 //	if (ADF7021_CE == 0)
 //	{
 //		ADF7021_CE = 1;
-       
- 
+
+    LOW_Flag=0;
+    PIN_LCD_LIGHT=0; 
+    FLAG_INITLCD=0;
+    OPEN_Flag=0;
+    FLAG_MODE = INIT_mode;   
+    clear_clear();
+    TB_POWER = 50;//5s
+
 	if (ADF7021_POWER == FG_NOT_allow_out)
 	{
 		ADF7021_POWER = FG_allow_out;  

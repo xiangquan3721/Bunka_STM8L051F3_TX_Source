@@ -1594,46 +1594,6 @@ void dianciqianya_lcd(void)
             FLAG_POWER = 1;
             while(1);
          }
-          else
-          {
-              if(FLAG_MODE != CONTROL_mode)//只有正常开
-              {
-            PIN_LCD_LIGHT = 1;//开背光
-              }
-          }
-         
-             while(1)
-             {
-                
-                
-                COUNT_QIANYA++;
-                ClearWDT(); // Service the WDT
-                
-                 if(FLAG_MODE == CONTROL_mode)
-                  {
-                    TB_POWER =  0 ;
-                    FLAG_POWER=1;//可以关屏
-                    break;
-                    
-                  }
-                
-                if(COUNT_QIANYA >= 156000)
-                {
-                 
-                  //2015 03 06 修改 显示完低电压报警换电池后马上关电源  避免出现下次低电压不报警的情况
-                  //TB_POWER = 50;//10second
-                  if(FLAG_MODE == NORMAL_mode)
-                  {
-                    TB_POWER = 50;//15second  5sencond ->10sencond 20150526
-                  }
-                
-                  
-                  clear_clear();
-                  PIN_LCD_LIGHT = 0;//关背光
-                 break;
-                 
-                }
-             }
           
         }
      }

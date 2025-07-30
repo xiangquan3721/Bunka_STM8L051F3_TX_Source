@@ -1777,7 +1777,7 @@ void SCAN_CLOSETIME(void)
 
 void power_control(void)
 {
-  if((FLAG_MODE == NORMAL_mode)||(FLAG_MODE == CONTROL_mode))//只有NORMAL_mode CONTROL_mode会关屏 bunengping
+  if((FLAG_MODE == NORMAL_mode)||(FLAG_MODE == CONTROL_mode)||(FLAG_MODE == INIT_mode))//只有NORMAL_mode CONTROL_mode会关屏 bunengping
   //CONTROL MODE 由向工那边控制关屏 2015 03 06修改 
   {
      if(FG_100ms_CYW)
