@@ -93,6 +93,7 @@ void dd_set_ADF7021_Power_on(void)
     OPEN_Flag=0;
     FLAG_MODE = INIT_mode;   
     clear_clear();
+    PIN_LCD_RST  = 0;
     TB_POWER = 50;//5s
 
 	if (ADF7021_POWER == FG_NOT_allow_out)
