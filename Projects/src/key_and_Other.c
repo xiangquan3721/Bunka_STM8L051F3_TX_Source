@@ -704,7 +704,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
   UINT8 time_key;
   if((TB_sum_5s<69)&&(FG_PWRON==1)&&(TB_5s<25)){      //计算剩余的时间，总共时间不能超过69，以25为间隔。
     time_key=25-TB_5s;
-    TB_sum_5s=TB_sum_5s+time_key;
+    TB_sum_5s=30;//TB_sum_5s+time_key;
     if((69-TB_sum_5s)>=27)TB_5s=25;
     
   }
@@ -720,7 +720,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		        Control_code=0x08;     //open
 			break ;
 		case 2 :	
-		        Control_code=0x04;    //stop
+		        Control_code=0xE1;    //stop
 			break ;
 		case 3 :	
 		        Control_code=0x02;    //close
