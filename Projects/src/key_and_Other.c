@@ -720,7 +720,7 @@ void	_ReqTxdEdit( uchar txreq , uchar buzreq )  // Tx data edit request
 		        Control_code=0x08;     //open
 			break ;
 		case 2 :	
-		        Control_code=0xE1;    //stop
+		        Control_code=0x31;    //stop
 			break ;
 		case 3 :	
 		        Control_code=0x02;    //close
@@ -1097,100 +1097,100 @@ void	_DupliFuncSetMode( void )
 //
 void	_RegistrationMode( void )
 {
-	if	( !_GetRegMode() )							// Reg. mode Idle ?
-	{												// Yes
-		return ;
-	}
+// 	if	( !_GetRegMode() )							// Reg. mode Idle ?
+// 	{												// Yes
+// 		return ;
+// 	}
 
-        if(FG_PWRON==0){
-	FG_PWRON=1;
-	PIN_POWER_CONTROL=1;
-        }	
-	if(m_TimerRegMode){
-	  TB_5s=51;//TB_51s;//51;  //5.1Ãë
-          time_led++;
-          if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
-	}
-	else {
-	        //_ReqBuzzer(500,250,3);
-	        _ReqBuzzer(500,250,2);
-		PIN_LED=0;
-		m_RegMode = d_Idle ;
-	}
-	/*	Led control	*/
-//	if	( mb_LedOnOff )								// Led on timing ?
-//	{												// Yes
-//		_LedOnOff( d_LedOn ) ;						// Led on
-//	}
-//	else
-//	{
-//		_LedOnOff( d_LedOff ) ;						// Led off
-//	}
+//         if(FG_PWRON==0){
+// 	FG_PWRON=1;
+// 	PIN_POWER_CONTROL=1;
+//         }	
+// 	if(m_TimerRegMode){
+// 	  TB_5s=51;//TB_51s;//51;  //5.1Ãë
+//           time_led++;
+//           if(time_led>=500){time_led=0;PIN_LED=!PIN_LED;}	  
+// 	}
+// 	else {
+// 	        //_ReqBuzzer(500,250,3);
+// 	        _ReqBuzzer(500,250,2);
+// 		PIN_LED=0;
+// 		m_RegMode = d_Idle ;
+// 	}
+// 	/*	Led control	*/
+// //	if	( mb_LedOnOff )								// Led on timing ?
+// //	{												// Yes
+// //		_LedOnOff( d_LedOn ) ;						// Led on
+// //	}
+// //	else
+// //	{
+// //		_LedOnOff( d_LedOff ) ;						// Led off
+// //	}
 	
-	switch	( m_KindOfKey )
-	{
-		case	d_OpenKey :
-			if	( ++m_RegID[m_RegDigit] > '9' )		// No. up
-			{
-				m_RegID[m_RegDigit] = '0' ;
-			}
-			//_ReqBuzzer(d_BuzOpen) ;
-			_ReqBuzzer(103,103,0);
-			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
-			break ;
+// 	switch	( m_KindOfKey )
+// 	{
+// 		case	d_OpenKey :
+// 			if	( ++m_RegID[m_RegDigit] > '9' )		// No. up
+// 			{
+// 				m_RegID[m_RegDigit] = '0' ;
+// 			}
+// 			//_ReqBuzzer(d_BuzOpen) ;
+// 			_ReqBuzzer(103,103,0);
+// 			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+// 			break ;
 			
-		case	d_StopKey :						// Next digit
-			if	( ++m_RegDigit > 8 )
-			{
-				m_RegDigit= 8 ;
-			}
-/*		Add on 2007/5/28		*/
-			else
-			{
-				//_ReqBuzzer(d_BuzStop) ;
-			  _ReqBuzzer(103,103,1);
-			}
-/*********************************/
-/*		Deleted on 2007/5/28		*/
-//			_ReqBuzzer(d_BuzStop) ;
-/*********************************/
-			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
-			break ;
+// 		case	d_StopKey :						// Next digit
+// 			if	( ++m_RegDigit > 8 )
+// 			{
+// 				m_RegDigit= 8 ;
+// 			}
+// /*		Add on 2007/5/28		*/
+// 			else
+// 			{
+// 				//_ReqBuzzer(d_BuzStop) ;
+// 			  _ReqBuzzer(103,103,1);
+// 			}
+// /*********************************/
+// /*		Deleted on 2007/5/28		*/
+// //			_ReqBuzzer(d_BuzStop) ;
+// /*********************************/
+// 			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+// 			break ;
 			
-		case	d_CloseKey :
-			_IdClear() ;							// ID clear
-			//_ReqBuzzer(d_BuzReg) ;
-			_ReqBuzzer(1000,1,0);
-			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
-			break ;
+// 		case	d_CloseKey :
+// 			_IdClear() ;							// ID clear
+// 			//_ReqBuzzer(d_BuzReg) ;
+// 			_ReqBuzzer(1000,1,0);
+// 			m_TimerRegMode = d_Time1min ;			// 1min. set (1s base)
+// 			break ;
 			
-		case	d_RegKey :						// Send ID
-/*		Add on 2007/5/28		*/
-			if	( m_RegDigit < 8 )
-			{
-				return ;
-			}
-/*********************************/
+// 		case	d_RegKey :						// Send ID
+// /*		Add on 2007/5/28		*/
+// 			if	( m_RegDigit < 8 )
+// 			{
+// 				return ;
+// 			}
+// /*********************************/
 
-			//_SetRegModeIdle() ;
-			//m_RegMode = d_Idle ;
-			ID_data_add.IDL = (ulong)atol(m_RegID) ;
-/*		Modified on 2007/5/28		*/
-//			if	( m_RFID.ID > 16777215 )			// Over ?
-			if	( ID_data_add.IDL > 16777214 )			// Over ?
-/*********************************/
-			{
-				//_ReqBuzzer(d_BuzRegEnd) ;
-			        _ReqBuzzer(100,100,3);		  
-			}
-			else
-			{
-				_ReqTxdEdit(20,20) ;
+// 			//_SetRegModeIdle() ;
+// 			//m_RegMode = d_Idle ;
+// 			ID_data_add.IDL = (ulong)atol(m_RegID) ;
+// /*		Modified on 2007/5/28		*/
+// //			if	( m_RFID.ID > 16777215 )			// Over ?
+// 			if	( ID_data_add.IDL > 16777214 )			// Over ?
+// /*********************************/
+// 			{
+// 				//_ReqBuzzer(d_BuzRegEnd) ;
+// 			        _ReqBuzzer(100,100,3);		  
+// 			}
+// 			else
+// 			{
+// 				_ReqTxdEdit(20,20) ;
 			      
-			}
-			m_RegMode = d_Idle ;
-			break ;
-	}
+// 			}
+// 			m_RegMode = d_Idle ;
+// 			break ;
+// 	}
 }
 //
 

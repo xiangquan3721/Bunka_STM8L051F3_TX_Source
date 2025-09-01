@@ -49,6 +49,21 @@
   }uni_i;
 
 
+typedef struct body    //定义结构体  
+{  
+	union  
+	{  
+		UINT8 byte;  
+		struct	
+		{  
+			unsigned char type :5;  
+			unsigned char fno :3;   		 
+		} UN;  
+	}Fno_Type; 
+	
+    uni_i data[4];  //无线data      
+}Wireless_Body;  //结构体  
+
 void RAM_clean(void);		// 清除RAM 
 void VHF_GPIO_INIT(void);	// CPU端口设置
 void SysClock_Init( void ); 	// 系统时钟（外部时钟）
